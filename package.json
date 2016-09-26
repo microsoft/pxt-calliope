@@ -1,7 +1,7 @@
 {
-  "name": "pxt-microbit",
+  "name": "pxt-calliope",
   "version": "0.4.18",
-  "description": "micro:bit target for PXT",
+  "description": "calliope target for PXT",
   "keywords": [
     "JavaScript",
     "education",
@@ -9,11 +9,11 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Microsoft/pxt-microbit.git"
+    "url": "git+https://github.com/Microsoft/pxt-calliope.git"
   },
   "author": "",
   "license": "MIT",
-  "homepage": "https://github.com/Microsoft/pxt-microbit#readme",
+  "homepage": "https://github.com/Microsoft/pxt-calliope#readme",
   "files": [
     "README.md",
     "pxtarget.json",
