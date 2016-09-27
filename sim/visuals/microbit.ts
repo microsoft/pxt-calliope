@@ -253,6 +253,7 @@ namespace pxsim.visuals {
         private shakeButton: SVGElement;
         public board: pxsim.DalBoard;
         private pinNmToCoord: Map<Coord> = {};
+        private rgbLed: SVGElement;
 
         constructor(public props: IBoardProps) {
             this.recordPinCoords();
@@ -341,9 +342,19 @@ namespace pxsim.visuals {
             this.updateTemperature();
             this.updateButtonAB();
             this.updateGestures();
+            this.updateRgbLed();
 
             if (!runtime || runtime.dead) svg.addClass(this.element, "grayscale");
             else svg.removeClass(this.element, "grayscale");
+        }
+
+        private updateRgbLed() {
+            let state = this.board;
+            if (state.rgbLedState) {
+                if (!this.rgbLed)
+                    this.rgbLed = svg.child(this.g, "circle", { cx: 170, cy: 200 });
+                svg.fill(this.rgbLed, svg.toHtmlColor(state.rgbLedState));
+            }
         }
 
         private updateGestures() {
@@ -353,7 +364,7 @@ namespace pxsim.visuals {
                 this.shakeButton = shake.inner;
                 svg.fill(this.shakeButton, this.props.theme.virtualButtonUp)
                 svg.buttonEvents(shake.outer,
-                    ev => {},
+                    ev => { },
                     (ev) => {
                         svg.fill(this.shakeButton, this.props.theme.virtualButtonDown)
                     },
