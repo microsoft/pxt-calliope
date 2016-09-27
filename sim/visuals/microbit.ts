@@ -59,9 +59,12 @@ namespace pxsim.visuals {
 
         .sim-text {
         font-family:"Lucida Console", Monaco, monospace;
-        font-size:25px;
+        font-size:16px;
         fill:#fff;
         pointer-events: none;
+        }
+        .sim-text.inverted {
+            fill:#000;
         }
 
         .sim-text-pin {
@@ -207,6 +210,7 @@ namespace pxsim.visuals {
             buttonOuter: "#979797",
             buttonUp: "#000",
             buttonDown: "#FFA500",
+            virtualButtonDown: "#FFA500",
             virtualButtonOuter: "#333",
             virtualButtonUp: "#fff",
             lightLevelOn: "yellow",
@@ -233,7 +237,6 @@ namespace pxsim.visuals {
 
         private buttons: SVGElement[];
         private buttonsOuter: SVGElement[];
-        private buttonABText: SVGTextElement;
         private pins: SVGElement[];
         private pinGradients: SVGLinearGradientElement[];
         private pinTexts: SVGTextElement[];
@@ -247,8 +250,7 @@ namespace pxsim.visuals {
         private thermometerGradient: SVGLinearGradientElement;
         private thermometer: SVGRectElement;
         private thermometerText: SVGTextElement;
-        private shakeButton: SVGCircleElement;
-        private shakeText: SVGTextElement;
+        private shakeButton: SVGElement;
         public board: pxsim.DalBoard;
         private pinNmToCoord: Map<Coord> = {};
 
@@ -308,7 +310,6 @@ namespace pxsim.visuals {
             svg.fills(this.buttons.slice(0, 2), theme.buttonUp);
             svg.fill(this.buttonsOuter[2], theme.virtualButtonOuter);
             svg.fill(this.buttons[2], theme.virtualButtonUp);
-            if (this.shakeButton) svg.fill(this.shakeButton, theme.virtualButtonUp);
 
             this.pinGradients.forEach(lg => svg.setGradientColors(lg, theme.pin, theme.pinActive));
             svg.setGradientColors(this.lightLevelGradient, theme.lightLevelOn, theme.lightLevelOff);
@@ -324,7 +325,7 @@ namespace pxsim.visuals {
             let bpState = state.buttonPairState;
             let buttons = [bpState.aBtn, bpState.bBtn, bpState.abBtn];
             buttons.forEach((btn, index) => {
-                svg.fill(this.buttons[index], btn.pressed ? theme.buttonDown : theme.buttonUp);
+                svg.fill(this.buttons[index], btn.pressed ? (btn.virtual ? theme.virtualButtonDown : theme.buttonDown) : (btn.virtual ? theme.virtualButtonUp : theme.buttonUp));
             });
 
             let bw = state.ledMatrixState.displayMode == pxsim.DisplayMode.bw
@@ -348,33 +349,29 @@ namespace pxsim.visuals {
         private updateGestures() {
             let state = this.board;
             if (state.accelerometerState.useShake && !this.shakeButton) {
-                this.shakeButton = svg.child(this.g, "circle", { cx: 380, cy: 100, r: 16.5 }) as SVGCircleElement;
+                let shake = this.mkBtn(40, 210);
+                this.shakeButton = shake.inner;
                 svg.fill(this.shakeButton, this.props.theme.virtualButtonUp)
-                this.shakeButton.addEventListener(pointerEvents.down, ev => {
-                    let state = this.board;
-                    svg.fill(this.shakeButton, this.props.theme.buttonDown);
-                })
-                this.shakeButton.addEventListener(pointerEvents.leave, ev => {
-                    let state = this.board;
-                    svg.fill(this.shakeButton, this.props.theme.virtualButtonUp);
-                })
-                this.shakeButton.addEventListener(pointerEvents.up, ev => {
-                    let state = this.board;
-                    svg.fill(this.shakeButton, this.props.theme.virtualButtonUp);
-                    this.board.bus.queue(DAL.MICROBIT_ID_GESTURE, 11); // GESTURE_SHAKE
-                })
-                this.shakeText = svg.child(this.g, "text", { x: 400, y: 110, class: "sim-text" }) as SVGTextElement;
-                this.shakeText.textContent = "SHAKE"
+                svg.buttonEvents(shake.outer,
+                    ev => {},
+                    (ev) => {
+                        svg.fill(this.shakeButton, this.props.theme.virtualButtonDown)
+                    },
+                    (ev) => {
+                        svg.fill(this.shakeButton, this.props.theme.virtualButtonUp);
+                        this.board.bus.queue(DAL.MICROBIT_ID_GESTURE, 11); // GESTURE_SHAKE
+                    }
+                )
+                let shakeText = svg.child(shake.outer, "text", { x: 25, y: 245, class: "sim-text inverted" }) as SVGTextElement;
+                shakeText.textContent = "SHAKE"
             }
         }
 
         private updateButtonAB() {
             let state = this.board;
-            if (state.buttonPairState.usesButtonAB && !this.buttonABText) {
+            if (state.buttonPairState.usesButtonAB && (<any>this.buttons[2]).style.visibility != "visible") {
                 (<any>this.buttonsOuter[2]).style.visibility = "visible";
                 (<any>this.buttons[2]).style.visibility = "visible";
-                this.buttonABText = svg.child(this.g, "text", { class: "sim-text", x: 370, y: 272 }) as SVGTextElement;
-                this.buttonABText.textContent = "A+B";
                 this.updateTheme();
             }
         }
@@ -762,32 +759,44 @@ namespace pxsim.visuals {
             this.buttonsOuter = []; this.buttons = [];
 
             const outerBtn = (left: number, top: number) => {
-                const btnr = 3;
-                const btnw = 21.71;
-                const btnn = 1;
-                const btnnm = 1;
-                const btnb = 5;
-                let btng = svg.child(this.g, "g", { class: "sim-button-group" });
-                this.buttonsOuter.push(btng);
-                svg.child(btng, "rect", { class: "sim-button-outer", x: left, y: top, rx: btnr, ry: btnr, width: btnw, height: btnw });
-                svg.child(btng, "circle", { class: "sim-button-nut", cx: left + btnnm, cy: top + btnnm, r: btnn });
-                svg.child(btng, "circle", { class: "sim-button-nut", cx: left + btnnm, cy: top + btnw - btnnm, r: btnn });
-                svg.child(btng, "circle", { class: "sim-button-nut", cx: left + btnw - btnnm, cy: top + btnw - btnnm, r: btnn });
-                svg.child(btng, "circle", { class: "sim-button-nut", cx: left + btnw - btnnm, cy: top + btnnm, r: btnn });
+                const button = this.mkBtn(left, top);
+                this.buttonsOuter.push(button.outer);
+                this.buttons.push(button.inner);
 
-                this.buttons.push(svg.child(btng, "circle", {
-                    class: "sim-button",
-                    cx: left + btnw / 2,
-                    cy: top + btnw / 2,
-                    r: btnb
-                }));
+                return button;
             }
 
             outerBtn(83.61, 96.8);
             outerBtn(236.66, 96.8);
-            outerBtn(108, 136);
+            let ab = outerBtn(275, 69);
+            let abtext = svg.child(ab.outer, "text", { x: 275, y: 65, class: "sim-text inverted" }) as SVGTextElement;
+            abtext.textContent = "A+B";
             (<any>this.buttonsOuter[2]).style.visibility = "hidden";
             (<any>this.buttons[2]).style.visibility = "hidden";
+        }
+
+        private mkBtn(left: number, top: number): { outer: SVGElement, inner: SVGElement } {
+            const btnr = 3;
+            const btnw = 21.71;
+            const btnn = 1;
+            const btnnm = 1;
+            const btnb = 5;
+            let btng = svg.child(this.g, "g", { class: "sim-button-group" });
+            svg.child(btng, "rect", { class: "sim-button-outer", x: left, y: top, rx: btnr, ry: btnr, width: btnw, height: btnw });
+            svg.child(btng, "circle", { class: "sim-button-nut", cx: left + btnnm, cy: top + btnnm, r: btnn });
+            svg.child(btng, "circle", { class: "sim-button-nut", cx: left + btnnm, cy: top + btnw - btnnm, r: btnn });
+            svg.child(btng, "circle", { class: "sim-button-nut", cx: left + btnw - btnnm, cy: top + btnw - btnnm, r: btnn });
+            svg.child(btng, "circle", { class: "sim-button-nut", cx: left + btnw - btnnm, cy: top + btnnm, r: btnn });
+
+            const outer = btng;
+            const inner = svg.child(btng, "circle", {
+                class: "sim-button",
+                cx: left + btnw / 2,
+                cy: top + btnw / 2,
+                r: btnb
+            });
+
+            return { outer, inner };
         }
 
         private attachEvents() {
