@@ -72,7 +72,7 @@
     "simulator": {
         "autoRun": true,
         "streams": true,
-        "aspectRatio": 1.22,
+        "aspectRatio": 1.08,
         "parts": true,
         "partsAspectRatio": 0.69,
         "builtinParts": {
@@ -82,7 +82,8 @@
             "speaker": true,
             "bluetooth": true,
             "thermometer": true,
-            "compass": true
+            "compass": true,
+            "headphone": true
         },
         "boardDefinition": {
             "visual": "calliope",
@@ -190,7 +191,7 @@
     },
     "appTheme": {
         "accentColor": "#5C005C",
-        "logoUrl": "https://codethemicrobit.com/about",
+        "logoUrl": "https://calliope.cc/about",
         "logo": "./static/calliope.simplified.svg",
         "docsLogo": "./static/calliope.simplified.svg",
         "portraitLogo": "./static/calliope.simplified.svg",
@@ -198,7 +199,7 @@
         "cardLogo": "https://az851932.vo.msecnd.net/pub/drbwxcth",
         "appLogo": "https://az851932.vo.msecnd.net/pub/tbhemtig",
         "organizationLogo": "./static/Microsoft-logo_rgb_c-gray.png",
-        "homeUrl": "https://codethemicrobit.com/",
+        "homeUrl": "https://calliope.cc/",
         "privacyUrl": "https://go.microsoft.com/fwlink/?LinkId=521839",
         "termsOfUseUrl": "https://go.microsoft.com/fwlink/?LinkID=206977",
         "githubUrl": "https://github.com/Microsoft/pxt-calliope",
