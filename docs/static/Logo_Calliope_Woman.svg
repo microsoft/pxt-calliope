@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 18.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" id="Ebene_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 841.9 595.3" enable-background="new 0 0 841.9 595.3" xml:space="preserve">
+<g>
+	<g>
+		<defs>
+			<rect id="SVGID_7_" x="193.1" y="204.1" width="318.3" height="256.3"/>
+		</defs>
+		<clipPath id="SVGID_1_">
+			<use xlink:href="#SVGID_7_"  overflow="visible"/>
+		</clipPath>
+	</g>
+	<g>
+		<defs>
+			<rect id="SVGID_9_" x="193.1" y="204.1" width="318.3" height="256.3"/>
+		</defs>
+		<clipPath id="SVGID_2_">
+			<use xlink:href="#SVGID_9_"  overflow="visible"/>
+		</clipPath>
+	</g>
+	<g>
+		<defs>
+			<rect id="SVGID_11_" x="193.1" y="204.1" width="318.3" height="256.3"/>
+		</defs>
+		<clipPath id="SVGID_3_">
+			<use xlink:href="#SVGID_11_"  overflow="visible"/>
+		</clipPath>
+		<path clip-path="url(#SVGID_3_)" fill="#4A5261" d="M436.4,262h-47.9V216c0-4.7,3.8-8.4,8.4-8.4h31c4.7,0,8.4,3.8,8.4,8.4V262z"/>
+	</g>
+	<rect x="394.8" y="218.7" fill="#8096A1" width="35.1" height="43.2"/>
+	<path fill="#855C33" d="M317.6,239.5v61l71,0.2c0,0,0-57.3,0-61c0-19.5-16.1-35.6-35.6-35.6C333.4,204.1,317.6,219.9,317.6,239.5"
+		/>
+	<path fill="#26A6AB" d="M412.4,376.5H298.2c-35.6,0-50.9-45.2-22.6-66.8l63.8-47.8h96.9v90.7C436.4,365.8,425.7,376.5,412.4,376.5"
+		/>
+	<polygon fill="#42C9C9" points="334.8,298.8 285.1,302.5 345.7,257.3 	"/>
+	<polygon fill="#F7F5E8" points="332.5,283.8 345.7,257.3 354,283.8 	"/>
+	<polygon fill="#F7F5E8" points="354,283.8 362.2,257.3 375.4,283.8 	"/>
+	<polygon fill="#BDD1CF" points="373.1,298.8 334.8,298.8 332.5,283.8 375.4,283.8 	"/>
+	<path fill="#F7F5E8" d="M400.6,376.5c-3.5-26.2-10.6-58-27.3-77.7h-0.2h-19h-19h-0.2c-16.7,19.8-23.8,51.5-27.3,77.7H400.6z"/>
+	<path fill="#FFCC99" d="M357,258h-6.1c-6.4,0-11.5-5.2-11.5-11.5v-19.7h29.2v19.7C368.5,252.8,363.3,258,357,258"/>
+	<path fill="#BDD1CF" d="M335.8,376.5v-77.7c12.4,29.1,27.7,64.3,46.5,77.7H335.8z"/>
+	<polygon fill="#FFCC99" points="345.7,257.3 354,283.8 362.2,257.3 	"/>
+	<polygon fill="#42C9C9" points="394.8,262 436.4,262 436.4,315.3 	"/>
+</g>
+</svg>

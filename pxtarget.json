@@ -59,8 +59,8 @@
     "compile": {
         "isNative": false,
         "hasHex": true,
-        "deployDrives": "(MICROBIT|MBED)",
-        "driveName": "MICROBIT",
+        "deployDrives": "MINI",
+        "driveName": "MINI",
         "hexMimeType": "application/x-calliope-hex"
     },
     "runtime": {
@@ -162,8 +162,13 @@
             ],
             "attachPowerOnRight": true,
             "onboardComponents": [
+                "accelerometer",
                 "buttonpair",
                 "ledmatrix",
+                "speaker",
+                "bluetooth",
+                "thermometer",
+                "compass",
                 "speaker",
                 "microphone",
                 "rgbled"
@@ -192,10 +197,10 @@
     "appTheme": {
         "accentColor": "#5C005C",
         "logoUrl": "https://calliope.cc/about",
-        "logo": "./static/calliope.simplified.svg",
-        "docsLogo": "./static/calliope.simplified.svg",
-        "portraitLogo": "./static/calliope.simplified.svg",
-        "footerLogo": "./static/calliope.simplified.svg",
+        "logo": "./static/Logo_Calliope_Woman.svg",
+        "docsLogo": "./static/Logo_Calliope_Woman.svg",
+        "portraitLogo": "./static/Logo_Calliope_lang.svg",
+        "footerLogo": "./static/Logo_Calliope_lang.svg",
         "cardLogo": "https://az851932.vo.msecnd.net/pub/drbwxcth",
         "appLogo": "https://az851932.vo.msecnd.net/pub/tbhemtig",
         "organizationLogo": "./static/Microsoft-logo_rgb_c-gray.png",
