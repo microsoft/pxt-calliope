@@ -9,15 +9,15 @@ enum class DigitalPin {
     P5 = MICROBIT_ID_IO_P5,
     P6 = MICROBIT_ID_IO_P6,
     P7 = MICROBIT_ID_IO_P7,
-    P8 = MICROBIT_ID_IO_P8,
+    //P8 = MICROBIT_ID_IO_P8,
     P9 = MICROBIT_ID_IO_P9,
     P10 = MICROBIT_ID_IO_P10,
     P11 = MICROBIT_ID_IO_P11,
-    P12 = MICROBIT_ID_IO_P12,
-    P13 = MICROBIT_ID_IO_P13,
-    P14 = MICROBIT_ID_IO_P14,
-    P15 = MICROBIT_ID_IO_P15,
-    P16 = MICROBIT_ID_IO_P16,
+    //P12 = MICROBIT_ID_IO_P12,
+    //P13 = MICROBIT_ID_IO_P13,
+    //P14 = MICROBIT_ID_IO_P14,
+    //P15 = MICROBIT_ID_IO_P15,
+    //P16 = MICROBIT_ID_IO_P16,
     P19 = MICROBIT_ID_IO_P19,
     P20 = MICROBIT_ID_IO_P20,
 };
@@ -55,15 +55,15 @@ MicroBitPin *getPin(int id) {
         case MICROBIT_ID_IO_P5: return &uBit.io.P5;
         case MICROBIT_ID_IO_P6: return &uBit.io.P6;
         case MICROBIT_ID_IO_P7: return &uBit.io.P7;
-        case MICROBIT_ID_IO_P8: return &uBit.io.P8;
+        //case MICROBIT_ID_IO_P8: return &uBit.io.P8;
         case MICROBIT_ID_IO_P9: return &uBit.io.P9;
         case MICROBIT_ID_IO_P10: return &uBit.io.P10;
         case MICROBIT_ID_IO_P11: return &uBit.io.P11;
-        case MICROBIT_ID_IO_P12: return &uBit.io.P12;
-        case MICROBIT_ID_IO_P13: return &uBit.io.P13;
-        case MICROBIT_ID_IO_P14: return &uBit.io.P14;
-        case MICROBIT_ID_IO_P15: return &uBit.io.P15;
-        case MICROBIT_ID_IO_P16: return &uBit.io.P16;
+        //case MICROBIT_ID_IO_P12: return &uBit.io.P12;
+        //case MICROBIT_ID_IO_P13: return &uBit.io.P13;
+        //case MICROBIT_ID_IO_P14: return &uBit.io.P14;
+        //case MICROBIT_ID_IO_P15: return &uBit.io.P15;
+        //case MICROBIT_ID_IO_P16: return &uBit.io.P16;
         case MICROBIT_ID_IO_P19: return &uBit.io.P19;
         case MICROBIT_ID_IO_P20: return &uBit.io.P20;
         default: return NULL;
