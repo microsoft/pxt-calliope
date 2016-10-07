@@ -195,7 +195,7 @@
         "log": true
     },
     "appTheme": {
-        "accentColor": "#5C005C",
+        "accentColor": "#249899",
         "logoUrl": "https://calliope.cc/about",
         "logo": "./static/Logo_Calliope_Woman.svg",
         "docsLogo": "./static/Logo_Calliope_Woman.svg",
