@@ -3,16 +3,12 @@ node_js:
   - "5.7.0"
 script:
   - "node node_modules/pxt-core/built/pxt.js travis"  
-  - "(cd libs/lang-test0; node ../../node_modules/pxt-core/built/pxt.js run)"
-  - "(cd libs/lang-test1; node ../../node_modules/pxt-core/built/pxt.js run)"
-  - "(cd libs/lang-test0; node ../../node_modules/pxt-core/built/pxt.js test)"
-  - "(cd libs/lang-test1; node ../../node_modules/pxt-core/built/pxt.js test)"
   - "node node_modules/pxt-core/built/pxt.js testdir tests"
   - "node node_modules/pxt-core/built/pxt.js uploaddoc"
 sudo: false
 notifications:
   email:
-    - touchdevelop-build@microsoft.com
+    - kindscript@microsoft.com
 cache:
   directories:
     - node_modules
