@@ -478,7 +478,7 @@ namespace pxsim.visuals {
         private lastFlashTime: number = 0;
         public flashSystemLed() {
             if (!this.systemLed)
-                this.systemLed = <SVGCircleElement>svg.child(this.g, "circle", { class: "sim-systemled", cx: 300, cy: 20, r: 5 })
+                this.systemLed = <SVGCircleElement>svg.child(this.g, "circle", { class: "sim-systemled", cx: 95, cy: 73, r: 5 })
             let now = Date.now();
             if (now - this.lastFlashTime > 150) {
                 this.lastFlashTime = now;
