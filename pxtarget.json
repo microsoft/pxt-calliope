@@ -1,6 +1,7 @@
 {
     "id": "calliope",
     "name": " calliope",
+    "nickname": "mini",
     "title": "calliope - Blocks / Javascript editor",
     "description": "A Blocks / JavaScript code editor for the calliope.",
     "corepkg": "microbit",
@@ -13,8 +14,11 @@
     "cloud": {
         "workspace": false,
         "packages": true,
+        "sharing": true,
+        "publish": true,
         "preferredPackages": [
-        ]
+        ],
+        "githubPackages": true
     },
     "blocksprj": {
         "id": "blocksprj",
@@ -75,16 +79,6 @@
         "aspectRatio": 1.08,
         "parts": true,
         "partsAspectRatio": 0.69,
-        "builtinParts": {
-            "accelerometer": true,
-            "buttonpair": true,
-            "ledmatrix": true,
-            "speaker": true,
-            "bluetooth": true,
-            "thermometer": true,
-            "compass": true,
-            "headphone": true
-        },
         "boardDefinition": {
             "visual": "calliope",
             "gpioPinBlocks": [
@@ -203,6 +197,8 @@
         "footerLogo": "./static/Logo_Calliope_Woman.svg",
         "cardLogo": "https://az851932.vo.msecnd.net/pub/drbwxcth",
         "appLogo": "https://az851932.vo.msecnd.net/pub/tbhemtig",
+        "organization": "Microsoft",
+        "organizationUrl": "https://calliope.cc/",
         "organizationLogo": "./static/Microsoft-logo_rgb_c-gray.png",
         "homeUrl": "https://calliope.cc/",
         "privacyUrl": "https://go.microsoft.com/fwlink/?LinkId=521839",
