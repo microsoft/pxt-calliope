@@ -129,6 +129,13 @@ declare interface Image {
 declare namespace basic {
 
     /**
+     * Sets the color on the build-in LED. Set to 0 to turn off.
+     */
+    //% blockId=device_set_led_color block="set led to %color=color_id" icon="\uf00a"
+    //% weight=50 shim=basic::setLedColor
+    function setLedColor(color: number): void;
+
+    /**
      * Scroll a number on the screen. If the number fits on the screen (i.e. is a single digit), do not scroll.
      * @param interval speed of scroll; eg: 150, 100, 200, -100
      */

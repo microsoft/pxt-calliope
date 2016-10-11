@@ -6,6 +6,26 @@
  */
 //% color=#0078D7 weight=100
 namespace basic {
+    /**
+    * Sets the color on the build-in LED. Set to 0 to turn off.
+    */
+    //% blockId=device_set_led_color block="set led to %color=color_id" icon="\uf00a"
+    //% weight=50
+    void setLedColor(int color) {
+      if (!color) {
+        uBit.rgb.Off();
+        return;
+      }
+
+      int w = (color >> 24) & 0xFF;
+      int r = (color >> 16) & 0xFF;
+      int g = (color >> 8) & 0xFF;
+      int b = (color) & 0xFF;
+      
+      uBit.rgb.Set_Color(r,g,b,w);
+      uBit.rgb.On();
+      uBit.rgb.Send_to_LED();
+    }
 
     /**
      * Scroll a number on the screen. If the number fits on the screen (i.e. is a single digit), do not scroll.

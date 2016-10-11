@@ -352,8 +352,16 @@ namespace pxsim.visuals {
             let state = this.board;
             if (state.rgbLedState) {
                 if (!this.rgbLed)
-                    this.rgbLed = svg.child(this.g, "circle", { cx: 170, cy: 200 });
-                svg.fill(this.rgbLed, svg.toHtmlColor(state.rgbLedState));
+                    this.rgbLed = svg.child(this.g, "circle", { cx: 170, cy: 190, r:5 });
+                const c = state.rgbLedState;
+                const b = c & 0xFF;
+                const g = (c >> 8) & 0xFF;
+                const r = (c >> 16) & 0xFF;
+                const w = (c >> 24) & 0xFF;
+                const ch =  `rgba(${r}, ${g}, ${b}, 1)`;
+                svg.fill(this.rgbLed, ch);
+            } else if (this.rgbLed) {
+                svg.fill(this.rgbLed, 'white');
             }
         }
 
