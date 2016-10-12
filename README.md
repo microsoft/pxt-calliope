@@ -1,11 +1,9 @@
 # micro:bit target for PXT
 
-This target allow to program a [BBC micro:bit](https://www.microbit.co.uk/) using 
+This target allow to program a [Calliope](http://calliope.cc/) using 
 PXT ([Microsoft Programming Experience Toolkit](https://github.com/Microsoft/pxt)).
 
-* [Try it live](https://codethemicrobit.com)
-
-[![Build Status](https://travis-ci.org/Microsoft/pxt-microbit.svg?branch=master)](https://travis-ci.org/Microsoft/pxt-microbit)
+[![Build Status](https://travis-ci.org/Microsoft/pxt-calliope.svg?branch=master)](https://travis-ci.org/Microsoft/pxt-calliope)
 
 ## Local server
 
@@ -18,7 +16,7 @@ The following commands are a 1-time setup after synching the repo on your machin
 * if not yet installed, install [Node.js 4.4.5 or higher](https://nodejs.org/en/download/)
 * [clone this repo](https://help.github.com/articles/cloning-a-repository/) to your computer and go in the project folder
 ```
-git clone https://github.com/microsoft/pxt-microbit
+git clone https://github.com/microsoft/pxt-calliope
 cd pxt-microbit
 ```
 * install the PXT command line (add ``sudo`` for Mac/Linux shells).
@@ -53,11 +51,6 @@ pxt update
 
 More instructions at https://github.com/Microsoft/pxt#running-a-target-from-localhost 
 
-### Building
-
-* Install Visual Studio 2015 Update 2 or higher. Make sure the Windows 10 templates are installed.
-* open the ``win10/app.sln`` solution and launch the ``codethemicrobit`` project.
-
 ## Testing
 
 The build automatically runs the following:
@@ -66,7 +59,6 @@ The build automatically runs the following:
 * `pxt run` in `libs/lang-test*` - this will run the test in command line runner; 
   there is a number of asserts in both of these
 * `pxt testdir` in `tests` - this makes sure all the files compile and generates .hex files
-* run the TD->TS converter on a number of test scripts from `microbit.co.uk` and make sure the results compile
 
 To test something on the device:
 
