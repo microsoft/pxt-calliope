@@ -38,7 +38,8 @@ declare namespace radio {
      */
     //% help=radio/write-value-to-serial
     //% weight=3
-    //% blockId=radio_write_value_serial block="radio write value to serial" shim=radio::writeValueToSerial
+    //% blockId=radio_write_value_serial block="radio write value to serial"
+    //% advanced=true shim=radio::writeValueToSerial
     function writeValueToSerial(): void;
 
     /**
@@ -79,7 +80,8 @@ declare namespace radio {
      */
     //% help=radio/received-signal-strength
     //% weight=40
-    //% blockId=radio_datagram_rssi block="radio received signal strength" shim=radio::receivedSignalStrength
+    //% blockId=radio_datagram_rssi block="radio received signal strength"
+    //% advanced=true shim=radio::receivedSignalStrength
     function receivedSignalStrength(): number;
 
     /**
@@ -87,7 +89,7 @@ declare namespace radio {
      * @ param id the group id between ``0`` and ``255``, 1 eg
      */
     //% help=radio/set-group
-    //% weight=10 blockGap=8
+    //% weight=10 blockGap=8 advanced=true
     //% blockId=radio_set_group block="radio set group %ID" shim=radio::setGroup
     function setGroup(id: number): void;
 
@@ -97,15 +99,18 @@ declare namespace radio {
      */
     //% help=radio/set-transmit-power
     //% weight=9 blockGap=8
-    //% blockId=radio_set_transmit_power block="radio set transmit power %power" shim=radio::setTransmitPower
+    //% blockId=radio_set_transmit_power block="radio set transmit power %power"
+    //% advanced=true shim=radio::setTransmitPower
     function setTransmitPower(power: number): void;
 
     /**
      * Set the radio to transmit the serial number in each message.
+     * @param transmit value indicating if the serial number is transmitted, eg: true
      */
     //% help=radio/set-transmit-serial-number
     //% weight=8 blockGap=8
-    //% blockId=radio_set_transmit_serial_number block="radio set transmit serial number %transmit" shim=radio::setTransmitSerialNumber
+    //% blockId=radio_set_transmit_serial_number block="radio set transmit serial number %transmit"
+    //% advanced=true shim=radio::setTransmitSerialNumber
     function setTransmitSerialNumber(transmit: boolean): void;
 }
 
