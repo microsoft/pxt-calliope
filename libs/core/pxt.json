@@ -43,8 +43,7 @@
             "microbit-dal": {
                 "bluetooth": {
                     "enabled": 0
-                },
-                "debug": 1
+                }
             }
         }
     }

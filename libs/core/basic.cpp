@@ -13,7 +13,7 @@ namespace basic {
     //% weight=50
     void setLedColor(int color) {
       if (!color) {
-        uBit.rgb.Off();
+        uBit.rgb.off();
         return;
       }
 
@@ -22,9 +22,7 @@ namespace basic {
       int g = (color >> 8) & 0xFF;
       int b = (color) & 0xFF;
       
-      uBit.rgb.Set_Color(r,g,b,w);
-      uBit.rgb.On();
-      uBit.rgb.Send_to_LED();
+      uBit.rgb.setColour(r,g,b,w);
     }
 
     /**

@@ -190,12 +190,6 @@ declare const enum DAL {
     MICROBIT_SERIAL_EVT_TX_EMPTY = 2,
     MICROBIT_UART_S_EVT_TX_EMPTY = 3,
     // built/yt/yotta_modules/microbit-dal/inc//drivers/CalliopeRGB.h
-    RGB_LED_DEFAULT_GREEN = 0,
-    RGB_LED_DEFAULT_RED = 0,
-    RGB_LED_DEFAULT_BLUE = 0,
-    RGB_LED_DEFAULT_WHITE = 0,
-    RGB_KEEP_VALUE = -1,
-    RGB_LED_MAX_INTENSITY = 50,
     // built/yt/yotta_modules/microbit-dal/inc//drivers/CalliopeSoundMotor.h
     CALLIOPE_SM_DEFAULT_DUTY_M = 50,
     CALLIOPE_SM_DEFAULT_DUTY_S = 100,
