@@ -239,6 +239,8 @@ declare namespace control {
     }
 declare namespace led {
 }
+declare namespace motors {
+}
 
 
     declare enum DigitalPin {

@@ -508,6 +508,22 @@ declare namespace led {
     //% parts="ledmatrix" shim=led::screenshot
     function screenshot(): Image;
 }
+
+
+    /**
+     * Blocks to control the onboard motors
+     */
+    //% weight=30
+declare namespace motors {
+
+    /**
+     * Controls the power sent to a single motor
+     * @param power %percent of power sent to the motor. Negative power goes backward. eg: 50
+     */
+    //% blockId=motor_on block="motor on at %percent|%"
+    //% parts=dcmotor shim=motors::motorOn
+    function motorOn(power: number): void;
+}
 declare namespace pins {
 
     /**

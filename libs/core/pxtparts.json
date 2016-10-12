@@ -144,5 +144,26 @@
             {"part": true, "pinIndices": [0]},
             {"pinIndices": [1]}
         ]
-    }
+    },
+    "dcmotor": {
+        "numberOfPins": 2,
+        "visual": {
+            "image": "parts/dcmotor.svg",
+            "width": 488,
+            "height": 836,
+            "pinDistance": 65,
+            "pinLocations": [
+                {"x": 89, "y": 48},
+                {"x": 395, "y": 48}            ]
+        },
+        "pinDefinitions": [
+            { "target": "P1", "style": "croc", "orientation": "-Z"},
+            { "target": "ground", "style": "croc", "orientation": "-Z"}
+        ],
+        "instantiation": {"kind": "singleton"},
+        "assembly": [
+            {"part": true, "pinIndices": [0]},
+            {"pinIndices": [1]}
+        ]
+    }    
 }
