@@ -1,9 +1,11 @@
-# micro:bit target for PXT
+# Calliope target for PXT
 
 This target allow to program a [Calliope](http://calliope.cc/) using 
 PXT ([Microsoft Programming Experience Toolkit](https://github.com/Microsoft/pxt)).
 
 [![Build Status](https://travis-ci.org/Microsoft/pxt-calliope.svg?branch=master)](https://travis-ci.org/Microsoft/pxt-calliope)
+
+![](http://calliope.cc/content/1-ueber-mini/mini_board.png)
 
 ## Local server
 
@@ -17,7 +19,7 @@ The following commands are a 1-time setup after synching the repo on your machin
 * [clone this repo](https://help.github.com/articles/cloning-a-repository/) to your computer and go in the project folder
 ```
 git clone https://github.com/microsoft/pxt-calliope
-cd pxt-microbit
+cd pxt-calliope
 ```
 * install the PXT command line (add ``sudo`` for Mac/Linux shells).
 ```
@@ -30,14 +32,15 @@ npm install
 
 ### Running
 
-Run this command to open a local web server (add ``sudo`` for Mac/Linux shells)
+Run this command to open a local web server (add ``sudo`` for Mac/Linux shells).
 ```
 pxt serve
 ```
 If the local server opens in the wrong browser, make sure to copy the URL containing the local token. 
 Otherwise, the editor will not be able to load the projects.
 
-If you need modify the `.cpp` files, turn on yotta compilation with the ``-yt`` flag (add ``sudo`` for Mac/Linux shells):
+If you need modify the `.cpp` files, turn on yotta compilation with the ``-yt`` flag (add ``sudo`` for Mac/Linux shells). On Windows, you must be running
+from the ``Run Yotta`` command prompt.
 ```
 pxt serve -yt
 ```
