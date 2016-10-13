@@ -33,7 +33,7 @@ namespace pxsim.visuals {
         }
 
         .sim-led-back:hover {
-            stroke:#a0a0a0;
+            stroke:#fff;
             stroke-width:3px;
         }
         .sim-led:hover {
@@ -1034,7 +1034,7 @@ namespace pxsim.visuals {
             pinTouched: "#FFA500",
             pinActive: "#FF5500",
             ledOn: "#ff7777",
-            ledOff: "#666",
+            ledOff: "#fff",
             buttonOuter: "#979797",
             buttonUps: ["#186A8C", "#D82E50"],
             buttonDown: "#FFA500",
@@ -1440,7 +1440,7 @@ namespace pxsim.visuals {
                 for (let j = 0; j < 5; ++j) {
                     let ledleft = j * ledoffw + left;
                     let k = i * 5 + j;
-                    this.ledsOuter.push(svg.child(this.g, "rect", { class: "sim-led-back", x: ledleft, y: ledtop, width: ledw, height: ledh, rx: 1, ry: 1 }));
+                    this.ledsOuter.push(svg.child(this.g, "rect", { class: "sim-led-back", x: ledleft, y: ledtop, width: ledw, height: ledh }));
                     this.leds.push(svg.child(this.g, "rect", { class: "sim-led", x: ledleft - 1, y: ledtop - 1, width: ledw + 2, height: ledh + 2, rx: 2, ry: 2, title: `(${j},${i})` }));
                 }
             }
