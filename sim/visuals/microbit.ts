@@ -980,32 +980,24 @@ namespace pxsim.visuals {
     const pinGND2mid = pinGNDmid + bigPinWidth / 2.0;
     const pinMids = [pin0mid, pin1mid, pin2mid, pin3mid].concat(pins4onMids).concat([pinGNDmid, pin3Vmid, pinGND2mid]);
     const pinNames = [
-        "P0", "P1", "P2", "P3", "P4", "P5", "P6", "P7", "P8", "P9", "P10",
-        "P11", "P12", "P13", "P14", "P15", "P16", "P17", "P18", "P19", "P20",
-        "GND0", "GND", "+3v3", "GND1"];
+        "EXT_PWR", "SPKR", "BTN_A", "BTN_B",
+        "EDGE_P0", "EDGE_P1", "EDGE_P2", "EDGE_P3", "EDGE_GND", "EDGE_VCC",
+        "C_GND1", "C_GND2", "C_GND3", "C_GND4", "C_VCC1", "C_VCC2",
+        "C_P0", "C_P2", "C_P4", "C_P6", "C_P8", "C_P10", "C_P12", "C_P14", "C_P16", "C_P20",
+        "C_P1", "C_P22", "C_P5", "C_P7", "C_P9", "C_P11", "C_P13", "C_P15", "C_P21", "C_P19",
+        "M_GND1", "M_GND2", "M_OUT1", "M_OUT2", "M_VM",
+        "G_A0_GND", "G_A0_VCC", "G_A0_SDA", "G_A0_SCL",
+        "G_A1_RX", "G_A1_TX", "G_A1_VCC", "G_A1_GND"
+    ];
     const pinTitles = [
-        "P0, ANALOG IN",
-        "P1, ANALOG IN",
-        "P2, ANALOG IN",
-        "P3, ANALOG IN, LED Col 1",
-        "P4, ANALOG IN, LED Col 2",
-        "P5, BUTTON A",
-        "P6, LED Col 9",
-        "P7, LED Col 8",
-        "P8",
-        "P9, LED Col 7",
-        "P10, ANALOG IN, LED Col 3",
-        "P11, BUTTON B",
-        "P12, RESERVED ACCESSIBILITY",
-        "P13, SPI - SCK",
-        "P14, SPI - MISO",
-        "P15, SPI - MOSI",
-        "P16, SPI - Chip Select",
-        "P17, +3v3",
-        "P18, +3v3",
-        "P19, I2C - SCL",
-        "P20, I2C - SDA",
-        "GND", "GND", "+3v3", "GND"
+        "External Power", "Speaker", "Button A", "Button B",
+        "0, ANALOG IN", "1, ANALOG IN", "2, ANALOG IN", "3, ANALOG IN", "GND", "+3v3",
+        "GND", "GND", "GND", "GND", "+3v3", "+3v3",
+        "C0, ANALOG IN", "C2, ANALOG IN", "C4", "C6", "C8", "C10", "C12", "C14", "C16", "C18",
+        "C1, ANALOG IN", "C3, ANALOG IN", "C5", "C7", "C9", "C11", "C13", "C15", "C17", "C19",
+        "GND", "GND", "MOTOR1", "MOTOR2", "MOTOR VM",
+        "GND", "+3v3", "C18, I2C - SDA", "C19, I2C - SCL",
+        "C16, Serial - RX", "C17, Serial - TX", "+3v3", "GND"
     ];
     const MB_WIDTH = 251.8;
     const MB_HEIGHT =  222.2;
