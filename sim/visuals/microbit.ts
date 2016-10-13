@@ -662,12 +662,12 @@ namespace pxsim.visuals {
 	<path fill="#FFFFFF" d="M178,105.7h3.3v5.1h1.9v1.1H178v-1.1h1.9v-4H178V105.7z M179.8,104.1c0-0.2,0.1-0.4,0.2-0.5
 		c0.1-0.1,0.3-0.2,0.6-0.2c0.3,0,0.5,0.1,0.6,0.2c0.1,0.1,0.2,0.3,0.2,0.5c0,0.2-0.1,0.4-0.2,0.5c-0.1,0.1-0.3,0.2-0.6,0.2
 		c-0.3,0-0.4-0.1-0.6-0.2C179.9,104.5,179.8,104.3,179.8,104.1z"/>
-	<path fill="#FFFFFF" d="M165.9,82.8h-2.1c-0.3,0-0.6,0.3-0.6,0.6c0,0,0,1.8,0,1.6c0-1.3-1.1-2.4-2.4-2.4c-1.3,0-2.4,1.1-2.4,2.4
+	<path class="sim-theme-glow" fill="#FFFFFF" d="M165.9,82.8h-2.1c-0.3,0-0.6,0.3-0.6,0.6c0,0,0,1.8,0,1.6c0-1.3-1.1-2.4-2.4-2.4c-1.3,0-2.4,1.1-2.4,2.4
 		c0,0.2,0,1.6,0,2.6l-2.8,2.1c-1.9,1.5-0.9,4.5,1.5,4.5h0.6c0.2-1.8,0.8-3.9,1.9-5.3h0.1h2.5c1.1,1.3,1.6,3.5,1.9,5.3l0.8,0
 		c0.9,0,1.6-0.7,1.6-1.6v-6.1v-3.1C166.5,83.1,166.2,82.8,165.9,82.8z M159.9,84.1h2v1.3c0,0.4-0.3,0.8-0.8,0.8h-0.4
 		c-0.4,0-0.8-0.3-0.8-0.8V84.1z M159.4,88l0.9-1.7l0.5,1.7H159.4z M160.9,88l0.5-1.7l0.9,1.7H160.9z M163.6,86.5v-2.9h2.4v2.9H163.6
 		z"/>
-	<path fill="#FFFFFF" d="M162.8,94.3c-1.3-0.9-2.3-3.3-3.2-5.3v5.3L162.8,94.3z"/>
+	<path class="sim-theme-glow" fill="#FFFFFF" d="M162.8,94.3c-1.3-0.9-2.3-3.3-3.2-5.3v5.3L162.8,94.3z"/>
 	<polygon fill="#FFFFFF" points="120.5,134.9 106,134.9 93.1,121.7 59.6,121.6 59.6,120.9 93.4,120.9 106.3,134.2 120.5,134.2 	"/>
 	<polygon fill="#FFFFFF" points="110.5,146.8 103.5,146.8 102.1,145.3 102.6,144.7 103.8,146 110.5,146 	"/>
 	<path fill="#FFFFFF" d="M112.7,146.9v1.6h-0.5v-3.9h1.3c0.2,0,0.3,0,0.5,0.1c0.2,0.1,0.3,0.1,0.4,0.2c0.1,0.1,0.2,0.2,0.3,0.4
@@ -1255,25 +1255,26 @@ namespace pxsim.visuals {
             if (!this.thermometer) {
                 let gid = "gradient-thermometer";
                 this.thermometerGradient = svg.linearGradient(this.defs, gid);
+				const ty = MB_HEIGHT - 192;
                 this.thermometer = <SVGRectElement>svg.child(this.g, "rect", {
                     class: "sim-thermometer",
                     x: 85,
-                    y: MB_HEIGHT - 192,
+                    y: ty,
                     width: 10,
                     height: 80,
                     rx: 5, ry: 5,
                     fill: `url(#${gid})`
                 });
                 this.thermometerText = svg.child(this.g, "text", { class: 'sim-text', 
-					x: 100, y: MB_HEIGHT - 168 }) as SVGTextElement;
+					x: 100, y: MB_HEIGHT - 174 }) as SVGTextElement;
                 this.updateTheme();
 
                 let pt = this.element.createSVGPoint();
                 svg.buttonEvents(this.thermometer,
                     (ev) => {
                         let cur = svg.cursorPoint(pt, this.element, ev);
-                        let t = Math.max(0, Math.min(1, (80 - cur.y) / 80))
-                        state.thermometerState.temperature = Math.floor(tmin + t * (tmax - tmin));
+                        let t = Math.max(0, Math.min(1, (cur.y - ty - 5) / 70))
+                        state.thermometerState.temperature = Math.floor(tmax - t * (tmax - tmin));
                         this.updateTemperature();
                     }, ev => { }, ev => { })
             }
