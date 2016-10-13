@@ -92,7 +92,7 @@
     "simulator": {
         "autoRun": true,
         "streams": true,
-        "aspectRatio": 1.08,
+        "aspectRatio": 1.13,
         "parts": true,
         "partsAspectRatio": 0.69,
         "boardDefinition": {
