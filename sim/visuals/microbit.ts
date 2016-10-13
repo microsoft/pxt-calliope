@@ -48,8 +48,8 @@ namespace pxsim.visuals {
         }
 
         .sim-light-level-button {
-            stroke:#fff;
-            stroke-width: 3px;
+            stroke:#ccc;
+            stroke-width: 2px;
         }
 
         .sim-antenna {
@@ -76,7 +76,7 @@ namespace pxsim.visuals {
 
         .sim-thermometer {
             stroke:#aaa;
-            stroke-width: 3px;
+            stroke-width: 2px;
         }
 
         #rgbledcircle:hover {
@@ -1257,21 +1257,22 @@ namespace pxsim.visuals {
                 this.thermometerGradient = svg.linearGradient(this.defs, gid);
                 this.thermometer = <SVGRectElement>svg.child(this.g, "rect", {
                     class: "sim-thermometer",
-                    x: 120,
-                    y: 110,
-                    width: 20,
-                    height: 160,
+                    x: 85,
+                    y: MB_HEIGHT - 192,
+                    width: 10,
+                    height: 80,
                     rx: 5, ry: 5,
                     fill: `url(#${gid})`
                 });
-                this.thermometerText = svg.child(this.g, "text", { class: 'sim-text', x: 58, y: 130 }) as SVGTextElement;
+                this.thermometerText = svg.child(this.g, "text", { class: 'sim-text', 
+					x: 100, y: MB_HEIGHT - 168 }) as SVGTextElement;
                 this.updateTheme();
 
                 let pt = this.element.createSVGPoint();
                 svg.buttonEvents(this.thermometer,
                     (ev) => {
                         let cur = svg.cursorPoint(pt, this.element, ev);
-                        let t = Math.max(0, Math.min(1, (260 - cur.y) / 140))
+                        let t = Math.max(0, Math.min(1, (80 - cur.y) / 80))
                         state.thermometerState.temperature = Math.floor(tmin + t * (tmax - tmin));
                         this.updateTemperature();
                     }, ev => { }, ev => { })
@@ -1353,10 +1354,11 @@ namespace pxsim.visuals {
             if (!this.lightLevelButton) {
                 let gid = "gradient-light-level";
                 this.lightLevelGradient = svg.linearGradient(this.defs, gid)
-                let cy = 50;
-                let r = 35;
+				const cx = 30;
+                const cy = 45;
+                const r = 20;
                 this.lightLevelButton = svg.child(this.g, "circle", {
-                    cx: `50px`, cy: `${cy}px`, r: `${r}px`,
+                    cx: `${cx}px`, cy: `${cy}px`, r: `${r}px`,
                     class: 'sim-light-level-button',
                     fill: `url(#${gid})`
                 }) as SVGCircleElement;
@@ -1372,7 +1374,7 @@ namespace pxsim.visuals {
                         }
                     }, ev => { },
                     ev => { })
-                this.lightLevelText = svg.child(this.g, "text", { x: 85, y: cy + r - 5, text: '', class: 'sim-text' }) as SVGTextElement;
+                this.lightLevelText = svg.child(this.g, "text", { x: cx-r-7, y: cy + r + 8, text: '', class: 'sim-text inverted' }) as SVGTextElement;
                 this.updateTheme();
             }
 
