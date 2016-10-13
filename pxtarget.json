@@ -206,6 +206,7 @@
     },
     "appTheme": {
         "accentColor": "#249899",
+        "defaultLocale": "de",
         "logoUrl": "https://calliope.cc/about",
         "logo": "./static/Logo_Calliope_Woman.svg",
         "docsLogo": "./static/Logo_Calliope_Woman.svg",
