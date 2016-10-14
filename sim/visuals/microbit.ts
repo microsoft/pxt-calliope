@@ -967,18 +967,6 @@ namespace pxsim.visuals {
 </svg>    
     `
 
-    const pins4onXs = [66.7, 79.1, 91.4, 103.7, 164.3, 176.6, 188.9, 201.3, 213.6, 275.2, 287.5, 299.8, 312.1, 324.5, 385.1, 397.4, 409.7, 422];
-    const pins4onMids = pins4onXs.map(x => x + 5);
-    const littlePinDist = pins4onMids[1] - pins4onMids[0];
-    const bigPinWidth = pins4onMids[4] - pins4onMids[3];
-    const pin0mid = pins4onXs[0] - bigPinWidth / 2.0;
-    const pin3mid = pin0mid - bigPinWidth / 2.0;
-    const pin1mid = pins4onMids[3] + bigPinWidth / 2.0;
-    const pin2mid = pins4onMids[8] + bigPinWidth / 2.0;
-    const pin3Vmid = pins4onMids[13] + bigPinWidth / 2.0;
-    const pinGNDmid = pins4onMids[pins4onMids.length - 1] + bigPinWidth / 2.0;
-    const pinGND2mid = pinGNDmid + bigPinWidth / 2.0;
-    const pinMids = [pin0mid, pin1mid, pin2mid, pin3mid].concat(pins4onMids).concat([pinGNDmid, pin3Vmid, pinGND2mid]);
     const pinNames = [
         "EXT_PWR", "SPKR", "BTN_A", "BTN_B",
         "EDGE_P0", "EDGE_P1", "EDGE_P2", "EDGE_P3", "EDGE_GND", "EDGE_VCC",
@@ -1111,14 +1099,13 @@ namespace pxsim.visuals {
         }
 
         public getPinDist(): number {
-            return littlePinDist * 1.7;
+            return 10;
         }
 
         public recordPinCoords() {
-            const pinsY = 356.7 + 40;
-            pinNames.forEach((nm, i) => {
-                let x = pinMids[i];
-                this.pinNmToCoord[nm] = [x, pinsY];
+			pinNames.forEach((nm,i) => {
+				// TODO: position pins from SVG
+                this.pinNmToCoord[nm] = [0,0];
             });
         }
 
@@ -1439,21 +1426,11 @@ namespace pxsim.visuals {
 
             // https://www.microbit.co.uk/device/pins
             // P0, P1, P2
-            this.pins = [
-                "M16.5,341.2c0,0.4-0.1,0.9-0.1,1.3v60.7c4.1,1.7,8.6,2.7,12.9,2.7h34.4v-64.7h0.3c0,0,0-0.1,0-0.1c0-13-10.6-23.6-23.7-23.6C27.2,317.6,16.5,328.1,16.5,341.2z M21.2,341.6c0-10.7,8.7-19.3,19.3-19.3c10.7,0,19.3,8.7,19.3,19.3c0,10.7-8.6,19.3-19.3,19.3C29.9,360.9,21.2,352.2,21.2,341.6z",
-                "M139.1,317.3c-12.8,0-22.1,10.3-23.1,23.1V406h46.2v-65.6C162.2,327.7,151.9,317.3,139.1,317.3zM139.3,360.1c-10.7,0-19.3-8.6-19.3-19.3c0-10.7,8.6-19.3,19.3-19.3c10.7,0,19.3,8.7,19.3,19.3C158.6,351.5,150,360.1,139.3,360.1z",
-                "M249,317.3c-12.8,0-22.1,10.3-23.1,23.1V406h46.2v-65.6C272.1,327.7,261.8,317.3,249,317.3z M249.4,360.1c-10.7,0-19.3-8.6-19.3-19.3c0-10.7,8.6-19.3,19.3-19.3c10.7,0,19.3,8.7,19.3,19.3C268.7,351.5,260.1,360.1,249.4,360.1z"
-            ].map((p, pi) => svg.path(this.g, "sim-pin sim-pin-touch", p));
-
-            // P3
-            this.pins.push(svg.path(this.g, "sim-pin", "M0,357.7v19.2c0,10.8,6.2,20.2,14.4,25.2v-44.4H0z"));
-
-            pins4onXs.forEach(x => {
-                this.pins.push(svg.child(this.g, "rect", { x: x, y: 356.7, width: 10, height: 50, class: "sim-pin" }));
-            })
-            this.pins.push(svg.path(this.g, "sim-pin", "M483.6,402c8.2-5,14.4-14.4,14.4-25.1v-19.2h-14.4V402z"));
-            this.pins.push(svg.path(this.g, "sim-pin", "M359.9,317.3c-12.8,0-22.1,10.3-23.1,23.1V406H383v-65.6C383,327.7,372.7,317.3,359.9,317.3z M360,360.1c-10.7,0-19.3-8.6-19.3-19.3c0-10.7,8.6-19.3,19.3-19.3c10.7,0,19.3,8.7,19.3,19.3C379.3,351.5,370.7,360.1,360,360.1z"));
-            this.pins.push(svg.path(this.g, "sim-pin", "M458,317.6c-13,0-23.6,10.6-23.6,23.6c0,0,0,0.1,0,0.1h0V406H469c4.3,0,8.4-1,12.6-2.7v-60.7c0-0.4,0-0.9,0-1.3C481.6,328.1,471,317.6,458,317.6z M457.8,360.9c-10.7,0-19.3-8.6-19.3-19.3c0-10.7,8.6-19.3,19.3-19.3c10.7,0,19.3,8.7,19.3,19.3C477.1,352.2,468.4,360.9,457.8,360.9z"));
+            this.pins = pinNames.map(n => {
+				let p = this.element.getElementById(n) as SVGElement;
+				svg.addClass(p, "sim-pin");
+				return p;
+			});
 
             this.pins.forEach((p, i) => svg.hydrate(p, { title: pinTitles[i] }));
 
