@@ -157,8 +157,8 @@
                 {"x": 395, "y": 48}            ]
         },
         "pinDefinitions": [
-            { "target": "P1", "style": "croc", "orientation": "-Z"},
-            { "target": "ground", "style": "croc", "orientation": "-Z"}
+            { "target": "M_OUT1", "style": "croc", "orientation": "-Z"},
+            { "target": "M_OUT2", "style": "croc", "orientation": "-Z"}
         ],
         "instantiation": {"kind": "singleton"},
         "assembly": [

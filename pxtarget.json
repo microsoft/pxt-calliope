@@ -146,7 +146,13 @@
                 "P15": "P15",
                 "P16": "P16",
                 "P19": "P19",
-                "P20": "P20"
+                "P20": "P20",
+                "EXT_PWR":"EXT_PWR", 
+                "SPKR":"EXT_PWR", 
+                "BTN_A": "BTN_A", 
+                "BTN_B": "BTN_B",
+                "M_OUT1": "M_OUT1", 
+                "M_OUT2": "M_OUT2"
             },
             "spiPins": {
                 "MOSI": "P15",

@@ -1060,11 +1060,10 @@ namespace pxsim.visuals {
         private thermometerText: SVGTextElement;
         private shakeButton: SVGElement;
         public board: pxsim.DalBoard;
-        private pinNmToCoord: Map<Coord> = {};
+        private pinNmToCoord: Map<Coord>;
         private rgbLed: SVGElement;
 
         constructor(public props: IBoardProps) {
-            this.recordPinCoords();
             this.buildDom();
             if (props && props.wireframe)
                 svg.addClass(this.element, "sim-wireframe");
@@ -1091,6 +1090,7 @@ namespace pxsim.visuals {
         }
 
         public getCoord(pinNm: string): Coord {
+			if (!this.pinNmToCoord) this.recordPinCoords();
             return this.pinNmToCoord[pinNm];
         }
 
@@ -1103,9 +1103,12 @@ namespace pxsim.visuals {
         }
 
         public recordPinCoords() {
+			this.pinNmToCoord = {};
 			pinNames.forEach((nm,i) => {
 				// TODO: position pins from SVG
-                this.pinNmToCoord[nm] = [0,0];
+				const p = this.pins[i];
+				const r = p.getBoundingClientRect();
+                this.pinNmToCoord[nm] = [r.left + r.width / 2, r.top + r.height / 2];
             });
         }
 
