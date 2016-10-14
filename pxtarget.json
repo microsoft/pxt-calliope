@@ -212,7 +212,7 @@
     },
     "appTheme": {
         "accentColor": "#249899",
-        "navMenuClass": "gray",
+        "invertedMenu": true,
         "defaultLocale": "de",
         "logoUrl": "https://calliope.cc/about",
         "logo": "./static/Calliopeminieditor.svg",
