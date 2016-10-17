@@ -987,7 +987,7 @@ namespace pxsim.visuals {
         "C16, Serial - RX", "C17, Serial - TX", "+3v3", "GND"
     ];
     const MB_WIDTH = 251.8;
-    const MB_HEIGHT =  222.2;
+    const MB_HEIGHT = 222.2;
     export interface IBoardTheme {
         accent?: string;
         display?: string;
@@ -1059,8 +1059,205 @@ namespace pxsim.visuals {
         private thermometerText: SVGTextElement;
         private shakeButton: SVGElement;
         public board: pxsim.DalBoard;
-        private pinNmToCoord: Map<Coord>;
         private rgbLed: SVGElement;
+        private pinNmToCoord: Map<Coord> = {
+			"EXT_PWR": [
+				92.30997467041016,
+				-42.92474937438965
+			],
+			"SPKR": [
+				106.44635391235352,
+				-16.370698928833008
+			],
+			"BTN_A": [
+				93.8138427734375,
+				56.631452560424805
+			],
+			"BTN_B": [
+				204.92835235595703,
+				56.631452560424805
+			],
+			"EDGE_P0": [
+				56.002254486083984,
+				95.43130111694336
+			],
+			"EDGE_P1": [
+				103.00893783569336,
+				175.82388305664062
+			],
+			"EDGE_P2": [
+				195.90512084960938,
+				175.3082733154297
+			],
+			"EDGE_P3": [
+				241.79466247558594,
+				95.3883285522461
+			],
+			"EDGE_GND": [
+				103.00893783569336,
+				14.86682915687561
+			],
+			"EDGE_VCC": [
+				195.64733123779297,
+				14.86682915687561
+			],
+			"C_GND1": [
+				113.1493148803711,
+				159.83989715576172
+			],
+			"C_GND2": [
+				150.27342987060547,
+				159.83989715576172
+			],
+			"C_GND3": [
+				150.27342987060547,
+				153.5666275024414
+			],
+			"C_GND4": [
+				187.39752960205078,
+				153.5666275024414
+			],
+			"C_VCC1": [
+				187.39752960205078,
+				159.83989715576172
+			],
+			"C_VCC2": [
+				113.1922836303711,
+				153.5666275024414
+			],
+			"C_P0": [
+				119.33667373657227,
+				159.83989715576172
+			],
+			"C_P2": [
+				125.52401733398438,
+				159.83989715576172
+			],
+			"C_P4": [
+				131.71136474609375,
+				159.83989715576172
+			],
+			"C_P6": [
+				137.89871978759766,
+				159.83989715576172
+			],
+			"C_P8": [
+				144.08607482910156,
+				159.83989715576172
+			],
+			"C_P10": [
+				156.46077728271484,
+				159.83989715576172
+			],
+			"C_P12": [
+				162.64812469482422,
+				159.83989715576172
+			],
+			"C_P14": [
+				168.83545684814453,
+				159.83989715576172
+			],
+			"C_P16": [
+				175.02281951904297,
+				159.83989715576172
+			],
+			"C_P20": [
+				181.2101821899414,
+				159.83989715576172
+			],
+			"C_P1": [
+				119.379638671875,
+				153.5666275024414
+			],
+			"C_P22": [
+				125.56698226928711,
+				153.5666275024414
+			],
+			"C_P5": [
+				131.71136474609375,
+				153.5666275024414
+			],
+			"C_P7": [
+				137.89871978759766,
+				153.5666275024414
+			],
+			"C_P9": [
+				144.08607482910156,
+				153.5666275024414
+			],
+			"C_P11": [
+				156.46077728271484,
+				153.5666275024414
+			],
+			"C_P13": [
+				162.64812469482422,
+				153.5666275024414
+			],
+			"C_P15": [
+				168.83545684814453,
+				153.5666275024414
+			],
+			"C_P21": [
+				175.02281951904297,
+				153.5666275024414
+			],
+			"C_P19": [
+				181.2101821899414,
+				153.5666275024414
+			],
+			"M_GND1": [
+				137.89871978759766,
+				141.70752716064453
+			],
+			"M_GND2": [
+				156.46077728271484,
+				141.70752716064453
+			],
+			"M_OUT1": [
+				144.08607482910156,
+				141.70752716064453
+			],
+			"M_OUT2": [
+				150.27342987060547,
+				141.70752716064453
+			],
+			"M_VM": [
+				162.64812469482422,
+				141.70752716064453
+			],
+			"G_A0_GND": [
+				82.47036743164062,
+				72.35763549804688
+			],
+			"G_A0_VCC": [
+				78.34546279907227,
+				76.3106689453125
+			],
+			"G_A0_SDA": [
+				74.65023803710938,
+				80.00588989257812
+			],
+			"G_A0_SCL": [
+				70.43940734863281,
+				84.21672821044922
+			],
+			"G_A1_RX": [
+				216.52963256835938,
+				71.4982795715332
+			],
+			"G_A1_TX": [
+				220.65453338623047,
+				75.53724670410156
+			],
+			"G_A1_VCC": [
+				224.34976959228516,
+				79.23247528076172
+			],
+			"G_A1_GND": [
+				228.56060028076172,
+				83.44330978393555
+			]
+		};
 
         constructor(public props: IBoardProps) {
             this.buildDom();
@@ -1089,7 +1286,6 @@ namespace pxsim.visuals {
         }
 
         public getCoord(pinNm: string): Coord {
-			if (!this.pinNmToCoord) this.recordPinCoords();
             return this.pinNmToCoord[pinNm];
         }
 
@@ -1101,14 +1297,13 @@ namespace pxsim.visuals {
             return 10;
         }
 
-        public recordPinCoords() {
-			this.pinNmToCoord = {};
-			pinNames.forEach((nm,i) => {
-				// TODO: position pins from SVG
+        private recordPinCoords() {
+			pinNames.forEach((nm, i) => {
 				const p = this.pins[i];
 				const r = p.getBoundingClientRect();
                 this.pinNmToCoord[nm] = [r.left + r.width / 2, r.top + r.height / 2];
             });
+			console.log(JSON.stringify(this.pinNmToCoord, null, 2))
         }
 
         private updateTheme() {
@@ -1168,7 +1363,7 @@ namespace pxsim.visuals {
                 const g = (c >> 8) & 0xFF;
                 const r = (c >> 16) & 0xFF;
                 const w = (c >> 24) & 0xFF;
-                const ch =  `rgba(${r}, ${g}, ${b}, 1)`;
+                const ch = `rgba(${r}, ${g}, ${b}, 1)`;
                 svg.fill(this.rgbLed, ch);
             } else if (this.rgbLed) {
                 svg.fill(this.rgbLed, 'white');
@@ -1246,8 +1441,10 @@ namespace pxsim.visuals {
                     rx: 5, ry: 5,
                     fill: `url(#${gid})`
                 });
-                this.thermometerText = svg.child(this.g, "text", { class: 'sim-text', 
-					x: 100, y: MB_HEIGHT - 174 }) as SVGTextElement;
+                this.thermometerText = svg.child(this.g, "text", {
+					class: 'sim-text',
+					x: 100, y: MB_HEIGHT - 174
+				}) as SVGTextElement;
                 this.updateTheme();
 
                 let pt = this.element.createSVGPoint();
@@ -1356,7 +1553,7 @@ namespace pxsim.visuals {
                         }
                     }, ev => { },
                     ev => { })
-                this.lightLevelText = svg.child(this.g, "text", { x: cx-r-7, y: cy + r + 8, text: '', class: 'sim-text inverted' }) as SVGTextElement;
+                this.lightLevelText = svg.child(this.g, "text", { x: cx - r - 7, y: cy + r + 8, text: '', class: 'sim-text inverted' }) as SVGTextElement;
                 this.updateTheme();
             }
 
