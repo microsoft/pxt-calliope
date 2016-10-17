@@ -143,8 +143,7 @@ namespace pxsim.visuals {
             stroke-width: 2px;
         }
     `;
-    const BOARD_SVG = `
-<?xml version="1.0" encoding="utf-8"?>
+    const BOARD_SVG = `<?xml version="1.0" encoding="utf-8"?>
 <!-- Generator: Adobe Illustrator 18.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
 <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
@@ -1386,8 +1385,7 @@ namespace pxsim.visuals {
         }
 
         private buildDom() {
-            this.element = <SVGSVGElement>svg.elt("svg")
-            this.element.innerHTML = BOARD_SVG;
+			this.element = new DOMParser().parseFromString(BOARD_SVG, "image/svg+xml").querySelector("svg") as SVGSVGElement;
             svg.hydrate(this.element, {
                 "version": "1.0",
                 "viewBox": `0 0 ${MB_WIDTH} ${MB_HEIGHT}`,
