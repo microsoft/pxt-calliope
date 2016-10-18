@@ -1,4 +1,4 @@
-basic.showString("RGB LED")
+basic.showString("RGB")
 basic.setLedColor(Colors.Blue)
 basic.pause(500)
 basic.setLedColor(Colors.Red)
@@ -8,7 +8,7 @@ basic.pause(500)
 basic.setLedColor(Colors.Violet)
 basic.pause(500)
 basic.setLedColor(0);
-basic.showString("Gestures")
+basic.showString("Gesten")
 input.onGesture(Gesture.Shake, () => {
     basic.showString("S")
 })
