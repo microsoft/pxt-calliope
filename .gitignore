@@ -24,3 +24,7 @@ clients/electron/projects
 *.db
 *.suo
 *.log
+
+.DS_Store
+.idea
+*.iml

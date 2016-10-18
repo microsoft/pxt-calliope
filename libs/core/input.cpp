@@ -130,7 +130,7 @@ namespace input {
     //% parts="accelerometer"
     void onGesture(Gesture gesture, Action body) {
         if ((int)gesture == MICROBIT_ACCELEROMETER_EVT_3G && uBit.accelerometer.getRange() < 3)
-            uBit.accelerometer.setRange(4);
+            uBit.accelerometer.setRange(6);
         else if ((int)gesture == MICROBIT_ACCELEROMETER_EVT_6G && uBit.accelerometer.getRange() < 6)
             uBit.accelerometer.setRange(8);
         registerWithDal(MICROBIT_ID_GESTURE, (int)gesture, body);
