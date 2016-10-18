@@ -252,7 +252,7 @@
                 "path": "/browsers/windows"
             }
         ],
-        "boardName": "BBC micro:bit",
+        "boardName": "Calliope mini",
         "docMenu": [
             {
                 "name": "Getting Started",
