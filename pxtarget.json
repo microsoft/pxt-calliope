@@ -202,7 +202,7 @@
         "yottaTarget": "bbc-microbit-classic-gcc",
         "yottaCorePackage": "pxt-calliope-core",
         "githubCorePackage": "microsoft/pxt-calliope-core",
-        "gittag": "v0.5.10",
+        "gittag": "v0.5.11",
         "serviceId": "calliope"
     },
     "serial": {
