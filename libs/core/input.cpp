@@ -29,6 +29,7 @@ enum class TouchPin {
     P0 = MICROBIT_ID_IO_P0,
     P1 = MICROBIT_ID_IO_P1,
     P2 = MICROBIT_ID_IO_P2,
+    P3 = CALLIOPE_ID_IO_P3
 };
 
 enum class AcceleratorRange {

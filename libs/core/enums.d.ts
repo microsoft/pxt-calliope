@@ -37,6 +37,7 @@ declare namespace basic {
     P0 = 7,  // MICROBIT_ID_IO_P0
     P1 = 8,  // MICROBIT_ID_IO_P1
     P2 = 9,  // MICROBIT_ID_IO_P2
+    P3 = 33,  // CALLIOPE_ID_IO_P3
     }
 
 

@@ -1,4 +1,4 @@
-basic.showString("RGB")
+/*basic.showString("RGB")
 basic.setLedColor(Colors.Blue)
 basic.pause(500)
 basic.setLedColor(Colors.Red)
@@ -39,4 +39,16 @@ input.onGesture(Gesture.ThreeG, () => {
 input.onGesture(Gesture.SixG, () => {
     basic.showString("6")
 })
-
+*/
+input.onPinPressed(TouchPin.P0, () => {
+    basic.showNumber(0)
+})
+input.onPinPressed(TouchPin.P1, () => {
+    basic.showNumber(1)
+})
+input.onPinPressed(TouchPin.P2, () => {
+    basic.showNumber(2)
+})
+input.onPinPressed(TouchPin.P3, () => {
+    basic.showNumber(3)
+})

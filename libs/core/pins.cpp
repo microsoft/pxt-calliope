@@ -66,6 +66,14 @@ MicroBitPin *getPin(int id) {
         //case MICROBIT_ID_IO_P16: return &uBit.io.P16;
         case MICROBIT_ID_IO_P19: return &uBit.io.P19;
         case MICROBIT_ID_IO_P20: return &uBit.io.P20;
+        case CALLIOPE_ID_IO_P3: return &uBit.io.CAL_P3;
+        case CALLIOPE_ID_IO_P7: return &uBit.io.CAL_P7;
+        case CALLIOPE_ID_IO_P8: return &uBit.io.CAL_P8;
+        case CALLIOPE_ID_IO_P9: return &uBit.io.CAL_P9;
+        case CALLIOPE_ID_IO_P13: return &uBit.io.CAL_P13;
+        case CALLIOPE_ID_IO_P14: return &uBit.io.CAL_P14;
+        case CALLIOPE_ID_IO_P15: return &uBit.io.CAL_P15;
+        case CALLIOPE_ID_IO_P22: return &uBit.io.CAL_P22;
         default: return NULL;
     }
 }
