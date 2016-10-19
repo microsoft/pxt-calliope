@@ -80,6 +80,13 @@
                     "microbit-pins": "",
                     "microbit-serial": ""
                 }
+            }, 
+            {
+                "type": "api",
+                "map": {
+                    "bluetooth\\.uartRead\\((.*?)\\)" : "bluetooth.uartReadUntil($1)",
+                    "bluetooth\\.uartWrite\\((.*?)\\)" : "bluetooth.uartWriteUntil($1)"
+                }
             }
         ]
     },
