@@ -3,17 +3,17 @@
 *******************************/
 @importGoogleFonts: false;
 
-@primaryColor: @black;
-@secondaryColor: @pink;
+@primaryColor: #3CB5B5;
+@secondaryColor: #43C9C9;
 
 @red:#E81123;
-@orange:#D83B01;
-@yellow:#FFB900;
-@green:#107C10;
+@orange:#F8C525;
+@yellow:#EEDA47;
+@green:#3FC863;
 @teal:#008272;
 @blue:#0078D7;
-@violet:#B4009E;
-@purple:#5C2D91;
+@violet:#CF0071;
+@purple:#8073E5;
 @pink:#E2008C;
-@brown:#00BCF2;
-@grey:#505050;
+@brown:#6B5B4C;
+@grey:#515B67;
