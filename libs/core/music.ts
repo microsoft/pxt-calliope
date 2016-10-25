@@ -136,7 +136,7 @@ namespace music {
      */
     //% help=music/play-tone weight=90
     //% blockId=device_play_note block="play|tone %note=device_note|for %duration=device_beat" icon="\uf025" blockGap=8
-    //% parts="headphone"
+    //% parts="speaker"
     export function playTone(frequency: number, ms: number): void {
         pins.analogSetPitchPin(AnalogPin.P0);
         pins.analogPitch(frequency, ms);
@@ -148,7 +148,7 @@ namespace music {
      */
     //% help=music/ring-tone weight=80
     //% blockId=device_ring block="ring tone (Hz)|%note=device_note" icon="\uf025" blockGap=8
-    //% parts="headphone"
+    //% parts="speaker"
     export function ringTone(frequency: number): void {
         pins.analogSetPitchPin(AnalogPin.P0);
         pins.analogPitch(frequency, 0);
@@ -160,7 +160,7 @@ namespace music {
      */
     //% help=music/rest weight=79
     //% blockId=device_rest block="rest(ms)|%duration=device_beat"
-    //% parts="headphone"
+    //% parts="speaker"
     export function rest(ms: number): void {
         playTone(0, ms);
     }

@@ -106,54 +106,54 @@
             "visual": "calliope",
             "gpioPinBlocks": [
                 [
-                    "P0"
+                    "EDGE_P0"
                 ],
                 [
-                    "P1"
+                    "EDGE_P1"
                 ],
                 [
-                    "P2"
+                    "EDGE_P2"
                 ],
                 [
-                    "P3"
+                    "EDGE_P3"
                 ],
                 [
-                    "P4",
-                    "P5",
-                    "P6",
-                    "P7"
+                    "C_P4",
+                    "C_P5",
+                    "C_P6",
+                    "C_P7"
                 ],
                 [
-                    "P8",
-                    "P9",
-                    "P10",
-                    "P11",
-                    "P12"
+                    "C_P8",
+                    "C_P9",
+                    "C_P10",
+                    "C_P11",
+                    "C_P12"
                 ],
                 [
-                    "P16"
+                    "C_P16"
                 ]
             ],
             "gpioPinMap": {
-                "P0": "P0",
-                "P1": "P1",
-                "P2": "P2",
-                "P3": "P3",
-                "P4": "P4",
-                "P5": "P5",
-                "P6": "P6",
-                "P7": "P7",
-                "P8": "P8",
-                "P9": "P9",
-                "P10": "P10",
-                "P11": "P11",
-                "P12": "P12",
-                "P13": "P13",
-                "P14": "P14",
-                "P15": "P15",
-                "P16": "P16",
-                "P19": "P19",
-                "P20": "P20",
+                "P0": "EDGE_P0",
+                "P1": "EDGE_P1",
+                "P2": "EDGE_P2",
+                "P3": "EDGE_P3",
+                "P4": "C_P4",
+                "P5": "C_P5",
+                "P6": "C_P6",
+                "P7": "C_P7",
+                "P8": "C_P8",
+                "P9": "C_P9",
+                "P10": "C_P10",
+                "P11": "C_P11",
+                "P12": "C_P12",
+                "P13": "C_P13",
+                "P14": "C_P14",
+                "P15": "C_P15",
+                "P16": "C_P16",
+                "P19": "C_P19",
+                "P20": "C_P20",
                 "EXT_PWR":"EXT_PWR", 
                 "SPKR":"EXT_PWR", 
                 "BTN_A": "BTN_A", 
@@ -178,10 +178,10 @@
                 "P10"
             ],
             "groundPins": [
-                "GND"
+                "EDGE_GND"
             ],
             "threeVoltPins": [
-                "+3v3"
+                "EDGE_VCC"
             ],
             "attachPowerOnRight": true,
             "onboardComponents": [
