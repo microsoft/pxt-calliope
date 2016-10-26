@@ -1,4 +1,3 @@
-/*basic.showString("RGB")
 basic.setLedColor(Colors.Blue)
 basic.pause(500)
 basic.setLedColor(Colors.Red)
@@ -8,7 +7,6 @@ basic.pause(500)
 basic.setLedColor(Colors.Violet)
 basic.pause(500)
 basic.setLedColor(0);
-basic.showString("Gesten")
 input.onGesture(Gesture.Shake, () => {
     basic.showString("S")
 })
@@ -39,7 +37,6 @@ input.onGesture(Gesture.ThreeG, () => {
 input.onGesture(Gesture.SixG, () => {
     basic.showString("6")
 })
-*/
 input.onPinPressed(TouchPin.P0, () => {
     basic.showNumber(0)
 })
