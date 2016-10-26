@@ -130,7 +130,7 @@ namespace music {
     let beatsPerMinute: number = 120;
 
     /**
-     * Plays a tone through pin ``P0`` for the given duration.
+     * Plays a tone through ``speaker`` for the given duration.
      * @param frequency pitch of the tone to play in Hertz (Hz)
      * @param ms tone duration in milliseconds (ms)
      */
@@ -138,20 +138,26 @@ namespace music {
     //% blockId=device_play_note block="play|tone %note=device_note|for %duration=device_beat" icon="\uf025" blockGap=8
     //% parts="speaker"
     export function playTone(frequency: number, ms: number): void {
-        pins.analogSetPitchPin(AnalogPin.P0);
+        // TODO check timing
+        pins.digitalWritePin(DigitalPin.P28, 1); // switch on the motor driver
+        pins.analogSetPitchPin(AnalogPin.P29);
         pins.analogPitch(frequency, ms);
+        pins.digitalWritePin(DigitalPin.P28, 0); // switch off the motor driver
     }
 
     /**
-     * Plays a tone through pin ``P0``.
+     * Plays a tone through ``speaker``.
      * @param frequency pitch of the tone to play in Hertz (Hz)
      */
     //% help=music/ring-tone weight=80
     //% blockId=device_ring block="ring tone (Hz)|%note=device_note" icon="\uf025" blockGap=8
     //% parts="speaker"
     export function ringTone(frequency: number): void {
-        pins.analogSetPitchPin(AnalogPin.P0);
+        // TODO check timing
+        pins.digitalWritePin(DigitalPin.P28, 1); // switch on the motor driver
+        pins.analogSetPitchPin(AnalogPin.P29);
         pins.analogPitch(frequency, 0);
+        pins.digitalWritePin(DigitalPin.P28, 0); // switch off the motor driver
     }
 
     /**
@@ -192,7 +198,7 @@ namespace music {
         let beat = 60000 / beatsPerMinute;
         if (fraction == BeatFraction.Whole) return beat;
         else if (fraction == BeatFraction.Half) return beat / 2;
-        else if (fraction == BeatFraction.Quarter) return beat / 4
+        else if (fraction == BeatFraction.Quarter) return beat / 4;
         else if (fraction == BeatFraction.Eighth) return beat / 8;
         else return beat / 16;
     }

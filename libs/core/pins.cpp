@@ -20,6 +20,9 @@ enum class DigitalPin {
     //P16 = MICROBIT_ID_IO_P16,
     P19 = MICROBIT_ID_IO_P19,
     P20 = MICROBIT_ID_IO_P20,
+    P28 = CALLIOPE_ID_IO_P28,
+    P29 = CALLIOPE_ID_IO_P29,
+    P30 = CALLIOPE_ID_IO_P30
 };
 
 enum class AnalogPin {
@@ -29,6 +32,8 @@ enum class AnalogPin {
     P3 = MICROBIT_ID_IO_P3,
     P4 = MICROBIT_ID_IO_P4,
     P10 = MICROBIT_ID_IO_P10,
+    P29 = CALLIOPE_ID_IO_P29,
+    P30 = CALLIOPE_ID_IO_P30
 };
 
 enum class PulseValue {
@@ -74,6 +79,9 @@ MicroBitPin *getPin(int id) {
         case CALLIOPE_ID_IO_P14: return &uBit.io.CAL_P14;
         case CALLIOPE_ID_IO_P15: return &uBit.io.CAL_P15;
         case CALLIOPE_ID_IO_P22: return &uBit.io.CAL_P22;
+        case CALLIOPE_ID_IO_P28: return &uBit.io.CAL_P28;
+        case CALLIOPE_ID_IO_P29: return &uBit.io.CAL_P29;
+        case CALLIOPE_ID_IO_P30: return &uBit.io.CAL_P30;
         default: return NULL;
     }
 }
