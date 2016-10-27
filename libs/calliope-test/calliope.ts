@@ -1,3 +1,4 @@
+basic.showString("RGB");
 basic.setLedColor(Colors.Blue);
 basic.pause(500);
 basic.setLedColor(Colors.Red);
@@ -7,51 +8,51 @@ basic.pause(500);
 basic.setLedColor(Colors.Violet);
 basic.pause(500);
 basic.setLedColor(0);
-
+basic.showString("Gesten");
 input.onGesture(Gesture.Shake, () => {
-    basic.showString("S");
+    basic.showString("S")
 });
 input.onGesture(Gesture.LogoUp, () => {
-    basic.showString("U");
+    basic.showString("U")
 });
 input.onGesture(Gesture.LogoDown, () => {
-    basic.showString("D");
+    basic.showString("D")
 });
 input.onGesture(Gesture.ScreenUp, () => {
-    basic.showString("+");
+    basic.showString("+")
 });
 input.onGesture(Gesture.TiltRight, () => {
-    basic.showString("R");
+    basic.showString("R")
 });
 input.onGesture(Gesture.FreeFall, () => {
-    basic.showString("F");
+    basic.showString("F")
 });
 input.onGesture(Gesture.ScreenDown, () => {
-    basic.showString("-");
+    basic.showString("-")
 });
 input.onGesture(Gesture.TiltLeft, () => {
-    basic.showString("L");
+    basic.showString("L")
 });
 input.onGesture(Gesture.ThreeG, () => {
-    basic.showString("3");
+    basic.showString("3")
 });
 input.onGesture(Gesture.SixG, () => {
-    basic.showString("6");
+    basic.showString("6")
 });
 input.onPinPressed(TouchPin.P0, () => {
-    basic.showNumber(0);
+    basic.showNumber(0)
 });
 input.onPinPressed(TouchPin.P1, () => {
-    basic.showNumber(1);
+    basic.showNumber(1)
 });
 input.onPinPressed(TouchPin.P2, () => {
-    basic.showNumber(2);
+    basic.showNumber(2)
 });
 input.onPinPressed(TouchPin.P3, () => {
-    basic.showNumber(3);
+    basic.showNumber(3)
 });
 
-
+basic.showString("Sound");
 music.setTempo(150);
 let whole = music.beat(BeatFraction.Whole);
 function note(n: Note, l: BeatFraction): number[] {
