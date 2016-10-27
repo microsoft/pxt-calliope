@@ -129,30 +129,30 @@ enum BeatFraction {
 namespace music {
     let beatsPerMinute: number = 120;
 
-    /**
-     * Plays a tone through pin ``P0`` for the given duration.
-     * @param frequency pitch of the tone to play in Hertz (Hz)
-     * @param ms tone duration in milliseconds (ms)
-     */
-    //% help=music/play-tone weight=90
-    //% blockId=device_play_note block="play|tone %note=device_note|for %duration=device_beat" icon="\uf025" blockGap=8
-    //% parts="speaker"
-    export function playTone(frequency: number, ms: number): void {
-        pins.analogSetPitchPin(AnalogPin.P0);
-        pins.analogPitch(frequency, ms);
-    }
-
-    /**
-     * Plays a tone through pin ``P0``.
-     * @param frequency pitch of the tone to play in Hertz (Hz)
-     */
-    //% help=music/ring-tone weight=80
-    //% blockId=device_ring block="ring tone (Hz)|%note=device_note" icon="\uf025" blockGap=8
-    //% parts="speaker"
-    export function ringTone(frequency: number): void {
-        pins.analogSetPitchPin(AnalogPin.P0);
-        pins.analogPitch(frequency, 0);
-    }
+    // /**
+    //  * Plays a tone through pin ``P0`` for the given duration.
+    //  * @param frequency pitch of the tone to play in Hertz (Hz)
+    //  * @param ms tone duration in milliseconds (ms)
+    //  */
+    // //% help=music/play-tone weight=90
+    // //% blockId=device_play_note block="play|tone %note=device_note|for %duration=device_beat" icon="\uf025" blockGap=8
+    // //% parts="speaker"
+    // export function playTone(frequency: number, ms: number): void {
+    //     pins.analogSetPitchPin(AnalogPin.P0);
+    //     pins.analogPitch(frequency, ms);
+    // }
+    //
+    // /**
+    //  * Plays a tone through pin ``P0``.
+    //  * @param frequency pitch of the tone to play in Hertz (Hz)
+    //  */
+    // //% help=music/ring-tone weight=80
+    // //% blockId=device_ring block="ring tone (Hz)|%note=device_note" icon="\uf025" blockGap=8
+    // //% parts="speaker"
+    // export function ringTone(frequency: number): void {
+    //     pins.analogSetPitchPin(AnalogPin.P0);
+    //     pins.analogPitch(frequency, 0);
+    // }
 
     /**
      * Rests (plays nothing) for a specified time through pin ``P0``.
