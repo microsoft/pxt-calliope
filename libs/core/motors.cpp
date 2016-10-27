@@ -12,6 +12,12 @@ namespace motors {
     //% blockId=motor_on block="motor on at %percent|%"
     //% parts=dcmotor
     void motorOn(int power) {
-        uBit.soundmotor.Motor_On(power);
+        uBit.soundmotor.motorOn(power);
     }
+
+    void motorOff() {
+        uBit.soundmotor.motorAOff();
+        uBit.soundmotor.motorBOff();
+    }
+
 }
