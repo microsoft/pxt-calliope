@@ -1349,6 +1349,7 @@ namespace pxsim.visuals {
             this.updateButtonAB();
             this.updateGestures();
             this.updateRgbLed();
+			this.updateSpeaker();
 
             if (!runtime || runtime.dead) svg.addClass(this.element, "grayscale");
             else svg.removeClass(this.element, "grayscale");
@@ -1370,6 +1371,15 @@ namespace pxsim.visuals {
                 svg.fill(this.rgbLed, 'white');
             }
         }
+
+		private updateSpeaker() {
+            let state = this.board;
+			if (state.speakerState.frequency) {
+				
+			} else {
+
+			}			
+		}
 
         private updateGestures() {
             let state = this.board;

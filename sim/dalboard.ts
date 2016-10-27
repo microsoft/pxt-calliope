@@ -14,6 +14,7 @@ namespace pxsim {
         radioState: RadioState;
         neopixelState: NeoPixelState;
         rgbLedState: number;
+        speakerState: SpeakerState;
 
         constructor() {
             super()
@@ -59,6 +60,7 @@ namespace pxsim {
             this.builtinParts["lightsensor"] = this.lightSensorState = new LightSensorState();
             this.builtinParts["compass"] = this.compassState = new CompassState();
             this.builtinParts["neopixel"] = this.neopixelState = new NeoPixelState();
+            this.builtinParts["speaker"] = this.speakerState = new SpeakerState();
 
             this.builtinVisuals["buttonpair"] = () => new visuals.ButtonPairView();
             this.builtinVisuals["ledmatrix"] = () => new visuals.LedMatrixView();
