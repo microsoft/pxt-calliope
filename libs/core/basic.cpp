@@ -4,7 +4,7 @@
 /**
  * Provides access to basic micro:bit functionality.
  */
-//% color=#0078D7 weight=100
+//% color=#54C9C9 weight=100
 namespace basic {
     /**
     * Sets the color on the build-in LED. Set to 0 to turn off.

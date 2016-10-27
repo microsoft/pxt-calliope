@@ -3,7 +3,7 @@
 /**
 * Blocks to control the onboard motors
 */
-//% weight=30
+//% color=#008272 weight=30
 namespace motors {
     /**
     * Controls the power sent to a single motor

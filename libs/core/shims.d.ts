@@ -126,7 +126,7 @@ declare interface Image {
     /**
      * Provides access to basic micro:bit functionality.
      */
-    //% color=#0078D7 weight=100
+    //% color=#54C9C9 weight=100
 declare namespace basic {
 
     /**
@@ -218,7 +218,7 @@ declare namespace basic {
 
 
 
-    //% color=300 weight=99
+    //% color=#C90072 weight=99
 declare namespace input {
 
     /**
@@ -432,7 +432,7 @@ declare namespace control {
 
 
 
-    //% color=3 weight=35
+    //% color=#8169E6 weight=35
 declare namespace led {
 
     /**
@@ -513,7 +513,7 @@ declare namespace led {
     /**
      * Blocks to control the onboard motors
      */
-    //% weight=30
+    //% color=#008272 weight=30
 declare namespace motors {
 
     /**

@@ -34,7 +34,7 @@ enum Colors {
 /**
  * Provides access to basic micro:bit functionality.
  */
-//% color=#0078D7 weight=100
+//% color=#54C9C9 weight=100
 namespace basic {
     /**
      * Converts the color name to a number

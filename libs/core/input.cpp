@@ -108,7 +108,7 @@ enum class Gesture {
     SixG = MICROBIT_ACCELEROMETER_EVT_6G
 };
 
-//% color=300 weight=99
+//% color=#C90072 weight=99
 namespace input {
     /**
      * Do something when a button (``A``, ``B`` or both ``A+B``) is pressed

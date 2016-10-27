@@ -219,8 +219,6 @@
     },
     "appTheme": {
         "accentColor": "#249899",
-        "downloadClass": "orange",
-        "invertedMenu": true,
         "defaultLocale": "de",
         "logoUrl": "https://calliope.cc/about",
         "logo": "./static/Calliopeminieditor.svg",
@@ -350,6 +348,12 @@
                 "browser": "*",
                 "path": "/static/mb/device/usb-windows-sendto.jpg"
             }
-        ]
+        ],
+        "invertedMenu": true,
+        "invertedToolbox": true,
+        "blocklyOptions": {
+            "media": "./static/blockly/media/",
+            "trashcan": true
+        }
     }
 }

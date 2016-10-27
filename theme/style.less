@@ -1,2 +1,81 @@
 /* Import all components */
 @import 'semantic';
+@import 'themes/default/globals/site.variables';
+@import 'themes/pxt/globals/site.variables';
+@import 'site/globals/site.variables';
+
+/* Reference import */
+@import (reference) "semantic.less";
+
+.openproject {
+    background: #4ECC60 !important;
+}
+
+.blocks-menuitem, .javascript-menuitem {
+    background: #738791 !important;
+}
+
+.help-dropdown-menuitem, .more-dropdown-menuitem {
+    background: #424955 !important;
+    margin-right:0px !important;
+}
+
+.play-button {
+    &:extend(.ui all);
+    &:extend(.button all);
+    &:extend(.blue all);
+}
+
+.download-button {
+    &:extend(.ui all);
+    &:extend(.button all);
+    &:extend(.yellow all);
+}
+
+/* This removes the margin between the blockly categories to form connected pills */
+.blocklyTreeRow {
+    width: 230px;
+    border-radius:5px;
+}
+
+/* This removes any padding at the top of the toolbox */
+.blocklyTreeRoot {
+    padding: 0px !important;
+}
+
+/* Blockly Text */
+.blocklyTreeLabel {
+    font-family: "Gotham SSm A","Gotham SSm B","Montserrat","Lucida Grande","Lucida Sans Unicode","Lucida Sans",Geneva,Verdana,sans-serif  !important;
+}
+
+.blocklyTreeLabel {
+    font-size:1rem !important;
+}
+
+.blocklyFlyoutBackground {
+    fill: #FDFDE2;
+}
+
+.blocklyToolboxDiv {
+    /*left:30px !important;*/
+    padding:7px;
+}
+
+@media only screen and (max-width: @largestMobileScreen) {
+    .blocklyTreeLabel {
+        font-size: 0.5rem !important;
+    }
+}
+
+
+/*******************************
+             Menu Bar
+*******************************/
+
+#menubar {
+    height: 5rem;
+}
+
+#fileNameInput {
+    width: 350px;
+}
