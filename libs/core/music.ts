@@ -137,13 +137,13 @@ namespace music {
     //% help=music/play-tone weight=90
     //% blockId=device_play_note block="play|tone %note=device_note|for %duration=device_beat" icon="\uf025" blockGap=8
     //% parts="speaker"
-    export function playTone(frequency: number, ms: number): void {
-        // TODO check timing
-        pins.digitalWritePin(DigitalPin.P28, 1); // switch on the motor driver
-        pins.analogSetPitchPin(AnalogPin.P29);
-        pins.analogPitch(frequency, ms);
-        pins.digitalWritePin(DigitalPin.P28, 0); // switch off the motor driver
-    }
+    // export function playTone(frequency: number, ms: number): void {
+    //     // TODO check timing
+    //     pins.digitalWritePin(DigitalPin.P28, 1); // switch on the motor driver
+    //     pins.analogSetPitchPin(AnalogPin.P29);
+    //     pins.analogPitch(frequency, ms);
+    //     pins.digitalWritePin(DigitalPin.P28, 0); // switch off the motor driver
+    // }
 
     /**
      * Plays a tone through ``speaker``.

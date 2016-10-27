@@ -1,277 +1,51 @@
-// Für Elise...
+function note(n: Note, l: BeatFraction) {
+    return [music.noteFrequency(n), music.beat(l)];
+}
 
-// play e4
-music.playTone(330, 300);
-basic.pause(350);
-// play d4#
-music.playTone(311, 300);
-basic.pause(350);
-// play e4
-music.playTone(330, 300);
-basic.pause(350);
-// play d4#
-music.playTone(311, 300);
-basic.pause(350);
-// play e4
-music.playTone(330, 300);
-basic.pause(350);
-// play b3
-music.playTone(247, 300);
-basic.pause(400);
-// play d4
-music.playTone(294, 300);
-basic.pause(400);
-// play c4
-music.playTone(262, 300);
-basic.pause(400);
-// play a3
-music.playTone(220, 900);
-basic.pause(1000);
-// play d3
-music.playTone(147, 300);
-basic.pause(350);
-//play f3
-music.playTone(175, 300);
-basic.pause(400);
-//play a3
-music.playTone(220, 300);
-basic.pause(400);
-// play b3
-music.playTone(247, 900);
-basic.pause(1000);
-// play f3
-music.playTone(175, 300);
-basic.pause(400);
-// play a3#
-music.playTone(233, 300);
-basic.pause(400);
-// play b3
-music.playTone(247, 300);
-basic.pause(400);
-// play c4
-music.playTone(262, 900);
-basic.pause(1000);
-basic.pause(300);
-// play e4
-music.playTone(330, 300);
-basic.pause(400);
-// play d4#
-music.playTone(311, 300);
-basic.pause(400);
-// play e4
-music.playTone(330, 300);
-basic.pause(400);
-// play d4#
-music.playTone(311, 300);
-basic.pause(400);
-// play e4
-music.playTone(330, 300);
-basic.pause(400);
-// play b3
-music.playTone(247, 300);
-basic.pause(400);
-// play d4
-music.playTone(294, 300);
-basic.pause(400);
-// play c4
-music.playTone(263, 300);
-basic.pause(400);
-// play a3
-music.playTone(220, 900);
-basic.pause(1000);
-// play d3
-music.playTone(147, 300);
-basic.pause(400);
-// play f3
-music.playTone(175, 300);
-basic.pause(400);
-// play a3
-music.playTone(220, 300);
-basic.pause(400);
-// play b3
-music.playTone(247, 900);
-basic.pause(1000);
-// play f3
-music.playTone(175, 300);
-basic.pause(400);
-// play c4
-music.playTone(262, 300);
-basic.pause(400);
-// play b3
-music.playTone(247, 300);
-basic.pause(400);
-// play a3
-music.playTone(220, 900);
-basic.pause(1000);
-// play b3
-music.playTone(247, 300);
-basic.pause(400);
-// play c4
-music.playTone(262, 300);
-basic.pause(400);
-// play d4
-music.playTone(294, 300);
-basic.pause(400);
-// play e4
-music.playTone(330, 900);
-basic.pause(1000);
-// play g3
-music.playTone(196, 300);
-basic.pause(400);
-// play f4
-music.playTone(349, 300);
-basic.pause(400);
-//play e4
-music.playTone(330, 300);
-basic.pause(400);
-// play d4
-music.playTone(294, 900);
-basic.pause(1000);
-// play e3
-music.playTone(165, 300);
-basic.pause(400);
-// play e4
-music.playTone(330, 300);
-basic.pause(400);
-// play d4
-music.playTone(294, 300);
-basic.pause(400);
-// play c4
-music.playTone(262, 900);
-basic.pause(1000);
-// play d3
-music.playTone(147, 300);
-basic.pause(400);
-// play d4
-music.playTone(294, 300);
-basic.pause(400);
-// play c4
-music.playTone(262, 300);
-basic.pause(400);
-// play b3
-music.playTone(247, 900);
-basic.pause(1000);
-basic.pause(400);
-// play e4
-music.playTone(330, 300);
-basic.pause(400);
-// play d4#
-music.playTone(311, 300);
-basic.pause(350);
-// play e4
-music.playTone(330, 300);
-basic.pause(350);
-// play d4#
-music.playTone(311, 300);
-basic.pause(350);
-// play e4
-music.playTone(330, 300);
-basic.pause(350);
-// play b3
-music.playTone(247, 300);
-basic.pause(400);
-// play d4
-music.playTone(294, 300);
-basic.pause(400);
-// play c4
-music.playTone(262, 300);
-basic.pause(400);
-// play a3
-music.playTone(220, 900);
-basic.pause(1000);
-// play d3
-music.playTone(147, 300);
-basic.pause(350);
-//play f3
-music.playTone(175, 300);
-basic.pause(400);
-//play a3
-music.playTone(220, 300);
-basic.pause(400);
-// play b3
-music.playTone(247, 900);
-basic.pause(1000);
-// play f3
-music.playTone(175, 300);
-basic.pause(400);
-// play a3
-music.playTone(233, 300);
-basic.pause(400);
-// play b3
-music.playTone(247, 300);
-basic.pause(400);
-// play c4
-music.playTone(262, 900);
-basic.pause(1000);
-basic.pause(300);
-// play e4
-music.playTone(330, 300);
-basic.pause(400);
-// play d4#
-music.playTone(311, 300);
-basic.pause(400);
-// play e4
-music.playTone(330, 300);
-basic.pause(400);
-// play d4#
-music.playTone(311, 300);
-basic.pause(400);
-// play e4
-music.playTone(330, 300);
-basic.pause(400);
-// play b3
-music.playTone(247, 300);
-basic.pause(400);
-// play d4
-music.playTone(294, 300);
-basic.pause(400);
-// play c4
-music.playTone(262, 300);
-basic.pause(400);
-// play a3
-music.playTone(220, 900);
-basic.pause(1000);
-// play d3
-music.playTone(147, 300);
-basic.pause(400);
-// play f3
-music.playTone(175, 300);
-basic.pause(400);
-// play a3
-music.playTone(220, 300);
-basic.pause(400);
-// play b3
-music.playTone(247, 900);
-basic.pause(1000);
-// play f3
-music.playTone(175, 300);
-basic.pause(400);
-// play c4
-music.playTone(262, 300);
-basic.pause(400);
-// play b3
-music.playTone(247, 300);
-basic.pause(400);
-// play a3
-music.playTone(220, 900);
-basic.pause(1000);
-
-// and again slightly different
 var notes = [
-    Note.E5, Note.Eb5, Note.E5, Note.Eb5, Note.E5, Note.B5, Note.D5, Note.C5, Note.A5,
-    Note.C5, Note.E5, Note.A5, Note.B5, Note.E5, Note.A5, Note.B5, Note.C5,
-    Note.E5, Note.Eb5, Note.E5, Note.Eb5, Note.E5, Note.B5, Note.D5, Note.C5, Note.A5,
-    Note.C5, Note.E5, Note.A5, Note.B5, Note.E5, Note.C5, Note.B5, Note.A5,
-    Note.B5, Note.C5, Note.D5, Note.E5, Note.G, Note.F, Note.E5, Note.D5, Note.E5, Note.E5, Note.D5, Note.C5, Note.E5, Note.D5, Note.C5, Note.E5,
-    Note.E5, Note.Eb5, Note.E5, Note.Eb5, Note.E5, Note.E5, Note.D5, Note.C5, Note.A5,
-    Note.C5, Note.E5, Note.A5, Note.B5, Note.E5, Note.A5, Note.B5, Note.C5,
-    Note.E5, Note.Eb5, Note.E5, Note.Eb5, Note.E5, Note.B5, Note.D5, Note.C5, Note.A5,
-    Note.C5, Note.E5, Note.A5, Note.B5, Note.E5, Note.C5, Note.B5, Note.A5
+    note(Note.E, BeatFraction.Quarter), note(Note.E, BeatFraction.Quarter), note(Note.F, BeatFraction.Quarter),
+    note(Note.G, BeatFraction.Quarter), note(Note.G, BeatFraction.Quarter), note(Note.F, BeatFraction.Quarter),
+    note(Note.E, BeatFraction.Quarter), note(Note.D, BeatFraction.Quarter), note(Note.C, BeatFraction.Quarter),
+    note(Note.C, BeatFraction.Quarter), note(Note.D, BeatFraction.Quarter), note(Note.E, BeatFraction.Quarter),
+    note(Note.E, BeatFraction.Quarter + BeatFraction.Eighth),
+    note(Note.D, BeatFraction.Eighth), note(Note.D, BeatFraction.Half),
+    note(Note.E, BeatFraction.Quarter), note(Note.E, BeatFraction.Quarter), note(Note.F, BeatFraction.Quarter),
+    note(Note.G, BeatFraction.Quarter), note(Note.G, BeatFraction.Quarter), note(Note.F, BeatFraction.Quarter),
+    note(Note.E, BeatFraction.Quarter), note(Note.D, BeatFraction.Quarter), note(Note.C, BeatFraction.Quarter),
+    note(Note.C, BeatFraction.Quarter), note(Note.D, BeatFraction.Quarter), note(Note.E, BeatFraction.Quarter),
+    note(Note.D, BeatFraction.Quarter + BeatFraction.Eighth),
+    note(Note.C, BeatFraction.Eighth), note(Note.C, BeatFraction.Half),
+    note(Note.D, BeatFraction.Quarter), note(Note.D, BeatFraction.Quarter), note(Note.E, BeatFraction.Quarter),
+    note(Note.C, BeatFraction.Quarter), note(Note.D, BeatFraction.Quarter),
+    note(Note.E, BeatFraction.Eighth), note(Note.F, BeatFraction.Eighth),
+    note(Note.E, BeatFraction.Quarter), note(Note.C, BeatFraction.Quarter), note(Note.D, BeatFraction.Quarter),
+    note(Note.E, BeatFraction.Eighth), note(Note.F, BeatFraction.Eighth),
+    note(Note.E, BeatFraction.Quarter), note(Note.D, BeatFraction.Quarter), note(Note.C, BeatFraction.Quarter),
+    note(Note.D, BeatFraction.Quarter), note(Note.G3, BeatFraction.Quarter), note(Note.E, BeatFraction.Half),
+    note(Note.E, BeatFraction.Quarter), note(Note.F, BeatFraction.Quarter), note(Note.G, BeatFraction.Quarter),
+    note(Note.G, BeatFraction.Quarter), note(Note.F, BeatFraction.Quarter), note(Note.E, BeatFraction.Quarter),
+    note(Note.E, BeatFraction.Eighth), note(Note.F, BeatFraction.Eighth),
+    note(Note.C, BeatFraction.Quarter), note(Note.C, BeatFraction.Quarter), note(Note.D, BeatFraction.Quarter),
+    note(Note.E, BeatFraction.Quarter), note(Note.D, BeatFraction.Quarter + BeatFraction.Eighth),
+    note(Note.C, BeatFraction.Eighth), note(Note.C, BeatFraction.Half)
 ];
 
-for (let note of notes) {
-    music.playTone(note, 100);
+let whole = music.beat(BeatFraction.Whole);
+for (var t = 0; t < notes.length; t++) {
+    serial.writeNumber(notes[t][0]);
+    serial.writeNumber(notes[t][1]);
+    serial.writeLine("\r\n");
+    music.playTone(notes[t][0], notes[t][1]);
+    basic.pause(whole - notes[t][1]);
 }
+
+/*music.playTone(Note.A, 2000);
+music.playTone(Note.C, 2000);
+music.playTone(Note.F, 2000);
+
+music.playTone(Note.A, 100);
+music.playTone(1000, 100);
+music.playTone(3000, 100);
 
 basic.setLedColor(Colors.Blue);
 basic.pause(500);
@@ -325,3 +99,4 @@ input.onPinPressed(TouchPin.P2, () => {
 input.onPinPressed(TouchPin.P3, () => {
     basic.showNumber(3);
 });
+*/
