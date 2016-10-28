@@ -351,8 +351,6 @@
         ],
         "invertedMenu": true,
         "invertedToolbox": true,
-        "blocklyOptions": {
-            "trashcan": true
-        }
+        "blocklyOptions": { }
     }
 }
