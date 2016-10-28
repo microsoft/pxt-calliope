@@ -32,9 +32,8 @@
     &:extend(.yellow all);
 }
 
-/* This removes the margin between the blockly categories to form connected pills */
+
 .blocklyTreeRow {
-    width: 230px;
     border-radius:5px;
 }
 
@@ -53,7 +52,7 @@
 }
 
 .blocklyFlyoutBackground {
-    fill: #FDFDE2;
+    fill: @grey;
 }
 
 .blocklyToolboxDiv {
@@ -61,12 +60,32 @@
     padding:7px;
 }
 
+
+/* Mobile */
 @media only screen and (max-width: @largestMobileScreen) {
     .blocklyTreeLabel {
         font-size: 0.5rem !important;
     }
 }
 
+/* Tablet */
+@media only screen and (min-width: @tabletBreakpoint) and (max-width: @largestTabletScreen) {
+
+}
+
+/* Small Monitor */
+@media only screen and (min-width: @computerBreakpoint) and (max-width: @largestSmallMonitor) {
+    .blocklyTreeRow {
+        width: 230px;
+    }
+}
+
+/* Large Monitor */
+@media only screen and (min-width: @largeMonitorBreakpoint) {
+    .blocklyTreeRow {
+        width: 230px;
+    }
+}
 
 /*******************************
              Menu Bar
