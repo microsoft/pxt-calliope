@@ -352,7 +352,6 @@
         "invertedMenu": true,
         "invertedToolbox": true,
         "blocklyOptions": {
-            "media": "./static/blockly/media/",
             "trashcan": true
         }
     }
