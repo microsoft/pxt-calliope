@@ -1,7 +1,17 @@
 /*******************************
      User Global Variables
 *******************************/
-@importGoogleFonts: false;
+
+@importGoogleFonts: true;
+
+@fontName  : 'Roboto Mono';
+
+@emSize      : 14px;
+@fontSize    : 13px;
+
+/*-------------------
+    Site Colors
+--------------------*/
 
 @primaryColor: #3CB5B5;
 @secondaryColor: #43C9C9;
@@ -18,9 +28,11 @@
 @brown:#6B5B4C;
 @grey:#42495F;
 
+@pageBackground      : #FDFDFA;
+
+
 /*******************************
          PXT Overrides
 *******************************/
 
-@backgroundColor: #FDFDFA;
 @blocklyToolboxColor: #F6F4E6;
