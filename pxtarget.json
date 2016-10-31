@@ -259,33 +259,7 @@
             }
         ],
         "boardName": "Calliope MINI",
-        "docMenu": [
-            {
-                "name": "Getting Started",
-                "path": "/getting-started"
-            },
-            {
-                "name": "Projects",
-                "path": "/projects"
-            },
-            {
-                "name": "Reference",
-                "path": "/reference"
-            },
-            {
-                "name": "Blocks",
-                "path": "/blocks"
-            },
-            {
-                "name": "JavaScript",
-                "path": "/javascript"
-            },
-            {
-                "name": "Hardware",
-                "path": "/device"
-            }
-        ],        
-        "sideDoc": "getting-started",
+        "hideSideDocs": true,
         "usbDocs": "/device/usb",
         "usbHelp": [
             {
