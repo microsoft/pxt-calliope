@@ -16,7 +16,7 @@ declare namespace radio {
     /**
      * Broadcasts a name / value pair along with the device serial number
      * and running time to any connected micro:bit in the group.
-     * @param name the field name (max 12 characters), eg: "data"
+     * @param name the field name (max 12 characters), eg: "name"
      * @param value the numberic value
      */
     //% help=radio/send-value
@@ -40,8 +40,18 @@ declare namespace radio {
     //% help=radio/write-value-to-serial
     //% weight=3
     //% blockId=radio_write_value_serial block="radio write value to serial"
-    //% advanced=true shim=radio::writeValueToSerial
+    //% deprecated=true shim=radio::writeValueToSerial
     function writeValueToSerial(): void;
+
+    /**
+     * Writes the last received packet to serial as JSON. This should be called
+     * within an ``onDataPacketReceived`` callback.
+     */
+    //% help=radio/write-received-packet-to-serial
+    //% weight=3
+    //% blockId=radio_write_packet_serial block="radio write received packet to serial"
+    //% advanced=true shim=radio::writeReceivedPacketToSerial
+    function writeReceivedPacketToSerial(): void;
 
     /**
      * Reads the next packet from the radio queue and returns the packet's number
@@ -50,7 +60,7 @@ declare namespace radio {
     //% help=radio/receive-number
     //% weight=46
     //% blockId=radio_datagram_receive block="radio receive number" blockGap=8
-    //% advanced=true shim=radio::receiveNumber
+    //% deprecated=true shim=radio::receiveNumber
     function receiveNumber(): number;
 
     /**
@@ -59,7 +69,7 @@ declare namespace radio {
     //% help=radio/on-data-received
     //% weight=50
     //% blockId=radio_datagram_received_event block="radio on data received" blockGap=8
-    //% advanced=true shim=radio::onDataReceived
+    //% deprecated=true shim=radio::onDataReceived
     function onDataReceived(body: () => void): void;
 
     /**
@@ -69,7 +79,7 @@ declare namespace radio {
     //% blockId=radio_datagram_receive_string block="radio receive string" blockGap=8
     //% weight=44
     //% help=radio/receive-string
-    //% advanced=true shim=radio::receiveString
+    //% deprecated=true shim=radio::receiveString
     function receiveString(): string;
 
     /**
@@ -80,7 +90,7 @@ declare namespace radio {
     //% help=radio/received-signal-strength
     //% weight=40
     //% blockId=radio_datagram_rssi block="radio received signal strength"
-    //% advanced=true shim=radio::receivedSignalStrength
+    //% deprecated=true shim=radio::receivedSignalStrength
     function receivedSignalStrength(): number;
 
     /**
