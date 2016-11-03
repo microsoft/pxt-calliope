@@ -240,6 +240,24 @@ declare namespace control {
     }
 declare namespace led {
 }
+
+
+    declare enum MotorCommand {
+    //% block=coast
+    Coast = 0,
+    //% block=break
+    Break = 1,
+    //% block=sleep
+    Sleep = 2,
+    }
+
+
+    declare enum Motor {
+    A = 0,
+    B = 1,
+    //% block="A and B"
+    AB = 2,
+    }
 declare namespace motors {
 }
 

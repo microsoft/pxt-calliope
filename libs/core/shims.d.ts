@@ -517,12 +517,26 @@ declare namespace led {
 declare namespace motors {
 
     /**
-     * Controls the power sent to a single motor
+     * Turns on the motor at a certain percent of power.
      * @param power %percent of power sent to the motor. Negative power goes backward. eg: 50
      */
-    //% blockId=motor_on block="motor on at %percent|%"
-    //% parts=dcmotor shim=motors::motorOn
-    function motorOn(power: number): void;
+    //% blockId=motor_on block="motor on at %percent"
+    //% parts=dcmotor weight=90 blockGap=8 shim=motors::motorPower
+    function motorPower(power: number): void;
+
+    /**
+     * Send break, coast or sleep commands to the motor
+     */
+    //% blockId=motor_command block="motor %command"
+    //% parts=dcmotor weight=85 shim=motors::motorCommand
+    function motorCommand(command: MotorCommand): void;
+
+    /**
+     * Controls two motors attached to the board.
+     */
+    //% blockId=block_dual_motor block="motor %motor|at %percent"
+    //% weight=80 shim=motors::dualMotorPower
+    function dualMotorPower(motor: Motor, duty_percent: number): void;
 }
 declare namespace music {
 
