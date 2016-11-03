@@ -1,5 +1,6 @@
 {
   "radio": "Communicate data using radio packets",
+  "radio.onDataPacketReceived": "Registers code to run when the radio receives a packet. Also takes the\nreceived packet from the radio queue.",
   "radio.onDataReceived": "Registers code to run when a packet is received over radio.",
   "radio.receiveNumber": "Reads the next packet from the radio queue and returns the packet's number\npayload or 0 if the packet did not contain a number.",
   "radio.receiveString": "Reads the next packet from the radio queue and returns the packet's string\npayload or the empty string if the packet did not contain a string.",
