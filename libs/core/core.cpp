@@ -209,6 +209,12 @@ namespace pxt {
     return bytecode[17] * 2;
   }
 
+#ifndef PAGE_SIZE
+
+#define PAGE_SIZE 1
+
+#endif
+
   //%
   uint32_t afterProgramPage() {
     uint32_t ptr = (uint32_t)&bytecode[0];
