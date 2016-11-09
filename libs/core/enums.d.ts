@@ -37,7 +37,7 @@ declare namespace basic {
     P0 = 7,  // MICROBIT_ID_IO_P0
     P1 = 8,  // MICROBIT_ID_IO_P1
     P2 = 9,  // MICROBIT_ID_IO_P2
-    P3 = 33,  // CALLIOPE_ID_IO_P3
+    P3 = 40,  // CALLIOPE_ID_IO_P22
     }
 
 
@@ -282,6 +282,9 @@ declare namespace motors {
     //P16 = MICROBIT_ID_IO_P16,
     P19 = 24,  // MICROBIT_ID_IO_P19
     P20 = 25,  // MICROBIT_ID_IO_P20
+    P28 = 41,  // CALLIOPE_ID_IO_P28
+    P29 = 42,  // CALLIOPE_ID_IO_P29
+    P30 = 43,  // CALLIOPE_ID_IO_P30
     }
 
 
@@ -292,6 +295,8 @@ declare namespace motors {
     P3 = 10,  // MICROBIT_ID_IO_P3
     P4 = 11,  // MICROBIT_ID_IO_P4
     P10 = 17,  // MICROBIT_ID_IO_P10
+    P29 = 42,  // CALLIOPE_ID_IO_P29
+    P30 = 43,  // CALLIOPE_ID_IO_P30
     }
 
 

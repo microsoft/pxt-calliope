@@ -51,17 +51,17 @@ namespace motors {
     //% weight=80
     void dualMotorPower(Motor motor, int duty_percent) {
         switch(motor) {
-            case Motor::A: if (duty_percent <= 0) uBit.soundmotor.MotorA_Off(); 
+            case Motor::A: if (duty_percent <= 0) uBit.soundmotor.MotorA_Off();
             else uBit.soundmotor.MotorA_On(duty_percent); break;
-            case Motor::B: if (duty_percent <= 0) uBit.soundmotor.MotorB_Off(); 
+            case Motor::B: if (duty_percent <= 0) uBit.soundmotor.MotorB_Off();
             else uBit.soundmotor.MotorB_On(duty_percent); break;
             case Motor::AB: if (duty_percent <= 0) {
                 uBit.soundmotor.MotorA_Off();
                 uBit.soundmotor.MotorB_Off();
             } else {
-                uBit.soundmotor.MotorA_On(duty_percent); 
-                uBit.soundmotor.MotorB_On(duty_percent); 
-            } 
+                uBit.soundmotor.MotorA_On(duty_percent);
+                uBit.soundmotor.MotorB_On(duty_percent);
+            }
             break;
         }
     }

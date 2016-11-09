@@ -167,7 +167,7 @@ namespace music {
         let beat = 60000 / beatsPerMinute;
         if (fraction == BeatFraction.Whole) return beat;
         else if (fraction == BeatFraction.Half) return beat / 2;
-        else if (fraction == BeatFraction.Quarter) return beat / 4
+        else if (fraction == BeatFraction.Quarter) return beat / 4;
         else if (fraction == BeatFraction.Eighth) return beat / 8;
         else return beat / 16;
     }

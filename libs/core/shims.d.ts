@@ -559,6 +559,18 @@ declare namespace music {
     //% parts="speaker" shim=music::ringTone
     function ringTone(frequency: number): void;
 }
+declare namespace music {
+
+    /**
+     * Plays a tone through ``speaker`` for the given duration.
+     * @param frequency pitch of the tone to play in Hertz (Hz)
+     * @param ms tone duration in milliseconds (ms)
+     */
+    //% help=music/play-tone weight=90
+    //% blockId=device_play_note block="play|tone %note=device_note|for %duration=device_beat" icon="\uf025" blockGap=8
+    //% parts="speaker" shim=music::playTone
+    function playTone(freqency: number, ms: number): void;
+}
 declare namespace pins {
 
     /**
