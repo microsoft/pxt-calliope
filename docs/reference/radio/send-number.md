@@ -1,6 +1,6 @@
 # Send Number
 
-Broadcast a [number](/reference/types/number) to other micro:bits connected via ``radio``.
+Broadcast a [number](/reference/types/number) to other @boardname@s connected via ``radio``.
 
 ```sig
 radio.sendNumber(0);
@@ -10,14 +10,11 @@ radio.sendNumber(0);
 
 * ``value`` - a [number](/reference/types/number) to send.
 
-### Simulator
-
-This function only works on the micro:bit, not in browsers.
 
 ### Example: Broadcasting acceleration
 
-This example broadcasts the value of your micro:bit's ``acceleration``
-in the `x` direction (left and right) to other micro:bits.  This kind
+This example broadcasts the value of your @boardname@'s ``acceleration``
+in the `x` direction (left and right) to other @boardname@s.  This kind
 of program might be useful in a model car or model rocket.
 
 ```blocks
@@ -30,7 +27,7 @@ input.onButtonPressed(Button.A, () => {
 
 This example broadcasts the level of the light around it.
 You can do some interesting things with it if you use it along with the
-[Mailbot](/reference/radio/receive-number) example.
+[on data packet received](/reference/radio/on-data-packet-received) example.
 
 ```blocks
 radio.setGroup(99)
@@ -42,7 +39,7 @@ basic.forever(() => {
 
 ### See also
 
-[receive number](/reference/radio/receive-number), [on data received](/reference/radio/on-data-received)
+[on data packet received](/reference/radio/on-data-packet-received)
 
 ```package
 radio

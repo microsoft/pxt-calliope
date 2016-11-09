@@ -1,6 +1,8 @@
 # Receive Number
 
-Receives the next number sent by a micro:bit in the same ``radio`` group.
+> Note: This API has been deprecated! Use [on data packet received](/reference/radio/on-data-packet-received) instead.
+
+Receives the next number sent by a @boardname@ in the same ``radio`` group.
 
 ```sig
 radio.receiveNumber();
@@ -8,15 +10,11 @@ radio.receiveNumber();
 
 ### Returns
 
-* the first  [number](/reference/types/number) that the micro:bit received. If it did not receive any numbers, this function will return `0`.
-
-### Simulator
-
-This function only works on the micro:bit, not in browsers.
+* the first  [number](/reference/types/number) that the @boardname@ received. If it did not receive any numbers, this function will return `0`.
 
 ### Example: Simple number receiver
 
-This example receives the number broadcasted another micro:bit and shows it
+This example receives the number broadcasted another @boardname@ and shows it
 as a bar graph.
 
 ```blocks
@@ -25,7 +23,7 @@ radio.onDataReceived(() => {
 })
 ```
 
-### Example: Light level receiver 
+### Example: Light level receiver
 
 This example shows the light level from the [light level sender example](/reference/radio/send-number)
 as a number.
