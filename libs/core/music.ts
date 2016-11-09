@@ -130,37 +130,6 @@ namespace music {
     let beatsPerMinute: number = 120;
 
     /**
-     * Plays a tone through ``speaker`` for the given duration.
-     * @param frequency pitch of the tone to play in Hertz (Hz)
-     * @param ms tone duration in milliseconds (ms)
-     */
-    // //% help=music/play-tone weight=90
-    // //% blockId=device_play_note block="play|tone %note=device_note|for %duration=device_beat" icon="\uf025" blockGap=8
-    // //% parts="speaker"
-    // export function playTone(frequency: number, ms: number): void {
-    //     // TODO check timing
-    //     pins.digitalWritePin(DigitalPin.P28, 1); // switch on the motor driver
-    //     pins.analogSetPitchPin(AnalogPin.P29);
-    //     pins.analogPitch(frequency, ms);
-    //     pins.digitalWritePin(DigitalPin.P28, 0); // switch off the motor driver
-    // }
-
-    /**
-     * Plays a tone through ``speaker``.
-     * @param frequency pitch of the tone to play in Hertz (Hz)
-     */
-    //% help=music/ring-tone weight=80
-    //% blockId=device_ring block="ring tone (Hz)|%note=device_note" icon="\uf025" blockGap=8
-    //% parts="speaker"
-    // export function ringTone(frequency: number): void {
-    //     // TODO check timing
-    //     pins.digitalWritePin(DigitalPin.P28, 1); // switch on the motor driver
-    //     pins.analogSetPitchPin(AnalogPin.P29);
-    //     pins.analogPitch(frequency, 0);
-    //     pins.digitalWritePin(DigitalPin.P28, 0); // switch off the motor driver
-    // }
-
-    /**
      * Rests (plays nothing) for a specified time through pin ``P0``.
      * @param ms rest duration in milliseconds (ms)
      */
