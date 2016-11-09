@@ -35,5 +35,8 @@
          PXT Overrides
 *******************************/
 
+@mainMenuHeight: 5rem;
+@mobileMenuHeight: 5rem;
+
 @blocklyToolboxColor: #F6F4E6;
 

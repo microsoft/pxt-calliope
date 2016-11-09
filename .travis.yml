@@ -4,7 +4,6 @@ node_js:
 script:
   - "node node_modules/pxt-core/built/pxt.js travis"  
   - "node node_modules/pxt-core/built/pxt.js testdir tests"
-  - "node node_modules/pxt-core/built/pxt.js uploaddoc"
 sudo: false
 notifications:
   email:
