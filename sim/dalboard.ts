@@ -16,12 +16,14 @@ namespace pxsim {
         neopixelState: NeoPixelState;
         rgbLedState: number;
         speakerState: SpeakerState;
-        microServoState: MicroServoState;
+        servosState: MicroServosState;
+        fileSystem: FileSystemState;
 
         constructor() {
             super()
 
             // components
+            this.fileSystem = new FileSystemState();
             this.builtinParts["ledmatrix"] = this.ledMatrixState = new LedMatrixState(runtime);
             this.builtinParts["buttonpair"] = this.buttonPairState = new ButtonPairState({
                 ID_BUTTON_A: DAL.MICROBIT_ID_BUTTON_A,
@@ -63,7 +65,12 @@ namespace pxsim {
             this.builtinParts["compass"] = this.compassState = new CompassState();
             this.builtinParts["neopixel"] = this.neopixelState = new NeoPixelState();
             this.builtinParts["speaker"] = this.speakerState = new SpeakerState();
-            this.builtinParts["microservo"] = this.microServoState = new MicroServoState();
+            this.builtinParts["microservo"] = this.servosState = new MicroServosState({
+                "P0": DAL.MICROBIT_ID_IO_P0,
+                "P1": DAL.MICROBIT_ID_IO_P1,
+                "P2": DAL.MICROBIT_ID_IO_P2,
+                "P3": DAL.MICROBIT_ID_IO_P3
+            });
 
             this.builtinVisuals["buttonpair"] = () => new visuals.ButtonPairView();
             this.builtinVisuals["ledmatrix"] = () => new visuals.LedMatrixView();

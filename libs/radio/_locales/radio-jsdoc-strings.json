@@ -12,12 +12,13 @@
   "radio.sendNumber": "Broadcasts a number over radio to any connected micro:bit in the group.",
   "radio.sendString": "Broadcasts a string along with the device serial number\nand running time to any connected micro:bit in the group.",
   "radio.sendValue": "Broadcasts a name / value pair along with the device serial number\nand running time to any connected micro:bit in the group.",
-  "radio.sendValue|param|name": "the field name (max 12 characters), eg: \"data\"",
+  "radio.sendValue|param|name": "the field name (max 12 characters), eg: \"name\"",
   "radio.sendValue|param|value": "the numberic value",
   "radio.setGroup": "Sets the group id for radio communications. A micro:bit can only listen to one group ID at any time.\n@ param id the group id between ``0`` and ``255``, 1 eg",
   "radio.setTransmitPower": "Change the output power level of the transmitter to the given value.",
   "radio.setTransmitPower|param|power": "a value in the range 0..7, where 0 is the lowest power and 7 is the highest. eg: 7",
   "radio.setTransmitSerialNumber": "Set the radio to transmit the serial number in each message.",
   "radio.setTransmitSerialNumber|param|transmit": "value indicating if the serial number is transmitted, eg: true",
+  "radio.writeReceivedPacketToSerial": "Writes the last received packet to serial as JSON. This should be called\nwithin an ``onDataPacketReceived`` callback.",
   "radio.writeValueToSerial": "Reads the next packet from the radio queue and and writes it to serial\nas JSON."
 }
