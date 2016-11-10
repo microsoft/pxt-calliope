@@ -199,8 +199,9 @@ namespace pxsim {
             if (force < sq(DAL.MICROBIT_ACCELEROMETER_FREEFALL_TOLERANCE))
                 return DAL.MICROBIT_ACCELEROMETER_EVT_FREEFALL;
 
-            if (force > sq(DAL.MICROBIT_ACCELEROMETER_3G_TOLERANCE))
-                return DAL.MICROBIT_ACCELEROMETER_EVT_3G;
+            // TODO: fix this
+            //if (force > sq(DAL.MICROBIT_ACCELEROMETER_3G_TOLERANCE))
+            //    return DAL.MICROBIT_ACCELEROMETER_EVT_3G;
 
             if (force > sq(DAL.MICROBIT_ACCELEROMETER_6G_TOLERANCE))
                 return DAL.MICROBIT_ACCELEROMETER_EVT_6G;

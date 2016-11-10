@@ -185,7 +185,7 @@
             "pinDistance": 65,
             "pinLocations": [
                 {"x": 89, "y": 48},
-                {"x": 395, "y": 48}            ]
+                {"x": 393, "y": 48}            ]
         },
         "pinDefinitions": [
             { "target": "M_OUT1", "style": "croc", "orientation": "-Z"},

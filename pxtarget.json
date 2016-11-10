@@ -60,7 +60,7 @@
         "autoRun": true,
         "streams": true,
         "aspectRatio": 1.13,
-        "parts": true,
+        "parts": false,
         "partsAspectRatio": 0.69,
         "boardDefinition": {
             "visual": "calliope",
