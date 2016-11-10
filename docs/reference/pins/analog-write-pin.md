@@ -4,7 +4,7 @@ Write an **analog** signal (`0` through `1023`) to the
 [pin](/device/pins) you say.
 
 ```sig
-pins.analogWritePin(AnalogPin.P0, 400)
+pins.analogWritePin(AnalogPin.P1, 400)
 ```
 
 ### Parameters
@@ -17,7 +17,7 @@ pins.analogWritePin(AnalogPin.P0, 400)
 This program writes `1023` to pin `P0`.
 
 ```blocks
-pins.analogWritePin(AnalogPin.P0, 1023)
+pins.analogWritePin(AnalogPin.P1, 1023)
 ```
 
 #### ~hint

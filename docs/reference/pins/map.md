@@ -28,7 +28,7 @@ This example maps the value read from the analog pin `P0` to an LED
 coordinate between `0` and `4`.
 
 ```blocks
-let value1 = pins.analogReadPin(AnalogPin.P0)
+let value1 = pins.analogReadPin(AnalogPin.P1)
 let index = pins.map(value1, 0, 1023, 0, 4)
 led.plot(0, index)
 ```

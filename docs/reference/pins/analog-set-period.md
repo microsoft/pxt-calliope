@@ -5,7 +5,7 @@ analog [pin](/device/pins).
 Before you call this function, you should set the specified pin as analog.
 
 ```sig
-pins.analogSetPeriod(AnalogPin.P0, 20000)
+pins.analogSetPeriod(AnalogPin.P1, 20000)
 ```
 
 ### Parameters
@@ -17,8 +17,8 @@ The following code first sets `P0` to analog with **analog write
 pin**, and then sets the PWM period of `P0` to 20,000 microseconds.
 
 ```blocks
-pins.analogWritePin(AnalogPin.P0, 512)
-pins.analogSetPeriod(AnalogPin.P0, 20000)
+pins.analogWritePin(AnalogPin.P1, 512)
+pins.analogSetPeriod(AnalogPin.P1, 20000)
 ```
 
 ### See also

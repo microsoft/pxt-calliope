@@ -17,7 +17,7 @@ pins.servoSetPulse(AnalogPin.P1, 1500)
 The following code sets the servo pulse to `1000` microseconds.
 
 ```blocks
-pins.servoSetPulse(AnalogPin.P0, 1000)
+pins.servoSetPulse(AnalogPin.P1, 1000)
 ```
 
 ### See also

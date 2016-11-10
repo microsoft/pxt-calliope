@@ -3,7 +3,7 @@
 Specify which [pin](/device/pins) (P0, P1, P2) is used to generate tones.
 
 ```sig
-pins.analogSetPitchPin(AnalogPin.P0)
+pins.analogSetPitchPin(AnalogPin.P1)
 ```
 
 ### Parameters
@@ -13,7 +13,7 @@ pins.analogSetPitchPin(AnalogPin.P0)
 ### Example
 
 ```blocks
-pins.analogSetPitchPin(AnalogPin.P0)
+pins.analogSetPitchPin(AnalogPin.P1)
 let frequency = 440
 let duration = 1000
 pins.analogPitch(frequency, duration)

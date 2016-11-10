@@ -4,7 +4,7 @@ Read an **analog** signal (`0` through `1023`) from the
 [pin](/device/pins) you say.
 
 ```sig
-pins.analogReadPin(AnalogPin.P0)
+pins.analogReadPin(AnalogPin.P1)
 ```
 
 ### Parameters

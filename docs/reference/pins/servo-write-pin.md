@@ -9,7 +9,7 @@ full speed in one direction, `180` specifies full speed in the other,
 and approximately `90` specifies no movement.)
 
 ```sig
-pins.servoWritePin(AnalogPin.P0, 180)
+pins.servoWritePin(AnalogPin.P1, 180)
 ```
 
 ### Parameters
@@ -22,7 +22,7 @@ pins.servoWritePin(AnalogPin.P0, 180)
 #### Setting the shaft angle to midpoint on a servo
 
 ```blocks
-pins.servoWritePin(AnalogPin.P0, 90)
+pins.servoWritePin(AnalogPin.P1, 90)
 ```
 
 #### Controlling the shaft by using the tilt information of the accelerometer
@@ -32,14 +32,14 @@ basic.forever(() => {
     let millig = input.acceleration(Dimension.X)
     // map accelerometer readings to angle
     let angle = pins.map(millig, -1023, 1023, 0, 180)
-    pins.servoWritePin(AnalogPin.P0, angle)
+    pins.servoWritePin(AnalogPin.P1, angle)
 })
 ```
 
 #### Setting the full speed on a continuous servo
 
 ```blocks
-pins.servoWritePin(AnalogPin.P0, 0)
+pins.servoWritePin(AnalogPin.P1, 0)
 ```
 
 ### See also
