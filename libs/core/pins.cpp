@@ -1,39 +1,35 @@
 #include "ksbit.h"
 
 enum class DigitalPin {
-    P0 = MICROBIT_ID_IO_P0,
-    P1 = MICROBIT_ID_IO_P1,
-    P2 = MICROBIT_ID_IO_P2,
-    P3 = MICROBIT_ID_IO_P3,
-    P4 = MICROBIT_ID_IO_P4,
-    P5 = MICROBIT_ID_IO_P5,
-    P6 = MICROBIT_ID_IO_P6,
-    P7 = MICROBIT_ID_IO_P7,
-    //P8 = MICROBIT_ID_IO_P8,
-    P9 = MICROBIT_ID_IO_P9,
-    P10 = MICROBIT_ID_IO_P10,
-    P11 = MICROBIT_ID_IO_P11,
-    //P12 = MICROBIT_ID_IO_P12,
-    //P13 = MICROBIT_ID_IO_P13,
-    //P14 = MICROBIT_ID_IO_P14,
-    //P15 = MICROBIT_ID_IO_P15,
+    P0 = MICROBIT_ID_IO_P0,   // edge connector 0
+    P1 = MICROBIT_ID_IO_P1,   // edge connector 1
+    P2 = MICROBIT_ID_IO_P2,   // edge connector 2
+    P3 = CALLIOPE_ID_IO_P22,  // edge connector 3
+    C4 = MICROBIT_ID_IO_P3,   // LED matrix C1
+    C5 = MICROBIT_ID_IO_P4,   // LED matrix C2
+    C6 = MICROBIT_ID_IO_P10,  // LED matrix C3
+    C7 = CALLIOPE_ID_IO_P7,   // LED matrix C4
+    C8 = CALLIOPE_ID_IO_P8,   // LED matrix C5
+    C9 = CALLIOPE_ID_IO_P9,   // LED matrix C6
+    C10 = MICROBIT_ID_IO_P9,  // LED matrix C7
+    C11 = MICROBIT_ID_IO_P7,  // LED matrix C8
+    C12 = MICROBIT_ID_IO_P6,  // LED matrix C9
+    C13 = CALLIOPE_ID_IO_P13, // LED matrix R1
+    C14 = CALLIOPE_ID_IO_P14, // LED matrix R2
+    C15 = CALLIOPE_ID_IO_P15, // LED matrix R3
     //P16 = MICROBIT_ID_IO_P16,
-    P19 = MICROBIT_ID_IO_P19,
-    P20 = MICROBIT_ID_IO_P20,
-    P28 = CALLIOPE_ID_IO_P28,
-    P29 = CALLIOPE_ID_IO_P29,
-    P30 = CALLIOPE_ID_IO_P30
+    C19 = MICROBIT_ID_IO_P19, // SCL
+    C20 = MICROBIT_ID_IO_P20  // SDA
 };
 
 enum class AnalogPin {
-    P0 = MICROBIT_ID_IO_P0,
-    P1 = MICROBIT_ID_IO_P1,
-    P2 = MICROBIT_ID_IO_P2,
-    P3 = MICROBIT_ID_IO_P3,
-    P4 = MICROBIT_ID_IO_P4,
-    P10 = MICROBIT_ID_IO_P10,
-    P29 = CALLIOPE_ID_IO_P29,
-    P30 = CALLIOPE_ID_IO_P30
+    //P0 = MICROBIT_ID_IO_P0, -- does not work analogue
+    P1 = MICROBIT_ID_IO_P1,   // edge connector 1
+    P2 = MICROBIT_ID_IO_P2,   // edge connector 2
+    //P3 = CALLIOPE_ID_IO_P22, -- does not work analogue
+    C4 = MICROBIT_ID_IO_P3,
+    C5 = MICROBIT_ID_IO_P4,
+    C6 = MICROBIT_ID_IO_P10,
 };
 
 enum class PulseValue {
