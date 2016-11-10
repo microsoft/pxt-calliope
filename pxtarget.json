@@ -111,15 +111,14 @@
                 "C13": "C_P13",
                 "C14": "C_P14",
                 "C15": "C_P15",
-                "C16": "C_P16",
                 "C19": "C_P19",
                 "C20": "C_P20",
                 "EXT_PWR":"EXT_PWR", 
                 "SPKR":"EXT_PWR", 
                 "BTN_A": "BTN_A", 
                 "BTN_B": "BTN_B",
-                "M_OUT1": "M_OUT1", 
-                "M_OUT2": "M_OUT2"
+                "MOTOR1": "M_OUT1",
+                "MOTOR2": "M_OUT2"
             },
             "spiPins": {
                 "MOSI": "P15",
@@ -127,8 +126,8 @@
                 "SCK": "P13"
             },
             "i2cPins": {
-                "SDA": "C20",
-                "SCL": "C19"
+                "SDA": "C_P20",
+                "SCL": "C_P19"
             },
             "analogInPins": [
                 "P1",
