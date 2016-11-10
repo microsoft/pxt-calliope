@@ -4,6 +4,7 @@
 @import 'themes/default/globals/site.variables';
 @import 'themes/pxt/globals/site.variables';
 @import 'site/globals/site.variables';
+@import 'themes/default/collections/menu.variables';
 
 /* Reference import */
 @import (reference) "semantic.less";
@@ -42,6 +43,10 @@
 
 .blocklyTreeRow {
     border-radius:5px;
+}
+
+.blocklyTreeRow:hover {
+    background: @invertedBackground !important;
 }
 
 /* This removes any padding at the top of the toolbox */
