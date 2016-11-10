@@ -281,7 +281,7 @@ declare namespace motors {
     C15 = 39,  // CALLIOPE_ID_IO_P15
     //P16 = MICROBIT_ID_IO_P16,
     C19 = 24,  // MICROBIT_ID_IO_P19
-    P20 = 25,  // MICROBIT_ID_IO_P20
+    C20 = 25,  // MICROBIT_ID_IO_P20
     }
 
 
