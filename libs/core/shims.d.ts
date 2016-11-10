@@ -524,7 +524,7 @@ declare namespace led {
 declare namespace motors {
 
     /**
-     * Turns on the motor at a certain percent of power.
+     * Turns on the motor at a certain percent of power. Switches to single motor mode!
      * @param power %percent of power sent to the motor. Negative power goes backward. eg: 50
      */
     //% blockId=motor_on block="motor on at %percent"
@@ -532,14 +532,14 @@ declare namespace motors {
     function motorPower(power: number): void;
 
     /**
-     * Send break, coast or sleep commands to the motor
+     * Send break, coast or sleep commands to the motor. Has no effect in dual-motor mode.
      */
     //% blockId=motor_command block="motor %command"
     //% parts=dcmotor weight=85 shim=motors::motorCommand
     function motorCommand(command: MotorCommand): void;
 
     /**
-     * Controls two motors attached to the board.
+     * Controls two motors attached to the board. Switches to dual-motor mode!
      */
     //% blockId=block_dual_motor block="motor %motor|at %percent"
     //% weight=80 shim=motors::dualMotorPower
@@ -554,8 +554,8 @@ declare namespace music {
      */
     //% help=music/play-tone weight=90
     //% blockId=device_play_note block="play|tone %note=device_note|for %duration=device_beat" icon="\uf025" blockGap=8
-    //% parts="speaker" async shim=music::playTone
-    function playTone(frequency: number, ms: number): void;
+    //% parts="speaker" shim=music::playTone
+    function playTone(freqency: number, ms: number): void;
 
     /**
      * Plays a tone through ``speaker``.
@@ -565,18 +565,6 @@ declare namespace music {
     //% blockId=device_ring block="ring tone (Hz)|%note=device_note" icon="\uf025" blockGap=8
     //% parts="speaker" shim=music::ringTone
     function ringTone(frequency: number): void;
-}
-declare namespace music {
-
-    /**
-     * Plays a tone through ``speaker`` for the given duration.
-     * @param frequency pitch of the tone to play in Hertz (Hz)
-     * @param ms tone duration in milliseconds (ms)
-     */
-    //% help=music/play-tone weight=90
-    //% blockId=device_play_note block="play|tone %note=device_note|for %duration=device_beat" icon="\uf025" blockGap=8
-    //% parts="speaker" shim=music::playTone
-    function playTone(freqency: number, ms: number): void;
 }
 declare namespace pins {
 

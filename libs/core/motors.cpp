@@ -22,45 +22,45 @@ enum Motor {
 //% color=#008272 weight=30
 namespace motors {
     /**
-    * Turns on the motor at a certain percent of power.
+    * Turns on the motor at a certain percent of power. Switches to single motor mode!
     * @param power %percent of power sent to the motor. Negative power goes backward. eg: 50
     */
     //% blockId=motor_on block="motor on at %percent"
     //% parts=dcmotor weight=90 blockGap=8
     void motorPower(int power) {
-        uBit.soundmotor.Motor_On(power);
+        uBit.soundmotor.motorOn(power);
     }
 
     /**
-    * Send break, coast or sleep commands to the motor
+    * Send break, coast or sleep commands to the motor. Has no effect in dual-motor mode.
     */
     //% blockId=motor_command block="motor %command"
     //% parts=dcmotor weight=85
     void motorCommand(MotorCommand command) {
         switch(command) {
-            case MotorCommand::Coast: uBit.soundmotor.Motor_Coast();break;
-            case MotorCommand::Break: uBit.soundmotor.Motor_Break();break;
-            case MotorCommand::Sleep: uBit.soundmotor.Motor_Sleep();break;
+            case MotorCommand::Coast: uBit.soundmotor.motorCoast();break;
+            case MotorCommand::Break: uBit.soundmotor.motorBreak();break;
+            case MotorCommand::Sleep: uBit.soundmotor.motorSleep();break;
         }
     }
 
     /**
-    * Controls two motors attached to the board.
+    * Controls two motors attached to the board. Switches to dual-motor mode!
     */
     //% blockId=block_dual_motor block="motor %motor|at %percent"
     //% weight=80
     void dualMotorPower(Motor motor, int duty_percent) {
         switch(motor) {
-            case Motor::A: if (duty_percent <= 0) uBit.soundmotor.MotorA_Off();
-            else uBit.soundmotor.MotorA_On(duty_percent); break;
-            case Motor::B: if (duty_percent <= 0) uBit.soundmotor.MotorB_Off();
-            else uBit.soundmotor.MotorB_On(duty_percent); break;
+            case Motor::A: if (duty_percent <= 0) uBit.soundmotor.motorAOff();
+            else uBit.soundmotor.motorAOn(duty_percent); break;
+            case Motor::B: if (duty_percent <= 0) uBit.soundmotor.motorBOff();
+            else uBit.soundmotor.motorBOn(duty_percent); break;
             case Motor::AB: if (duty_percent <= 0) {
-                uBit.soundmotor.MotorA_Off();
-                uBit.soundmotor.MotorB_Off();
+                uBit.soundmotor.motorAOff();
+                uBit.soundmotor.motorBOff();
             } else {
-                uBit.soundmotor.MotorA_On(duty_percent);
-                uBit.soundmotor.MotorB_On(duty_percent);
+                uBit.soundmotor.motorAOn(duty_percent);
+                uBit.soundmotor.motorBOn(duty_percent);
             }
             break;
         }
