@@ -10,6 +10,7 @@
   "radio.setGroup|block": "radio set group %ID",
   "radio.setTransmitPower|block": "radio set transmit power %power",
   "radio.setTransmitSerialNumber|block": "radio set transmit serial number %transmit",
+  "radio.writeReceivedPacketToSerial|block": "radio write received packet to serial",
   "radio.writeValueToSerial|block": "radio write value to serial",
   "radio|block": "radio",
   "{id:category}Radio": "Radio"

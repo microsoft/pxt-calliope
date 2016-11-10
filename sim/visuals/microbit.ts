@@ -1335,12 +1335,19 @@ namespace pxsim.visuals {
                 svg.fill(this.buttons[index], btn.pressed ? (btn.virtual ? theme.virtualButtonDown : theme.buttonDown) : (btn.virtual ? theme.virtualButtonUp : theme.buttonUps[index]));
             });
 
-            let bw = state.ledMatrixState.displayMode == pxsim.DisplayMode.bw
-            let img = state.ledMatrixState.image;
-            this.leds.forEach((led, i) => {
-                let sel = (<SVGStylable><any>led)
-                sel.style.opacity = ((bw ? img.data[i] > 0 ? 255 : 0 : img.data[i]) / 255.0) + "";
-            })
+            if (state.ledMatrixState.disabled) {
+                this.leds.forEach((led, i) => {
+                    const sel = (<SVGStylable><any>led)
+                    sel.style.opacity = "0";
+                })
+            } else {
+                const bw = state.ledMatrixState.displayMode == pxsim.DisplayMode.bw
+                const img = state.ledMatrixState.image;
+                this.leds.forEach((led, i) => {
+                    const sel = (<SVGStylable><any>led)
+                    sel.style.opacity = ((bw ? img.data[i] > 0 ? 255 : 0 : img.data[i]) / 255.0) + "";
+                })
+            }
             this.updatePins();
             this.updateTilt();
             this.updateHeading();

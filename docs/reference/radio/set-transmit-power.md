@@ -1,6 +1,6 @@
 # Set Transmit Power
 
-Make the ``radio`` signal of the micro:bit stronger or weaker.
+Make the ``radio`` signal of the @boardname@ stronger or weaker.
 It can be as weak as `0` and as strong as `7`.
 
 The scientific name for the strength of the ``radio`` signal is
@@ -13,9 +13,9 @@ radio.setTransmitPower(7);
 ```
 
 ### Range
-   
-If your micro:bit is sending with a strength of `7`, and you are in
-an open area without many other computers around, the micro:bit signal
+
+If your @boardname@ is sending with a strength of `7`, and you are in
+an open area without many other computers around, the @boardname@ signal
 can reach as far as 70 meters (about 230 feet).
 
 ### Parameters
@@ -25,7 +25,7 @@ means how strong the signal is.
 
 ### Simulator
 
-This function only works on the micro:bit, not in browsers.
+This function only works on the @boardname@, not in browsers.
 
 ### Example
 
@@ -37,7 +37,10 @@ radio.setTransmitPower(7)
 
 ### See also
 
-[receive number](/reference/radio/receive-number), [send number](/reference/radio/send-number), [on data received](/reference/radio/on-data-received)
+[on data packet received](/reference/radio/on-data-packet-received),
+[send number](/reference/radio/send-number),
+[send value](/reference/radio/send-value),
+[send string](/reference/radio/send-string)
 
 ```package
 radio

@@ -1,6 +1,8 @@
 # Receive String
 
-Find the next string sent by `radio` from another micro:bit.
+> Note: This API has been deprecated! Use [on data packet received](/reference/radio/on-data-packet-received) instead.
+
+Find the next string sent by `radio` from another @boardname@.
 
 ```sig
 radio.receiveString()
@@ -11,13 +13,9 @@ radio.receiveString()
 * the first [string](/reference/types/string) that was sent. If no
   string was sent, then this function returns an empty (blank) string.
 
-### Simulator
-
-This function only works on the micro:bit, not in browsers.
-
 ### Example: Simple receiver
 
-Show the string sent by another micro:bit.
+Show the string sent by another @boardname@.
 
 ```blocks
 radio.onDataReceived(() => {
@@ -27,8 +25,8 @@ radio.onDataReceived(() => {
 
 ### Example: Two-way radio
 
-If you load this program onto two or more micro:bits, you can send a code word from one of them to the others by pressing button `A`.
-The other micro:bits will receive the code word and then show it.
+If you load this program onto two or more @boardname@s, you can send a code word from one of them to the others by pressing button `A`.
+The other @boardname@s will receive the code word and then show it.
 
 ```blocks
 input.onButtonPressed(Button.A, () => {

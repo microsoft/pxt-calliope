@@ -1,6 +1,7 @@
 # Send String
 
-Sends a string to other micro:bits in the area connected by radio.
+Sends a string to other @boardname@s in the area connected by radio. The
+maximum string length is 19 characters.
 
 ```sig
 radio.sendString("Hello!")
@@ -10,15 +11,12 @@ radio.sendString("Hello!")
 
 * `msg` is a [string](/reference/types/string) to send by radio.
 
-### Simulator
-
-This function only works on the micro:bit, not in browsers.
 
 ### Example: Two-way radio
 
-If you load this program onto two or more micro:bits, you can send a
+If you load this program onto two or more @boardname@s, you can send a
 code word from one of them to the others by pressing button `A`.  The
-other micro:bits will receive the code word and then show it.
+other @boardname@s will receive the code word and then show it.
 
 ```blocks
 input.onButtonPressed(Button.A, () => {
@@ -26,8 +24,8 @@ input.onButtonPressed(Button.A, () => {
     basic.showString("SENT");
 })
 
-radio.onDataReceived(() => {
-    basic.showString(radio.receiveString());
+radio.onDataPacketReceived(({ receivedString }) => {
+    basic.showString(receivedString);
 });
 ```
 
@@ -39,7 +37,7 @@ A radio that can both transmit and receive is called a _transceiver_.
 
 ### See also
 
-[receive string](/reference/radio/receive-string), [on data received](/reference/radio/on-data-received)
+[on data packet received](/reference/radio/on-data-packet-received)
 
 ```package
 radio

@@ -203,6 +203,25 @@ namespace pxt {
   void *ptrOfLiteral(int offset);
   //%
   int getNumGlobals();
+
+  //%
+  uint32_t programSize() {
+    return bytecode[17] * 2;
+  }
+
+#ifndef PAGE_SIZE
+
+#define PAGE_SIZE 1
+
+#endif
+
+  //%
+  uint32_t afterProgramPage() {
+    uint32_t ptr = (uint32_t)&bytecode[0];
+    ptr += programSize();
+    ptr = (ptr + (PAGE_SIZE - 1)) & ~(PAGE_SIZE - 1);
+    return ptr;
+  }
 }
 
 namespace pxtrt {

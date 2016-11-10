@@ -43,9 +43,6 @@ Learn how to create a guessing game with **global variables** `var str: "this is
 * **show string** : [read more...](/reference/basic/show-string)
 * **local variables** : [read more...](/reference/variables/var)
 * **assignment operator** : [read more...](/reference/variables/assign)
-* **on logo up** [read more...](/functions/on-logo-up)
-* **on screen down** [read more...](/functions/on-screen-down)
-* **on screen up** [read more...](/functions/on-screen-up)
 * **math random** : [read more...](/js/math)
 
 ## Resources
@@ -59,7 +56,7 @@ Learn how to create a guessing game with **global variables** `var str: "this is
 * learn how to show a string on the LED screen
 * learn how to create a local variable to store data so that you can use it later in your code
 * learn how to set and change the value of a local variable
-* learn how to register an event handler that executes whenever the LED screen is perpendicular to the ground and the BBC micro:bit logo is above the LED screen
+* learn how to register an event handler that executes whenever the LED screen is perpendicular to the ground and the @boardname@ logo is above the LED screen
 * learn how to register an event handler that executes whenever the LED screen is facing the floor
 * learn how to register an event handler that executes whenever the LED screen is facing the ceiling/sky
 * learn how to return a random number
