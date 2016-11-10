@@ -19,7 +19,7 @@ enum class DigitalPin {
     C15 = CALLIOPE_ID_IO_P15, // LED matrix R3
     //P16 = MICROBIT_ID_IO_P16,
     C19 = MICROBIT_ID_IO_P19, // SCL
-    C20 = MICROBIT_ID_IO_P20, // SDA
+    C20 = MICROBIT_ID_IO_P20  // SDA
 };
 
 enum class AnalogPin {

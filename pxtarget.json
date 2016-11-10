@@ -99,21 +99,21 @@
                 "P1": "EDGE_P1",
                 "P2": "EDGE_P2",
                 "P3": "EDGE_P3",
-                "P4": "C_P4",
-                "P5": "C_P5",
-                "P6": "C_P6",
-                "P7": "C_P7",
-                "P8": "C_P8",
-                "P9": "C_P9",
-                "P10": "C_P10",
-                "P11": "C_P11",
-                "P12": "C_P12",
-                "P13": "C_P13",
-                "P14": "C_P14",
-                "P15": "C_P15",
-                "P16": "C_P16",
-                "P19": "C_P19",
-                "P20": "C_P20",
+                "C4": "C_P4",
+                "C5": "C_P5",
+                "C6": "C_P6",
+                "C7": "C_P7",
+                "C8": "C_P8",
+                "C9": "C_P9",
+                "C10": "C_P10",
+                "C11": "C_P11",
+                "C12": "C_P12",
+                "C13": "C_P13",
+                "C14": "C_P14",
+                "C15": "C_P15",
+                "C16": "C_P16",
+                "C19": "C_P19",
+                "C20": "C_P20",
                 "EXT_PWR":"EXT_PWR", 
                 "SPKR":"EXT_PWR", 
                 "BTN_A": "BTN_A", 
@@ -127,15 +127,15 @@
                 "SCK": "P13"
             },
             "i2cPins": {
-                "SDA": "P20",
-                "SCL": "P19"
+                "SDA": "C20",
+                "SCL": "C19"
             },
             "analogInPins": [
-                "P0",
                 "P1",
                 "P2",
-                "P3",
-                "P10"
+                "C4",
+                "C5",
+                "C6"
             ],
             "groundPins": [
                 "EDGE_GND"
@@ -169,7 +169,7 @@
         "yottaTarget": "bbc-microbit-classic-gcc",
         "yottaCorePackage": "pxt-calliope-core",
         "githubCorePackage": "microsoft/pxt-calliope-core",
-        "gittag": "v0.5.13",
+        "gittag": "v0.5.14",
         "serviceId": "calliope"
     },
     "serial": {
