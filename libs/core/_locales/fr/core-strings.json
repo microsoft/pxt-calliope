@@ -1,46 +1,21 @@
 {
+  "LedSpriteProperty.Brightness|block": "luminosité",
   "Math.randomBoolean|block": "choisir au hasard vrai ou faux",
   "Math|block": "Maths",
-<<<<<<< HEAD
   "String.fromCharCode|block": "texte du code de charactère %code",
-=======
-  "String.charAt|block": "",
-  "String.compare|block": "",
-  "String.concat|block": "",
-  "String.fromCharCode|block": "texte du code de charactère %code",
-  "String.isEmpty|block": "",
-  "String.length|block": "",
-  "String.substr|block": "",
->>>>>>> microbit/master
   "String|block": "Texte",
   "basic.clearScreen|block": "effacer l’écran",
   "basic.forever|block": "toujours",
   "basic.pause|block": "pause (ms) %pause",
   "basic.showLeds|block": "montrer LEDs",
   "basic.showNumber|block": "montrer|nombre %number",
-  "basic.showString|block": "montrer|texte %text",
+  "basic.showString|block": "afficher|texte %text",
   "basic|block": "base",
-<<<<<<< HEAD
   "control.inBackground|block": "exécuter en arrière-plan",
-=======
-  "control.deviceName|block": "",
-  "control.deviceSerialNumber|block": "",
-  "control.eventSourceId|block": "",
-  "control.eventTimestamp|block": "",
-  "control.eventValueId|block": "",
-  "control.eventValue|block": "",
-  "control.inBackground|block": "exécuter en arrière-plan",
-  "control.onEvent|block": "",
-  "control.raiseEvent|block": "",
->>>>>>> microbit/master
   "control.reset|block": "remise à zéro",
   "control.waitMicros|block": "attendre (µs) %micros",
   "control|block": "contrôle",
   "game.addScore|block": "changer le score par|%points",
-<<<<<<< HEAD
-=======
-  "game.createSprite|block": "",
->>>>>>> microbit/master
   "game.gameOver|block": "fin du jeu",
   "game.score|block": "score",
   "game.startCountdown|block": "commencer compte à rebours|(ms) %duration",
@@ -82,32 +57,15 @@
   "music.tempo|block": "tempo (bpm)",
   "music|block": "musique",
   "pins.analogReadPin|block": "lire|la broche analogique %name",
-  "pins.analogSetPeriod|block": "",
-  "pins.analogWritePin|block": "",
   "pins.digitalReadPin|block": "lire en numérique|broche %name",
-<<<<<<< HEAD
-  "pins.digitalWritePin|block": "écrire en numérique|la broche %name|%value",
-=======
   "pins.digitalWritePin|block": "écrire en numérique|la broche %name|à %value",
->>>>>>> microbit/master
   "pins.i2cReadNumber|block": "i2c lire nombre|à l’adresse %address|de format %format=i2c_sizeof",
   "pins.i2cWriteNumber|block": "i2c écrire nombre|à l’adresse %address|avec value %value|de format %format=i2c_sizeof",
-  "pins.map|block": "",
   "pins.onPulsed|block": "lorsque|la broche %pin|est pulsée %pulse",
   "pins.pulseDuration|block": "durée de l’impulsion (µs)",
-<<<<<<< HEAD
-=======
-  "pins.pulseIn|block": "",
->>>>>>> microbit/master
-  "pins.servoSetPulse|block": "",
   "pins.servoWritePin|block": "servo écrire|broche %name|à %value",
-  "pins.setPull|block": "",
   "pins.spiWrite|block": "spi écrire %value",
   "pins|block": "broches",
-<<<<<<< HEAD
-=======
-  "serial.delimiters|block": "",
->>>>>>> microbit/master
   "serial.readLine|block": "série|lire ligne",
   "serial.readUntil|block": "série|lire jusque %delimiter=serial_delimiter_conv",
   "serial.redirect|block": "série|rediriger vers|TX %tx|RX %rx|au débit en baudes %rate",
@@ -125,11 +83,6 @@
   "{id:category}Math": "Maths",
   "{id:category}Music": "Musique",
   "{id:category}Pins": "Broches",
-<<<<<<< HEAD
-  "{id:category}Serial": "Communication Série"
-=======
   "{id:category}Serial": "Communication Série",
-  "{id:category}String": "Texte",
-  "{id:category}Text": ""
->>>>>>> microbit/master
+  "{id:category}String": "Texte"
 }
