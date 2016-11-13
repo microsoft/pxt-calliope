@@ -218,7 +218,7 @@
                 "path": "/browsers/windows"
             }
         ],
-        "boardName": "Calliope MINI",
+        "boardName": "Calliope mini",
         "hideSideDocs": true,
         "usbDocs": "/device/usb",
         "usbHelp": [

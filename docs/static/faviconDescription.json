@@ -33,7 +33,7 @@
 			"pictureAspect": "noChange",
 			"themeColor": "#ffffff",
 			"manifest": {
-				"name": "Calliope MINI",
+				"name": "Calliope mini",
 				"display": "standalone",
 				"orientation": "notSet",
 				"onConflict": "override",
