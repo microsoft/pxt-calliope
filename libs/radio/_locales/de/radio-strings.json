@@ -1,5 +1,5 @@
 {
-  "radio.onDataPacketReceived|block": "Wenn Datenpaket empfangen",
+  "radio.onDataPacketReceived|block": "wenn Datenpaket empfangen",
   "radio.onDataReceived|block": "Funk auf empfangenen Daten",
   "radio.receiveNumber|block": "empfange Nummer über Funk",
   "radio.receiveString|block": "empfange Zeichenfolge über Funk",
