@@ -5,7 +5,7 @@
   "radio.receiveString|block": "empfange Zeichenfolge über Funk",
   "radio.receivedSignalStrength|block": "über Funk empfangene Signalstärke",
   "radio.sendNumber|block": "sende Nummer %value über Funk",
-  "radio.sendString|block": "sende String %msg über Funk",
+  "radio.sendString|block": "sende Zeichenfolge %msg über Funk",
   "radio.sendValue|block": "schicke |Wert %name|= %value über Funk",
   "radio.setGroup|block": "setze Gruppe %ID über Funk",
   "radio.setTransmitPower|block": "setze Übertragungsstärke %power über Funk",
