@@ -121,9 +121,9 @@
                 "MOTOR2": "M_OUT2"
             },
             "spiPins": {
-                "MOSI": "P15",
-                "MISO": "P14",
-                "SCK": "P13"
+                "MOSI": "C_P15",
+                "MISO": "C_P14",
+                "SCK": "C_P13"
             },
             "i2cPins": {
                 "SDA": "C_P20",
