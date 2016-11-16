@@ -140,6 +140,16 @@ namespace music {
         playTone(0, ms);
     }
 
+    /**
+     * Plays a tone through ``speaker``.
+     * @param frequency pitch of the tone to play in Hertz (Hz)
+     */
+    //% help=music/ring-tone weight=80
+    //% blockId=device_ring block="ring tone (Hz)|%note=device_note" icon="\uf025" blockGap=8
+    //% parts="speaker" async
+    export function ringTone(frequency: number) {
+        playTone(frequency, 0);
+    }
 
     /**
      * Gets the frequency of a note.
