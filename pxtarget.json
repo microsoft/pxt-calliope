@@ -191,6 +191,9 @@
         "privacyUrl": "https://go.microsoft.com/fwlink/?LinkId=521839",
         "termsOfUseUrl": "https://go.microsoft.com/fwlink/?LinkID=206977",
         "githubUrl": "https://github.com/Microsoft/pxt-calliope",
+        "organization": "Microsoft",
+        "organizationUrl": "https://pxt.io/",
+        "organizationLogo": "./static/Microsoft-logo_rgb_c-gray.png",
         "browserSupport": [
             {
                 "name": "unsupported",
