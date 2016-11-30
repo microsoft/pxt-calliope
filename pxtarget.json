@@ -169,7 +169,7 @@
         "yottaCorePackage": "microbit",
         "githubCorePackage": "calliope-mini/microbit",
         "gittag": "v1.0.2-calliope",
-        "serviceId": "calliopemini"
+        "serviceId": "microbit"
     },
     "serial": {
         "manufacturerFilter": "^mbed$",
