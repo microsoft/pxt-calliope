@@ -62,6 +62,8 @@ namespace pxt {
   uint32_t *allocate(uint16_t sz);
   int templateHash();
   int programHash();
+  uint32_t programSize();
+  uint32_t afterProgramPage();    
   int getNumGlobals();
   RefRecord* mkClassInstance(int vtableOffset);
 
@@ -293,6 +295,11 @@ namespace pxt {
     RefRefLocal();
   };
 }
+
+using namespace pxt;
+MicroBitPin *getPin(int id);
+typedef ImageData* Image;
+typedef BufferData* Buffer;
 
 // The ARM Thumb generator in the JavaScript code is parsing
 // the hex file and looks for the magic numbers as present here.
