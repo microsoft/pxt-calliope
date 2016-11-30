@@ -288,6 +288,8 @@
         ],
         "invertedMenu": true,
         "invertedToolbox": true,
+        "simAnimationEnter": "rotate in",
+        "simAnimationExit": "rotate out",
         "blocklyOptions": { }
     }
 }
