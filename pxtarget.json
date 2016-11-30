@@ -166,10 +166,10 @@
     },
     "compileService": {
         "yottaTarget": "bbc-microbit-classic-gcc",
-        "yottaCorePackage": "pxt-calliope-core",
-        "githubCorePackage": "microsoft/pxt-calliope-core",
-        "gittag": "v0.5.16",
-        "serviceId": "calliope"
+        "yottaCorePackage": "microbit",
+        "githubCorePackage": "calliope-mini/microbit",
+        "gittag": "v1.0.2-calliope",
+        "serviceId": "microbit"
     },
     "serial": {
         "manufacturerFilter": "^mbed$",
