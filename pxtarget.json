@@ -194,6 +194,7 @@
         "organization": "Microsoft",
         "organizationUrl": "https://pxt.io/",
         "organizationLogo": "./static/Microsoft-logo_rgb_c-gray.png",
+        "organizationWideLogo": "./static/Microsoft-logo_rgb_c-white.png",
         "browserSupport": [
             {
                 "name": "unsupported",

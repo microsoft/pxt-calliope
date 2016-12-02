@@ -87,21 +87,32 @@
     padding:7px;
 }
 
+.organization {
+    top: 1.6em;
+}
 
 /* Mobile */
 @media only screen and (max-width: @largestMobileScreen) {
     .blocklyTreeLabel {
         font-size: 0.5rem !important;
     }
+    .organization {
+        top: auto;
+    }
 }
 
 /* Tablet */
 @media only screen and (min-width: @tabletBreakpoint) and (max-width: @largestTabletScreen) {
-
+    .organization {
+        top: auto;
+    }
 }
 
 /* Small Monitor */
 @media only screen and (min-width: @computerBreakpoint) and (max-width: @largestSmallMonitor) {
+    .organization {
+        top: auto;
+    }
     .blocklyTreeRow {
         width: 230px;
     }
