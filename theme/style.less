@@ -87,10 +87,13 @@
     padding:7px;
 }
 
-#blocklyAddPackage {
-    text-align: left;
+/* Blockly Toolbox Buttons */
+#blocklyToolboxButtons .blocklyAddPackageButton {
+    background-color: rgba(0, 0, 0, 0.3);
+    color: white;
 }
-#blocklyAddPackage button {
+
+#blocklyToolboxButtons .blocklyUndoButton {
     background-color: rgba(0, 0, 0, 0.3);
     color: white;
 }
@@ -124,12 +127,22 @@
     .blocklyTreeRow {
         width: 230px;
     }
+    /* Blockly Toolbox buttons */
+    #blocklyToolboxButtons {
+        margin-right: 1rem;
+        margin-left: 1rem;
+    }
 }
 
 /* Large Monitor */
 @media only screen and (min-width: @largeMonitorBreakpoint) {
     .blocklyTreeRow {
         width: 230px;
+    }
+    /* Blockly Toolbox buttons */
+    #blocklyToolboxButtons {
+        margin-right: 2rem;
+        margin-left: 2rem;
     }
 }
 
