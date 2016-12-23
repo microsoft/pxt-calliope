@@ -289,7 +289,7 @@
         ],
         "invertedMenu": true,
         "invertedToolbox": true,
-        "coloredToolbox": true,
+        "monacoToolbox": false,
         "simAnimationEnter": "rotate in",
         "simAnimationExit": "rotate out",
         "blocklyOptions": { 

@@ -1,5 +1,5 @@
 {
-  "bluetooth": "Support for additional Bluetooth services.",
+  "bluetooth": "Support for additional Bluetooth services.\n\nSupport for additional Bluetooth services.",
   "bluetooth.onBluetoothConnected": "Register code to run when the micro:bit is connected to over Bluetooth",
   "bluetooth.onBluetoothConnected|param|body": "Code to run when a Bluetooth connection is established",
   "bluetooth.onBluetoothDisconnected": "Register code to run when a bluetooth connection to the micro:bit is lost",
