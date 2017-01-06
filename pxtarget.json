@@ -54,7 +54,9 @@
         "mathBlocks": true,
         "loopsBlocks": true,
         "logicBlocks": true,
-        "variablesBlocks": true
+        "variablesBlocks": true,
+        "onStartColor": "#54C9C9",
+        "onStartNamespace": "basic"
     },
     "simulator": {
         "autoRun": true,
@@ -289,8 +291,16 @@
         ],
         "invertedMenu": true,
         "invertedToolbox": true,
+        "monacoToolbox": false,
         "simAnimationEnter": "rotate in",
         "simAnimationExit": "rotate out",
-        "blocklyOptions": { }
+        "blocklyOptions": { 
+            "grid": {
+                "spacing": 45,
+                "length": 7,
+                "colour": "rgba(189, 195, 199, 0.30)",
+                "snap": false
+            }
+        }
     }
 }
