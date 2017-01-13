@@ -21,12 +21,12 @@ namespace String_ {
 
     //%
     int compare(StringData *s, StringData *that) {
-        int compareResult = strcmp(s->data, that->data);
-        if (compareResult < 0)
-          return -1;
-        else if (compareResult > 0)
-          return 1;
-        return 0;
+      int compareResult = strcmp(s->data, that->data);
+      if (compareResult < 0)
+        return -1;
+      else if (compareResult > 0)
+        return 1;
+      return 0;
     }
 
     //%
