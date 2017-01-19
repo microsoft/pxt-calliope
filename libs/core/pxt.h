@@ -1,7 +1,7 @@
 #ifndef __PXT_H
 #define __PXT_H
 
-// #define DEBUG_MEMLEAKS 1
+//#define DEBUG_MEMLEAKS 1
 
 #pragma GCC diagnostic ignored "-Wunused-parameter"
 
@@ -63,7 +63,7 @@ namespace pxt {
   int templateHash();
   int programHash();
   uint32_t programSize();
-  uint32_t afterProgramPage();    
+  uint32_t afterProgramPage();     
   int getNumGlobals();
   RefRecord* mkClassInstance(int vtableOffset);
 
@@ -167,11 +167,49 @@ namespace pxt {
     }
   };
 
+  class Segment {
+  private:    
+      uint32_t* data;
+      uint16_t length;
+      uint16_t size;
+
+      static const uint16_t MaxSize = 0xFFFF;
+      static const uint32_t DefaultValue = 0x0;
+
+      static uint16_t growthFactor(uint16_t size);      
+      void growByMin(uint16_t minSize);
+      void growBy(uint16_t newSize);
+      void ensure(uint16_t newSize);
+
+  public:
+      Segment() : data (nullptr), length(0), size(0) {};
+
+      uint32_t get(uint32_t i);
+      void set(uint32_t i, uint32_t value);      
+
+      uint32_t getLength() { return length;};
+      void setLength(uint32_t newLength);
+
+      void push(uint32_t value);
+      uint32_t pop();
+
+      uint32_t remove(uint32_t i);
+      void insert(uint32_t i, uint32_t value);
+
+      bool isValidIndex(uint32_t i);
+
+      void destroy();
+
+      void print();
+  };
+
   // A ref-counted collection of either primitive or ref-counted objects (String, Image,
   // user-defined record, another collection)
   class RefCollection
     : public RefObject
   {
+  private:
+    Segment head;
   public:
     // 1 - collection of refs (need decr)
     // 2 - collection of strings (in fact we always have 3, never 2 alone)
@@ -179,23 +217,23 @@ namespace pxt {
     inline bool isRef() { return getFlags() & 1; }
     inline bool isString() { return getFlags() & 2; }
 
-    std::vector<uint32_t> data;
-
     RefCollection(uint16_t f);
-
-    inline bool in_range(int x) {
-      return (0 <= x && x < (int)data.size());
-    }
-
-    inline int length() { return data.size(); }
 
     void destroy();
     void print();
 
+    uint32_t length() { return head.getLength();}
+    void setLength(uint32_t newLength) { head.setLength(newLength); }
+
     void push(uint32_t x);
-    uint32_t getAt(int x);
-    void removeAt(int x);
-    void setAt(int x, uint32_t y);
+    uint32_t pop();
+    uint32_t getAt(int i);
+    void setAt(int i, uint32_t x);
+    //removes the element at index i and shifts the other elements left
+    uint32_t removeAt(int i);
+    //inserts the element at index i and moves the other elements right.
+    void insertAt(int i, uint32_t x); 
+
     int indexOf(uint32_t x, int start);
     int removeElement(uint32_t x);
   };
