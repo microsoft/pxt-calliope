@@ -125,7 +125,7 @@ enum BeatFraction {
 /**
  * Generation of music tones through pin ``P0``.
  */
-//% color=#DF4600 weight=98
+//% color=#DF4600 weight=98 icon="\uf025"
 namespace music {
     let beatsPerMinute: number = 120;
 
@@ -145,7 +145,7 @@ namespace music {
      * @param frequency pitch of the tone to play in Hertz (Hz)
      */
     //% help=music/ring-tone weight=80
-    //% blockId=device_ring block="ring tone (Hz)|%note=device_note" icon="\uf025" blockGap=8
+    //% blockId=device_ring block="ring tone (Hz)|%note=device_note" blockGap=8
     //% parts="speaker" async
     export function ringTone(frequency: number) {
         playTone(frequency, 0);

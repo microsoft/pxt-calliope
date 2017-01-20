@@ -4,7 +4,7 @@
     /**
      * Creation, manipulation and display of LED images.
      */
-    //% color=#5C2D91 weight=31
+    //% color=#5C2D91 weight=31 icon="\uf03e"
     //% advanced=true
 declare namespace images {
 
@@ -126,13 +126,13 @@ declare interface Image {
     /**
      * Provides access to basic micro:bit functionality.
      */
-    //% color=#54C9C9 weight=100
+    //% color=#54C9C9 weight=100 icon="\uf00a"
 declare namespace basic {
 
     /**
      * Sets the color on the build-in LED. Set to 0 to turn off.
      */
-    //% blockId=device_set_led_color block="set led to %color=color_id" icon="\uf00a"
+    //% blockId=device_set_led_color block="set led to %color=color_id"
     //% weight=50 shim=basic::setLedColor
     function setLedColor(color: number): void;
 
@@ -142,7 +142,7 @@ declare namespace basic {
      */
     //% help=basic/show-number
     //% weight=96
-    //% blockId=device_show_number block="show|number %number" blockGap=8 icon="\uf1ec"
+    //% blockId=device_show_number block="show|number %number" blockGap=8
     //% async
     //% parts="ledmatrix" interval.defl=150 shim=basic::showNumber
     function showNumber(value: number, interval?: number): void;
@@ -156,7 +156,7 @@ declare namespace basic {
     //% weight=95 blockGap=8
     //% imageLiteral=1 async
     //% blockId=device_show_leds
-    //% block="show leds" icon="\uf00a"
+    //% block="show leds"
     //% parts="ledmatrix" interval.defl=400 shim=basic::showLeds
     function showLeds(leds: string, interval?: number): void;
 
@@ -167,7 +167,7 @@ declare namespace basic {
      */
     //% help=basic/show-string 
     //% weight=87 blockGap=8
-    //% block="show|string %text" icon="\uf031" 
+    //% block="show|string %text" 
     //% async
     //% blockId=device_print_message
     //% parts="ledmatrix" interval.defl=150 shim=basic::showString
@@ -177,7 +177,7 @@ declare namespace basic {
      * Turn off all LEDs
      */
     //% help=basic/clear-screen weight=79
-    //% blockId=device_clear_display block="clear screen" icon="\uf12d"
+    //% blockId=device_clear_display block="clear screen"
     //% parts="ledmatrix" shim=basic::clearScreen
     function clearScreen(): void;
 
@@ -203,7 +203,7 @@ declare namespace basic {
      * @param body code to execute
      */
     //% help=basic/forever weight=55 blockGap=8
-    //% blockId=device_forever block="forever" icon="\uf01e" shim=basic::forever
+    //% blockId=device_forever block="forever" shim=basic::forever
     function forever(a: () => void): void;
 
     /**
@@ -212,13 +212,13 @@ declare namespace basic {
      */
     //% help=basic/pause weight=54
     //% async block="pause (ms) %pause"
-    //% blockId=device_pause icon="\uf110" shim=basic::pause
+    //% blockId=device_pause shim=basic::pause
     function pause(ms: number): void;
 }
 
 
 
-    //% color=#C90072 weight=99
+    //% color=#C90072 weight=99 icon="\uf192"
 declare namespace input {
 
     /**
@@ -227,7 +227,7 @@ declare namespace input {
      * @param body TODO
      */
     //% help=input/on-button-pressed weight=85 blockGap=8
-    //% blockId=device_button_event block="on button|%NAME|pressed" icon="\uf192"
+    //% blockId=device_button_event block="on button|%NAME|pressed"
     //% parts="buttonpair" shim=input::onButtonPressed
     function onButtonPressed(button: Button, body: () => void): void;
 
@@ -236,7 +236,7 @@ declare namespace input {
      * @param body TODO
      */
     //% help=input/on-gesture weight=84 blockGap=8
-    //% blockId=device_gesture_event block="on |%NAME" icon="\uf135"
+    //% blockId=device_gesture_event block="on |%NAME"
     //% parts="accelerometer" shim=input::onGesture
     function onGesture(gesture: Gesture, body: () => void): void;
 
@@ -246,7 +246,7 @@ declare namespace input {
      * @param body the code to run when the pin is pressed
      */
     //% help=input/on-pin-pressed weight=83
-    //% blockId=device_pin_event block="on pin %NAME|pressed" icon="\uf094" shim=input::onPinPressed
+    //% blockId=device_pin_event block="on pin %NAME|pressed" shim=input::onPinPressed
     function onPinPressed(name: TouchPin, body: () => void): void;
 
     /**
@@ -255,7 +255,7 @@ declare namespace input {
      * @param body the code to run when the pin is released
      */
     //% help=input/on-pin-released weight=6 blockGap=8
-    //% blockId=device_pin_released block="on pin %NAME|released" icon="\uf094"
+    //% blockId=device_pin_released block="on pin %NAME|released"
     //% advanced=true shim=input::onPinReleased
     function onPinReleased(name: TouchPin, body: () => void): void;
 
@@ -265,7 +265,7 @@ declare namespace input {
     //% help=input/button-is-pressed weight=60
     //% block="button|%NAME|is pressed"
     //% blockId=device_get_button2
-    //% icon="\uf192" blockGap=8
+    //% blockGap=8
     //% parts="buttonpair" shim=input::buttonIsPressed
     function buttonIsPressed(button: Button): boolean;
 
@@ -274,7 +274,7 @@ declare namespace input {
      * @param name pin used to detect the touch
      */
     //% help=input/pin-is-pressed weight=58
-    //% blockId="device_pin_is_pressed" block="pin %NAME|is pressed" icon="\uf094"
+    //% blockId="device_pin_is_pressed" block="pin %NAME|is pressed"
     //% blockGap=8 shim=input::pinIsPressed
     function pinIsPressed(name: TouchPin): boolean;
 
@@ -282,7 +282,7 @@ declare namespace input {
      * Get the acceleration value in milli-gravitys (when the board is laying flat with the screen up, x=0, y=0 and z=-1024)
      * @param dimension TODO
      */
-    //% help=input/acceleration weight=58 icon="\uf135"
+    //% help=input/acceleration weight=58
     //% blockId=device_acceleration block="acceleration (mg)|%NAME" blockGap=8
     //% parts="accelerometer" shim=input::acceleration
     function acceleration(dimension: Dimension): number;
@@ -291,7 +291,7 @@ declare namespace input {
      * Reads the light level applied to the LED screen in a range from ``0`` (dark) to ``255`` bright.
      */
     //% help=input/light-level weight=57
-    //% blockId=device_get_light_level block="light level" blockGap=8 icon="\uf185"
+    //% blockId=device_get_light_level block="light level" blockGap=8
     //% parts="ledmatrix" shim=input::lightLevel
     function lightLevel(): number;
 
@@ -299,7 +299,7 @@ declare namespace input {
      * Get the current compass heading in degrees.
      */
     //% help=input/compass-heading
-    //% weight=56 icon="\uf14e"
+    //% weight=56
     //% blockId=device_heading block="compass heading (°)" blockGap=8
     //% parts="compass" shim=input::compassHeading
     function compassHeading(): number;
@@ -307,7 +307,7 @@ declare namespace input {
     /**
      * Gets the temperature in Celsius degrees (°C).
      */
-    //% weight=55 icon="\uf06d"
+    //% weight=55
     //% help=input/temperature
     //% blockId=device_temperature block="temperature (°C)" blockGap=8
     //% parts="thermometer" shim=input::temperature
@@ -318,7 +318,7 @@ declare namespace input {
      * @param kind TODO
      */
     //% help=input/rotation weight=52
-    //% blockId=device_get_rotation block="rotation (°)|%NAME" blockGap=8 icon="\uf197"
+    //% blockId=device_get_rotation block="rotation (°)|%NAME" blockGap=8
     //% parts="accelerometer" advanced=true shim=input::rotation
     function rotation(kind: Rotation): number;
 
@@ -327,7 +327,7 @@ declare namespace input {
      * @param dimension TODO
      */
     //% help=input/magnetic-force weight=51
-    //% blockId=device_get_magnetic_force block="magnetic force (µT)|%NAME" blockGap=8 icon="\uf076"
+    //% blockId=device_get_magnetic_force block="magnetic force (µT)|%NAME" blockGap=8
     //% parts="compass"
     //% advanced=true shim=input::magneticForce
     function magneticForce(dimension: Dimension): number;
@@ -336,7 +336,7 @@ declare namespace input {
      * Gets the number of milliseconds elapsed since power on.
      */
     //% help=input/running-time weight=50
-    //% blockId=device_get_running_time block="running time (ms)" icon="\uf017"
+    //% blockId=device_get_running_time block="running time (ms)"
     //% advanced=true shim=input::runningTime
     function runningTime(): number;
 
@@ -351,7 +351,7 @@ declare namespace input {
      * @param range a value describe the maximum strengh of acceleration measured
      */
     //% help=input/set-accelerometer-range
-    //% blockId=device_set_accelerometer_range block="set accelerometer|range %range" icon="\uf135"
+    //% blockId=device_set_accelerometer_range block="set accelerometer|range %range"
     //% weight=5
     //% parts="accelerometer"
     //% advanced=true shim=input::setAccelerometerRange
@@ -432,7 +432,7 @@ declare namespace control {
 
 
 
-    //% color=#8169E6 weight=35
+    //% color=#8169E6 weight=35 icon="\uf205"
 declare namespace led {
 
     /**
@@ -441,7 +441,7 @@ declare namespace led {
      * @param y TODO
      */
     //% help=led/plot weight=78
-    //% blockId=device_plot block="plot|x %x|y %y" icon="\uf205" blockGap=8
+    //% blockId=device_plot block="plot|x %x|y %y" blockGap=8
     //% parts="ledmatrix" shim=led::plot
     function plot(x: number, y: number): void;
 
@@ -451,7 +451,7 @@ declare namespace led {
      * @param y TODO
      */
     //% help=led/unplot weight=77
-    //% blockId=device_unplot block="unplot|x %x|y %y" icon="\uf204" blockGap=8
+    //% blockId=device_unplot block="unplot|x %x|y %y" blockGap=8
     //% parts="ledmatrix" shim=led::unplot
     function unplot(x: number, y: number): void;
 
@@ -461,7 +461,7 @@ declare namespace led {
      * @param y TODO
      */
     //% help=led/point weight=76
-    //% blockId=device_point block="point|x %x|y %y" icon="\uf10c"
+    //% blockId=device_point block="point|x %x|y %y"
     //% parts="ledmatrix" shim=led::point
     function point(x: number, y: number): boolean;
 
@@ -469,7 +469,7 @@ declare namespace led {
      * Get the screen brightness from 0 (off) to 255 (full bright).
      */
     //% help=led/brightness weight=60
-    //% blockId=device_get_brightness block="brightness" icon="\uf042" blockGap=8
+    //% blockId=device_get_brightness block="brightness" blockGap=8
     //% parts="ledmatrix"
     //% advanced=true shim=led::brightness
     function brightness(): number;
@@ -479,7 +479,7 @@ declare namespace led {
      * @param value the brightness value, eg:255, 127, 0
      */
     //% help=led/set-brightness weight=59
-    //% blockId=device_set_brightness block="set brightness %value" icon="\uf042"
+    //% blockId=device_set_brightness block="set brightness %value"
     //% parts="ledmatrix"
     //% advanced=true shim=led::setBrightness
     function setBrightness(value: number): void;
@@ -488,7 +488,7 @@ declare namespace led {
      * Cancels the current animation and clears other pending animations.
      */
     //% weight=50 help=led/stop-animation
-    //% blockId=device_stop_animation block="stop animation" icon="\uf04d"
+    //% blockId=device_stop_animation block="stop animation"
     //% parts="ledmatrix"
     //% advanced=true shim=led::stopAnimation
     function stopAnimation(): void;
@@ -504,7 +504,7 @@ declare namespace led {
     /**
      * Turns on or off the display    
      */
-    //% help=led/enable blockId=device_led_enable icon="\uf04d"
+    //% help=led/enable blockId=device_led_enable
     //% advanced=true parts="ledmatrix" shim=led::enable
     function enable(on: boolean): void;
 
@@ -520,7 +520,7 @@ declare namespace led {
     /**
      * Blocks to control the onboard motors
      */
-    //% color=#008272 weight=30
+    //% color=#008272 weight=30 icon="\uf1b9"
 declare namespace motors {
 
     /**

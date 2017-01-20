@@ -4,12 +4,12 @@
 /**
  * Provides access to basic micro:bit functionality.
  */
-//% color=#54C9C9 weight=100
+//% color=#54C9C9 weight=100 icon="\uf00a"
 namespace basic {
     /**
     * Sets the color on the build-in LED. Set to 0 to turn off.
     */
-    //% blockId=device_set_led_color block="set led to %color=color_id" icon="\uf00a"
+    //% blockId=device_set_led_color block="set led to %color=color_id"
     //% weight=50
     void setLedColor(int color) {
       if (!color) {
@@ -31,7 +31,7 @@ namespace basic {
      */
     //% help=basic/show-number
     //% weight=96
-    //% blockId=device_show_number block="show|number %number" blockGap=8 icon="\uf1ec"
+    //% blockId=device_show_number block="show|number %number" blockGap=8
     //% async
     //% parts="ledmatrix"
     void showNumber(int value, int interval = 150) { 
@@ -55,7 +55,7 @@ namespace basic {
     //% weight=95 blockGap=8
     //% imageLiteral=1 async
     //% blockId=device_show_leds
-    //% block="show leds" icon="\uf00a"
+    //% block="show leds"
     //% parts="ledmatrix"
     void showLeds(ImageLiteral leds, int interval = 400) {
       uBit.display.print(MicroBitImage(imageBytes(leds)), 0, 0, 0, interval);
@@ -68,7 +68,7 @@ namespace basic {
      */
     //% help=basic/show-string 
     //% weight=87 blockGap=8
-    //% block="show|string %text" icon="\uf031" 
+    //% block="show|string %text" 
     //% async
     //% blockId=device_print_message
     //% parts="ledmatrix"
@@ -91,7 +91,7 @@ namespace basic {
      * Turn off all LEDs
      */
     //% help=basic/clear-screen weight=79
-    //% blockId=device_clear_display block="clear screen" icon="\uf12d"
+    //% blockId=device_clear_display block="clear screen"
     //% parts="ledmatrix"
     void clearScreen() {
       uBit.display.image.clear();
@@ -131,7 +131,7 @@ namespace basic {
      * @param body code to execute
      */
     //% help=basic/forever weight=55 blockGap=8
-    //% blockId=device_forever block="forever" icon="\uf01e"
+    //% blockId=device_forever block="forever"
     void forever(Action a) {
       if (a != 0) {
         incr(a);
@@ -145,7 +145,7 @@ namespace basic {
      */
     //% help=basic/pause weight=54
     //% async block="pause (ms) %pause"
-    //% blockId=device_pause icon="\uf110"
+    //% blockId=device_pause
     void pause(int ms) {
       fiber_sleep(ms);
     }

@@ -19,7 +19,7 @@ enum Motor {
 /**
 * Blocks to control the onboard motors
 */
-//% color=#008272 weight=30
+//% color=#008272 weight=30 icon="\uf1b9"
 namespace motors {
     /**
     * Turns on the motor at a certain percent of power. Switches to single motor mode!
