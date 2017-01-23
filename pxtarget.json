@@ -292,6 +292,7 @@
         "invertedMenu": true,
         "invertedToolbox": true,
         "monacoToolbox": false,
+        "hasAudio": true,        
         "simAnimationEnter": "rotate in",
         "simAnimationExit": "rotate out",
         "blocklyOptions": { 
