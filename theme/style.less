@@ -51,36 +51,18 @@
              Blockly
 *******************************/
 
-.blocklyTreeRow {
-    border-radius:5px;
-}
-
-/* Specifying top and bottom rounded toolbox borders. */
-.blocklyTreeRow.blocklyTreeRowTop {
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
-}
-
-.blocklyTreeRow.blocklyTreeRowBottom {
-    border-bottom-left-radius: 10px;
-    border-bottom-right-radius: 10px;
-}
-
-.blocklyTreeRow:hover {
-    background: @invertedBackground !important;
+div.blocklyTreeRow {
+    border-radius:8px;
 }
 
 /* This removes any padding at the top of the toolbox */
-.blocklyTreeRoot {
+div.blocklyTreeRoot {
     padding: 0px !important;
 }
 
 /* Blockly Text */
-.blocklyTreeLabel {
+div.blocklyTreeLabel {
     font-family: @pageFont !important;
-}
-
-.blocklyTreeLabel {
     font-size:1rem !important;
 }
 
@@ -89,23 +71,7 @@
 }
 
 .blocklyToolboxDiv {
-    /*left:30px !important;*/
     padding:7px;
-}
-
-/* Blockly Toolbox Buttons */
-.blocklyToolboxButtons .blocklyAddPackageButton {
-    &:extend(.ui.button all);
-    &:extend(.circular all);
-    background-color: rgba(0, 0, 0, 0.3);
-    color: white;
-}
-
-.blocklyToolboxButtons .blocklyUndoButton {
-    &:extend(.ui.button all);
-    &:extend(.circular all);
-    background-color: rgba(0, 0, 0, 0.3);
-    color: white;
 }
 
 .organization {
