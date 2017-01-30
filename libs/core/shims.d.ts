@@ -651,7 +651,8 @@ declare namespace pins {
      * Sets the pin used when using `pins->analog pitch`.
      * @param name TODO
      */
-    //% help=pins/analog-set-pitch weight=12 shim=pins::analogSetPitchPin
+    //% blockId=device_analog_set_pitch_pin block="analog set pitch pin %name"
+    //% help=pins/analog-set-pitch weight=3 advanced=true shim=pins::analogSetPitchPin
     function analogSetPitchPin(name: AnalogPin): void;
 
     /**
@@ -659,7 +660,8 @@ declare namespace pins {
      * @param frequency TODO
      * @param ms TODO
      */
-    //% help=pins/analog-pitch weight=14 async shim=pins::analogPitch
+    //% blockId=device_analog_pitch block="analog pitch %frequency|for (ms) %ms"
+    //% help=pins/analog-pitch weight=4 async advanced=true blockGap=8 shim=pins::analogPitch
     function analogPitch(frequency: number, ms: number): void;
 
     /**
@@ -670,6 +672,16 @@ declare namespace pins {
     //% help=pins/set-pull weight=3
     //% blockId=device_set_pull block="set pull|pin %pin|to %pull" shim=pins::setPull
     function setPull(name: DigitalPin, pull: PinPullMode): void;
+
+    /**
+     * Configures the events emitted by this pin. Events can be subscribed to
+     * using ``control.onEvent()``.
+     * @param name pin to set the event mode on, eg: DigitalPin.P0
+     * @param type the type of events for this pin to emit, eg: PinEventType.Edge
+     */
+    //% help=pins/set-events weight=4 advanced=true
+    //% blockId=device_set_pin_events block="set pin %pin|to emit %type|events" shim=pins::setEvents
+    function setEvents(name: DigitalPin, type: PinEventType): void;
 
     /**
      * Create a new zero-initialized buffer.
