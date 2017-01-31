@@ -1,35 +1,32 @@
 #include "pxt.h"
 
 enum class DigitalPin {
-    P0 = MICROBIT_ID_IO_P0,   // edge connector 0
-    P1 = MICROBIT_ID_IO_P1,   // edge connector 1
-    P2 = MICROBIT_ID_IO_P2,   // edge connector 2
-    P3 = CALLIOPE_ID_IO_P22,  // edge connector 3
-    C4 = MICROBIT_ID_IO_P3,   // LED matrix C1
-    C5 = MICROBIT_ID_IO_P4,   // LED matrix C2
-    C6 = MICROBIT_ID_IO_P10,  // LED matrix C3
-    C7 = CALLIOPE_ID_IO_P7,   // LED matrix C4
-    C8 = CALLIOPE_ID_IO_P8,   // LED matrix C5
-    C9 = CALLIOPE_ID_IO_P9,   // LED matrix C6
-    C10 = MICROBIT_ID_IO_P9,  // LED matrix C7
-    C11 = MICROBIT_ID_IO_P7,  // LED matrix C8
-    C12 = MICROBIT_ID_IO_P6,  // LED matrix C9
-    C13 = CALLIOPE_ID_IO_P13, // LED matrix R1
-    C14 = CALLIOPE_ID_IO_P14, // LED matrix R2
-    C15 = CALLIOPE_ID_IO_P15, // LED matrix R3
-    //P16 = MICROBIT_ID_IO_P16,
-    C19 = MICROBIT_ID_IO_P19, // SCL
-    C20 = MICROBIT_ID_IO_P20  // SDA
+    P0 = MICROBIT_ID_IO_P12,   // edge connector 0
+    P1 = MICROBIT_ID_IO_P0,    // edge connector 1
+    P2 = MICROBIT_ID_IO_P1,    // edge connector 2
+    P3 = MICROBIT_ID_IO_P16,   // edge connector 3
+    C4 = MICROBIT_ID_IO_P3,    // LED matrix C1
+    C5 = MICROBIT_ID_IO_P4,    // LED matrix C2
+    C6 = MICROBIT_ID_IO_P10,   // LED matrix C3
+    C7 = MICROBIT_ID_IO_P13,   // LED matrix C4
+    C8 = MICROBIT_ID_IO_P14,   // LED matrix C5
+    C9 = MICROBIT_ID_IO_P15,   // LED matrix C6
+    C10 = MICROBIT_ID_IO_P9,   // LED matrix C7
+    C11 = MICROBIT_ID_IO_P7,   // LED matrix C8
+    C12 = MICROBIT_ID_IO_P6,   // LED matrix C9
+    C16 = MICROBIT_ID_IO_P2,   // RX
+    C17 = MICROBIT_ID_IO_P8,   // TX
+    C18 = MICROBIT_ID_IO_P20,  // SDA
+    C19 = MICROBIT_ID_IO_P19   // SCL
 };
 
 enum class AnalogPin {
-    //P0 = MICROBIT_ID_IO_P0, -- does not work analogue
-    P1 = MICROBIT_ID_IO_P1,   // edge connector 1
-    P2 = MICROBIT_ID_IO_P2,   // edge connector 2
-    //P3 = CALLIOPE_ID_IO_P22, -- does not work analogue
-    C4 = MICROBIT_ID_IO_P3,
-    C5 = MICROBIT_ID_IO_P4,
-    C6 = MICROBIT_ID_IO_P10,
+    P1 = MICROBIT_ID_IO_P0,   // edge connector 1
+    P2 = MICROBIT_ID_IO_P1,   // edge connector 2
+    C4 = MICROBIT_ID_IO_P3,   // LED matrix C1
+    C5 = MICROBIT_ID_IO_P4,   // LED matrix C2
+    C6 = MICROBIT_ID_IO_P10,  // LED matrix C3
+    MIC = MICROBIT_ID_IO_P21  // microphone
 };
 
 enum class PulseValue {
@@ -56,28 +53,18 @@ MicroBitPin *getPin(int id) {
         case MICROBIT_ID_IO_P5: return &uBit.io.P5;
         case MICROBIT_ID_IO_P6: return &uBit.io.P6;
         case MICROBIT_ID_IO_P7: return &uBit.io.P7;
-        //case MICROBIT_ID_IO_P8: return &uBit.io.P8;
+        case MICROBIT_ID_IO_P8: return &uBit.io.P8;
         case MICROBIT_ID_IO_P9: return &uBit.io.P9;
         case MICROBIT_ID_IO_P10: return &uBit.io.P10;
         case MICROBIT_ID_IO_P11: return &uBit.io.P11;
-        //case MICROBIT_ID_IO_P12: return &uBit.io.P12;
-        //case MICROBIT_ID_IO_P13: return &uBit.io.P13;
-        //case MICROBIT_ID_IO_P14: return &uBit.io.P14;
-        //case MICROBIT_ID_IO_P15: return &uBit.io.P15;
-        //case MICROBIT_ID_IO_P16: return &uBit.io.P16;
+        case MICROBIT_ID_IO_P12: return &uBit.io.P12;
+        case MICROBIT_ID_IO_P13: return &uBit.io.P13;
+        case MICROBIT_ID_IO_P14: return &uBit.io.P14;
+        case MICROBIT_ID_IO_P15: return &uBit.io.P15;
+        case MICROBIT_ID_IO_P16: return &uBit.io.P16;
         case MICROBIT_ID_IO_P19: return &uBit.io.P19;
         case MICROBIT_ID_IO_P20: return &uBit.io.P20;
-        case CALLIOPE_ID_IO_P3: return &uBit.io.CAL_P3;
-        case CALLIOPE_ID_IO_P7: return &uBit.io.CAL_P7;
-        case CALLIOPE_ID_IO_P8: return &uBit.io.CAL_P8;
-        case CALLIOPE_ID_IO_P9: return &uBit.io.CAL_P9;
-        case CALLIOPE_ID_IO_P13: return &uBit.io.CAL_P13;
-        case CALLIOPE_ID_IO_P14: return &uBit.io.CAL_P14;
-        case CALLIOPE_ID_IO_P15: return &uBit.io.CAL_P15;
-        case CALLIOPE_ID_IO_P22: return &uBit.io.CAL_P22;
-        case CALLIOPE_ID_IO_P28: return &uBit.io.CAL_P28;
-        case CALLIOPE_ID_IO_P29: return &uBit.io.CAL_P29;
-        case CALLIOPE_ID_IO_P30: return &uBit.io.CAL_P30;
+        case MICROBIT_ID_IO_P21: return &uBit.io.P21;
         default: return NULL;
     }
 }

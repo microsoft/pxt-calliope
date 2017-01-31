@@ -26,10 +26,10 @@ enum class Rotation {
 };
 
 enum class TouchPin {
-    P0 = MICROBIT_ID_IO_P0,
-    P1 = MICROBIT_ID_IO_P1,
-    P2 = MICROBIT_ID_IO_P2,
-    P3 = CALLIOPE_ID_IO_P22
+    P0 = MICROBIT_ID_IO_P12,
+    P1 = MICROBIT_ID_IO_P0,
+    P2 = MICROBIT_ID_IO_P1,
+    P3 = MICROBIT_ID_IO_P16
 };
 
 enum class AcceleratorRange {

@@ -136,7 +136,8 @@
                 "P2",
                 "C4",
                 "C5",
-                "C6"
+                "C6",
+                "MIC"
             ],
             "groundPins": [
                 "EDGE_GND"
@@ -170,7 +171,7 @@
         "yottaTarget": "bbc-microbit-classic-gcc",
         "yottaCorePackage": "microbit",
         "githubCorePackage": "calliope-mini/microbit",
-        "gittag": "v1.0.3-calliope",
+        "gittag": "2.0.0-rc7-calliope-p1",
         "serviceId": "microbit"
     },
     "serial": {
@@ -189,7 +190,7 @@
         "cardLogo": "./static/icons/apple-touch-icon.png",
         "appLogo": "./static/icons/apple-touch-icon.png",
         "homeUrl": "https://calliope.cc/",
-        "embedUrl": "https://calliope.cc/",
+        "embedUrl": "https://mini.pxt.io/",
         "privacyUrl": "https://go.microsoft.com/fwlink/?LinkId=521839",
         "termsOfUseUrl": "https://go.microsoft.com/fwlink/?LinkID=206977",
         "githubUrl": "https://github.com/Microsoft/pxt-calliope",
