@@ -116,7 +116,7 @@
                 "C19": "C_P19",
                 "C20": "C_P20",
                 "EXT_PWR":"EXT_PWR", 
-                "SPKR":"EXT_PWR", 
+                "SPKR":"SPKR",
                 "BTN_A": "BTN_A", 
                 "BTN_B": "BTN_B",
                 "MOTOR1": "M_OUT1",
@@ -137,7 +137,6 @@
                 "C4",
                 "C5",
                 "C6",
-                "MIC"
             ],
             "groundPins": [
                 "EDGE_GND"
