@@ -41,25 +41,26 @@ namespace pxsim {
                     DAL.MICROBIT_ID_IO_P5,
                     DAL.MICROBIT_ID_IO_P6,
                     DAL.MICROBIT_ID_IO_P7,
-                    0, //DAL.MICROBIT_ID_IO_P8,
+                    DAL.MICROBIT_ID_IO_P8,
                     DAL.MICROBIT_ID_IO_P9,
                     DAL.MICROBIT_ID_IO_P10,
                     DAL.MICROBIT_ID_IO_P11,
-                    0, //DAL.MICROBIT_ID_IO_P12,
-                    0, //DAL.MICROBIT_ID_IO_P13,
-                    0, //DAL.MICROBIT_ID_IO_P14,
-                    0, //DAL.MICROBIT_ID_IO_P15,
-                    0, //DAL.MICROBIT_ID_IO_P16,
+                    DAL.MICROBIT_ID_IO_P12,
+                    DAL.MICROBIT_ID_IO_P13,
+                    DAL.MICROBIT_ID_IO_P14,
+                    DAL.MICROBIT_ID_IO_P15,
+                    DAL.MICROBIT_ID_IO_P16,
                     0,
                     0,
                     DAL.MICROBIT_ID_IO_P19,
-                    DAL.MICROBIT_ID_IO_P20
+                    DAL.MICROBIT_ID_IO_P20,
+                    DAL.MICROBIT_ID_IO_P21
                 ],
                 servos: {
-                    "P0": DAL.MICROBIT_ID_IO_P0,
-                    "P1": DAL.MICROBIT_ID_IO_P1,
-                    "P2": DAL.MICROBIT_ID_IO_P2,
-                    "P3": DAL.MICROBIT_ID_IO_P3
+                    "P0": DAL.MICROBIT_ID_IO_P12,
+                    "P1": DAL.MICROBIT_ID_IO_P0,
+                    "P2": DAL.MICROBIT_ID_IO_P1,
+                    "P3": DAL.MICROBIT_ID_IO_P16
                 }
             });
             this.builtinParts["radio"] = this.radioState = new RadioState(runtime);
