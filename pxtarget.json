@@ -21,7 +21,7 @@
         "githubPackages": true
     },
     "compile": {
-        "isNative": false,
+        "isNative": true,
         "hasHex": true,
         "deployDrives": "MINI",
         "driveName": "MINI",
@@ -116,7 +116,7 @@
                 "C19": "C_P19",
                 "C20": "C_P20",
                 "EXT_PWR":"EXT_PWR", 
-                "SPKR":"EXT_PWR", 
+                "SPKR":"SPKR",
                 "BTN_A": "BTN_A", 
                 "BTN_B": "BTN_B",
                 "MOTOR1": "M_OUT1",
@@ -170,9 +170,9 @@
         "yottaTarget": "bbc-microbit-classic-gcc",
         "yottaCorePackage": "microbit",
         "githubCorePackage": "calliope-mini/microbit",
-        "gittag": "v1.0.3-calliope",
+        "gittag": "2.0.0-rc7-calliope-p2",
         "serviceId": "microbit"
-    },
+    },    
     "serial": {
         "manufacturerFilter": "^mbed$",
         "nameFilter": "^mbed Serial Port",
