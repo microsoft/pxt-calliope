@@ -21,7 +21,7 @@
         "githubPackages": true
     },
     "compile": {
-        "isNative": false,
+        "isNative": true,
         "hasHex": true,
         "deployDrives": "MINI",
         "driveName": "MINI",
@@ -172,7 +172,7 @@
         "githubCorePackage": "calliope-mini/microbit",
         "gittag": "2.0.0-rc7-calliope-p1",
         "serviceId": "microbit"
-    },
+    },    
     "serial": {
         "manufacturerFilter": "^mbed$",
         "nameFilter": "^mbed Serial Port",
