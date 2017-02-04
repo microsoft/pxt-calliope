@@ -15,7 +15,7 @@
         "workspace": false,
         "packages": true,
         "sharing": true,
-        "publish": true,
+        "publishing": true,
         "preferredPackages": [
         ],
         "githubPackages": true
