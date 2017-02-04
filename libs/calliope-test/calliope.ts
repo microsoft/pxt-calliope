@@ -138,7 +138,7 @@ function getNoteName(frequency: number): string {
     }
 }
 
-var notes = [
+let notes = [
     note(Note.E, BeatFraction.Quarter), note(Note.E, BeatFraction.Quarter), note(Note.F, BeatFraction.Quarter),
     note(Note.G, BeatFraction.Quarter), note(Note.G, BeatFraction.Quarter), note(Note.F, BeatFraction.Quarter),
     note(Note.E, BeatFraction.Quarter), note(Note.D, BeatFraction.Quarter), note(Note.C, BeatFraction.Quarter),
@@ -166,7 +166,7 @@ var notes = [
     note(Note.C, BeatFraction.Eighth), note(Note.C, BeatFraction.Half)
 ];
 
-for (var t = 0; t < notes.length; t++) {
+for (let t = 0; t < notes.length; t++) {
     music.playTone(notes[t][0], notes[t][1]);
     basic.showString(getNoteName(notes[t][0]));
     music.rest(whole - notes[t][1]);

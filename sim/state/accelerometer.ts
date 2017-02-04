@@ -223,10 +223,10 @@ namespace pxsim {
                 return DAL.MICROBIT_ACCELEROMETER_EVT_TILT_UP;
 
             if (this.getZ() < (-1000 + DAL.MICROBIT_ACCELEROMETER_TILT_TOLERANCE))
-                return DAL.MICROBIT_ACCELEROMETER_EVT_FACE_UP;
+                return DAL.MICROBIT_ACCELEROMETER_EVT_FACE_DOWN;
 
             if (this.getZ() > (1000 - DAL.MICROBIT_ACCELEROMETER_TILT_TOLERANCE))
-                return DAL.MICROBIT_ACCELEROMETER_EVT_FACE_DOWN;
+                return DAL.MICROBIT_ACCELEROMETER_EVT_FACE_UP;
 
             return 0;
         }
