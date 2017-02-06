@@ -4,6 +4,7 @@ import jobs.generation.InternalUtilities;
 def project = GithubProject
 def branch = GithubBranchName
 
+// test
 [true, false].each { isPR ->
     def newJobName = InternalUtilities.getFullJobName(project, "Default", isPR)
     def newJob = job(newJobName) {
