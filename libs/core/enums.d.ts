@@ -327,15 +327,12 @@ declare namespace motors {
 
 
     declare enum SerialPin {
-    P0 = 7,  // MICROBIT_ID_IO_P0
-    P1 = 8,  // MICROBIT_ID_IO_P1
-    P2 = 9,  // MICROBIT_ID_IO_P2
-    //P8 = MICROBIT_ID_IO_P8,
-    //P12 = MICROBIT_ID_IO_P12,
-    //P13 = MICROBIT_ID_IO_P13,
-    //P14 = MICROBIT_ID_IO_P14,
-    //P15 = MICROBIT_ID_IO_P15,
-    //P16 = MICROBIT_ID_IO_P16
+    C16 = 9,  // MICROBIT_ID_IO_P2
+    C17 = 15,  // MICROBIT_ID_IO_P8
+    P0 = 19,  // MICROBIT_ID_IO_P12
+    P1 = 7,  // MICROBIT_ID_IO_P0
+    P2 = 8,  // MICROBIT_ID_IO_P1
+    P3 = 23,  // MICROBIT_ID_IO_P16
     }
 
 
