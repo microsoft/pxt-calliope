@@ -40,8 +40,8 @@ declare interface Image {
      */
     //% help=images/show-image weight=80 blockNamespace=images
     //% blockId=device_show_image_offset block="show image %sprite|at offset %offset" blockGap=8
-    //% parts="ledmatrix" shim=ImageMethods::showImage
-    showImage(xOffset: number): void;
+    //% parts="ledmatrix" async interval.defl=400 shim=ImageMethods::showImage
+    showImage(xOffset: number, interval?: number): void;
 
     /**
      * Draws the ``index``-th frame of the image on the screen.
@@ -118,8 +118,8 @@ declare interface Image {
      * @param frame TODO
      */
     //% weight=70 help=images/show-frame
-    //% parts="ledmatrix" shim=ImageMethods::showFrame
-    showFrame(frame: number): void;
+    //% parts="ledmatrix" interval.defl=400 shim=ImageMethods::showFrame
+    showFrame(frame: number, interval?: number): void;
 }
 
 
@@ -651,7 +651,8 @@ declare namespace pins {
      * Sets the pin used when using `pins->analog pitch`.
      * @param name TODO
      */
-    //% help=pins/analog-set-pitch weight=12 shim=pins::analogSetPitchPin
+    //% blockId=device_analog_set_pitch_pin block="analog set pitch pin %name"
+    //% help=pins/analog-set-pitch weight=3 advanced=true shim=pins::analogSetPitchPin
     function analogSetPitchPin(name: AnalogPin): void;
 
     /**
@@ -659,7 +660,8 @@ declare namespace pins {
      * @param frequency TODO
      * @param ms TODO
      */
-    //% help=pins/analog-pitch weight=14 async shim=pins::analogPitch
+    //% blockId=device_analog_pitch block="analog pitch %frequency|for (ms) %ms"
+    //% help=pins/analog-pitch weight=4 async advanced=true blockGap=8 shim=pins::analogPitch
     function analogPitch(frequency: number, ms: number): void;
 
     /**
@@ -670,6 +672,16 @@ declare namespace pins {
     //% help=pins/set-pull weight=3
     //% blockId=device_set_pull block="set pull|pin %pin|to %pull" shim=pins::setPull
     function setPull(name: DigitalPin, pull: PinPullMode): void;
+
+    /**
+     * Configures the events emitted by this pin. Events can be subscribed to
+     * using ``control.onEvent()``.
+     * @param name pin to set the event mode on, eg: DigitalPin.P0
+     * @param type the type of events for this pin to emit, eg: PinEventType.Edge
+     */
+    //% help=pins/set-events weight=4 advanced=true
+    //% blockId=device_set_pin_events block="set pin %pin|to emit %type|events" shim=pins::setEvents
+    function setEvents(name: DigitalPin, type: PinEventType): void;
 
     /**
      * Create a new zero-initialized buffer.

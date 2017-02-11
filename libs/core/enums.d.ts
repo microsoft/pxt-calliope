@@ -176,6 +176,10 @@ declare namespace input {
     MICROBIT_BUTTON_EVT_CLICK = 3,  // MICROBIT_BUTTON_EVT_CLICK
     MICROBIT_RADIO_EVT_DATAGRAM = 1,  // MICROBIT_RADIO_EVT_DATAGRAM
     MICROBIT_ACCELEROMETER_EVT_DATA_UPDATE = 1,  // MICROBIT_ACCELEROMETER_EVT_DATA_UPDATE
+    MICROBIT_PIN_EVT_RISE = 2,  // MICROBIT_PIN_EVT_RISE
+    MICROBIT_PIN_EVT_FALL = 3,  // MICROBIT_PIN_EVT_FALL
+    MICROBIT_PIN_EVT_PULSE_HI = 4,  // MICROBIT_PIN_EVT_PULSE_HI
+    MICROBIT_PIN_EVT_PULSE_LO = 5,  // MICROBIT_PIN_EVT_PULSE_LO
     MES_ALERT_EVT_ALARM1 = 6,  // MES_ALERT_EVT_ALARM1
     MES_ALERT_EVT_ALARM2 = 7,  // MES_ALERT_EVT_ALARM2
     MES_ALERT_EVT_ALARM3 = 8,  // MES_ALERT_EVT_ALARM3
@@ -310,16 +314,25 @@ declare namespace motors {
     }
 
 
+    declare enum PinEventType {
+    //% block="edge"
+    Edge = 1,  // MICROBIT_PIN_EVENT_ON_EDGE
+    //% block="pulse"
+    Pulse = 2,  // MICROBIT_PIN_EVENT_ON_PULSE
+    //% block="touch"
+    Touch = 3,  // MICROBIT_PIN_EVENT_ON_TOUCH
+    //% block="none"
+    None = 0,  // MICROBIT_PIN_EVENT_NONE
+    }
+
+
     declare enum SerialPin {
-    P0 = 7,  // MICROBIT_ID_IO_P0
-    P1 = 8,  // MICROBIT_ID_IO_P1
-    P2 = 9,  // MICROBIT_ID_IO_P2
-    //P8 = MICROBIT_ID_IO_P8,
-    //P12 = MICROBIT_ID_IO_P12,
-    //P13 = MICROBIT_ID_IO_P13,
-    //P14 = MICROBIT_ID_IO_P14,
-    //P15 = MICROBIT_ID_IO_P15,
-    //P16 = MICROBIT_ID_IO_P16
+    C16 = 9,  // MICROBIT_ID_IO_P2
+    C17 = 15,  // MICROBIT_ID_IO_P8
+    P0 = 19,  // MICROBIT_ID_IO_P12
+    P1 = 7,  // MICROBIT_ID_IO_P0
+    P2 = 8,  // MICROBIT_ID_IO_P1
+    P3 = 23,  // MICROBIT_ID_IO_P16
     }
 
 

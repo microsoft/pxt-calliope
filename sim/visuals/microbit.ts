@@ -1728,7 +1728,7 @@ namespace pxsim.visuals {
                 let ay = (ev.clientY - bbox.height / 2) / (bbox.height / 3);
 
                 let x = - Math.max(- 1023, Math.min(1023, Math.floor(ax * 1023)));
-                let y = Math.max(- 1023, Math.min(1023, Math.floor(ay * 1023)));
+                let y = - Math.max(- 1023, Math.min(1023, Math.floor(ay * 1023)));
                 let z2 = 1023 * 1023 - x * x - y * y;
                 let z = Math.floor((z2 > 0 ? -1 : 1) * Math.sqrt(Math.abs(z2)));
 

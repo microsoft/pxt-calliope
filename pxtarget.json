@@ -14,8 +14,8 @@
     "cloud": {
         "workspace": false,
         "packages": true,
-        "sharing": true,
-        "publish": true,
+        "sharing": false,
+        "publishing": false,
         "preferredPackages": [
         ],
         "githubPackages": true
@@ -55,6 +55,7 @@
         "loopsBlocks": true,
         "logicBlocks": true,
         "variablesBlocks": true,
+        "textBlocks": true,
         "onStartColor": "#54C9C9",
         "onStartNamespace": "basic"
     },
@@ -167,11 +168,11 @@
         }
     },
     "compileService": {
-        "yottaTarget": "bbc-microbit-classic-gcc",
+        "yottaTarget": "calliope-mini-classic-gcc",
         "yottaCorePackage": "microbit",
         "githubCorePackage": "calliope-mini/microbit",
-        "gittag": "2.0.0-rc7-calliope-p2",
-        "serviceId": "microbit"
+        "gittag": "v2.0.0-rc7-calliope-p9",
+        "serviceId": "calliope"
     },    
     "serial": {
         "manufacturerFilter": "^mbed$",
@@ -193,6 +194,7 @@
         "privacyUrl": "https://go.microsoft.com/fwlink/?LinkId=521839",
         "termsOfUseUrl": "https://go.microsoft.com/fwlink/?LinkID=206977",
         "githubUrl": "https://github.com/Microsoft/pxt-calliope",
+        "crowdinProject": "kindscript",
         "organization": "Microsoft",
         "organizationUrl": "https://pxt.io/",
         "organizationLogo": "./static/Microsoft-logo_rgb_c-gray.png",
