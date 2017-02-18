@@ -7,7 +7,7 @@
   "AcceleratorRange.OneG|block": "1g",
   "AcceleratorRange.TwoG": "Der Bewegungssensor misst Kräfte bis 2g",
   "AcceleratorRange.TwoG|block": "2g",
-  "BaudRate.BaudRate115200|block": "11520",
+  "BaudRate.BaudRate115200|block": "115200",
   "BaudRate.BaudRate9600|block": "9600",
   "BeatFraction.Eighth|block": "1/8",
   "BeatFraction.Half|block": "1/2",
