@@ -171,7 +171,7 @@
         "yottaTarget": "calliope-mini-classic-gcc",
         "yottaCorePackage": "microbit",
         "githubCorePackage": "calliope-mini/microbit",
-        "gittag": "v2.0.0-rc7-calliope-p9",
+        "gittag": "v2.0.0-rc7-calliope-p9-2016-2",
         "serviceId": "calliope"
     },    
     "serial": {
