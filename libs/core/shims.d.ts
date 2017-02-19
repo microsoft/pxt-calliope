@@ -555,7 +555,7 @@ declare namespace music {
     //% help=music/play-tone weight=90
     //% blockId=device_play_note block="play|tone %note=device_note|for %duration=device_beat" icon="\uf025" blockGap=8
     //% parts="speaker" async shim=music::playTone
-    function playTone(freqency: number, ms: number): void;
+    function playTone(frequency: number, ms: number): void;
 }
 declare namespace pins {
 
