@@ -339,6 +339,8 @@ declare namespace motors {
     declare enum BaudRate {
     //% block=115200
     BaudRate115200 = 115200,
+    //% block=57600
+    BaudRate56700 = 57600,
     //% block=9600
     BaudRate9600 = 9600,
     }
