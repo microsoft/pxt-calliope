@@ -26,6 +26,8 @@ enum class AnalogPin {
     C4 = MICROBIT_ID_IO_P3,   // LED matrix C1
     C5 = MICROBIT_ID_IO_P4,   // LED matrix C2
     C6 = MICROBIT_ID_IO_P10,  // LED matrix C3
+    C16 = MICROBIT_ID_IO_P2,  // RX
+    C17 = MICROBIT_ID_IO_P8,  // TX
     MIC = MICROBIT_ID_IO_P21  // microphone
 };
 
