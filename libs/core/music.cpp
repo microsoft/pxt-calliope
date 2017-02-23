@@ -8,7 +8,7 @@ namespace music {
      */
     //% help=music/play-tone weight=90
     //% blockId=device_play_note block="play|tone %note=device_note|for %duration=device_beat" icon="\uf025" blockGap=8
-    //% parts="speaker" async
+    //% parts="speaker" async useEnumVal=1
     void playTone(int frequency, int ms) {
         if(frequency > 0) uBit.soundmotor.soundOn(frequency);
         else uBit.soundmotor.soundOff();
