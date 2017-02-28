@@ -228,7 +228,6 @@
         ],
         "boardName": "Calliope mini",
         "hideSideDocs": true,
-        "usbDocs": "/device/usb",
         "invertedMenu": true,
         "invertedToolbox": true,
         "monacoToolbox": false,
