@@ -13,6 +13,7 @@ echo isPR: $1
 
 originRegex="^origin/.*"
 branchRegex="^origin/\K.*(?=$)"
+releaseBranchRegex = "^(master|v\d+)$"
 
 if [[ "$GIT_BRANCH" =~ $originRegex ]]; then
     branchName=$(echo ${GIT_BRANCH} | grep -oP $branchRegex)
@@ -27,7 +28,7 @@ if [ "$1" == "false" ]; then
     echo Setting TRAVIS_PULL_REQUEST to false
     export TRAVIS_PULL_REQUEST=false
 
-    if [ $TRAVIS_BRANCH == "master" || $TRAVIS_BRANCH == "v0" ]; then
+    if [[ "$TRAVIS_BRANCH" =~ $releaseBranchRegex ]]; then
         if [[ -z $PXT_RELEASE_REPO ]]; then
             echo Cannot find release repo; skipping tag checks
         else
