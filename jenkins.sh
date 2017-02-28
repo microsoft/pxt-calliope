@@ -27,7 +27,7 @@ if [ "$1" == "false" ]; then
     echo Setting TRAVIS_PULL_REQUEST to false
     export TRAVIS_PULL_REQUEST=false
 
-    if [ $TRAVIS_BRANCH == "master" ]; then
+    if [ $TRAVIS_BRANCH == "master" || $TRAVIS_BRANCH == "v0" ]; then
         if [[ -z $PXT_RELEASE_REPO ]]; then
             echo Cannot find release repo; skipping tag checks
         else
