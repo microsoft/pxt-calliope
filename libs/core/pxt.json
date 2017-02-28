@@ -32,6 +32,7 @@
         "pins.ts",
         "serial.cpp",
         "serial.ts",
+        "icons.ts",
         "buffer.cpp",
         "pxtparts.json",
         "parts/speaker.svg",
