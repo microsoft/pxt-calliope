@@ -195,8 +195,8 @@
         "termsOfUseUrl": "https://go.microsoft.com/fwlink/?LinkID=206977",
         "githubUrl": "https://github.com/Microsoft/pxt-calliope",
         "crowdinProject": "kindscript",
-        "organization": "Microsoft",
-        "organizationUrl": "https://pxt.io/",
+        "organization": "Microsoft MakeCode",
+        "organizationUrl": "https://makecode.com/",
         "organizationLogo": "./static/Microsoft-logo_rgb_c-gray-square.png",
         "organizationWideLogo": "./static/Microsoft-logo_rgb_c-white.png",
         "browserSupport": [
