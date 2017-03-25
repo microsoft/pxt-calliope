@@ -1,0 +1,11 @@
+{
+    "name": "calliope-i2c",
+    "description": "Calliope I2C test",
+    "files": [
+        "i2c.ts"
+    ],
+    "public": true,
+    "dependencies": {
+        "core": "file:../core"
+    }
+}
