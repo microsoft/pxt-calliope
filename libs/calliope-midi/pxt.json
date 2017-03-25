@@ -1,0 +1,11 @@
+{
+    "name": "midi",
+    "description": "MIDI Example via Serial",
+    "files": [
+        "midi.ts"
+    ],
+    "public": true,
+    "dependencies": {
+        "core": "file:../core"
+    }
+}
