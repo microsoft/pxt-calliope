@@ -191,6 +191,7 @@
   "basic.clearScreen|block": "clear screen",
   "basic.forever|block": "forever",
   "basic.pause|block": "pause (ms) %pause",
+  "basic.showArrow|block": "show arrow %i=device_arrow",
   "basic.showIcon|block": "show icon %i",
   "basic.showLeds|block": "show leds",
   "basic.showNumber|block": "show|number %number",
