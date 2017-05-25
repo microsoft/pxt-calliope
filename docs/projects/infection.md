@@ -65,8 +65,8 @@ Player control:
 
 const INCUBATION = 20000; // time before showing symptoms
 const DEATH = 40000; // time before dying off the disease
-const RSSI = -45; // db
-const TRANSMISSIONPROB = 40; // %
+const RSSI = -48; // db
+const TRANSMISSIONPROB = 80; // %
 
 enum GameState {
     Stopped,
@@ -107,7 +107,7 @@ function player(id: number): Player {
     // add player to game
     let p = new Player();
     p.id = id;
-    p.icon = players.length ? players[0].icon + 1 : 2;
+    p.icon = players.length ? players[players.length - 1].icon + 1 : 2;
     p.health = HealthState.Healthy;
     // don't use sad, happy
     if (p.icon == IconNames.Happy) p.icon += 2;
@@ -145,8 +145,6 @@ function gameFace() {
                     basic.showIcon(IconNames.Sad);
                     break;
                 default:
-                    //case HealthState.Healthy:
-                    //case HealthState.Incubating:
                     basic.showIcon(IconNames.Happy);
                     break;
             }
@@ -213,6 +211,7 @@ input.onButtonPressed(Button.A, () => {
     else {
         basic.showIcon(icon);
         gameFace();
+        game.showScore();
     }
 })
 
@@ -275,6 +274,10 @@ radio.onDataPacketReceived(({ time, receivedNumber, receivedString, signal, seri
             health = HealthState.Incubating;
             serial.writeLine(`infected ${control.deviceSerialNumber()}`);
         }
+        if (receivedString == "h" + control.deviceSerialNumber().toString() &&
+            health < receivedNumber) {
+            health = receivedNumber;
+        }
         switch (state) {
             case GameState.Pairing:
                 // medium range in pairing mode
@@ -287,14 +290,14 @@ radio.onDataPacketReceived(({ time, receivedNumber, receivedString, signal, seri
                     basic.showString("R");
                     return;
                 }
-                else if (paired && receivedString == control.deviceSerialNumber().toString()) {
+                else if (paired && receivedString == "i" + control.deviceSerialNumber().toString()) {
                     icon = receivedNumber;
                     basic.showIcon(icon);
                 }
                 break;
             case GameState.Running:
                 // broadcast infection status
-                if (paired && health == HealthState.Healthy && receivedString == "transmit") {
+                if (health == HealthState.Healthy && receivedString == "transmit") {
                     serial.writeLine(`signal: ${signal}`);
                     if (signal > RSSI &&
                         Math.random(100) > TRANSMISSIONPROB) {
@@ -302,6 +305,8 @@ radio.onDataPacketReceived(({ time, receivedNumber, receivedString, signal, seri
                         infectedTime = input.runningTime();
                         health = HealthState.Incubating;
                     }
+                } else if (receivedString == "health" && signal > RSSI) {
+                    game.addScore(1);
                 }
                 break;
         }
@@ -316,10 +321,15 @@ basic.forever(() => {
                 // tell each player they are registered
                 for (const p of players) {
                     radio.sendValue("paired", p.id);
-                    radio.sendValue("" + p.id, p.icon);
+                    radio.sendValue("i" + p.id, p.icon);
                 }
                 serial.writeLine(`pairing ${players.length} players`);
                 basic.pause(500);
+                break;
+            case GameState.Running:
+                for (const p of players) {
+                    radio.sendValue("h" + p.id, p.health);
+                }
                 break;
         }
         radio.sendValue("state", state); // keep broadcasting the game state
@@ -350,7 +360,6 @@ basic.forever(() => {
                 break;
         }
     }
-    basic.pause(100)
 })
 
 basic.showIcon(IconNames.Ghost);
