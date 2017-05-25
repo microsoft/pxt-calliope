@@ -21,11 +21,12 @@ namespace pxsim {
         }
 
         send(payload: SimulatorRadioPacketPayload) {
+            const b = board();
             Runtime.postMessage(<SimulatorRadioPacketMessage>{
                 type: "radiopacket",
-                rssi: 0, // Not yet supported
-                serial: board().radioState.bus.transmitSerialNumber ? board().radioState.bus.serial : 0,
-                time: 0, // Not yet supported
+                rssi: 70, // Not yet supported
+                serial: b.radioState.bus.transmitSerialNumber ? pxsim.control.deviceSerialNumber() : 0,
+                time: new Date().getTime(),
                 payload
             })
         }
@@ -49,13 +50,11 @@ namespace pxsim {
     export class RadioBus {
         // uint8_t radioDefaultGroup = MICROBIT_RADIO_DEFAULT_GROUP;
         power = 0;
-        serial = 0;
         transmitSerialNumber = false;
         datagram: RadioDatagram;
 
         constructor(private runtime: Runtime) {
             this.datagram = new RadioDatagram(runtime);
-            this.serial = Math.floor(Math.random() * Math.pow(2, 32)) - Math.pow(2, 31); // 32 bit signed integer
         }
 
         setTransmitPower(power: number) {
