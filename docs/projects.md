@@ -31,6 +31,10 @@ Fun games to build with your @boardname@.
   "name": "Coin Flipper",
   "url":"/projects/coin-flipper",
   "imageUrl": "/static/mb/projects/coin-flipper.png"
+}, {
+  "name": "Infection",
+  "url": "/projects/infection",
+  "imageUrl": "/static/mb/projects/infection.png"
 }]
 ```
 
