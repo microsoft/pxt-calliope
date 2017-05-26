@@ -383,7 +383,7 @@ namespace pins {
 
     SPI* spi = NULL;
     SPI* allocSPI() {
-        if (spi == NULL)
+        if (NULL == spi)
             spi = new SPI(MOSI, MISO, SCK);
         return spi;
     }
@@ -399,4 +399,41 @@ namespace pins {
         return p->write(value);
     }
 
+    /**
+    * Sets the SPI frequency
+    * @param frequency the clock frequency, eg: 1000000
+    */
+    //% help=pins/spi-frequency weight=4 advanced=true
+    //% blockId=spi_frequency block="spi frequency %frequency"
+    void spiFrequency(int frequency) {
+        auto p = allocSPI();
+        p->frequency(frequency);
+    }
+
+    /**
+    * Sets the SPI bits and mode
+    * @param bits the number of bits, eg: 8
+    * @param mode the mode, eg: 3
+    */
+    //% help=pins/spi-format weight=3 advanced=true
+    //% blockId=spi_format block="spi format|bits %bits|mode %mode"
+    void spiFormat(int bits, int mode) {
+        auto p = allocSPI();
+        p->format(bits, mode);        
+    }
+
+    /**
+    * Sets the MOSI, MISO, SCK pins used by the SPI instance
+    *
+    */
+    //% help=pins/spi-pins weight=2 advanced=true
+    //% blockId=spi_pins block="spi set pins|MOSI %mosi|MISO %miso|SCK %sck"
+    void spiPins(DigitalPin mosi, DigitalPin miso, DigitalPin sck) {
+        if (NULL != spi) {
+            delete spi;
+            spi = NULL;
+        }
+
+        spi = new SPI(getPin((int)mosi)->name, getPin((int)miso)->name, getPin((int)sck)->name);
+    }
 }

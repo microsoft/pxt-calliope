@@ -700,6 +700,31 @@ declare namespace pins {
     //% help=pins/spi-write weight=5 advanced=true
     //% blockId=spi_write block="spi write %value" shim=pins::spiWrite
     function spiWrite(value: number): number;
+
+    /**
+     * Sets the SPI frequency
+     * @param frequency the clock frequency, eg: 1000000
+     */
+    //% help=pins/spi-frequency weight=4 advanced=true
+    //% blockId=spi_frequency block="spi frequency %frequency" shim=pins::spiFrequency
+    function spiFrequency(frequency: number): void;
+
+    /**
+     * Sets the SPI bits and mode
+     * @param bits the number of bits, eg: 8
+     * @param mode the mode, eg: 3
+     */
+    //% help=pins/spi-format weight=3 advanced=true
+    //% blockId=spi_format block="spi format|bits %bits|mode %mode" shim=pins::spiFormat
+    function spiFormat(bits: number, mode: number): void;
+
+    /**
+     * Sets the MOSI, MISO, SCK pins used by the SPI instance
+     *
+     */
+    //% help=pins/spi-pins weight=2 advanced=true
+    //% blockId=spi_pins block="spi set pins|MOSI %mosi|MISO %miso|SCK %sck" shim=pins::spiPins
+    function spiPins(mosi: DigitalPin, miso: DigitalPin, sck: DigitalPin): void;
 }
 
 

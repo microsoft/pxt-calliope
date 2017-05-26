@@ -107,6 +107,18 @@ namespace pxsim.pins {
         return 0;
     }
 
+    export function spiFrequency(f: number): void {
+        // TODO
+    }
+
+    export function spiFormat(bits: number, mode: number): void {
+        // TODO
+    }
+
+    export function spiPins(mosi: number, miso: number, sck: number) {
+        // TODO
+    }
+
     export function i2cReadBuffer(address: number, size: number, repeat?: boolean): RefBuffer {
         // fake reading zeros
         return createBuffer(size)
@@ -188,6 +200,6 @@ namespace pxsim.bluetooth {
     export function advertiseUrl(url: string, power: number, connectable: boolean) { }
     export function advertiseUidBuffer(nsAndInstance: RefBuffer, power: number, connectable: boolean) { }
     export function stopAdvertising() { }
-    export function setTransmitPower(power: number) {}
+    export function setTransmitPower(power: number) { }
 }
 
