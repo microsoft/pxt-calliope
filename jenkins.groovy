@@ -24,6 +24,7 @@ def projectName = "pxt-calliope"
                 credentialsBinding {
                     string("PXT_ACCESS_TOKEN", "pxt_access_token")
                     string("PXT_RELEASE_REPO", "pxt_release_repo_calliope")
+                    string("TEST_CRED_", "test_secret_in_restricted_folder")
                 }
             }
         }
