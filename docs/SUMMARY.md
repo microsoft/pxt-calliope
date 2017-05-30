@@ -11,6 +11,7 @@
     * [Smiley buttons](/projects/smiley-buttons)
     * [Love meter](/projects/love-meter)
     * [Rock paper scissors](/projects/rock-paper-scissors)
+    * [Infection](/projects/infection)
     * [Magic button trick](/projects/magic-button-trick)
     * [Coin Flipper](/projects/coin-flipper)
     * [Hack your headphones](/projects/hack-your-headphones)
@@ -24,6 +25,8 @@
     * [Timing gates](/projects/timing-gates)
     * [Compass](/projects/compass)
     * [Telegraph](/projects/telegraph)
+    * [Railway Crossing](/projects/railway-crossing)
+    * [Karel](/projects/karel)
 
 ## #examples
 
