@@ -140,10 +140,13 @@
 
 * [Packages](/packages)
     * [NeoPixel](/pkg/microsoft/pxt-neopixel)
+    * [File System](/pkg/microsoft/pxt-filesystem)
     * [Sonar](/pkg/microsoft/pxt-sonar)
     * [Bluetooth Temperature Sensor](/pkg/microsoft/pxt-bluetooth-temperature-sensor)
     * [MAX6675](/pkg/microsoft/pxt-max6675)
     * [Bluetooth MAX6675](/pkg/microsoft/pxt-bluetooth-max6675)
+    * [MIDI](/pkg/microsoft/pxt-midi)
+    * [Bluetooth MIDI](/pkg/microsoft/pxt-bluetooth-midi)
     * [Code Dojo Olney](/pkg/CoderDojoOlney/pxt-olney)
     * [UCL Junk Robot](/pkg/chevyng/pxt-ucl-junkrobot)
     * [SRS BitBot](/pkg/srs/pxt-bitbot)
