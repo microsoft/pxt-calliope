@@ -20,20 +20,33 @@ If any player survives the outbreak, the game is won. Otherwise try again!
 
 ### How to play
 
-Press A+B to enter master mode (1 per game).
+Press `A+B` to enter master mode (1 per game).
 
 Wait for players to be paired. The number of paired player will display on screen.
-An icon will appear on player's screen.
+A letter will appear on the player's screen, this letter is the player's identity.
 
-Press A+B to start the infection game. The master will pick a random player as patient zero.
+Once all your players are registered, press `A+B` to start the infection game. 
+The game will pick a random player as **patient zero**.
 
-A player will transmit the disease if close enough (RSSI) and with a certain probability (TRANSMISSIONPROB). 
-During the incudation phase (INCUBATION), the player does not show any sign of illness (happy face). 
-After that phase, the sad face shows up.
+A player will transmit the disease if close enough (`RSSI`) and with a certain probability (`TRANSMISSIONPROB`). 
+During the incudation phase (`INCUBATION`), the player does not show any sign of illness (happy face). 
+After that phase, the player gets sick and shows a sad face on the screen. After the sick face, the player dies and a skull shows up.
 
-Player control:
-* ``A`` button: show identity icon
-* ``B`` button: show current infection status
+Once the game is over, the @boardname@ will show the player id (A,B,C...), health and 
+who infected him. The master @boardname@ will show the identity of patient zero.
+  
+Icons used in the game:
+
+* Pairing: IconNames.Ghost
+* Paired: IconNames.Happy
+* Dead: IconNames.Skull
+* Sick: IconNames.Sad
+* Incubating: IconNames.Confused
+* Healthy: IconNames.Happy
+
+https://pxt.microbit.org/_gymCJCWPbiDu
+
+### JavaScript code
 
 ```typescript
 /**
@@ -53,20 +66,27 @@ Player control:
  * and with a certain probability (TRANSMISSIONPROB). 
  * During the incudation phase (INCUBATION), the player does not show any sign 
  * of illness. After that phase, the sad face shows up.
- *
- * Player control:
- *     A button: show identity icon
- *     B button: show current infection status
- * Master control:
- *     A button: show patient zero identity + number of players
- *  Sad face = infected
- *  Happy face = not infected 
+ * 
+ * The game will automatically stop once all players are dead or healthy. The master can
+ * also press A+B again to stop the game.
+ * 
+ * Once the game is over, the micro:bit will show the player id (A,B,C...), health and 
+ * who infected him.
+ * 
+ * Icons used in the game:
+ * 
+ * Pairing: IconNames.Ghost
+ * Paired: IconNames.Happy
+ * Dead: IconNames.Skull
+ * Sick: IconNames.Sad
+ * Incubating: IconNames.Confused
+ * Healthy: IconNames.Happy
+ * 
  */
-
 const INCUBATION = 20000; // time before showing symptoms
 const DEATH = 40000; // time before dying off the disease
-const RSSI = -48; // db
-const TRANSMISSIONPROB = 80; // %
+const RSSI = -45; // db
+const TRANSMISSIONPROB = 40; // % probability to transfer disease
 
 enum GameState {
     Stopped,
@@ -82,23 +102,40 @@ enum HealthState {
     Dead
 }
 
+const GameIcons = {
+    Pairing: IconNames.Ghost,
+    Paired: IconNames.Happy,
+    Dead: IconNames.Skull,
+    Sick: IconNames.Sad,
+    Incubating: IconNames.Confused,
+    Healthy: IconNames.Happy
+}
+
+const playerIcons = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 class Player {
     id: number;
     icon: number;
     health: HealthState;
+    show() {
+        basic.showString(playerIcons[this.icon]);
+    }
 }
 
+// common state
 let state = GameState.Stopped;
+
+// master state
 let master = false;
 let patientZero: Player;
+const players: Player[] = [];
 
+// player state
 let paired = false;
-let infectedBy = 0; // who infected (icon id)
+let infectedBy = -1; // who infected (playerIcon)
 let infectedTime = 0; // local time when infection happened
-let icon = 0; // player icon and identity
+let playerIcon = -1; // player icon and identity
 let health = HealthState.Healthy;
 
-const players: Player[] = [];
 // get a player instance (creates one as needed)
 function player(id: number): Player {
     for (const p of players)
@@ -107,12 +144,8 @@ function player(id: number): Player {
     // add player to game
     let p = new Player();
     p.id = id;
-    p.icon = players.length ? players[players.length - 1].icon + 1 : 2;
+    p.icon = (players.length + 1) % playerIcons.length;
     p.health = HealthState.Healthy;
-    // don't use sad, happy
-    if (p.icon == IconNames.Happy) p.icon += 2;
-    if (p.icon == IconNames.Asleep) p.icon++;
-    if (p.icon == IconNames.Skull) p.icon++;
     players.push(p);
     serial.writeLine(`player ==> ${p.id}`)
 
@@ -127,43 +160,65 @@ function allDead(): boolean {
 
 function gameOver() {
     state = GameState.Over;
-    basic.showIcon(patientZero.icon);
+    if (patientZero)
+        patientZero.show();
 }
 
 function gameFace() {
     switch (state) {
         case GameState.Stopped:
+            basic.showIcon(GameIcons.Pairing);
+            break;
         case GameState.Pairing:
-            basic.showIcon(paired ? IconNames.Happy : IconNames.Ghost);
+            if (playerIcon > -1)
+                basic.showString(playerIcons[playerIcon]);
+            else
+                basic.showIcon(paired ? GameIcons.Paired : GameIcons.Pairing, 1);
             break;
         case GameState.Running:
             switch (health) {
                 case HealthState.Dead:
-                    basic.showIcon(IconNames.Skull);
+                    basic.showIcon(GameIcons.Dead, 1);
                     break;
                 case HealthState.Sick:
-                    basic.showIcon(IconNames.Sad);
+                    basic.showIcon(GameIcons.Sick, 1);
                     break;
                 default:
-                    basic.showIcon(IconNames.Happy);
+                    basic.showIcon(GameIcons.Healthy, 1);
                     break;
             }
             break;
         case GameState.Over:
+            // show id
+            basic.showString(playerIcons[playerIcon]);
+            basic.pause(2000);
+            // show health
             switch (health) {
                 case HealthState.Dead:
-                    basic.showIcon(IconNames.Skull);
+                    basic.showIcon(GameIcons.Dead, 2000);
                     break;
                 case HealthState.Sick:
-                    basic.showIcon(IconNames.Sad);
+                    basic.showIcon(GameIcons.Sick, 2000);
                     break;
                 case HealthState.Incubating:
-                    basic.showIcon(IconNames.Asleep);
+                    basic.showIcon(GameIcons.Incubating, 2000);
                     break;
                 default:
-                    basic.showIcon(IconNames.Happy);
+                    basic.showIcon(GameIcons.Healthy, 2000);
                     break;
             }
+            // show how infected
+            if (infectedBy > -1) {
+                basic.showString(" INFECTED BY");
+                basic.showString(playerIcons[infectedBy]);
+                basic.pause(2000);
+            } else {
+                basic.showString(" PATIENT ZERO");
+                basic.pause(2000);
+            }
+            // show score
+            game.showScore();
+            basic.pause(1000);
             break;
     }
 }
@@ -177,10 +232,14 @@ input.onButtonPressed(Button.AB, () => {
         state = GameState.Pairing;
         serial.writeLine("registered as master");
         radio.setTransmitPower(7); // beef up master signal
-        basic.showString("M");
+        basic.showString("0");
+        return;
     }
+
+    if (!master) return; // master only beyond this
+
     // launch game
-    else if (state == GameState.Pairing && master) {
+    if (state == GameState.Pairing) {
         // pick 1 player and infect him
         patientZero = players[Math.random(players.length)];
         while (patientZero.health == HealthState.Healthy) {
@@ -193,42 +252,10 @@ input.onButtonPressed(Button.AB, () => {
         serial.writeLine(`game started ${players.length} players`);
 
         // show startup
-        basic.showString("R");
+        basic.showIcon(GameIcons.Dead);
     } // end game 
-    else if (state == GameState.Running && master) {
+    else if (state == GameState.Running) {
         gameOver();
-    }
-})
-
-// display your icon
-input.onButtonPressed(Button.A, () => {
-    led.stopAnimation()
-    if (master) {
-        if (patientZero)
-            basic.showIcon(patientZero.icon);
-        basic.showNumber(players.length);
-    }
-    else {
-        basic.showIcon(icon);
-        gameFace();
-        game.showScore();
-    }
-})
-
-// display who infected you
-input.onButtonPressed(Button.B, () => {
-    if (master) {
-        let c = 0;
-        for (const p of players)
-            if (p.health == HealthState.Dead) c++;
-        basic.showNumber(c);
-    } else {
-        led.stopAnimation()
-        if (infectedBy)
-            basic.showIcon(infectedBy);
-        else
-            basic.showIcon(IconNames.Happy)
-        gameFace();
     }
 })
 
@@ -256,20 +283,12 @@ radio.onDataPacketReceived(({ time, receivedNumber, receivedString, signal, seri
     } else {
         if (receivedString == "state") {
             // update game state
-            let oldState = state;
             state = receivedNumber as GameState;
-            if (oldState != state) {
-                switch (state) {
-                    case GameState.Pairing:
-                        basic.showString("P");
-                        break;
-                }
-            }
-        } else if (!infectedBy &&
+        } else if (infectedBy < 0 &&
             receivedString == "infect"
             && receivedNumber == control.deviceSerialNumber()) {
             // infected by master
-            infectedBy = 1; // infected my master
+            infectedBy = 0; // infected my master
             infectedTime = input.runningTime();
             health = HealthState.Incubating;
             serial.writeLine(`infected ${control.deviceSerialNumber()}`);
@@ -287,12 +306,10 @@ radio.onDataPacketReceived(({ time, receivedNumber, receivedString, signal, seri
                     // paired!
                     serial.writeLine(`player paired ==> ${control.deviceSerialNumber()}`)
                     paired = true;
-                    basic.showString("R");
                     return;
                 }
                 else if (paired && receivedString == "i" + control.deviceSerialNumber().toString()) {
-                    icon = receivedNumber;
-                    basic.showIcon(icon);
+                    playerIcon = receivedNumber;
                 }
                 break;
             case GameState.Running:
@@ -305,7 +322,8 @@ radio.onDataPacketReceived(({ time, receivedNumber, receivedString, signal, seri
                         infectedTime = input.runningTime();
                         health = HealthState.Incubating;
                     }
-                } else if (receivedString == "health" && signal > RSSI) {
+                } else if (health != HealthState.Dead
+                    && receivedString == "health" && signal > RSSI) {
                     game.addScore(1);
                 }
                 break;
@@ -331,15 +349,19 @@ basic.forever(() => {
                     radio.sendValue("h" + p.id, p.health);
                 }
                 break;
+            case GameState.Over:
+                if (patientZero)
+                    patientZero.show();
+                break;
         }
         radio.sendValue("state", state); // keep broadcasting the game state
     } else { // player loop
         switch (state) {
             case GameState.Pairing:
                 // broadcast player id
-                if (!icon)
+                if (playerIcon < 0)
                     radio.sendValue("pair", control.deviceSerialNumber());
-                else if (infectedBy)
+                else if (infectedBy > -1)
                     radio.sendValue("health", health);
                 break;
             case GameState.Running:
@@ -350,17 +372,15 @@ basic.forever(() => {
                     health = HealthState.Sick;
                 // transmit disease
                 if (health == HealthState.Incubating || health == HealthState.Sick)
-                    radio.sendValue("transmit", icon);
+                    radio.sendValue("transmit", playerIcon);
                 radio.sendValue("health", health);
-                gameFace();
-                break;
-            case GameState.Over:
-                // show infection state
-                gameFace();
                 break;
         }
+        // show current animation
+        gameFace();
     }
 })
 
-basic.showIcon(IconNames.Ghost);
+
+basic.showIcon(GameIcons.Pairing)
 ```
