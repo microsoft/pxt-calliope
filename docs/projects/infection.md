@@ -18,6 +18,13 @@ Once the game is over, pressing **B** will display which player got infected. Th
 
 If any player survives the outbreak, the game is won. Otherwise try again!
 
+### ~ hint
+
+**Infection** is an engaging game that will get your students running around.
+We recommend playing it outside to give more space for the students.
+
+### ~
+
 ### How to play
 
 Press `A+B` to enter master mode (1 per game).
