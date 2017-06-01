@@ -14,8 +14,6 @@ with the sickness. The infected player will be contagious immediately but won't 
 during the incubation time. The sickness gets transmitted when two @boardname@ get close to each other.
 After the incubation period, the sad face will appear on the screen. After the sickness period, the player will eventually die and a skull will display on the screen. Dead players are out of the game.
 
-Once the game is over, pressing **B** will display which player got infected. This can be used to trace back the infection up to patient zero. 
-
 If any player survives the outbreak, the game is won. Otherwise try again!
 
 ### ~ hint
