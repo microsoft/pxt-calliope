@@ -15,8 +15,8 @@ Go to http://ncase.me/fireflies/ and read about the fireflies synchronization ph
 
 ## Code
 
-The goal of this project is to create virtual fireflies using @boardname@ that mimic the real fireflies. 
-After reading the article, there are a few sentences that stand out to help.
+We want to create virtual fireflies using multiple @boardname@ (each @boardname@ acts as a firefly).
+Let's review some of the key points of the article:
 
 ### "Each firefly has its own individual internal clock"
 
@@ -29,8 +29,8 @@ let clock = 1
 
 ### "and every time the clock “strikes twelve”, it flashes."
 
-So we need a [forever](/reference/basic/forever) loop to increment the clock.
-When the clock reaches "noon" (let's pick 8), we turn on the screen breifly.
+We can use a [forever](/reference/basic/forever) loop to repeat code that increments the clock.
+When the clock reaches "noon" (let's pick `8`), we turn on the screen breifly (by using the game score animation)
 
 ```block
 // the clock ticker
@@ -55,7 +55,8 @@ basic.forever(() => {
 
 ### Step 1: when you see a nearby firefly flash, nudge your clock a little bit forward.
 
-We will use radio messages to simulate the vision of fireflies. 
+The @boardname@ can send radio messages to neibhor @boardname@.
+We can use these messages to simulate the "flashes" of light. 
 
 * When a firefly flashes, it also sends a number over radio using [radio send number](/reference/radio/send-number).
 
@@ -97,10 +98,9 @@ radio.onDataPacketReceived(() => {
 
 https://youtu.be/XzZeB4yYnEw
 
+Download this program on as many @boardname@ as you can find and try it out in a dark room!
 
-Now that we have all the parts needed to build our firefly simulator, we can assemble it into a program.
-
-We've add a [radio set group](/reference/radio/set-group) block to specify which group the firefly will communicate on. Download this program on as many @boardname@ as you can find and try it out in a dark room!
+(We've added a [radio set group](/reference/radio/set-group) block to specify which group the firefly will communicate on). 
 
 ```blocks
 // the clock ticker
