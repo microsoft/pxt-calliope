@@ -41,6 +41,7 @@ https://youtu.be/egl3fNAYylk
 ## Preparation
 
 * [Equip the microservo with crocodile clips](/device/servo)
+* [Get the cut-out template](/static/mb/projects/milky-monster/template.pdf)
 * [Download and 3D-print servo clip designed for MIlky Monster from thingiverse](http://www.thingiverse.com/thing:2185971) (this is optional). Teachers may prefer to download the classroom pack (16 servo clips).
 
 ## Activities
