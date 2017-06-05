@@ -40,8 +40,8 @@ basic.forever(() => {
     if (clock >= 8) {
         // flash
         game.addScore(1)
-        // wait for 2 ticks + a tiny bit
-        basic.pause(220)
+        // wait for 2 ticks
+        basic.pause(200)
         // reset the clock
         clock = 0
     } else {
@@ -58,6 +58,30 @@ basic.forever(() => {
 We will use radio messages to simulate the vision of fireflies. 
 
 * When a firefly flashes, it also sends a number over radio using [radio send number](/reference/radio/send-number).
+
+```block
+// the clock ticker
+let clock = 0
+basic.forever(() => {
+    // if clock "hits noon", flash the screen
+    if (clock >= 8) {
+        // notify neighbors
+        radio.sendNumber(0)
+        // flash
+        game.addScore(1)
+        // wait for 2 ticks
+        basic.pause(200)
+        // reset the clock
+        clock = 0
+    } else {
+        // just wait a bit
+        basic.pause(100)
+        // increment the clock
+        clock += 1
+    }
+})
+```
+
 * When a firefly receives a radio packet, it increments its clock by one just like the fireflies.
 
 ```block
@@ -89,11 +113,11 @@ basic.forever(() => {
     // if clock hits noon, flash the screen
     if (clock >= 8) {
         // notify neighbors
-        radio.sendNumber(clock)
+        radio.sendNumber(0)
         // flash
         game.addScore(1)
-        // wait for 2 ticks + a tiny bit
-        basic.pause(220)
+        // wait for 2 ticks
+        basic.pause(200)
         // reset the clock
         clock = 0
     } else {
@@ -103,7 +127,6 @@ basic.forever(() => {
         clock += 1
     }
 })
-// short range radio transmission
 radio.setTransmitPower(1)
 radio.setGroup(12)
 ```
