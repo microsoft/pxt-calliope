@@ -214,7 +214,7 @@
         "homeUrl": "https://pxt.microbit.org/",
         "embedUrl": "https://pxt.microbit.org/",
         "shareUrl": "https://pxt.microbit.org/",
-        "legacyDomain": "pxt.microbit.org",
+        "legacyDomain": "m.pxt.io",
         "privacyUrl": "https://makecode.com/privacy",
         "termsOfUseUrl": "https://makecode.com/termsofuse",
         "githubUrl": "https://github.com/Microsoft/pxt-microbit",
