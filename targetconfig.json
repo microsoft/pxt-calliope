@@ -13,6 +13,9 @@
             "sparkfun/pxt-moto-bit",
             "sparkfun/pxt-weather-bit",
             "KitronikLtd/pxt-kitronik-servo-lite"
+        ],
+        "preferredRepos": [
+            "Microsoft/pxt-neopixel"
         ]
     },
     "languages": [
