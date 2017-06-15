@@ -33,7 +33,7 @@
     "notifications": {
         "localhost": {
             "type": "warning",
-            "message": "<h2>Heads Up!</h2> <br />This editor is moving to <a href=\"https://makecode.microbit.org\" >https://makecode.microbit.org</a> on July 22nd 2017"
+            "message": "<h2>Important:</h2> <br />This editor is moving to <a href=\"https://makecode.microbit.org\" >https://makecode.microbit.org</a> on July 22nd 2017. <br /> Please update your bookmarks and school internet filters. <br /> <a href=\"https://makecode.com/blog/microbit/v0.12.35\">Read more...</a>"
         }
     }
 }
