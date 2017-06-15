@@ -55,6 +55,11 @@ Here are some fun programs for your @boardname@!
   "description": "easy time tracking",
   "url":"/examples/stop-watch",
   "cardType": "example"
+}, {
+  "name": "Radio Dashboard",
+  "description": "dashboard for radio clients",
+  "url":"/examples/radio-dashboard",
+  "cardType": "example"
 }]
 ```
 
