@@ -35,7 +35,6 @@
             "type": "warning",
             "heading": "Important", 
             "message": "This editor is moving to https://makecode.microbit.org on July 22nd 2017. Please update your bookmarks and school internet filters",
-            "readmore": "https://makecode.com/blog/microbit/v0.12.35",
             "url": "https://makecode.microbit.org"
         }
     }
