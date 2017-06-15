@@ -29,5 +29,9 @@
         "si-LK",
         "zh-CN",
         "zh-TW"
-    ]
+    ],
+    "notifications": {
+        "pxt.microbit.org": "Hello world",
+        "localhost": "Testing"
+    }
 }
