@@ -2,17 +2,16 @@
 
 ### ~ avatar
 
-Build a vote collection system using many micro:bit!
+Build a voting machine using many @boardname@s!
 
 ### ~
 
 https://youtu.be/77HOqf8BaNg
 
 
-In this project, a **voter** program is uploaded on the player's @boardname@. The player uses the buttons to vote yes or no 
-and the vote sent to the **dashboard** @boardname@ via radio. The dashboard allocates one LED per player and turns it on for "yes" and off for "no".
-
-Both programs set their radio group to ``4`` to be able to communicate.
+In this project, a **voter** program is uploaded on the player's @boardname@. The player uses the buttons to vote ``yes`` or ``no`` 
+and the vote is sent to the **dashboard** @boardname@ via radio. 
+The dashboard allocates one LED per player and turns it on or off based on the vote.
 
 ## The voter program
 
