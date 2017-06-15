@@ -39,6 +39,10 @@ Fun games to build with your @boardname@.
   "name": "Infection",
   "url": "/projects/infection",
   "imageUrl": "/static/mb/projects/infection.png"
+}, {
+  "name": "Voting Machine",
+  "url": "/projects/voting-machine",
+  "imageUrl": "/static/mb/projects/voting-machine.png"
 }]
 ```
 

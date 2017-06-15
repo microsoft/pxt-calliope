@@ -15,9 +15,8 @@
  * 
  * If the radio packet is not received for 10sec, the LED starts blinking.
  */
-
+const deadPing = 20000;
 const lostPing = 10000;
-const group = 4;
 
 interface Client {
     // client serial id
@@ -59,7 +58,7 @@ radio.onDataPacketReceived(packet => {
         return;
 
     client.ping = input.runningTime()
-    client.sprite.setBrightness(packet.receivedNumber & 0xff);
+    client.sprite.setBrightness(Math.max(1, packet.receivedNumber & 0xff));
 })
 
 // monitor the sprites and start blinking when no packet is received
@@ -67,15 +66,20 @@ basic.forever(() => {
     const now = input.runningTime()
     for (const client of clients) {
         // lost signal starts blinking
-        if (now - client.ping > lostPing)
+        const lastPing = now - client.ping;
+        if (lastPing > deadPing) {
+            client.sprite.setBlink(0)
+            client.sprite.setBrightness(0)
+        }
+        else if (lastPing > lostPing)
             client.sprite.setBlink(500);
-        else client.sprite.setBlink(0);
+        else
+            client.sprite.setBlink(0);
     }
     basic.pause(500)
 })
 
 // setup the radio and start!
-radio.setGroup(group)
-radio.setTransmitPower(6)
-radio.setTransmitSerialNumber(true)
+radio.setGroup(4)
+game.addScore(1)
 ```
