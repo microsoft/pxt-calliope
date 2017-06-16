@@ -36,6 +36,12 @@
             "heading": "Important", 
             "message": "This editor is moving to https://makecode.microbit.org on July 22nd 2017. Please update your bookmarks and school internet filters",
             "url": "https://makecode.microbit.org"
+        },
+        "mbtest.pxt.io": {
+            "type": "warning",
+            "heading": "Important", 
+            "message": "This editor is moving to https://makecode.microbit.org on July 22nd 2017. Please update your bookmarks and school internet filters",
+            "url": "https://makecode.microbit.org"
         }
     }
 }
