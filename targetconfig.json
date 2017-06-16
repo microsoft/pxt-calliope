@@ -34,14 +34,22 @@
         "localhost": {
             "type": "warning",
             "heading": "Important", 
-            "message": "This editor is moving to https://makecode.microbit.org on July 22nd 2017. Please update your bookmarks and school internet filters",
+            "message": "This editor is moving to https://makecode.microbit.org on July 22nd 2017. Please update your bookmarks and school internet filters.",
             "url": "https://makecode.microbit.org"
         },
         "mbtest.pxt.io": {
             "type": "warning",
             "heading": "Important", 
-            "message": "This editor is moving to https://makecode.microbit.org on July 22nd 2017. Please update your bookmarks and school internet filters",
-            "url": "https://makecode.microbit.org"
+            "message": "This editor is moving to https://makecode.microbit.org on July 22nd 2017. Please update your bookmarks and school internet filters.",
+            "url": "https://makecode.microbit.org",
+            "readmore": "https://makecode.com/blog/microbit/v0.12.35"
+        },
+        "pxt.microbit.org": {
+            "type": "warning",
+            "heading": "Important", 
+            "message": "This editor is moving to https://makecode.microbit.org on July 22nd 2017. Please update your bookmarks and school internet filters.",
+            "url": "https://makecode.microbit.org",
+            "readmore": "https://makecode.com/blog/microbit/v0.12.35"
         }
     }
 }
