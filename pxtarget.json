@@ -200,7 +200,7 @@
     },
     "appTheme": {
         "accentColor": "#5C005C",
-        "logoUrl": "https://microbit.org/",
+        "logoUrl": "https://microbit.org/code/",
         "logo": "./static/logo.portrait.white.svg",
         "docsLogo": "./static/logo.square.white.svg",
         "portraitLogo": "./static/logo.square.white.svg",
