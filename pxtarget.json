@@ -80,6 +80,7 @@
         "variablesBlocks": true,
         "textBlocks": true,
         "listsBlocks": true,
+        "functionBlocks": true,
         "onStartColor": "#0078D7",
         "onStartNamespace": "basic",
         "onStartWeight": 54
