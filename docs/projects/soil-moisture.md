@@ -3,7 +3,7 @@
 
 ### ~avatar avatar
 
-Make a funny milky-monster robot!
+Track the soil moisture of your plants!
 
 ### ~
 
