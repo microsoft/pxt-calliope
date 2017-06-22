@@ -1,19 +1,10 @@
 # Code
 ### @description code to detect States of Matter 
 
-## Step 1: Make temperature simulation
-
 Have you ever tried to represent the states of matter? Let's try to visually represent various states of matter based on atmospheric temperatures!
 
-### ~
 
-https://youtu.be/Hdsy93yaQC0
-
-### ~
-
-
-## Step 2: Variables.
-
+## Step 1: Variables.
 
 In order for States of Matter to follow the rules for determining the  atmospheric temperature, we need to add variables that will store data. Then we will assign (set) the value of the variables. We want to name the two (2) variables as follows: “atmos_temperature” and “temperature”. Set the value of the variables to 100.  Modify your code so that your code looks like this.
 
@@ -24,7 +15,7 @@ let atmos_temperature = 100
 ```
 
 
-## Step 3: Detect a solid.
+## Step 2: Detect a solid.
 
 We want to detect a solid for the atmospheric temperature. On Pin 2 Pressed, you want to represent an atmospheric temperature of 0 and scroll the message SOLID. We want to set atmos_temperature to 0 and show string as a Solid. Modify your code so that your code looks like this:
 
@@ -41,7 +32,7 @@ temperature = 100
 
 ```
 
-## Step 4: Detect a liquid.
+## Step 3: Detect a liquid.
 
 We want to detect a liquid for the atmospheric temperature. On Pin 1 Pressed, you want to represent an atmospheric temperature of 80 and scroll the message LIQUID. We want to set atmos_temperature to 80 and show string as a liquid. Modify your code so that your code looks like this:
 
@@ -61,10 +52,7 @@ temperature = 100
 
 ```
 
-* click *Download* to see if the code works as expected.
-
-
-## Step 5: Detect a gas.
+## Step 4: Detect a gas.
 
 We want to detect a liquid for the atmospheric temperature. On Pin 1 Pressed, you want to represent an atmospheric temperature of 80 and scroll the message LIQUID. We want to set atmos_temperature to 80 and show string as a liquid. Modify your code so that your code looks like this:
 
@@ -95,7 +83,7 @@ temperature = 100
 * click *Download* to see if the code works as expected.
 
 
-## Step 6: Increase temperature.
+## Step 5: Increase temperature.
 
 We want to display a change of temperature on shake. When you shake the states of matter experiment, there will be a show icon to represent an increase in temperature. Modify your code so that your code looks like this:
 
@@ -180,6 +168,3 @@ temperature = 100
 
 
 ```
-
-* click Download to see if the code works as expected.
-
