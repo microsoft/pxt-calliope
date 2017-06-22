@@ -115,6 +115,10 @@ Fun games to build with your @boardname@.
   "name": "Plant Watering",
   "url":"/projects/plant-watering",
   "imageUrl":"/static/mb/projects/plant-watering.jpg"
+}, {
+  "name": "Reaction Time",
+  "url":"/projects/reaction-time",
+  "imageUrl":"/static/mb/projects/reaction-time.jpg"
 }]
 ```
 

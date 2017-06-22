@@ -9,7 +9,7 @@ Make a reaction time experiment that responds to your body's conductivity!
 
 ### ~
 
-https://youtu.be/DgJ-S0q0EMs
+https://youtu.be/doHwknM7HbQ
 
 ## Duration
 
@@ -17,11 +17,11 @@ https://youtu.be/DgJ-S0q0EMs
 
 ## Materials
 
-* Cardboard 
-* Aluminum Foil
-* Permanent Markers (Red and Black)
+* cardboard 
+* aluminum Foil
+* permanent markers
 * 1 @boardname@, battery holder and 2 AAA batteries
-* 4 Crocodile clips
+* 4 crocodile clips
 
 ## Activities
 
