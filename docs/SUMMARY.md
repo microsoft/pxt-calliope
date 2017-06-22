@@ -22,6 +22,7 @@
     * [Soil Moisture](/projects/soil-moisture)
     * [Plant Watering](/projects/plant-watering)
     * [Reaction Time](/projects/reaction-time)
+    * [States of Matter](/projects/states-of-matter)
     * [Voting Machine](/projects/voting-machine)
     * [Infection](/projects/infection)
     * [Fireflies](/projects/fireflies)

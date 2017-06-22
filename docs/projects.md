@@ -119,6 +119,10 @@ Fun games to build with your @boardname@.
   "name": "Reaction Time",
   "url":"/projects/reaction-time",
   "imageUrl":"/static/mb/projects/reaction-time.jpg"
+}, {
+  "name": "States of Matter",
+  "url":"/projects/states-of-matter",
+  "imageUrl":"/static/mb/projects/states-of-matter.jpg"
 }]
 ```
 
@@ -144,4 +148,5 @@ Fun games to build with your @boardname@.
 
 [Flashing Heart](/projects/flashing-heart), [Smiley Buttons](/projects/smiley-buttons), [Love Meter](/projects/love-meter), [Rock Paper Scissors](/projects/rock-paper-scissors), [Compass](/projects/compass), [Hack your headphones](/projects/hack-your-headphones), [Banana keyboard](/projects/banana-keyboard), [Telegraph](/projects/telegraph), [Guitar](/projects/guitar), [Wallet](/projects/wallet), [Watch](/projects/watch),
 [Milk Monster](/projects/milky-monster), [Karel the LED](/projects/karel), [Infection](/projects/infection), [Voting Machine](/projects/voting-machine)
-[Fireflies](/projects/fireflies), [Soil Moisture](/projects/soil-moisture)
+[Fireflies](/projects/fireflies), [Soil Moisture](/projects/soil-moisture),
+[States Of Matter](/projects/states-of-matter), [Reaction Time](/projects/reaction-time)
