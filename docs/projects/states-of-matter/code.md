@@ -5,8 +5,10 @@
 
 Have you ever tried to represent the states of matter? Let's try to visually represent various states of matter based on atmospheric temperatures!
 
- ### ~button /projects/states-of-matter/make
-Make
+### ~
+
+https://youtu.be/Hdsy93yaQC0
+
 ### ~
 
 
@@ -135,7 +137,7 @@ The first condition statement follows this logic:
 
 The second condition follows this logic: 
 - show icon with a symbol of a solid if the temperature is less than 32 degrees.
-- show icon with a sybmol of a liquid (umbrella) if the temperature is less than 212 degrees.
+- show icon with a symbol of a liquid (umbrella) if the temperature is less than 212 degrees.
 - show icon with a symbol of a gas if the temperature is greater than or equal to 212 degrees.  
 
 ```blocks
