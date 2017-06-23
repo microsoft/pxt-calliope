@@ -9,3 +9,9 @@
 ## Lessons
 
 * [Making](/courses/csintro/making)
+
+### ~ hint
+
+UNDER CONSTRUCTION: We are still migrating the CSIntro content to this format...
+
+### ~

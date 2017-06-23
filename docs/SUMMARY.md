@@ -55,6 +55,11 @@
         * [Introduction](/courses/csintro/introduction)
         * [References](/courses/csintro/references)
         * [Making](/courses/csintro/making)
+            * [Introduction](/courses/csintro/making/introduction)
+            * [Unplugged](/courses/csintro/making/unplugged)
+            * [Walkthrough](/courses/csintro/making/walkthrough)
+            * [Project](/courses/csintro/making/project)
+            * [Standards](/courses/csintro/making/standards)
 
 ## #reference
 
