@@ -10,10 +10,6 @@ For this activity, students will each need a micro:bit, a micro-USB cable, a com
 
 ![micro:bit kit](/static/courses/csintro/making/microbit-kit.jpg)
 
-Download this file to your computer (right-click, Save As):
-
-[**MicroPet program**](/static/courses/csintro/making/microbit-micropet.hex)
-
 Open a browser window to [makecode.com](http://makecode.com), and select the micro:bit code editor
 
 ![micro:bit card icon](/static/courses/csintro/making/microbit-card-icon.png)
@@ -38,6 +34,7 @@ basic.forever(() => {
 
 See the [**MicroPet**](https://makecode.microbit.org/_38yJ1PAkuKPV) project online.
 https://makecode.microbit.org/_38yJ1PAkuKPV
+
 ## Tour of Microsoft MakeCode
 
 * **Simulator**	 - on the left side of the screen, you will see a virtual micro:bit that will show what your program will look like running on a micro:bit. This is helpful for debugging, and instant feedback on program execution.
