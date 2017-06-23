@@ -47,17 +47,10 @@
     * [Servo Calibrator](/examples/servo-calibrator)
     * [Game of Life](/examples/gameofLife)        
 
-## Examples #examples
+## #courses
 
-* [Examples](/examples)
-    * [blinky](/examples/blinky)
-    * [name tag](/examples/name-tag)
-    * [rando](/examples/rando)
-    * [plot acceleration](/examples/plot-acceleration)
-    * [plot light level](/examples/plot-light-level)
-    * [plot analog pin](/examples/plot-analog-pin)
-    * [servo calibrator](/examples/servo-calibrator)
-    * [Eddystone beacon](/examples/eddystone-beacon)
+* [Courses](/courses)
+    * [CS Intro](/courses/csintro)
 
 ## #reference
 
