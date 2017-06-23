@@ -37,7 +37,7 @@ This course takes approximately 14 weeks to complete, spending about 1 week on e
 
 ## Overall Course Scope & Sequence:
 
-1. Making 
+1. [Making](/csintro/making) 
 2. Algorithms 
 3. Variables 
 4. Conditionals 

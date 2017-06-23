@@ -51,6 +51,10 @@
 
 * [Courses](/courses)
     * [CS Intro](/courses/csintro)
+        * [About](/courses/csintro/about)
+        * [Introduction](/courses/csintro/introduction)
+        * [References](/courses/csintro/references)
+        * [Making](/courses/csintro/making)
 
 ## #reference
 
