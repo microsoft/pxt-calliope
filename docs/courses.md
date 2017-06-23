@@ -8,7 +8,8 @@ A collection of courses built for the @boardname@.
 ```codecard
 [{
   "name": "CS Intro Heart",
-  "url":"/courses/csintro"
+  "url":"/courses/csintro",
+  "imageUrl": "/static/courses/csintro.jpg"
 }]
 ```
 
