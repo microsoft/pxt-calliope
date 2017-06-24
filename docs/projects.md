@@ -31,7 +31,12 @@ Fun games to build with your @boardname@.
   "name": "Coin Flipper",
   "url":"/projects/coin-flipper",
   "imageUrl": "/static/mb/projects/coin-flipper.png"
-}, {
+}]
+```
+
+## Multiplayer Games
+```codecard
+[{
   "name": "Fireflies",
   "url": "/projects/fireflies",
   "imageUrl": "/static/mb/projects/fireflies.png"
@@ -39,6 +44,10 @@ Fun games to build with your @boardname@.
   "name": "Infection",
   "url": "/projects/infection",
   "imageUrl": "/static/mb/projects/infection.png"
+}, {
+  "name": "Hot Or Cold",
+  "url": "/projects/hot-or-cold",
+  "imageUrl": "/static/mb/projects/hot-or-cold.jpg"
 }, {
   "name": "Voting Machine",
   "url": "/projects/voting-machine",
