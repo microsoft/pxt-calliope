@@ -8,7 +8,9 @@ This course takes approximately 14 weeks to complete, spending about 1 week on e
 
 ### ~ hint
 
-Download the full course [[OneNote](https://aka.ms/intro2cs)] [[PDF](https://aka.ms/intro2cspdf)]
+Download the full course 
+[[OneNote](https://1drv.ms/o/s!AqsgsTyHBmRBgQvFaUaeANNHbxpC)] 
+[[PDF](https://1drv.ms/b/s!AqsgsTyHBmRBgQ1Fjzm5y5wKG75M)]
 
 ### ~
 
