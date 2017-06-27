@@ -6,6 +6,8 @@ Massively multi-player rock paper scissors!
 
 ### ~
 
+https://youtu.be/8ztOmdZi5Pw
+
 Playing rock paper scissors is usually a two player game... but it works with much more players too!
 When playing with more than two players, it becomes a team game: all players shake at the same time, 
 then the number of **rock**, **paper**, **scissors** is tallied between all the players. 
