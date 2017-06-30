@@ -61,6 +61,7 @@ namespace pxsim.visuals {
         font-family:"Lucida Console", Monaco, monospace;
         font-size:25px;
         fill:#fff;
+        user-select: none;
         pointer-events: none;
         }
 
