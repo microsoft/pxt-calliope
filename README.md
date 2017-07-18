@@ -74,6 +74,14 @@ To test something on the device:
 
 The `lang-test0` source comes from the `pxt-core` package. It's also tested with `pxt run` there. 
 
+## Repos 
+
+There are a number of repos that pxt-microbit depends on. The main ones are:
+- https://github.com/Microsoft/pxt, the PXT framework
+- https://github.com/lancaster-university/microbit, basic wrapper around the DAL
+- https://github.com/lancaster-university/microbit-dal
+
+
 ## Code of Conduct
 
 This project has adopted the [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/). For more information see the [Code of Conduct FAQ](https://opensource.microsoft.com/codeofconduct/faq/) or contact [opencode@microsoft.com](mailto:opencode@microsoft.com) with any additional questions or comments.
