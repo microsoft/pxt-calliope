@@ -30,7 +30,7 @@ let clock = 1
 ### "and every time the clock “strikes twelve”, it flashes."
 
 We can use a [forever](/reference/basic/forever) loop to repeat code that increments the clock.
-When the clock reaches "noon" (let's pick `8`), we turn on the screen breifly (by using the game score animation)
+When the clock reaches "noon" (let's pick `8`), we turn on the screen briefly (by using the game score animation)
 
 ```block
 // the clock ticker
@@ -55,7 +55,7 @@ basic.forever(() => {
 
 ### Step 1: when you see a nearby firefly flash, nudge your clock a little bit forward.
 
-The @boardname@ can send radio messages to neibhor @boardname@.
+The @boardname@ can send radio messages to neighbor @boardname@.
 We can use these messages to simulate the "flashes" of light. 
 
 * When a firefly flashes, it also sends a number over radio using [radio send number](/reference/radio/send-number).
@@ -83,7 +83,7 @@ basic.forever(() => {
 })
 ```
 
-* When a firefly receives a radio packet, it increments its clock by one just like the fireflies.
+* When a firefly receives a radio packet, it increments its clock by one.
 
 ```block
 // the clock ticker
