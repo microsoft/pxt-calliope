@@ -292,12 +292,14 @@ namespace game {
         private _dir: number;
         private _brightness: number;
         private _blink: number;
+        private _enabled: boolean;
 
         constructor(x: number, y: number) {
             this._x = Math.clamp(0, 4, x);
             this._y = Math.clamp(0, 4, y);
             this._dir = 90;
             this._brightness = 255;
+            this._enabled = true;
             init();
             sprites.push(this);
             plot();
@@ -573,7 +575,7 @@ namespace game {
         //% weight=20
         //% blockId=game_sprite_touching_sprite block="%sprite|touching %other|?" blockGap=8
         public isTouching(other: LedSprite): boolean {
-            return this._x == other._x && this._y == other._y;
+            return this._enabled && other._enabled && this._x == other._x && this._y == other._y;
         }
 
         /**
@@ -642,12 +644,13 @@ namespace game {
         }
 
         /**
-         * Deletes the sprite from the game engine. All further operation of the sprite will not have any effect.
+         * Deletes the sprite from the game engine. The sprite will no longer appear on the screen or interact with other sprites.
          * @param this sprite to delete
          */
         //% weight=59
         //% blockId="game_delete_sprite" block="delete %this"
         public delete(): void {
+            this._enabled = false;
             if (sprites.removeElement(this))
                 plot();
         }
