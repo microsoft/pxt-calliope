@@ -43,7 +43,7 @@ You only need to do this once.
 
 ## Step 3: Download your program
 
-1. Open your project on [pxt.microbit.org](https://pxt.microbit.org)
+1. Open your project on @homeurl@
 2. Click **Download**
 3. If you did Step 2 above, Chrome will ask where to save the `.hex` file,
     so save it into the `MICROBIT` drive.

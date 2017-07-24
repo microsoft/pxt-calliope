@@ -3,7 +3,7 @@
 This target allow to program a [BBC micro:bit](https://microbit.org/) using 
 PXT ([Microsoft Programming Experience Toolkit](https://github.com/Microsoft/pxt)).
 
-* [Try it live](https://pxt.microbit.org)
+* [Try it live](@homeurl@)
 
 [![Build Status](https://travis-ci.org/Microsoft/pxt-microbit.svg?branch=master)](https://travis-ci.org/Microsoft/pxt-microbit)
 

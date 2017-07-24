@@ -51,7 +51,7 @@ Icons used in the game:
 * Incubating: IconNames.Confused
 * Healthy: IconNames.Happy
 
-https://pxt.microbit.org/_gymCJCWPbiDu
+https://makecode.microbit.org/_gymCJCWPbiDu
 
 ### JavaScript code
 
