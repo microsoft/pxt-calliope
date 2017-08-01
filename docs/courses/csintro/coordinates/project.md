@@ -19,6 +19,7 @@ Your project might use variables to store the values of sprites, which are speci
 
 ## Project Ideas
 
+![Firework Example](/static/courses/csintro/coordinates/firework.gif)
 ### Firework screensaver
 
 This project uses a for loop with the plot/unplot blocks to create a symmetrical design on the screen. This student used a subtraction operation to get a variable that decreases as the index variable in the loop increases.
@@ -40,6 +41,7 @@ basic.forever(() => {
 })
 ```
 
+![Player Grid Example](/static/courses/csintro/coordinates/cascade.gif)
 ### Cascade screensaver
 
 This example creates a diagonal cascading effect across the screen. Note the use of a variable (speed) to allow you to easily change the speed of the animation by changing just one number value.
