@@ -48,13 +48,10 @@ This design supports the micro:bit in a rigid cradle and allows more delicate co
 ## Reflection
 Have students write a reflection of about 150–300 words, addressing the following points:
 
-* What were the Variables that you used to keep track of information?
-* What mathematical operations did you perform on your variables? 
-* What information did you provide?
-* Describe what the physical component of your micro:bit project was (e.g., an armband, a wallet, a holder, etc.)
-* How well did your prototype work? What were you happy with? What would you change?
+* Describe what the physical component of yur micro:bit project was (e.g., an armband, a cardboard mount, a holder, etc.)
+* How well did your prototype work? What were you happy with? What would you change? 
 * What was something that was surprising to you about the process of creating this project?
-* Describe a difficult point in the process of designing this project, and explain how you resolved it.
+* Describe one way in which your prohect differed from the example that was given. How would you recognize it as your own?
 
 ## Assessment
 
@@ -71,7 +68,7 @@ Have students write a reflection of about 150–300 words, addressing the follow
 
 **4 =** micro:bit program:<br/>
 `*` Uses binary in a way that is integral to the program<br/>
-`*` Uses mathematical operations to add, subtract multiply, and/or divide variables<br/>
+`*` Uses mathematical operations to convert decimal-binary<br/>
 `*` Compiles and runs as intended<br/>
 `*` Meaningful comments in code<br/>
 **3 =** micro:bit program lacks 1 of the required elements.<br/>
@@ -80,11 +77,7 @@ Have students write a reflection of about 150–300 words, addressing the follow
 
 ### Reflection
 
-**4 =** Reflection piece includes:<br/>
-`*` Brainstorming ideas<br/>
-`*` Construction<br/>
-`*` Programming<br/>
-`*` Beta testing<br/>
+**4 =** Reflection piece includes addresses all prompts.<br/>
 **3 =** Reflection piece lacks 1 of the required elements.<br/>
 **2 =** Reflection piece lacks 2 of the required elements.<br/>
 **1 =** Reflection piece lacks 3 of the required elements. 
