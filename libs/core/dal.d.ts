@@ -81,6 +81,8 @@ declare const enum DAL {
     MICROBIT_BLE_MAXIMUM_BONDS = 4,
     MICROBIT_BLE_EDDYSTONE_ADV_INTERVAL = 400,
     MICROBIT_BLE_EDDYSTONE_DEFAULT_POWER = 0xF0,
+    MICROBIT_BLE_STATUS_STORE_SYSATTR = 0x02,
+    MICROBIT_BLE_STATUS_DISCONNECT = 0x04,
     MICROBIT_BLE_DISCONNECT_AFTER_PAIRING_DELAY = 500,
     // built/yt/yotta_modules/microbit-dal/inc/bluetooth/MicroBitButtonService.h
     // built/yt/yotta_modules/microbit-dal/inc/bluetooth/MicroBitDFUService.h
@@ -207,10 +209,7 @@ declare const enum DAL {
     CALLIOPE_MAX_FREQUENCY_HZ_S = 20000,
     CALLIOPE_BOARD_FREQUENCY = 16000000,
     // built/yt/yotta_modules/microbit-dal/inc/drivers/DynamicPwm.h
-    NO_PWMS = 3,
     MICROBIT_DEFAULT_PWM_PERIOD = 20000,
-    PWM_PERSISTENCE_TRANSIENT = 1,
-    PWM_PERSISTENCE_PERSISTENT = 2,
     // built/yt/yotta_modules/microbit-dal/inc/drivers/MicroBitAccelerometer-bmx.h
     BMX055_ACC_WHOAMI = 0x00,
     BMX055_ACC_D_X_LSB = 0x02,
@@ -438,6 +437,7 @@ declare const enum DAL {
     MICROBIT_ACCELEROMETER_SHAKE_RTX = 30,
     MICROBIT_ACCELEROMETER_SHAKE_COUNT_THRESHOLD = 4,
     // built/yt/yotta_modules/microbit-dal/inc/drivers/MicroBitAccelerometer.h
+    MMA8653_DEFAULT_ADDR = 0x3A,
     // built/yt/yotta_modules/microbit-dal/inc/drivers/MicroBitButton.h
     MICROBIT_BUTTON_EVT_DOWN = 1,
     MICROBIT_BUTTON_EVT_UP = 2,
@@ -458,7 +458,7 @@ declare const enum DAL {
     MICROBIT_BUTTON_DOUBLE_CLICK_THRESH = 50,
     MICROBIT_BUTTON_SIMPLE_EVENTS = 0,
     MICROBIT_BUTTON_ALL_EVENTS = 1,
-    // built/yt/yotta_modules/microbit-dal/inc/drivers/MicroBitCompass.h
+    // built/yt/yotta_modules/microbit-dal/inc/drivers/MicroBitCompass-bmx.h
     MAG3110_DEFAULT_ADDR = 0x1D,
     MAG_DR_STATUS = 0x00,
     MAG_OUT_X_MSB = 0x01,
@@ -489,6 +489,7 @@ declare const enum DAL {
     MICROBIT_COMPASS_STATUS_CALIBRATING = 4,
     MICROBIT_COMPASS_STATUS_ADDED_TO_IDLE = 8,
     MAG3110_WHOAMI_VAL = 0xC4,
+    // built/yt/yotta_modules/microbit-dal/inc/drivers/MicroBitCompass.h
     // built/yt/yotta_modules/microbit-dal/inc/drivers/MicroBitCompassCalibrator.h
     // built/yt/yotta_modules/microbit-dal/inc/drivers/MicroBitDisplay.h
     MICROBIT_DISPLAY_EVT_ANIMATION_COMPLETE = 1,
@@ -579,8 +580,12 @@ declare const enum DAL {
     MICROBIT_PIN_EVT_FALL = 3,
     MICROBIT_PIN_EVT_PULSE_HI = 4,
     MICROBIT_PIN_EVT_PULSE_LO = 5,
-    PIN_CAPABILITY_DIGITAL = 0x01,
-    PIN_CAPABILITY_ANALOG = 0x02,
+    PIN_CAPABILITY_DIGITAL_IN = 0x01,
+    PIN_CAPABILITY_DIGITAL_OUT = 0x02,
+    // built/yt/yotta_modules/microbit-dal/inc/drivers/MicroBitQuadratureDecoder.h
+    QDEC_USE_SYSTEM_TICK = 0x01,
+    QDEC_USE_DEBOUNCE = 0x02,
+    QDEC_LED_ACTIVE_LOW = 0x04,
     // built/yt/yotta_modules/microbit-dal/inc/drivers/MicroBitRadio.h
     MICROBIT_RADIO_STATUS_INITIALISED = 0x0001,
     MICROBIT_RADIO_BASE_ADDRESS = 0x75626974,
