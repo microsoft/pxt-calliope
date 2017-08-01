@@ -1,5 +1,7 @@
 # Project: Boolean
 
+![Two-Player Game Example Board](/static/courses/csintro/booleans/two-player.jpg)
+
 This is an assignment for students to come up with a micro:bit program that uses Boolean variables, Boolean operators, and possibly the random function. 
  
 ## Input
