@@ -37,9 +37,10 @@ An implementation of the Binary Cash Register
 * To make the strap of the wristwatch, put 2 pieces of duct tape back-to-back, and use velcro tabs as the fasteners
 
 ![Binary wrist watch project](/static/courses/csintro/binary/binary-wrist-watch.jpg)
+
 To make the strap of the wristwatch, you can put two pieces of duct tape back-to-back, and use Velcro tabs as the fasteners.
 
-![Holder](/static/courses/csintro/conditionals/holder.jpg)
+![Holder](/static/courses/csintro/binary/microbit-holder.jpg)
 This is a holder that allows the micro:bit to be worn on the wrist.
 
 ![Wooden structure to hold the micro:bit on the wrist](/static/courses/csintro/conditionals/microbit-holder.jpg)
@@ -51,7 +52,7 @@ Have students write a reflection of about 150–300 words, addressing the follow
 * Describe what the physical component of yur micro:bit project was (e.g., an armband, a cardboard mount, a holder, etc.)
 * How well did your prototype work? What were you happy with? What would you change? 
 * What was something that was surprising to you about the process of creating this project?
-* Describe one way in which your prohect differed from the example that was given. How would you recognize it as your own?
+* Describe one way in which your project differed from the example that was given. How would you recognize it as your own?
 
 ## Assessment
 
