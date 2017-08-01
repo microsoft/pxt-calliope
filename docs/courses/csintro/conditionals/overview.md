@@ -2,7 +2,7 @@
 
 Computer programs are instructions telling the computer how to process input and deliver output. 
 An important part of programming is telling the computer WHEN to perform a certain task. 
-For this, we use something called ‘conditionals’.  Conditionals get their name because a certain Condition or Rule has to be met.
+For this, we use something called ‘conditionals’. Conditionals get their name because a certain Condition or Rule has to be met.
 
 Students are all already familiar with the concept of conditionals in their daily lives!
 
