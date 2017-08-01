@@ -33,7 +33,7 @@
         },
         "userConfigs": [
             {
-                "description": "Unsecure Pairing: Anyone can connect via Bluetooth.",
+                "description": "No Pairing Required: Anyone can connect via Bluetooth.",
                 "config": {
                     "microbit-dal": {
                         "bluetooth": {
