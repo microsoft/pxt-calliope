@@ -62,5 +62,5 @@ Here are some common terms that come up in discussion:
 * Quarantine: A strategy to isolate those who are suspected of carrying a virus
  
 ## Reference
-This game is a distributed simulation of a viral outbreak. It is modeled after the Thinking Tags participatory simulations developed at MIT Media Lab. Participatory Simulations have been found to enhance student understanding of complex dynamic relationships, inquiry skills, and scientific understanding. (Colella, V. (2000). Participatory Simulations: Building Collaborative Understanding Through Immersive Dynamic Modeling. _Journal of the Learning Sciences, 9(4), 471–500._ http://doi.org/10.1207/S15327809JLS0904_4\)
+This game is a distributed simulation of a viral outbreak. It is modeled after the Thinking Tags participatory simulations developed at MIT Media Lab. Participatory Simulations have been found to enhance student understanding of complex dynamic relationships, inquiry skills, and scientific understanding. (Colella, V. (2000). Participatory Simulations: Building Collaborative Understanding Through Immersive Dynamic Modeling. _Journal of the Learning Sciences, 9(4), 471–500._ http://dx.doi.org/10.1207/S15327809JLS0904_4)
 
