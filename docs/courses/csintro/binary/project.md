@@ -37,6 +37,13 @@ An implementation of the Binary Cash Register
 * To make the strap of the wristwatch, put 2 pieces of duct tape back-to-back, and use velcro tabs as the fasteners
 
 ![Binary wrist watch project](/static/courses/csintro/binary/binary-wrist-watch.jpg)
+To make the strap of the wristwatch, you can put two pieces of duct tape back-to-back, and use Velcro tabs as the fasteners.
+
+![Holder](/static/courses/csintro/conditionals/holder.jpg)
+This is a holder that allows the micro:bit to be worn on the wrist.
+
+![Wooden structure to hold the micro:bit on the wrist](/static/courses/csintro/conditionals/microbit-holder.jpg)
+This design supports the micro:bit in a rigid cradle and allows more delicate connections to the pins.
 
 ## Reflection
 Have students write a reflection of about 150–300 words, addressing the following points:
