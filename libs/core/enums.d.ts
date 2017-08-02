@@ -70,7 +70,7 @@ declare namespace basic {
      * Raised when shaken
      */
     //% block=shake
-    Shake = 11,  // MICROBIT_ACCELEROMETER_EVT_SHAKE
+    Shake = 12,  // MICROBIT_ACCELEROMETER_EVT_SHAKE
     /**
      * Raised when the logo is upward and the screen is vertical
      */
@@ -110,12 +110,12 @@ declare namespace basic {
      * Raised when a 3G shock is detected
      */
     //% block="3g"
-    ThreeG = 8,  // MICROBIT_ACCELEROMETER_EVT_3G
+    ThreeG = 9,  // MICROBIT_ACCELEROMETER_EVT_3G
     /**
      * Raised when a 6G shock is detected
      */
     //% block="6g"
-    SixG = 9,  // MICROBIT_ACCELEROMETER_EVT_6G
+    SixG = 10,  // MICROBIT_ACCELEROMETER_EVT_6G
     }
 declare namespace input {
 }
