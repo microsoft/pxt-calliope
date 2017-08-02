@@ -71,7 +71,7 @@ namespace pxsim.control {
     }
 
     export function eventValue() {
-        return board().bus.getLastEvent()
+        return board().bus.getLastEventValue()
     }
 }
 
