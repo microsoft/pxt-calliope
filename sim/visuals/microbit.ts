@@ -50,6 +50,12 @@ namespace pxsim.visuals {
         .sim-light-level-button {
             stroke:#fff;
             stroke-width: 3px;
+            user-drag: none; 
+            user-select: none;
+            -moz-user-select: none;
+            -webkit-user-drag: none;
+            -webkit-user-select: none;
+            -ms-user-select: none;
         }
 
         .sim-antenna {
@@ -75,6 +81,11 @@ namespace pxsim.visuals {
         .sim-thermometer {
             stroke:#aaa;
             stroke-width: 3px;
+            user-select: none;
+            -moz-user-select: none;
+            -webkit-user-drag: none;
+            -webkit-user-select: none;
+            -ms-user-select: none;
         }
 
         /* animations */
@@ -135,6 +146,13 @@ namespace pxsim.visuals {
         }
         .sim-wireframe .sim-board {
             stroke-width: 2px;
+        }
+        .sim-board {
+            user-select: none;
+            -moz-user-select: none;
+            -webkit-user-drag: none;
+            -webkit-user-select: none;
+            -ms-user-select: none;
         }
     `;
     const MB_HIGHCONTRAST = `
