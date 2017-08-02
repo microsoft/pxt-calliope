@@ -757,15 +757,16 @@ namespace game {
         if (game.isGameOver() || game.isPaused() || !_img) {
             return;
         }
+        // ensure greyscale mode
+        if (led.displayMode() != DisplayMode.Greyscale)
+            led.setDisplayMode(DisplayMode.Greyscale);
+        // render sprites
         let now = input.runningTime();
         _img.clear();
         for (let i = 0; i < _sprites.length; i++) {
             _sprites[i]._plot(now);
         }
-        const mode = led.displayMode() == DisplayMode.Greyscale ? DisplayMode.Greyscale : DisplayMode.BackAndWhite;
-        led.setDisplayMode(DisplayMode.Greyscale);
         _img.plotImage(0);
-        led.setDisplayMode(mode);
     }
 
     /**
