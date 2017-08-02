@@ -195,4 +195,4 @@ basic.showIcon(IconNames.Heart)
 
 ### Try it out!
 
-* What happens if adding 25 or subtracting 25 from the current brightness level would result in a sum or difference outside of the 0 to 255 brightness range? 
+What happens if adding 25 or subtracting 25 from the current brightness level would result in a sum or difference outside of the 0 to 255 brightness range? 
