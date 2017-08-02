@@ -19,6 +19,7 @@ Your project might use variables to store the values of sprites, which are speci
 
 ## Project Ideas
 
+![Firework Example](/static/courses/csintro/coordinates/firework.gif)
 ### Firework screensaver
 
 This project uses a for loop with the plot/unplot blocks to create a symmetrical design on the screen. This student used a subtraction operation to get a variable that decreases as the index variable in the loop increases.
@@ -40,6 +41,7 @@ basic.forever(() => {
 })
 ```
 
+![Cascade Example](/static/courses/csintro/coordinates/cascade.gif)
 ### Cascade screensaver
 
 This example creates a diagonal cascading effect across the screen. Note the use of a variable (speed) to allow you to easily change the speed of the animation by changing just one number value.
@@ -80,7 +82,7 @@ basic.forever(() => {
 })
 speed = 10
 ```
-
+![Dodge Ball Example](/static/courses/csintro/coordinates/dodge-ball.gif)
 ### Dodge ball game 
 This is a Dodge Ball game that uses one sprite (dodger) to try to avoid another sprite (ball). You use the A and B buttons to move the dodger to avoid the balls that are falling from the top of the screen.
 
@@ -150,11 +152,7 @@ Have students write a reflection of about 150–300 words, addressing the follow
 
 ### Collaboration reflection
 
-**4 =** Reflection piece includes:<br/>
-`*` Brainstorming ideas<br/>
-`*` Construction<br/>
-`*` Programming<br/>
-`*` Beta testing<br/>
+**4 =** Reflection piece addresses all prompts.<br/>
 **3 =** Reflection piece lacks 1 of the required elements.<br/>
 **2 =** Reflection piece lacks 2 of the required elements.<br/>
 **1 =** Reflection piece lacks 3 of the required elements. 
