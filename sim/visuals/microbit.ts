@@ -50,12 +50,6 @@ namespace pxsim.visuals {
         .sim-light-level-button {
             stroke:#fff;
             stroke-width: 3px;
-            user-drag: none; 
-            user-select: none;
-            -moz-user-select: none;
-            -webkit-user-drag: none;
-            -webkit-user-select: none;
-            -ms-user-select: none;
         }
 
         .sim-antenna {
@@ -81,11 +75,6 @@ namespace pxsim.visuals {
         .sim-thermometer {
             stroke:#aaa;
             stroke-width: 3px;
-            user-select: none;
-            -moz-user-select: none;
-            -webkit-user-drag: none;
-            -webkit-user-select: none;
-            -ms-user-select: none;
         }
 
         /* animations */
@@ -147,7 +136,8 @@ namespace pxsim.visuals {
         .sim-wireframe .sim-board {
             stroke-width: 2px;
         }
-        .sim-board {
+        .no-drag {
+            user-drag: none;
             user-select: none;
             -moz-user-select: none;
             -webkit-user-drag: none;
@@ -460,7 +450,7 @@ namespace pxsim.visuals {
                 let gid = "gradient-thermometer";
                 this.thermometerGradient = svg.linearGradient(this.defs, gid);
                 this.thermometer = <SVGRectElement>svg.child(this.g, "rect", {
-                    class: "sim-thermometer",
+                    class: "sim-thermometer no-drag",
                     x: 120,
                     y: 110,
                     width: 20,
@@ -560,7 +550,7 @@ namespace pxsim.visuals {
                 let r = 35;
                 this.lightLevelButton = svg.child(this.g, "circle", {
                     cx: `50px`, cy: `${cy}px`, r: `${r}px`,
-                    class: 'sim-light-level-button',
+                    class: 'sim-light-level-button no-drag',
                     fill: `url(#${gid})`
                 }) as SVGCircleElement;
                 let pt = this.element.createSVGPoint();
@@ -656,7 +646,7 @@ namespace pxsim.visuals {
             }
 
             // head
-            this.head = <SVGGElement>svg.child(this.g, "g", { class: "sim-head" });
+            this.head = <SVGGElement>svg.child(this.g, "g", { class: "sim-head no-drag" });
             svg.child(this.head, "circle", { cx: 258, cy: 75, r: 100, fill: "transparent" })
             this.logos.push(svg.path(this.head, "sim-theme sim-theme-glow", "M269.9,50.2L269.9,50.2l-39.5,0v0c-14.1,0.1-24.6,10.7-24.6,24.8c0,13.9,10.4,24.4,24.3,24.7v0h39.6c14.2,0,24.8-10.6,24.8-24.7C294.5,61,284,50.3,269.9,50.2 M269.7,89.2L269.7,89.2l-39.3,0c-7.7-0.1-14-6.4-14-14.2c0-7.8,6.4-14.2,14.2-14.2h39.1c7.8,0,14.2,6.4,14.2,14.2C283.9,82.9,277.5,89.2,269.7,89.2"));
             this.logos.push(svg.path(this.head, "sim-theme sim-theme-glow", "M230.6,69.7c-2.9,0-5.3,2.4-5.3,5.3c0,2.9,2.4,5.3,5.3,5.3c2.9,0,5.3-2.4,5.3-5.3C235.9,72.1,233.5,69.7,230.6,69.7"));
