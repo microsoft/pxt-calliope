@@ -264,6 +264,7 @@
   "led.brightness|block": "brightness",
   "led.enable|block": "led enable %on",
   "led.plotBarGraph|block": "plot bar graph of %value |up to %high",
+  "led.plotBrightness|block": "plot|x %x|y %y|value %brightness",
   "led.plot|block": "plot|x %x|y %y",
   "led.point|block": "point|x %x|y %y",
   "led.setBrightness|block": "set brightness %value",
