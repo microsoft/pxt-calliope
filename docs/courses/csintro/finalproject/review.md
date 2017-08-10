@@ -1,6 +1,6 @@
 # Review
 
-![Review](/static/courses/csintro/miniproject/review.jpg)
+![Review](/static/courses/csintro/miniproject/review.png)
 
 Here is a brief review of the topics we covered in lessons 7–12.
  
