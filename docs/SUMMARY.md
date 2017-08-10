@@ -55,6 +55,7 @@
         * [About](/courses/csintro/about)
         * [Introduction](/courses/csintro/introduction)
         * [References](/courses/csintro/references)
+        * [Acknowledgements](/courses/csintro/acknowledgements)
         * [Making](/courses/csintro/making)
             * [Introduction](/courses/csintro/making/introduction)
             * [Unplugged](/courses/csintro/making/unplugged)
