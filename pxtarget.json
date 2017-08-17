@@ -9,7 +9,10 @@
         "libs/core",
         "libs/radio",
         "libs/devices",
-        "libs/bluetooth"
+        "libs/bluetooth",
+        "libs/pxt-calliope-bc95",
+        "libs/pxt-calliope-bunt",
+        "libs/pxt-isl29125"
     ],
     "cloud": {
         "workspace": false,

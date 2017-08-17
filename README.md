@@ -3,6 +3,12 @@
 This target allow to program a [Calliope](http://calliope.cc/) using 
 PXT ([Microsoft Programming Experience Toolkit](https://github.com/Microsoft/pxt)).
 
+### BUILD COMMENTS
+
+- build libs/core/dal.d.ts new requires some meddling, as the `#define` parser does not parse `#ifdef` and thus
+has some conflicts with double defines constants
+
+
 [![Build Status](https://travis-ci.org/Microsoft/pxt-calliope.svg?branch=master)](https://travis-ci.org/Microsoft/pxt-calliope)
 
 ![](http://calliope.cc/content/1-ueber-mini/mini_board.png)

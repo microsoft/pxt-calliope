@@ -253,6 +253,7 @@
   "serial.redirect|param|rate": "the new baud rate. eg: 115200",
   "serial.redirect|param|rx": "the new reception pin, eg: SerialPin.P1",
   "serial.redirect|param|tx": "the new transmission pins, eg: SerialPin.P0",
+  "serial.reset": "Reset the serial instance to use the USBTX and USBRX at the default baud rate.",
   "serial.writeLine": "Prints a line of text to the serial",
   "serial.writeNumber": "Prints a numeric value to the serial",
   "serial.writeString": "Sends a piece of text through Serial connection.",
