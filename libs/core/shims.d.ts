@@ -760,15 +760,6 @@ declare namespace serial {
     //% blockId=serial_redirect block="serial|redirect to|TX %tx|RX %rx|at baud rate %rate"
     //% blockExternalInputs=1 shim=serial::redirect
     function redirect(tx: SerialPin, rx: SerialPin, rate: BaudRate): void;
-
-    /**
-     * Reset the serial instance to use the USBTX and USBRX at the default baud rate.
-     */
-    //% weight=10
-    //% help=serial/reset
-    //% blockId=serial_reset block="serial pin reset"
-    //% blockExternalInputs=1 shim=serial::reset
-    function reset(): void;
 }
 
 

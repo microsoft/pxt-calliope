@@ -100,16 +100,4 @@ namespace serial {
       uBit.serial.redirect(txp->name, rxp->name);
       uBit.serial.baud((int)rate);
     }
-
-   /**
-    * Reset the serial instance to use the USBTX and USBRX at the default baud rate.
-    */
-    //% weight=10
-    //% help=serial/reset
-    //% blockId=serial_reset block="serial pin reset"
-    //% blockExternalInputs=1
-    void reset() {
-      uBit.serial.redirect(USBTX, USBRX);
-      uBit.serial.baud(MICROBIT_SERIAL_DEFAULT_BAUD_RATE);
-    }
 }
