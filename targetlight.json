@@ -1,0 +1,221 @@
+{
+  "id": "calliope",
+  "name": " calliope",
+  "nickname": "mini",
+  "title": "calliope mini - Blocks / Javascript editor",
+  "description": "A Blocks / JavaScript code editor for the calliope mini.",
+  "corepkg": "core",
+  "cloud": {
+    "workspace": false,
+    "packages": true,
+    "sharing": true,
+    "publishing": true,
+    "preferredPackages": [],
+    "githubPackages": true
+  },
+  "compile": {
+    "isNative": true,
+    "hasHex": true,
+    "deployDrives": "MINI",
+    "driveName": "MINI",
+    "hexMimeType": "application/x-calliope-hex",
+    "upgrades": [
+      {
+        "type": "package",
+        "map": {
+          "microbit": "core",
+          "microbit-bluetooth": "bluetooth",
+          "microbit-radio": "radio",
+          "microbit-devices": "devices",
+          "microbit-led": "",
+          "microbit-music": "",
+          "microbit-game": "",
+          "microbit-pins": "",
+          "microbit-serial": ""
+        }
+      },
+      {
+        "type": "api",
+        "map": {
+          "bluetooth\\.uartRead\\((.*?)\\)": "bluetooth.uartReadUntil($1)",
+          "bluetooth\\.uartWrite\\((.*?)\\)": "bluetooth.uartWriteUntil($1)"
+        }
+      }
+    ],
+    "jsRefCounting": true
+  },
+  "runtime": {
+    "mathBlocks": true,
+    "loopsBlocks": true,
+    "logicBlocks": true,
+    "variablesBlocks": true,
+    "textBlocks": true,
+    "onStartColor": "#54C9C9",
+    "onStartNamespace": "basic"
+  },
+  "simulator": {
+    "autoRun": true,
+    "streams": true,
+    "aspectRatio": 1.13,
+    "parts": false,
+    "partsAspectRatio": 0.69,
+    "boardDefinition": {
+      "visual": "calliope",
+      "gpioPinBlocks": [
+        [
+          "EDGE_P0"
+        ],
+        [
+          "EDGE_P1"
+        ],
+        [
+          "EDGE_P2"
+        ],
+        [
+          "EDGE_P3"
+        ],
+        [
+          "C_P4",
+          "C_P5",
+          "C_P6",
+          "C_P7"
+        ],
+        [
+          "C_P8",
+          "C_P9",
+          "C_P10",
+          "C_P11",
+          "C_P12"
+        ],
+        [
+          "C_P16"
+        ]
+      ],
+      "gpioPinMap": {
+        "P0": "EDGE_P0",
+        "P1": "EDGE_P1",
+        "P2": "EDGE_P2",
+        "P3": "EDGE_P3",
+        "C4": "C_P4",
+        "C5": "C_P5",
+        "C6": "C_P6",
+        "C7": "C_P7",
+        "C8": "C_P8",
+        "C9": "C_P9",
+        "C10": "C_P10",
+        "C11": "C_P11",
+        "C12": "C_P12",
+        "C13": "C_P13",
+        "C14": "C_P14",
+        "C15": "C_P15",
+        "C19": "C_P19",
+        "C20": "C_P20",
+        "EXT_PWR": "EXT_PWR",
+        "SPKR": "SPKR",
+        "BTN_A": "BTN_A",
+        "BTN_B": "BTN_B",
+        "MOTOR1": "M_OUT1",
+        "MOTOR2": "M_OUT2"
+      },
+      "spiPins": {
+        "MOSI": "C_P15",
+        "MISO": "C_P14",
+        "SCK": "C_P13"
+      },
+      "i2cPins": {
+        "SDA": "C_P20",
+        "SCL": "C_P19"
+      },
+      "analogInPins": [
+        "P1",
+        "P2",
+        "C4",
+        "C5",
+        "C6"
+      ],
+      "groundPins": [
+        "EDGE_GND"
+      ],
+      "threeVoltPins": [
+        "EDGE_VCC"
+      ],
+      "attachPowerOnRight": true,
+      "onboardComponents": [
+        "accelerometer",
+        "buttonpair",
+        "ledmatrix",
+        "speaker",
+        "bluetooth",
+        "thermometer",
+        "compass",
+        "speaker",
+        "microphone",
+        "rgbled"
+      ],
+      "useCrocClips": true,
+      "marginWhenBreadboarding": [
+        0,
+        0,
+        80,
+        0
+      ]
+    }
+  },
+  "compileService": {
+    "yottaTarget": "calliope-mini-classic-gcc",
+    "yottaCorePackage": "microbit",
+    "githubCorePackage": "calliope-mini/microbit",
+    "gittag": "v2.0.0-rc8-calliope-1.0.3",
+    "serviceId": "calliope",
+    "yottaBinary": "pxt-microbit-app-combined.hex"
+  },
+  "serial": {
+    "manufacturerFilter": "^mbed$",
+    "nameFilter": "^mbed Serial Port",
+    "log": true
+  },
+  "blocksprj": {
+    "id": "blocksprj",
+    "config": {
+      "name": "{0} block",
+      "dependencies": {
+        "core": "*",
+        "radio": "*"
+      },
+      "description": "",
+      "files": [
+        "main.blocks",
+        "main.ts",
+        "README.md"
+      ]
+    },
+    "files": {
+      "README.md": "",
+      "main.blocks": "<xml xmlns=\"http://www.w3.org/1999/xhtml\">\n<block type=\"device_forever\">\n<statement name=\"HANDLER\">\n<block type=\"device_show_leds\">\n<field name=\"LED00\">FALSE</field>\n<field name=\"LED10\">FALSE</field>\n<field name=\"LED20\">FALSE</field>\n<field name=\"LED30\">FALSE</field>\n<field name=\"LED40\">FALSE</field>\n<field name=\"LED01\">FALSE</field>\n<field name=\"LED11\">TRUE</field>\n<field name=\"LED21\">FALSE</field>\n<field name=\"LED31\">TRUE</field>\n<field name=\"LED41\">FALSE</field>\n<field name=\"LED02\">FALSE</field>\n<field name=\"LED12\">FALSE</field>\n<field name=\"LED22\">FALSE</field>\n<field name=\"LED32\">FALSE</field>\n<field name=\"LED42\">FALSE</field>\n<field name=\"LED03\">TRUE</field>\n<field name=\"LED13\">FALSE</field>\n<field name=\"LED23\">FALSE</field>\n<field name=\"LED33\">FALSE</field>\n<field name=\"LED43\">TRUE</field>\n<field name=\"LED04\">FALSE</field>\n<field name=\"LED14\">TRUE</field>\n<field name=\"LED24\">TRUE</field>\n<field name=\"LED34\">TRUE</field>\n<field name=\"LED44\">FALSE</field>\n<next>\n<block type=\"device_show_leds\">\n<field name=\"LED00\">FALSE</field>\n<field name=\"LED10\">FALSE</field>\n<field name=\"LED20\">FALSE</field>\n<field name=\"LED30\">FALSE</field>\n<field name=\"LED40\">FALSE</field>\n<field name=\"LED01\">FALSE</field>\n<field name=\"LED11\">FALSE</field>\n<field name=\"LED21\">FALSE</field>\n<field name=\"LED31\">FALSE</field>\n<field name=\"LED41\">FALSE</field>\n<field name=\"LED02\">FALSE</field>\n<field name=\"LED12\">FALSE</field>\n<field name=\"LED22\">FALSE</field>\n<field name=\"LED32\">FALSE</field>\n<field name=\"LED42\">FALSE</field>\n<field name=\"LED03\">FALSE</field>\n<field name=\"LED13\">FALSE</field>\n<field name=\"LED23\">FALSE</field>\n<field name=\"LED33\">FALSE</field>\n<field name=\"LED43\">FALSE</field>\n<field name=\"LED04\">FALSE</field>\n<field name=\"LED14\">FALSE</field>\n<field name=\"LED24\">FALSE</field>\n<field name=\"LED34\">FALSE</field>\n<field name=\"LED44\">FALSE</field>\n</block>\n</next>\n</block>\n</statement>\n</block>\n</xml>",
+      "main.ts": "basic.forever(() => {\n    basic.showLeds(`\n        . # . # .\n        # . # . #\n        # . . . #\n        . # . # .\n        . . # . .\n        `)\n    basic.showLeds(`\n        . . . . .\n        . . . . .\n        . . . . .\n        . . . . .\n        . . . . .\n        `)\n})"
+    }
+  },
+  "tsprj": {
+    "id": "tsprj",
+    "config": {
+      "name": "{0} bit",
+      "dependencies": {
+        "core": "*",
+        "radio": "*"
+      },
+      "description": "",
+      "files": [
+        "main.ts",
+        "README.md"
+      ]
+    },
+    "files": {
+      "README.md": "",
+      "main.ts": "basic.showLeds(`\n    . . . . .\n    . # . # .\n    . . . . .\n    # . . . #\n    . # # # .\n    `);"
+    }
+  },
+  "versions": {
+    "target": "1.0.11",
+    "pxt": "1.0.20"
+  }
+}

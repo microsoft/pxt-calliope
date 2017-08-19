@@ -1,0 +1,56 @@
+CACHE MANIFEST
+
+CACHE:
+/pxt-calliope/semantic.js
+/pxt-calliope/main.js
+/pxt-calliope/typescript.js
+/pxt-calliope/marked/marked.min.js
+/pxt-calliope/highlight.js/highlight.pack.js
+/pxt-calliope/lzma/lzma_worker-min.js
+/pxt-calliope/jquery.js
+/pxt-calliope/pxtlib.js
+/pxt-calliope/pxtblocks.js
+/pxt-calliope/pxtwinrt.js
+/pxt-calliope/pxteditor.js
+/pxt-calliope/pxtsim.js
+/pxt-calliope/semantic.css
+/pxt-calliope/custom.css
+/pxt-calliope/icons.css
+/pxt-calliope/fonts/icons.woff2
+
+
+
+# blockly
+/pxt-calliope/blockly/blockly_compressed.js
+/pxt-calliope/blockly/blocks_compressed.js
+/pxt-calliope/blockly/msg/js/en.js
+/pxt-calliope/blockly/media/sprites.png
+/pxt-calliope/blockly/media/click.mp3
+/pxt-calliope/blockly/media/disconnect.wav
+/pxt-calliope/blockly/media/delete.mp3
+
+# monaco
+/pxt-calliope/vs/loader.js
+/pxt-calliope/vs/base/worker/workerMain.js
+/pxt-calliope/vs/basic-languages/src/bat.js
+/pxt-calliope/vs/basic-languages/src/cpp.js
+/pxt-calliope/vs/editor/editor.main.css
+/pxt-calliope/vs/editor/editor.main.js
+/pxt-calliope/vs/editor/editor.main.nls.js
+/pxt-calliope/vs/language/json/jsonMode.js
+/pxt-calliope/vs/language/json/jsonWorker.js
+/pxt-calliope/vs/language/typescript/lib/typescriptServices.js
+/pxt-calliope/vs/language/typescript/src/mode.js
+/pxt-calliope/vs/language/typescript/src/worker.js
+/pxt-calliope/monacoworker.js
+
+# ai
+https://az416426.vo.msecnd.net/scripts/a/ai.0.js
+
+/pxt-calliope/worker.js
+# ver Sat Aug 19 2017 17:16:32 GMT+0200 (CEST)
+
+/pxt-calliope/target.js
+  
+NETWORK:
+*

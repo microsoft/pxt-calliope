@@ -1,0 +1,160 @@
+body#root {
+    font-size: 16px;    
+}
+
+div.listing
+{
+    color:Black;
+    border-style:none;
+    margin: 0px 0px 0px 0px;
+    font-size: 11pt;
+    font-family: Consolas, "Andale Mono WT" , "Andale Mono" , "Lucida Console" , "Lucida Sans Typewriter" , "DejaVu Sans Mono" , "Bitstream Vera Sans Mono" , "Liberation Mono" , "Nimbus Mono L" , Monaco, "Courier New" , Courier, monospace;
+    padding: 5px 5px 5px 5px;
+    background: #f8f8f8;
+    clear: both;
+    
+    white-space: pre-wrap; /* css-3 */
+    white-space: -moz-pre-wrap !important; /* Mozilla, since 1999 */
+    white-space: -pre-wrap; /* Opera 4-6 */
+    white-space: -o-pre-wrap; /* Opera 7 */
+    word-wrap: break-word; /* Internet Explorer 5.5+ */
+}
+div.listing A:link 
+{
+    color:#000020;
+    text-decoration: none;
+}
+div.listing A:visited 
+{
+    color:#000020;
+    text-decoration: none;
+}
+div.listing A:active
+{
+    color:#000080;
+    text-decoration: none;
+}
+div.listing A:hover 
+{
+    color:#000080;
+    text-decoration: underline; 
+}
+
+.mainbody {
+    margin-top: 6em;
+    margin-bottom: 3em;
+}
+
+.prodname {
+    font-weight: normal;
+    font-size: 1.8em;
+    margin-left: 0.5em;
+    color: #ff7d00;
+}
+
+#root .editor-image {
+    margin: 2em auto;
+    display: block;
+    max-width: 80%;    
+}
+
+pre {
+    padding: 16px;
+    overflow: auto;
+    font-size: 85%;
+    line-height: 1.45;
+    background-color: #f7f7f7;
+    border-radius: 3px;
+}
+
+code {
+    padding: 0;
+    padding-top: 0.2em;
+    padding-bottom: 0.2em;
+    margin: 0;
+    font-size: 85%;
+    background-color: rgba(0,0,0,0.04);
+    border-radius: 3px;
+}
+
+code:before, code:after {
+    letter-spacing: -0.2em;
+    content: "\00a0";
+}
+
+.ui[class*="5:3"].embed {
+    padding-bottom: 83%;
+    background:transparent !important;
+}
+
+code {
+        white-space: pre-wrap;
+}
+code.lang-config, code.lang-package { display: none;}
+code.lang-blocks::before,
+code.lang-sig::before,
+code.lang-block::before,
+code.lang-shuffle::before,
+code.lang-sim::before,
+code.lang-cards::before,
+code.lang-namespaces::before,
+code.lang-codecard::before
+{
+    content:"...";
+    position: absolute;
+    top:calc(50% - 0.5em);
+    left:calc(50% - 5em);
+}
+code.lang-blocks,
+code.lang-sig,
+code.lang-block,
+code.lang-shuffle,
+code.lang-sim,
+code.lang-cards,
+code.lang-namespaces,
+code.lang-codecard
+{
+    color:transparent;   
+}
+
+code.lang-typescript {
+    background: none !important;
+}
+
+/* Limit width of text so that it's readable
+ */
+ 
+.ui.text p,
+.ui.text li {
+    max-width: 45em;
+}
+
+/* wrap cards header */
+.ui.card > .content > .header {
+    word-break: break-all;
+}
+
+
+svg {
+    max-width: 100%;
+}
+
+.blocklyText {
+    font-family:'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'source-code-pro', monospace !important;
+}
+
+.blocklyCheckbox,
+.blocklyLed {
+    fill: #ff3030 !important;
+    text-shadow: 0px 0px 6px #f00;
+    font-size: 17pt !important;
+}
+
+.ui.card .blocklyPreview {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: calc(100% - 1em);
+    max-height: calc(100% - 1em);
+}

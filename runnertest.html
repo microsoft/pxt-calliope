@@ -1,0 +1,230 @@
+<!doctype html>
+<html lang="en" data-framework="typescript">
+
+<head>
+    <meta charset="utf-8">
+    <title>PXT Runner Test</title>
+</head>
+
+<body class="ui container">
+    <div id='loading' style='font-size: 30px; margin: 100px auto; width: 200px;'>
+        loading
+        <div style='font-family: Icons;'>...</div>
+    </div>
+
+    <style type="text/css">
+        @import "./semantic.css";
+        @import "./custom.css";
+        
+        pre {
+            white-space: pre-wrap;
+        }
+.ui[class*="5:3"].embed {
+    padding-bottom: 83%;
+    background: none;
+}        
+    </style>
+    <script>
+        // This line gets patched up by the cloud
+        var rootUrl = "dummy";
+        var appCdnRoot = "/cdn/";
+        var simCdnRoot = "/sim/";
+        var simUrl = "/sim/simulator.html";
+    </script>
+
+    <script type="text/javascript" src="/cdn/marked/marked.min.js"></script>
+    <script type="text/javascript" src="./jquery.js"></script>
+    <script type="text/javascript" src="./semantic.js"></script>
+    <script type="text/javascript" src="/embed.js"></script>
+    <script type="text/javascript">
+        var ps = [ 
+            "0"
+/*            
+            ,"true"
+            ,"false"
+            ,"'hello'"
+            ,"basic.showNumber(2)"
+            ,"basic.showString('Hello!')"
+            ,"basic.showNumber(2, 150)"
+            ,"while(true) {}"
+            ,"if (false) { }",
+            ,"if (false) { basic.showNumber(0) } else { basic.clearScreen() }"
+            ,"if (false) { basic.showNumber(0) } else if (false) { basic.showNumber(1) } else { basic.clearScreen() }"            
+            , "basic.forever(() => { basic.clearScreen(); })"
+            , "basic.forever(() => { basic.clearScreen(); basic.showNumber(1); })"
+            , "let x = 0;"         
+            , "var x = 42\nvar y = 'hello'"   
+            , "for(let i = 0;i<5;++i) { basic.clearScreen() }"
+            , "radio.onDataReceived(() => {});radio.onDataReceived(() => {});"
+            , "var x = 42\nvar y = x"   
+            , "input.onButtonPressed(Button.AB, () => {})"
+            , "input.onButtonPressed(Button.A, () => {})"
+            , "input.onButtonPressed(Button.B, () => {})"
+            , "0+1"
+            , "0-1"
+            , "0*1"
+            , "0/1"
+            , "(0/1)"
+            , "true || (0>1)"
+            , "true && (0>1)"
+            , "!true"
+            ,"basic.showNumber(2); basic.showNumber(2);"
+            , "for(let i = 0; i<5;i++) { basic.showNumber(0); basic.showNumber(1);}"
+            , "basic.showNumber(1+1); basic.showNumber(0);"
+            ,"basic.showLeds(`# # # . .. . . . .. . # . #. # . . ## . . . #`);"
+            ,"true && false"
+            ,"true || false"
+            ,"!true;"
+            ,"42 == 0"
+            ,"42 != 0"
+            ,"42 < 0"
+            ,"42 > 0"
+            ,"42 <= 0"
+            ,"42 >= 0;"
+            ,"(false && false) == false"
+            ,"(false && true) == false"
+            ,"(true && false) == false"
+            ,"(true && true) == true;"
+            ,"(!false) == true"
+            ,"(!true) == false;"
+            ,"let x = 0; x = 1;"
+            ,"let x = 0; x = x + 1;"
+            ,"let x = 0; x++;"
+            ,"let x = 0; x--;"
+            ,"let x = 0; ++x;"
+            ,"let x = 0; --x;"
+            ,"let x = 0; -x;"
+            ,"let x = 0; +x;"
+            ,'basic.forever(() => { let degrees = input.compassHeading(); if (degrees < 45) basic.showString("N"); else if (degrees < 135) basic.showString("E"); else if (degrees < 225) basic.showString("S"); else basic.showString("W"); })'
+            ,"let x = 3; x += 3; ++x;"
+            ,"-5"
+            ,"let roll = 0; if (roll==5) { basic.showNumber(0) } else if (roll==4) { basic.showNumber(1) }"       
+            ,"let count = 0; while (count < 10) { basic.pause(100); basic.showNumber(count) }"     
+            ,"Math.abs(1)"
+            ,"Math.random(4)"            
+            ,"input.onGesture(Gesture.Shake, () => { basic.clearScreen(); })"
+            , "Math.min(0,1)"
+            , "Math.max(0,1)"
+            , "input.onButtonPressed(Button.A, () => {}); input.onButtonPressed(Button.B, () => {});" 
+            */
+           ];
+        function next() {
+            var p = ps.pop();
+            if (!p) return;
+            console.log('rendering:')
+            console.log(p)
+            pxt.runner.decompileToBlocksAsync(p, { emPixels:14, layout: pxt.blocks.BlockLayout.Shuffle }).done(function(r) {
+                let svg = r.blocksSvg;
+                $('#loading').remove();
+                if (svg) {
+                    $(svg).removeClass('blocklyPreview')
+                    var div = $("<div/>").append(svg)                
+                    $(document.body).append(div)                                      
+                } else {
+                    $(document.body).append($('<pre/>').text('failed to render ' + p))
+                    if (r.compileBlocks && r.compileBlocks.diagnostics) {
+                        r.compileBlocks.diagnostics.forEach(function(an) {                            
+                            $(document.body).append($('<div/>').text(an.messageText))                        
+                        })
+                    }
+                }
+                next();
+            })
+        }
+            
+        ksRunnerReady(function() {
+            pxt.docs.requireMarked = function() { return marked; }
+            next();
+            pxt.runner.renderAsync({
+                snippetClass: 'lang-blocks',
+                signatureClass: 'lang-sig',
+                blocksClass:'lang-block',
+                shuffleClass: 'lang-shuffle',
+                simulatorClass:'lang-sim',
+                linksClass: 'lang-links',
+                projectClass: 'lang-project',
+                namespacesClass: 'lang-namespaces',
+                codeCardClass: 'lang-codecard',
+                packageClass: 'lang-package',
+                simulator: true,
+                hex: true,
+                hexName: 'test',
+                snippetReplaceParent: true,
+            }).done(function() {
+               // next()                
+            });                        
+        })
+    </script>
+<pre>
+<code class='lang-project'>
+tqnxfpkndd
+</code>
+</pre>    
+<pre>
+<code class='lang-project'>
+https://pxt.microbit.org/tqnxfpkndd
+<code>
+</pre>    
+<!--   <pre class='lang-sig'>
+images.createImage(`
+. . # . .
+. # # # .
+# # # # #
+. # # # .
+. . # . .
+`)
+</pre> -->  <!--     
+    <pre class='lang-codecard'> {
+        "name": "name",
+
+        "color": "red",
+        "description": "description",
+        "header": "header",
+        "time": 1459783388895,
+        "url": "/test",
+        "responsive": false,
+
+        "any": 3,
+        "hardware": 1,
+        "software": 1,
+        "blocks": 1,
+        "javascript": 1,
+
+        "target": "microbit"
+        }
+    </pre> -->
+    <!--<pre class='lang-namespaces'>
+        basic.showNumber(2)
+        input.onButtonPressed(Button.A, () => {})
+        if (true) {}
+        for(let i = 0;i<5;++i) {}
+        let x = 0;
+        Math.random(5);
+    </pre>--> <!--
+    <pre class='lang-links'>
+        basic.showNumber(2)
+        basic.showString(2)
+        basic.showString(2)
+        basic.showString(2)
+        basic.showString(2)
+        basic.showString(2)
+    </pre> -->
+<!--    <pre class='lang-sim'>
+        basic.showNumber(2)
+    </pre>
+    <pre class='lang-blocks'>
+        basic.showString("hello")
+    </pre>-->
+<!--    
+    <pre class='lang-blocks'>
+        basic.showNumber(2)
+    </pre>
+    <pre class='lang-sig'>
+        basic.showNumber(2)
+    </pre>
+    <pre class='lang-sig'>
+        led.plotAll()
+    </pre>-->
+</body>
+
+</html>
