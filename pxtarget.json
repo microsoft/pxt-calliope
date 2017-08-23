@@ -12,7 +12,7 @@
         "libs/bluetooth",
         "libs/pxt-calliope-bc95",
         "libs/pxt-calliope-bunt",
-        "libs/pxt-isl29125"
+        "libs/Grove"
     ],
     "cloud": {
         "workspace": false,
@@ -193,7 +193,7 @@
         "cardLogo": "./static/icons/apple-touch-icon.png",
         "appLogo": "./static/icons/apple-touch-icon.png",
         "homeUrl": "https://calliope.cc/",
-        "embedUrl": "https://mini.pxt.io/",
+        "embedUrl": "https://pxt.callipe.cc/",
         "privacyUrl": "https://go.microsoft.com/fwlink/?LinkId=521839",
         "termsOfUseUrl": "https://go.microsoft.com/fwlink/?LinkID=206977",
         "githubUrl": "https://github.com/Microsoft/pxt-calliope",
@@ -244,6 +244,7 @@
                 "colour": "rgba(189, 195, 199, 0.30)",
                 "snap": false
             }
-        }
+        },
+        "docMenu": []
     }
 }
