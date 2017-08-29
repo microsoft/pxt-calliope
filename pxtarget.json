@@ -10,6 +10,7 @@
         "libs/radio",
         "libs/devices",
         "libs/bluetooth",
+        "libs/pxt-calliope-esp",
         "libs/pxt-calliope-bc95",
         "libs/pxt-calliope-bunt",
         "libs/Grove"
