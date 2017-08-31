@@ -148,7 +148,7 @@ Trim any leftover fabric, threads or tape.
 
 ![](/static/mb/lessons/the-watch-23.png)
 
-Your watch is ready! We'll now add code to the @boardname@ to make keep time for real!
+Your watch is ready! We'll now add code to the @boardname@ to make it keep time for real!
 
 ### ~button /projects/watch/code
 
