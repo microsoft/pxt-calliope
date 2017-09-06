@@ -1,6 +1,6 @@
 # Acceleration
 
-Get the acceleration value (milli g-force) in one of three dimensions, or the combined force in all directions.
+Get the acceleration value (milli g-force) in one of three dimensions, or the combined force in all directions (x, y, and z).
 
 Find the acceleration of the @boardname@ (how fast it is speeding up or slowing down).
 
