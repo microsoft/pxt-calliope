@@ -29,6 +29,11 @@ Let's get started!
 
 ### ~
 
+### Additional coding activities
+
+* [Countdown timer](/projects/watch/timer)
+* [Digital watch](/projects/watch/digital-watch)
+
 ### Acknowledgements
 
 Artistic design by Melinda Hoeneisen.
