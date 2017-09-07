@@ -37,15 +37,20 @@ that means whether the @boardname@ is facing north (N), south (S),
 east (E), or west (W).
 
 ```blocks
+let degrees = 0
 basic.forever(() => {
-    let degrees = input.compassHeading()
-    if (degrees < 45)
-        basic.showString("N")
-    else if (degrees < 135)
-        basic.showString("E")
-    else if (degrees < 225)
-        basic.showString("S")
-    else basic.showString("W")
+    degrees = input.compassHeading()
+    if (degrees < 45) {
+        basic.showArrow(ArrowNames.North)
+    } else if (degrees < 135) {
+        basic.showArrow(ArrowNames.West)
+    } else if (degrees < 225) {
+        basic.showArrow(ArrowNames.South)
+    } else if (degrees < 315) {
+        basic.showArrow(ArrowNames.East)
+    } else {
+        basic.showArrow(ArrowNames.North)
+    }
 })
 ```
 
