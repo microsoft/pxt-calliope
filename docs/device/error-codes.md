@@ -22,6 +22,6 @@ basic.showLeds(`
     `)
 ```
 
-### See also
+## See also
 
 [panic](/reference/control/panic), [assert](/reference/control/assert),

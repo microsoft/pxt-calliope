@@ -15,7 +15,7 @@ A **g** is as much acceleration as you get from Earth's gravity.
 
 ## ~
 
-### Parameters
+## Parameters
 
 * **dimension**: the direction you are checking for acceleration, or the total strength of force.
 >`x`: acceleration in the left and right direction.<br/>
@@ -23,11 +23,11 @@ A **g** is as much acceleration as you get from Earth's gravity.
 `z`: acceleration the up and down direction.<br/>
 `strength`: the total of all the forces in every dimension (direction) together.
 
-### Returns
+## Returns
 
 * a [number](/types/number) that means the amount of acceleration. When the @boardname@ is lying flat on a surface with the screen pointing up, `x` is `0`, `y` is `0`, `z` is `-1023`, and `strength` is `1023`.
 
-### Example: bar chart
+## Example: bar chart
 
 This example shows the acceleration of the @boardname@ with a bar graph.
 
@@ -47,7 +47,7 @@ basic.forever(() => {
 })
 ```
 
-### See also
+## See also
 
 [set accelerometer range](/reference/input/set-accelerometer-range),
 [compass heading](/reference/input/compass-heading),
