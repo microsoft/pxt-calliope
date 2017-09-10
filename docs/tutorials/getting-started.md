@@ -64,5 +64,5 @@ input.onGesture(Gesture.Shake, () => {
 
 ## Step 7
 
-Well done! You've completed your first MakeCode activity.
+Well done! You've completed your first Microsoft MakeCode activity.
 
