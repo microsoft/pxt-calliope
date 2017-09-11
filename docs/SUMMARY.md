@@ -298,6 +298,7 @@
 * [Hardware](/device)
      * [Error codes](/device/error-codes)
      * [Foil circuits](/device/foil-circuits)
+     * [MES events](/device/mes-events)
      * [Pins](/device/pins)
      * [Reactive](/device/reactive)
      * [Screen](/device/screen)
