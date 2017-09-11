@@ -4,6 +4,21 @@ Events and event values are generated in the Message Event Service (MES). Using 
 
 The event source IDs represent a device feature category. The event values are actions for, or notifications about a device feature.
 
+### ~hint
+
+**MES system sources**
+
+The MES events are defined in this source file of the **[microbit-dal](https://github.com/lancaster-university/microbit-dal)**:
+
+* [MESEvents.h](https://github.com/lancaster-university/microbit-dal/blob/master/inc/bluetooth/MESEvents.h)
+
+Also, you can see how the message bus works in the DAL core files:
+
+* [MemberFunctionCallback.cpp](https://github.com/lancaster-university/microbit-dal/blob/master/source/core/MemberFunctionCallback.cpp)
+* [MicroBitListener.cpp](https://github.com/lancaster-university/microbit-dal/blob/master/source/core/MicroBitListener.cpp)
+
+### ~
+
 ## Raised events
 
 Events are generated, or _raised_, for by the @boardname@ for a paired device. These are raised using the [raise event](/reference/control/raise-event) function.
