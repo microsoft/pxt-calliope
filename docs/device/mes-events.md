@@ -26,7 +26,7 @@ Events are generated, or _raised_, for by the @boardname@ for a paired device. T
 ```typescript-ignore
 control.raiseEvent(
     control.eventSourceId(EventBusSource.MES_REMOTE_CONTROL_ID),
-    control.eventValueId(EventBusValue.MES_REMOTE_CONTROL_EVT_VOLUMEUP`)
+    control.eventValueId(EventBusValue.MES_REMOTE_CONTROL_EVT_VOLUMEUP)
 );
 ```
 
