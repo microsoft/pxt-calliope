@@ -2,7 +2,9 @@
     "packages": {
         "approvedOrgs": [
             "Microsoft",
-            "microbit-foundation"
+            "microbit-foundation",
+            "calliope-mini",
+            "ubirch"
         ],
         "approvedRepos": [
             "CoderDojoOlney/pxt-olney"
