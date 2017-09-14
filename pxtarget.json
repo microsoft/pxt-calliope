@@ -14,6 +14,7 @@
         "libs/pxt-calliope-bc95",
         "libs/pxt-calliope-esp",
         "libs/pxt-calliope-bunt",
+        "libs/pxt-isl29125",
         "libs/pxt-ubirch",
         "libs/Grove"
     ],
