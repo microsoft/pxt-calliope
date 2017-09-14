@@ -7,9 +7,6 @@
 @headerFont        : Roboto,"Arial Narrow","Helvetica Neue",Helvetica,Arial,sans-serif;
 @pageFont          : Roboto,"Helvetica Neue",Helvetica,Arial,sans-serif;
 
-@emSize      : 14px;
-@fontSize    : 13px;
-
 @primaryColor: @purple;
 
 @teal: #3891A6;
