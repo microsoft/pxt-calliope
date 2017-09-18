@@ -2,8 +2,6 @@
 
 The simulator in the MakeCode editor allows you to stream and log data from your programs. It will do this when you write data values using the **[Serial](/reference/serial)** write functions. When you try your code in the simulator, each value you write is saved and collected as a log for you to analyze later if you want.
 
-Also, if your browser will support it, the simulator can record data values from your actual @boardname@ when it's connected to your computer through a USB cable.
-
 ## Record some data
 
 Let's write some values and see what the simulator records for us. Copy this code into the MakeCode editor and press the `A` button in the simulator.
@@ -21,9 +19,29 @@ In the simulator, a logging view appears below the board to show the values your
 
 ![Data logger](/static/mb/device/data-log.png)
 
+### Plot values on the LEDs
+
+To quickly see and log your data values, use the ``||led:plot bar graph||`` block. It will plot a value with the LEDs and write it to the data log too.
+
+```blocks
+input.onButtonPressed(Button.B, () => {
+    for (let i = 0; i <= 25 - 1; i++) {
+        if (i % 2 > 0) {
+            led.plotBarGraph(0, 0)
+        } else {
+            led.plotBarGraph(i, 24)
+        }
+        basic.pause(300)
+    }
+})
+```
+A number of LEDs will light up to show how much the value is related to the _high_ number in the second arguement. The simualtor and the logging area show this when the loop index is `14` in the code example:
+
+![Bar graph logger](/static/mb/device/bar-graph-log.png)
+
 ## Analyze the data
 
-If you click the data logging area in the simulator, a window pops up called **Analyze Data**. Click on ``|Download data|`` to save the data file. If you have a spreadsheet program installed, it may open the data file automatically. If not, you can open it later yourself in your spreadsheet program.
+If you click the data logging area in the simulator, a window pops up called **Analyze Data**. Click on **Download data** to save the data file. If you have a spreadsheet program installed, it may open the data file automatically. If not, you can open it later yourself in your spreadsheet program.
 
 ![Analyze data window](/static/mb/device/analyze-data.png)
 
@@ -59,7 +77,7 @@ The other columns in the data file give more information about the value we were
 
 ### Charting
 
-To get a chart of your data, you can just select the columns that contain your values and their recording times. Use the charting feature of the spreadsheet program to display a nice graph of your data. Here you see the values increasing from `0` to `90` over ten seconds of time.
+To get a chart of your data, you can just select the columns that contain your values and their recording times. Use the **scatter plot** charting feature of the spreadsheet program to display a nice graph of your data. Here you see the values increasing from `0` to `90` over nine seconds of time.
 
 ![Chart the data in spreadsheet](/static/mb/device/spreadsheet-chart.png)
 
@@ -82,10 +100,11 @@ What you'll see is that the simulator inserted some more columns for the second 
 
 This time there are two row entries (one for each data value in the logging stream) added next to the data columns for `log time`, `log source`, and `log message`.
 
-If you want to chart with just your data and leave the recording times out, select just the the value columns.
+If you want to chart with just your data and leave the recording times out, select just the value columns.
 
 ![Multiple data values in spreadsheet](/static/mb/device/spreadsheet-multi.png)
 
 ## See also
 
-[write value](/reference/serial/write-value), [uart-write-value](/reference/bluetooth/uart-write-value)
+[write value](/reference/serial/write-value), [uart-write-value](/reference/bluetooth/uart-write-value),
+[plot bar graph](/reference/led/plot-bar-graph)
