@@ -169,11 +169,14 @@ namespace pxsim.bluetooth {
         // TODO
     }
     export function uartWrite(s : string): void {
-        // TODO
+        serial.writeString(s)
     }
     export function uartReadUntil(del: string): string {
-        // TODO
-        return ""
+        return serial.readUntil(del);
+    }
+    export function onDataReceived(delimiters: string, handler: RefAction) {
+        let b = board();
+        b.bus.listen(DAL.MICROBIT_ID_BLE_UART, DAL.MICROBIT_UART_S_EVT_DELIM_MATCH, handler);
     }
     export function onBluetoothConnected(a : RefAction) {
         // TODO
@@ -181,5 +184,9 @@ namespace pxsim.bluetooth {
     export function onBluetoothDisconnected(a : RefAction) {
         // TODO
     }
+    export function advertiseUrl(url: string, power: number, connectable: boolean) { }
+    export function advertiseUidBuffer(nsAndInstance: Buffer, power: number, connectable: boolean) { }
+    export function stopAdvertising() { }
+    export function setTransmitPower(power: number) {}
 }
 
