@@ -30,7 +30,7 @@ by **Colleen Graves**
 
 Inspiring Makers to Experiment, Create, and Learn
 
-![Makerspace Projects Book Cover](/static/courses/csintro/references/makerspace-projects.jpg)
+[![Makerspace Projects Book Cover](/static/courses/csintro/references/makerspace-projects.jpg)](https://colleengraves.org/bigmakerbook/)
 
 ## Code and Computational Thinking
 
