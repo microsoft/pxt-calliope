@@ -13,7 +13,7 @@ This course takes approximately 14 weeks to complete, spending about 1 week on e
 
 The entire course is also available as a download. Choose any of these formats:
 
-* [**HTML** - The entire course in a single HTML page that you can print to PDF or paper.](/--docs#book:/courses/csintro/SUMMARY)
+[![](/static/courses/csintro/icons/html-24x24.png) **HTML** - The entire course in a single HTML page that you can print to PDF or paper](/--docs#book:/courses/csintro/SUMMARY)
 
 [![](/static/courses/csintro/icons/microsoft-onenote-24x24.png) **OneNote** - Intro to CS with MakeCode for micro:bit](https://1drv.ms/o/s!AqsgsTyHBmRBgQvFaUaeANNHbxpC)
 
