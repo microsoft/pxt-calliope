@@ -30,8 +30,7 @@ Fun games to build with your @boardname@.
 }, {
   "name": "Rock Paper Scissors",
   "url":"/projects/rock-paper-scissors",
-  "imageUrl":"/static/mb/projects/a4-motion.png",
-  "cardType": "tutorial"
+  "imageUrl":"/static/mb/projects/a4-motion.png"
 }, {
   "name": "Magic Button Trick",
   "url":"/projects/magic-button-trick",
