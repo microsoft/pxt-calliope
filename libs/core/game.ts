@@ -35,6 +35,7 @@ namespace game {
     let _img: Image;
     let _sprites: LedSprite[];
     let _paused: boolean = false;
+    let _backgroundAnimation = false; // indicates if an auxiliary animation (and fiber) is already running
 
     /**
      * Creates a new LED sprite pointing to the right.
@@ -68,15 +69,23 @@ namespace game {
     //% parts="ledmatrix"
     export function addScore(points: number): void {
         setScore(_score + points);
-        if (!_paused)
+        if (!_paused && !_backgroundAnimation) {
+            _backgroundAnimation = true;
             control.inBackground(() => {
                 led.stopAnimation();
+                const dm = led.displayMode();
+                if (dm != DisplayMode.BackAndWhite)
+                    led.setDisplayMode(DisplayMode.BackAndWhite);
                 basic.showAnimation(`0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 1 1 1 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 1 1 1 0 0 0 1 0 0 0 0 0
     0 0 0 0 0 0 0 1 0 0 0 1 1 1 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 1 1 1 0 0 0 1 0 0 0 0 0 0 0 0 0 0
     0 0 1 0 0 0 1 1 1 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 1 1 1 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
     0 0 0 0 0 0 0 1 0 0 0 1 1 1 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 1 1 1 0 0 0 1 0 0 0 0 0 0 0 0 0 0
     0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 1 1 1 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 1 1 1 0 0 0 1 0 0 0 0 0`, 20);
+                if (dm != DisplayMode.BackAndWhite)
+                    led.setDisplayMode(dm);
+                _backgroundAnimation = false;
             });
+        }
     }
 
     /**
@@ -731,22 +740,22 @@ namespace game {
     }
 
     function init(): void {
-        if (_img == null) {
-            _img = images.createImage(
-                `0 0 0 0 0
+        if (_img) return;
+        const img = images.createImage(
+`0 0 0 0 0
 0 0 0 0 0
 0 0 0 0 0
 0 0 0 0 0
 0 0 0 0 0`);
-            _sprites = (<LedSprite[]>[]);
-            basic.forever(() => {
-                basic.pause(30);
-                plot();
-                if (game.isGameOver()) {
-                    basic.pause(600);
-                }
-            });
-        }
+        _sprites = (<LedSprite[]>[]);
+        basic.forever(() => {
+            basic.pause(30);
+            plot();
+            if (game.isGameOver()) {
+                basic.pause(600);
+            }
+        });
+        _img = img;
     }
 
     /**
@@ -754,14 +763,15 @@ namespace game {
      */
     //% parts="ledmatrix"
     function plot(): void {
-        if (game.isGameOver() || game.isPaused() || !_img) {
+        if (game.isGameOver() || game.isPaused() || !_img || _backgroundAnimation) {
             return;
         }
         // ensure greyscale mode
-        if (led.displayMode() != DisplayMode.Greyscale)
+        const dm = led.displayMode();
+        if (dm != DisplayMode.Greyscale)            
             led.setDisplayMode(DisplayMode.Greyscale);
         // render sprites
-        let now = input.runningTime();
+        const now = input.runningTime();
         _img.clear();
         for (let i = 0; i < _sprites.length; i++) {
             _sprites[i]._plot(now);
