@@ -31,89 +31,87 @@ namespace pxt.editor {
 
     class DAPWrapper {
         cortexM: DapJS.CortexM
+        packetIo: HF2.PacketIO;
 
         constructor(h: HF2.PacketIO) {
-            let pbuf = new U.PromiseBuffer<Uint8Array>()
+            this.packetIo = h;
+            let pbuf = new U.PromiseBuffer<Uint8Array>();
 
             let sendMany = (cmds: Uint8Array[]) => {
-                return h.talksAsync(cmds.map(c => ({ cmd: 0, data: c })))
+                return h.talksAsync(cmds.map(c => ({ cmd: 0, data: c })));
             }
 
             if (!h.talksAsync)
-                sendMany = null
+                sendMany = null;
 
             let dev = new DapJS.DAP({
                 write: writeAsync,
-                close: closeAsync,
+                close: this.disconnectAsync,
                 read: readAsync,
                 sendMany: sendMany
-            })
-            this.cortexM = new DapJS.CortexM(dev)
+            });
+            this.cortexM = new DapJS.CortexM(dev);
 
             h.onData = buf => {
-                pbuf.push(buf)
+                pbuf.push(buf);
             }
 
             function writeAsync(data: ArrayBuffer) {
-                h.sendPacketAsync(new Uint8Array(data))
-                return Promise.resolve()
+                h.sendPacketAsync(new Uint8Array(data));
+                return Promise.resolve();
             }
 
             function readAsync() {
-                return pbuf.shiftAsync()
-            }
-
-            function closeAsync() {
-                return h.disconnectAsync()
+                return pbuf.shiftAsync();
             }
         }
 
         reconnectAsync(first: boolean) {
-            return this.cortexM.init()
+            return this.cortexM.init();
+        }
+
+        disconnectAsync() {
+            return this.packetIo.disconnectAsync();
         }
     }
 
+    let previousDapWrapper: DAPWrapper;
     function dapAsync() {
-        return pxt.HF2.mkPacketIOAsync()
+        return Promise.resolve()
+            .then(() => {
+                if (previousDapWrapper) {
+                    return previousDapWrapper.disconnectAsync()
+                        .finally(() => {
+                            previousDapWrapper = null;
+                        });
+                }
+                return Promise.resolve();
+            })
+            .then(() => pxt.HF2.mkPacketIOAsync())
             .then(h => {
                 let w = new DAPWrapper(h)
+                previousDapWrapper = w;
                 return w.reconnectAsync(true)
                     .then(() => w)
             })
     }
 
-    let noHID = false
-
-    let initPromise: Promise<DAPWrapper>
     function initAsync() {
-        if (initPromise)
-            return initPromise
-
         let canHID = false
         if (U.isNodeJS) {
             canHID = true
         } else {
             const forceHexDownload = /forceHexDownload/i.test(window.location.href);
-            if (Cloud.isLocalHost() && Cloud.localToken && !forceHexDownload)
+            const isUwp = !!(window as any).Windows;
+            if (Cloud.isLocalHost() && Cloud.localToken && !forceHexDownload || isUwp)
                 canHID = true
         }
 
-        if (noHID)
-            canHID = false
-
         if (canHID) {
-            initPromise = dapAsync()
-                .catch(err => {
-                    initPromise = null
-                    noHID = true
-                    return Promise.reject(err)
-                })
+            return dapAsync();
         } else {
-            noHID = true
-            initPromise = Promise.reject(new Error("no HID"))
+            return Promise.reject(new Error("no HID"))
         }
-
-        return initPromise
     }
 
     function pageAlignBlocks(blocks: UF2.Block[], pageSize: number) {
@@ -234,13 +232,8 @@ namespace pxt.editor {
         }
 
         startTime = 0
-
-        if (noHID) return saveHexAsync()
-
         let wrap: DAPWrapper
-
         log("init")
-
         let logV = (msg: string) => { }
         //let logV = log
 
@@ -339,11 +332,7 @@ namespace pxt.editor {
                     })
             })
             .catch(e => {
-                // if we failed to initalize, retry
-                if (noHID)
-                    return saveHexAsync()
-                else
-                    return Promise.reject(e)
+                return saveHexAsync();
             })
     }
 
@@ -371,16 +360,16 @@ namespace pxt.editor {
                     }, name: data.meta.name
                 })
             }, {
-                    id: "td",
-                    canImport: data => data.meta.cloudId == "microbit.co.uk" && data.meta.editor == "touchdevelop",
-                    importAsync: (project, data) =>
-                        project.createProjectAsync({
-                            filesOverride: { "main.blocks": "", "main.ts": "  " },
-                            name: data.meta.name
-                        })
-                            .then(() => project.convertTouchDevelopToTypeScriptAsync(data.source))
-                            .then(text => project.overrideTypescriptFile(text))
-                }]
+                id: "td",
+                canImport: data => data.meta.cloudId == "microbit.co.uk" && data.meta.editor == "touchdevelop",
+                importAsync: (project, data) =>
+                    project.createProjectAsync({
+                        filesOverride: { "main.blocks": "", "main.ts": "  " },
+                        name: data.meta.name
+                    })
+                        .then(() => project.convertTouchDevelopToTypeScriptAsync(data.source))
+                        .then(text => project.overrideTypescriptFile(text))
+            }]
         };
         pxt.commands.deployCoreAsync = deployCoreAsync;
         return Promise.resolve<pxt.editor.ExtensionResult>(res);
