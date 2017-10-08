@@ -206,6 +206,17 @@ namespace pins {
         return end - start;
     }
 
+    // TODO FIX THIS IN THE DAL!
+    inline void fixMotorIssue(AnalogPin name) {
+        NRF_TIMER2->SHORTS = TIMER_SHORTS_COMPARE3_CLEAR_Msk;
+        NRF_TIMER2->INTENCLR = TIMER_INTENCLR_COMPARE3_Msk;
+        NRF_TIMER2->PRESCALER = 4;
+        NRF_TIMER2->CC[3] = 20000;
+        NRF_TIMER2->TASKS_START = 1;
+        NRF_TIMER2->EVENTS_COMPARE[3] = 0;
+        PINOP(getDigitalValue());
+    }
+
     /**
      * Writes a value to the servo, controlling the shaft accordingly. On a standard servo, this will set the angle of the shaft (in degrees), moving the shaft to that orientation. On a continuous rotation servo, this will set the speed of the servo (with ``0`` being full-speed in one direction, ``180`` being full speed in the other, and a value near ``90`` being no movement).
      * @param name pin to write to
@@ -215,6 +226,7 @@ namespace pins {
     //% blockId=device_set_servo_pin block="servo write|pin %name|to %value" blockGap=8
     //% parts=microservo trackArgs=0
     void servoWritePin(AnalogPin name, int value) {
+        fixMotorIssue(name);
         PINOP(setServoValue(value));
     }
 
@@ -226,6 +238,7 @@ namespace pins {
     //% help=pins/servo-set-pulse weight=19
     //% blockId=device_set_servo_pulse block="servo set pulse|pin %value|to (µs) %micros"
     void servoSetPulse(AnalogPin name, int micros) {
+        fixMotorIssue(name);
         PINOP(setServoPulseUs(micros));
     }
 
