@@ -86,6 +86,10 @@ namespace pxsim.input {
         return runtime.runningTime();
     }
 
+    export function runningTimeMicros(): number {
+        return runtime.runningTimeUs();
+    }
+
     export function calibrateCompass() {
         // device calibrates...
     }
