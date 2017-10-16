@@ -321,6 +321,10 @@ namespace game {
         });
     }
 
+    /**
+     * A game sprite rendered as a single LED
+     */
+    //%
     export class LedSprite {
         private _x: number;
         private _y: number;
