@@ -1,13 +1,5 @@
 # Coin Flipper
 
-## ~avatar avatar
-
-Are you trying to choose whether to play soccer or go to the movies
-instead, or which toppings to have on your pizza?  Build a coin
-flipping machine with the @boardname@ to choose for you!
-
-## ~
-
 ## Step 1
 
 Place a ``||input:on button pressed||`` block to run code 

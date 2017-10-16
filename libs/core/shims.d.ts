@@ -332,10 +332,18 @@ declare namespace input {
     /**
      * Gets the number of milliseconds elapsed since power on.
      */
-    //% help=input/running-time weight=50
+    //% help=input/running-time weight=50 blockGap=8
     //% blockId=device_get_running_time block="running time (ms)"
     //% advanced=true shim=input::runningTime
     function runningTime(): number;
+
+    /**
+     * Gets the number of microseconds elapsed since power on.
+     */
+    //% help=input/running-time-micros weight=49
+    //% blockId=device_get_running_time_micros block="running time (micros)"
+    //% advanced=true shim=input::runningTimeMicros
+    function runningTimeMicros(): number;
 
     /**
      * Obsolete, compass calibration is automatic.
@@ -747,7 +755,13 @@ declare namespace pins {
      *
      */
     //% help=pins/spi-pins weight=2 advanced=true
-    //% blockId=spi_pins block="spi set pins|MOSI %mosi|MISO %miso|SCK %sck" shim=pins::spiPins
+    //% blockId=spi_pins block="spi set pins|MOSI %mosi|MISO %miso|SCK %sck"
+    //% mosi.fieldEditor="gridpicker" mosi.fieldOptions.columns=4
+    //% mosi.fieldOptions.tooltips="false" mosi.fieldOptions.width="300"
+    //% miso.fieldEditor="gridpicker" miso.fieldOptions.columns=4
+    //% miso.fieldOptions.tooltips="false" miso.fieldOptions.width="300"
+    //% sck.fieldEditor="gridpicker" sck.fieldOptions.columns=4
+    //% sck.fieldOptions.tooltips="false" sck.fieldOptions.width="300" shim=pins::spiPins
     function spiPins(mosi: DigitalPin, miso: DigitalPin, sck: DigitalPin): void;
 }
 
@@ -813,7 +827,11 @@ declare namespace serial {
     //% weight=10
     //% help=serial/redirect-to
     //% blockId=serial_redirect block="serial|redirect to|TX %tx|RX %rx|at baud rate %rate"
-    //% blockExternalInputs=1 shim=serial::redirect
+    //% blockExternalInputs=1
+    //% tx.fieldEditor="gridpicker" tx.fieldOptions.columns=3
+    //% tx.fieldOptions.tooltips="false"
+    //% rx.fieldEditor="gridpicker" rx.fieldOptions.columns=3
+    //% rx.fieldOptions.tooltips="false" shim=serial::redirect
     function redirect(tx: SerialPin, rx: SerialPin, rate: BaudRate): void;
 }
 

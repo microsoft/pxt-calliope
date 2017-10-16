@@ -1,4 +1,4 @@
-`# Introduction
+# Introduction
 
 What is a micro:bit?
 The micro:bit was created in 2015 in the UK by the BBC to teach computer science to students. The BBC gave away a micro:bit to every Year 7 student in the UK. You can think of a micro:bit as a mini computer.
