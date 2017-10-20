@@ -203,6 +203,11 @@
     "serial": {
         "nameFilter": "^mbed Serial Port",
         "log": true,
+        "useEditor": true,
+        "editorTheme": {
+            "graphBackground": "#d9d9d9",
+            "lineColors": ["#6633cc", "#3891A6", "#3454D1", "#EF767A", "#F46197", "#107C10"]
+        },
         "chromeExtension": "hjcflblhjoglmjjkecamiegdigfkgeni",
         "vendorId": "0x0d28",
         "productId": "0x0204",
