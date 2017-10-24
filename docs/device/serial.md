@@ -89,6 +89,8 @@ Alternative programs include `minicom` and so on.
 
 **Developer Zone!** This is an experimental feature that may change in the future. This is not supported by MakeCode team.
 
+### ~
+
 If you are using the Google Chrome browser, you can use our extension to get serial data streaming in the editor.
 
 * Install the [Extension for micro:bit](https://chrome.google.com/webstore/detail/extension-for-bbc-microbi/cihhkhnngbjlhahcfmhekmbnnjcjdbge?hl=en-US) on the Chrome Web Store.
