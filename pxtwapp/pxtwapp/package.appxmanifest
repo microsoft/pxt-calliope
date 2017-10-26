@@ -14,9 +14,8 @@
     <Resource Language="x-generate" />
   </Resources>
   <Applications>
-    <Application Id="App" StartPage="http://localhost:3232/index.html#nolocalhost=1">
+    <Application Id="App" StartPage="https://makecode.microbit.org/">
       <uap:ApplicationContentUriRules>
-        <uap:Rule Match="http://localhost:3232/*" Type="include" WindowsRuntimeAccess="all" />
         <uap:Rule Match="https://makecode.microbit.org/" Type="include" WindowsRuntimeAccess="all" />
         <uap:Rule Match="https://trg-microbit.userpxt.io/---simulator" Type="include" WindowsRuntimeAccess="none" />
         <uap:Rule Match="https://makecode.microbit.com/beta" Type="include" WindowsRuntimeAccess="all" />
