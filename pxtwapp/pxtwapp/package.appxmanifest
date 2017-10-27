@@ -14,17 +14,17 @@
     <Resource Language="x-generate" />
   </Resources>
   <Applications>
-    <Application Id="App" StartPage="https://makecode.microbit.org/">
+    <Application Id="App" StartPage="https://makecode.microbit.org">
       <uap:ApplicationContentUriRules>
         <uap:Rule Match="https://makecode.microbit.org/" Type="include" WindowsRuntimeAccess="all" />
         <uap:Rule Match="https://trg-microbit.userpxt.io/---simulator" Type="include" WindowsRuntimeAccess="none" />
         <uap:Rule Match="https://makecode.microbit.com/beta" Type="include" WindowsRuntimeAccess="all" />
         <uap:Rule Match="https://trg-microbit.userpxt.io/beta---simulator" Type="include" WindowsRuntimeAccess="none" />
       </uap:ApplicationContentUriRules>
-      <uap:VisualElements DisplayName="Microsoft MakeCode for micro:bit" Description="Microsoft MakeCode for micro:bit" BackgroundColor="#BA0018" Square150x150Logo="images\Square150x150Logo.png" Square44x44Logo="images\Square44x44Logo.png">
+      <uap:VisualElements DisplayName="Microsoft MakeCode for micro:bit" Description="Microsoft MakeCode for micro:bit" BackgroundColor="#3454d1" Square150x150Logo="images\Square150x150Logo.png" Square44x44Logo="images\Square44x44Logo.png">
         <uap:DefaultTile Wide310x150Logo="images\Wide310x150Logo.png" Square71x71Logo="images\SmallTile.png">
         </uap:DefaultTile>
-        <uap:SplashScreen Image="images\SplashScreen.png" BackgroundColor="#BA0018" />
+        <uap:SplashScreen Image="images\SplashScreen.png" BackgroundColor="#3454d1" />
       </uap:VisualElements>
       <Extensions>
         <uap:Extension Category="windows.fileTypeAssociation">
