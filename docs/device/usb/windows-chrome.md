@@ -66,11 +66,6 @@ Alternatively, right-click on the hex file, choose **Send to**, and then **MICRO
 
 ![](/static/mb/device/usb-windows-sendto.jpg)
 
-## micro:bit uploader
-
-You can use the [micro:bit uploader](/uploader) to automatically deploy ``.hex`` files to your micro:bit!
-![](/static/uploader/tooltip.png)
-
 ## Step 5: After transferring the file
 
 * The LED on the back of your micro:bit flashes during the transfer (which 
