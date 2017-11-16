@@ -189,7 +189,7 @@ Now, we have to join up the hours and minutes to make text that will display on 
 2. Make 3 copies of this last ``||variables:set to||`` using the **Duplicate** option in the menu when you right click on the block. Put the copies underneath each other so that all 4 are stacked together.
 3. In the first ``||variables:set to||``, replace the second `""` in the ``||text:join||`` with the `adjust` variable.
 4. With the second copy, change the first `""` in the ``||text:join||`` to the variable `time`. Change the second string in the ``||text:join||`` to `":"`.
-5. In the fourth copy, change the first `""` in the ``||text:join||`` to the variable `time`. Change the second string in the ``||text:join||`` to division operator from **Math**. Set the left `0` to the `minutes` variable and the right `0` to `10`.
+5. In the third copy, change the first `""` in the ``||text:join||`` to the variable `time`. Change the second string in the ``||text:join||`` to division operator from **Math**. Set the left `0` to the `minutes` variable and the right `0` to `10`.
 6. In the fourth copy, change the first `""` in the ``||text:join||`` to the variable `time`. Change the second string in the ``||text:join||`` to a ``||Math:remainder of||`` in **Math**. Set the left `0` to the `minutes` variable and the right `0` to `10`.
 
 ```blocks

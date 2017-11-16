@@ -30,14 +30,14 @@ We'll use button `A` to add `10` seconds to our time count. The time count of `s
 2. Get an ``||logic:if then||`` block from **Logic** and put it in the ``||input:on button pressed||``.
 3. From the same **Logic** category, get a ``||logic:0 < 0||`` and relpace the `false` condition with it.
 4. Change the left `0` in the condtion to the `seconds` variable. Change `0` on the right to `50`. This limits time to just one minute.
-5. In the ``||logic:then||`` section, put a ``||variables:change by||`` there. Select the `seconds` variable name from the dropdown and change the `0` on the right to `10'.
+5. In the ``||logic:then||`` section, put a ``||variables:change by||`` there. Select the `seconds` variable name from the dropdown and change the `0` on the right to `10`.
 6. Add a ``||basic:show number||`` below the ``||variables:change by||``. Change the value to the `seconds` variable. Then, put a ``||basic:clear screen||`` under that.
 
 ```blocks
 let seconds = 0;
 input.onButtonPressed(Button.A, () => {
     if (seconds < 50) {
-        seconds += 1;
+        seconds += 10;
         basic.showNumber(seconds)
         basic.clearScreen()
     }
