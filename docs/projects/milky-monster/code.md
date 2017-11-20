@@ -9,11 +9,11 @@ Add code to make the Milky Monster move.
 
 ## Duration: ~30 minutes
 
-## Step 1: calibrate servo
+## Step 1: Calibrate servo
 
 In order for the Milky Monster to move, the @boardname@ needs to command the servo to go between ``0`` and ``180`` degrees at a certain pace. In the code below:
-- the user pressed button ``A`` to switch the servo to 180 degrees (to close the mouth of Milky Monster). 
-- the user pressed button ``B`` to switch the servo to 0 degrees (to open the mouth of Milky Monster). 
+- Press button ``A`` to switch the servo to 180 degrees (to close the mouth of Milky Monster). 
+- Press button ``B`` to switch the servo to 0 degrees (to open the mouth of Milky Monster). 
 
 ```blocks
 input.onButtonPressed(Button.A, () => {
@@ -28,39 +28,39 @@ basic.showString("calibrate")
 
 ```
 
-## Step 2: attach rotor
+## Step 2: Attach rotor
 
-The servo should be positioned on 180 degrees **before** attaching the rotor to it. This is to make sure the mouth of the Milky Monster will be closed once the servo reaches 180 degrees. 
+The servo should be positioned at 180 degrees **before** attaching the rotor to it. This will make sure the mouth of the Milky Monster is closed once the servo reaches 180 degrees. 
 
 ## ~ hint
 
-You may use a philips scew driver to attach the rotor to the servo. 
+You can use a philips screw driver to attach the rotor to the servo. 
 
 ## ~
 
 https://youtu.be/YZfkMWTeH4o
 
-## Step 3: check calibration
+## Step 3: Check calibration
 
-When the user pressed ``A`` the servo rotor should be in 'up' position. 
+When the user presses ``A`` the servo rotor should be in 'up' position. 
 
 https://youtu.be/bAqXEawUsSM
 
-## Step 4: connect cord to rotor
+## Step 4: Connect cord to rotor
 
 Connect the cord to the servo rotor while mouth of Milky Monster is **closed**.
 
 https://youtu.be/AWsnwk_iA_A
 
-## Step 5: connect cables to @boardname@
+## Step 5: Connect cables to @boardname@
 
 Connect cables from @boardname@ to the servo and place the battery.
 
 https://youtu.be/fAR58GJUZdM
 
-## Step 6: code light sensor
+## Step 6: Code light sensor
 
-Code the lightsensor on the @boardname@ to control the servo.
+Code the light sensor on the @boardname@ to control the servo.
 
 ```blocks
 basic.forever(() => {
