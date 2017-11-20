@@ -2,14 +2,14 @@
 
 ## ~avatar avatar
 
-Remote control your Milky Monster with another @boardname@
+Remotely control your Milky Monster with another @boardname@
 
 ## ~
 
 ## Duration: ~30 minutes
 
-You will need 2 @boardname@ for this part. By using the radio, we can make the Milky Monster controlled by another @boardname@.
-Download the code below to the @boardname@ on the Milky Monster and another "controller" @boardname@. Whenere A is pressed, the Milky Monster will move once.
+You will need a second @boardname@ for this part. By using the radio, we can control the Milky Monster with another @boardname@.
+Download the code below to the @boardname@ that's on the Milky Monster and again to another "controller" @boardname@. Whenever button **A** is pressed, the Milky Monster will move one time.
 
 ```blocks
 radio.onDataPacketReceived(({receivedNumber}) => {

@@ -8,16 +8,17 @@ Build a voting machine using many @boardname@s!
 
 https://youtu.be/77HOqf8BaNg
 
-
-In this project, a **voter** program is uploaded on the player's @boardname@. The player uses the buttons to vote ``yes`` or ``no`` 
-and the vote is sent to the **dashboard** @boardname@ via radio. 
+In this project, a **voter** program is loaded onto a player's @boardname@. The player uses the buttons to vote either``yes`` or ``no`` 
+and the vote is sent to a **dashboard** @boardname@ using the radio. 
 The dashboard allocates one LED per player and turns it on or off based on the vote.
 
 ## The voter program
 
-Assuming button ``A`` is no and ``B`` is yes, the voter program works as follows:
+Assuming button ``A`` is for a NO vote and ``B`` is for YES, the voter program works like this:
 
-* when button ``A`` is pressed, a number ``0`` is sent via radio and the ``X`` symbol is shown on the screen.
+### Transmit a NO vote
+
+When button ``A`` is pressed, a number ``0`` is sent via radio and the ``X`` symbol is shown on the screen.
 
 ```block
 input.onButtonPressed(Button.A, () => {
@@ -26,7 +27,9 @@ input.onButtonPressed(Button.A, () => {
 })
 ```
 
-* when button ``B`` is pressed, a number ``255`` is sent via radio and the ``Y`` symbol is shown on the screen.
+### Transmit a YES vote
+
+When button ``B`` is pressed, a number ``255`` is sent via radio and the ``Y`` symbol is shown on the screen.
 
 ```block
 input.onButtonPressed(Button.B, () => {
@@ -35,19 +38,22 @@ input.onButtonPressed(Button.B, () => {
 })
 ```
 
-* In order to track the votes, we tell the radio to also transmit the device serial number.
+### Set device serial number
+
+In order to track the votes, we tell the radio to also transmit the device serial number.
 
 ```block
 radio.setTransmitSerialNumber(true)
 ```
+### Set the radio group
 
-* we arbritrarily choose ``4`` as the group used for the communications
+We arbitrarily choose ``4`` as the group used for the communications.
 
 ```block
 radio.setGroup(4)
 ```
 
-Combined together, the voter program looks as follows:
+Putting all the parts together, here's the complete voter program:
 
 ```blocks
 input.onButtonPressed(Button.A, () => {
@@ -65,7 +71,7 @@ basic.showIcon(IconNames.Ghost)
 
 ## The dashboard
 
-The dashboard code can be found at [/examples/radio-dashboard](/examples/radio-dashboard).
+The dashboard code is in the [radio dashboard](/examples/radio-dashboard) example.
 
 Download the code from that example into the @boardname@ that will be used to display the result.
 
@@ -73,7 +79,6 @@ When the dashboard receives a message from a @boardname@, it find a pixel for th
 and uses the number received as the brightness of the LED.
 
 When a message hasn't been received by a board for some time, it's pixel will start to blink. After more time, it will simply turn off. 
-
 
 ```package
 radio

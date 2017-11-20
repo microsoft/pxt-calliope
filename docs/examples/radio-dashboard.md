@@ -9,7 +9,7 @@
  * forever.
  * 
  * Radio clients can simply send a number (between 0..255) on group 4.
- * The must transmit the serial number using ``radio.setTransmitSerialNumber(true)``
+ * They must transmit the serial number using ``radio.setTransmitSerialNumber(true)``
  * 
  * The received number is used to set the LED brightness for that client.
  * 

@@ -17,22 +17,22 @@ https://youtu.be/egl3fNAYylk
 
 ## Materials
 
-## Recycled
+### Recycled
 
 * 1 Milk Carton (with a screwable top cap)
-* 1 Small cord - recylce string from a used tea bag 
+* 1 Small cord - recycle string from a used tea bag 
 * 1 Paper clip
 
-## Electronics
+### Electronics
 
 * 1 @boardname@, battery holder and 2 AAA batteries
 * 3 Crocodile clips
 * 1 micro servo 9g SG90
-* 1 servo clip designed for Milky Monster [download on thingiverse](http://www.thingiverse.com/thing:2185971) (optional). Teachers may prefer to download the classroom pack (16 servo clips).
+* 1 servo clip designed for Milky Monster, download at [thingiverse](http://www.thingiverse.com/thing:2185971) (optional). Teachers may prefer to download the classroom pack (16 servo clips).
 
-## Tools
+### Tools
 
-* Small knive and  Scissors that can cut cardboard
+* Small knife and scissors that can cut cardboard
 * Tape (masking, duct tape, and/or packing tape)
 * Glue gun
 
@@ -40,9 +40,9 @@ https://youtu.be/egl3fNAYylk
 
 ## Preparation
 
-* [Equip the microservo with crocodile clips](/device/servo)
-* [Get the cut-out template](/static/mb/projects/milky-monster/template.pdf)
-* [Download and 3D-print servo clip designed for MIlky Monster from thingiverse](http://www.thingiverse.com/thing:2185971) (this is optional). Teachers may prefer to download the classroom pack (16 servo clips).
+* Equip the [micro servo](/device/servo) with crocodile clips
+* Get the [cutout template](/static/mb/projects/milky-monster/template.pdf)
+* Download and 3D-print the servo clip designed for Milky Monster from [thingiverse](http://www.thingiverse.com/thing:2185971) (this is optional). Teachers may prefer to download the classroom pack (16 servo clips).
 
 ## Activities
 
@@ -56,5 +56,6 @@ Let's get started!
 
 ## ~
 
-## about the author
-This project was contributed by Peter Heldens [@peterheldens](https://twitter.com/peterheldens). You can checkout his [@boardname@ makershow channel on youtube](http://aka.ms/microbit-makershow) for more projects.
+## About the author
+
+This project was contributed by Peter Heldens [@peterheldens](https://twitter.com/peterheldens). You can checkout his [@boardname@ makershow](http://aka.ms/microbit-makershow) channel on youtube for more projects.
