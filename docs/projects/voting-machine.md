@@ -53,7 +53,7 @@ We arbitrarily choose ``4`` as the group used for the communications.
 radio.setGroup(4)
 ```
 
-Combined together, the final voter program is this:
+Putting all the parts together, here's the complete voter program:
 
 ```blocks
 input.onButtonPressed(Button.A, () => {
