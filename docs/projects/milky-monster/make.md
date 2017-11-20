@@ -96,7 +96,7 @@ https://youtu.be/Ch_vU5LXPeM
 
 Cutout a hole in the cap to guide the string to the servo.
 
-https://youtu.be/Ch_vU5LXPeM
+https://youtu.be/JKi2Ns8y3nI
 
 ## Step 12: connect crocodile clips
 
