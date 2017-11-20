@@ -30,7 +30,7 @@ Turn a piece of cardboard into an milky-monster!
 
 ## Step 1: download and cut the template
 
-[Download the template](/static/mb/projects/milky-monster/template.pdf) and cutout the template.
+[Download the template](/static/mb/projects/milky-monster/template.pdf) and cut out the template.
 
 https://youtu.be/ipsZuFNgTHM
 
@@ -92,9 +92,9 @@ Glue servo to the cap of the milk carton.
 
 https://youtu.be/Ch_vU5LXPeM
 
-## Step 11: cutout hole in cap
+## Step 11: cut out hole in cap
 
-Cutout a hole in the cap to guide the string to the servo.
+Cut out a hole in the cap to guide the string to the servo.
 
 https://youtu.be/JKi2Ns8y3nI
 
