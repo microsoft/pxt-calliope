@@ -1,17 +1,15 @@
 # Code
 
-Let's add the code so that _when the soil moisture level is low, the servo waters the plant._
+Let's add code so that when the soil moisture level is low, the servo waters the plant.
 
-From the **soil moisture** project, we know that the moisture is low when the ``reading`` is roughly less than ``500``.
-We can use this information to add an ``if reading < 500`` in the code.
+From the **[soil moisture](/projects/soil-moisture)** project, we know that the moisture is low when the ``reading`` is roughly less than ``500``. We can use this number to add an ``if reading < 500`` in the code to decect a dry condition.
 
 ```block
 let reading = 0
 if (reading < 500) { }
 ```
 
-The servo is connected to pin ``P2`` so we can use ``pins servo write`` block to change the angle of the servo.
-We need it to change the angle to ``0``, wait until the water has fallen off, and move it back to ``80``.
+The servo is connected to pin **P2** so we can use the ``||pins:servo write||`` block to change the angle of the servo. We want the angle to change to ``0``, wait until the water pours off, and then move the angle back to ``80``.
 
 ```block
 let reading = 0
@@ -25,7 +23,7 @@ if (reading < 500) {
 }
 ```
 
-We insert the code above in the **forever** loop of the [soil moisture code](/projects/soil-moisture/connect).
+Insert the code above in the ``||basic:forever||`` loop of the [soil moisture](/projects/soil-moisture/connect) code.
 
 ```blocks
 radio.setTransmitSerialNumber(true)
@@ -55,6 +53,8 @@ basic.forever(() => {
     basic.pause(5000);
 })
 ```
+
+Here's a video showing the @boardname@ watering a plant.
 
 https://youtu.be/7eC_VjH1eP0
 
