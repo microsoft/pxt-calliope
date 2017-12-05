@@ -28,7 +28,10 @@ If the version is **0234**, you **NEED** to update the [firmware](/device/firmwa
 
 ### Upgrade the firmware
 
-1. Put your @boardname@ into **Maintenence Mode**. To do this, unplug the USB cable from the @boardname@ and then re-connect the USB cable while you hold down the reset button. Once you insert the cable, you can release the reset button.
+1. Put your @boardname@ into **MAINTENANCE Mode**. To do this, unplug the USB cable from the @boardname@ and then re-connect the USB cable while you hold down the reset button. Once you insert the cable, you can release the reset button.
+
+![MAINTENANCE gesture](/static/mb/device/maintenance.gif)
+
 2. You should now see a **MAINTENENCE** drive instead of the **MICROBIT** drive like before. Also, a yellow LED light will stay on next to the reset button.
 3. Go to the **[firmware upgrade](https://support.microbit.org/support/solutions/articles/19000019131-how-to-upgrade-the-firmware-on-the-micro-bit)** page at microbit.org.
 4. Find the link for the `HEX` file at the bottom of the page. Right-click on the link and choose **Save link as** (your browser might say **Save target** or something similar). In the file dialog, click to select the **MAINTENENCE** drive. Press **Save** and the firmware file will copy to the @boardname@.
