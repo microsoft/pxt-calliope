@@ -8,9 +8,7 @@ Remote control your monster with another @boardname@
 
 ## Duration: ~30 minutes
 
-You will need 2 @boardname@ for this part. By using the radio, we can make the inchworm controlled by another @boardname@.
-Download the code below to the @boardname@ on the inchworm and another "controller" @boardname@. 
-Whenere A is pressed, the monster will open and close it's mouth will move once.
+In order for the light monster to move, the @boardname@ needs to command the servo to move between ``0`` and ``180`` degrees at a certain pace. The code below starts the inchworm moving when the **A** button is pressed.
 
 ```blocks
 radio.onDataPacketReceived(({receivedNumber}) => {

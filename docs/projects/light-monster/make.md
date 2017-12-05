@@ -1,25 +1,27 @@
 # Make
+
 ## @description Building the light monster
 
 ## ~avatar avatar
 
-Turn a piece of coffee holders into a monster!
+Turn some coffee cups into a monster that moves to light!
 
 ## ~
 
 ## Duration: ~60 minutes
 
 ## Materials
-  * 3 Coffee cup holders
-  * 2 Coffee cup strirer wood sticks
-  * Scissors
-  * glue gun or tape
-  * 1 paper clip
 
-## Step 1: cardboard
+* 3 coffee cup holders
+* 2 ood coffee strirer sticks
+* scissors
+* glue gun or tape
+* 1 paper clip
+
+## Step 1: Glue the cups and sticks together
 
 TODO
 
-## ~button /projects/coffee-cup-monster/code
+## ~button /projects/light-monster/code
 NEXT: Code
 ## ~

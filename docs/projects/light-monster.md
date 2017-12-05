@@ -1,7 +1,7 @@
 
 # Light Monster
 
-## @description A monster made of cardboard that responds to light
+## @description A monster made of coffee cups that responds to light
 
 ## ~avatar avatar
 
@@ -28,7 +28,7 @@ https://youtu.be/BiZLjugXMbM
 
 ## Preparation
 
-* [Equip the microservo with crocodile clips](/device/servo)
+* [Setup the microservo with crocodile clips](/device/servo)
 
 ## Activities
 
