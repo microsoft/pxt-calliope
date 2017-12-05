@@ -79,6 +79,6 @@ Alternatively, right-click on the hex file, choose **Send to**, and then **MICRO
 
 ## ~hint
 
-Transfer not working? See some [troubleshooting tips](/device/usb/troubleshooting).
+Transfer not working? See some [troubleshooting tips](/device/usb/troubleshoot).
 
 ## ~

@@ -66,6 +66,6 @@ your program will still run if the micro:bit is powered by battery.
 
 ## ~hint
 
-Transfer not working? See some [troubleshooting tips](/device/usb/troubleshooting).
+Transfer not working? See some [troubleshooting tips](/device/usb/troubleshoot).
 
 ## ~
