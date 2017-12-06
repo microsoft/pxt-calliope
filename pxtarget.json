@@ -9,15 +9,7 @@
         "libs/core",
         "libs/radio",
         "libs/devices",
-        "libs/bluetooth",
-        "libs/pxt-calliope-modem",
-        "libs/pxt-calliope-bc95",
-        "libs/pxt-calliope-esp",
-        "libs/pxt-calliope-bunt",
-        "libs/pxt-isl29125",
-        "libs/pxt-ubirch",
-        "libs/Grove",
-        "libs/pxt-ssd1306-microbit"
+        "libs/bluetooth"
     ],
     "cloud": {
         "workspace": false,

@@ -7,7 +7,17 @@
             "ubirch"
         ],
         "approvedRepos": [
-            "CoderDojoOlney/pxt-olney"
+            "CoderDojoOlney/pxt-olney",
+            "Tinkertanker/pxt-ssd1306-microbit"                
+        ],
+        "preferredRepos": [
+            "calliope-mini/pxt-calliope-modem",
+            "calliope-mini/pxt-calliope-bc95",
+            "calliope-mini/pxt-calliope-esp",
+            "calliope-mini/pxt-calliope-bunt",
+            "calliope-mini/pxt-isl29125",
+            "ubirch/pxt-ubirch",
+            "Tinkertanker/pxt-ssd1306-microbit"                
         ]
     }
 }
