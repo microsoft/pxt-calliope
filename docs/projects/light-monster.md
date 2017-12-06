@@ -1,7 +1,7 @@
 
 # Light Monster
 
-## @description A monster made of coffee cups that responds to light
+## @description A monster made of coffee cup holders that responds to light
 
 ## ~avatar avatar
 
@@ -17,8 +17,8 @@ https://youtu.be/BiZLjugXMbM
 
 ## Materials
 
-* 3 Coffee cup holders
-* 2 Coffee cup strirer wood sticks
+* 3 Coffee cup holders (hot cup sleeves)
+* 2 Wood coffee strirer sticks
 * Glue gun
 * Scissors that can cut cardboard
 * 1 @boardname@, battery holder and 2 AAA batteries

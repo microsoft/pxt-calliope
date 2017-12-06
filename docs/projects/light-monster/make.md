@@ -4,7 +4,7 @@
 
 ## ~avatar avatar
 
-Turn some coffee cups into a monster that moves to light!
+Turn some coffee cup holders into a monster that moves to light!
 
 ## ~
 
@@ -12,13 +12,13 @@ Turn some coffee cups into a monster that moves to light!
 
 ## Materials
 
-* 3 coffee cup holders
+* 3 coffee cup holders (hot cup sleeves)
 * 2 ood coffee strirer sticks
 * scissors
 * glue gun or tape
 * 1 paper clip
 
-## Step 1: Glue the cups and sticks together
+## Step 1: Glue the cup holders and sticks together
 
 TODO
 

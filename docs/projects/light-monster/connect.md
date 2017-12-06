@@ -2,7 +2,7 @@
 
 ## ~avatar avatar
 
-Remote control your monster with another @boardname@
+Remote control your monster with another @boardname@.
 
 ## ~
 
