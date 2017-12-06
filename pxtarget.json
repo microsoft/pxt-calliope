@@ -14,10 +14,8 @@
     "cloud": {
         "workspace": false,
         "packages": true,
-        "sharing": false,
+        "sharing": true,
         "publishing": false,
-        "preferredPackages": [
-        ],
         "githubPackages": true
     },
     "compile": {
