@@ -30,6 +30,11 @@ A collection of courses and tutorials built for the @boardname@.
   "description": "11 experiments based on the Kitronik Inventor Kit",
   "url": "https://www.kitronik.co.uk/blog/inventors-kit-experiment-1-help",
   "imageUrl": "https://www.kitronik.co.uk/wp/wp-content/uploads/2016/10/inventors-kit-experiment-1-further-help-870.jpg"
+},{
+  "name": "Networking with the micro:bit",
+  "description": "A series of activities to teach the basics of computer networks.",
+  "url": "https://microbit.nominetresearch.uk/networking-book/",
+  "imageUrl": "https://microbit.nominetresearch.uk/networking-book/cover_v02.png"  
 },
  {
   "name": "micro:bit of Things",
