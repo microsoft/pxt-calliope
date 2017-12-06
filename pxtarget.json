@@ -197,39 +197,14 @@
         "organizationUrl": "https://makecode.com/",
         "organizationLogo": "./static/Microsoft-logo_rgb_c-gray-square.png",
         "organizationWideLogo": "./static/Microsoft-logo_rgb_c-white.png",
-        "browserSupport": [
-            {
-                "name": "unsupported",
-                "os": "*",
-                "path": "/browsers"
-            },
-            {
-                "name": "unsupported",
-                "os": "mac",
-                "path": "/browsers/mac"
-            },
-            {
-                "name": "unsupported",
-                "os": "linux",
-                "path": "browsers/linux"
-            },
-            {
-                "name": "unsupported",
-                "os": "rpi",
-                "path": "/raspberry-pi"
-            },
-            {
-                "name": "unsupported",
-                "os": "windows",
-                "path": "/browsers/windows"
-            }
-        ],
         "boardName": "Calliope mini",
+        "driveDisplayName": "MICROBIT",
         "hideSideDocs": true,
         "invertedMenu": true,
         "invertedToolbox": true,
         "monacoToolbox": false,
-        "hasAudio": true,        
+        "hasAudio": true,      
+        "highContrast": true,          
         "simAnimationEnter": "rotate in",
         "simAnimationExit": "rotate out",
         "blocklyOptions": { 
@@ -240,6 +215,7 @@
                 "snap": false
             }
         },
-        "docMenu": []
+        "docMenu": [],
+        "hasReferenceDocs": false
     }
 }
