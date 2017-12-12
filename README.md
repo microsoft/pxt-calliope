@@ -3,13 +3,15 @@
 This target is hosted at https://makecode.calliope.cc. 
 
 
+## Hosted editor and build
+Hosted at: https://c371bd6d-007a-42fb-a45c-39891824b813.pxt.io</br>
+Jenkins build: https://ci2.dot.net/job/Private/job/pxt_project_teal/job/master/
+
+
 ### BUILD COMMENTS
 
 - build libs/core/dal.d.ts new requires some meddling, as the `#define` parser does not parse `#ifdef` and thus
 has some conflicts with double defines constants
-
-
-[![Build Status](https://travis-ci.org/Microsoft/pxt-calliope.svg?branch=master)](https://travis-ci.org/Microsoft/pxt-calliope)
 
 ![](http://calliope.cc/content/1-ueber-mini/mini_board.png)
 
@@ -75,9 +77,6 @@ To test something on the device:
 * run `pxt testdir` in `tests` and deploy some of the hex files from `tests/built`
 
 The `lang-test0` source comes from the `pxt-core` package. It's also tested with `pxt run` there. 
-
-## Jenkins build
-https://ci2.dot.net/job/Private/job/pxt_project_teal/job/master/
 
 ## Code of Conduct
 
