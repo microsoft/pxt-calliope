@@ -1,7 +1,7 @@
-# Calliope target for PXT
+# Calliope target for Microsoft MakeCode
 
-This target allow to program a [Calliope](http://calliope.cc/) using 
-PXT ([Microsoft Programming Experience Toolkit](https://github.com/Microsoft/pxt)).
+This target is hosted at https://makecode.calliope.cc. 
+
 
 ### BUILD COMMENTS
 
