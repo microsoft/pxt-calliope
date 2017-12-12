@@ -2,7 +2,7 @@ import jobs.generation.Utilities;
 import jobs.generation.InternalUtilities;
 
 def project = GithubProject
-def projectName = "pxt-calliope"
+def projectName = "pxt-calliopemini"
 
 [true, false].each { isPR ->
     def newJobName = projectName
@@ -23,7 +23,8 @@ def projectName = "pxt-calliope"
             wrappers {
                 credentialsBinding {
                     string("PXT_ACCESS_TOKEN", "pxt_access_token")
-                    string("PXT_RELEASE_REPO", "pxt_release_repo")
+                    string("PXT_RELEASE_REPO", "pxt_release_repo_calliopemini")
+                    string("CROWDIN_KEY", "pxt_crowdin_key")
                 }
             }
         }
