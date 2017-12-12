@@ -4,7 +4,7 @@ namespace pxsim {
         if (b) {
             let np = b.neopixelState;
             if (np) {
-                let buf = <Uint8Array[]>(<any>buffer).data;                
+                let buf = <Uint8Array>(<any>buffer).data;                
                 np.updateBuffer(buf, pin);
                 runtime.queueDisplayUpdate();
             }

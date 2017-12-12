@@ -1,31 +1,21 @@
 {
-    "id": "calliope",
-    "name": " calliope",
+    "id": "calliopemini",
+    "name": " calliope mini",
     "nickname": "mini",
-    "title": "calliope mini - Blocks / Javascript editor",
+    "title": "Calliope mini - Blocks / Javascript editor",
     "description": "A Blocks / JavaScript code editor for the calliope mini.",
     "corepkg": "core",
     "bundleddirs": [
         "libs/core",
         "libs/radio",
         "libs/devices",
-        "libs/bluetooth",
-        "libs/pxt-calliope-modem",
-        "libs/pxt-calliope-bc95",
-        "libs/pxt-calliope-esp",
-        "libs/pxt-calliope-bunt",
-        "libs/pxt-isl29125",
-        "libs/pxt-ubirch",
-        "libs/Grove",
-        "libs/pxt-ssd1306-microbit"
+        "libs/bluetooth"
     ],
     "cloud": {
         "workspace": false,
         "packages": true,
-        "sharing": false,
+        "sharing": true,
         "publishing": false,
-        "preferredPackages": [
-        ],
         "githubPackages": true
     },
     "compile": {
@@ -197,8 +187,8 @@
         "footerLogo": "./static/Calliopeminieditor.svg",
         "cardLogo": "./static/icons/apple-touch-icon.png",
         "appLogo": "./static/icons/apple-touch-icon.png",
-        "homeUrl": "https://calliope.cc/",
-        "embedUrl": "https://pxt.calliope.cc/",
+        "homeUrl": "https://makecode.calliope.cc/",
+        "embedUrl": "https://makecode.calliope.cc/",
         "privacyUrl": "https://go.microsoft.com/fwlink/?LinkId=521839",
         "termsOfUseUrl": "https://go.microsoft.com/fwlink/?LinkID=206977",
         "githubUrl": "https://github.com/Microsoft/pxt-calliope",
@@ -207,39 +197,14 @@
         "organizationUrl": "https://makecode.com/",
         "organizationLogo": "./static/Microsoft-logo_rgb_c-gray-square.png",
         "organizationWideLogo": "./static/Microsoft-logo_rgb_c-white.png",
-        "browserSupport": [
-            {
-                "name": "unsupported",
-                "os": "*",
-                "path": "/browsers"
-            },
-            {
-                "name": "unsupported",
-                "os": "mac",
-                "path": "/browsers/mac"
-            },
-            {
-                "name": "unsupported",
-                "os": "linux",
-                "path": "browsers/linux"
-            },
-            {
-                "name": "unsupported",
-                "os": "rpi",
-                "path": "/raspberry-pi"
-            },
-            {
-                "name": "unsupported",
-                "os": "windows",
-                "path": "/browsers/windows"
-            }
-        ],
         "boardName": "Calliope mini",
+        "driveDisplayName": "MINI",
         "hideSideDocs": true,
         "invertedMenu": true,
         "invertedToolbox": true,
         "monacoToolbox": false,
-        "hasAudio": true,        
+        "hasAudio": true,      
+        "highContrast": true,          
         "simAnimationEnter": "rotate in",
         "simAnimationExit": "rotate out",
         "blocklyOptions": { 
@@ -250,6 +215,8 @@
                 "snap": false
             }
         },
-        "docMenu": []
-    }
+        "docMenu": [],
+        "hasReferenceDocs": false
+    },
+    "ignoreDocsErrors": true
 }
