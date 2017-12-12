@@ -216,6 +216,7 @@
             }
         },
         "docMenu": [],
-        "hasReferenceDocs": false
+        "hasReferenceDocs": false,
+        "ignoreDocsErrors": true
     }
 }
