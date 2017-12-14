@@ -6,9 +6,6 @@
 
 @fontName  : 'Roboto Mono';
 
-@emSize      : 14px;
-@fontSize    : 13px;
-
 /*-------------------
     Site Colors
 --------------------*/

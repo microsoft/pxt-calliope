@@ -47,31 +47,8 @@
   width: 100%;
 }
 
-/*******************************
-             Blockly
-*******************************/
-
-div.blocklyTreeRow {
-    border-radius:8px;
-}
-
-/* This removes any padding at the top of the toolbox */
-div.blocklyTreeRoot {
-    padding: 0px !important;
-}
-
-/* Blockly Text */
-div.blocklyTreeLabel {
-    font-family: @pageFont !important;
-    font-size:1rem !important;
-}
-
-.blocklyFlyoutBackground {
-    fill: @grey;
-}
-
-.blocklyToolboxDiv {
-    padding:7px;
+#downloadArea {
+    background: transparent !important;
 }
 
 .organization {
@@ -85,8 +62,19 @@ div.blocklyTreeLabel {
     }
 }
 
+
+/* Mobile */
+@media only screen and (max-width: @largestMobileScreen) {
+    #filelist {
+        background: transparent !important;
+    }
+}
+
 /* Tablet */
 @media only screen and (min-width: @tabletBreakpoint) and (max-width: @largestTabletScreen) {
+    #filelist {
+        background: transparent !important;
+    }
 }
 
 /* Small Monitor */
@@ -95,16 +83,4 @@ div.blocklyTreeLabel {
 
 /* Large Monitor */
 @media only screen and (min-width: @largeMonitorBreakpoint) {
-}
-
-/*******************************
-             Menu Bar
-*******************************/
-
-#menubar {
-    height: 5rem;
-}
-
-#fileNameInput {
-    width: 350px;
 }
