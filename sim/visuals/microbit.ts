@@ -1,4 +1,6 @@
 namespace pxsim.visuals {
+    type SVGStylable = any;
+
     const MB_STYLE = `
         svg.sim {
             margin-bottom:1em;

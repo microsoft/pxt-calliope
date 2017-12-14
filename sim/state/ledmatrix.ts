@@ -66,7 +66,6 @@ namespace pxsim {
 
     export function createInternalImage(width: number): Image {
         let img = createImage(width)
-        pxsim.noLeakTracking(img)
         return img
     }
 
