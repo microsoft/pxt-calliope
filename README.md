@@ -4,7 +4,7 @@ This target is hosted at https://makecode.calliope.cc.
 
 
 ## Hosted editor and build
-Hosted at: https://c371bd6d-007a-42fb-a45c-39891824b813.pxt.io</br>
+
 Jenkins build: https://ci2.dot.net/job/Private/job/pxt_project_teal/job/master/
 
 
