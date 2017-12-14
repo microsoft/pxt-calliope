@@ -270,16 +270,6 @@ namespace pins {
     MicroBitPin* pitchPin = NULL;
 
     /**
-     * Sets the pin used when using `pins->analog pitch`.
-     * @param name TODO
-     */
-    //% blockId=device_analog_set_pitch_pin block="analog set pitch pin %name"
-    //% help=pins/analog-set-pitch weight=3 advanced=true
-    void analogSetPitchPin(AnalogPin name) {
-      pitchPin = getPin((int)name);
-    }
-
-    /**
      * Sets the pin used when using `analog pitch` or music.
      * @param name pin to modulate pitch from
      */

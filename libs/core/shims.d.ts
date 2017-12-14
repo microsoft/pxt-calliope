@@ -544,7 +544,7 @@ declare namespace led {
     function displayMode(): DisplayMode;
 
     /**
-     * Turns on or off the display
+     * Turns on or off the display    
      */
     //% help=led/enable blockId=device_led_enable block="led enable %on"
     //% advanced=true parts="ledmatrix" shim=led::enable
@@ -711,14 +711,6 @@ declare namespace pins {
     //% value.fieldEditor="gridpicker" value.fieldOptions.columns=4
     //% value.fieldOptions.tooltips="false" shim=pins::servoSetPulse
     function servoSetPulse(name: AnalogPin, micros: number): void;
-
-    /**
-     * Sets the pin used when using `pins->analog pitch`.
-     * @param name TODO
-     */
-    //% blockId=device_analog_set_pitch_pin block="analog set pitch pin %name"
-    //% help=pins/analog-set-pitch weight=3 advanced=true shim=pins::analogSetPitchPin
-    function analogSetPitchPin(name: AnalogPin): void;
 
     /**
      * Sets the pin used when using `analog pitch` or music.
