@@ -1,7 +1,8 @@
-/// <reference path="../../node_modules/pxt-core/typings/globals/bluebird/index.d.ts"/>
 /// <reference path="../../node_modules/pxt-core/built/pxtsim.d.ts"/>
 
 namespace pxsim.visuals {
+    type SVGStylable = any;
+
     export function mkLedMatrixSvg(xy: Coord, rows: number, cols: number):
         { el: SVGGElement, y: number, x: number, w: number, h: number, leds: SVGElement[], ledsOuter: SVGElement[], background: SVGElement } {
         let result: { el: SVGGElement, y: number, x: number, w: number, h: number, leds: SVGElement[], ledsOuter: SVGElement[], background: SVGElement }

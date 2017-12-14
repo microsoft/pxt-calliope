@@ -1,4 +1,6 @@
 namespace pxsim.visuals {
+    type SVGStylable = any;
+
     const MB_STYLE = `
         svg.sim {
             margin-bottom:1em;
@@ -1514,7 +1516,7 @@ namespace pxsim.visuals {
                     case "radiopacket": this.flashAntenna(); break;
                 }
             }
-            let tiltDecayer = 0;
+            let tiltDecayer: any = 0;
             this.element.addEventListener(pointerEvents.move, (ev: MouseEvent) => {
                 let state = this.board;
                 if (!state.accelerometerState.accelerometer.isActive) return;

@@ -29,7 +29,7 @@ namespace pxsim {
 namespace pxsim.pins {
     export function digitalReadPin(pinId: number): number {
         let pin = getPin(pinId);
-        if (!pin) return;
+        if (!pin) return 0;
         pin.mode = PinFlags.Digital | PinFlags.Input;
         return pin.value > 100 ? 1 : 0;
     }
@@ -50,7 +50,7 @@ namespace pxsim.pins {
 
     export function analogReadPin(pinId: number): number {
         let pin = getPin(pinId);
-        if (!pin) return;
+        if (!pin) return 0;
         pin.mode = PinFlags.Analog | PinFlags.Input;
         return pin.value || 0;
     }
