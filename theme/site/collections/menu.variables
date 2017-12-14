@@ -4,10 +4,3 @@
 
 @invertedBackground: #525A67;
 @dropdownMenuDistance: 0px;
-
-/*******************************
-    PXT Theme Overrides
-*******************************/
-
-@mainMenuHeight: 5rem;
-@mainMenuMinHeight: (@itemVerticalPadding * 2) + 2em;
