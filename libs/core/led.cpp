@@ -124,7 +124,7 @@ namespace led {
     }
 
     /**
-    * Turns on or off the display
+    * Turns on or off the display    
     */
     //% help=led/enable blockId=device_led_enable block="led enable %on"
     //% advanced=true parts="ledmatrix"

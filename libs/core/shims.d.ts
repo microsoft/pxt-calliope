@@ -594,10 +594,9 @@ declare namespace music {
      * @param frequency pitch of the tone to play in Hertz (Hz)
      * @param ms tone duration in milliseconds (ms)
      */
-    //% help=music/play-tone weight=90
-    //% blockId=device_play_note block="play|tone %note=device_note|for %duration=device_beat" icon="\uf025" blockGap=8
-    //% parts="speaker" async useEnumVal=1 shim=music::playTone
-    function playTone(frequency: number, ms: number): void;
+    //%
+    //% parts="speaker" async useEnumVal=1 shim=music::speakerPlayTone
+    function speakerPlayTone(frequency: number, ms: number): void;
 }
 declare namespace pins {
 
