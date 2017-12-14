@@ -61,7 +61,8 @@
         "listsBlocks": true,
         "functionBlocks": true,        
         "onStartColor": "#54C9C9",
-        "onStartNamespace": "basic"
+        "onStartNamespace": "basic",
+        "onStartWeight": 54
     },
     "simulator": {
         "autoRun": true,

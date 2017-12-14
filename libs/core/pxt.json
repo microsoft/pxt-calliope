@@ -27,6 +27,7 @@
         "led.ts",
         "motors.cpp",
         "music.cpp",
+        "melodies.ts",
         "music.ts",
         "pins.cpp",
         "pins.ts",
