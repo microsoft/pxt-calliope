@@ -17,44 +17,18 @@
         "config": {
             "microbit-dal": {
                 "bluetooth": {
-                    "enabled": 1,
-                    "pairing_mode": 1,
-                    "private_addressing": 0,
-                    "open": 0,
-                    "whitelist": 1,
-                    "advertising_timeout": 0,
-                    "tx_power": 6,
-                    "dfu_service": 1,
-                    "event_service": 0,
-                    "device_info_service": 1,
-                    "security_level": "SECURITY_MODE_ENCRYPTION_NO_MITM",
-                    "eddystone_url": 1,
-                    "eddystone_uid": 1
+                    "enabled": 1
                 }
             }
         },
         "optionalConfig": {
             "microbit-dal": {
-                "bluetooth": {
-                    "private_addressing": 0,
-                    "advertising_timeout": 0,
-                    "tx_power": 6,
-                    "dfu_service": 1,
-                    "event_service": 1,
-                    "device_info_service": 1,
-                    "eddystone_url": 1,
-                    "eddystone_uid": 1,
-                    "open": 0,
-                    "pairing_mode": 1,
-                    "whitelist": 1,
-                    "security_level": "SECURITY_MODE_ENCRYPTION_NO_MITM"
-                },
                 "gatt_table_size": "0x700"
             }
         },
         "userConfigs": [
             {
-                "description": "Unsecure: Anyone can connect via Bluetooth.",
+                "description": "No Pairing Required: Anyone can connect via Bluetooth.",
                 "config": {
                     "microbit-dal": {
                         "bluetooth": {
@@ -67,7 +41,7 @@
                 }
             },
             {
-                "description": "JustWorks pairing (default): Button press to pair.",
+                "description": "JustWorks pairing (default): Pairing is automatic once the pairing is initiated.",
                 "config": {
                     "microbit-dal": {
                         "bluetooth": {
@@ -80,7 +54,7 @@
                 }
             },
             {
-                "description": "Passkey pairing: Button press and 6 digit key to pair.",
+                "description": "Passkey pairing: Pairing requires 6 digit key to pair.",
                 "config": {
                     "microbit-dal": {
                         "bluetooth": {

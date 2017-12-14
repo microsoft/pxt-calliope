@@ -105,15 +105,55 @@ enum class Gesture {
     * Raised when a 6G shock is detected
     */
     //% block="6g"
-    SixG = MICROBIT_ACCELEROMETER_EVT_6G
+    SixG = MICROBIT_ACCELEROMETER_EVT_6G,
+    /**
+    * Raised when a 8G shock is detected
+    */
+    //% block="8g"
+    EightG = MICROBIT_ACCELEROMETER_EVT_8G
 };
 
-//% color=#C90072 weight=99 icon="\uf192"
+enum class MesDpadButtonInfo {
+    //% block="A down"
+    ADown = MES_DPAD_BUTTON_A_DOWN,
+    //% block="A up"
+    AUp = MES_DPAD_BUTTON_A_UP,
+    //% block="B down"
+    BDown = MES_DPAD_BUTTON_B_DOWN,
+    //% block="B up"
+    BUp = MES_DPAD_BUTTON_B_UP,
+    //% block="C down"
+    CDown = MES_DPAD_BUTTON_C_DOWN,
+    //% block="C up"
+    CUp = MES_DPAD_BUTTON_C_UP,
+    //% block="D down"
+    DDown = MES_DPAD_BUTTON_D_DOWN,
+    //% block="D up"
+    DUp = MES_DPAD_BUTTON_D_UP,
+    //% block="1 down"
+    _1Down = MES_DPAD_BUTTON_1_DOWN,
+    //% block="1 up"
+    _1Up = MES_DPAD_BUTTON_1_UP,
+    //% block="2 down"
+    _2Down = MES_DPAD_BUTTON_2_DOWN,
+    //% block="2 up"
+    _2Up = MES_DPAD_BUTTON_2_UP,
+    //% block="3 down"
+    _3Down = MES_DPAD_BUTTON_3_DOWN,
+    //% block="3 up"
+    _3Up = MES_DPAD_BUTTON_3_UP,
+    //% block="4 down"
+    _4Down = MES_DPAD_BUTTON_4_DOWN,
+    //% block="4 up"
+    _4Up = MES_DPAD_BUTTON_4_UP,
+};
+
+//% color=#B4009E weight=99 icon="\uf192"
 namespace input {
     /**
-     * Do something when a button (``A``, ``B`` or both ``A+B``) is pressed
-     * @param button TODO
-     * @param body TODO
+     * Do something when a button (A, B or both A+B) is pushed down and released again.
+     * @param button the button that needs to be pressed
+     * @param body code to run when event is raised
      */
     //% help=input/on-button-pressed weight=85 blockGap=8
     //% blockId=device_button_event block="on button|%NAME|pressed"
@@ -124,26 +164,29 @@ namespace input {
 
     /**
      * Do something when when a gesture is done (like shaking the micro:bit).
-     * @param body TODO
+     * @param gesture the type of gesture to track, eg: Gesture.Shake
+     * @param body code to run when gesture is raised
      */
     //% help=input/on-gesture weight=84 blockGap=8
     //% blockId=device_gesture_event block="on |%NAME"
     //% parts="accelerometer"
+    //% NAME.fieldEditor="gridpicker" NAME.fieldOptions.columns=4
     void onGesture(Gesture gesture, Action body) {
-        if ((int)gesture == MICROBIT_ACCELEROMETER_EVT_3G && uBit.accelerometer.getRange() < 3)
-            uBit.accelerometer.setRange(6);
-        else if ((int)gesture == MICROBIT_ACCELEROMETER_EVT_6G && uBit.accelerometer.getRange() < 6)
+        int gi = (int)gesture;
+        if (gi == MICROBIT_ACCELEROMETER_EVT_3G && uBit.accelerometer.getRange() < 3)
+            uBit.accelerometer.setRange(4);
+        else if ((gi == MICROBIT_ACCELEROMETER_EVT_6G || gi == MICROBIT_ACCELEROMETER_EVT_8G) && uBit.accelerometer.getRange() < 6)
             uBit.accelerometer.setRange(8);
-        registerWithDal(MICROBIT_ID_GESTURE, (int)gesture, body);
+        registerWithDal(MICROBIT_ID_GESTURE, gi, body);
     }
 
      /**
-     * Do something when a pin is pressed.
-     * @param name the pin that needs to be pressed
+     * Do something when a pin is touched and released again (while also touching the GND pin).
+     * @param name the pin that needs to be pressed, eg: TouchPin.P0
      * @param body the code to run when the pin is pressed
      */
     //% help=input/on-pin-pressed weight=83
-    //% blockId=device_pin_event block="on pin %NAME|pressed"
+    //% blockId=device_pin_event block="on pin %name|pressed"
     void onPinPressed(TouchPin name, Action body) {
         auto pin = getPin((int)name);
         if (!pin) return;
@@ -155,7 +198,7 @@ namespace input {
 
     /**
      * Do something when a pin is released.
-     * @param name the pin that needs to be released
+     * @param name the pin that needs to be released, eg: TouchPin.P0
      * @param body the code to run when the pin is released
      */
     //% help=input/on-pin-released weight=6 blockGap=8
@@ -172,6 +215,7 @@ namespace input {
 
     /**
      * Get the button state (pressed or not) for ``A`` and ``B``.
+     * @param button the button to query the request, eg: Button.A
      */
     //% help=input/button-is-pressed weight=60
     //% block="button|%NAME|is pressed"
@@ -190,7 +234,7 @@ namespace input {
 
     /**
      * Get the pin state (pressed or not). Requires to hold the ground to close the circuit.
-     * @param name pin used to detect the touch
+     * @param name pin used to detect the touch, eg: TouchPin.P0
      */
     //% help=input/pin-is-pressed weight=58
     //% blockId="device_pin_is_pressed" block="pin %NAME|is pressed"
@@ -205,7 +249,7 @@ namespace input {
         double y = uBit.accelerometer.getY();
         double z = uBit.accelerometer.getZ();
         return (int)sqrt(x*x+y*y+z*z);
-    }    
+    }
 
     /**
      * Get the acceleration value in milli-gravitys (when the board is laying flat with the screen up, x=0, y=0 and z=-1024)
@@ -296,7 +340,7 @@ namespace input {
     /**
      * Gets the number of milliseconds elapsed since power on.
      */
-    //% help=input/running-time weight=50
+    //% help=input/running-time weight=50 blockGap=8
     //% blockId=device_get_running_time block="running time (ms)"
     //% advanced=true
     int runningTime() {
@@ -304,10 +348,23 @@ namespace input {
     }
 
     /**
+     * Gets the number of microseconds elapsed since power on.
+     */
+    //% help=input/running-time-micros weight=49
+    //% blockId=device_get_running_time_micros block="running time (micros)"
+    //% advanced=true
+    int runningTimeMicros() {
+        return system_timer_current_time_us();
+    }
+
+    /**
      * Obsolete, compass calibration is automatic.
      */
-    //% help=input/calibrate weight=0
-    void calibrate() { }
+    //% help=input/calibrate-compass advanced=true
+    //% blockId="input_compass_calibrate" block="calibrate compass"
+    void calibrateCompass() { 
+        uBit.compass.calibrate();        
+    }
 
     /**
      * Sets the accelerometer sample range in gravities.

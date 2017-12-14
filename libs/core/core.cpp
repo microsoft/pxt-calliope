@@ -30,6 +30,15 @@ namespace String_ {
     }
 
     //%
+    int compareDecr(StringData *s, StringData *that) {
+      int r = compare(s, that);
+      if (r == 0)
+        decr((uint32_t)that);
+      return r;
+    }
+    
+
+    //%
     int length(StringData *s) { return s->len; }
 
     //%
@@ -112,6 +121,15 @@ namespace Number_ {
     int div(int x, int y) { return x / y; }
     //%
     int mod(int x, int y) { return x % y; }
+
+    //%
+    bool eqDecr(int x, int y) { 
+      if(x == y) {
+        decr(y);
+        return true;
+      }
+      return false;
+    }
 }
 
 namespace Math_ {
@@ -220,17 +238,12 @@ namespace pxt {
     return bytecode[17] * 2;
   }
 
-#ifndef PAGE_SIZE
-
-#define PAGE_SIZE 1
-
-#endif
-
   //%
   uint32_t afterProgramPage() {
     uint32_t ptr = (uint32_t)&bytecode[0];
     ptr += programSize();
-    ptr = (ptr + (PAGE_SIZE - 1)) & ~(PAGE_SIZE - 1);
+    if (ptr % PAGE_SIZE != 0)
+      ptr = (ptr & ~(PAGE_SIZE-1)) + PAGE_SIZE;
     return ptr;
   }
 }
