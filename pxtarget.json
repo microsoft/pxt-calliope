@@ -210,7 +210,7 @@
         "hideSideDocs": true,
         "invertedMenu": true,
         "invertedToolbox": true,
-        "monacoToolbox": false,
+        "monacoToolbox": true,
         "hasAudio": true,      
         "highContrast": true,          
         "simAnimationEnter": "rotate in",
