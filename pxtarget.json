@@ -54,6 +54,8 @@
         "logicBlocks": true,
         "variablesBlocks": true,
         "textBlocks": true,
+        "listsBlocks": true,
+        "functionBlocks": true,        
         "onStartColor": "#54C9C9",
         "onStartNamespace": "basic"
     },
