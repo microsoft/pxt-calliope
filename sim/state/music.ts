@@ -7,7 +7,7 @@ namespace pxsim {
 }
 namespace pxsim.music {
 
-    export function playTone(frequency: number, ms: number) {
+    export function speakerPlayTone(frequency: number, ms: number) {
         const b = board();
         b.speakerState.frequency = frequency;
         b.speakerState.ms = ms;

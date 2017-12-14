@@ -6,7 +6,7 @@
  */
 //% color=#54C9C9 weight=100 icon="\uf00a"
 namespace basic {
-    /**
+      /**
     * Sets the color on the build-in LED. Set to 0 to turn off.
     */
     //% blockId=device_set_led_color block="set led to %color=color_id"
@@ -34,10 +34,9 @@ namespace basic {
     //% blockId=device_show_number block="show|number %number" blockGap=8
     //% async
     //% parts="ledmatrix"
-    void showNumber(int value, int interval = 150) { 
-      if (interval < 0)
-        return;
-
+    void showNumber(int value, int interval = 150) {
+      if (interval <= 0)
+        interval = 1;
       ManagedString t(value);
       if (value < 0 || value >= 10) {
         uBit.display.scroll(t, interval);
@@ -51,11 +50,11 @@ namespace basic {
      * @param leds the pattern of LED to turn on/off
      * @param interval time in milliseconds to pause after drawing
      */
-    //% help=basic/show-leds 
+    //% help=basic/show-leds
     //% weight=95 blockGap=8
     //% imageLiteral=1 async
     //% blockId=device_show_leds
-    //% block="show leds"
+    //% block="show leds" icon="\uf00a"
     //% parts="ledmatrix"
     void showLeds(ImageLiteral leds, int interval = 400) {
       uBit.display.print(MicroBitImage(imageBytes(leds)), 0, 0, 0, interval);
@@ -66,15 +65,15 @@ namespace basic {
      * @param text the text to scroll on the screen, eg: "Hello!"
      * @param interval how fast to shift characters; eg: 150, 100, 200, -100
      */
-    //% help=basic/show-string 
+    //% help=basic/show-string
     //% weight=87 blockGap=8
-    //% block="show|string %text" 
+    //% block="show|string %text"
     //% async
     //% blockId=device_print_message
     //% parts="ledmatrix"
     void showString(StringData *text, int interval = 150) {
-      if (interval < 0)
-        return;
+      if (interval <= 0)
+        interval = 1;
       ManagedString s(text);
       int l = s.length();
       if (l == 0) {
@@ -93,6 +92,7 @@ namespace basic {
     //% help=basic/clear-screen weight=79
     //% blockId=device_clear_display block="clear screen"
     //% parts="ledmatrix"
+    //% advanced=true
     void clearScreen() {
       uBit.display.image.clear();
     }
@@ -105,7 +105,7 @@ namespace basic {
     //% help=basic/show-animation imageLiteral=1 async
     //% parts="ledmatrix"
     void showAnimation(ImageLiteral leds, int interval = 400) {
-      uBit.display.animate(MicroBitImage(imageBytes(leds)), interval, 5, 0);
+      uBit.display.animate(MicroBitImage(imageBytes(leds)), interval, 5, 0, 0);
     }
 
     /**
@@ -130,8 +130,8 @@ namespace basic {
      * Repeats the code forever in the background. On each iteration, allows other codes to run.
      * @param body code to execute
      */
-    //% help=basic/forever weight=55 blockGap=8
-    //% blockId=device_forever block="forever"
+    //% help=basic/forever weight=55 blockGap=8 blockAllowMultiple=1 afterOnStart=true
+    //% blockId=device_forever block="forever" icon="\uf01e"
     void forever(Action a) {
       if (a != 0) {
         incr(a);
@@ -145,7 +145,7 @@ namespace basic {
      */
     //% help=basic/pause weight=54
     //% async block="pause (ms) %pause"
-    //% blockId=device_pause
+    //% blockId=device_pause icon="\uf110"
     void pause(int ms) {
       fiber_sleep(ms);
     }

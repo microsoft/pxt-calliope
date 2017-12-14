@@ -24,6 +24,10 @@
         "deployDrives": "MINI",
         "driveName": "MINI",
         "hexMimeType": "application/x-calliope-hex",
+        "openocdScript": "source [find interface/cmsis-dap.cfg]; source [find target/nrf51.cfg]",
+        "flashUsableEnd": 245760,
+        "flashEnd": 245760,
+        "flashCodeAlign": 1024,
         "upgrades": [
             {
                 "type": "package",
@@ -57,7 +61,8 @@
         "listsBlocks": true,
         "functionBlocks": true,        
         "onStartColor": "#54C9C9",
-        "onStartNamespace": "basic"
+        "onStartNamespace": "basic",
+        "onStartWeight": 54
     },
     "simulator": {
         "autoRun": true,

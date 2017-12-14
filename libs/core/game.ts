@@ -32,22 +32,22 @@ namespace game {
     let _countdownPause: number = 0;
     let _level: number = 1;
     let _gameId: number = 0;
-    let img: Image;
-    let sprites: LedSprite[];
+    let _img: Image;
+    let _sprites: LedSprite[];
+    let _paused: boolean = false;
+    let _backgroundAnimation = false; // indicates if an auxiliary animation (and fiber) is already running
 
     /**
      * Creates a new LED sprite pointing to the right.
      * @param x sprite horizontal coordinate, eg: 2
      * @param y sprite vertical coordinate, eg: 2
      */
-    //% weight=60
+    //% weight=60 blockGap=8 help=game/create-sprite
     //% blockId=game_create_sprite block="create sprite at|x: %x|y: %y"
     //% parts="ledmatrix"
     export function createSprite(x: number, y: number): LedSprite {
         init();
         let p = new LedSprite(x, y);
-        sprites.push(p);
-        plot();
         return p;
     }
 
@@ -61,7 +61,7 @@ namespace game {
     }
 
     /**
-     * Adds points to the current score
+     * Adds points to the current score and shows an animation
      * @param points amount of points to change, eg: 1
      */
     //% weight=10 help=game/add-score
@@ -69,18 +69,22 @@ namespace game {
     //% parts="ledmatrix"
     export function addScore(points: number): void {
         setScore(_score + points);
-        control.inBackground(() => {
-            led.stopAnimation();
-            basic.showAnimation(`0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 1 1 1 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 1 1 1 0 0 0 1 0 0 0 0 0
-0 0 0 0 0 0 0 1 0 0 0 1 1 1 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 1 1 1 0 0 0 1 0 0 0 0 0 0 0 0 0 0
-0 0 1 0 0 0 1 1 1 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 1 1 1 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-0 0 0 0 0 0 0 1 0 0 0 1 1 1 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 1 1 1 0 0 0 1 0 0 0 0 0 0 0 0 0 0
-0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 1 1 1 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 1 1 1 0 0 0 1 0 0 0 0 0`, 20);
-        });
+        if (!_paused && !_backgroundAnimation) {
+            _backgroundAnimation = true;
+            control.inBackground(() => {
+                led.stopAnimation();
+                basic.showAnimation(`0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 1 1 1 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 1 1 1 0 0 0 1 0 0 0 0 0
+    0 0 0 0 0 0 0 1 0 0 0 1 1 1 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 1 1 1 0 0 0 1 0 0 0 0 0 0 0 0 0 0
+    0 0 1 0 0 0 1 1 1 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 1 1 1 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+    0 0 0 0 0 0 0 1 0 0 0 1 1 1 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 1 1 1 0 0 0 1 0 0 0 0 0 0 0 0 0 0
+    0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 1 1 1 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 1 1 1 0 0 0 1 0 0 0 0 0`, 20);
+                _backgroundAnimation = false;
+            });
+        }
     }
 
     /**
-     * Starts a game countdown timer
+     * Shows an animation, then starts a game countdown timer, which causes Game Over when it reaches 0
      * @param ms countdown duration in milliseconds, eg: 10000
      */
     //% weight=9 help=game/start-countdown
@@ -96,6 +100,7 @@ namespace game {
             _countdownPause = Math.max(500, ms);
             _startTime = -1;
             _endTime = input.runningTime() + _countdownPause;
+            _paused = false;
             control.inBackground(() => {
                 basic.pause(_countdownPause);
                 gameOver();
@@ -104,7 +109,7 @@ namespace game {
     }
 
     /**
-     * Displays a game over animation.
+     * Displays a game over animation and the score.
      */
     //% weight=8 help=game/game-over
     //% blockId=game_game_over block="game over"
@@ -115,7 +120,6 @@ namespace game {
             unplugEvents();
             led.stopAnimation();
             led.setBrightness(255);
-            led.setDisplayMode(DisplayMode.BackAndWhite);
             while (true) {
                 for (let i = 0; i < 8; i++) {
                     basic.clearScreen();
@@ -146,8 +150,9 @@ namespace game {
 
     /**
      * Sets the current score value
-     * @param value TODO
+     * @param value new score value.
      */
+    //% blockId=game_set_score block="set score %points" blockGap=8
     //% weight=10 help=game/set-score
     export function setScore(value: number): void {
         _score = Math.max(0, value);
@@ -202,14 +207,15 @@ namespace game {
     //% parts="ledmatrix"
     export function removeLife(life: number): void {
         setLife(_life - life);
-        control.inBackground(() => {
-            led.stopAnimation();
-            basic.showAnimation(`1 0 0 0 1 0 0 0 0 0 1 0 0 0 1 0 0 0 0 0
+        if (!_paused)
+            control.inBackground(() => {
+                led.stopAnimation();
+                basic.showAnimation(`1 0 0 0 1 0 0 0 0 0 1 0 0 0 1 0 0 0 0 0
 0 1 0 1 0 0 0 0 0 0 0 1 0 1 0 0 0 0 0 0
 0 0 1 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0
 0 1 0 1 0 0 0 0 0 0 0 1 0 1 0 0 0 0 0 0
 1 0 0 0 1 0 0 0 0 0 1 0 0 0 1 0 0 0 0 0`, 40);
-        });
+            });
     }
 
     /**
@@ -264,8 +270,36 @@ namespace game {
      * Indicates if the game is display the game over sequence.
      */
     export function isGameOver(): boolean {
-        let over: boolean;
         return _isGameOver;
+    }
+
+    /**
+     * Indicates if the game rendering is paused to allow other animations
+     */
+    //%
+    export function isPaused(): boolean {
+        return _paused;
+    }
+
+    /**
+     * Pauses the game rendering engine to allow other animations
+     */
+    //% blockId=game_pause block="pause"
+    //% advanced=true blockGap=8 help=game/pause
+    export function pause(): void {
+        plot()
+        _paused = true;
+    }
+
+
+    /**
+     * Resumes the game rendering engine
+     */
+    //% blockId=game_resume block="resume"
+    //% advanced=true blockGap=8 help=game/resumeP
+    export function resume(): void {
+        _paused = false;
+        plot();
     }
 
     /**
@@ -287,29 +321,35 @@ namespace game {
         });
     }
 
+    /**
+     * A game sprite rendered as a single LED
+     */
+    //%
     export class LedSprite {
         private _x: number;
         private _y: number;
         private _dir: number;
         private _brightness: number;
         private _blink: number;
+        private _enabled: boolean;
 
         constructor(x: number, y: number) {
             this._x = Math.clamp(0, 4, x);
             this._y = Math.clamp(0, 4, y);
             this._dir = 90;
             this._brightness = 255;
+            this._enabled = true;
             init();
-            sprites.push(this);
+            _sprites.push(this);
             plot();
         }
 
         /**
-         * Move a certain number of LEDs
+         * Move a certain number of LEDs in the current direction
          * @param this the sprite to move
          * @param leds number of leds to move, eg: 1, -1
          */
-        //% weight=50
+        //% weight=50 help=game/move
         //% blockId=game_move_sprite block="%sprite|move by %leds" blockGap=8
         //% parts="ledmatrix"
         public move(leds: number): void {
@@ -355,10 +395,10 @@ namespace game {
         }
 
         /**
-         * If touching the edge of the stage, then bounce away.
+         * If touching the edge of the stage and facing towards it, then turn away.
          * @param this TODO
          */
-        //% weight=18
+        //% weight=18 help=game/if-on-edge-bounce
         //% blockId=game_sprite_bounce block="%sprite|if on edge, bounce"
         //% parts="ledmatrix"
         public ifOnEdgeBounce(): void {
@@ -412,7 +452,7 @@ namespace game {
          * @param direction left or right
          * @param degrees angle in degrees to turn, eg: 45, 90, 180, 135
          */
-        //% weight=49
+        //% weight=49 help=game/turn
         //% blockId=game_turn_sprite block="%sprite|turn %direction|by (°) %degrees"
         public turn(direction: Direction, degrees: number) {
             if (direction == Direction.Right)
@@ -444,7 +484,7 @@ namespace game {
          * @param property the name of the property to change
          * @param the updated value
          */
-        //% weight=29
+        //% weight=29 help=game/set
         //% blockId=game_sprite_set_property block="%sprite|set %property|to %value" blockGap=8
         public set(property: LedSpriteProperty, value: number) {
             switch (property) {
@@ -461,7 +501,7 @@ namespace game {
          * @param property the name of the property to change
          * @param value amount of change, eg: 1
          */
-        //% weight=30
+        //% weight=30 help=game/change
         //% blockId=game_sprite_change_xy block="%sprite|change %property|by %value" blockGap=8
         public change(property: LedSpriteProperty, value: number) {
             switch (property) {
@@ -477,7 +517,7 @@ namespace game {
          * Gets a property of the sprite
          * @param property the name of the property to change
          */
-        //% weight=28
+        //% weight=28 help=game/get
         //% blockId=game_sprite_property block="%sprite|%property"
         public get(property: LedSpriteProperty) {
             switch (property) {
@@ -567,21 +607,21 @@ namespace game {
         }
 
         /**
-         * Reports true if sprite is touching specified sprite
+         * Reports true if sprite has the same position as specified sprite
          * @param this TODO
          * @param other TODO
          */
-        //% weight=20
+        //% weight=20 help=game/is-touching
         //% blockId=game_sprite_touching_sprite block="%sprite|touching %other|?" blockGap=8
         public isTouching(other: LedSprite): boolean {
-            return this._x == other._x && this._y == other._y;
+            return this._enabled && other._enabled && this._x == other._x && this._y == other._y;
         }
 
         /**
          * Reports true if sprite is touching an edge
          * @param this TODO
          */
-        //% weight=19
+        //% weight=19 help=game/is-touching-edge
         //% blockId=game_sprite_touching_edge block="%sprite|touching edge?" blockGap=8
         public isTouchingEdge(): boolean {
             return this._x == 0 || this._x == 4 || this._y == 0 || this._y == 4;
@@ -589,7 +629,7 @@ namespace game {
 
         /**
          * Turns on the sprite (on by default)
-         * @param this TODO
+         * @param this the sprite
          */
         public on(): void {
             this.setBrightness(255);
@@ -597,7 +637,7 @@ namespace game {
 
         /**
          * Turns off the sprite (on by default)
-         * @param this TODO
+         * @param this the sprite
          */
         public off(): void {
             this.setBrightness(0);
@@ -605,8 +645,8 @@ namespace game {
 
         /**
          * Set the ``brightness`` of a sprite
-         * @param this TODO
-         * @param brightness TODO
+         * @param this the sprite
+         * @param brightness the brightness from 0 (off) to 255 (on), eg: 255.
          */
         //% parts="ledmatrix"
         public setBrightness(brightness: number): void {
@@ -616,8 +656,9 @@ namespace game {
 
         /**
          * Reports the ``brightness` of a sprite on the LED screen
-         * @param this TODO
+         * @param this the sprite
          */
+        //% parts="ledmatrix"
         public brightness(): number {
             let r: number;
             return this._brightness;
@@ -625,8 +666,8 @@ namespace game {
 
         /**
          * Changes the ``y`` position by the given amount
-         * @param this TODO
-         * @param value TODO
+         * @param this the sprite
+         * @param value the value to change brightness
          */
         public changeBrightnessBy(value: number): void {
             this.setBrightness(this._brightness + value);
@@ -642,11 +683,15 @@ namespace game {
         }
 
         /**
-         * Deletes the sprite from the game engine. All further operation of the sprite will not have any effect.
-         * @param sprite TODO
+         * Deletes the sprite from the game engine. The sprite will no longer appear on the screen or interact with other sprites.
+         * @param this sprite to delete
          */
-        public delete(sprite: LedSprite): void {
-            sprites.removeElement(sprite);
+        //% weight=59 help=game/delete
+        //% blockId="game_delete_sprite" block="delete %this"
+        public delete(): void {
+            this._enabled = false;
+            if (_sprites.removeElement(this))
+                plot();
         }
 
         /**
@@ -686,30 +731,29 @@ namespace game {
                     r = (now / ps._blink) % 2;
                 }
                 if (r == 0) {
-                    img.setPixelBrightness(ps._x, ps._y, img.pixelBrightness(ps._x, ps._y) + ps._brightness);
+                    _img.setPixelBrightness(ps._x, ps._y, _img.pixelBrightness(ps._x, ps._y) + ps._brightness);
                 }
             }
         }
     }
 
     function init(): void {
-        if (img == null) {
-            img = images.createImage(
-                `0 0 0 0 0
+        if (_img) return;
+        const img = images.createImage(
+`0 0 0 0 0
 0 0 0 0 0
 0 0 0 0 0
 0 0 0 0 0
 0 0 0 0 0`);
-            sprites = (<LedSprite[]>[]);
-            led.setDisplayMode(DisplayMode.Greyscale);
-            basic.forever(() => {
-                basic.pause(30);
-                plot();
-                if (game.isGameOver()) {
-                    basic.pause(600);
-                }
-            });
-        }
+        _sprites = (<LedSprite[]>[]);
+        basic.forever(() => {
+            basic.pause(30);
+            plot();
+            if (game.isGameOver()) {
+                basic.pause(600);
+            }
+        });
+        _img = img;
     }
 
     /**
@@ -717,15 +761,23 @@ namespace game {
      */
     //% parts="ledmatrix"
     function plot(): void {
-        if (game.isGameOver()) {
+        if (game.isGameOver() || game.isPaused() || !_img || _backgroundAnimation) {
             return;
         }
-        let now = input.runningTime();
-        img.clear();
-        for (let i = 0; i < sprites.length; i++) {
-            sprites[i]._plot(now);
+        // ensure greyscale mode
+        const dm = led.displayMode();
+        if (dm != DisplayMode.Greyscale)            
+            led.setDisplayMode(DisplayMode.Greyscale);
+        // render sprites
+        const now = input.runningTime();
+        _img.clear();
+        for (let i = 0; i < _sprites.length; i++) {
+            _sprites[i]._plot(now);
         }
-        img.plotImage(0);
+        _img.plotImage(0);
+        // restore previous display mode
+        if (dm != DisplayMode.Greyscale)
+            led.setDisplayMode(dm);
     }
 
     /**
@@ -737,4 +789,3 @@ namespace game {
     }
 
 }
-
