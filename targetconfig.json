@@ -11,6 +11,8 @@
             "Tinkertanker/pxt-ssd1306-microbit"                
         ],
         "preferredRepos": [
+            "Microsoft/pxt-neopixel",
+            "Microsoft/pxt-microturtle",
             "calliope-mini/pxt-calliope-modem",
             "calliope-mini/pxt-calliope-bc95",
             "calliope-mini/pxt-calliope-esp",
