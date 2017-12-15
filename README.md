@@ -1,4 +1,4 @@
-# Calliope target for Microsoft MakeCode [![Build Status](https://ci2.dot.net/buildStatus/icon?job=Private/pxt_project_teal/master/pxt-calliopemini_Push)](https://ci2.dot.net/job/Private/pxt_project_teal/master/pxt-calliopemini_Push)
+# Calliope target for Microsoft MakeCode
 
 This target is hosted at https://makecode.calliope.cc.
 
