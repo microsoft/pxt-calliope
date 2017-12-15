@@ -18,6 +18,9 @@ namespace pxsim {
         speakerState: SpeakerState;
         fileSystem: FileSystemState;
 
+        // visual
+        view: SVGElement;
+
         constructor() {
             super()
 
@@ -94,7 +97,7 @@ namespace pxsim {
                     break;
                 case "serial":
                     let data = (<SimulatorSerialMessage>msg).data || "";
-                    this.serialState.recieveData(data);
+                    this.serialState.receiveData(data);
                     break;
                 case "radiopacket":
                     let packet = <SimulatorRadioPacketMessage>msg;
@@ -121,15 +124,21 @@ namespace pxsim {
                 fnArgs: fnArgs,
                 maxWidth: "100%",
                 maxHeight: "100%",
+                highContrast: msg.highContrast
             };
             const viewHost = new visuals.BoardHost(pxsim.visuals.mkBoardView({
-                visual: boardDef.visual
+                visual: boardDef.visual,
+                highContrast: msg.highContrast
             }), opts);
 
             document.body.innerHTML = ""; // clear children
-            document.body.appendChild(viewHost.getView());
+            document.body.appendChild(this.view = viewHost.getView());
 
             return Promise.resolve();
+        }
+
+        screenshot(): string {
+            return svg.toDataUri(new XMLSerializer().serializeToString(this.view));
         }
     }
 

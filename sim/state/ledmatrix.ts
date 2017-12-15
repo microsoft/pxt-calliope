@@ -28,7 +28,7 @@ namespace pxsim {
             this.data = data;
         }
         public print() {
-            console.log(`Image id:${this.id} refs:${this.refcnt} size:${this.width}x${Image.height}`)
+            // console.debug(`Image id:${this.id} refs:${this.refcnt} size:${this.width}x${Image.height}`)
         }
         public get(x: number, y: number): number {
             if (x < 0 || x >= this.width || y < 0 || y >= 5) return 0;
@@ -131,15 +131,33 @@ namespace pxsim.images {
 namespace pxsim.ImageMethods {
     export function showImage(leds: Image, offset: number, interval: number) {
         pxtrt.nullCheck(leds)
-        leds.copyTo(offset, 5, board().ledMatrixState.image, 0)
-        runtime.queueDisplayUpdate()
-        basic.pause(interval);
+        let cb = getResume();
+        let first = true;
+
+        board().ledMatrixState.animationQ.enqueue({
+            interval,
+            frame: () => {
+                if (first) {
+                    leds.copyTo(offset, 5, board().ledMatrixState.image, 0)
+                    first = false;
+                    return true;
+                }
+                return false;
+            },
+            whenDone: cb
+        })
     }
 
     export function plotImage(leds: Image, offset: number): void {
         pxtrt.nullCheck(leds)
-        leds.copyTo(offset, 5, board().ledMatrixState.image, 0)
-        runtime.queueDisplayUpdate()
+
+        board().ledMatrixState.animationQ.enqueue({
+            interval: 0,
+            frame: () => {
+                leds.copyTo(offset, 5, board().ledMatrixState.image, 0)
+                return false;
+            }
+        })
     }
 
     export function height(leds: Image): number {
@@ -216,15 +234,16 @@ namespace pxsim.ImageMethods {
 
 namespace pxsim.basic {
     export function showNumber(x: number, interval: number) {
-        if (interval < 0) return;
-
+        if (interval <= 0)
+            interval = 1;
         let leds = createImageFromString(x.toString());
         if (x < 0 || x >= 10) ImageMethods.scrollImage(leds, 1, interval);
         else showLeds(leds, interval * 5);
     }
 
     export function showString(s: string, interval: number) {
-        if (interval < 0) return;
+        if (interval <= 0)
+            interval = 1;
         if (s.length == 0) {
             clearScreen();
             pause(interval * 5);
@@ -254,7 +273,16 @@ namespace pxsim.basic {
 
 namespace pxsim.led {
     export function plot(x: number, y: number) {
-        board().ledMatrixState.image.set(x, y, 255);
+        board().ledMatrixState.image.set(x, y, 0xff);
+        runtime.queueDisplayUpdate()
+    }
+
+    export function plotBrightness(x: number, y: number, brightness: number) {
+        const state = board().ledMatrixState;
+        brightness = Math.max(0, Math.min(0xff, brightness));
+        if (brightness != 0 && brightness != 0xff && state.displayMode != DisplayMode.greyscale)
+                state.displayMode = DisplayMode.greyscale;
+        state.image.set(x, y, brightness);
         runtime.queueDisplayUpdate()
     }
 
@@ -272,7 +300,7 @@ namespace pxsim.led {
     }
 
     export function setBrightness(value: number): void {
-        board().ledMatrixState.brigthness = value;
+        board().ledMatrixState.brigthness = Math.max(0, Math.min(255, value));
         runtime.queueDisplayUpdate()
     }
 
@@ -286,7 +314,7 @@ namespace pxsim.led {
         runtime.queueDisplayUpdate()
     }
 
-    export function displayMode() : DisplayMode {
+    export function displayMode(): DisplayMode {
         return board().ledMatrixState.displayMode;
     }
 
