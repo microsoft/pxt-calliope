@@ -75,6 +75,18 @@ namespace pxt.editor {
         }
     }
 
+    let packetIoPromise: Promise<pxt.HF2.PacketIO>;
+    function initPacketIOAsync(): Promise<pxt.HF2.PacketIO> {
+        if (!packetIoPromise) {
+            packetIoPromise = pxt.HF2.mkPacketIOAsync()
+                .catch(err => {
+                    packetIoPromise = null;
+                    return Promise.reject(err);
+                });
+        }
+        return packetIoPromise;
+    }
+
     let previousDapWrapper: DAPWrapper;
     function dapAsync() {
         return Promise.resolve()
@@ -87,7 +99,7 @@ namespace pxt.editor {
                 }
                 return Promise.resolve();
             })
-            .then(() => pxt.HF2.mkPacketIOAsync())
+            .then(() => initPacketIOAsync())
             .then(h => {
                 let w = new DAPWrapper(h)
                 previousDapWrapper = w;
@@ -327,12 +339,12 @@ namespace pxt.editor {
                         return wrap.cortexM.reset(false)
                     })
             })
-            .catch(e => {  
+            .catch(e => {
                 if (e.type === "devicenotfound" && d.reportDeviceNotFoundAsync) {
                     return d.reportDeviceNotFoundAsync("/device/windows-app/troubleshoot");
                 } else {
                     return saveHexAsync()
-                }  
+                }
             })
     }
 
