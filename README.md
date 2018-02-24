@@ -100,14 +100,9 @@ The pxt-microbit target depends on several other repos. The main ones are:
 - https://github.com/lancaster-university/microbit, basic wrapper around the DAL
 - https://github.com/lancaster-university/microbit-dal
 
-## Versions
+## History
 
-Current serviced versions of pxt-microbit:
-
-| Target | Version | Type | PXT |
-|---|---|---|---|
-| pxt-microbit  | v0.13.\* | accessibility | uses pxt/v0 v.0.13.\* (with accessibility) |
-| pxt-microbit  | v0.12.\* | release | uses pxt/v0 v.0.12.\* |
+See the [MakeCode blog](https://makecode.com/blog).
 
 ## Code of Conduct
 
