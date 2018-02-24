@@ -17,6 +17,7 @@
   "files": [
     "README.md",
     "pxtarget.json",
+    "targetconfig.json",
     "built/*.js",
     "built/*.json",
     "built/*.d.ts",
@@ -26,6 +27,8 @@
     "docs/*.md",
     "docs/*/*.md",
     "docs/*/*/*.md",
+    "docs/static/*.svg",
+    "docs/static/*.png",
     "docs/static/icons/favicon.ico"
   ],
   "main": "built/pxtrequire.js",
