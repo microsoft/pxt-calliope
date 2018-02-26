@@ -153,9 +153,9 @@ class Block {
 }
 
 /**
- * A coin is made of chains
+ * A block chain is a sequence of block
  */
-class Coin {
+class BlockChain {
     id: number; // device serial number
     chain: Block[];
 
@@ -181,9 +181,9 @@ class Coin {
     }
 
     /**
-     * Add a new block in the chain
+     * Add a new block with your coin in the chain
      */
-    addBlock() {
+    addCoin() {
         this.chain.push(this.lastBlock().next(this.id));
         this.lastBlock().broadcast();
     }
@@ -231,9 +231,9 @@ class Coin {
     }
 
     /**
-     * We've received a coin and we are trying to replace the chain if it's been updated.
+     * We've received a block chain and we are trying to replace the chain if it's been updated.
      */
-    replace(other: Coin) {
+    replace(other: BlockChain) {
         if (other.isValid() && other.chain.length > me.chain.length) {
             serial.writeLine("replacing chain");
             this.chain = other.chain.slice(0, other.chain.length);
@@ -262,17 +262,17 @@ function broadcastQueryChain(serialNumber: number = 0) {
     radio.sendBuffer(msg);
 }
 
-const me = new Coin(0);
-const peers: Coin[] = [];
+const me = new BlockChain(0);
+const peers: BlockChain[] = [];
 
 /**
- * Get or create a coin to store the chain of a peer
+ * Get or create a block chain to store the blocks of a peer
  */
-function peer(id: number): Coin {
+function peer(id: number): BlockChain {
     for (let i = 0; i < peers.length; ++i) {
         if (peers[i].id == id) return peers[i];
     }
-    const r = new Coin(id);
+    const r = new BlockChain(id);
     peers.push(r);
     return r;
 }
@@ -326,8 +326,8 @@ input.onGesture(Gesture.Shake, () => {
     basic.clearScreen()
     basic.pause(200) // display a short pause
     if (Math.random(3) == 0) { // 30% chances to add a transaction
-        // gold!!!
-        me.addBlock();
+        // we found a coin!!!
+        me.addCoin();
         basic.showIcon(IconNames.Diamond);
     } else {
         // missed!
