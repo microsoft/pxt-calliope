@@ -8,8 +8,9 @@ Have you heard about BitCoin and all those new Crypto currencies? Well micro:bit
 
 ## How does it work?
 
-Each @boardname@ contains a **block chain**, a sequence of blocks that is public and cannot be modified. To mine new blocks in the coin, the user shakes 
-the @boardname@ and, if they are in luck, their block gets added to the chain! Once the block is added, it is broadcasted to the other @microbit@. The block is public and can't be modified so it's ok to share it. Other @boardname@ receive the block, validate the transaction and update their block chain as needed.
+Each @boardname@ contains a **block chain**, a sequence of **blocks**, that is public and cannot be modified. Each block represents a **coin**. To mine new coins, the user shakes 
+the @boardname@ and, if they are in luck, their coin added to the chain as a new block! 
+Once the block is added, it is broadcasted to the other @microbit@ (the block chain is public and can't be modified so it's ok to share it). Other @boardname@ receive the block, validate the transaction and update their block chain as needed.
 
 Pressing ``A`` shows the number of block you added to the chain, that's your score.
 Pressing ``B`` shows you the length of the chain.
@@ -18,7 +19,7 @@ Happy mining!
 
 ## Coins, blocks, chains
 
-A _block chain_ is a list of _blocks_ that record transactions of a crypto-currency like BitCoin. A block might contain information like the time it was created (mined) and who mined it. The most important part of the block is it's _hash_. This is a special number made from the information in the last block of the block list combined with the hash number of previous block in the list. The new block contains information for the current transaction and this new hash number. The new block is added to the list of previous blocks. This list is then transmitted to the crypto currency network.
+A _block chain_ is a list of _blocks_ that record transactions of a crypto-currency like BitCoin. A block might contain information like the time it was created (mined) and who mined it. The most important part of the block is it's _hash_. This is a special number made from the information in the last block of the block list combined with the hash number of previous block in the list. The new block contains information for the current transaction and this new hash number. The new block is added to the list of previous blocks. This list is then transmitted to the crypto currency network. It's really hard (like impossible) to tamper or forge a hash which allows the block chain to be transmitted publically.
 
 ## ~ hint
 
