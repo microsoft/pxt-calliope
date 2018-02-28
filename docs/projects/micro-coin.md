@@ -10,7 +10,7 @@ Have you heard about BitCoin and all those new Crypto currencies? Well micro:bit
 
 Each @boardname@ contains a **block chain**, a sequence of **blocks**, that is public and cannot be modified. Each block represents a **coin**. To mine new coins, the user shakes 
 the @boardname@ and, if they are in luck, their coin added to the chain as a new block! 
-Once the block is added, it is broadcasted to the other @microbit@ (the block chain is public and can't be modified so it's ok to share it). Other @boardname@ receive the block, validate the transaction and update their block chain as needed.
+Once the block is added, it is broadcasted to the other @boardname@ (the block chain is public and can't be modified so it's ok to share it). Other @boardname@ receive the block, validate the transaction and update their block chain as needed.
 
 Pressing ``A`` shows the number of block you added to the chain, that's your score.
 Pressing ``B`` shows you the length of the chain.
