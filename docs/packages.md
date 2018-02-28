@@ -4,8 +4,8 @@
 
 ```codecard
 [{
-  "name": "WS2812",
-  "url": "/pkg/microsoft/pxt-ws2812",
+  "name": "WS2812B",
+  "url": "/pkg/microsoft/pxt-ws2812b",
   "cardType": "package"
 }, {
   "name": "NeoPixel",
