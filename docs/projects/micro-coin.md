@@ -66,7 +66,7 @@ input.onButtonPressed(Button.B, () => {
 })
 
 // instructions on how to play
-basic.showString("A=SCORE B=CHAIN SHAKE=MINE", 100)
+basic.showString("A=COINS B=CHAIN SHAKE=MINE")
 ```
 
 ## How does it work?
