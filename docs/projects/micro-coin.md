@@ -85,5 +85,5 @@ radio to transmit blocks between @boardname@. You read it all by reading the Jav
 
 ```package
 radio
-github:Microsoft/pxt-radio-blockchain
+radio-blockchain=github:Microsoft/pxt-radio-blockchain
 ```
