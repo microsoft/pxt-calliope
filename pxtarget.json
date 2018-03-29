@@ -224,7 +224,11 @@
             }
         },
         "docMenu": [],
-        "hasReferenceDocs": false
+        "hasReferenceDocs": false,
+        "availableLocales": [
+            "de",
+            "en"
+        ]
     },
     "ignoreDocsErrors": true
 }
