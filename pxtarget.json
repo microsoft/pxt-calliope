@@ -207,6 +207,7 @@
         "organizationWideLogo": "./static/Microsoft-logo_rgb_c-white.png",
         "boardName": "Calliope mini",
         "driveDisplayName": "MINI",
+        "extendEditor": true,
         "hideSideDocs": true,
         "invertedMenu": true,
         "invertedToolbox": true,

@@ -1,0 +1,13 @@
+{
+    "compilerOptions": {
+        "target": "es5",
+        "noImplicitAny": true,
+        "noImplicitReturns": true,
+        "declaration": true,
+        "out": "../built/editor.js",
+        "rootDir": ".",
+        "newLine": "LF",
+        "sourceMap": false
+    },
+    "prepend": ["../external/dapjs.js"]
+}
