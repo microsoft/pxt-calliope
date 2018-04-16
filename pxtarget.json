@@ -1,5 +1,6 @@
 {
     "id": "calliopemini",
+    "aliases": ["calliope"],
     "name": " calliope mini",
     "nickname": "mini",
     "title": "Calliope mini - Blocks / Javascript editor",
