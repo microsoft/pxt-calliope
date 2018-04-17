@@ -226,10 +226,23 @@
         },
         "docMenu": [],
         "hasReferenceDocs": false,
+        "selectLanguage": true,
+                
         "availableLocales": [
+            "en",
             "de",
-            "en"
+            "el",
+            "fr",
+            "it",
+            "ko",
+            "nl",
+            "no",
+            "sv-SE",
+            "tr",
+            "zh-TW",
+            "zh-CN"
         ]
     },
     "ignoreDocsErrors": true
+
 }
