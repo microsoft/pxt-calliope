@@ -8,7 +8,8 @@
         ],
         "approvedRepos": [
             "CoderDojoOlney/pxt-olney",
-            "Tinkertanker/pxt-ssd1306-microbit"                
+            "Tinkertanker/pxt-ssd1306-microbit",
+            "Seeed-Studio/pxt-grove"
         ],
         "preferredRepos": [
             "Microsoft/pxt-neopixel",
@@ -19,7 +20,8 @@
             "calliope-mini/pxt-calliope-bunt",
             "calliope-mini/pxt-isl29125",
             "ubirch/pxt-ubirch",
-            "Tinkertanker/pxt-ssd1306-microbit"                
+            "Tinkertanker/pxt-ssd1306-microbit",
+            "Seeed-Studio/pxt-grove"
         ]
     }
 }
