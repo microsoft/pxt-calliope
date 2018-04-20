@@ -8,7 +8,7 @@
         ],
         "approvedRepos": [
             "CoderDojoOlney/pxt-olney",
-            "Tinkertanker/pxt-ssd1306-microbit",
+            "Tinkertanker/pxt-oled-ssd1306",
             "Seeed-Studio/pxt-grove"
         ],
         "preferredRepos": [
@@ -20,7 +20,7 @@
             "calliope-mini/pxt-calliope-bunt",
             "calliope-mini/pxt-isl29125",
             "ubirch/pxt-ubirch",
-            "Tinkertanker/pxt-ssd1306-microbit",
+            "Tinkertanker/pxt-oled-ssd1306",
             "Seeed-Studio/pxt-grove"
         ]
     }
