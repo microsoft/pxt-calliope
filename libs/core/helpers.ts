@@ -12,7 +12,7 @@ namespace Math {
     //% blockId=logic_random block="pick random true or false"
     //% help=math/random-boolean weight=0
     export function randomBoolean(): boolean {
-        return Math.random() >= 0.5;
+        return Math.floor(Math.random() * 2) == 1;
     }
 
     export function randomInt(max: number): number {
