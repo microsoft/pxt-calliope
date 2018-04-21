@@ -1,4 +1,4 @@
-# micro:coin
+<!-- # micro:coin
 
 ## ~ avatar
 
@@ -84,4 +84,4 @@ The [radio-blockchain](https://makecode.microbit.org/pkg/microsoft/pxt-radio-blo
 ```package
 radio
 radio-blockchain=github:Microsoft/pxt-radio-blockchain#master
-```
+``` -->

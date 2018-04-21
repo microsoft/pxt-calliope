@@ -1,4 +1,4 @@
-## Unplugged: Two heads are better than one
+<!-- ## Unplugged: Two heads are better than one
 
 Materials: A penny for each student, paper and pencils
  
@@ -208,4 +208,4 @@ Our basic pseudocode for our 'double coin flipper' could look like this:
 3. Compare the current values of Coin A and Coin B.
 4. If the current true/false values of Coin A and Coin B are the same, add a point to Player A’s score.
 5. Otherwise, the current true/false values of Coin A and Coin B must be different, so add a point to Player B’s score.
-6. When players are done with their double coin flipping, show the final scores for each player.
+6. When players are done with their double coin flipping, show the final scores for each player. -->
