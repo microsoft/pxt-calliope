@@ -96,6 +96,7 @@ Thanks for playing with Karel the LED!
 Copy this code into the JavaScript editor and then download it to the board.
 
 ```typescript
+const board = new Board();
 /**
  * Karel the LED
  */
@@ -132,7 +133,6 @@ function updateLeds() {
         }
     }
 }
-const board = new Board();
 enum Direction {
     UP = 0,
     LEFT,
