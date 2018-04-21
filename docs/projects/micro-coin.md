@@ -40,7 +40,7 @@ input.onGesture(Gesture.Shake, () => {
     led.stopAnimation()
     basic.clearScreen()
     basic.pause(200) // display a short pause
-    if (Math.random(3) == 0) { // 30% chances to add a transaction
+    if (Math.randomInt(3) == 0) { // 30% chances to add a transaction
         // we found a coin!!!
         blockchain.addBlock(1);
         basic.showIcon(IconNames.Diamond);
