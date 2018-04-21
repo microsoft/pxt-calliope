@@ -66,7 +66,7 @@ namespace pxsim {
 
     export function createInternalImage(width: number): Image {
         let img = createImage(width)
-        pxsim.runtime.unregisterLiveObject(img, true)
+        //pxsim.runtime.unregisterLiveObject(img, true)
         return img
     }
 
