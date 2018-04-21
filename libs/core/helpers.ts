@@ -14,4 +14,8 @@ namespace Math {
     export function randomBoolean(): boolean {
         return Math.random() >= 0.5;
     }
+
+    export function randomInt(max: number): number {
+        return Math.floor(Math.random() * max);
+    }
 }
