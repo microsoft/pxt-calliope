@@ -237,6 +237,7 @@
         "organizationUrl": "https://makecode.com/",
         "organizationLogo": "./static/Microsoft-logo_rgb_c-gray-square.png",
         "organizationWideLogo": "./static/Microsoft-logo_rgb_c-white.png",
+        "homeScreenHero": "./static/hero.png",
         "homeUrl": "https://makecode.microbit.org/",
         "embedUrl": "https://makecode.microbit.org/",
         "shareUrl": "https://makecode.microbit.org/",
@@ -257,6 +258,7 @@
         "appStoreID": "1092687276",
         "mobileSafariDownloadProtocol": "microbithex://?data",
         "extendEditor": true,
+        "extendFieldEditors": true,
         "docMenu": [
             {
                 "name": "Support",

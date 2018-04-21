@@ -34,10 +34,13 @@ namespace basic {
      */
     //% help=basic/show-leds
     //% weight=95 blockGap=8
-    //% imageLiteral=1 async
+    //% imageLiteral=0 async
+    //% leds.fieldEditor="matrix"
+    //% leds.fieldOptions.onParentBlock=true
+    //% leds.fieldOptions.decompileLiterals=true
     //% blockId=device_show_leds
-    //% block="show leds" icon="\uf00a"
-    //% parts="ledmatrix"
+    //% block="show leds| %leds" icon="\uf00a"
+    //% parts="ledmatrix" blockExternalInputs=1
     void showLeds(ImageLiteral leds, int interval = 400) {
       uBit.display.print(MicroBitImage(imageBytes(leds)), 0, 0, 0, interval);
     }
@@ -84,7 +87,10 @@ namespace basic {
      * @param leds pattern of LEDs to turn on/off
      * @param interval time in milliseconds between each redraw
      */
-    //% help=basic/show-animation imageLiteral=1 async
+    //% help=basic/show-animation imageLiteral=0 async
+    //% leds.fieldEditor="matrix"
+    //% leds.fieldOptions.onParentBlock=true
+    //% leds.fieldOptions.decompileLiterals=true
     //% parts="ledmatrix"
     void showAnimation(ImageLiteral leds, int interval = 400) {
       uBit.display.animate(MicroBitImage(imageBytes(leds)), interval, 5, 0, 0);

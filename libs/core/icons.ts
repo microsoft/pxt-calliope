@@ -179,9 +179,8 @@ namespace basic {
     //% block="show icon %i" icon="\uf00a"
     //% parts="ledmatrix"
     //% help=basic/show-icon
-    //% i.fieldEditor="gridpicker"
-    //% i.fieldOptions.width="400" i.fieldOptions.columns="5"
-    //% i.fieldOptions.itemColour="black" i.fieldOptions.tooltips="true"
+    //% icon.fieldEditor="imagedropdown"
+    //% icon.fieldOptions.columns="5"
     export function showIcon(icon: IconNames, interval = 600) {
         let res = images.iconImage(icon)
         res.showImage(0, interval)
@@ -274,9 +273,8 @@ namespace images {
     //% weight=50 blockGap=8
     //% help=images/icon-image
     //% blockId=builtin_image block="icon image %i"
-    //% i.fieldEditor="gridpicker"
+    //% i.fieldEditor="imagedropdown"
     //% i.fieldOptions.width="400" i.fieldOptions.columns="5"
-    //% i.fieldOptions.itemColour="black" i.fieldOptions.tooltips="true"
     export function iconImage(i: IconNames): Image {
         switch (i) {
             case IconNames.Heart: return images.createImage(`

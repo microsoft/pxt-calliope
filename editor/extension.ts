@@ -252,7 +252,7 @@ namespace pxt.editor {
         })
     }
 
-    export function deployCoreAsync(resp: pxtc.CompileResult, d: pxt.commands.DeployOptions = {}): Promise<void> {
+    export function deployCoreAsync(resp: pxtc.CompileResult): Promise<void> {
         let saveHexAsync = () => {
             return pxt.commands.saveOnlyAsync(resp)
         }
@@ -372,9 +372,11 @@ namespace pxt.editor {
                     })
             })
             .catch(e => {
-                if (e.type === "devicenotfound" && d.reportDeviceNotFoundAsync) {
+                // TODO: (microbit master)
+                if (e.type === "devicenotfound") { //&& d.reportDeviceNotFoundAsync) {
                     pxt.tickEvent("hid.flash.devicenotfound");
-                    return d.reportDeviceNotFoundAsync("/device/windows-app/troubleshoot", resp);
+                    //return d.reportDeviceNotFoundAsync("/device/windows-app/troubleshoot", resp);
+                    return undefined;
                 } else {
                     return saveHexAsync()
                 }

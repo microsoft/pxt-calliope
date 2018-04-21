@@ -10,8 +10,11 @@ namespace images {
      * Creates an image that fits on the LED screen.
      */
     //% weight=75 help=images/create-image
-    //% blockId=device_build_image block="create image"
-    //% parts="ledmatrix"
+    //% blockId=device_build_image block="create image| %leds"
+    //% leds.fieldEditor="matrix"
+    //% leds.fieldOptions.onParentBlock=true
+    //% leds.fieldOptions.decompileLiterals=true
+    //% parts="ledmatrix" imageLiteral=0 blockExternalInput=1
     Image createImage(ImageLiteral leds) {
         return MicroBitImage(imageBytes(leds)).clone().leakData();
     }
@@ -20,7 +23,11 @@ namespace images {
      * Creates an image with 2 frames.
      */
     //% weight=74 help=images/create-big-image
-    //% blockId=device_build_big_image block="create big image" imageLiteral=2
+    //% leds.fieldEditor="matrix"
+    //% leds.fieldOptions.onParentBlock=true
+    //% leds.fieldOptions.decompileLiterals=true
+    //% blockId=device_build_big_image block="create big image| %leds"
+    //% imageLiteral=0 blockExternalInput=1
     //% parts="ledmatrix"
     Image createBigImage(ImageLiteral leds) {
         return createImage(leds);
