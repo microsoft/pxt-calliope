@@ -31,6 +31,7 @@
         "flashUsableEnd": 245760,
         "flashEnd": 245760,
         "flashCodeAlign": 1024,
+        "floatingPoint": true,
         "upgrades": [
             {
                 "type": "package",
