@@ -120,6 +120,10 @@
   "url":"/pkg/sunfounder/pxt-sloth",
   "cardType": "package"
   }, {
+  "name": "4tronix BitBot",
+  "url":"/pkg/4tronix/BitBot",
+  "cardType": "package"
+  }, {
   "name": "Pimoroni Scrollbit",
   "url":"/pkg/pimoroni/pxt-scrollbit",
   "cardType": "package"
