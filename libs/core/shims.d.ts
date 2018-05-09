@@ -12,22 +12,15 @@ declare namespace images {
      * Creates an image that fits on the LED screen.
      */
     //% weight=75 help=images/create-image
-    //% blockId=device_build_image block="create image| %leds"
-    //% leds.fieldEditor="matrix"
-    //% leds.fieldOptions.onParentBlock=true
-    //% leds.fieldOptions.decompileLiterals=true
-    //% parts="ledmatrix" imageLiteral=0 blockExternalInput=1 shim=images::createImage
+    //% blockId=device_build_image block="create image"
+    //% parts="ledmatrix" imageLiteral=1 shim=images::createImage
     function createImage(leds: string): Image;
 
     /**
      * Creates an image with 2 frames.
      */
     //% weight=74 help=images/create-big-image
-    //% leds.fieldEditor="matrix"
-    //% leds.fieldOptions.onParentBlock=true
-    //% leds.fieldOptions.decompileLiterals=true
-    //% blockId=device_build_big_image block="create big image| %leds"
-    //% imageLiteral=0 blockExternalInput=1
+    //% blockId=device_build_big_image block="create big image" imageLiteral=2
     //% parts="ledmatrix" shim=images::createBigImage
     function createBigImage(leds: string): Image;
 }
@@ -154,13 +147,10 @@ declare namespace basic {
      */
     //% help=basic/show-leds
     //% weight=95 blockGap=8
-    //% imageLiteral=0 async
-    //% leds.fieldEditor="matrix"
-    //% leds.fieldOptions.onParentBlock=true
-    //% leds.fieldOptions.decompileLiterals=true
+    //% imageLiteral=1 async
     //% blockId=device_show_leds
-    //% block="show leds| %leds" icon="\uf00a"
-    //% parts="ledmatrix" blockExternalInputs=1 interval.defl=400 shim=basic::showLeds
+    //% block="show leds" icon="\uf00a"
+    //% parts="ledmatrix" interval.defl=400 shim=basic::showLeds
     function showLeds(leds: string, interval?: int32): void;
 
     /**
@@ -190,10 +180,7 @@ declare namespace basic {
      * @param leds pattern of LEDs to turn on/off
      * @param interval time in milliseconds between each redraw
      */
-    //% help=basic/show-animation imageLiteral=0 async
-    //% leds.fieldEditor="matrix"
-    //% leds.fieldOptions.onParentBlock=true
-    //% leds.fieldOptions.decompileLiterals=true
+    //% help=basic/show-animation imageLiteral=1 async
     //% parts="ledmatrix" interval.defl=400 shim=basic::showAnimation
     function showAnimation(leds: string, interval?: int32): void;
 

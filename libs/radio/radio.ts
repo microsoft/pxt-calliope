@@ -37,7 +37,7 @@ namespace radio {
      * Registers code to run when the radio receives a packet. Also takes the
      * received packet from the radio queue.
      */
-    //% help=radio/on-data-packet-received
+    //% help=radio/on-data-packet-received deprecated=true
     //% mutate=objectdestructuring
     //% mutateText=Packet
     //% mutateDefaults="receivedNumber;receivedString:name,receivedNumber:value;receivedString"
@@ -54,5 +54,61 @@ namespace radio {
             packet.signal = receivedSignalStrength();
             cb(packet)
         });
+    }
+
+    /**
+     * Registers code to run when the radio receives a packet. Also takes the
+     * received packet from the radio queue.
+     */
+    //% help=radio/on-radio-received-number
+    //% blockId=radio_on_number block="on radio received number" blockGap=8
+    export function onReceivedNumber(cb: (num: number, time?: number, serial?: number, signal?: number) => void) {
+        onDataReceived(() => {
+            receiveNumber();
+            const packet = new Packet();
+            packet.receivedNumber = receivedNumber();
+            packet.time = receivedTime();
+            packet.serial = receivedSerial();
+            packet.signal = receivedSignalStrength();
+            cb(packet.receivedNumber, packet.time, packet.serial, packet.signal);
+        });
+    }
+
+    /**
+     * Registers code to run when the radio receives a packet. Also takes the
+     * received packet from the radio queue.
+     */
+    //% help=radio/on-radio-received-string
+    //% blockId=radio_on_string block="on radio received string" blockGap=8
+    export function onReceivedString(cb: (received: string, time?: number, serial?: number, signal?: number) => void) {
+        onDataReceived(() => {
+            receiveNumber();
+            const packet = new Packet();
+            packet.time = receivedTime();
+            packet.serial = receivedSerial();
+            packet.signal = receivedSignalStrength();
+            packet.receivedString = receivedString();
+            cb(packet.receivedString, packet.time, packet.serial, packet.signal);
+        });
+    }
+
+    /**
+     * Registers code to run when the radio receives a packet. Also takes the
+     * received packet from the radio queue.
+     */
+    //% help=radio/on-radio-received-value
+    //% blockId=radio_on_value block="on radio received" blockGap=8
+    export function onReceivedValue(cb: (packet: Packet) => void) {
+        onDataReceived(() => {
+            receiveNumber();
+            const packet = new Packet();
+            packet.receivedNumber = receivedNumber();
+            packet.time = receivedTime();
+            packet.serial = receivedSerial();
+            packet.signal = receivedSignalStrength();
+            packet.receivedString = receivedString();
+            cb(packet)
+        });
+
     }
 }

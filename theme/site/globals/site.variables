@@ -74,9 +74,9 @@
 --------------------*/
 
 @flyoutLabelColor: white;
-@blocklyFlyoutColor: #3B3C3D;
+@blocklyFlyoutColor: #4b4949;
 @blocklyFlyoutColorOpacity: 1.0;
-@monacoFlyoutColor: rgba(59, 60, 61, 1.0);
+@monacoFlyoutColor: @blocklyFlyoutColor;
 
 /*-------------------
    Serial
