@@ -112,8 +112,21 @@
   "url":"/pkg/pizayanz/pxt-linebeacon",
   "cardType": "package"
   }, {
+  "name": "inex iBit",
+  "url":"/pkg/emwta/pxt-iBit",
+  "cardType": "package"
+  }, {
   "name": "Sunfounder Sloth",
   "url":"/pkg/sunfounder/pxt-sloth",
   "cardType": "package"
+  }, {
+  "name": "4tronix BitBot",
+  "url":"/pkg/4tronix/BitBot",
+  "cardType": "package"
+  }, {
+  "name": "Pimoroni Scrollbit",
+  "url":"/pkg/pimoroni/pxt-scrollbit",
+  "cardType": "package"
 }]
+
 ```
