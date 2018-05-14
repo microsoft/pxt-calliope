@@ -301,7 +301,7 @@ namespace music {
      */
     //% blockId=melody_on_event block="music on %value"
     //% help=music/on-event weight=59
-    export function onEvent(value: MusicEvent, handler: Action) {
+    export function onEvent(value: MusicEvent, handler: () => void) {
         control.onEvent(MICROBIT_MELODY_ID, value, handler);
     }
 
