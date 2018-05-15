@@ -383,6 +383,141 @@ namespace pxt.editor {
             })
     }
 
+    /**
+     *       <block type="device_show_leds">
+        <field name="LED00">FALSE</field>
+        <field name="LED10">FALSE</field>
+        <field name="LED20">FALSE</field>
+        <field name="LED30">FALSE</field>
+        <field name="LED40">FALSE</field>
+        <field name="LED01">FALSE</field>
+        <field name="LED11">FALSE</field>
+        <field name="LED21">FALSE</field>
+        <field name="LED31">TRUE</field>
+        <field name="LED41">FALSE</field>
+        <field name="LED02">FALSE</field>
+        <field name="LED12">FALSE</field>
+        <field name="LED22">FALSE</field>
+        <field name="LED32">FALSE</field>
+        <field name="LED42">FALSE</field>
+        <field name="LED03">FALSE</field>
+        <field name="LED13">TRUE</field>
+        <field name="LED23">FALSE</field>
+        <field name="LED33">FALSE</field>
+        <field name="LED43">FALSE</field>
+        <field name="LED04">FALSE</field>
+        <field name="LED14">FALSE</field>
+        <field name="LED24">FALSE</field>
+        <field name="LED34">FALSE</field>
+        <field name="LED44">FALSE</field>
+      </block>
+
+      to
+    <block type="device_show_leds">
+        <field name="LEDS">`
+        # # # # # 
+        . . . . # 
+        . . . . . 
+        . . . . # 
+        . . . . #
+        `
+        </field>
+      </block>
+     */
+
+    function patchBlocks(pkgTargetVersion: string, dom: Element) {
+        // is this a old script?
+        if (pxt.semver.majorCmp(pkgTargetVersion || "0.0.0", "1.0.0") >= 0) return;
+
+        // showleds
+        const nodes = U.toArray(dom.querySelectorAll("block[type=device_show_leds]"))
+            .concat(U.toArray(dom.querySelectorAll("block[type=device_build_image]")))
+            .concat(U.toArray(dom.querySelectorAll("block[type=device_build_big_image]")))
+        nodes.forEach(node => {
+            const leds: string[][] = [[], [], [], [], []];
+            U.toArray(node.querySelectorAll("field[name^=LED]"))
+                .forEach(lednode => {
+                    let n = lednode.getAttribute("name");
+                    let col = parseInt(n[3]);
+                    let row = parseInt(n[4]);
+                    leds[row][col] = lednode.innerHTML == "TRUE" ? "#" : ".";
+                });
+            node.innerHTML = "";
+            const f = node.ownerDocument.createElement("field");
+            f.setAttribute("name", "LEDS");
+            const s = '`\n' + leds.map(row => row.join('')).join('\n') + '\n`';
+            f.appendChild(node.ownerDocument.createTextNode(s));
+            node.appendChild(f);
+        });
+
+        // radio
+        /*
+  <block type="radio_on_packet" x="174" y="120">
+    <mutation callbackproperties="receivedNumber" renamemap="{}"></mutation>
+    <field name="receivedNumber">receivedNumber</field>
+  </block>
+  <block type="radio_on_packet" disabled="true" x="127" y="263">
+    <mutation callbackproperties="receivedString,receivedNumber" renamemap="{&quot;receivedString&quot;:&quot;name&quot;,&quot;receivedNumber&quot;:&quot;value&quot;}"></mutation>
+    <field name="receivedString">name</field>
+    <field name="receivedNumber">value</field>
+  </block>
+  <block type="radio_on_packet" disabled="true" x="162" y="420">
+    <mutation callbackproperties="receivedString" renamemap="{}"></mutation>
+    <field name="receivedString">receivedString</field>
+  </block>
+
+  converts to
+
+    <block type="radio_on_number" x="196" y="208">
+    <field name="HANDLER_receivedNumber" id="DCy(W;1)*jLWQUpoy4Mm" variabletype="">receivedNumber</field>
+  </block>
+  <block type="radio_on_value" x="134" y="408">
+    <field name="HANDLER_name" id="*d-Jm^MJXO]Djs(dTR*?" variabletype="">name</field>
+    <field name="HANDLER_value" id="A6HQjH[k^X43o3h775+G" variabletype="">value</field>
+  </block>
+  <block type="radio_on_string" x="165" y="583">
+    <field name="HANDLER_receivedString" id="V9KsE!h$(iO?%W:[32CV" variabletype="">receivedString</field>
+  </block>
+  */
+        const varids: pxt.Map<string> = {};
+
+        function addField(node: Element, name: string) {
+            const f = node.ownerDocument.createElement("field");
+            f.setAttribute("name","HANDLER_" + name)
+            f.setAttribute("id", varids[name]);
+            f.appendChild(node.ownerDocument.createTextNode(name));
+            node.appendChild(f);
+        }
+
+        U.toArray(dom.querySelectorAll("variable")).forEach(node => varids[node.innerHTML] = node.getAttribute("id"));
+        U.toArray(dom.querySelectorAll("block[type=radio_on_packet]"))
+            .forEach(node => {
+                const mutation = node.querySelector("mutation");
+                if (!mutation) return;
+                const renameMap = JSON.parse(node.getAttribute("renamemap") || "{}");
+                switch (mutation.getAttribute("callbackproperties")) {
+                    case "receivedNumber":
+                        node.setAttribute("type", "radio_on_number");
+                        node.removeChild(node.querySelector("field[name=receivedNumber]"));
+                        addField(node, "receivedNumber");
+                        break;
+                    case "receivedString,receivedNumber":
+                        node.setAttribute("type", "radio_on_value");
+                        node.removeChild(node.querySelector("field[name=receivedNumber]"));
+                        node.removeChild(node.querySelector("field[name=receivedString]"));
+                        addField(node, "name");
+                        addField(node, "value");
+                        break;
+                    case "receivedString":
+                        node.setAttribute("type", "radio_on_string");
+                        node.removeChild(node.querySelector("field[name=receivedString]"));
+                        addField(node, "receivedString");
+                        break;
+                }
+                node.removeChild(mutation);
+            })
+    }
+
     initExtensionsAsync = function (opts: pxt.editor.ExtensionOptions): Promise<pxt.editor.ExtensionResult> {
         pxt.debug('loading microbit target extensions...')
 
@@ -418,6 +553,8 @@ namespace pxt.editor {
 
         if (canHID())
             pxt.commands.deployCoreAsync = deployCoreAsync;
+
+        res.blocklyPatch = patchBlocks;
         return Promise.resolve<pxt.editor.ExtensionResult>(res);
     }
 
