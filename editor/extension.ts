@@ -481,10 +481,10 @@ namespace pxt.editor {
   */
         const varids: pxt.Map<string> = {};
 
-        function addField(node: Element, name: string) {
+        function addField(node: Element, renameMap: pxt.Map<string>, name: string) {
             const f = node.ownerDocument.createElement("field");
-            f.setAttribute("name","HANDLER_" + name)
-            f.setAttribute("id", varids[name]);
+            f.setAttribute("name", "HANDLER_" + name)
+            f.setAttribute("id", varids[renameMap[name] || name]);
             f.appendChild(node.ownerDocument.createTextNode(name));
             node.appendChild(f);
         }
@@ -499,19 +499,19 @@ namespace pxt.editor {
                     case "receivedNumber":
                         node.setAttribute("type", "radio_on_number");
                         node.removeChild(node.querySelector("field[name=receivedNumber]"));
-                        addField(node, "receivedNumber");
+                        addField(node, renameMap, "receivedNumber");
                         break;
                     case "receivedString,receivedNumber":
                         node.setAttribute("type", "radio_on_value");
                         node.removeChild(node.querySelector("field[name=receivedNumber]"));
                         node.removeChild(node.querySelector("field[name=receivedString]"));
-                        addField(node, "name");
-                        addField(node, "value");
+                        addField(node, renameMap, "name");
+                        addField(node, renameMap, "value");
                         break;
                     case "receivedString":
                         node.setAttribute("type", "radio_on_string");
                         node.removeChild(node.querySelector("field[name=receivedString]"));
-                        addField(node, "receivedString");
+                        addField(node, renameMap, "receivedString");
                         break;
                 }
                 node.removeChild(mutation);
