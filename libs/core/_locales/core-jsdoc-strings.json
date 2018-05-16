@@ -169,7 +169,7 @@
   "basic.showString|param|text": "the text to scroll on the screen, eg: \"Hello!\"",
   "control": "Runtime and event utilities.",
   "control.assert": "If the condition is false, display msg on serial console, and panic with code 098.",
-  "control.deviceName": "Gets a friendly name for the device derived from the its serial number",
+  "control.deviceName": "Make a friendly name for the device based on its serial number",
   "control.deviceSerialNumber": "Derive a unique, consistent serial number of this device from internal data.",
   "control.eventSourceId": "Returns the value of a C++ runtime constant",
   "control.eventTimestamp": "Gets the timestamp of the last event executed on the bus",
