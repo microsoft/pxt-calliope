@@ -251,7 +251,6 @@
         "privacyUrl": "https://makecode.com/privacy",
         "termsOfUseUrl": "https://makecode.com/termsofuse",
         "githubUrl": "https://github.com/Microsoft/pxt-microbit",
-        "crowdinProject": "kindscript",
         "boardName": "micro:bit",
         "driveDisplayName": "MICROBIT",
         "sideDoc": "tutorials/getting-started",
