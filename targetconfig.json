@@ -60,7 +60,7 @@
         "zh-TW"
     ],
     "galleries": {
-        "Projects": "projects",
-        "Examples": "examples"
+        "Projects": "v1/projects",
+        "Examples": "v1/examples"
     }
 }

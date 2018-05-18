@@ -268,27 +268,27 @@
             {
                 "name": "Getting started",
                 "tutorial": true,
-                "path": "/tutorials/getting-started"
+                "path": "/v1/tutorials/getting-started"
             },
             {
                 "name": "Projects",
-                "path": "/projects"
+                "path": "/v1/projects"
             },
             {
                 "name": "Reference",
-                "path": "/reference"
+                "path": "/v1/reference"
             },
             {
                 "name": "Blocks",
-                "path": "/blocks"
+                "path": "/v1/blocks"
             },
             {
                 "name": "JavaScript",
-                "path": "/javascript"
+                "path": "/v1/javascript"
             },
             {
                 "name": "Hardware",
-                "path": "/device"
+                "path": "/v1/device"
             },
             {
                 "name": "Buy",
