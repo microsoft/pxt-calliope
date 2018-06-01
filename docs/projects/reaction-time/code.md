@@ -125,7 +125,7 @@ input.onPinPressed(TouchPin.P0, () => {
     basic.clearScreen()
     running = false
     false_start = false
-    basic.pause(1000 + Math.randomInt(2000))
+    basic.pause(1000 + Math.randomRange(0, 2000))
 })
 input.onPinPressed(TouchPin.P1, () => {
 	
@@ -155,13 +155,13 @@ input.onPinPressed(TouchPin.P0, () => {
     basic.clearScreen()
     running = false
     false_start = false
-    basic.pause(1000 + Math.randomInt(2000))
+    basic.pause(1000 + Math.randomRange(0, 2000))
     if (!(false_start)) {
         start = input.runningTime()
         running = true
         led.stopAnimation()
         basic.clearScreen()
-        led.plot(Math.randomInt(5), Math.randomInt(5))
+        led.plot(Math.randomRange(0, 5), Math.randomRange(0, 5))
     }
 })
 running = false
@@ -214,13 +214,13 @@ input.onPinPressed(TouchPin.P0, () => {
     basic.clearScreen()
     running = false
     false_start = false
-    basic.pause(1000 + Math.randomInt(2000))
+    basic.pause(1000 + Math.randomRange(0, 2000))
     if (!(false_start)) {
         start = input.runningTime()
         running = true
         led.stopAnimation()
         basic.clearScreen()
-        led.plot(Math.randomInt(5), Math.randomInt(5))
+        led.plot(Math.randomRange(0, 5), Math.randomRange(0, 5))
     }
 })
 running = false
@@ -247,13 +247,13 @@ input.onPinPressed(TouchPin.P0, () => {
     basic.clearScreen()
     running = false
     false_start = false
-    basic.pause(1000 + Math.randomInt(2000))
+    basic.pause(1000 + Math.randomRange(0, 2000))
     if (!(false_start)) {
         start = input.runningTime()
         running = true
         led.stopAnimation()
         basic.clearScreen()
-        led.plot(Math.randomInt(5), Math.randomInt(5))
+        led.plot(Math.randomRange(0, 5), Math.randomRange(0, 5))
     }
 })
 input.onPinPressed(TouchPin.P1, () => {

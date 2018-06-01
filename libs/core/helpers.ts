@@ -12,12 +12,6 @@ namespace Math {
     //% blockId=logic_random block="pick random true or false"
     //% help=math/random-boolean weight=0
     export function randomBoolean(): boolean {
-        return true;
-        //return Math.floor(Math.random() * 2) == 1;
-    }
-
-    export function randomInt(max: number): number {
-        return max;
-        //return Math.floor(Math.random() * max);
+        return Math.floor(Math.randomRange(0, 1) * 2) == 1;
     }
 }
