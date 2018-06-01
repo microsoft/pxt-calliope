@@ -266,15 +266,6 @@
                 "path": "https://support.microbit.org/"
             },
             {
-                "name": "Getting started",
-                "tutorial": true,
-                "path": "/tutorials/getting-started"
-            },
-            {
-                "name": "Projects",
-                "path": "/projects"
-            },
-            {
                 "name": "Reference",
                 "path": "/reference"
             },
