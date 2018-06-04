@@ -15,6 +15,10 @@
 #define PXT_BUFFER_DATA(buffer) buffer->data
 #endif
 
+#ifndef PXT_CREATE_BUFFER
+#define PXT_CREATE_BUFFER(data, len) pxt::mkBuffer(data, len)
+#endif
+
 // needed for gcc6; not sure why
 #undef min
 #undef max
