@@ -363,7 +363,7 @@
             }
         },
         "highContrast": true,
-        "greenScreen": true,
+        "greenScreen": false,
         "selectLanguage": true,
         "availableLocales": [
             "en",
