@@ -435,19 +435,22 @@ namespace pxt.editor {
             .concat(U.toArray(dom.querySelectorAll("block[type=device_build_big_image]")))
         nodes.forEach(node => {
             const leds: string[][] = [[], [], [], [], []];
-            U.toArray(node.querySelectorAll("field[name^=LED]"))
+            U.toArray(node.children)
+                .filter(child => child.tagName == "field" && /^LED\d+$/.test(child.getAttribute("name")))
                 .forEach(lednode => {
                     let n = lednode.getAttribute("name");
                     let col = parseInt(n[3]);
                     let row = parseInt(n[4]);
                     leds[row][col] = lednode.innerHTML == "TRUE" ? "#" : ".";
+                    // remove node
+                    node.removeChild(lednode);
                 });
-            node.innerHTML = "";
+            // add new field
             const f = node.ownerDocument.createElement("field");
             f.setAttribute("name", "LEDS");
             const s = '`\n' + leds.map(row => row.join('')).join('\n') + '\n`';
             f.appendChild(node.ownerDocument.createTextNode(s));
-            node.appendChild(f);
+            node.insertBefore(f, null);
         });
 
         // radio
@@ -522,11 +525,11 @@ namespace pxt.editor {
         pxt.debug('loading microbit target extensions...')
 
         if (!Math.imul)
-            Math.imul = (a, b) => {
-                var ah = (a >>> 16) & 0xffff;
-                var al = a & 0xffff;
-                var bh = (b >>> 16) & 0xffff;
-                var bl = b & 0xffff;
+            Math.imul = function(a, b) {
+                const ah = (a >>> 16) & 0xffff;
+                const al = a & 0xffff;
+                const bh = (b >>> 16) & 0xffff;
+                const bl = b & 0xffff;
                 // the shift by 0 fixes the sign on the high part
                 // the final |0 converts the unsigned value into a signed value
                 return ((al * bl) + (((ah * bl + al * bh) << 16) >>> 0) | 0);
