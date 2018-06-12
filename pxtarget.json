@@ -196,7 +196,13 @@
                 "thermometer",
                 "compass"
             ],
-            "useCrocClips": true,
+            "pinStyles": {
+                "P0": "croc",
+                "P1": "croc",
+                "P2": "croc",
+                "GND": "croc",
+                "+3v3": "croc"
+            },
             "marginWhenBreadboarding": [
                 0,
                 0,
