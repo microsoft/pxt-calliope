@@ -2,6 +2,8 @@
 
 ## @description The famous "Hot Potato" game revisit for @boardname@
 
+![A teleporting potato](/static/mb/projects/tele-potato.png)
+
 Do you know the "Hot Potato" game? You usually toss around a potato with a timer
 and the person that holds it when it finishes looses... It's super fun.
 
