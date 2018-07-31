@@ -16,6 +16,7 @@
         "packages": true,
         "sharing": true,
         "publishing": true,
+        "importing": true,
         "preferredPackages": [
             "Microsoft/pxt-neopixel"
         ],
