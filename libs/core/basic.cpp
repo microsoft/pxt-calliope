@@ -44,7 +44,7 @@ namespace basic {
       } else if (l > 1) {
         uBit.display.scroll(MSTR(text), interval);
       } else {
-        uBit.display.print(text->data[0], interval * 5);
+        uBit.display.printChar(text->data[0], interval * 5);
       }
     }
 
