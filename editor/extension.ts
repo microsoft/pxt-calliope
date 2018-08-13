@@ -598,24 +598,60 @@ namespace pxt.editor {
         // device_random now refers to randomRange() so we need to add the missing lower bound argument
         U.toArray(dom.querySelectorAll("block[type=device_random]"))
             .forEach(node => {
-                for (let i = 0; i < node.children.length; i++) {
-                    const child = node.children.item(i);
-                    if (child.tagName === "value" && child.getAttribute("name") === "min") {
-                        return;
-                    }
-                }
+                if (getValue(node, "min")) return;
                 const v = node.ownerDocument.createElement("value");
-                const s = node.ownerDocument.createElement("shadow");
-                const f = node.ownerDocument.createElement("field");
-
                 v.setAttribute("name", "min");
-                v.appendChild(s);
-                s.setAttribute("type", "math_number");
-                s.appendChild(f);
-                f.setAttribute("name", "NUM");
-                f.textContent = "0";
+                addNumberShadow(v);
                 node.appendChild(v);
             });
+
+        /*
+        <block type="math_arithmetic">
+            <field name="OP">DIVIDE</field>
+            <value name="A">
+                <shadow type="math_number"><field name="NUM">0</field></shadow>
+                <block type="math_number"><field name="NUM">2</field></block>
+            </value>
+            <value name="B">
+                <shadow type="math_number"><field name="NUM">1</field></shadow>
+                <block type="math_number"><field name="NUM">3</field></block>
+            </value>
+        </block>
+        */
+       U.toArray(dom.querySelectorAll("block[type=math_arithmetic]"))
+            .forEach(node => {
+                const op = getField(node, "OP");
+                if (!op || op.textContent.trim() !== "DIVIDE") return;
+
+                // Convert to integer division
+                /*
+                <block type="math_js_op">
+                    <mutation op-type="infix"></mutation>
+                    <field name="OP">idiv</field>
+                    <value name="ARG0">
+                        <shadow type="math_number"><field name="NUM">0</field></shadow>
+                    </value>
+                    <value name="ARG1">
+                        <shadow type="math_number"><field name="NUM">0</field></shadow>
+                    </value>
+                </block>
+                */
+
+                node.setAttribute("type", "math_js_op");
+                op.textContent = "idiv";
+
+                const mutation = node.ownerDocument.createElement("mutation");
+                mutation.setAttribute("op-type", "infix");
+                // mutation has to be first or Blockly will drop the second argument
+                node.insertBefore(mutation, node.firstChild);
+
+                const a = getValue(node, "A");
+                if (a) a.setAttribute("name", "ARG0");
+
+                const b = getValue(node, "B");
+                if (b) b.setAttribute("name", "ARG1");
+            })
+
     }
 
     initExtensionsAsync = function (opts: pxt.editor.ExtensionOptions): Promise<pxt.editor.ExtensionResult> {
@@ -679,4 +715,34 @@ namespace pxt.editor {
         return Promise.resolve<pxt.editor.ExtensionResult>(res);
     }
 
+    function getField(parent: Element, name: string) {
+        return getFieldOrValue(parent, name, true);
+    }
+
+    function getValue(parent: Element, name: string) {
+        return getFieldOrValue(parent, name, false);
+    }
+
+    function getFieldOrValue(parent: Element, name: string, isField: boolean) {
+        const nodeType = isField ? "field" : "value";
+        for (let i = 0; i < parent.children.length; i++) {
+            const child = parent.children.item(i);
+            if (child.tagName === nodeType && child.getAttribute("name") === name) {
+                return child;
+            }
+        }
+        return undefined;
+    }
+
+    function addNumberShadow(valueNode: Element) {
+        const s = valueNode.ownerDocument.createElement("shadow");
+        s.setAttribute("type", "math_number");
+
+        const f = valueNode.ownerDocument.createElement("field");
+        f.setAttribute("name", "NUM");
+        f.textContent = "0";
+
+        s.appendChild(f);
+        valueNode.appendChild(s);
+    }
 }
