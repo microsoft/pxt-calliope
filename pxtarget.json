@@ -217,7 +217,8 @@
         "yottaCorePackage": "microbit",
         "githubCorePackage": "lancaster-university/microbit",
         "gittag": "dal-integration-1",
-        "serviceId": "microbit"
+        "serviceId": "microbit",
+        "dockerImage": "pext/yotta:latest"
     },
     "serial": {
         "nameFilter": "^(mbed Serial Port|DAPLink CMSIS-DAP)",
