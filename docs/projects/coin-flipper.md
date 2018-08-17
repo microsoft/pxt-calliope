@@ -4,7 +4,7 @@ Let's create a coin flipping program to simulate a real coin toss. We'll use ico
 
 ## Step 1
 
-Get an ``||input:on button A pressed||`` block from the ``||input:Input||`` drawer in the toolbox. The coin flip code we add will run when button **A** is pressed.
+Get an ``||input:on button A pressed||`` block from the ``||input:Input||`` drawer in the toolbox. We'll put our coin flipping code in here.
 
 ```blocks
 input.onButtonPressed(Button.A, () => {
@@ -41,11 +41,11 @@ input.onButtonPressed(Button.A, () => {
 
 ## Step 4
 
-Click ``|Download|`` to transfer your code into your @boardname@. Press button **A** to "toss a coin" and see the result.
+Press button **A** in the simulator to try our coin toss code.
 
 ## Step 5
 
-You can animate the coin toss to add the feeling of suspense. Place different ``||basic:show icon||`` blocks before the ``||logic:if||`` to show that the coin is flipping before the result appears.
+You can animate the coin toss to add the feeling of suspense. Place different ``||basic:show icon||`` blocks before the ``||logic:if||`` to show that the coin is flipping.
 
 ```blocks
 input.onButtonPressed(Button.A, () => {
@@ -63,4 +63,8 @@ input.onButtonPressed(Button.A, () => {
 
 ## Step 6
 
-Click ``|Download|`` to transfer your code to your @boardname@ again and press button **A** for a flip. Test your luck and guess ``heads`` or ``tails`` before the toss is over!
+If your have a @boardname@, connect it to USB and click ``|Download|`` to transfer your code.
+
+## Step 7
+
+Press button **A** for a flip. Test your luck and guess ``heads`` or ``tails`` before the toss is over!
