@@ -799,7 +799,7 @@ declare namespace serial {
     /**
      * Send a buffer through serial connection
      */
-    //% blockId=serial_writebuffer block="serial|write buffer %buffer"
+    //% blockId=serial_writebuffer block="serial|write buffer %buffer=serial_readbuffer"
     //% help=serial/write-buffer advanced=true weight=6 shim=serial::writeBuffer
     function writeBuffer(buffer: Buffer): void;
 
