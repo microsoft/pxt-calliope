@@ -501,7 +501,9 @@ namespace pxt.editor {
         // showleds
         const nodes = U.toArray(dom.querySelectorAll("block[type=device_show_leds]"))
             .concat(U.toArray(dom.querySelectorAll("block[type=device_build_image]")))
+            .concat(U.toArray(dom.querySelectorAll("shadow[type=device_build_image]")))
             .concat(U.toArray(dom.querySelectorAll("block[type=device_build_big_image]")))
+            .concat(U.toArray(dom.querySelectorAll("shadow[type=device_build_big_image]")));
         nodes.forEach(node => {
             // don't rewrite if already upgraded, eg. field LEDS already present
             if (U.toArray(node.children).filter(child => child.tagName == "field" && "LEDS" == child.getAttribute("name"))[0])
@@ -610,6 +612,7 @@ namespace pxt.editor {
 
         // device_random now refers to randomRange() so we need to add the missing lower bound argument
         U.toArray(dom.querySelectorAll("block[type=device_random]"))
+            .concat(U.toArray(dom.querySelectorAll("shadow[type=device_random]")))
             .forEach(node => {
                 if (getValue(node, "min")) return;
                 const v = node.ownerDocument.createElement("value");
@@ -632,6 +635,7 @@ namespace pxt.editor {
         </block>
         */
         U.toArray(dom.querySelectorAll("block[type=math_arithmetic]"))
+            .concat(U.toArray(dom.querySelectorAll("shadow[type=math_arithmetic]")))
             .forEach(node => {
                 const op = getField(node, "OP");
                 if (!op || op.textContent.trim() !== "DIVIDE") return;
@@ -663,8 +667,18 @@ namespace pxt.editor {
 
                 const b = getValue(node, "B");
                 if (b) b.setAttribute("name", "ARG1");
-            })
+            });
 
+        // math_number_minmax
+        U.toArray(dom.querySelectorAll("block[type=math_number_minmax]"))
+            .concat(U.toArray(dom.querySelectorAll("shadow[type=math_number_minmax]")))
+            .forEach(node => {
+                // Change the name of the NUM field to SLIDER
+                const numField = getField(node, "NUM");
+                if (numField) {
+                    numField.setAttribute("name", "SLIDER");
+                }
+            });
     }
 
     initExtensionsAsync = function (opts: pxt.editor.ExtensionOptions): Promise<pxt.editor.ExtensionResult> {
