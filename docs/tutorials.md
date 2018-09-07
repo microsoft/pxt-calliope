@@ -2,19 +2,6 @@
 
 Here are some cool tutorials to get you started with your @boardname@!
 
-## Getting started
-
-```codecard
-[{
-    "name":"Get Started!", 
-    "url":"/tutorials/getting-started",
-    "cardType": "tutorial",
-    "label": "New? Start Here!",
-    "labelClass": "red ribbon large tutorial",
-    "description": "Start coding your micro:bit with this simple tutorial."
-}]
-```
-
 ## Basic
 
 ```codecard
@@ -22,6 +9,12 @@ Here are some cool tutorials to get you started with your @boardname@!
   "name": "Flashing Heart",
   "url":"/projects/flashing-heart",
   "imageUrl": "/static/mb/projects/a1-display.png",
+  "cardType": "tutorial"
+}, {
+  "name": "Name Tag",
+  "description": "Scroll your name on the screen",
+  "imageUrl": "/static/mb/projects/name-tag.png",
+  "url": "/projects/name-tag",
   "cardType": "tutorial"
 }, {
   "name": "Smiley Buttons",
