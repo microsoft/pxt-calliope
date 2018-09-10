@@ -1,30 +1,20 @@
 # Stop watch
 
-Press ``A`` to start the counter. Press ``A`` again to stop and display the count. 
+Press ``A`` to start the counter. Press ``A`` again to stop and display the duration. 
 
 ```blocks
-let msec = 0
 let sec = 0
-let end = 0
-let d = 0
 let start = 0
-input.onButtonPressed(Button.A, () => {
+input.onButtonPressed(Button.A, function () {
     if (!(start)) {
         start = input.runningTime()
-        end = 0
+        basic.showIcon(IconNames.Butterfly)
     } else {
-        d = input.runningTime() - start
+        sec = input.runningTime() - start / 1000
         start = 0
         basic.clearScreen()
-        basic.pause(1000)
-        sec = d / 1000
-        msec = d % 1000
-        basic.showString("" + sec + "." + msec)
+        basic.showNumber(sec)
     }
 })
-basic.forever(() => {
-    if (start) {
-        led.toggle(Math.randomRange(0, 5), Math.randomRange(0, 5))
-    }
-})
+start = 0
 ```
