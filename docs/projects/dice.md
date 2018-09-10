@@ -1,6 +1,6 @@
 # Dice
 
-## Introduction
+## Introduction @unplugged
 
 ![A microbit dice](/static/mb/projects/dice.png)
 
