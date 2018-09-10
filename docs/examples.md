@@ -10,7 +10,7 @@ Here are some fun programs for your @boardname@!
   "description": "A blinking pattern of LEDs",
   "url": "/examples/blinky",
   "cardType": "example"
-}{
+}, {
   "name": "Rando",
   "description": "Randomly blinking LEDs",
   "url": "/examples/rando",
