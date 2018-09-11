@@ -16,12 +16,12 @@ Turtle graphics on your @boardname@ screen!
   "description": "Move in a spiral",
   "url": "/projects/turtle-spiral",
   "imageUrl":"/static/mb/projects/turtle-spiral.png",
-  "cardType": "sideProject"
+  "cardType": "side"
 }, {
   "name": "Scanner",
   "description": "Scan down the screen",
   "url": "/projects/turtle-scanner",
   "imageUrl":"/static/mb/projects/turtle-scanner.png",
-  "cardType": "sideProject"
+  "cardType": "side"
 }]
 ```

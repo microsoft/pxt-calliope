@@ -14,8 +14,9 @@
 }, {
   "name": "Stop Watch",
   "description": "Easily track time",
-  "url": "/projects/stop-watch",
-  "imageUrl":"/static/mb/projects/stop-watch.png"
+  "url": "/projects/stopwatch",
+  "imageUrl":"/static/mb/projects/stopwatch.png",
+  "cardType": "side"
 }]
 ```
 

@@ -39,12 +39,13 @@
     * [Telegraph](/projects/telegraph)
     * [Railway Crossing](/projects/railway-crossing)
     * [Karel](/projects/karel)
+    * [Stop Watch](/projects/stopwatch)
+    * [Name Tag](/projects/name-tag)
 
 ## #examples
 
 * [Examples](/examples)
     * [Blinky](/examples/blinky)
-    * [Name Tag](/examples/name-tag)
     * [Rando](/examples/rando)
     * [Plot Acceleration](/examples/plot-acceleration)
     * [Plot Light Level](/examples/plot-light-level)
@@ -52,7 +53,6 @@
     * [Servo Calibrator](/examples/servo-calibrator)
     * [Game of Life](/examples/gameofLife)
     * [Egg and Spoon Race](/examples/egg-and-spoon)
-    * [Stop Watch](/examples/stop-watch)
     * [Radio Dashboard](/examples/radio-dashboard)
 
 ## #courses

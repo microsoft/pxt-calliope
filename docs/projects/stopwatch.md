@@ -1,6 +1,6 @@
 # Stopwatch
 
-![A @boardname@ stopwatch toon image](/static/mb/projects/stop-watch.png)
+![A @boardname@ stopwatch toon image](/static/mb/projects/stopwatch.png)
 
 This project turns the @boardname@ into a simple stopwatch. Pressing **A** will start the timer. Pressing **A** again will show the amount of elapsed time and reset the timer. Let's get started.
 
