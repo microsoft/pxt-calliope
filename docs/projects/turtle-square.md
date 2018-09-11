@@ -1,35 +1,74 @@
 # Turtle Square
 
-## Setting up your project
+## Introduction @unplugged
 
-This project uses an **microturtle** Extension. You'll need to add it to your project to make it work.
+Imagine that a virtual turtle, as big as an LED, that you can control it with commands.
+In this tutorial, you will learn to use the turtle and draw a square.
 
-* create a new project
-* click on the gearwheel menu and click **Extensions**
-* select the **microturtle** extension
+## Moving the turtle @fullscreen
 
-After the project reloads, you should see the **turtle** category in the blocks.
-
-## Moving the turtle
-
-Imagine that a virtual turtle, as big as an LED, that you can control with commands. It starts in the center of the screen facing up.
-
-You can use the ``||turtle:forward||`` and ``||turtle::turnRight||`` to move and turn the turtle.
+The turtle starts in the center of the screen facing up. Place a ``||turtle:forward||`` block to make it move up.
 
 ```blocks
-turtle.forward(2)
+turtle.forward(1)
+```
+
+## Turning and moving @fullscreen
+
+Place a ``||turtle:turnRight||`` to turn the turtle and place another ``||turtle:forward||`` block to make it move again.
+
+```blocks
+turtle.forward(1)
 turtle.turnRight()
+turtle.forward(1)
 ```
 
 ## Drawing a square
 
-Drawing a square can be decomposed into a sequence of moves and turns. Since this is quite repetitive, you can use a **for** loop to repeat code.
+If you add enough ``||turtle:turnRight||`` and ``||turtle:forward||`` block, the turtle 
+will eventually draw a square. You can move the blocks in a ``||input:on button pressed||`` to easily run the code again.
 
 ```blocks
-for (let i = 0; i < 4; i++) {
-    turtle.forward(2)
+input.onButtonPressed(Button.A, function() {
+    turtle.forward(1)
     turtle.turnRight()
-}
+    turtle.forward(1)
+    turtle.turnRight()
+    turtle.forward(1)
+    turtle.turnRight()
+    turtle.forward(1)
+    turtle.turnRight()
+})
+```
+
+## "For" is for repetition
+
+Have you notice the repetition pattern in the blocks needed to draw a square?
+Try to use a ``for`` loop to achieve the same effect.
+
+```blocks
+input.onButtonPressed(Button.A, function() {
+    for(let i = 0; i <=4; ++i) {
+        turtle.forward(1)
+        turtle.turnRight()
+    }
+})
+```
+
+
+## Leaving a trail
+
+The turtle holds a pen that turns on LEDs. If you add the ``||turtle:pen||`` block,
+it will leave a trail as it moves.
+
+```blocks
+input.onButtonPressed(Button.A, function() {
+    turtle.pen(TurtlePenMode.Down)
+    for(let i = 0; i <=4; ++i) {
+        turtle.forward(1)
+        turtle.turnRight()
+    }
+})
 ```
 
 ```package

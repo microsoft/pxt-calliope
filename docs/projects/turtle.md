@@ -8,14 +8,20 @@ Turtle graphics on your @boardname@ screen!
 [{
   "name": "Square",
   "description": "Move in a square",
-  "url": "/projects/turtle-square"
+  "url": "/projects/turtle-square",
+  "imageUrl":"/static/mb/projects/turtle-square.png",
+  "cardType": "tutorial"
 }, {
   "name": "Spiral",
   "description": "Move in a spiral",
-  "url": "/projects/turtle-spiral"
+  "url": "/projects/turtle-spiral",
+  "imageUrl":"/static/mb/projects/turtle-spiral.png",
+  "cardType": "sideProject"
 }, {
   "name": "Scanner",
   "description": "Scan down the screen",
-  "url": "/projects/turtle-scanner"
+  "url": "/projects/turtle-scanner",
+  "imageUrl":"/static/mb/projects/turtle-scanner.png",
+  "cardType": "sideProject"
 }]
 ```
