@@ -76,24 +76,3 @@ Here are some fun programs for your @boardname@!
   "cardType": "example"
 }]
 ```
-
-## Turtle graphics
-
-```codecard
-[{
-  "name": "Turtle Square",
-  "description": "Move in a square",
-  "url": "/examples/turtle-square",
-  "cardType": "example"
-}, {
-  "name": "Turtle Spiral",
-  "description": "Move in a spiral",
-  "url": "/examples/turtle-spiral",
-  "cardType": "example"
-}, {
-  "name": "Turtle Scanner",
-  "description": "Scan down the screen",
-  "url": "/examples/turtle-scanner",
-  "cardType": "example"
-}]
-```
