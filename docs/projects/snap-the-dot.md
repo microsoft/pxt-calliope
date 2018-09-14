@@ -71,7 +71,7 @@ basic.forever(function () {
     sprite.ifOnEdgeBounce()
 })
 ```
- ## Score and game over
+## Score and game over
 
 Drag a ``||game:add score||`` and a ``||game:game over||`` block to handle success
 (sprite in the center) and failure (sprite not in the center)
