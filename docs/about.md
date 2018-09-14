@@ -98,3 +98,7 @@ using C++, JavaScript and/or ARM thumb.
 ## [Open Source](/open-source)
 
 The code for the micro:bit is [open source](/open-source) on GitHub. Contributors are welcome!
+
+```package
+radio
+```
