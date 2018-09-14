@@ -432,39 +432,12 @@ namespace pxt.editor {
             });
     }
 
-    function getFlashChecksumsAsync(wrap: DAPWrapper) {
-        log("getting existing flash checksums")
-        let pages = numPages
-        return wrap.cortexM.runCode(computeChecksums2, loadAddr, loadAddr + 1, 0xffffffff, stackAddr, true,
-            dataAddr, 0, pageSize, pages)
-            .then(() => wrap.cortexM.memory.readBlock(dataAddr, pages * 2, pageSize))
-    }
-
-    function onlyChanged(blocks: UF2.Block[], checksums: Uint8Array) {
-        return blocks.filter(b => {
-            let idx = b.targetAddr / pageSize
-            U.assert((idx | 0) == idx)
-            U.assert(b.data.length == pageSize)
-            if (idx * 8 + 8 > checksums.length)
-                return true // out of range?
-            let c0 = HF2.read32(checksums, idx * 8)
-            let c1 = HF2.read32(checksums, idx * 8 + 4)
-            let ch = murmur3_core(b.data)
-            if (c0 == ch[0] && c1 == ch[1])
-                return false
-            return true
-        })
-    }
-
-    export function deployCoreAsync(resp: pxtc.CompileResult, d: pxt.commands.DeployOptions = {}): Promise<void> {
-        let saveHexAsync = () => {
-            return pxt.commands.saveOnlyAsync(resp)
-        }
-
+    function flashAsync(resp: pxtc.CompileResult, d: pxt.commands.DeployOptions = {}): Promise<void> {
         startTime = 0
         let wrap: DAPWrapper
         log("init")
 
+        d.showNotification(U.lf("Downloading..."));
         pxt.tickEvent("hid.flash.start");
         return Promise.resolve()
             .then(() => {
@@ -508,7 +481,7 @@ namespace pxt.editor {
                         .then(() => {
                             return resp.confirmAsync({
                                 header: lf("Something went wrong..."),
-                                body: lf("Flashing your {0} took too long. Please disconnect your {0} from your computer and reconnect it, then flash using drag and drop.", pxt.appTarget.appTheme.boardName || lf("device")),
+                                body: lf("One-click download took too long. Please disconnect your {0} from your computer and reconnect it, then manually download your program using drag and drop.", pxt.appTarget.appTheme.boardName || lf("device")),
                                 disagreeLbl: lf("Ok"),
                                 hideAgree: true
                             });
@@ -516,19 +489,73 @@ namespace pxt.editor {
                         .then(() => {
                             return pxt.commands.saveOnlyAsync(resp);
                         });
+                } else if (e.isUserError) {
+                    d.reportError(e.message);
+                    return Promise.resolve();
                 } else {
                     pxt.tickEvent("hid.flash.unknownerror");
                     return resp.confirmAsync({
-                        header: U.lf("We cannot flash your program..."),
-                        body: U.lf("Please flash your device using drag and drop this time. Automatic flashing might work afterwards."),
+                        header: U.lf("Something went wrong..."),
+                        body: U.lf("Please manually download your program to your device using drag and drop. One-click download might work afterwards."),
                         disagreeLbl: lf("Ok"),
                         hideAgree: true
                     })
                         .then(() => {
-                            return saveHexAsync();
+                            return pxt.commands.saveOnlyAsync(resp);
                         });
                 }
             });
+    }
+
+    function getFlashChecksumsAsync(wrap: DAPWrapper) {
+        log("getting existing flash checksums")
+        let pages = numPages
+        return wrap.cortexM.runCode(computeChecksums2, loadAddr, loadAddr + 1, 0xffffffff, stackAddr, true,
+            dataAddr, 0, pageSize, pages)
+            .then(() => wrap.cortexM.memory.readBlock(dataAddr, pages * 2, pageSize))
+    }
+
+    function onlyChanged(blocks: UF2.Block[], checksums: Uint8Array) {
+        return blocks.filter(b => {
+            let idx = b.targetAddr / pageSize
+            U.assert((idx | 0) == idx)
+            U.assert(b.data.length == pageSize)
+            if (idx * 8 + 8 > checksums.length)
+                return true // out of range?
+            let c0 = HF2.read32(checksums, idx * 8)
+            let c1 = HF2.read32(checksums, idx * 8 + 4)
+            let ch = murmur3_core(b.data)
+            if (c0 == ch[0] && c1 == ch[1])
+                return false
+            return true
+        })
+    }
+
+    export function deployCoreAsync(resp: pxtc.CompileResult, d: pxt.commands.DeployOptions = {}): Promise<void> {
+        const saveHexAsync = () => {
+            return pxt.commands.saveOnlyAsync(resp);
+        };
+        return Promise.resolve()
+            .then(() => {
+                const isUwp = !!(window as any).Windows;
+                if (isUwp) {
+                    // Go straight to flashing
+                    return flashAsync(resp, d);
+                }
+                if (!pxt.usb.isEnabled) {
+                    return saveHexAsync();
+                }
+                return pxt.usb.isPairedAsync()
+                    .then((isPaired) => {
+                        if (isPaired) {
+                            // Already paired from earlier in the session or from previous session
+                            return flashAsync(resp, d);
+                        }
+
+                        // No device paired, prompt user
+                        return saveHexAsync();
+                    });
+            })
     }
 
     /**
@@ -798,6 +825,7 @@ namespace pxt.editor {
 
         res.blocklyPatch = patchBlocks;
         res.showUploadInstructionsAsync = showUploadInstructionsAsync;
+        res.webUsbPairDialogAsync = webUsbPairDialogAsync;
         return Promise.resolve<pxt.editor.ExtensionResult>(res);
     }
 
@@ -832,29 +860,96 @@ namespace pxt.editor {
         valueNode.appendChild(s);
     }
 
-    function showUploadInstructionsAsync(fn: string, url: string, confirmAsync: (options: any) => Promise<number>) {
+    function webUsbPairDialogAsync(confirmAsync: (options: any) => Promise<number>): Promise<number> {
         const boardName = pxt.appTarget.appTheme.boardName || "???";
-        const boardDriveName = pxt.appTarget.appTheme.driveDisplayName || pxt.appTarget.compile.driveName || "???";
-        const canWebusb = pxt.usb.isEnabled;
-
-        // https://msdn.microsoft.com/en-us/library/cc848897.aspx
-        // "For security reasons, data URIs are restricted to downloaded resources. 
-        // Data URIs cannot be used for navigation, for scripting, or to populate frame or iframe elements"
-        const downloadAgain = false // !pxt.BrowserUtils.isIE() && !pxt.BrowserUtils.isEdge();
-        const docUrl = pxt.appTarget.appTheme.usbDocs;
-        const columns = canWebusb ? "eleven" : "sixteen";
-
         const htmlBody = `
         <div class="ui grid stackable">
-            ${canWebusb ? `<div class="column five wide" style="background-color: #E2E2E2;">
-                <div class="ui header">${lf("One click download?")}</div>
-                <strong style="font-size:small">${lf("Pair your device to download instantly.")}</strong>
+            <div class="column five wide" style="background-color: #FFFFCE;">
+                <div class="ui header">${lf("First time here?")}</div>
+                <strong style="font-size:small">${lf("You must have version 0248 or above of the firmware")}</strong>
                 <div style="justify-content: center;display: flex;padding: 1rem;">
                     <img class="ui image" src="./static/download/firmware.png" style="height:100px;" />
                 </div>
                 <a href="https://support.microbit.org/support/solutions/articles/19000084059-beta-testing-web-usb" target="_blank">${lf("Check your firmware version here and update if needed")}</a>
-            </div>` : ''}
-            <div class="column ${columns} wide">
+            </div>
+            <div class="column eleven wide">
+                <div class="ui grid">
+                    <div class="row">
+                        <div class="column">
+                            <div class="ui two column grid padded">
+                                <div class="column">
+                                    <div class="ui">
+                                        <div class="image">
+                                            <img class="ui medium rounded image" src="./static/download/connect.png" style="margin-bottom:1rem;" />
+                                        </div>
+                                        <div class="content">
+                                            <div class="description">
+                                                <span class="ui purple circular label">1</span>
+                                                <strong>${lf("Connect the {0} to your computer with a USB cable", boardName)}</strong>
+                                                <br />
+                                                <span style="font-size:small">${lf("Use the microUSB port on the top of the {0}", boardName)}</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="column">
+                                    <div class="ui">
+                                        <div class="image">
+                                            <img class="ui medium rounded image" src="./static/download/pair.png" style="margin-bottom:1rem;" />
+                                        </div>
+                                        <div class="content">
+                                            <div class="description">
+                                                <span class="ui purple circular label">2</span>
+                                                <strong>${lf("Pair your {0}", boardName)}</strong>
+                                                <br />
+                                                <span style="font-size:small">${lf("Click 'Pair device' below and select <strong>BBC micro:bit CMSIS-DAP</strong> or <strong>DAPLink CMSIS-DAP</strong> from the list")}</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>`;
+
+        const buttons: any[] = [];
+        const docUrl = pxt.appTarget.appTheme.usbDocs;
+        if (docUrl) {
+            buttons.push({
+                label: lf("Help"),
+                icon: "help",
+                className: "lightgrey",
+                url: `${docUrl}/webusb`
+            });
+        }
+
+        return confirmAsync({
+            header: lf("Pair device for one-click downloads"),
+            htmlBody,
+            hasCloseIcon: true,
+            agreeLbl: lf("Pair device"),
+            agreeIcon: "usb",
+            hideCancel: true,
+            className: 'downloaddialog',
+            buttons
+        });
+    }
+
+    function showUploadInstructionsAsync(fn: string, url: string, confirmAsync: (options: any) => Promise<number>) {
+        const boardName = pxt.appTarget.appTheme.boardName || "???";
+        const boardDriveName = pxt.appTarget.appTheme.driveDisplayName || pxt.appTarget.compile.driveName || "???";
+
+        // https://msdn.microsoft.com/en-us/library/cc848897.aspx
+        // "For security reasons, data URIs are restricted to downloaded resources.
+        // Data URIs cannot be used for navigation, for scripting, or to populate frame or iframe elements"
+        const downloadAgain = !pxt.BrowserUtils.isIE() && !pxt.BrowserUtils.isEdge();
+        const docUrl = pxt.appTarget.appTheme.usbDocs;
+
+        const htmlBody = `
+        <div class="ui grid stackable">
+            <div class="column sixteen wide">
                 <div class="ui grid">
                     <div class="row">
                         <div class="column">
@@ -884,7 +979,7 @@ namespace pxt.editor {
                                                 <span class="ui purple circular label">2</span>
                                                 <strong>${lf("Move the .hex file to the {0}", boardName)}</strong>
                                                 <br />
-                                                <span style="font-size:small">${lf("Locate the downloaded .hex file and drag it to the {0} drive", boardDriveName)}</span>
+                                                <span style="font-size:small">${lf("Locate the downloaded .hex file and drag it to the <strong>{0}</strong> drive", boardDriveName)}</span>
                                             </div>
                                         </div>
                                     </div>
@@ -896,33 +991,35 @@ namespace pxt.editor {
             </div>
         </div>`;
 
-        return confirmAsync({
-            header: lf("Download to your micro:bit"),
-            htmlBody,
-            hasCloseIcon: true,
-            hideCancel: true,
-            hideAgree: false,
-            agreeLbl: lf("I got it"),
-            className: 'downloaddialog',
-            buttons: [downloadAgain ? {
+        const buttons: any[] = [];
+
+        if (downloadAgain) {
+            buttons.push({
                 label: fn,
                 icon: "download",
                 className: "lightgrey focused",
                 url,
                 fileName: fn
-            } : undefined, canWebusb ? {
-                label: lf("Pair device"),
-                icon: "usb",
-                className: "lightgrey focused",
-                onclick: () => {
-                    pxt.usb.pairAsync().done();
-                }
-            } : undefined, docUrl ? {
+            });
+        }
+
+        if (docUrl) {
+            buttons.push({
                 label: lf("Help"),
                 icon: "help",
                 className: "lightgrey",
                 url: docUrl
-            } : undefined]
+            });
+        }
+
+        return confirmAsync({
+            header: lf("Download to your {0}", pxt.appTarget.appTheme.boardName),
+            htmlBody,
+            hasCloseIcon: true,
+            hideCancel: true,
+            hideAgree: true,
+            className: 'downloaddialog',
+            buttons
             //timeout: 20000
         }).then(() => { });
     }
