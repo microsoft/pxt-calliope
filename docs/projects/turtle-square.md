@@ -26,7 +26,9 @@ turtle.forward(1)
 ## Drawing a square
 
 If you add enough ``||turtle:turnRight||`` and ``||turtle:forward||`` block, the turtle 
-will eventually draw a square. You can move the blocks in a ``||input:on button pressed||`` to easily run the code again.
+will eventually draw a square. 
+
+You can move the blocks in a ``||input:on button pressed||`` to easily run the code again.
 
 ```blocks
 input.onButtonPressed(Button.A, function() {
