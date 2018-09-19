@@ -15,9 +15,9 @@ Depending on the pattern of living cells at the start of the game, some populati
 
 ## Game of Life simulation in LEDs
 
-A simulation of life in the LED matrix. Use button ``A`` for the next stage of life and button ``B`` to reset.
+Here's a program that simulates cell life in the LED matrix. Use button ``A`` for the next stage of life and button ``B`` to reset.
 
-```blocks
+```typescript
 //https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life
 let lifeChart: Image = null
 
