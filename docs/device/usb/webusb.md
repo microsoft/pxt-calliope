@@ -9,7 +9,7 @@ It allows for a **one-click download** without installing any additional app or 
 
 ## Upgrade your Firmware
 
-Make sure that your @boardname@ is running version **0248** or above of the firmware. Upgrading is as easy as dragging a file and it takes a few seconds to get it done.
+Make sure that your @boardname@ is running version **0250** or above of the firmware. Upgrading is as easy as dragging a file and it takes a few seconds to get it done.
 
 [Check out the instructions to check and upgrade your @boardname@.](https://support.microbit.org/support/solutions/articles/19000084059-beta-testing-web-usb)
 
