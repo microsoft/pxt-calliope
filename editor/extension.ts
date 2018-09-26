@@ -871,7 +871,7 @@ namespace pxt.editor {
                 <div style="justify-content: center;display: flex;padding: 1rem;">
                     <img class="ui image" src="./static/download/firmware.png" style="height:100px;" />
                 </div>
-                <a href="${docUrl}/webusbfirmware" target="_blank">${lf("Check your firmware version here and update if needed")}</a>
+                <a href="${docUrl}/webusb/troubleshoot" target="_blank">${lf("Check your firmware version here and update if needed")}</a>
             </div>
             <div class="column eleven wide">
                 <div class="ui grid">
