@@ -5,7 +5,7 @@ It allows for a **one-click download** without installing any additional app or 
 
 ## Support
 
-* Chrome 65+ for Android, Chrome OS, Linux, macOS and Windows 10.
+* Chrome 65+ browser for Android, Chrome OS, Linux, macOS and Windows 10.
 
 ## Prepare your @boardname@
 
@@ -15,10 +15,10 @@ Make sure that your @boardname@ is running version **0249** or above of the firm
 
 ## Pair your @boardname@
 
-When opening the editor, you need to pair your device to use WebUSB.
+Here are the steps on the supported browsers:
 
 * connect your @boardname@ to your computer with the microUSB cable
-* open a script
+* open a project.
 * open the gearwheel menu and select **Pair device**
 * click on the **Pair device** button and select **BBC micro:bit CMSIS-DAP** or **DAPLink CMSIS-DAP** from the list.
 
