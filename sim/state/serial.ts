@@ -59,6 +59,8 @@ namespace pxsim.serial {
     }
 
     export function readBuffer(length: number) {
+        if (length <= 0)
+            length = 64;
         return pins.createBuffer(length);
     }
 }
