@@ -2,7 +2,7 @@
 
 ### ~ avatar
 
-Having issues pairing your @boardname@ with [WebUSB](/usb/webusb)? Let's try to figure out why!
+Having issues pairing your @boardname@ with [WebUSB](/device/usb/webusb)? Let's try to figure out why!
 
 ### ~
 
@@ -33,7 +33,7 @@ It's possible that the firmware version on the @boardname@ needs an update. Let'
 
 If the version is **0234**, **0241**, **0243** you **NEED** to update the [firmware](/device/firmware) on your @boardname@. Go to **Step 3** and follow the upgrade instructions.
 
-If the version is **0249**, **0250** or higher, **you have the right firmware**. You can create a [support ticket](https://support.microbit.org/support/tickets/new) to notify the Micro:bit Foundation of the problem. **Skip the rest of these steps**.
+If the version is **0249**, **0250** or higher, **you have the right firmware** go to step **4**. 
 
 ## Step 3: Upgrade the firmware
 
@@ -61,6 +61,7 @@ WebUSB is a fairly new feature and may require you to update your browser. Check
 ## Step 5: Pair device
 
 Once you've updated the firmware, open the **Chrome Browser**, go to the editor and click on **Pair Device** in the gearwheel menu.
+See [WebUSB](/device/usb/webusb) for pairing instructions.
 
 Enjoy fast downloads!
 
