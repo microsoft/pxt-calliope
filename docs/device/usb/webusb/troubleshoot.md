@@ -33,7 +33,7 @@ It's possible that the firmware version on the @boardname@ needs an update. Let'
 
 If the version is **0234**, **0241**, **0243** you **NEED** to update the [firmware](/device/firmware) on your @boardname@. Go to **Step 3** and follow the upgrade instructions.
 
-If the version is **0250** or higher, **you have the right firmware**. You can create a [support ticket](https://support.microbit.org/support/tickets/new) to notify the Micro:bit Foundation of the problem. **Skip the rest of these steps**.
+If the version is **0249**, **0250** or higher, **you have the right firmware**. You can create a [support ticket](https://support.microbit.org/support/tickets/new) to notify the Micro:bit Foundation of the problem. **Skip the rest of these steps**.
 
 ## Step 3: Upgrade the firmware
 

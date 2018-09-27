@@ -9,7 +9,7 @@ It allows for a **one-click download** without installing any additional app or 
 
 ## Prepare your @boardname@
 
-Make sure that your @boardname@ is running version **0250** or above of the firmware. Upgrading is as easy as dragging a file and it takes a few seconds to get it done.
+Make sure that your @boardname@ is running version **0249** or above of the firmware. Upgrading is as easy as dragging a file and it takes a few seconds to get it done.
 
 * [Check out the instructions to check and upgrade your @boardname@.](/device/usb/webusb/troubleshoot)
 
