@@ -143,10 +143,12 @@ namespace bluetooth {
     //% parts=bluetooth weight=11 blockGap=8
     //% help=bluetooth/advertise-url blockExternalInputs=1
     void advertiseUrl(String url, int power, bool connectable) {
+#if CONFIG_ENABLED(MICROBIT_BLE_EDDYSTONE_URL)
         power = min(MICROBIT_BLE_POWER_LEVELS-1, max(0, power));
         int8_t level = CALIBRATED_POWERS[power];
         uBit.bleManager.advertiseEddystoneUrl(MSTR(url), level, connectable);
         uBit.bleManager.setTransmitPower(power);
+#endif
     }
 
     /**
@@ -157,12 +159,14 @@ namespace bluetooth {
     */
     //% parts=bluetooth weight=12 advanced=true
     void advertiseUidBuffer(Buffer nsAndInstance, int power, bool connectable) {
+#if CONFIG_ENABLED(MICROBIT_BLE_EDDYSTONE_UID)        
         auto buf = nsAndInstance;
         if (buf->length != 16) return;
 
         power = min(MICROBIT_BLE_POWER_LEVELS-1, max(0, power));
         int8_t level = CALIBRATED_POWERS[power];
         uBit.bleManager.advertiseEddystoneUid((const char*)buf->data, (const char*)buf->data + 10, level, connectable);
+#endif
     }
 
     /**
