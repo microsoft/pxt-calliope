@@ -431,6 +431,13 @@ declare namespace control {
     //% blockId="control_device_serial_number" block="device serial number" weight=9
     //% advanced=true shim=control::deviceSerialNumber
     function deviceSerialNumber(): int32;
+
+    /**
+     * Informs simulator/runtime of a MIDI message
+     * Internal function to support the simulator.
+     */
+    //% part=midioutput block shim=control::__midiSend
+    function __midiSend(buffer: Buffer): void;
 }
 
 
