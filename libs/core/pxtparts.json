@@ -111,16 +111,18 @@
                 "orientation": "+Z"
             }
         ],
-        "instantiation": {
-            "kind": "function",
-            "fullyQualifiedName": "pins.servoWritePin",
-            "argumentRoles": [
-                {
-                    "pinInstantiationIdx": 0,
-                    "partParameter": "name"
-                }
-            ]
-        },
+        "instantiations": [
+            {
+                "kind": "function",
+                "fullyQualifiedName": "pins.servoWritePin,pins.servoSetPulse,PwmOnlyPin.servoWrite,PwmOnlyPin.servoSetPulse,servos.Servo.setAngle,servos.Servo.run,servos.Servo.setPulse",
+                "argumentRoles": [
+                    {
+                        "pinInstantiationIdx": 0,
+                        "partParameter": "name"
+                    }
+                ]
+            }
+        ],
         "assembly": [
             {
                 "part": true,
