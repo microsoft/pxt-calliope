@@ -10,7 +10,9 @@ Here are some cool tutorials to get you started with your @boardname@!
   "url":"/projects/flashing-heart",
   "description": "Make an animated flashing heart.",
   "imageUrl": "/static/mb/projects/a1-display.png",
-  "cardType": "tutorial"
+  "cardType": "tutorial",
+  "label": "New? Start Here!",
+  "labelClass": "purple ribbon large"
 }, {
   "name": "Name Tag",
   "description": "Scroll your name on the screen",
