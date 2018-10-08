@@ -307,7 +307,7 @@ namespace control {
     * Informs simulator/runtime of a MIDI message
     * Internal function to support the simulator.
     */
-    //% part=midioutput block
+    //% part=midioutput blockHidden=1
     void __midiSend(Buffer buffer) {
         // this is a stub to support the simulator
     }

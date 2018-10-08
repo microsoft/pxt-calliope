@@ -437,7 +437,7 @@ declare namespace control {
      * Informs simulator/runtime of a MIDI message
      * Internal function to support the simulator.
      */
-    //% part=midioutput block shim=control::__midiSend
+    //% part=midioutput blockHidden=1 shim=control::__midiSend
     function __midiSend(buffer: Buffer): void;
 }
 
