@@ -10,7 +10,7 @@ basic.forever(() => {
 });
 ```
 
-## Step 2
+## Step 2 @fullscreen
 
 Look at the simulator and make sure it shows up your name on the screen.
 

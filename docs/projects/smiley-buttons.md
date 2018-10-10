@@ -1,6 +1,6 @@
 # Smiley Buttons
 
-## Step 1
+## Step 1 @fullscreen
 
 Place a ``||input:on button pressed||`` block to run code when button **A** is pressed.
 
@@ -9,7 +9,7 @@ input.onButtonPressed(Button.A, () => {
 });
 ```
 
-## Step 2
+## Step 2 @fullscreen
 
 Place a ``||basic:show leds||`` block inside ``||input:on button pressed||`` to display a smiley on the screen. Press the **A** button in the simulator to see the smiley.
 
@@ -25,7 +25,7 @@ input.onButtonPressed(Button.A, () => {
 });
 ```
 
-## Step 3
+## Step 3 @fullscreen
 
 Add ``||input:on button pressed||`` and ``||basic:show leds||`` blocks to display a frowny when button **B** is pressed.
 
@@ -41,7 +41,7 @@ input.onButtonPressed(Button.B, () => {
 });
 ```
 
-## Step 4
+## Step 4 @fullscreen
 
 Add a secret mode that happens when **A** and **B** are pressed together. For this case, add multiple ``||basic:show leds||`` blocks to create an animation.
 
