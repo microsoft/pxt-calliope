@@ -327,7 +327,7 @@
 
 ## #packages
 
-* [Extensions](/Extensions)
+* [Extensions](/extensions)
 
 ## #types
 
