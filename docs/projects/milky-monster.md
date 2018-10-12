@@ -58,4 +58,4 @@ Let's get started!
 
 ## About the author
 
-This project was contributed by Peter Heldens [@peterheldens](https://twitter.com/peterheldens). You can checkout his [@boardname@ makershow](http://aka.ms/microbit-makershow) channel on youtube for more projects.
+This project was contributed by Peter Heldens [@peterheldens](https://twitter.com/peterheldens). You can checkout his [@boardname@ makershow](https://aka.ms/microbit-makershow) channel on youtube for more projects.
