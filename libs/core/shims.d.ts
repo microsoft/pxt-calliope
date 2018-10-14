@@ -454,7 +454,8 @@ declare namespace led {
     //% help=led/plot weight=78
     //% blockId=device_plot block="plot|x %x|y %y" blockGap=8
     //% parts="ledmatrix"
-    //% x.min=0 x.max=4 y.min=0 y.max=4 shim=led::plot
+    //% x.min=0 x.max=4 y.min=0 y.max=4
+    //% x.fieldOptions.precision=1 y.fieldOptions.precision=1 shim=led::plot
     function plot(x: int32, y: int32): void;
 
     /**
