@@ -1,16 +1,14 @@
-# Send Buffer
+# on Received Buffer
 
-Sends a buffer to other @boardname@s in the area connected by radio. The
-maximum buffer length is 19 bytes.
+Run part of a program when the @boardname@ receives a buffer over ``radio``.
 
 ```sig
-radio.sendBuffer(pins.createBuffer(1))
+radio.onReceivedBuffer(function (receivedBuffer) {})
 ```
 
 ## Parameters
 
-* `msg` is a [buffer](/types/buffer) to send by radio.
-
+* **receivedBuffer**: The buffer that was sent in this packet or the empty string if this packet did not contain a string. See [send buffer](/reference/radio/send-buffer)
 
 ## Example: Remote level
 
@@ -44,6 +42,7 @@ radio.onReceivedBuffer(function (receivedBuffer) {
 });
 ```
 
+
 ## ~hint
 
 A radio that can both transmit and receive is called a _transceiver_.
@@ -52,7 +51,7 @@ A radio that can both transmit and receive is called a _transceiver_.
 
 ## See also
 
-[on received buffer](/reference/radio/on-received-buffer)
+[send buffer](/reference/radio/send-buffer)
 
 ```package
 radio
