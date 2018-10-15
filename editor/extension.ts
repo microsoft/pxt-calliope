@@ -786,6 +786,20 @@ namespace pxt.editor {
     initExtensionsAsync = function (opts: pxt.editor.ExtensionOptions): Promise<pxt.editor.ExtensionResult> {
         pxt.debug('loading microbit target extensions...')
 
+        function cantImportAsync(project: pxt.editor.IProjectView) {
+            // this feature is support in v0 only
+            return project.showModalDialogAsync({
+                header: lf("Can't import microbit.co.uk scripts..."),
+                body: lf("Importing microbit.co.uk programs is not supported in this editor anymore. Please open this script in the https://makecode.microbit.org/v0 editor."),
+                buttons: [
+                    {
+                        label: lf("Go to the old editor"),
+                        url: `https://makecode.microbit.org/v0`
+                    }
+                ]
+            }).then(() => project.openHome())
+        }
+
         if (!Math.imul)
             Math.imul = function (a, b) {
                 const ah = (a >>> 16) & 0xffff;
@@ -801,11 +815,17 @@ namespace pxt.editor {
             hexFileImporters: [{
                 id: "blockly",
                 canImport: data => data.meta.cloudId == "microbit.co.uk" && data.meta.editor == "blockly",
-                importAsync: (project, data) => project.createProjectAsync({
-                    filesOverride: {
-                        "main.blocks": data.source
-                    }, name: data.meta.name
-                })
+                importAsync: (project, data) => {
+                    pxt.tickEvent('import.legacyblocks.redirect');
+                    return cantImportAsync(project);
+                }
+            }, {
+                id: "td",
+                canImport: data => data.meta.cloudId == "microbit.co.uk" && data.meta.editor == "touchdevelop",
+                importAsync: (project, data) => {
+                    pxt.tickEvent('import.legacytd.redirect');
+                    return cantImportAsync(project);
+                }
             }]
         };
 
