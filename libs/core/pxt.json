@@ -57,9 +57,9 @@
                     "device_info_service": 1,
                     "eddystone_url": 1,
                     "eddystone_uid": 1,
-                    "open": 1,
+                    "open": 0,
                     "pairing_mode": 1,
-                    "whitelist": 0,
+                    "whitelist": 1,
                     "security_level": "SECURITY_MODE_ENCRYPTION_NO_MITM",
                     "partial_flashing": 1
                 }
@@ -67,24 +67,24 @@
         },
         "userConfigs": [
             {
-                "description": "No Pairing Required (default): Anyone can connect via Bluetooth.",
+                "description": "No Pairing Required: Anyone can connect via Bluetooth.",
                 "config": {
                     "microbit-dal": {
                         "bluetooth": {
-                            "open": null,
-                            "whitelist": null,
+                            "open": 1,
+                            "whitelist": 0,
                             "security_level": null
                         }
                     }
                 }
             },
             {
-                "description": "JustWorks pairing: Pairing is automatic once the pairing is initiated.",
+                "description": "JustWorks pairing (default): Pairing is automatic once the pairing is initiated.",
                 "config": {
                     "microbit-dal": {
                         "bluetooth": {
-                            "open": 0,
-                            "whitelist": 1,
+                            "open": null,
+                            "whitelist": null,
                             "security_level": null
                         }
                     }
