@@ -45,21 +45,7 @@ Place an ``||logic:if||`` block under the ``||math:pick random||`` and check whe
 
 Add a ``||basic:show leds||`` block that shows a picture of a piece of paper. The number `1` will mean paper.
 
-```blocks
-let hand = 0;
-input.onGesture(Gesture.Shake, () => {
-    hand = Math.randomRange(1, 3)
-    if (hand == 1) {
-        basic.showLeds(`
-            # # # # #
-            # . . . #
-            # . . . #
-            # . . . #
-            # # # # #
-            `)
-    }
-})
-```
+![How to drag an if statement](/static/mb/projects/rock-paper-scissors/if.gif)
 
 ## Step 5 @fullscreen
 
