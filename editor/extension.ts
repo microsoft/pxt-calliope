@@ -117,16 +117,18 @@ namespace pxt.editor {
 
         reconnectAsync(first: boolean) {
             // configure serial at 115200
-            if (!first)
-                return this.packetIo.reconnectAsync()
-                    .then(() => this.allocDAP())
-                    .then(() => this.cortexM.init())
-                    .then(() => this.cmsisdap.cmdNums(0x82, [0x00, 0xC2, 0x01, 0x00]))
-                    .then(() => { }, err => { this.useSerial = false })
-            else
-                return this.cortexM.init()
-                    .then(() => this.cmsisdap.cmdNums(0x82, [0x00, 0xC2, 0x01, 0x00]))
-                    .then(() => { }, err => { this.useSerial = false })
+            let p = Promise.resolve();
+            if (!first) {
+                p = this.packetIo.reconnectAsync()
+                    .then(() => this.allocDAP());
+            }
+
+            return p
+                .then(() => this.cortexM.init())
+                .then(() => {
+                    return this.cmsisdap.cmdNums(0x82, [0x00, 0xC2, 0x01, 0x00])
+                        .then(() => { this.useSerial = true }, (err: any) => { this.useSerial = false; });
+                });
         }
 
         disconnectAsync() {
@@ -157,7 +159,8 @@ namespace pxt.editor {
     let previousDapWrapper: DAPWrapper;
     function dapAsync() {
         if (previousDapWrapper)
-            return Promise.resolve(previousDapWrapper)
+            return previousDapWrapper.reconnectAsync(false) // Always fully reconnect to handle device unplugged mid-session
+                .then(() => previousDapWrapper);
         return Promise.resolve()
             .then(() => {
                 if (previousDapWrapper) {
@@ -648,7 +651,7 @@ namespace pxt.editor {
 
   converts to
 
-    <block type="radio_on_number" x="196" y="208">
+  <block type="radio_on_number" x="196" y="208">
     <field name="HANDLER_receivedNumber" id="DCy(W;1)*jLWQUpoy4Mm" variabletype="">receivedNumber</field>
   </block>
   <block type="radio_on_value" x="134" y="408">
