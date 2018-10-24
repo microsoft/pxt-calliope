@@ -39,7 +39,13 @@
         "preferredRepos": [
             "Microsoft/pxt-neopixel",
             "Microsoft/pxt-microturtle"
-        ]
+        ],
+        "approvedReleases": {
+            "v0": [
+                "Microsoft/pxt-neopixel#v0.6.10",
+                "Microsoft/pxt-neopixel#v0.0.9"
+            ]
+        }
     },
     "languages": [
         "en",
