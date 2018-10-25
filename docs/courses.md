@@ -20,7 +20,7 @@ Structured courses for teaching science and technology in the classroom.
 }, {
   "name": "Learn All About micro:bit",
   "description": "Projects and integration notes for a student-led workshop from the Beacon Hill School",
-  "url": "https://drive.google.com/drive/folders/1hVyEQ1YcxtzYjVNAjS_JmzcoLVXjrPzy",
+  "url": "https://goo.gl/XTPYpP",
   "imageUrl": "/static/courses/beaconhill.jpg"
 }]
 ```
