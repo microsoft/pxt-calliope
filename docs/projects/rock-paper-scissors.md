@@ -4,8 +4,7 @@
 
 ![Cartoon of the Rock Paper Scissors game](/static/mb/projects/a4-motion.png)
 
-Use the accelerometer and the screen to build a **Rock Paper Scissors** game
-that you can play with your friends!
+Use the accelerometer and the screen to build a **Rock Paper Scissors** game that you can play with your friends!
 
 ## Step 1 @fullscreen
 
@@ -19,15 +18,13 @@ input.onGesture(Gesture.Shake, () => {
 
 ## Step 2 @fullscreen
 
-Add a ``hand`` variable 
-and place the ``||variables:set hand to||`` block in the shake event.
+Add a ``hand`` variable and place the ``||variables:set hand to||`` block in the shake event.
 
 ![A animation that shows how to create a variable](/static/mb/projects/rock-paper-scissors/newvar.gif)
 
 ## Step 3 @fullscreen
 
-Add a ``||math:pick random||`` block to pick a random number from `1` to `3` and
-store it in the variable named ``hand``.
+Add a ``||math:pick random||`` block to pick a random number from `1` to `3` and store it in the variable named ``hand``.
 
 ```blocks
 let hand = 0;
@@ -41,9 +38,7 @@ In a later step, each of the possible numbers (`1`, `2`, or `3`) is matched to i
 
 ## Step 4 @fullscreen
 
-Place an ``||logic:if||`` block under the ``||math:pick random||`` and check whether ``hand`` is equal to ``1``.
-
-Add a ``||basic:show leds||`` block that shows a picture of a piece of paper. The number `1` will mean paper.
+Place an ``||logic:if||`` block under the ``||math:pick random||`` and check whether ``hand`` is equal to ``1``. Add a ``||basic:show leds||`` block that shows a picture of a piece of paper. The number `1` will mean paper.
 
 ![How to drag an if statement](/static/mb/projects/rock-paper-scissors/if.gif)
 
