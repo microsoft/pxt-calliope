@@ -36,7 +36,7 @@ Here are some cool projects that you can build with your @boardname@!
 }, {
   "name": "Red Light Green Light",
   "url": "/projects/red-light-green-light",
-  "description": "Play the classic game with your @boardname@.",
+  "description": "Play the classic game with your micro:bit.",
   "imageUrl": "/static/mb/projects/red-light-green-light.png"
 }, {
   "name": "Voting Machine",
