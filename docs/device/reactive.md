@@ -148,17 +148,18 @@ Through this example, we have seen that the micro:bit scheduler enables you to c
 As a result, you can easily add a new capability to the micro:bit by just adding a new subprogram. For example, if you want to add a reset feature to the counter program, all you need to do is add a new event handler for a press of button **B** that sets the global variable "count" to zero, as shown below:
 
 ```typescript
-function countButtonPressesWithReset() {
-    let count = 0
-    input.onButtonPressed(Button.A, () => {
-        count = count + 1
-    })
-    basic.forever(() => {
-        basic.showNumber(count)
-    })
-    input.onButtonPressed(Button.B, () => {
-        count = 0
-    })
-}
+let count = 0
+
+input.onButtonPressed(Button.A, () => {
+    count = count + 1
+})
+
+basic.forever(() => {
+    basic.showNumber(count)
+})
+
+input.onButtonPressed(Button.B, () => {
+    count = 0
+})
 ```
 
