@@ -48,7 +48,7 @@ The micro:bit’s *scheduler* provides the capability to concurrently execute di
 
 The first job of the scheduler is to allow multiple *subprograms* to be queued up for later execution. For our purposes, a subprogram is just a statement or sequence of statements in the context of a larger program. Consider the program below for counting button presses.
 
-```blocks
+```typescript
 let count = 0
 count = 0
 input.onButtonPressed(Button.A, () => {
@@ -62,13 +62,13 @@ basic.forever(() => {
 The program above contains three statements that execute in order from top to bottom. 
 The first statement initializes the global variable `count` to zero.
 
-```blocks
+```typescript
 let count = 0
 ```
 
 The second statement informs the scheduler that on each and every event of the **A** button being pressed, a subprogram (called the event handler) should be queued for execution. The event handler is contained within the braces `{...}`; it increments the global variable `count` by one.  
 
-```blocks
+```typescript
 let count = 0
 // ...
 input.onButtonPressed(Button.A, () => {
@@ -78,7 +78,7 @@ input.onButtonPressed(Button.A, () => {
 
 The third statement queues a `forever` loop for later execution by the scheduler; the body of this loop (also inside the braces `{...}`) displays the current value of global variable `count` on the LED screen.
 
-```blocks
+```typescript
 let count = 0
 // ...
 basic.forever(() => {
