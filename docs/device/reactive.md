@@ -50,10 +50,11 @@ The first job of the scheduler is to allow multiple *subprograms* to be queued u
 
 ```typescript
 let count = 0
-count = 0
+
 input.onButtonPressed(Button.A, () => {
     count++;
 })
+
 basic.forever(() => {
     basic.showNumber(count)
 })
