@@ -135,13 +135,13 @@ The property of such round-robin scheduling is that under the assumption that ev
 
 ## Putting it all together
 
-Let’s go back to the `count button presses` program and revisit its execution based on what we have learned about the micro:bit scheduler. As detailed before, the function executes three steps to:
+Let’s go back to the `count button presses` program and revisit its execution based on what we have learned about the micro:bit scheduler. As detailed before, the program executes three steps to:
 
-1. Set up the event handler for each press of button **A**
-2. Queue the forever loop to the run queue
-3. Initialize the global variable `count` to zero
+1. Initialize the global variable `count` to zero
+2. Set up the event handler for each press of button **A**
+3. Queue the forever loop to the run queue
 
-The function then ends execution and control passes back to the scheduler.  Let’s assume the user has not pressed any buttons . The scheduler finds the `forever` loop in the run queue and passes control to it. The loop first calls `basic.showNumber(0)`.  In the diagram below, we use “Show 0” to refer to the execution of this function:
+The program then ends execution and control passes back to the scheduler.  Let’s assume the user has not pressed any buttons . The scheduler finds the `forever` loop in the run queue and passes control to it. The loop first calls `basic.showNumber(0)`.  In the diagram below, we use “Show 0” to refer to the execution of this function:
 
 ![Execution sequence diagram: display loop with increment and interrupt](/static/mb/device/reactive-3.png)
 
