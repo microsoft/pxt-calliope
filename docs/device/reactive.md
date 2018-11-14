@@ -64,14 +64,16 @@ The program above contains three statements that execute in order from top to bo
 The first statement initializes the global variable `count` to zero.
 
 ```typescript
+// statement 1
 let count = 0
 ```
 
-The second statement informs the scheduler that on each and every event of the **A** button being pressed, a subprogram (called the event handler) should be queued for execution. The event handler is contained within the braces `{...}`; it increments the global variable `count` by one.  
+The second statement informs the scheduler that on each and every event of the **A** button being pressed, a subprogram (called the event handler) should be queued for execution. The event handler code is contained within the braces `{...}`; it increments the global variable `count` by one.  
 
 ```typescript
+// statement 1
 let count = 0
-// ...
+// statement 2
 input.onButtonPressed(Button.A, () => {
     count++;
 })
@@ -80,15 +82,19 @@ input.onButtonPressed(Button.A, () => {
 The third statement queues a `forever` loop for later execution by the scheduler; the body of this loop (also inside the braces `{...}`) displays the current value of global variable `count` on the LED screen.
 
 ```typescript
+// statement 1
 let count = 0
-// ...
+// statement 2
+input.onButtonPressed(Button.A, () => {
+    count++;
+})
+// statement 3
 basic.forever(() => {
     basic.showNumber(count)
 })
 ```
 
-
-The function ends after the execution of these three statements, but this is not the end of program execution!  That’s because the function queued the `forever` loop for execution by the scheduler.
+There are no more statements after the execution of these three statements, but this is not the end of program execution!  That’s because the program queued the `forever` loop for execution by the scheduler (and registered an event handler for presses of button A).
 
 The second job of the scheduler is to periodically interrupt execution to read (poll) the various inputs to the micro:bit (the buttons, pins, etc.) and fire off events (such as “button A pressed”). Recall that the firing of an event causes the event handler subprogram associated with that event to be queued for later execution. The scheduler uses a timer built into the micro:bit hardware to interrupt execution every 6 milliseconds and poll the inputs, which is more than fast enough to catch the quickest press of a button.
 
@@ -115,7 +121,7 @@ function forever(body: () => void) {
 }
 ```
 
-The `forever` loop actually is a function that takes a subprogram as a parameter. The function uses the `control.inBackground` function of the micro:bit runtime to queue a `while true` loop for execution by the scheduler. The while loop has two statements. The first statement runs the subprogram represented by the `body` parameter. The second statement passes control to the scheduler (requesting to “sleep” for 20 milliseconds).
+The `forever` loop actually is a function that takes a subprogram (another function) as a parameter. The function uses the `control.inBackground` function of the micro:bit runtime to queue a `while true` loop for execution by the scheduler. The while loop has two statements. The first statement runs the subprogram represented by the `body` parameter. The second statement passes control to the scheduler (requesting to “sleep” for 20 milliseconds).
 
 Though the `while true` loop will repeatedly execute the body subprogram, between each execution of the body it will permit the scheduler to execute other subprograms.  If the while loop did not contain the call to `pause`, then once control passed into the while loop, it would never pass back to the scheduler and no other subprogram would be able to execute (unless the body subprogram contained a call to `pause` itself).
 
