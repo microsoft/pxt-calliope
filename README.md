@@ -2,7 +2,9 @@
 
 [![Build Status](https://travis-ci.org/Microsoft/pxt-microbit.svg?branch=master)](https://travis-ci.org/Microsoft/pxt-microbit)
 
-pxt-microbit is a [Microsoft Programming Experience Toolkit (PXT)](https://github.com/Microsoft/pxt) target that allows you to program a [BBC micro:bit](https://microbit.org/). pxt-microbit v1.x requires pxt v4.x, which is currently in the [master branch of pxt](https://github.com/Microsoft/pxt/tree/master).
+pxt-microbit is a [Microsoft Programming Experience Toolkit (PXT)](https://github.com/Microsoft/pxt) target that allows you to program a [BBC micro:bit](https://microbit.org/). 
+* pxt-microbit ``v1.*`` requires pxt v4.x, which is currently in the [master branch of pxt](https://github.com/Microsoft/pxt/tree/master).
+* pxt-microbit ``v0.*`` is in the [v0 branch of this repository](https://github.com/microsoft/pxt-microbit/tree/v0)
 
 * [Try it live](https://makecode.microbit.org/)
 
@@ -10,14 +12,20 @@ pxt-microbit is a [Microsoft Programming Experience Toolkit (PXT)](https://githu
 
 Please add an issue if you discover an (unreported) bug.
 
+## Developing new extensions
+
+Authoring and testing of new extensions can be done directly from the web editor. See [our documentation](https://makecode.com/blog/github-packages) on how to get started. If you want to run the editor locally, keep reading.
+
 ## Local server
 
-The local server lets you to run the editor and serve the documentation from your own computer.
+The local server lets you to run the editor and serve the documentation from your own computer. It is meant for a single developer used and not designed to serve the editor to a large amount of users.
 
-### Setup
+### Developer Setup
+
+This is the typical setup used by the MakeCode team to work on the microbit.
 
 1. Install [Node.js](https://nodejs.org/) 8.9.4 or higher.
-2. Install [Yotta](http://docs.yottabuild.org/) if you are going to edit any `.cpp` files.
+2. Install [Docker](https://www.docker.com/get-started) if you plan to build ``.cpp`` files.
 3. Clone the pxt repository.
 ```
 git clone https://github.com/microsoft/pxt
@@ -36,9 +44,9 @@ cd pxt-common-packages
 npm install
 cd ..
 ```
-6. Clone the `master` branch of this repository.
+6. Clone this repository.
 ```
-git clone https://github.com/microsoft/pxt-microbit --branch master
+git clone https://github.com/microsoft/pxt-microbit
 cd pxt-microbit
 ```
 7. Install the PXT command line (add `sudo` for Mac/Linux shells).
@@ -74,7 +82,19 @@ Otherwise, the editor will not be able to load the projects.
 
 If you need to modify the `.cpp` files (and have installed yotta), enable yotta compilation using the `--localbuild` flag:
 ```
-pxt serve --localbuild
+pxt serve --local
+```
+
+If you want to speed up the build, you can use the ``rebundle`` option, which skips building and simply refreshes the target information
+```
+pxt serve --rebundle
+```
+
+### Cleaning
+
+Sometimes, your built folder might be in a bad state, clean it and try again.
+```
+pxt clean
 ```
 
 ### Updates
