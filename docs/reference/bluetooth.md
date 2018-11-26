@@ -27,6 +27,7 @@ bluetooth.setTransmitPower(7);
 ```cards
 bluetooth.startUartService();
 bluetooth.uartReadUntil("");
+bluetooth.uartWriteLine("");
 bluetooth.uartWriteString("");
 bluetooth.uartWriteNumber(0);
 bluetooth.uartWriteValue("", 0);
@@ -50,6 +51,7 @@ For more advanced information on the @boardname@ Bluetooth UART service includin
 [startAccelerometerService](/reference/bluetooth/start-accelerometer-service), [startButtonService](/reference/bluetooth/start-button-service), [startIOPinService](/reference/bluetooth/start-io-pin-service), [startLEDService](/reference/bluetooth/start-led-service), [startMagnetometerService](/reference/bluetooth/start-magnetometer-service), [startTemperatureService](/reference/bluetooth/start-temperature-service), 
 [startUartService](/reference/bluetooth/start-uart-service),
 [uartReadUntil](/reference/bluetooth/uart-read-until), 
+[uartWriteLine](/reference/bluetooth/uart-write-line), 
 [uartWriteString](/reference/bluetooth/uart-write-string), 
 [uartWriteNumber](/reference/bluetooth/uart-write-number), 
 [uartWriteValue](/reference/bluetooth/uart-write-value), 
