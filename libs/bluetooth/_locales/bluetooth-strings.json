@@ -14,6 +14,7 @@
   "bluetooth.startUartService|block": "bluetooth uart service",
   "bluetooth.stopAdvertising|block": "bluetooth stop advertising",
   "bluetooth.uartReadUntil|block": "bluetooth uart|read until %del=serial_delimiter_conv",
+  "bluetooth.uartWriteLine|block": "bluetooth uart|write line %data",
   "bluetooth.uartWriteNumber|block": "bluetooth uart|write number %value",
   "bluetooth.uartWriteString|block": "bluetooth uart|write string %data",
   "bluetooth.uartWriteValue|block": "bluetooth uart|write value %name|= %value",
