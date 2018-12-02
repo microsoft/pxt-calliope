@@ -8,6 +8,26 @@ Check out [microbit.org](http://microbit.org/resellers/) for more information on
 
 ```codecard
 [{
+  "name": "Kitronik :MOVE mini",
+  "url":"/pkg/KitronikLtd/pxt-kitronik-servo-lite",
+  "cardType": "package"
+},
+{
+  "name": "Kitronik Integrated Robotics Board",
+  "url":"/pkg/KitronikLtd/pxt-kitronik-robotics-board",
+  "cardType": "package"
+},
+{
+  "name": "Kitronik Motor Driver Board",
+  "url":"/pkg/KitronikLtd/pxt-kitronik-motor-driver",
+  "cardType": "package"
+},
+{
+  "name": "Kitronik 16 Servo Board",
+  "url":"/pkg/KitronikLtd/pxt-kitronik-i2c-16-servo",
+  "cardType": "package"
+},
+{
   "name": "4tronix BitBot",
   "url":"/pkg/4tronix/BitBot",
   "cardType": "package"
@@ -67,6 +87,16 @@ Check out [microbit.org](http://microbit.org/resellers/) for more information on
 
 ```codecard
 [{
+  "name": "Kitronik :GAME ZIP64",
+  "url":"/pkg/KitronikLtd/pxt-kitronik-zip-64",
+  "cardType": "package"
+},
+{
+  "name": "Kitronik :GAME Controller",
+  "url":"/pkg/KitronikLtd/pxt-kitronik-game-controller",
+  "cardType": "package"
+},
+{
   "name": "Sparkfun Gamer:bit",
   "url":"/pkg/sparkfun/pxt-gamer-bit",
   "cardType": "package"
@@ -77,6 +107,36 @@ Check out [microbit.org](http://microbit.org/resellers/) for more information on
 
 ```codecard
 [{
+  "name": "Kitronik Realtime Clock",
+  "url":"/pkg/KitronikLtd/pxt-kitronik-rtc",
+  "cardType": "package"
+},
+{
+  "name": "Kitronik Klimate Board",
+  "url":"/pkg/KitronikLtd/pxt-kitronik-klimate",
+  "cardType": "package"
+},
+{
+  "name": "Kitronik Klef Piano",
+  "url":"/pkg/KitronikLtd/pxt-kitronik-klef-piano",
+  "cardType": "package"
+},
+{
+  "name": "Kitronik Stop:Bit",
+  "url":"/pkg/KitronikLtd/pxt-kitronik-stopbit",
+  "cardType": "package"
+},
+{
+  "name": "Kitronik Lamp:Bit",
+  "url":"/pkg/KitronikLtd/pxt-kitronik-lampbit",
+  "cardType": "package"
+},
+{
+  "name": "Kitronik Access:Bit",
+  "url":"/pkg/KitronikLtd/pxt-kitronik-accessbit",
+  "cardType": "package"
+},
+{
   "name": "micro:turtle",
   "url":"/pkg/microsoft/pxt-microturtle",
   "cardType": "package"
