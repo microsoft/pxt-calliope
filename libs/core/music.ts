@@ -127,7 +127,7 @@ enum BeatFraction {
 }
 
 enum MelodyOptions {
-    //% block="once""
+    //% block="once"
     Once = 1,
     //% block="forever"
     Forever = 2,
@@ -135,6 +135,15 @@ enum MelodyOptions {
     OnceInBackground = 4,
     //% block="forever in background"
     ForeverInBackground = 8
+}
+
+enum MelodyStopOptions {
+    //% block="all"
+    All = MelodyOptions.Once | MelodyOptions.OnceInBackground,
+    //% block="foreground"
+    Foreground = MelodyOptions.Once,
+    //% block="background"
+    Background = MelodyOptions.OnceInBackground
 }
 
 enum MusicEvent {
@@ -347,6 +356,20 @@ namespace music {
                 currentMelody = null;
             })
         }
+    }
+
+    /**
+     * Stops the melodies
+     * @param options which melody to stop
+     */
+    //% help=music/stop-melody weight=59 blockGap=16
+    //% blockId=device_stop_melody block="stop melody $options"
+    //% parts="headphone"
+    export function stopMelody(options: MelodyStopOptions) {
+        if (options & MelodyStopOptions.Foreground)
+            beginMelody([], MelodyOptions.Once);
+        if (options & MelodyStopOptions.Background)
+            beginMelody([], MelodyOptions.OnceInBackground);
     }
 
     /**
