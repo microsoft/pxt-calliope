@@ -2,11 +2,14 @@
 
 ## Introduction @unplugged
 
+Let's turn the @boardname@ into a dice!
+(Want to learn how the accelerometer works? [Watch this video](https://youtu.be/byngcwjO51U)).
+
 ![A microbit dice](/static/mb/projects/dice.png)
 
-Let's turn the @boardname@ into a dice! To do this, we need 3 pieces of code: one to detect a throw (shake), another to pick a random number, and then one to show the number.
-
 ## Step 1 @fullscreen
+
+We need 3 pieces of code: one to detect a throw (shake), another to pick a random number, and then one to show the number.
 
 Place the ``||input:on shake||`` block onto the editor workspace. It runs code when you shake the @boardname@.
 
