@@ -84,7 +84,7 @@ input.onGesture(Gesture.Shake, () => {
 
 ## Step 8 @fullscreen
 
-Click the ``+`` button again to add an ``||logic:else if||`` section. Now, add a conditional block for ``||logic:hand = 1||`` to the condition in ``||logic:else if||``. Since ``hand`` can only be `1`, `2`, or `3`, your code is covering all possible cases!
+Click the ``+`` button again to add an ``||logic:else if||`` section. Now, add a conditional block for ``||logic:hand = 2||`` to the condition in ``||logic:else if||``. Since ``hand`` can only be `1`, `2`, or `3`, your code is covering all possible cases!
 
 ![Adding an else if clause](/static/mb/projects/rock-paper-scissors/ifelseif.gif)
 
