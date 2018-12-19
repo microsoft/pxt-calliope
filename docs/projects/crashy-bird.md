@@ -91,7 +91,8 @@ input.onButtonPressed(Button.B, () => {
 ## Step 4: Make obstacles move
 
 Access each obstacle using a ``||for element||`` loop (_iterate_ over the `obstacles` array) and decrease the `obstacle` `X` coordinate by 1. 
-Right click on the ``||value||`` and rename it to ``||obstacle||``.
+Right click on the ``||value||`` block and rename it to ``||obstacle||``
+; then drag that ``||obstacle||`` block on top of ``||sprite||`` in the ``||game:change x||`` block.
 
 ```blocks
 let obstacles: game.LedSprite[] = []
