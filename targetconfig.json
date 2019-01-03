@@ -116,6 +116,6 @@
         "Behind the MakeCode Hardware": "behind-the-makecode-hardware"
     },
     "electronManifest": {
-        "latest": "v1.2.7"
+        "latest": "v1.2.13"
     }
 }
