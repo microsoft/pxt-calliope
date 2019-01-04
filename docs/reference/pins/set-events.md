@@ -1,10 +1,16 @@
-# Set Events
+# set Events
 
 Configure the type of events emitted by a given pin.
 
 ```sig
 pins.setEvents(DigitalPin.P0, PinEventType.Edge);
 ```
+
+### ~ hint
+
+**Simulator**: This function needs real hardware to work with. It's not supported in the simulator.
+
+### ~
 
 ## Parameters
 
@@ -13,8 +19,7 @@ pins.setEvents(DigitalPin.P0, PinEventType.Edge);
 
 ## Example
 
-The following example configures pin ``P0`` and then
-subscribes to the rise and fall events.
+The following example configures pin ``P0`` and then subscribes to the rise and fall events.
 
 ```blocks
 control.onEvent(control.eventSourceId(EventBusSource.MICROBIT_ID_IO_P0),  control.eventValueId(EventBusValue.MICROBIT_PIN_EVT_RISE), () => {

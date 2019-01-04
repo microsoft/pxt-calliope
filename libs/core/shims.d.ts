@@ -608,7 +608,7 @@ declare namespace pins {
     function analogWritePin(name: AnalogPin, value: int32): void;
 
     /**
-     * Configures the Pulse-width modulation (PWM) of the analog output to the given value in **microseconds** or `1/1000` milliseconds.
+     * Configure the pulse-width modulation (PWM) period of the analog output in microseconds.
      * If this pin is not configured as an analog output (using `analog write pin`), the operation has no effect.
      * @param name analog pin to set period to, eg: AnalogPin.P0
      * @param micros period in micro seconds. eg:20000
@@ -620,7 +620,7 @@ declare namespace pins {
     function analogSetPeriod(name: AnalogPin, micros: int32): void;
 
     /**
-     * Configures this pin to a digital input, and generates events where the timestamp is the duration that this pin was either ``high`` or ``low``.
+     * Configure the pin as a digital input and generate an event when the pin is pulsed either high or low.
      * @param name digital pin to register to, eg: DigitalPin.P0
      * @param pulse the value of the pulse, eg: PulseValue.High
      */
@@ -631,7 +631,7 @@ declare namespace pins {
     function onPulsed(name: DigitalPin, pulse: PulseValue, body: () => void): void;
 
     /**
-     * Gets the duration of the last pulse in micro-seconds. This function should be called from a ``onPulsed`` handler.
+     * Get the duration of the last pulse in microseconds. This function should be called from a ``onPulsed`` handler.
      */
     //% help=pins/pulse-duration advanced=true
     //% blockId=pins_pulse_duration block="pulse duration (µs)"
@@ -639,10 +639,10 @@ declare namespace pins {
     function pulseDuration(): int32;
 
     /**
-     * Returns the duration of a pulse in microseconds
+     * Return the duration of a pulse at a pin in microseconds.
      * @param name the pin which measures the pulse, eg: DigitalPin.P0
      * @param value the value of the pulse, eg: PulseValue.High
-     * @param maximum duration in micro-seconds
+     * @param maximum duration in microseconds
      */
     //% blockId="pins_pulse_in" block="pulse in (µs)|pin %name|pulsed %value"
     //% weight=20 advanced=true
@@ -652,7 +652,7 @@ declare namespace pins {
     function pulseIn(name: DigitalPin, value: PulseValue, maxDuration?: int32): int32;
 
     /**
-     * Writes a value to the servo, controlling the shaft accordingly. On a standard servo, this will set the angle of the shaft (in degrees), moving the shaft to that orientation. On a continuous rotation servo, this will set the speed of the servo (with ``0`` being full-speed in one direction, ``180`` being full speed in the other, and a value near ``90`` being no movement).
+     * Write a value to the servo, controlling the shaft accordingly. On a standard servo, this will set the angle of the shaft (in degrees), moving the shaft to that orientation. On a continuous rotation servo, this will set the speed of the servo (with ``0`` being full-speed in one direction, ``180`` being full speed in the other, and a value near ``90`` being no movement).
      * @param name pin to write to, eg: AnalogPin.P0
      * @param value angle or rotation speed, eg:180,90,0
      */
@@ -665,7 +665,7 @@ declare namespace pins {
     function servoWritePin(name: AnalogPin, value: int32): void;
 
     /**
-     * Configures this IO pin as an analog/pwm output, configures the period to be 20 ms, and sets the pulse width, based on the value it is given **microseconds** or `1/1000` milliseconds.
+     * Configure the IO pin as an analog/pwm output and set a pulse width. The period is 20 ms period and the pulse width is set based on the value given in **microseconds** or `1/1000` milliseconds.
      * @param name pin name
      * @param micros pulse duration in micro seconds, eg:1500
      */
@@ -676,7 +676,7 @@ declare namespace pins {
     function servoSetPulse(name: AnalogPin, micros: int32): void;
 
     /**
-     * Sets the pin used when using `analog pitch` or music.
+     * Set the pin used when using analog pitch or music.
      * @param name pin to modulate pitch from
      */
     //% blockId=device_analog_set_pitch_pin block="analog set pitch pin %name"
@@ -686,7 +686,7 @@ declare namespace pins {
     function analogSetPitchPin(name: AnalogPin): void;
 
     /**
-     * Emits a Pulse-width modulation (PWM) signal to the current pitch pin. Use `analog set pitch pin` to define the pitch pin.
+     * Emit a plse-width modulation (PWM) signal to the current pitch pin. Use `analog set pitch pin` to define the pitch pin.
      * @param frequency frequency to modulate in Hz.
      * @param ms duration of the pitch in milli seconds.
      */
@@ -695,7 +695,7 @@ declare namespace pins {
     function analogPitch(frequency: int32, ms: int32): void;
 
     /**
-     * Configures the pull of this pin.
+     * Configure the pull directiion of of a pin.
      * @param name pin to set the pull mode on, eg: DigitalPin.P0
      * @param pull one of the mbed pull configurations, eg: PinPullMode.PullUp
      */
@@ -706,7 +706,7 @@ declare namespace pins {
     function setPull(name: DigitalPin, pull: PinPullMode): void;
 
     /**
-     * Configures the events emitted by this pin. Events can be subscribed to
+     * Configure the events emitted by this pin. Events can be subscribed to
      * using ``control.onEvent()``.
      * @param name pin to set the event mode on, eg: DigitalPin.P0
      * @param type the type of events for this pin to emit, eg: PinEventType.Edge
@@ -745,7 +745,7 @@ declare namespace pins {
     function spiWrite(value: int32): int32;
 
     /**
-     * Sets the SPI frequency
+     * Set the SPI frequency
      * @param frequency the clock frequency, eg: 1000000
      */
     //% help=pins/spi-frequency weight=4 advanced=true
@@ -753,7 +753,7 @@ declare namespace pins {
     function spiFrequency(frequency: int32): void;
 
     /**
-     * Sets the SPI bits and mode
+     * Set the SPI bits and mode
      * @param bits the number of bits, eg: 8
      * @param mode the mode, eg: 3
      */
@@ -762,7 +762,7 @@ declare namespace pins {
     function spiFormat(bits: int32, mode: int32): void;
 
     /**
-     * Sets the MOSI, MISO, SCK pins used by the SPI instance
+     * Set the MOSI, MISO, SCK pins used by the SPI connection
      *
      */
     //% help=pins/spi-pins weight=2 advanced=true

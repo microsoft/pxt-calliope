@@ -8,11 +8,9 @@ pins.i2cWriteBuffer(0, null, false);
 
 A device connected to the I2C pins on the @boardname@ at the address is selected to write data to. If the device is ready to take in your data, some or all of the data in your buffer is written to it.
 
-### ~hint
+### ~ hint
 
-**Simulator**
-
-This function needs real hardware to work with. It's not supported in the simulator.
+**Simulator**: This function needs real hardware to work with. It's not supported in the simulator.
 
 ### ~
 

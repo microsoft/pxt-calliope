@@ -1,10 +1,20 @@
-# SPI Frequency
+# spi Frequency
 
-Set the SPI clock frequency.
+Set the Serial Peripheral Interface (SPI) clock frequency.
 
 ```sig
 pins.spiFrequency(1000000);
 ```
+
+The @boardname@ sets the rate of data transfer and control timing for a SPI connection. This data rate and timing signal is controlled by the **SCK** pin. The signal on this pin is _clocked_ using the frequency set for it.
+
+### ~ hint
+
+**Simulator**: This function needs real hardware to work with. It's not supported in the simulator.
+
+### ~
+
+The default clock frequency is 1 Mhz (10000000 Hz). You can set the frequency for the SPI connection to some other value if you need a different data rate.
 
 ## Parameters
 
@@ -12,7 +22,7 @@ pins.spiFrequency(1000000);
 
 ## Example
 
-Read the value of the _WHOAMI_ register from the device connected to the SPI bus. The chip select line is connected to pin **0** and the SPI signals use pins **13**, **14**, and **15**.
+Read the value of the _WHOAMI_ register from the device connected to the SPI bus. The chip select line is connected to pin **0** and the SPI signals use pins **P13**, **P14**, and **P15**.
 
 ```blocks
 pins.digitalWritePin(DigitalPin.P0, 1);
@@ -29,4 +39,8 @@ serial.writeLine("WHOAMI register value: " + whoami)
 
 ## See also
 
-[SPI](https://developer.mbed.org/handbook/SPI)
+[spi write](/reference/pins/spi-write),
+[spi pins](/reference/pins/spi-pins),
+[spi format](/reference/pins/spi-format)
+
+[SPI Programming](https://developer.mbed.org/handbook/SPI)

@@ -8,11 +8,9 @@ pins.i2cReadBuffer(0, 0, false);
 
 A device connected to the I2C pins on the @boardname@ at the address is selected to read data from. If it has data available to transfer, the data is received and copied into a buffer for your program to use. Your program says how big (how many bytes to receive) the buffer should be. You won't get back that many bytes of data if the connected device has less to send than what you asked for.
 
-### ~hint
+### ~ hint
 
-**Simulator**
-
-This function needs real hardware to work with. It's not supported in the simulator.
+**Simulator**: This function needs real hardware to work with. It's not supported in the simulator.
 
 ### ~
 

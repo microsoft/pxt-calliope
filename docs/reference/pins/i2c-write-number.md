@@ -6,11 +6,9 @@ Write a number to a device at an I2C address using a specified number format.
 pins.i2cWriteNumber(0, 0, NumberFormat.Int8LE, true);
 ```
 
-### ~hint
+### ~ hint
 
-**Simulator**
-
-This function needs real hardware to work with. It's not supported in the simulator.
+**Simulator**: This function needs real hardware to work with. It's not supported in the simulator.
 
 ### ~
 
