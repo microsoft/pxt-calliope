@@ -68,7 +68,7 @@ input.onGesture(Gesture.Shake, () => {
 Add an ``else if`` block to the ``if`` block and check whether ``tool``
 is equal to ``1``.
 
-Click on the gearwheel icon to open up the ``if`` editor; then drag and drop an ``else if`` block in the ``if`` editor.
+Click on the **(+)** at the bottom of the ``if`` block to add an ``else if`` section.
 
 ```blocks
 let tool = 0;

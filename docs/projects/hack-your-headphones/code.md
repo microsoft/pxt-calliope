@@ -6,16 +6,14 @@ Have you ever tried to making beat box sounds based on the light level? Let's tr
 
 ## ~
 
-Let's start by adding a variable where you can store data. Then rename the variable to "light". Then set the value of the variable to the block `light level` from the Input drawer. This will gets the `light level` from 0 (dark) to 255 (bright). The light is measured by using various LEDs from the screen. Modify your code so that your code looks like this.
+Let's start by adding a variable where you can store data. Name the variable as ``light`` and ``||variables:set||`` the value of the variable to the  ``||input:light level||`` block from the ``||input:Input||`` drawer. This will get the light level as some value between `0` (dark) and `255` (bright). The light is measured by using various LEDs from the screen. Your code will look like this:
 
 
 ```blocks
-input.onButtonPressed(Button.A, () => {
-    let light = input.lightLevel();
-});
+let light = input.lightLevel();
 ```
 
-We want to play music on button pressed in order to register an event handler that will execute whenever when you run a script and click on button pressed on the simulator. We must start by opening the Input drawer and adding `on button pressed` A. Then add a block `rest` to plays nothing for a `1/16` beat. Modify your code so that your code looks like this.
+We also want to play music when the **A** button is pressed. To do that, register an event handler that will execute whenever you click on the **A** button. Open the ``||input:Input||`` drawer and get out an ``||input:on button A pressed||`` block. Next, add a ``||music:rest||`` to play nothing for `1/16` of a beat. Pull the ``||variables:set light||`` block in there too. Your code should look like this:
 
 
 ```blocks
@@ -25,7 +23,10 @@ input.onButtonPressed(Button.A, () => {
 });
 ```
 
-We click on the Logic drawer then insert a `if do` that will conditionally run code depending on whether the Boolean condition is true or false. Then insert the variable `light` into the first part of the inequality. The variable "light" will appear in the Variables drawer. Finally, we insert 25. Modify your code so that your code looks like this. If the `light level` is `less than` 25, play `ring tone` `C`. If this conditions is not true, play `ring tone` `A`.
+Click on the ``||logic:Logic||`` drawer and find an ``||logic:if||`` block to use so that some of your code will run conditionally depending on whether a [Boolean](/types/boolean) condition is either `true` or `false`. Go get the ``||logic:0 < 0||`` comparison block an put it in as the condition for the ``||logic:if||``. Then insert the variable ``||variables:light||`` into the part of the inequality where the first `0` is. You'll find the variable ``||variables:light||`` in the ``||variables:Variables||`` drawer. Finally, insert `25` in the second part of the comparison instead of `0`. Modify your code so that it checks the light level like this:
+
+* If ``||logic:light < 25||``, play ``||music:ring tone||`` for ``Middle C``
+* If this condition is not `true`, play ``||music:ring tone||`` for ``Middle A``
 
 ```blocks
 input.onButtonPressed(Button.A, () => {
@@ -40,7 +41,13 @@ input.onButtonPressed(Button.A, () => {
 });
 ```
 
-We click on the Logic drawer then insert a `less than` sign into the first `if` conditional that will conditionally run code depending on whether the Boolean condition is true or false. Continue this logic to continue with these conditional statements. Click on the Logic drawer. Then we want to add additional conditional statements by clicking on the gear to the left of the `if`. Add 05  `else if` and 01 `else` inside the `if do` block structure.  If the `light level` is `less than` 50, play `ring tone` ``D``. If the `light level` is `less than` 100, play `ring tone` ``E``. If the `light level` is `less than` 150, play `ring tone` ``F`` If the `light level` is `less than` 180, play `ring tone` ``G``. If these conditions are not true, `ring tone` ``A``.
+Now, we want to add more conditional statements by clicking on the **(+)** at the bottom of the `if`. Add **5**  ``||logic:else if||`` and **1** final ``||logic:else||`` inside the ``||logic:if||`` block structure. Set the comparison blocks inside the new conditionals as:
+
+* If ``||logic:light < 50||``, play ``||music:ring tone||`` ``Middle D``
+* If ``||logic:light < 100||``, play ``||music:ring tone||`` ``Middle E``
+* If ``||logic:light < 150||``, play ``||music:ring tone||`` ``Middle F``
+* If ``||logic:light < 180||``, play ``||music:ring tone||`` ``Middle G``
+* If these conditions are not true, play ``||music:ring tone||`` ``Middle A``
 
 ```blocks
 input.onButtonPressed(Button.A, () => {
@@ -67,4 +74,4 @@ input.onButtonPressed(Button.A, () => {
 });
 ```
 
-* click **Download** and run your code on the @boardname@.
+Alright, now click **Download** and run your code on the @boardname@!
