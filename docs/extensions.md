@@ -111,6 +111,11 @@ Check out [microbit.org](http://microbit.org/resellers/) for more information on
   "cardType": "package"
 },
 {
+  "name": "51bit SFC/NES controller",
+  "url":"/pkg/51bit/SFC",
+  "cardType": "package"
+},
+{
   "name": "Pimoroni touch:bit",
   "url":"/pkg/pimoroni/pxt-touchbit",
   "cardType": "package"
