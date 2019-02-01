@@ -52,7 +52,7 @@ Let's make a way to set the hours for the watch.
 
 1. In **Input**, find an ``||input:on button pressed||`` an put it somewhere on the workspace.
 2. Get an ``||logic:if then else||`` block from **Logic** and put it in the ``||input:on button pressed||``.
-3. From the same **Logic** category, get a ``||logic:0 < 0||`` and replace the `false` condition with it.
+3. From the same **Logic** category, get a ``||logic:0 < 0||`` and replace the `true` condition with it.
 4. Change the left `0` in the condition to the `hours` variable. Change `0` on the right to `23`. This limits our hour count to 23 hours.
 5. In the ``||logic:then||`` section, put a ``||variables:change by||`` there. Select the `hours` variable name from the dropdown.
 6. In the ``||logic:else||`` section, put a ``||variables:set to||`` there. Select the `hours` variable name from the dropdown and leave the `0`.
