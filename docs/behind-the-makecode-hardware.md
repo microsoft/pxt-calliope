@@ -27,7 +27,7 @@
     {
         "name": "Light Sensor",
         "description": "Your micro:bit can see the light, how does it do that?",
-        "youTubeId": "TKhCr-dQMB",
+        "youTubeId": "TKhCr-dQMBY",
         "imageUrl": "/static/mb/behindhardware/light-sensor.jpg"
     },
     {
