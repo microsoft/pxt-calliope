@@ -97,7 +97,8 @@
                 "pid": "0x0204"
             }
         ],
-        "webUSB": true
+        "webUSB": true,
+        "useNewFunctions": true
     },
     "runtime": {
         "mathBlocks": true,
@@ -107,6 +108,9 @@
         "textBlocks": true,
         "listsBlocks": true,
         "functionBlocks": true,
+        "functionsOptions": {
+            "useNewFunctions": true
+        },
         "onStartColor": "#1E90FF",
         "onStartNamespace": "basic",
         "onStartWeight": 54
@@ -435,6 +439,7 @@
         },
         "editorVersionPaths": {
             "0": "v0"
-        }
+        },
+        "scriptManager": true
     }
 }
