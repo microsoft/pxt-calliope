@@ -17,6 +17,7 @@
         "workspace": false,
         "packages": true,
         "sharing": true,
+        "thumbnails": true,
         "publishing": true,
         "importing": true,
         "preferredPackages": [
@@ -282,7 +283,9 @@
             "instructions",
             "debugger",
             "bluetoothUartConsole",
-            "bluetoothPartialFlashing"
+            "bluetoothPartialFlashing",
+            "simScreenshot",
+            "simGif"
         ],
         "bluetoothUartFilters": [{
             "namePrefix": "BBC micro:bit"
@@ -440,6 +443,7 @@
         "editorVersionPaths": {
             "0": "v0"
         },
-        "scriptManager": true
+        "scriptManager": true,
+        "simGifTransparent": "rgba(0,0,0,0)"
     }
 }
