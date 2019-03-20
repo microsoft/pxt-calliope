@@ -444,6 +444,8 @@
             "0": "v0"
         },
         "scriptManager": true,
-        "simGifTransparent": "rgba(0,0,0,0)"
+        "simGifTransparent": "rgba(0,0,0,0)",
+        "simGifMaxFrames": 44,
+        "simScreenshotMaxUriLength": 300000
     }
 }

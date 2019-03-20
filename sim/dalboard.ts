@@ -147,8 +147,8 @@ namespace pxsim {
             return Promise.resolve();
         }
 
-        screenshotAsync(): Promise<ImageData> {
-            return this.viewHost.screenshotAsync();
+        screenshotAsync(width?: number): Promise<ImageData> {
+            return this.viewHost.screenshotAsync(width);
         }
     }
 
