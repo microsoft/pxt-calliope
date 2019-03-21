@@ -864,6 +864,20 @@ declare namespace serial {
     //% weight=9 help=serial/redirect-to-usb
     //% blockId=serial_redirect_to_usb block="serial|redirect to USB" shim=serial::redirectToUSB
     function redirectToUSB(): void;
+
+    /**
+     * Sets the size of the RX buffer in bytes
+     * @param size length of the rx buffer in bytes, eg: 32
+     */
+    //% help=serial/set-rx-buffer-size shim=serial::setRxBufferSize
+    function setRxBufferSize(size: uint8): void;
+
+    /**
+     * Sets the size of the TX buffer in bytes
+     * @param size length of the tx buffer in bytes, eg: 32
+     */
+    //% help=serial/set-tx-buffer-size shim=serial::setTxBufferSize
+    function setTxBufferSize(size: uint8): void;
 }
 
 
