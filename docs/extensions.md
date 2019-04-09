@@ -257,6 +257,10 @@ Check out [microbit.org](http://microbit.org/resellers/) for more information on
     "url":"/pkg/Imagimaker/pxt-imagimaker",
     "cardType": "package"
 }, {
+    "name": "DHT11 & DHT22 Temperature and Humidity",
+    "url":"/pkg/alankrantas/pxt-DHT11_DHT22",
+    "cardType": "package"
+}, {
     "name": "gator:light Light sensor",
     "url":"/pkg/sparkfun/pxt-gator-light",
     "cardType": "package"
