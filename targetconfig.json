@@ -121,7 +121,8 @@
             "jcubuntu/pxt-iKB1",
             "KitronikLtd/pxt-kitronik-accessbit",
             "kaku111/pxt-tobbieII",
-            "alankrantas/pxt-DHT11_DHT22"
+            "alankrantas/pxt-DHT11_DHT22",
+            "cgs-matthew-pham/pxt-hitechnic-irseeker-v2"
         ],
         "preferredRepos": [
             "Microsoft/pxt-neopixel",
