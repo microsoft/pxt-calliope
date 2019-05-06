@@ -302,6 +302,10 @@ Check out [microbit.org](http://microbit.org/resellers/) for more information on
   "name": "Pi Supply Lora Node",
   "url":"/pkg/PiSupply/pxt-iot-lora-node",
   "cardType": "package"
+}, {
+  "name": "WiFi:Bit",
+  "url":"/pkg/e-radionicacom/pxt-wifi",
+  "cardType": "package"
 }]
 ```
 
