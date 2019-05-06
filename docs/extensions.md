@@ -277,6 +277,10 @@ Check out [microbit.org](http://microbit.org/resellers/) for more information on
     "url":"/pkg/sparkfun/pxt-gator-temp",
     "cardType": "package"
 }, {
+    "name": "MonkMakes Sensor",
+    "url":"/pkg/monkmakes/pxt-sensor",
+    "cardType": "package"
+}, {
     "name": "ALS Robot Electromagnet",
     "url":"/pkg/alsrobot-microbit-makecode-packages/ALSRobotElectromagnet",
     "cardType": "package"
