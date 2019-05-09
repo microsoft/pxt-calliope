@@ -126,7 +126,8 @@
             "letstalkscience/pxt-cozir",
             "e-radionicacom/pxt-wifi",
             "monkmakes/pxt-sensor",
-            "alankrantas/pxt-Nexusbit"
+            "alankrantas/pxt-Nexusbit",
+            "lionyhw/pxt-cutebot"
         ],
         "preferredRepos": [
             "Microsoft/pxt-neopixel",

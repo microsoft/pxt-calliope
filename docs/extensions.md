@@ -48,6 +48,10 @@ Check out [microbit.org](http://microbit.org/resellers/) for more information on
   "url":"/pkg/chevyng/pxt-ucl-junkrobot",
   "cardType": "package"
 }, {
+  "name": "Elecfreaks Cutebot",
+  "url":"/pkg/lionyhw/pxt-cutebot",
+  "cardType": "package"
+}, {
   "name": "Kittenbot RobotBit",
   "url":"/pkg/kittenbot/pxt-robotbit",
   "cardType": "package"
