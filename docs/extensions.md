@@ -64,6 +64,10 @@ Check out [microbit.org](http://microbit.org/resellers/) for more information on
   "url":"/pkg/k8robotics/pxt-k8",
   "cardType": "package"
 }, {
+  "name": "Freenove Micro:Rover",
+  "url":"/pkg/Freenove/Makecode-Extension-Rover",
+  "cardType": "package"
+}, {
   "name": "Gigglebot",
   "url":"/pkg/dexterind/pxt-giggle",
   "cardType": "package"
