@@ -131,6 +131,7 @@
             "keigan-motor/pxt-KeiganMotor",
             "KitronikLtd/pxt-kitronik-klip-motor",
             "alankrantas/pxt-ESP8266_ThingSpeak",
+            "KitronikLtd/pxt-kitronik-viewtext32",
             "plenprojectcompany/pxt-PLENbit",
             "4tronix/MiniBit",
             "elecfreaks/pxt-wukong"
