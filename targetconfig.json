@@ -132,7 +132,8 @@
             "KitronikLtd/pxt-kitronik-klip-motor",
             "alankrantas/pxt-ESP8266_ThingSpeak",
             "plenprojectcompany/pxt-PLENbit",
-            "4tronix/MiniBit"
+            "4tronix/MiniBit",
+            "elecfreaks/pxt-wukong"
         ],
         "preferredRepos": [
             "Microsoft/pxt-neopixel",
