@@ -342,6 +342,10 @@ Check out [microbit.org](http://microbit.org/resellers/) for more information on
     "url": "/pkg/rebeccaclavier/pxt-bmp280",
     "cardType": "package"
 }, {
+    "name": "LIS2MDL magnetic sensor",
+    "url": "/pkg/makecode-extensions/LIS2MDL",
+    "cardType": "package"
+}, {
     "name": "HTS221 Humidity and temperature",
     "url": "/pkg/makecode-extensions/HTS221",
     "cardType": "package"
