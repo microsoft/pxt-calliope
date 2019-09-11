@@ -346,6 +346,10 @@ Check out [microbit.org](http://microbit.org/resellers/) for more information on
     "url": "/pkg/rebeccaclavier/pxt-bmp280",
     "cardType": "package"
 }, {
+    "name": "STTS751 temperature Sensor",
+    "url": "/pkg/makecode-extensions/STTS751",
+    "cardType": "package"
+}, {    
     "name": "LSM6DSO Accelerometer/Gyroscope",
     "url": "/pkg/makecode-extensions/LSM6DSO",
     "cardType": "package"
