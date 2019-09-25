@@ -140,6 +140,7 @@
             "sparkfun/pxt-gator-soil",
             "sparkfun/pxt-gator-microphone",
             "rebeccaclavier/pxt-bmp280",
+            "xinabox/pxt-SW01",
             "xinabox/pxt-OD01",
             "51bit/dfplayermini",
             "makecode-extensions/STTS751",
