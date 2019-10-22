@@ -55,37 +55,37 @@ namespace radio {
     function init() {
         if (initialized) return;
         initialized = true;
+        onDataReceived(handleDataReceived);
+    }
 
-        onDataReceived(() => {
-            let buffer: Buffer = readRawPacket();
-            while (buffer && buffer.length) {
-                lastPacket = RadioPacket.getPacket(buffer);
-                lastPacket.signal = receivedSignalStrength();
-                switch (lastPacket.packetType) {
-                    case PACKET_TYPE_NUMBER:
-                    case PACKET_TYPE_DOUBLE:
-                        if (onReceivedNumberHandler)
-                            onReceivedNumberHandler(lastPacket.numberPayload);
-                        break;
-                    case PACKET_TYPE_VALUE:
-                    case PACKET_TYPE_DOUBLE_VALUE:
-                        if (onReceivedValueHandler)
-                            onReceivedValueHandler(lastPacket.stringPayload, lastPacket.numberPayload);
-                        break;
-                    case PACKET_TYPE_BUFFER:
-                        if(onReceivedBufferHandler)
-                            onReceivedBufferHandler(lastPacket.bufferPayload);
-                        break;
-                    case PACKET_TYPE_STRING:
-                        if (onReceivedStringHandler)
-                            onReceivedStringHandler(lastPacket.stringPayload);
-                        break;
-                }
+    function handleDataReceived() {
+        let buffer: Buffer = readRawPacket();
+        while (buffer && buffer.length) {
+            lastPacket = RadioPacket.getPacket(buffer);
+            switch (lastPacket.packetType) {
+                case PACKET_TYPE_NUMBER:
+                case PACKET_TYPE_DOUBLE:
+                    if (onReceivedNumberHandler)
+                        onReceivedNumberHandler(lastPacket.numberPayload);
+                    break;
+                case PACKET_TYPE_VALUE:
+                case PACKET_TYPE_DOUBLE_VALUE:
+                    if (onReceivedValueHandler)
+                        onReceivedValueHandler(lastPacket.stringPayload, lastPacket.numberPayload);
+                    break;
+                case PACKET_TYPE_BUFFER:
+                    if (onReceivedBufferHandler)
+                        onReceivedBufferHandler(lastPacket.bufferPayload);
+                    break;
+                case PACKET_TYPE_STRING:
+                    if (onReceivedStringHandler)
+                        onReceivedStringHandler(lastPacket.stringPayload);
+                    break;
+            }
 
                 // read next packet if any
                 buffer = readRawPacket();
-            }
-        })
+        }
     }
 
     /**
@@ -162,6 +162,7 @@ namespace radio {
 
     export class RadioPacket {
         public static getPacket(data: Buffer) {
+            // last 4 bytes is RSSi
             return new RadioPacket(data);
         }
 
@@ -172,10 +173,12 @@ namespace radio {
         }
 
         private constructor(public readonly data?: Buffer) {
-            if (!data) this.data = control.createBuffer(32);
+            if (!data) this.data = control.createBuffer(DAL.MICROBIT_RADIO_MAX_PACKET_SIZE + 4);
         }
 
-        public signal: number;
+        get signal() {
+            return this.data.getNumber(NumberFormat.Int32LE, this.data.length - 4);
+        }
 
         get packetType() {
             return this.data[0];
@@ -356,6 +359,18 @@ namespace radio {
     //% advanced=true
     export function setTransmitSerialNumber(transmit: boolean) {
         transmittingSerial = transmit;
+    }
+
+    /**
+     * Gets the received signal strength indicator (RSSI) from the last packet taken
+     * from the radio queue (via ``receiveNumber``, ``receiveString``, etc). Not supported in simulator.
+     */
+    //% help=radio/received-signal-strength
+    //% weight=40
+    //% blockId=radio_datagram_rssi block="radio received signal strength"
+    //% deprecated=true blockHidden=true
+    export function receivedSignalStrength(): number {
+        return lastPacket ? lastPacket.signal : 0;
     }
 
     export function writeToSerial(packet: RadioPacket) {

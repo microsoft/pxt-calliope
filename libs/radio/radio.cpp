@@ -31,30 +31,40 @@ namespace radio {
     //% help=radio/raise-event
     void raiseEvent(int src, int value) {
         if (radioEnable() != MICROBIT_OK) return;
+
         uBit.radio.event.eventReceived(MicroBitEvent(src, value, CREATE_ONLY));
     }
 
     /**
-     * Takes the next packet from the radio queue and returns its contents in a Buffer
+     * Internal use only. Takes the next packet from the radio queue and returns its contents + RSSI in a Buffer
      */
-    //% help=radio/received-packet
+    //%
     Buffer readRawPacket() {
         if (radioEnable() != MICROBIT_OK) return mkBuffer(NULL, 0);
-        uint8_t buf[32];
-        int size = uBit.radio.datagram.recv(buf, sizeof(buf));
-        if (size <= 0)
+
+        PacketBuffer p = uBit.radio.datagram.recv();
+        if (p == PacketBuffer::EmptyPacket)
             return mkBuffer(NULL, 0);
-        return mkBuffer(buf, size);
+
+        int rssi = p.getRSSI();
+        uint8_t buf[MICROBIT_RADIO_MAX_PACKET_SIZE + sizeof(int)]; // packet length + rssi
+        memset(buf, 0, sizeof(buf));
+        memcpy(buf, p.getBytes(), p.length()); // data
+        memcpy(buf + MICROBIT_RADIO_MAX_PACKET_SIZE, &rssi, sizeof(int)); // RSSi - assumes Int32LE layout
+        return mkBuffer(buf, sizeof(buf));
     }
 
     /**
-     * Sends a raw packet through the radio
+     * Internal use only. Sends a raw packet through the radio (assumes RSSI appened to packet)
      */
-    //% advanced=true
     //% async
     void sendRawPacket(Buffer msg) {
         if (radioEnable() != MICROBIT_OK || NULL == msg) return;
-        uBit.radio.datagram.send(msg->data, msg->length);
+
+        // don't send RSSI data; and make sure no buffer underflow
+        int len = msg->length - sizeof(int);
+        if (len > 0)
+            uBit.radio.datagram.send(msg->data, len);
     }
 
     /**
@@ -66,22 +76,9 @@ namespace radio {
     //% deprecated=true
     void onDataReceived(Action body) {
         if (radioEnable() != MICROBIT_OK) return;
-        registerWithDal(MICROBIT_ID_RADIO, MICROBIT_RADIO_EVT_DATAGRAM, body);
-        readRawPacket();
-    }
 
-    /**
-     * Gets the received signal strength indicator (RSSI) from the last packet taken
-     * from the radio queue (via ``receiveNumber``, ``receiveString``, etc). Not supported in simulator.
-     * namespace=radio
-     */
-    //% help=radio/received-signal-strength
-    //% weight=40
-    //% blockId=radio_datagram_rssi block="radio received signal strength"
-    //% deprecated=true
-    int receivedSignalStrength() {
-        if (radioEnable() != MICROBIT_OK) return 0;
-        return uBit.radio.getRSSI();
+        registerWithDal(MICROBIT_ID_RADIO, MICROBIT_RADIO_EVT_DATAGRAM, body);
+        uBit.radio.datagram.recv(); // wake up read code
     }
 
     /**
@@ -94,6 +91,7 @@ namespace radio {
     //% id.min=0 id.max=255
     void setGroup(int id) {
         if (radioEnable() != MICROBIT_OK) return;
+
         uBit.radio.setGroup(id);
     }
 
@@ -108,6 +106,7 @@ namespace radio {
     //% advanced=true
     void setTransmitPower(int power) {
         if (radioEnable() != MICROBIT_OK) return;
+
         uBit.radio.setTransmitPower(power);
     }
 }
