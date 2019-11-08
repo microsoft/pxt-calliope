@@ -32,7 +32,7 @@ Here's what you'll need. The links telling where to get parts are just examples 
 https://www.youtube.com/watch?v=CKqrMxuZ6gQ
 <br/>
 
-**2. Add in the electronics!** Put on the wheels, then wire up the servos and the battery and the first @boardNam@. Just watch my video to see how. 
+**2. Add in the electronics!** Put on the wheels, then wire up the servos and the battery and the first @boardname@. Just watch my video to see how. 
 
 https://youtu.be/CKqrMxuZ6gQ?t=178
 <br/>
@@ -194,3 +194,7 @@ Here's where you can find all the templates you need to make the Robot Unicorn.
 - STL file for 3D printing your Robot Unicorn horn [is here](https://github.com/helenleigh/robot-unicorn/blob/master/unicorn%20horn%20solid%20base.stl).
 
 ![Robot Unicorn Tail](/static/mb/projects/robot-unicorn/robotunicorntail.jpg)
+
+```package
+radio
+```
