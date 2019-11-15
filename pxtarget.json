@@ -1,6 +1,8 @@
 {
     "id": "calliopemini",
-    "aliases": ["calliope"],
+    "aliases": [
+        "calliope"
+    ],
     "name": " calliope mini",
     "nickname": "mini",
     "title": "Calliope mini - Blocks / Javascript editor",
@@ -60,7 +62,7 @@
         "variablesBlocks": true,
         "textBlocks": true,
         "listsBlocks": true,
-        "functionBlocks": true,        
+        "functionBlocks": true,
         "onStartColor": "#54C9C9",
         "onStartNamespace": "basic",
         "onStartWeight": 54
@@ -123,9 +125,9 @@
                 "C15": "C_P15",
                 "C19": "C_P19",
                 "C20": "C_P20",
-                "EXT_PWR":"EXT_PWR", 
-                "SPKR":"SPKR",
-                "BTN_A": "BTN_A", 
+                "EXT_PWR": "EXT_PWR",
+                "SPKR": "SPKR",
+                "BTN_A": "BTN_A",
                 "BTN_B": "BTN_B",
                 "MOTOR1": "M_OUT1",
                 "MOTOR2": "M_OUT2"
@@ -180,7 +182,7 @@
         "githubCorePackage": "calliope-mini/microbit",
         "gittag": "v2.0.0-rc8-calliope-1.0.3",
         "serviceId": "calliope"
-    },    
+    },
     "serial": {
         "manufacturerFilter": "^mbed$",
         "nameFilter": "^mbed Serial Port",
@@ -212,11 +214,11 @@
         "invertedMenu": true,
         "invertedToolbox": true,
         "monacoToolbox": true,
-        "hasAudio": true,      
-        "highContrast": true,          
+        "hasAudio": true,
+        "highContrast": true,
         "simAnimationEnter": "rotate in",
         "simAnimationExit": "rotate out",
-        "blocklyOptions": { 
+        "blocklyOptions": {
             "grid": {
                 "spacing": 45,
                 "length": 7,
@@ -227,7 +229,6 @@
         "docMenu": [],
         "hasReferenceDocs": false,
         "selectLanguage": true,
-                
         "availableLocales": [
             "en",
             "de",
@@ -241,8 +242,13 @@
             "tr",
             "zh-TW",
             "zh-CN"
-        ]
+        ],
+        "browserDbPrefixes": {
+            "2": "v2"
+        },
+        "editorVersionPaths": {
+            "1": "v1"
+        }
     },
     "ignoreDocsErrors": true
-
 }
