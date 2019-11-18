@@ -64,7 +64,7 @@ cd ..
 ```
 6. Clone this repository.
 ```
-git clone https://github.com/microsoft/pxt-microbit
+git clone https://github.com/microsoft/pxt-microbit-next
 cd pxt-microbit
 ```
 7. Install the PXT command line (add `sudo` for Mac/Linux shells).
@@ -80,8 +80,8 @@ This step is only required if you intend to make changes to pxt and/or
 pxt-common-packages repos. If all you want is serve a local Makecode, you can skip
 this step.
 ```
-npm link ../pxt
-npm link ../pxt-common-packages
+pxt link ../pxt
+pxt link ../pxt-common-packages
 ```
 Note the above command assumes the folder structure of   
 ```
@@ -91,6 +91,16 @@ Note the above command assumes the folder structure of
   |       |                        |
  pxt      pxt-common-packages  pxt-microbit
  ```
+
+## Building with CODAL locally
+
+The following commands force a local build using CODAL.
+
+```
+export PXT_NODOCKER=1
+pxt clean
+pxt buildtarget --local
+```
 
 ### Running
 
