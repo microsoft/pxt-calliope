@@ -92,16 +92,6 @@ Note the above command assumes the folder structure of
  pxt      pxt-common-packages  pxt-microbit
  ```
 
-## Building with CODAL locally
-
-The following commands force a local build using CODAL.
-
-```
-export PXT_NODOCKER=1
-pxt clean
-pxt buildtarget --local
-```
-
 ### Running
 
 Run this command from inside pxt-microbit to open a local web server
@@ -127,6 +117,23 @@ Sometimes, your built folder might be in a bad state, clean it and try again.
 ```
 pxt clean
 ```
+
+
+### Building with CODAL locally
+
+The following commands force a local build using CODAL.
+
+```
+pxt buildtarget --local
+```
+
+To disable docker, run
+
+```
+export PXT_NODOCKER=1
+```
+
+If you are also modifiying CODAL, consider running ``pxt clean`` to ensure the proper branch is picked up.
 
 ### Updates
 
