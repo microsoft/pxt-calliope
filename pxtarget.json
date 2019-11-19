@@ -289,6 +289,7 @@
         "driveDisplayName": "MICROBIT",
         "appStoreID": "1092687276",
         "mobileSafariDownloadProtocol": "microbithex://?data",
+        "crowdinProject": "kindscript",
         "extendEditor": true,
         "extendFieldEditors": true,
         "enableTrace": true,
@@ -478,5 +479,6 @@
                 "hideMenuBar": true
             }
         }
-    }
+    },
+    "disableDocsUpload": true
 }
