@@ -1,24 +1,27 @@
 {
     "id": "calliopemini",
-    "aliases": [
-        "calliope"
-    ],
-    "name": " calliope mini",
     "nickname": "mini",
-    "title": "Calliope mini - Blocks / Javascript editor",
-    "description": "A Blocks / JavaScript code editor for the calliope mini.",
+    "name": "makecode.calliope.cc",
+    "title": "Microsoft MakeCode for Calliope mini",
+    "description": "A Blocks / JavaScript code editor for the Calliope mini powered by Microsoft MakeCode.",
     "corepkg": "core",
     "bundleddirs": [
         "libs/core",
         "libs/radio",
         "libs/devices",
-        "libs/bluetooth"
+        "libs/bluetooth",
+        "libs/radio-broadcast"
     ],
     "cloud": {
         "workspace": false,
         "packages": true,
         "sharing": true,
-        "publishing": false,
+        "thumbnails": true,
+        "publishing": true,
+        "importing": true,
+        "preferredPackages": [
+            "Microsoft/pxt-neopixel"
+        ],
         "githubPackages": true
     },
     "compile": {
@@ -31,29 +34,79 @@
         "flashUsableEnd": 245760,
         "flashEnd": 245760,
         "flashCodeAlign": 1024,
-        "upgrades": [
-            {
-                "type": "package",
-                "map": {
-                    "microbit": "core",
-                    "microbit-bluetooth": "bluetooth",
-                    "microbit-radio": "radio",
-                    "microbit-devices": "devices",
-                    "microbit-led": "",
-                    "microbit-music": "",
-                    "microbit-game": "",
-                    "microbit-pins": "",
-                    "microbit-serial": ""
+        "floatingPoint": true,
+        "taggedInts": true,
+        "utf8": false,
+        "gc": true,
+        "imageRefTag": 9,
+        "patches": {
+            "0.0.0 - 1.0.0": [
+                {
+                    "type": "package",
+                    "map": {
+                        "microbit": "core",
+                        "microbit-bluetooth": "bluetooth",
+                        "microbit-radio": "radio",
+                        "microbit-devices": "devices",
+                        "microbit-led": "",
+                        "microbit-music": "",
+                        "microbit-game": "",
+                        "microbit-pins": "",
+                        "microbit-serial": ""
+                    }
+                },
+                {
+                    "type": "missingPackage",
+                    "map": {
+                        "radio\\s*\\.": "radio",
+                        "bluetooth\\s*\\.": "bluetooth",
+                        "devices\\s*\\.": "devices"
+                    }
+                },
+                {
+                    "type": "api",
+                    "map": {
+                        "bluetooth\\s*\\.\\s*uartRead\\s*\\((.*?)\\)": "bluetooth.uartReadUntil($1)",
+                        "bluetooth\\s*\\.\\s*uartWrite\\s*\\((.*?)\\)": "bluetooth.uartWriteUntil($1)",
+                        "input\\s*\\.\\s*calibrate\\s*\\(": "input.calibrateCompass(",
+                        "radio\\s*\\.\\s*onDataPacketReceived\\(\\s*\\(\\{\\s*receivedNumber\\s*\\}\\)\\s*=>\\s*\\{": "radio.onReceivedNumber(function (receivedNumber) {",
+                        "radio\\s*\\.\\s*onDataPacketReceived\\(\\s*\\(\\{\\s*receivedString: name, receivedNumber: value\\s*\\}\\)\\s*=>\\s*\\{": "radio.onReceivedValue(function (name, value) {",
+                        "radio\\s*\\.\\s*onDataPacketReceived\\(\\s*\\(\\{\\s*receivedString\\s*\\}\\)\\s*=>\\s*\\{": "radio.onReceivedString(function (receivedString) {",
+                        "Math\\s*\\.\\s*random\\s*\\(": "Math.randomRange(0, "
+                    }
+                },
+                {
+                    "type": "blockId",
+                    "map": {
+                        "device_get_acceleration": "device_acceleration"
+                    }
+                },
+                {
+                    "type": "blockValue",
+                    "map": {
+                        "device_print_message.message": "text"
+                    }
                 }
-            },
-            {
-                "type": "api",
-                "map": {
-                    "bluetooth\\.uartRead\\((.*?)\\)": "bluetooth.uartReadUntil($1)",
-                    "bluetooth\\.uartWrite\\((.*?)\\)": "bluetooth.uartWriteUntil($1)"
+            ],
+            "0.0.0 - 1.4.12": [
+                {
+                    "type": "api",
+                    "map": {
+                        "DisplayMode\\s*\\.\\s*BackAndWhite": "DisplayMode.BlackAndWhite"
+                    }
                 }
+            ]
+        },
+        "hidSelectors": [
+            {
+                "usagePage": "0xFF00",
+                "usageId": "0x0001",
+                "vid": "0x0d28",
+                "pid": "0x0204"
             }
-        ]
+        ],
+        "webUSB": true,
+        "useNewFunctions": true
     },
     "runtime": {
         "mathBlocks": true,
@@ -63,6 +116,17 @@
         "textBlocks": true,
         "listsBlocks": true,
         "functionBlocks": true,
+        "functionsOptions": {
+            "useNewFunctions": true,
+            "extraFunctionEditorTypes": [
+                {
+                    "typeName": "game.LedSprite",
+                    "label": "LedSprite",
+                    "icon": "send",
+                    "defaultName": "sprite"
+                }
+            ]
+        },
         "onStartColor": "#54C9C9",
         "onStartNamespace": "basic",
         "onStartWeight": 54
@@ -125,9 +189,9 @@
                 "C15": "C_P15",
                 "C19": "C_P19",
                 "C20": "C_P20",
-                "EXT_PWR": "EXT_PWR",
-                "SPKR": "SPKR",
-                "BTN_A": "BTN_A",
+                "EXT_PWR":"EXT_PWR", 
+                "SPKR":"SPKR",
+                "BTN_A": "BTN_A", 
                 "BTN_B": "BTN_B",
                 "MOTOR1": "M_OUT1",
                 "MOTOR2": "M_OUT2"
@@ -180,13 +244,27 @@
         "yottaTarget": "calliope-mini-classic-gcc",
         "yottaCorePackage": "microbit",
         "githubCorePackage": "calliope-mini/microbit",
-        "gittag": "v2.0.0-rc8-calliope-1.0.3",
+        "gittag": "pxtgc-0",
         "serviceId": "calliope"
     },
     "serial": {
-        "manufacturerFilter": "^mbed$",
-        "nameFilter": "^mbed Serial Port",
-        "log": true
+        "nameFilter": "^(mbed Serial Port|DAPLink CMSIS-DAP)",
+        "log": true,
+        "useEditor": true,
+        "editorTheme": {
+            "graphBackground": "#d9d9d9",
+            "lineColors": [
+                "#6633cc",
+                "#3891A6",
+                "#3454D1",
+                "#EF767A",
+                "#F46197",
+                "#107C10"
+            ]
+        },
+        "vendorId": "0x0d28",
+        "productId": "0x0204",
+        "rawHID": true
     },
     "appTheme": {
         "accentColor": "#249899",
@@ -198,26 +276,74 @@
         "footerLogo": "./static/Calliopeminieditor.svg",
         "cardLogo": "./static/icons/apple-touch-icon.png",
         "appLogo": "./static/icons/apple-touch-icon.png",
-        "homeUrl": "https://makecode.calliope.cc/",
-        "embedUrl": "https://makecode.calliope.cc/",
-        "privacyUrl": "https://go.microsoft.com/fwlink/?LinkId=521839",
-        "termsOfUseUrl": "https://go.microsoft.com/fwlink/?LinkID=206977",
-        "githubUrl": "https://github.com/Microsoft/pxt-calliope",
-        "crowdinProject": "kindscript",
         "organization": "Microsoft MakeCode",
         "organizationUrl": "https://makecode.com/",
         "organizationLogo": "./static/Microsoft-logo_rgb_c-gray-square.png",
         "organizationWideLogo": "./static/Microsoft-logo_rgb_c-white.png",
+        "homeScreenHero": "./static/hero.png",
+        "homeUrl": "https://makecode.calliope.cc/",
+        "embedUrl": "https://makecode.calliope.cc/",
+        "shareUrl": "https://makecode.calliope.cc/",
+        "privacyUrl": "https://go.microsoft.com/fwlink/?LinkId=521839",
+        "termsOfUseUrl": "https://go.microsoft.com/fwlink/?LinkID=206977",
+        "githubUrl": "https://github.com/Microsoft/pxt-calliope",
         "boardName": "Calliope mini",
         "driveDisplayName": "MINI",
-        "hideSideDocs": true,
+        "appStoreID": "1309545545",
+        "mobileSafariDownloadProtocol": "microbithex://?data",
+        "crowdinProject": "kindscript",
+        "extendEditor": true,
+        "extendFieldEditors": true,
+        "enableTrace": true,
+        "ignoreDocsErrors": true,
+        "experiments": [
+            "allowPackageExtensions",
+            "instructions",
+            "debugger",
+            "debugExtensionCode",
+            "bluetoothUartConsole",
+            "bluetoothPartialFlashing",
+            "simScreenshot",
+            "simGif",
+            "qrCode",
+            "githubBlocksDiff"
+        ],
+        "bluetoothUartFilters": [
+            {
+                "namePrefix": "Calliope mini"
+            }
+        ],
+        "docMenu": [
+            {
+                "name": "Support",
+                "path": "https://calliope.cc/faq"
+            },
+            {
+                "name": "Reference",
+                "path": "/reference"
+            },
+            {
+                "name": "Blocks",
+                "path": "/blocks"
+            },
+            {
+                "name": "JavaScript",
+                "path": "/javascript"
+            },
+            {
+                "name": "Hardware",
+                "path": "/device"
+            },
+            {
+                "name": "Buy",
+                "path": "https://shop.calliope.cc/"
+            }
+        ],
+        "hasReferenceDocs": false,
         "invertedMenu": true,
-        "invertedToolbox": true,
+        "coloredToolbox": true,
         "monacoToolbox": true,
         "hasAudio": true,
-        "highContrast": true,
-        "simAnimationEnter": "rotate in",
-        "simAnimationExit": "rotate out",
         "blocklyOptions": {
             "grid": {
                 "spacing": 45,
@@ -226,29 +352,77 @@
                 "snap": false
             }
         },
-        "docMenu": [],
-        "hasReferenceDocs": false,
+        "blockColors": {
+            "basic": "#54C9C9",
+            "input": "#C94600",
+            "music": "#DF4600",
+            "led": "#8169E6",
+            "radio": "#E3008C",
+            "motors": "#008272",
+            "logic": "#006970",
+            "loops": "#107C10",
+            "math": "#712672",
+            "variables": "#A80000",
+            "text": "#996600",
+            "advanced": "#DDDDDD",
+            "functions": "#005A9E",
+            "arrays": "#E65722"
+        },
+        "highContrast": true,
+        "greenScreen": true,
+        "print": true,
         "selectLanguage": true,
         "availableLocales": [
             "en",
+            "ar",
+            "cs",
+            "da",
             "de",
             "el",
+            "es-ES",
+            "fi",
             "fr",
+            "hu",
+            "is",
             "it",
+            "ja",
             "ko",
             "nl",
             "no",
+            "pl",
+            "pt-BR",
+            "pt-PT",
+            "ru",
+            "si-LK",
+            "sk",
             "sv-SE",
             "tr",
-            "zh-TW",
-            "zh-CN"
+            "uk",
+            "zh-CN",
+            "zh-TW"
         ],
+        "monacoColors": {
+            "editor.background": "#ecf0f1"
+        },
         "browserDbPrefixes": {
+            "1": "v1",
             "2": "v2"
         },
         "editorVersionPaths": {
-            "1": "v1"
-        }
+            "0": "v0"
+        },
+        "showProjectSettings": true,
+        "scriptManager": true,
+        "simGifTransparent": "rgba(0,0,0,0)",
+        "simGifMaxFrames": 44,
+        "simScreenshotMaxUriLength": 300000,
+        "importExtensionFiles": true
     },
-    "ignoreDocsErrors": true
+    "queryVariants": {
+        "hidemenu": {
+            "appTheme": {
+                "hideMenuBar": true
+            }
+        }
+    }
 }

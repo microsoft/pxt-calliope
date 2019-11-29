@@ -1,18 +1,26 @@
-# Send Value
+# send Value
 
 Send a [string]() and [number]() together by ``radio`` to other @boardname@s.
-The maximum [string]() length is 12 characters.
+The maximum [string]() length is 8 characters.
 
 ```sig
 radio.sendValue("name", 0);
 ```
 
-### Parameters
+## Parameters
 
-* ``name`` is a [string](/reference/types/string) to send by radio
-* ``value`` a [number](/reference/types/number) to send by radio
+* **name**: a [string](/types/string) that is the name of the value to send.
+* **value**: a [number](/types/number) that is the value to send.
 
-### Example: Broadcasting acceleration
+## ~ hint
+
+Watch this video to see how the radio hardware works on the @boardname@:
+
+https://www.youtube.com/watch?v=Re3H2ISfQE8
+
+## ~
+
+## Example: Broadcasting acceleration
 
 This program sends your @boardname@'s **acceleration** (amount it is
 speeding up or slowing down) in the `x` direction (left and right) to
@@ -31,15 +39,15 @@ Then it shows them on the LED screen.
 
 ```blocks
 radio.setGroup(99)
-radio.onDataPacketReceived(({ receivedString, receivedNumber }) => {
-	basic.showString(receivedString);
-    basic.showNumber(receivedNumber);
+radio.onReceivedValue(function (name, value) {
+	basic.showString(name);
+    basic.showNumber(value);
 });
 ```
 
-### See also
+## See also
 
-[on data packet received](/reference/radio/on-data-packet-received)
+[on received value](/reference/radio/on-received-value)
 
 ```package
 radio

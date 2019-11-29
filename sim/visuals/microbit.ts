@@ -1059,7 +1059,7 @@ namespace pxsim.visuals {
         constructor(public props: IBoardProps) {
             this.buildDom();
             if (props && props.wireframe)
-                svg.addClass(this.element, "sim-wireframe");
+                U.addClass(this.element, "sim-wireframe");
 
             if (props && props.theme)
                 this.updateTheme();
@@ -1133,15 +1133,25 @@ namespace pxsim.visuals {
 
             if (state.ledMatrixState.disabled) {
                 this.leds.forEach((led, i) => {
-                    const sel = (<SVGStylable><any>led)
+                    const sel = (<SVGStyleElement><any>led)
                     sel.style.opacity = "0";
                 })
             } else {
                 const bw = state.ledMatrixState.displayMode == pxsim.DisplayMode.bw
                 const img = state.ledMatrixState.image;
+                const br = state.ledMatrixState.brigthness != undefined ? state.ledMatrixState.brigthness : 255;
                 this.leds.forEach((led, i) => {
-                    const sel = (<SVGStylable><any>led)
-                    sel.style.opacity = ((bw ? img.data[i] > 0 ? 255 : 0 : img.data[i]) / 255.0) + "";
+                    const sel = (<SVGStyleElement><any>led)
+                    let imgbr = bw ? (img.data[i] > 0 ? br : 0) : img.data[i];
+                    // correct brightness
+                    const opacity = imgbr > 0 ? imgbr / 255 * 155 + 100 : 0;
+                    const transfrom = imgbr > 0 ? imgbr / 255 * 0.4 + 0.6 : 0;
+                    sel.style.opacity = (opacity / 255) + "";
+                    if (transfrom > 0) {
+                        (sel.style as any).transformBox = 'fill-box';
+                        sel.style.transformOrigin = '50% 50%';
+                        sel.style.transform = `scale(${transfrom})`;
+                    }
                 })
             }
             this.updatePins();
@@ -1154,8 +1164,8 @@ namespace pxsim.visuals {
             this.updateRgbLed();
 			this.updateSpeaker();
 
-            if (!runtime || runtime.dead) svg.addClass(this.element, "grayscale");
-            else svg.removeClass(this.element, "grayscale");
+            if (!runtime || runtime.dead) U.addClass(this.element, "grayscale");
+            else U.removeClass(this.element, "grayscale");
         }
 
         private updateRgbLed() {
@@ -1445,7 +1455,7 @@ namespace pxsim.visuals {
             this.pins = pinNames.map(n => {
 				let p = this.element.getElementById(n) as SVGElement;
 				if(!p) console.log("missing "+n);
-				svg.addClass(p, "sim-pin");
+				U.addClass(p, "sim-pin");
 				return p;
 			});
 
@@ -1463,9 +1473,9 @@ namespace pxsim.visuals {
             // BTN A, B
             const btnids = ["BTN_A", "BTN_B"];
             this.buttonsOuter = btnids.map(n => this.element.getElementById(n + "_BOX") as SVGElement);
-            this.buttonsOuter.forEach(b => svg.addClass(b, "sim-button-outer"));
+            this.buttonsOuter.forEach(b => U.addClass(b, "sim-button-outer"));
             this.buttons = btnids.map(n => this.element.getElementById(n) as SVGElement);
-            this.buttons.forEach(b => svg.addClass(b, "sim-button"));
+            this.buttons.forEach(b => U.addClass(b, "sim-button"));
 
             // BTN A+B
             const outerBtn = (left: number, top: number) => {
@@ -1581,7 +1591,7 @@ namespace pxsim.visuals {
                         let state = this.board;
                         let pin = state.edgeConnectorState.pins[index];
                         let svgpin = this.pins[index];
-                        svg.addClass(svgpin, "touched");
+                        U.addClass(svgpin, "touched");
                         if (pin.mode & PinFlags.Input) {
                             let cursor = svg.cursorPoint(pt, this.element, ev);
                             let v = (400 - cursor.y) / 40 * 1023
@@ -1594,17 +1604,18 @@ namespace pxsim.visuals {
                         let state = this.board;
                         let pin = state.edgeConnectorState.pins[index];
                         let svgpin = this.pins[index];
-                        svg.removeClass(svgpin, "touched");
+                        U.removeClass(svgpin, "touched");
                         this.updatePin(pin, index);
                         return false;
                     });
             })
             this.pins.slice(0, 3).forEach((btn, index) => {
-                btn.addEventListener(pointerEvents.down, ev => {
+                pointerEvents.down.forEach(evid => btn.addEventListener(evid, ev => {
                     let state = this.board;
                     state.edgeConnectorState.pins[index].touched = true;
                     this.updatePin(state.edgeConnectorState.pins[index], index);
-                })
+                    this.board.bus.queue(state.edgeConnectorState.pins[index].id, DAL.MICROBIT_BUTTON_EVT_DOWN);
+                }));
                 btn.addEventListener(pointerEvents.leave, ev => {
                     let state = this.board;
                     state.edgeConnectorState.pins[index].touched = false;
@@ -1622,11 +1633,12 @@ namespace pxsim.visuals {
             let bpState = this.board.buttonPairState;
             let stateButtons = [bpState.aBtn, bpState.bBtn, bpState.abBtn];
             this.buttonsOuter.slice(0, 2).forEach((btn, index) => {
-                btn.addEventListener(pointerEvents.down, ev => {
+                pointerEvents.down.forEach(evid => btn.addEventListener(evid, ev => {
                     let state = this.board;
                     stateButtons[index].pressed = true;
                     svg.fill(this.buttons[index], this.props.theme.buttonDown);
-                })
+                    this.board.bus.queue(stateButtons[index].id, DAL.MICROBIT_BUTTON_EVT_DOWN);
+                }));
                 btn.addEventListener(pointerEvents.leave, ev => {
                     let state = this.board;
                     stateButtons[index].pressed = false;
@@ -1640,7 +1652,7 @@ namespace pxsim.visuals {
                     this.board.bus.queue(stateButtons[index].id, DAL.MICROBIT_BUTTON_EVT_CLICK);
                 })
             })
-            this.buttonsOuter[2].addEventListener(pointerEvents.down, ev => {
+            pointerEvents.down.forEach(evid => this.buttonsOuter[2].addEventListener(evid, ev => {
                 let state = this.board;
                 stateButtons[0].pressed = true;
                 stateButtons[1].pressed = true;
@@ -1648,7 +1660,8 @@ namespace pxsim.visuals {
                 svg.fill(this.buttons[0], this.props.theme.buttonDown);
                 svg.fill(this.buttons[1], this.props.theme.buttonDown);
                 svg.fill(this.buttons[2], this.props.theme.buttonDown);
-            })
+                this.board.bus.queue(stateButtons[2].id, DAL.MICROBIT_BUTTON_EVT_DOWN);
+            }));
             this.buttonsOuter[2].addEventListener(pointerEvents.leave, ev => {
                 let state = this.board;
                 stateButtons[0].pressed = false;

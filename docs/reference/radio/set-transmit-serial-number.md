@@ -1,16 +1,16 @@
-# Set Transmit Serial Number
+# set Transmit Serial Number
 
-Make the ``radio`` packet embed the board serial number with each packet of data.
+Make the radio packet embed the board serial number with each packet of data.
 
 ```sig
 radio.setTransmitSerialNumber(true);
 ```
 
-### Parameters
+## Parameters
 
-* ``transmit`` is a [boolean](/reference/types/boolean) that represents whether the serial number needs to be transmitted.
+* **transmit**: a [boolean](/types/boolean) that, when ``true``, means that the board serial number is included in each transmitted packet. If ``false``, the serial number value is set to `0`.
 
-### Example
+## Example
 
 This program makes the ``radio`` send the serial number in each packet.
 
@@ -18,9 +18,9 @@ This program makes the ``radio`` send the serial number in each packet.
 radio.setTransmitSerialNumber(true);
 ```
 
-### See also
+## See also
 
-[on data packet received](/reference/radio/on-data-packet-received),
+[received packet property](/reference/radio/received-packet),
 [send number](/reference/radio/send-number),
 [send value](/reference/radio/send-value),
 [send string](/reference/radio/send-string)

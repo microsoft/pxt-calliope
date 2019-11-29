@@ -60,56 +60,67 @@ enum class Gesture {
      * Raised when shaken
      */
     //% block=shake
+    //% jres=gestures.shake
     Shake = MICROBIT_ACCELEROMETER_EVT_SHAKE,
     /**
      * Raised when the logo is upward and the screen is vertical
      */
     //% block="logo up"
+    //% jres=gestures.tiltforward
     LogoUp = MICROBIT_ACCELEROMETER_EVT_TILT_UP,
     /**
      * Raised when the logo is downward and the screen is vertical
      */
     //% block="logo down"
+    //% jres=gestures.tiltbackwards
     LogoDown = MICROBIT_ACCELEROMETER_EVT_TILT_DOWN,
     /**
      * Raised when the screen is pointing down and the board is horizontal
      */
     //% block="screen up"
+    //% jres=gestures.frontsideup
     ScreenUp = MICROBIT_ACCELEROMETER_EVT_FACE_UP,
     /**
      * Raised when the screen is pointing up and the board is horizontal
      */
     //% block="screen down"
+    //% jres=gestures.backsideup
     ScreenDown = MICROBIT_ACCELEROMETER_EVT_FACE_DOWN,
     /**
      * Raised when the screen is pointing left
      */
     //% block="tilt left"
+    //% jres=gestures.tiltleft
     TiltLeft = MICROBIT_ACCELEROMETER_EVT_TILT_LEFT,
     /**
      * Raised when the screen is pointing right
      */
     //% block="tilt right"
+    //% jres=gestures.tiltright
     TiltRight = MICROBIT_ACCELEROMETER_EVT_TILT_RIGHT,
     /**
      * Raised when the board is falling!
      */
     //% block="free fall"
+    //% jres=gestures.freefall
     FreeFall = MICROBIT_ACCELEROMETER_EVT_FREEFALL,
     /**
     * Raised when a 3G shock is detected
     */
     //% block="3g"
+    //% jres=gestures.impact3g
     ThreeG = MICROBIT_ACCELEROMETER_EVT_3G,
     /**
     * Raised when a 6G shock is detected
     */
     //% block="6g"
+    //% jres=gestures.impact6g
     SixG = MICROBIT_ACCELEROMETER_EVT_6G,
     /**
     * Raised when a 8G shock is detected
     */
     //% block="8g"
+    //% jres=gestures.impact8g
     EightG = MICROBIT_ACCELEROMETER_EVT_8G
 };
 
@@ -155,7 +166,7 @@ namespace input {
      * @param button the button that needs to be pressed
      * @param body code to run when event is raised
      */
-    //% help=input/on-button-pressed weight=85 blockGap=8
+    //% help=input/on-button-pressed weight=85 blockGap=16
     //% blockId=device_button_event block="on button|%NAME|pressed"
     //% parts="buttonpair"
     void onButtonPressed(Button button, Action body) {
@@ -167,10 +178,10 @@ namespace input {
      * @param gesture the type of gesture to track, eg: Gesture.Shake
      * @param body code to run when gesture is raised
      */
-    //% help=input/on-gesture weight=84 blockGap=8
+    //% help=input/on-gesture weight=84 blockGap=16
     //% blockId=device_gesture_event block="on |%NAME"
     //% parts="accelerometer"
-    //% NAME.fieldEditor="gridpicker" NAME.fieldOptions.columns=4
+    //% NAME.fieldEditor="gestures" NAME.fieldOptions.columns=4
     void onGesture(Gesture gesture, Action body) {
         int gi = (int)gesture;
         if (gi == MICROBIT_ACCELEROMETER_EVT_3G && uBit.accelerometer.getRange() < 3)
@@ -180,12 +191,27 @@ namespace input {
         registerWithDal(MICROBIT_ID_GESTURE, gi, body);
     }
 
+    /**
+    * Tests if a gesture is currently detected.
+     * @param gesture the type of gesture to detect, eg: Gesture.Shake
+    */
+    //% help=input/is-gesture weight=10 blockGap=8
+    //% blockId=deviceisgesture block="is %gesture gesture"
+    //% parts="accelerometer"
+    //% gesture.fieldEditor="gestures" gesture.fieldOptions.columns=4
+    bool isGesture(Gesture gesture) {
+        // turn on acceleration
+        uBit.accelerometer.getX();
+        int gi = (int)gesture;
+        return uBit.accelerometer.getGesture() == gi;
+    }
+
      /**
      * Do something when a pin is touched and released again (while also touching the GND pin).
      * @param name the pin that needs to be pressed, eg: TouchPin.P0
      * @param body the code to run when the pin is pressed
      */
-    //% help=input/on-pin-pressed weight=83
+    //% help=input/on-pin-pressed weight=83 blockGap=32
     //% blockId=device_pin_event block="on pin %name|pressed"
     void onPinPressed(TouchPin name, Action body) {
         auto pin = getPin((int)name);
@@ -201,7 +227,7 @@ namespace input {
      * @param name the pin that needs to be released, eg: TouchPin.P0
      * @param body the code to run when the pin is released
      */
-    //% help=input/on-pin-released weight=6 blockGap=8
+    //% help=input/on-pin-released weight=6 blockGap=16
     //% blockId=device_pin_released block="on pin %NAME|released"
     //% advanced=true
     void onPinReleased(TouchPin name, Action body) {
@@ -220,7 +246,7 @@ namespace input {
     //% help=input/button-is-pressed weight=60
     //% block="button|%NAME|is pressed"
     //% blockId=device_get_button2
-    //% blockGap=8
+    //% icon="\uf192" blockGap=8
     //% parts="buttonpair"
     bool buttonIsPressed(Button button) {
       if (button == Button::A)
@@ -253,7 +279,7 @@ namespace input {
 
     /**
      * Get the acceleration value in milli-gravitys (when the board is laying flat with the screen up, x=0, y=0 and z=-1024)
-     * @param dimension TODO
+     * @param dimension x, y, or z dimension, eg: Dimension.X
      */
     //% help=input/acceleration weight=58
     //% blockId=device_acceleration block="acceleration (mg)|%NAME" blockGap=8
@@ -303,7 +329,7 @@ namespace input {
 
     /**
      * The pitch or roll of the device, rotation along the ``x-axis`` or ``y-axis``, in degrees.
-     * @param kind TODO
+     * @param kind pitch or roll
      */
     //% help=input/rotation weight=52
     //% blockId=device_get_rotation block="rotation (°)|%NAME" blockGap=8
@@ -318,7 +344,7 @@ namespace input {
 
     /**
      * Get the magnetic force value in ``micro-Teslas`` (``µT``). This function is not supported in the simulator.
-     * @param dimension TODO
+     * @param dimension the x, y, or z dimension, eg: Dimension.X
      */
     //% help=input/magnetic-force weight=51
     //% blockId=device_get_magnetic_force block="magnetic force (µT)|%NAME" blockGap=8
@@ -362,8 +388,9 @@ namespace input {
      */
     //% help=input/calibrate-compass advanced=true
     //% blockId="input_compass_calibrate" block="calibrate compass"
-    void calibrateCompass() { 
-        uBit.compass.calibrate();        
+    //% weight=45
+    void calibrateCompass() {
+        uBit.compass.calibrate();
     }
 
     /**

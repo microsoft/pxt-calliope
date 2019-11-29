@@ -7,9 +7,9 @@
         "enums.d.ts",
         "radio.cpp",
         "radio.ts",
-        "_locales/de/radio-jsdoc-strings.json",
-        "_locales/de/radio-strings.json"
+        "deprecated.ts"
     ],
+    "icon": "./static/packages/radio/icon.png",
     "public": true,
     "dependencies": {
         "core": "file:../core"

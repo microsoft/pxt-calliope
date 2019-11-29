@@ -1,16 +1,25 @@
-# On Data Received
-
-> Note: This API has been deprecated! Use [on data packet received](/reference/radio/on-data-packet-received) instead.
+# on Data Received
 
 Run part of a program when the @boardname@ receives a
-[number](/reference/types/number) or [string](/reference/types/string) over ``radio``.
-
+[number](/types/number) or [string](/types/string) over radio.
 
 ```sig
 radio.onDataReceived(() => { });
 ```
 
-### Example
+## ~ hint
+
+**Deprecated**
+
+This API has been deprecated! Use [on received number](/reference/radio/on-received-number) instead.
+
+## ~
+
+```sig
+radio.onDataReceived(() => { });
+```
+
+## Example
 
 This program keeps sending numbers that says how fast the @boardname@ is
 slowing down or speeding up.  It also receives numbers for the same
@@ -26,9 +35,9 @@ radio.onDataReceived(() => {
 })
 ```
 
-### See also
+## See also
 
-[on data packet received](/reference/radio/on-data-packet-received),
+[on received number](/reference/radio/on-received-number),
 [send number](/reference/radio/send-number), [set group](/reference/radio/set-group)
 
 ```package

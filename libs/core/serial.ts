@@ -5,18 +5,48 @@
 //% advanced=true
 namespace serial {
     /**
-     * Prints a line of text to the serial
+     * The string used to mark a new line, default is \r\n
+     */
+    export let NEW_LINE = "\r\n";
+    let writeLinePadding = 32;
+
+    /**
+     * Print a line of text to the serial port
      * @param value to send over serial
      */
     //% weight=90
     //% help=serial/write-line blockGap=8
     //% blockId=serial_writeline block="serial|write line %text"
+    //% text.shadowOptions.toString=true
     export function writeLine(text: string): void {
-        writeString(text + "\r\n");
+        if (!text) text = "";
+        serial.writeString(text);
+        // pad data to the 32 byte boundary
+        // to ensure apps receive the packet
+        if (writeLinePadding > 0) {
+            let r = (writeLinePadding - (text.length + NEW_LINE.length) % writeLinePadding) % writeLinePadding;
+            for (let i = 0; i < r; ++i)
+                serial.writeString(" ");
+        }
+        serial.writeString(NEW_LINE);
     }
 
     /**
-     * Prints a numeric value to the serial
+     * Sets the padding length for lines sent with "write line".
+     * @param length the number of bytes alignment, eg: 0
+     *
+     */
+    //% weight=1
+    //% help=serial/set-write-line-padding
+    //% blockId=serialWriteNewLinePadding block="serial set write line padding to $length"
+    //% advanced=true
+    //% length.min=0 length.max=128
+    export function setWriteLinePadding(length: number) {
+        writeLinePadding = length | 0;
+    }
+
+    /**
+     * Print a numeric value to the serial port
      */
     //% help=serial/write-number
     //% weight=89 blockGap=8
@@ -26,7 +56,22 @@ namespace serial {
     }
 
     /**
-     * Writes a ``name: value`` pair line to the serial.
+     * Print an array of numeric values as CSV to the serial port
+     */
+    //% help=serial/write-numbers
+    //% weight=86
+    //% blockId=serial_writenumbers block="serial|write numbers %values"
+    export function writeNumbers(values: number[]): void {
+        if (!values) return;
+        for (let i = 0; i < values.length; ++i) {
+            if (i > 0) writeString(",");
+            writeNumber(values[i]);
+        }
+        writeLine("")
+    }
+
+    /**
+     * Write a name:value pair as a line to the serial port.
      * @param name name of the value stream, eg: x
      * @param value to write
      */
@@ -34,11 +79,11 @@ namespace serial {
     //% help=serial/write-value
     //% blockId=serial_writevalue block="serial|write value %name|= %value"
     export function writeValue(name: string, value: number): void {
-        writeString(name + ":" + value + "\r\n");
+        writeLine((name ? name + ":" : "") + value);
     }
 
     /**
-     * Reads a line of text from the serial port.
+     * Read a line of text from the serial port.
      */
     //% help=serial/read-line
     //% blockId=serial_read_line block="serial|read line"
@@ -48,14 +93,14 @@ namespace serial {
     }
 
     /**
-     * Returns the delimiter corresponding string
+     * Return the corresponding delimiter string
      */
     //% blockId="serial_delimiter_conv" block="%del"
     //% weight=1 blockHidden=true
     export function delimiters(del: Delimiters): string {
         // even though it might not look like, this is more
         // (memory) efficient than the C++ implementation, because the
-        // strings are statically allocated and take no RAM 
+        // strings are statically allocated and take no RAM
         switch (del) {
             case Delimiters.NewLine: return "\n"
             case Delimiters.Comma: return ","

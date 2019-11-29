@@ -2,73 +2,72 @@
 
 Access the photo/video-taking functionality of a remote device using the ``tell camera to`` function.
 
-### ~hint
+## ~hint
 
-The functions in the ``devices`` namespace allow the @boardname@ to communicate with a separate (remote) device, 
-such as a smartphone, over Bluetooth (Smart).
-The set of supported events will depend on the remote device and the @boardname@ apps available for the remote device.
+**App required** You must use one of the [micro:bit apps](https://microbit.org/guide/mobile/) to use this functionality.
 
-### ~
+## ~
+
 
 ```sig
-devices.tellCameraTo()
+devices.tellCameraTo(MesCameraEvent.TakePhoto)
 ```
 
-### Parameters
+## Parameters
 
 * event - an event identifier
 
-### Examples
+## Examples
 
 To tell the connected device to take a picture:
 
 ```blocks
-devices.tellCameraTo("take photo")
+devices.tellCameraTo(MesCameraEvent.TakePhoto)
 ```
 
-To tell the connected device to start recording a video
+To tell the connected device to start recording a video:
 
 ```blocks
-devices.tellCameraTo("start video capture")
+devices.tellCameraTo(MesCameraEvent.StartVideoCapture)
 ```
 
-To tell the connected device to stop recording a video
+To tell the connected device to stop recording a video:
 
 ```blocks
-devices.tellCameraTo("stop video capture")
+devices.tellCameraTo(MesCameraEvent.StopVideoCapture)
 ```
 
-To tell the connected device to toggle front-rear
+To tell the connected device to toggle front-rear:
 
 ```blocks
-devices.tellCameraTo("toggle front-rear")
+devices.tellCameraTo(MesCameraEvent.ToggleFrontRear)
 ```
 
-To tell the connected device to launch photo mode
+To tell the connected device to launch photo mode:
 
 ```blocks
-devices.tellCameraTo("launch photo mode")
+devices.tellCameraTo(MesCameraEvent.LaunchPhotoMode)
 ```
 
-To tell the connected device to launch video mode
+To tell the connected device to launch video mode:
 
 ```blocks
-devices.tellCameraTo("launch video mode")
+devices.tellCameraTo(MesCameraEvent.LaunchVideoMode)
 ```
 
-To tell the connected device to stop photo mode
+To tell the connected device to stop photo mode:
 
 ```blocks
-devices.tellCameraTo("stop photo mode")
+devices.tellCameraTo(MesCameraEvent.StopPhotoMode)
 ```
 
-To tell the connected device to stop video mode
+To tell the connected device to stop video mode:
 
 ```blocks
-devices.tellCameraTo("stop video mode")
+devices.tellCameraTo(MesCameraEvent.StopVideoMode)
 ```
 
-### See Also
+## See Also
 
 [tell remote control to](/reference/devices/tell-remote-control-to), [raise alert to](/reference/devices/raise-alert-to)
 

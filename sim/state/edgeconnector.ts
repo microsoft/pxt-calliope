@@ -3,6 +3,7 @@ namespace pxsim.input {
         let pin = getPin(pinId);
         if (!pin) return;
         pin.isTouched();
+        runtime.queueDisplayUpdate(); 
         pxtcore.registerWithDal(pin.id, DAL.MICROBIT_BUTTON_EVT_CLICK, handler);
     }
 
@@ -10,6 +11,7 @@ namespace pxsim.input {
         let pin = getPin(pinId);
         if (!pin) return;
         pin.isTouched();
+        runtime.queueDisplayUpdate(); 
         pxtcore.registerWithDal(pin.id, DAL.MICROBIT_BUTTON_EVT_UP, handler);
     }
 
@@ -29,7 +31,7 @@ namespace pxsim {
 namespace pxsim.pins {
     export function digitalReadPin(pinId: number): number {
         let pin = getPin(pinId);
-        if (!pin) return;
+        if (!pin) return -1;
         pin.mode = PinFlags.Digital | PinFlags.Input;
         return pin.value > 100 ? 1 : 0;
     }
@@ -50,7 +52,7 @@ namespace pxsim.pins {
 
     export function analogReadPin(pinId: number): number {
         let pin = getPin(pinId);
-        if (!pin) return;
+        if (!pin) return -1;
         pin.mode = PinFlags.Analog | PinFlags.Input;
         return pin.value || 0;
     }
@@ -76,7 +78,7 @@ namespace pxsim.pins {
         if (!pin) return;
 
         analogSetPeriod(pinId, 20000);
-        pin.servoAngle = Math.max(0, Math.min(180, value));
+        pin.servoAngle = value;
     }
 
     export function servoSetPulse(pinId: number, micros: number) {

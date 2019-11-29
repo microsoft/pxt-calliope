@@ -1,24 +1,18 @@
 {
     "name": "devices",
-    "description": "The BLE specific services",
+    "description": "BETA -  Camera, remote control and other Bluetooth services. App required.",
     "files": [
         "README.md",
         "enums.d.ts",
         "shims.d.ts",
-        "devices.cpp"
+        "devices.cpp",
+        "devices.ts"
     ],
+    "icon": "./static/packages/devices/icon.png",
     "public": true,
     "dependencies": {
-        "core": "file:../core"
-    },
-    "yotta": {
-        "config": {
-            "microbit-dal": {
-                "bluetooth": {
-                    "enabled": 1
-                }
-            }
-        }
+        "core": "file:../core",
+        "bluetooth": "file:../bluetooth"
     },
     "installedVersion": "ljipgq"
 }

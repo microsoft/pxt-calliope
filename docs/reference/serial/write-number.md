@@ -6,22 +6,22 @@ Write a number to the [serial](/device/serial) port.
 serial.writeNumber(0);
 ```
 
-### Parameters
+## Parameters
 
-* `value` is the [number](/reference/types/number) to write to the serial port
+* `value` is the [number](/types/number) to write to the serial port
 
-### Example: one through ten
+## Example: one two three
 
-This program repeatedly writes a 10-digit number to the serial port.
+This program repeatedly writes a 3-digit number to the serial port.
 
 ```blocks
 basic.forever(() => {
-    serial.writeNumber(1234567890);
+    serial.writeNumber(123);
     basic.pause(5000);
 });
 ```
 
-### Example: plot bar graph does serial
+## Example: plot bar graph does serial
 
 If you use the ``led.plotBarGraph`` function, it writes the number
 being plotted to the serial port too.
@@ -33,9 +33,10 @@ basic.forever(() => {
 })
 ```
 
-### See also
+## See also
 
 [serial](/device/serial),
 [serial write line](/reference/serial/write-line),
-[serial write value](/reference/serial/write-value)
+[serial write value](/reference/serial/write-value),
+[serial write numbers](/reference/serial/write-numbers)
 

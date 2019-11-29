@@ -1,41 +1,54 @@
 {
     "name": "core",
     "description": "The microbit core library",
-    "installedVersion": "tsmdvf",
+    "additionalFilePath": "../../node_modules/pxt-common-packages/libs/base",
     "files": [
         "README.md",
-        "ManagedBuffer.cpp",
-        "ManagedBuffer.h",
+        "platform.h",
         "pxt.cpp",
         "pxt.h",
+        "pxtbase.h",
+        "pxtcore.h",
+        "math.ts",
         "dal.d.ts",
         "enums.d.ts",
         "shims.d.ts",
-        "pxt-core.d.ts",
+        "pxt-core.d.ts",        
         "core.cpp",
         "pxt-helpers.ts",
         "helpers.ts",
+        "configkeys.h",
+        "gc.cpp",
+        "codal.cpp",
         "images.cpp",
         "basic.cpp",
         "basic.ts",
+        "icons.ts",
+        "icons.jres",
         "input.cpp",
         "input.ts",
+        "gestures.jres",
         "control.ts",
         "control.cpp",
+        "console.ts",
         "game.ts",
         "led.cpp",
         "led.ts",
         "motors.cpp",
         "music.cpp",
-        "melodies.ts",
         "music.ts",
+        "melodies.ts",
         "pins.cpp",
         "pins.ts",
         "serial.cpp",
         "serial.ts",
-        "icons.ts",
         "buffer.cpp",
+        "buffer.ts",
         "pxtparts.json",
+        "advmath.cpp",
+        "trig.cpp",
+        "fixed.ts",
+        "templates.ts",
         "parts/speaker.svg",
         "parts/headphone.svg",
         "parts/dcmotor.svg",
@@ -47,6 +60,7 @@
     "yotta": {
         "optionalConfig": {
             "microbit-dal": {
+                "fiber_user_data": 1,
                 "bluetooth": {
                     "private_addressing": 0,
                     "advertising_timeout": 0,
@@ -59,9 +73,48 @@
                     "open": 0,
                     "pairing_mode": 1,
                     "whitelist": 1,
-                    "security_level": "SECURITY_MODE_ENCRYPTION_NO_MITM"
+                    "security_level": "SECURITY_MODE_ENCRYPTION_NO_MITM",
+                    "partial_flashing": 1
                 }
             }
-        }
+        },
+        "userConfigs": [
+            {
+                "description": "No Pairing Required: Anyone can connect via Bluetooth.",
+                "config": {
+                    "microbit-dal": {
+                        "bluetooth": {
+                            "open": 1,
+                            "whitelist": 0,
+                            "security_level": null
+                        }
+                    }
+                }
+            },
+            {
+                "description": "JustWorks pairing (default): Pairing is automatic once the pairing is initiated.",
+                "config": {
+                    "microbit-dal": {
+                        "bluetooth": {
+                            "open": 0,
+                            "whitelist": 1,
+                            "security_level": "SECURITY_MODE_ENCRYPTION_NO_MITM"
+                        }
+                    }
+                }
+            },
+            {
+                "description": "Passkey pairing: Pairing requires 6 digit key to pair.",
+                "config": {
+                    "microbit-dal": {
+                        "bluetooth": {
+                            "open": 0,
+                            "whitelist": 1,
+                            "security_level": "SECURITY_MODE_ENCRYPTION_WITH_MITM"
+                        }
+                    }
+                }
+            }
+        ]
     }
 }

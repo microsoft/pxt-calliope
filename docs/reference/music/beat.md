@@ -2,21 +2,23 @@
 
 Returns the duration of a beat in milli-seconds
 
-## Simulator
-
-This function only works on the @boardname@ and in some browsers.
-
 ```sig
 music.beat(BeatFraction.Whole)
 ```
 
-### Parameters
+## ~ hint
+
+**Simulator**: This function only works on the @boardname@ and in some browsers.
+
+## ~
+
+## Parameters
 
 * ``BeatFraction`` means fraction of a beat (BeatFraction.Whole, BeatFraction.Sixteenth etc) 
 
-### Returns
+## Returns
 
-* a [number](/reference/types/number) that means the amount of milli-seconds a beat fraction represents.
+* a [number](/types/number) that means the amount of milli-seconds a beat fraction represents.
 
 
 ## Example
@@ -25,6 +27,6 @@ music.beat(BeatFraction.Whole)
 music.playTone(Note.C, music.beat(BeatFraction.Quarter))
 ```
 
-### See also
+## See also
 
 [play tone](/reference/music/play-tone), [ring tone](/reference/music/ring-tone), [rest](/reference/music/rest), [set tempo](/reference/music/set-tempo), [change tempo by](/reference/music/change-tempo-by)

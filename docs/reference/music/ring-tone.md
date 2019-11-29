@@ -3,22 +3,24 @@
 Play a musical tone through pin `P0` with the pitch as high or low as you say.
 The tone will keep playing until you tell it not to.
 
-## Simulator
-
-This function only works on the @boardname@ and in some browsers.
-
 ```sig
 music.ringTone(440)
 ```
 
-### Parameters
+## ~ hint
 
-* ``frequency`` is a [number](/reference/types/number) that says
+**Simulator**: This function only works on the @boardname@ and in some browsers.
+
+## ~
+
+## Parameters
+
+* ``frequency`` is a [number](/types/number) that says
 how high-pitched or low-pitched the tone is.  This
 number is in **Hz** (**Hertz**), which is a measurement of frequency
 or pitch.
 
-### Example
+## Example
 
 This program checks the **accelerometer** for the @boardname@'s
 **acceleration** (how much the @boardname@ is speeding up or slowing
@@ -32,7 +34,15 @@ basic.forever(() => {
 })
 ```
 
-### See also
+## Using other pins
+
+Use [analogSetPitchPin](/reference/pins/analog-set-pitch-pin) to change that pin used to generate music.
+
+```blocks
+pins.analogSetPitchPin(AnalogPin.P1);
+```
+
+## See also
 
 [rest](/reference/music/rest), [play tone](/reference/music/play-tone),
 [tempo](/reference/music/tempo), [set tempo](/reference/music/set-tempo),

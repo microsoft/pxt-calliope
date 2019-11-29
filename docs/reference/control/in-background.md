@@ -7,15 +7,15 @@ control.inBackground(() => {
 })
 ```
 
-### ~hint
+## ~hint
 
 For more information, read 
 [The @boardname@ - a reactive system](/device/reactive).
 It is pretty advanced!
 
-### ~
+## ~
 
-### Example
+## Example
 
 This program shows how running in the background can say what is
 stored in a variable like `num`, while another part (``on button pressed``)
@@ -25,7 +25,7 @@ changes what is stored there.
 let num = 0
 control.inBackground(() => {
     while (true) {
-        basic.showNumber(num, 150)
+        basic.showNumber(num)
         basic.pause(100)
     }
 })
@@ -40,14 +40,14 @@ with a ``forever`` loop.
 ```blocks
 let num = 0
 basic.forever(() => {
-    basic.showNumber(num, 150)
+    basic.showNumber(num)
 })
 input.onButtonPressed(Button.A, () => {
     num++;
 })
 ```
 
-### See also
+## See also
 
 [while](/blocks/loops/while), [forever](/reference/basic/forever),
 [on button pressed](/reference/input/on-button-pressed)

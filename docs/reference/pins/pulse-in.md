@@ -1,32 +1,37 @@
-# Pulse In
+# pulse In
 
-Returns the duration of a pulse (high or low) from a [pin](/device/pins) on
-the @boardname@ board in microseconds.
+Get the duration, in microseconds, of a pulse (high or low) from one of the pins.
 
 ```sig
 pins.pulseIn(DigitalPin.P0, PulseValue.High)
 ```
 
-### ~avatar
+## ~avatar
 
 Some pins are also used by the [LED screen](/device/screen).
 Please read the [page about pins](/device/pins) carefully.
 
+## ~
+
+### ~ hint
+
+**Simulator**: This function needs real hardware to work with. It's not supported in the simulator.
+
 ### ~
 
-### Parameters
+## Parameters
 
-* ``name`` is a [string](/reference/types/string) that stores the name of the pin (``P0``, ``P1``, or ``P2``, up through ``P20``)
-* ``value`` is the value of the pulse, ``high`` or ``low``
-* ``maxDuration``, maximum duration in micro-seconds. If no pulse is received 
+* ``name`` the name of the pin (``P0``, ``P1``, or ``P2``, up through ``P20``).
+* ``value`` the value of the pulse, either ``high`` or ``low``.
+* ``maxDuration``, maximum duration to wait for the pulse in microseconds. If no pulse is received, the duration returned is `0`.
 
-### Returns
+## Returns
 
-* a [number](/reference/types/number) that represents the pulse duration in micro-seconds
+* a [number](/types/number) that is the pulse duration in microseconds.
 
-### Example: Measuring distance with a sonar
+## Example: Measuring distance with a sonar
 
-The following script sends a pulse on ``P0`` and reads the pulse returned by a HC-SR04 sonar to determine the distance of the object in front of the sensor.
+Send a pulse on ``P0`` and read a pulse returned by a HC-SR04 sonar ultrasonic sensor. The sensor determines the distance of the object in front of it.
 
 ```blocks
 basic.forever(() => {
@@ -43,12 +48,6 @@ basic.forever(() => {
 })
 ```
 
-#### ~hint
+## See also
 
-This function is not supported in the simulator.
-
-#### ~
-
-### See also
-
-[digital write pin](/reference/pins/digital-write-pin),
+[digital write pin](/reference/pins/digital-write-pin)

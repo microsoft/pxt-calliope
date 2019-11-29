@@ -1,7 +1,0 @@
-{
-    "compiler-options": {
-        "target": "ES5",
-        "module": "amd",
-        "sourceMap": false
-    }
- }

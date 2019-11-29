@@ -1,21 +1,26 @@
-# Pulse Duration
+# pulse Duration
 
-Gets the duration of the last pulse in microseconds.
-
-This function should be called from an **on pulsed** handler.
+Get the duration of the last pulse in microseconds.
 
 ```sig
 pins.pulseDuration();
 ```
 
-### Returns
+A pin pulse is detected in the [onPulsed](/reference/pins/on-pulsed) event. You use **pulseDuration** inside that event to get the duration of the pulse that triggered the event.
 
-The duration of the last pulse, measured in microseconds.
+### ~ hint
 
-### Example
+**Simulator**: This function needs real hardware to work with. It's not supported in the simulator.
 
-The following example waits for pin ``P0`` to be pulsed high, and then
-displays the duration of the pulse in microseconds on the LED screen.
+### ~
+
+## Returns
+
+* a [number](/types/number) that is the duration of the last pulse, measured in microseconds.
+
+## Example
+
+Wait for pin ``P0`` to be pulsed high. Display the duration of the pulse in microseconds on the LED screen.
 
 ```blocks
 pins.onPulsed(DigitalPin.P0, PulseValue.High, () => {
@@ -23,7 +28,7 @@ pins.onPulsed(DigitalPin.P0, PulseValue.High, () => {
 });
 ```
 
-### See also
+## See also
 
 [servo set pulse](/reference/pins/servo-set-pulse),
 [on pulsed](/reference/pins/on-pulsed),

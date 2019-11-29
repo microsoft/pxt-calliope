@@ -1,18 +1,24 @@
-# Receive Number
+# receive Number
 
-> Note: This API has been deprecated! Use [on data packet received](/reference/radio/on-data-packet-received) instead.
-
-Receives the next number sent by a @boardname@ in the same ``radio`` group.
+Receive the next number sent by a @boardname@ in the same ``radio`` group.
 
 ```sig
 radio.receiveNumber();
 ```
 
-### Returns
+## ~ hint
 
-* the first  [number](/reference/types/number) that the @boardname@ received. If it did not receive any numbers, this function will return `0`.
+**Deprecated**
 
-### Example: Simple number receiver
+This API has been deprecated! Use [on received number](/reference/radio/on-received-number) instead.
+
+## ~
+
+## Returns
+
+* the first  [number](/types/number) that the @boardname@ received. If it did not receive any numbers, this function will return `0`.
+
+## Example: Simple number receiver
 
 This example receives the number broadcasted another @boardname@ and shows it
 as a bar graph.
@@ -23,7 +29,7 @@ radio.onDataReceived(() => {
 })
 ```
 
-### Example: Light level receiver
+## Example: Light level receiver
 
 This example shows the light level from the [light level sender example](/reference/radio/send-number)
 as a number.
@@ -36,7 +42,7 @@ basic.forever(() => {
 })
 ```
 
-### Example: Mailbot
+## Example: Mailbot
 
 This example receives the light level from the [light level sender example](/reference/radio/send-number)
 and shows a text string like **ALERT** if the light level becomes much brighter.
@@ -58,7 +64,7 @@ basic.forever(() => {
 })
 ```
 
-### See also
+## See also
 
 [send number](/reference/radio/send-number), [on data received](/reference/radio/on-data-received)
 

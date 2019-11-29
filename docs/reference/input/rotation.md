@@ -9,26 +9,25 @@ input.rotation(Rotation.Roll);
 ## ~hint
 
 The @boardname@ has a part called the **accelerometer** that can
-check how the @boardname@ is moving.
+check how the @boardname@ is moving. Watch this video to learn how the accelerometer works:
+
+https://www.youtube.com/watch?v=byngcwjO51U
 
 ## ~
 
-### Parameters
+## Parameters
 
 * ``kind`` means which direction you are checking: `Rotation.Pitch` (up and down) or `Rotation.Roll` (left and right)
 
-### Returns
+## Returns
 
-* a [number](/reference/types/number) that means how much the microbit is tilted in the direction you say, from `0` to `360` degrees
+* a [number](/types/number) that means how much the @boardname@ is tilted in the direction you ask for. This is a value in degrees between `-180` to `180` in either the `Rotation.Pitch` or the `Rotation.Roll` direction of rotation.
 
-### Example: @boardname@ leveler
+## Example: @boardname@ leveler
 
-This program helps you move the @boardname@ until it is level.  When
-it is level, the @boardname@ shows a smiley.
+This program helps you move the @boardname@ until it is level. When it is level, the @boardname@ shows a smiley.
 
-If you are running this program in a browser, you can tilt the
-@boardname@ with your mouse.
-
+If you are running this program in a browser, you can tilt the @boardname@ with your mouse.
 
 ```blocks
 let pitch = 0;
@@ -55,7 +54,7 @@ basic.forever(() => {
 	});
 ```
 
-### See also
+## See also
 
 [acceleration](/reference/input/acceleration), [compass-heading](/reference/input/compass-heading)
 

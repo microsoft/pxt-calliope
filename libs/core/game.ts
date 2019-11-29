@@ -168,9 +168,10 @@ namespace game {
 
     /**
      * Sets the current life value
-     * @param value TODO
+     * @param value current life value
      */
-    //% weight=10
+    //% weight=10 help=game/set-life
+    //% blockId=game_set_life block="set life %value" blockGap=8
     export function setLife(value: number): void {
         _life = Math.max(0, value);
         if (_life <= 0) {
@@ -179,10 +180,11 @@ namespace game {
     }
 
     /**
-     * Adds life points to the current life
-     * @param lives TODO
+     * Add life points to the current life amount
+     * @param lives amount of lives to add
      */
-    //% weight=10
+    //% weight=10 help=game/add-life
+    //% blockId=game_add_life block="add life %lives" blockGap=8
     export function addLife(lives: number): void {
         setLife(_life + lives);
     }
@@ -200,14 +202,16 @@ namespace game {
     }
 
     /**
-     * Removes some life
-     * @param life TODO
+     * Remove some life
+     * @param life amount of life to remove
      */
-    //% weight=10
+    //% weight=10 help=game/remove-life
     //% parts="ledmatrix"
+    //% blockId=game_remove_life block="remove life %life" blockGap=8
     export function removeLife(life: number): void {
         setLife(_life - life);
-        if (!_paused)
+        if (!_paused && !_backgroundAnimation) {
+            _backgroundAnimation = true;
             control.inBackground(() => {
                 led.stopAnimation();
                 basic.showAnimation(`1 0 0 0 1 0 0 0 0 0 1 0 0 0 1 0 0 0 0 0
@@ -215,7 +219,9 @@ namespace game {
 0 0 1 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0
 0 1 0 1 0 0 0 0 0 0 0 1 0 1 0 0 0 0 0 0
 1 0 0 0 1 0 0 0 0 0 1 0 0 0 1 0 0 0 0 0`, 40);
+                _backgroundAnimation = false;
             });
+        }
     }
 
     /**
@@ -247,12 +253,12 @@ namespace game {
     }
 
     /**
-     * Gets a value indicating if the game is still running. Returns `false` if game over.
+     * Indicates if the game is still running. Returns `false` if the game is over or paused.
      */
-    //% weight=10
+    //% weight=5 help=game/is-running
+    //% blockId=game_isrunning block="is running" blockGap=8
     export function isRunning(): boolean {
-        let running: boolean;
-        return !_isGameOver;
+        return !_isGameOver && !_paused && !!_img;
     }
 
     /**
@@ -267,8 +273,10 @@ namespace game {
     }
 
     /**
-     * Indicates if the game is display the game over sequence.
+     * Indicates if the game is over and displaying the game over sequence.
      */
+    //% weight=7 help=game/is-game-over
+    //% blockId=game_isgameover block="is game over" blockGap=8
     export function isGameOver(): boolean {
         return _isGameOver;
     }
@@ -276,7 +284,8 @@ namespace game {
     /**
      * Indicates if the game rendering is paused to allow other animations
      */
-    //%
+    //% weight=6 help=game/is-paused
+    //% blockId=game_ispaused block="is paused" blockGap=8
     export function isPaused(): boolean {
         return _paused;
     }
@@ -396,7 +405,7 @@ namespace game {
 
         /**
          * If touching the edge of the stage and facing towards it, then turn away.
-         * @param this TODO
+         * @param this the sprite to check for bounce
          */
         //% weight=18 help=game/if-on-edge-bounce
         //% blockId=game_sprite_bounce block="%sprite|if on edge, bounce"
@@ -448,7 +457,7 @@ namespace game {
 
         /**
          * Turn the sprite
-         * @param this TODO
+         * @param this the sprite to trun
          * @param direction left or right
          * @param degrees angle in degrees to turn, eg: 45, 90, 180, 135
          */
@@ -463,7 +472,7 @@ namespace game {
 
         /**
          * Turn to the right (clockwise)
-         * @param this TODO
+         * @param this the sprite to turn
          * @param degrees TODO
          */
         public turnRight(degrees: number): void {
@@ -472,7 +481,7 @@ namespace game {
 
         /**
          * Turn to the left (counter-clockwise)
-         * @param this TODO
+         * @param this the sprite to turn
          * @param degrees TODO
          */
         public turnLeft(degrees: number): void {
@@ -532,12 +541,12 @@ namespace game {
 
         /**
          * Set the direction of the current sprite, rounded to the nearest multiple of 45
-         * @param this TODO
-         * @param degrees TODO
+         * @param this the sprite to set direction for
+         * @param degrees new direction in degrees
          */
         //% parts="ledmatrix"
         public setDirection(degrees: number): void {
-            this._dir = ((degrees / 45) % 8) * 45;
+            this._dir = (Math.floor(degrees / 45) % 8) * 45;
             if (this._dir <= -180) {
                 this._dir = this._dir + 360;
             } else if (this._dir > 180) {
@@ -608,23 +617,23 @@ namespace game {
 
         /**
          * Reports true if sprite has the same position as specified sprite
-         * @param this TODO
-         * @param other TODO
+         * @param this the sprite to check overlap or touch
+         * @param other the other sprite to check overlap or touch
          */
         //% weight=20 help=game/is-touching
-        //% blockId=game_sprite_touching_sprite block="%sprite|touching %other|?" blockGap=8
+        //% blockId=game_sprite_touching_sprite block="is %sprite|touching %other" blockGap=8
         public isTouching(other: LedSprite): boolean {
             return this._enabled && other._enabled && this._x == other._x && this._y == other._y;
         }
 
         /**
          * Reports true if sprite is touching an edge
-         * @param this TODO
+         * @param this the sprite to check for an edge contact
          */
         //% weight=19 help=game/is-touching-edge
-        //% blockId=game_sprite_touching_edge block="%sprite|touching edge?" blockGap=8
+        //% blockId=game_sprite_touching_edge block="is %sprite|touching edge" blockGap=8
         public isTouchingEdge(): boolean {
-            return this._x == 0 || this._x == 4 || this._y == 0 || this._y == 4;
+            return this._enabled && (this._x == 0 || this._x == 4 || this._y == 0 || this._y == 4);
         }
 
         /**
@@ -686,12 +695,21 @@ namespace game {
          * Deletes the sprite from the game engine. The sprite will no longer appear on the screen or interact with other sprites.
          * @param this sprite to delete
          */
-        //% weight=59 help=game/delete
-        //% blockId="game_delete_sprite" block="delete %this"
+        //% weight=59 blockGap=8 help=game/delete
+        //% blockId="game_delete_sprite" block="delete %this(sprite)"
         public delete(): void {
             this._enabled = false;
             if (_sprites.removeElement(this))
                 plot();
+        }
+
+        /**
+         * Reports whether the sprite has been deleted from the game engine.
+         */
+        //% weight=58 help=game/is-deleted
+        //% blockId="game_sprite_is_deleted" block="is %sprite|deleted"
+        public isDeleted(): boolean {
+            return !this._enabled;
         }
 
         /**
@@ -717,7 +735,6 @@ namespace game {
          * @param this TODO
          */
         public blink(): number {
-            let r: number;
             return this._blink;
         }
 
@@ -728,7 +745,7 @@ namespace game {
             if (ps._brightness > 0) {
                 let r = 0;
                 if (ps._blink > 0) {
-                    r = (now / ps._blink) % 2;
+                    r = Math.floor(now / ps._blink) % 2;
                 }
                 if (r == 0) {
                     _img.setPixelBrightness(ps._x, ps._y, _img.pixelBrightness(ps._x, ps._y) + ps._brightness);
@@ -766,7 +783,7 @@ namespace game {
         }
         // ensure greyscale mode
         const dm = led.displayMode();
-        if (dm != DisplayMode.Greyscale)            
+        if (dm != DisplayMode.Greyscale)
             led.setDisplayMode(DisplayMode.Greyscale);
         // render sprites
         const now = input.runningTime();
@@ -775,9 +792,6 @@ namespace game {
             _sprites[i]._plot(now);
         }
         _img.plotImage(0);
-        // restore previous display mode
-        if (dm != DisplayMode.Greyscale)
-            led.setDisplayMode(dm);
     }
 
     /**
@@ -789,3 +803,4 @@ namespace game {
     }
 
 }
+

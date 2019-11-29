@@ -2,6 +2,8 @@
 
 enum class DisplayMode_ {
     //% block="black and white"
+    BlackAndWhite = DISPLAY_MODE_BLACK_AND_WHITE,
+    //% blockHidden=true
     BackAndWhite = DISPLAY_MODE_BLACK_AND_WHITE,
     //% block="greyscale"
     Greyscale = DISPLAY_MODE_GREYSCALE,
@@ -20,6 +22,7 @@ namespace led {
     //% blockId=device_plot block="plot|x %x|y %y" blockGap=8
     //% parts="ledmatrix"
     //% x.min=0 x.max=4 y.min=0 y.max=4
+    //% x.fieldOptions.precision=1 y.fieldOptions.precision=1
     void plot(int x, int y) {
       uBit.display.image.setPixelValue(x, y, 0xff);
     }
@@ -34,6 +37,7 @@ namespace led {
     //% blockId=device_plot_brightness block="plot|x %x|y %y|brightness %brightness" blockGap=8
     //% parts="ledmatrix"
     //% x.min=0 x.max=4 y.min=0 y.max=4 brightness.min=0 brightness.max=255
+    //% x.fieldOptions.precision=1 y.fieldOptions.precision=1
     //% advanced=true
     void plotBrightness(int x, int y, int brightness) {
         brightness = max(0, min(0xff, brightness));
@@ -45,26 +49,28 @@ namespace led {
 
     /**
      * Turn off the specified LED using x, y coordinates (x is horizontal, y is vertical). (0,0) is upper left.
-     * @param x TODO
-     * @param y TODO
+     * @param x the horizontal coordinate of the LED
+     * @param y the vertical coordinate of the LED
      */
     //% help=led/unplot weight=77
     //% blockId=device_unplot block="unplot|x %x|y %y" blockGap=8
     //% parts="ledmatrix"
     //% x.min=0 x.max=4 y.min=0 y.max=4
+    //% x.fieldOptions.precision=1 y.fieldOptions.precision=1
     void unplot(int x, int y) {
       uBit.display.image.setPixelValue(x, y, 0);
     }
 
     /**
      * Get the on/off state of the specified LED using x, y coordinates. (0,0) is upper left.
-     * @param x TODO
-     * @param y TODO
+     * @param x the horizontal coordinate of the LED
+     * @param y the vertical coordinate of the LED
      */
     //% help=led/point weight=76
     //% blockId=device_point block="point|x %x|y %y"
     //% parts="ledmatrix"
     //% x.min=0 x.max=4 y.min=0 y.max=4
+    //% x.fieldOptions.precision=1 y.fieldOptions.precision=1
     bool point(int x, int y) {
       int pix = uBit.display.image.getPixelValue(x, y);
       return pix > 0;
@@ -110,7 +116,8 @@ namespace led {
      * @param mode mode the display mode in which the screen operates
      */
     //% weight=1 help=led/set-display-mode
-    //% parts="ledmatrix" advanced=true
+    //% parts="ledmatrix" advanced=true weight=1
+    //% blockId="led_set_display_mode" block="set display mode $mode"
     void setDisplayMode(DisplayMode_ mode) {
         uBit.display.setDisplayMode((DisplayMode)mode);
     }
@@ -124,7 +131,7 @@ namespace led {
     }
 
     /**
-    * Turns on or off the display    
+    * Turns on or off the display
     */
     //% help=led/enable blockId=device_led_enable block="led enable %on"
     //% advanced=true parts="ledmatrix"
@@ -139,7 +146,10 @@ namespace led {
     //% help=led/screenshot
     //% parts="ledmatrix"
     Image screenshot() {
-      return uBit.display.screenShot().leakData();
+        auto d = uBit.display.screenShot().leakData();
+        auto r = NEW_GC(RefMImage, d);
+        d->decr();
+        return r;
         /*
         let Image img;
         img = image.createImage("");

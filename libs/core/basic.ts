@@ -28,7 +28,10 @@ enum Colors {
     Purple = 0x00FF00FF,
     //% blockIdentity=basic.color
     //% block=white
-    White = 0xFF00000
+    White = 0xFFFFFFFF,
+    //% blockIdentity=basic.color
+    //% block=off
+    Off = 0x00000000,
 }
 
 /**
@@ -36,6 +39,7 @@ enum Colors {
  */
 //% color=#54C9C9 weight=100
 namespace basic {
+
     /**
      * Converts the color name to a number
      */
@@ -55,5 +59,18 @@ namespace basic {
     //% blockId="core_rgb" block="red %red|green %green|blue %blue|white %white"
     export function rgbw(red: number, green: number, blue: number, white:number): number {
         return ((white & 0xFF) << 24) | ((red & 0xFF) << 16) | ((green & 0xFF) << 8) | (blue & 0xFF);
+    }
+    
+    /**
+     * Scroll a number on the screen. If the number fits on the screen (i.e. is a single digit), do not scroll.
+     * @param interval speed of scroll; eg: 150, 100, 200, -100
+     */
+    //% help=basic/show-number
+    //% weight=96
+    //% blockId=device_show_number block="show|number %number" blockGap=8
+    //% async
+    //% parts="ledmatrix" interval.defl=150
+    export function showNumber(value: number, interval?: number) {
+        showString(Math.roundWithPrecision(value, 2).toString(), interval);
     }
 }
