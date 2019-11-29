@@ -310,6 +310,16 @@ Check out [microbit.org](http://microbit.org/resellers/) for more information on
 }]
 ```
 
+## Wearables
+
+```codecard
+[{
+  "name": "Bright Wearables Bright Board",
+  "url":"/pkg/BrightWearables/pxt-microbit-brightboard",
+  "cardType": "package"
+}]
+```
+
 ## Sensing & Individual Components
 
 ```codecard
