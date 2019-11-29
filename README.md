@@ -1,10 +1,6 @@
-# Calliope target for Microsoft MakeCode
+# Calliope target for Microsoft MakeCode [![Build Status](https://travis-ci.org/microsoft/pxt-calliope.svg?branch=master)](https://travis-ci.org/microsoft/pxt-calliope)
 
-This target is hosted at https://makecode.calliope.cc.
-
-## Hosted editor and build
-
-Jenkins build: https://ci2.dot.net/job/Private/job/pxt_project_teal/job/master/
+This editor is hosted at https://makecode.calliope.cc.
 
 
 ### BUILD COMMENTS
