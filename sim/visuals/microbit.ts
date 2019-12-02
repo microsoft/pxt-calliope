@@ -1,17 +1,25 @@
 namespace pxsim.visuals {
     const MB_STYLE = `
         svg.sim {
-            margin-bottom:1em;
+            box-sizing: border-box;
+            width: 100%;
+            height: 100%;
+            display: block;
         }
         svg.sim.grayscale {
             -moz-filter: grayscale(1);
             -webkit-filter: grayscale(1);
             filter: grayscale(1);
         }
+        .sim-button-group {
+            cursor: pointer;
+        }
         .sim-button {
             pointer-events: none;
         }
-
+        .sim-board, .sim-display, sim-button {
+            fill: #111;
+        }
         .sim-button-outer:hover {
             stroke:grey;
             stroke-width: 3px;
@@ -85,18 +93,6 @@ namespace pxsim.visuals {
         }
 
         /* animations */
-        .sim-theme-glow {
-            animation-name: sim-theme-glow-animation;
-            animation-timing-function: ease-in-out;
-            animation-direction: alternate;
-            animation-iteration-count: infinite;
-            animation-duration: 1.25s;
-        }
-        @keyframes sim-theme-glow-animation {
-            from { opacity: 1; }
-            to   { opacity: 0.75; }
-        }
-
         .sim-flash {
             animation-name: sim-flash-animation;
             animation-duration: 0.1s;
@@ -140,8 +136,30 @@ namespace pxsim.visuals {
             stroke: none;
             fill: #777;
         }
+        .sim-label, .sim-button-label {
+            fill: #000;
+        }
         .sim-wireframe .sim-board {
             stroke-width: 2px;
+        }
+        *:focus {
+            outline: none;
+        }
+        *:focus .sim-button-outer,
+        .sim-pin:focus,
+        .sim-thermometer:focus,
+        .sim-shake:focus,
+        .sim-light-level-button:focus {
+            stroke: #4D90FE;
+            stroke-width: 5px !important;
+        }
+        .no-drag, .sim-text, .sim-text-pin {
+            user-drag: none;
+            user-select: none;
+            -moz-user-select: none;
+            -webkit-user-drag: none;
+            -webkit-user-select: none;
+            -ms-user-select: none;
         }
     `;
     const BOARD_SVG = `<?xml version="1.0" encoding="utf-8"?>
@@ -785,6 +803,7 @@ namespace pxsim.visuals {
     const MB_WIDTH = 530;
     const MB_HEIGHT = 530;
     export interface IBoardTheme {
+        highContrast?: boolean;
         accent?: string;
         display?: string;
         pin?: string;
@@ -821,14 +840,23 @@ namespace pxsim.visuals {
         }
     });
 
-    export function randomTheme(): IBoardTheme {
-        return themes[Math.floor(Math.random() * themes.length)];
+    export function randomTheme(highContrast?: boolean): IBoardTheme {
+        let theme = themes[Math.floor(Math.random() * themes.length)];
+        if (highContrast) {
+            theme = JSON.parse(JSON.stringify(theme)) as IBoardTheme;
+            theme.highContrast = true;
+            theme.ledOff = "#888";
+            theme.ledOn = "#0000bb";
+            theme.display = "#ffffff";
+            theme.pin = "#D4AF37";
+            theme.accent = "#FFD43A";
+        }
+        return theme;
     }
 
     export interface IBoardProps {
         runtime?: pxsim.Runtime;
         theme?: IBoardTheme;
-        disableTilt?: boolean;
         wireframe?: boolean;
     }
 
@@ -1244,6 +1272,16 @@ namespace pxsim.visuals {
                 if (text) text.textContent = "";
             }
             if (v) svg.setGradientValue(this.pinGradients[index], v);
+
+            if (pin.mode !== PinFlags.Unused) {
+                accessibility.makeFocusable(this.pins[index]);
+                accessibility.setAria(this.pins[index], "slider", this.pins[index].firstChild.textContent);
+                this.pins[index].setAttribute("aria-valuemin", "0");
+                this.pins[index].setAttribute("aria-valuemax", pin.mode & PinFlags.Analog ? "1023" : "100");
+                this.pins[index].setAttribute("aria-orientation", "vertical");
+                this.pins[index].setAttribute("aria-valuenow", text ? text.textContent : v);
+                accessibility.setLiveContent(text ? text.textContent : v);
+            }
         }
 
         private updateTemperature() {
@@ -1273,18 +1311,51 @@ namespace pxsim.visuals {
 
                 let pt = this.element.createSVGPoint();
                 svg.buttonEvents(this.thermometer,
+                    // move
                     (ev) => {
                         let cur = svg.cursorPoint(pt, this.element, ev);
                         let t = Math.max(0, Math.min(1, (cur.y - ty - 5) / 70))
                         state.thermometerState.temperature = Math.floor(tmax - t * (tmax - tmin));
                         this.updateTemperature();
-                    }, ev => { }, ev => { })
+                    },
+                    // start
+                    ev => { },
+                    // stop
+                    ev => { },
+                    // keydown
+                    (ev) => {
+                        let charCode = (typeof ev.which == "number") ? ev.which : ev.keyCode
+                        if (charCode === 40 || charCode === 37) { // Down/Left arrow
+                            state.thermometerState.temperature--;
+                            if (state.thermometerState.temperature < -5) {
+                                state.thermometerState.temperature = 50;
+                            }
+                            this.updateTemperature();
+                        } else if (charCode === 38 || charCode === 39) { // Up/Right arrow
+                            state.thermometerState.temperature++;
+                            if (state.thermometerState.temperature > 50) {
+                                state.thermometerState.temperature = -5;
+                            }
+                            this.updateTemperature();
+                        }
+                    })
+
+                accessibility.makeFocusable(this.thermometer);
+                accessibility.setAria(this.thermometer, "slider", "Thermometer");
+                this.thermometer.setAttribute("aria-valuemin", "-5");
+                this.thermometer.setAttribute("aria-valuemax", "50");
+                this.thermometer.setAttribute("aria-orientation", "vertical");
+                this.thermometer.setAttribute("aria-valuenow", "21");
+                this.thermometer.setAttribute("aria-valuetext", "21°C");
             }
 
             let t = Math.max(tmin, Math.min(tmax, state.thermometerState.temperature))
             let per = Math.floor((state.thermometerState.temperature - tmin) / (tmax - tmin) * 100)
             svg.setGradientValue(this.thermometerGradient, 100 - per + "%");
             this.thermometerText.textContent = t + "°C";
+            this.thermometer.setAttribute("aria-valuenow", t.toString());
+            this.thermometer.setAttribute("aria-valuetext", t + "°C");
+            accessibility.setLiveContent(t + "°C");
         }
 
         private updateHeading() {
@@ -1367,6 +1438,7 @@ namespace pxsim.visuals {
                 }) as SVGCircleElement;
                 let pt = this.element.createSVGPoint();
                 svg.buttonEvents(this.lightLevelButton,
+                    // move
                     (ev) => {
                         let pos = svg.cursorPoint(pt, this.element, ev);
                         let rs = r / 2;
@@ -1379,6 +1451,13 @@ namespace pxsim.visuals {
                     ev => { })
                 this.lightLevelText = svg.child(this.g, "text", { x: cx - r - 7, y: cy + r + 8, text: '', class: 'sim-text inverted' }) as SVGTextElement;
                 this.updateTheme();
+
+                accessibility.makeFocusable(this.lightLevelButton);
+                accessibility.setAria(this.lightLevelButton, "slider", "Light level");
+                this.lightLevelButton.setAttribute("aria-valuemin", "0");
+                this.lightLevelButton.setAttribute("aria-valuemax", "255");
+                this.lightLevelButton.setAttribute("aria-orientation", "vertical");
+                this.lightLevelButton.setAttribute("aria-valuenow", "128");
             }
 
             svg.setGradientValue(this.lightLevelGradient, Math.min(100, Math.max(0, Math.floor(state.lightSensorState.lightLevel * 100 / 255))) + '%')
@@ -1389,11 +1468,19 @@ namespace pxsim.visuals {
             let lv = this.board.lightSensorState.lightLevel;
             svg.setGradientValue(this.lightLevelGradient, Math.min(100, Math.max(0, Math.floor(lv * 100 / 255))) + '%')
             this.lightLevelText.textContent = lv.toString();
+            this.lightLevelButton.setAttribute("aria-valuenow", lv.toString());
+            accessibility.setLiveContent(lv.toString());
+        }
+
+        findParentElement() {
+            let el = this.element;
+            while (el.parentNode && el.parentNode.nodeName == "svg")
+                el = el.parentNode as SVGSVGElement;
+            return el;
         }
 
         private updateTilt() {
-            if (this.props.disableTilt) return;
-            let state = this.board;
+            const state = this.board;
             if (!state || !state.accelerometerState.accelerometer.isActive) return;
 
             const x = state.accelerometerState.accelerometer.getX();
@@ -1417,15 +1504,25 @@ namespace pxsim.visuals {
                 "y": "0px",
                 "width": MB_WIDTH + "px",
                 "height": MB_HEIGHT + "px",
+                "fill": "rgba(0,0,0,0)"
             });
             this.style = <SVGStyleElement>svg.child(this.element, "style", {});
-            this.style.textContent = MB_STYLE;
+            this.style.textContent = MB_STYLE + (this.props.theme.highContrast ? MB_HIGHCONTRAST : "");
 
             this.defs = <SVGDefsElement>svg.child(this.element, "defs", {});
             this.g = <SVGGElement>svg.elt("g");
             this.element.appendChild(this.g);
 
             // filters
+            let ledglow = svg.child(this.defs, "filter", { id: "ledglow", x: "-75%", y: "-75%", width: "300%", height: "300%" });
+            svg.child(ledglow, "feMorphology", { operator: "dilate", radius: "4", in: "SourceAlpha", result: "thicken" });
+            svg.child(ledglow, "feGaussianBlur", { stdDeviation: "5", in: "thicken", result: "blurred" });
+            svg.child(ledglow, "feFlood", { "flood-color": "rgb(255, 17, 77)", result: "glowColor" });
+            svg.child(ledglow, "feComposite", { in: "glowColor", in2: "blurred", operator: "in", result: "ledglow_colored" });
+            let ledglowMerge = svg.child(ledglow, "feMerge", {});
+            svg.child(ledglowMerge, "feMergeNode", { in: "ledglow_colored" });
+            svg.child(ledglowMerge, "feMergeNode", { in: "SourceGraphic" });
+
             let glow = svg.child(this.defs, "filter", { id: "filterglow", x: "-5%", y: "-5%", width: "120%", height: "120%" });
             svg.child(glow, "feGaussianBlur", { stdDeviation: "5", result: "glow" });
             let merge = svg.child(glow, "feMerge", {});
@@ -1522,11 +1619,14 @@ namespace pxsim.visuals {
                 switch (msg.type || "") {
                     case "serial": this.flashSystemLed(); break;
                     case "radiopacket": this.flashAntenna(); break;
+                    case "eventbus":
+                        if ((<pxsim.SimulatorEventBusMessage>msg).id == DAL.MES_BROADCAST_GENERAL_ID)
+                            this.flashAntenna(); break;
                 }
             }
             let tiltDecayer = 0;
             this.element.addEventListener(pointerEvents.move, (ev: MouseEvent) => {
-                let state = this.board;
+                const state = this.board;
                 if (!state.accelerometerState.accelerometer.isActive) return;
 
                 if (tiltDecayer) {
@@ -1534,14 +1634,20 @@ namespace pxsim.visuals {
                     tiltDecayer = 0;
                 }
 
-                let bbox = this.element.getBoundingClientRect();
-                let ax = (ev.clientX - bbox.width / 2) / (bbox.width / 3);
-                let ay = (ev.clientY - bbox.height / 2) / (bbox.height / 3);
+                const bbox = this.element.getBoundingClientRect();
 
                 let x = - Math.max(- 1023, Math.min(1023, Math.floor(ax * 1023)));
                 let y = - Math.max(- 1023, Math.min(1023, Math.floor(ay * 1023)));
                 let z2 = 1023 * 1023 - x * x - y * y;
                 let z = Math.floor((z2 > 0 ? -1 : 1) * Math.sqrt(Math.abs(z2)));
+
+                const ax = (xPos - bbox.width / 2) / (bbox.width / 3);
+                const ay = (yPos - bbox.height / 2) / (bbox.height / 3);
+
+                const x = - Math.max(- 1023, Math.min(1023, Math.floor(ax * 1023)));
+                const y = - Math.max(- 1023, Math.min(1023, Math.floor(ay * 1023)));
+                const z2 = 1023 * 1023 - x * x - y * y;
+                const z = Math.floor((z2 > 0 ? -1 : 1) * Math.sqrt(Math.abs(z2)));
 
                 state.accelerometerState.accelerometer.update(x, y, z);
                 this.updateTilt();
@@ -1607,6 +1713,26 @@ namespace pxsim.visuals {
                         U.removeClass(svgpin, "touched");
                         this.updatePin(pin, index);
                         return false;
+                    },
+                    // keydown
+                    (ev: KeyboardEvent) => {
+                        let charCode = (typeof ev.which == "number") ? ev.which : ev.keyCode
+                        let state = this.board;
+                        let pin = state.edgeConnectorState.pins[index];
+
+                        if (charCode === 40 || charCode === 37) { // Down/Left arrow
+                            pin.value -= 10;
+                            if (pin.value < 0) {
+                                pin.value = 1023;
+                            }
+                            this.updatePin(pin, index);
+                        } else if (charCode === 38 || charCode === 39) { // Up/Right arrow
+                            pin.value += 10;
+                            if (pin.value > 1023) {
+                                pin.value = 0;
+                            }
+                            this.updatePin(pin, index);
+                        }
                     });
             })
             this.pins.slice(0, 3).forEach((btn, index) => {
@@ -1628,6 +1754,12 @@ namespace pxsim.visuals {
                     this.board.bus.queue(state.edgeConnectorState.pins[index].id, DAL.MICROBIT_BUTTON_EVT_UP);
                     this.board.bus.queue(state.edgeConnectorState.pins[index].id, DAL.MICROBIT_BUTTON_EVT_CLICK);
                 })
+                accessibility.enableKeyboardInteraction(btn, undefined, () => {
+                    let state = this.board;
+                    this.board.bus.queue(state.edgeConnectorState.pins[index].id, DAL.MICROBIT_BUTTON_EVT_DOWN);
+                    this.board.bus.queue(state.edgeConnectorState.pins[index].id, DAL.MICROBIT_BUTTON_EVT_UP);
+                    this.board.bus.queue(state.edgeConnectorState.pins[index].id, DAL.MICROBIT_BUTTON_EVT_CLICK);
+                });
             })
 
             let bpState = this.board.buttonPairState;
@@ -1651,6 +1783,11 @@ namespace pxsim.visuals {
                     this.board.bus.queue(stateButtons[index].id, DAL.MICROBIT_BUTTON_EVT_UP);
                     this.board.bus.queue(stateButtons[index].id, DAL.MICROBIT_BUTTON_EVT_CLICK);
                 })
+                accessibility.enableKeyboardInteraction(btn, undefined, () => {
+                    this.board.bus.queue(stateButtons[index].id, DAL.MICROBIT_BUTTON_EVT_DOWN);
+                    this.board.bus.queue(stateButtons[index].id, DAL.MICROBIT_BUTTON_EVT_UP);
+                    this.board.bus.queue(stateButtons[index].id, DAL.MICROBIT_BUTTON_EVT_CLICK);
+                });
             })
             pointerEvents.down.forEach(evid => this.buttonsOuter[2].addEventListener(evid, ev => {
                 let state = this.board;
@@ -1683,6 +1820,11 @@ namespace pxsim.visuals {
                 this.board.bus.queue(stateButtons[2].id, DAL.MICROBIT_BUTTON_EVT_UP);
                 this.board.bus.queue(stateButtons[2].id, DAL.MICROBIT_BUTTON_EVT_CLICK);
             })
+            accessibility.enableKeyboardInteraction(this.buttonsOuter[2], undefined, () => {
+                this.board.bus.queue(stateButtons[2].id, DAL.MICROBIT_BUTTON_EVT_DOWN);
+                this.board.bus.queue(stateButtons[2].id, DAL.MICROBIT_BUTTON_EVT_UP);
+                this.board.bus.queue(stateButtons[2].id, DAL.MICROBIT_BUTTON_EVT_CLICK);
+            });
         }
     }
 }
