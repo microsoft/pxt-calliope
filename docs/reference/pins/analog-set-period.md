@@ -5,23 +5,23 @@ analog [pin](/device/pins).
 Before you call this function, you should set the specified pin as analog.
 
 ```sig
-pins.analogSetPeriod(AnalogPin.P1, 20000)
+pins.analogSetPeriod(AnalogPin.P0, 20000)
 ```
 
-### Parameters
+## Parameters
 
-* ``name``: a [string](/reference/types/string) that specifies the pin to configure (`P0` through `P4`, or `P10`)
-* ``micros``: a [number](/reference/types/number) that specifies the analog period in microseconds.
+* ``name``: a [string](/types/string) that specifies the pin to configure (`P0` through `P4`, or `P10`)
+* ``micros``: a [number](/types/number) that specifies the analog period in microseconds.
 
 The following code first sets `P0` to analog with **analog write
 pin**, and then sets the PWM period of `P0` to 20,000 microseconds.
 
 ```blocks
-pins.analogWritePin(AnalogPin.P1, 512)
-pins.analogSetPeriod(AnalogPin.P1, 20000)
+pins.analogWritePin(AnalogPin.P0, 512)
+pins.analogSetPeriod(AnalogPin.P0, 20000)
 ```
 
-### See also
+## See also
 
 [@boardname@ pins](/device/pins),
 [on pin pressed](/reference/input/on-pin-pressed),

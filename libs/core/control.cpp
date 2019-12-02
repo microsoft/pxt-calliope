@@ -71,8 +71,6 @@ enum EventBusSource {
     //% blockIdentity="control.eventSourceId"
     MICROBIT_ID_IO_P20_ = MICROBIT_ID_IO_P20,
     //% blockIdentity="control.eventSourceId"
-    MICROBIT_ID_IO_P21_ = MICROBIT_ID_IO_P21,
-    //% blockIdentity="control.eventSourceId"
     MES_DEVICE_INFO_ID_ = MES_DEVICE_INFO_ID,
     //% blockIdentity="control.eventSourceId"
     MES_SIGNAL_STRENGTH_ID_ = MES_SIGNAL_STRENGTH_ID,
@@ -207,6 +205,15 @@ enum EventBusValue {
     MES_REMOTE_CONTROL_EVT_VOLUMEUP_ = MES_REMOTE_CONTROL_EVT_VOLUMEUP,
 };
 
+enum EventFlags {
+    //%
+    QueueIfBusy = MESSAGE_BUS_LISTENER_QUEUE_IF_BUSY,
+    //%
+    DropIfBusy = MESSAGE_BUS_LISTENER_DROP_IF_BUSY,
+    //%
+    Reentrant = MESSAGE_BUS_LISTENER_REENTRANT
+};
+
 //% weight=1 color="#333333"
 //% advanced=true
 namespace control {
@@ -222,7 +229,7 @@ namespace control {
     //% help=control/in-background blockAllowMultiple=1 afterOnStart=true
     //% blockId="control_in_background" block="run in background" blockGap=8
     void inBackground(Action a) {
-      runInBackground(a);
+      runInParallel(a);
     }
 
     /**
@@ -258,13 +265,14 @@ namespace control {
     }
 
     /**
-     * Raises an event in the event bus.
+     * Registers an event handler.
      */
     //% weight=20 blockGap=8 blockId="control_on_event" block="on event|from %src=control_event_source_id|with value %value=control_event_value_id"
     //% help=control/on-event
     //% blockExternalInputs=1
-    void onEvent(int src, int value, Action handler) {
-        registerWithDal(src, value, handler);
+    void onEvent(int src, int value, Action handler, int flags = 0) {
+        if (!flags) flags = EventFlags::QueueIfBusy;
+        registerWithDal(src, value, handler, (int)flags);
     }
 
     /**
@@ -288,12 +296,12 @@ namespace control {
     }
 
     /**
-     * Gets a friendly name for the device derived from the its serial number
+     * Make a friendly name for the device based on its serial number
      */
     //% blockId="control_device_name" block="device name" weight=10 blockGap=8
     //% advanced=true
-    StringData* deviceName() {
-        return ManagedString(microbit_friendly_name()).leakData();
+    String deviceName() {
+        return mkString(microbit_friendly_name(), -1);
     }
 
     /**
@@ -303,5 +311,23 @@ namespace control {
     //% advanced=true
     int deviceSerialNumber() {
         return microbit_serial_number();
+    }
+
+    /**
+    * Informs simulator/runtime of a MIDI message
+    * Internal function to support the simulator.
+    */
+    //% part=midioutput blockHidden=1
+    void __midiSend(Buffer buffer) {
+        // this is a stub to support the simulator
+    }
+
+    /**
+    *
+    */
+    //%
+    void __log(String text) {
+        if (NULL == text) return;
+        pxt::sendSerial(text->getUTF8Data(), text->getUTF8Size());
     }
 }

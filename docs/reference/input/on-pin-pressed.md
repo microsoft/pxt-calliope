@@ -2,8 +2,9 @@
 
 Start an [event handler](/reference/event-handler) (part of the
 program that will run when something happens, like when a button is
-pressed).  This handler works when you press pin `0`, `1`, or `2`
-together with `GND`.  When you are using this function in a web
+pressed).  This handler works when you touch pin `0`, `1`, or `2`
+together with `GND`, and release it within 1 second.
+When you are using this function in a web
 browser, click the pins on the screen instead of the ones on the
 @boardname@.
 
@@ -28,21 +29,27 @@ instead of the USB cable.
 
 * ``name`` means the pin that is being pressed, either `P0`, `P1`, or `P2`
 
-### Example: pin pressed counter
+## Pin presses in action
+
+See how the @boardname@ detects a press at a pin or on something connected to a pin in this video:
+
+https://www.youtube.com/watch?v=GEpZrvbsO7o
+
+## Example: pin pressed counter
 
 This program counts how many times you press the `P0` pin. 
 Every time you press the pin, the program shows the number of times on the screen.
 
 ```blocks
 let count = 0
-basic.showNumber(count, 100)
+basic.showNumber(count)
 input.onPinPressed(TouchPin.P0, () => {
     count = count + 1
-    basic.showNumber(count, 100)
+    basic.showNumber(count)
 })
 ```
 
-### See also
+## See also
 
 [@boardname@ pins](/device/pins), [pin is pressed](/reference/input/pin-is-pressed), [analog read pin](/reference/pins/analog-read-pin), [analog write pin](/reference/pins/analog-write-pin), [digital read pin](/reference/pins/digital-read-pin), [digital write pin](/reference/pins/digital-write-pin)
 

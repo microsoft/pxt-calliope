@@ -1,4 +1,30 @@
 // Auto-generated. Do not edit.
+
+
+    declare const enum NumberFormat {
+    Int8LE = 1,
+    UInt8LE = 2,
+    Int16LE = 3,
+    UInt16LE = 4,
+    Int32LE = 5,
+    Int8BE = 6,
+    UInt8BE = 7,
+    Int16BE = 8,
+    UInt16BE = 9,
+    Int32BE = 10,
+
+    UInt32LE = 11,
+    UInt32BE = 12,
+    Float32LE = 13,
+    Float64LE = 14,
+    Float32BE = 15,
+    Float64BE = 16,
+    }
+
+
+    declare const enum PerfCounters {
+    GC = 0,
+    }
 declare namespace images {
 }
 declare namespace basic {
@@ -70,57 +96,68 @@ declare namespace basic {
      * Raised when shaken
      */
     //% block=shake
-    Shake = 12,  // MICROBIT_ACCELEROMETER_EVT_SHAKE
+    //% jres=gestures.shake
+    Shake = 11,  // MICROBIT_ACCELEROMETER_EVT_SHAKE
     /**
      * Raised when the logo is upward and the screen is vertical
      */
     //% block="logo up"
+    //% jres=gestures.tiltforward
     LogoUp = 1,  // MICROBIT_ACCELEROMETER_EVT_TILT_UP
     /**
      * Raised when the logo is downward and the screen is vertical
      */
     //% block="logo down"
+    //% jres=gestures.tiltbackwards
     LogoDown = 2,  // MICROBIT_ACCELEROMETER_EVT_TILT_DOWN
     /**
      * Raised when the screen is pointing down and the board is horizontal
      */
     //% block="screen up"
+    //% jres=gestures.frontsideup
     ScreenUp = 5,  // MICROBIT_ACCELEROMETER_EVT_FACE_UP
     /**
      * Raised when the screen is pointing up and the board is horizontal
      */
     //% block="screen down"
+    //% jres=gestures.backsideup
     ScreenDown = 6,  // MICROBIT_ACCELEROMETER_EVT_FACE_DOWN
     /**
      * Raised when the screen is pointing left
      */
     //% block="tilt left"
+    //% jres=gestures.tiltleft
     TiltLeft = 3,  // MICROBIT_ACCELEROMETER_EVT_TILT_LEFT
     /**
      * Raised when the screen is pointing right
      */
     //% block="tilt right"
+    //% jres=gestures.tiltright
     TiltRight = 4,  // MICROBIT_ACCELEROMETER_EVT_TILT_RIGHT
     /**
      * Raised when the board is falling!
      */
     //% block="free fall"
+    //% jres=gestures.freefall
     FreeFall = 7,  // MICROBIT_ACCELEROMETER_EVT_FREEFALL
     /**
      * Raised when a 3G shock is detected
      */
     //% block="3g"
-    ThreeG = 9,  // MICROBIT_ACCELEROMETER_EVT_3G
+    //% jres=gestures.impact3g
+    ThreeG = 8,  // MICROBIT_ACCELEROMETER_EVT_3G
     /**
      * Raised when a 6G shock is detected
      */
     //% block="6g"
-    SixG = 10,  // MICROBIT_ACCELEROMETER_EVT_6G
+    //% jres=gestures.impact6g
+    SixG = 9,  // MICROBIT_ACCELEROMETER_EVT_6G
     /**
      * Raised when a 8G shock is detected
      */
     //% block="8g"
-    EightG = 11,  // MICROBIT_ACCELEROMETER_EVT_8G
+    //% jres=gestures.impact8g
+    EightG = 10,  // MICROBIT_ACCELEROMETER_EVT_8G
     }
 
 
@@ -229,8 +266,6 @@ declare namespace input {
     MICROBIT_ID_IO_P19 = 24,  // MICROBIT_ID_IO_P19
     //% blockIdentity="control.eventSourceId"
     MICROBIT_ID_IO_P20 = 25,  // MICROBIT_ID_IO_P20
-    //% blockIdentity="control.eventSourceId"
-    MICROBIT_ID_IO_P21 = 50,  // MICROBIT_ID_IO_P21
     //% blockIdentity="control.eventSourceId"
     MES_DEVICE_INFO_ID = 1103,  // MES_DEVICE_INFO_ID
     //% blockIdentity="control.eventSourceId"
@@ -366,12 +401,24 @@ declare namespace input {
     //% blockIdentity="control.eventValueId"
     MES_REMOTE_CONTROL_EVT_VOLUMEUP = 8,  // MES_REMOTE_CONTROL_EVT_VOLUMEUP
     }
+
+
+    declare const enum EventFlags {
+    //%
+    QueueIfBusy = 0x0010,  // MESSAGE_BUS_LISTENER_QUEUE_IF_BUSY
+    //%
+    DropIfBusy = 0x0020,  // MESSAGE_BUS_LISTENER_DROP_IF_BUSY
+    //%
+    Reentrant = 0x0008,  // MESSAGE_BUS_LISTENER_REENTRANT
+    }
 declare namespace control {
 }
 
 
     declare const enum DisplayMode {
     //% block="black and white"
+    BlackAndWhite = 0,  // DISPLAY_MODE_BLACK_AND_WHITE
+    //% blockHidden=true
     BackAndWhite = 0,  // DISPLAY_MODE_BLACK_AND_WHITE
     //% block="greyscale"
     Greyscale = 1,  // DISPLAY_MODE_GREYSCALE
@@ -435,7 +482,9 @@ declare namespace motors {
 
 
     declare const enum PulseValue {
+    //% block=high
     High = 4,  // MICROBIT_PIN_EVT_PULSE_HI
+    //% block=low
     Low = 5,  // MICROBIT_PIN_EVT_PULSE_LO
     }
 
@@ -463,12 +512,17 @@ declare namespace motors {
 
 
     declare const enum SerialPin {
-    C16 = 9,  // MICROBIT_ID_IO_P2
-    C17 = 15,  // MICROBIT_ID_IO_P8
-    P0 = 19,  // MICROBIT_ID_IO_P12
-    P1 = 7,  // MICROBIT_ID_IO_P0
-    P2 = 8,  // MICROBIT_ID_IO_P1
-    P3 = 23,  // MICROBIT_ID_IO_P16
+    P0 = 7,  // MICROBIT_ID_IO_P0
+    P1 = 8,  // MICROBIT_ID_IO_P1
+    P2 = 9,  // MICROBIT_ID_IO_P2
+    P8 = 15,  // MICROBIT_ID_IO_P8
+    P12 = 19,  // MICROBIT_ID_IO_P12
+    P13 = 20,  // MICROBIT_ID_IO_P13
+    P14 = 21,  // MICROBIT_ID_IO_P14
+    P15 = 22,  // MICROBIT_ID_IO_P15
+    P16 = 23,  // MICROBIT_ID_IO_P16
+    USB_TX = 1001,
+    USB_RX = 1002,
     }
 
 
@@ -476,9 +530,25 @@ declare namespace motors {
     //% block=115200
     BaudRate115200 = 115200,
     //% block=57600
-    BaudRate56700 = 57600,
+    BaudRate57600 = 57600,
+    //% block=38400
+    BaudRate38400 = 38400,
+    //% block=31250
+    BaudRate31250 = 31250,
+    //% block=28800
+    BaudRate28800 = 28800,
+    //% block=19200
+    BaudRate19200 = 19200,
+    //% block=14400
+    BaudRate14400 = 14400,
     //% block=9600
     BaudRate9600 = 9600,
+    //% block=4800
+    BaudRate4800 = 4800,
+    //% block=2400
+    BaudRate2400 = 2400,
+    //% block=1200
+    BaudRate1200 = 1200,
     }
 
 
@@ -498,20 +568,5 @@ declare namespace motors {
     }
 declare namespace serial {
 }
-
-
-    declare const enum NumberFormat {
-    Int8LE = 1,
-    UInt8LE = 2,
-    Int16LE = 3,
-    UInt16LE = 4,
-    Int32LE = 5,
-    Int8BE = 6,
-    UInt8BE = 7,
-    Int16BE = 8,
-    UInt16BE = 9,
-    Int32BE = 10,
-    // UInt32,
-    }
 
 // Auto-generated. Do not edit. Really.

@@ -6,6 +6,7 @@
     ],
     "public": true,
     "dependencies": {
-        "core": "file:../core"
+        "core": "file:../core",
+        "radio": "file:../radio"
     }
 }

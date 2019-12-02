@@ -3,15 +3,14 @@
 Move the sprite the number of LEDs you say.
 
 ```sig
-let item: game.LedSprite = null;
-item.move(1);
+game.createSprite(0, 2).move(1);
 ```
 
-### Parameters
+## Parameters
 
-* a [number](/reference/types/number) that means how many LEDs the sprite should move
+* **leds**: a [number](/types/number) that means how many LEDs the sprite should move.
 
-### Example
+## Example
 
 This program starts a sprite in the middle of the screen.
 Next, the sprite turns toward the lower-right corner.
@@ -23,7 +22,7 @@ item.turn(Direction.Right, 45);
 item.move(2);
 ```
 
-### See also
+## See also
 
 [turn](/reference/game/turn),
 [create sprite](/reference/game/create-sprite)

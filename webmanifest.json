@@ -1,5 +1,7 @@
 {
-	"name": "mini.pxt.io",
+	"name": "makecode.microbit.org",
+	"display": "fullscreen",
+	"orientation": "portrait",
 	"icons": [
 		{
 			"src": "./static/icons/android-chrome-36x36.png",
@@ -48,5 +50,10 @@
 		}
 	],
 	"theme_color": "#ffffff",
-	"display": "standalone"
+	"related_applications": [
+		{
+			"platform": "play",
+			"id": "com.samsung.microbit"
+		}
+	]
 }

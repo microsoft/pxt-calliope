@@ -1,6 +1,5 @@
 /// <reference path="../../node_modules/pxt-core/built/pxtsim.d.ts"/>
 /// <reference path="../../libs/core/dal.d.ts"/>
-/// <reference path="../../libs/core/shims.d.ts"/>
 /// <reference path="../../libs/core/enums.d.ts"/>
 
 namespace pxsim.visuals {
@@ -133,7 +132,7 @@ namespace pxsim.visuals {
             }
 
             //show the canvas if it's hidden
-            svg.removeClass(this.background, "hidden");
+            U.removeClass(this.background, "hidden");
 
             //resize if necessary
             let [first, last] = [this.pixels[0], this.pixels[this.pixels.length - 1]]
@@ -179,6 +178,7 @@ namespace pxsim.visuals {
             .sim-neopixel-canvas-parent:hover {
                 transform-origin: center;
                 transform: scale(4) translateY(-60px);
+                -moz-transform: scale(4) translateY(-220px);
             }
             .sim-neopixel-canvas .hidden {
                 visibility:hidden;

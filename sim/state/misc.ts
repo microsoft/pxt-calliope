@@ -35,8 +35,13 @@ namespace pxsim.basic {
 namespace pxsim.control {
     export var inBackground = thread.runInBackground;
 
+    export function createBuffer(sz: number) {
+        return pxsim.BufferMethods.createBuffer(sz)
+    }
+
     export function reset() {
-        U.userError("reset not implemented in simulator yet")
+        const cb = getResume();
+        pxsim.runtime.restart();
     }
 
     export function waitMicros(micros: number) {
@@ -58,12 +63,27 @@ namespace pxsim.control {
     }
 
     export function onEvent(id: number, evid: number, handler: RefAction) {
+        if (id == DAL.MICROBIT_ID_BUTTON_AB) {
+            const b = board().buttonPairState;
+            if (!b.usesButtonAB) {
+                b.usesButtonAB = true;
+                runtime.queueDisplayUpdate();
+            }
+        }
         pxtcore.registerWithDal(id, evid, handler)
     }
 
     export function raiseEvent(id: number, evid: number, mode: number) {
         // TODO mode?
         board().bus.queue(id, evid)
+    }
+
+    export function eventTimestamp() {
+        return board().bus.getLastEventTime()
+    }
+
+    export function eventValue() {
+        return board().bus.getLastEventValue()
     }
 }
 
@@ -78,7 +98,12 @@ namespace pxsim.input {
         return runtime.runningTime();
     }
 
-    export function calibrate() {
+    export function runningTimeMicros(): number {
+        return runtime.runningTimeUs();
+    }
+
+    export function calibrateCompass() {
+        // device calibrates...
     }
 }
 
@@ -104,6 +129,18 @@ namespace pxsim.pins {
     export function spiWrite(value: number): number {
         // TODO
         return 0;
+    }
+
+    export function spiFrequency(f: number): void {
+        // TODO
+    }
+
+    export function spiFormat(bits: number, mode: number): void {
+        // TODO
+    }
+
+    export function spiPins(mosi: number, miso: number, sck: number) {
+        // TODO
     }
 
     export function i2cReadBuffer(address: number, size: number, repeat?: boolean): RefBuffer {
@@ -137,7 +174,7 @@ namespace pxsim.devices {
     export function onSignalStrengthChanged(action: number) {
         // TODO
     }
-    export function signalStrength() : number {
+    export function signalStrength(): number {
         // TODO
         return 0;
     }
@@ -168,25 +205,34 @@ namespace pxsim.bluetooth {
     export function startUartService(): void {
         // TODO
     }
-    export function uartWrite(s : string): void {
+    export function uartWriteString(s: string): void {
         serial.writeString(s)
     }
+
+    export function uartWriteBuffer(b: RefBuffer): void {
+        serial.writeBuffer(b);
+    }
+
+    export function uartReadBuffer(): RefBuffer {
+        return pins.createBuffer(0);        
+    }
+
     export function uartReadUntil(del: string): string {
         return serial.readUntil(del);
     }
-    export function onDataReceived(delimiters: string, handler: RefAction) {
+    export function onUartDataReceived(delimiters: string, handler: RefAction) {
         let b = board();
         b.bus.listen(DAL.MICROBIT_ID_BLE_UART, DAL.MICROBIT_UART_S_EVT_DELIM_MATCH, handler);
     }
-    export function onBluetoothConnected(a : RefAction) {
+    export function onBluetoothConnected(a: RefAction) {
         // TODO
     }
-    export function onBluetoothDisconnected(a : RefAction) {
+    export function onBluetoothDisconnected(a: RefAction) {
         // TODO
     }
     export function advertiseUrl(url: string, power: number, connectable: boolean) { }
-    export function advertiseUidBuffer(nsAndInstance: Buffer, power: number, connectable: boolean) { }
+    export function advertiseUidBuffer(nsAndInstance: RefBuffer, power: number, connectable: boolean) { }
     export function stopAdvertising() { }
-    export function setTransmitPower(power: number) {}
+    export function setTransmitPower(power: number) { }
 }
 

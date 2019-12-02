@@ -14,13 +14,13 @@ calling this function.
 pins.map(0, 0, 4, 0, 1023);
 ```
 
-### Parameters
+## Parameters
 
-* ``value``: a [number](/reference/types/number) that specifies the value to map
-* ``fromLow``: a [number](/reference/types/number)  that specifies the lower bound of the origin interval
-* ``fromHigh``: a [number](/reference/types/number)  that specifies the upper bound of the origin interval
-* ``toLow``: a [number](/reference/types/number)  that specifies the lower bound of the target interval
-* ``toHigh``: a [number](/reference/types/number)  that specifies the upper bound of the target interval
+* ``value``: a [number](/types/number) that specifies the value to map
+* ``fromLow``: a [number](/types/number)  that specifies the lower bound of the origin interval
+* ``fromHigh``: a [number](/types/number)  that specifies the upper bound of the origin interval
+* ``toLow``: a [number](/types/number)  that specifies the lower bound of the target interval
+* ``toHigh``: a [number](/types/number)  that specifies the upper bound of the target interval
 
 ## Example
 
@@ -28,12 +28,12 @@ This example maps the value read from the analog pin `P0` to an LED
 coordinate between `0` and `4`.
 
 ```blocks
-let value1 = pins.analogReadPin(AnalogPin.P1)
+let value1 = pins.analogReadPin(AnalogPin.P0)
 let index = pins.map(value1, 0, 1023, 0, 4)
 led.plot(0, index)
 ```
 
-### See also
+## See also
 
 [analog read pin](/reference/pins/analog-read-pin)
 

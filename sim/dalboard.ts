@@ -19,6 +19,7 @@ namespace pxsim {
         fileSystem: FileSystemState;
 
         // visual
+        viewHost: visuals.BoardHost;
         view: SVGElement;
 
         constructor() {
@@ -92,15 +93,15 @@ namespace pxsim {
 
             switch (msg.type || "") {
                 case "eventbus":
-                    let ev = <SimulatorEventBusMessage>msg;
+                    const ev = <SimulatorEventBusMessage>msg;
                     this.bus.queue(ev.id, ev.eventid, ev.value);
                     break;
                 case "serial":
-                    let data = (<SimulatorSerialMessage>msg).data || "";
+                    const data = (<SimulatorSerialMessage>msg).data || "";
                     this.serialState.receiveData(data);
                     break;
                 case "radiopacket":
-                    let packet = <SimulatorRadioPacketMessage>msg;
+                    const packet = <SimulatorRadioPacketMessage>msg;
                     this.radioState.receivePacket(packet);
                     break;
             }
@@ -126,19 +127,20 @@ namespace pxsim {
                 maxHeight: "100%",
                 highContrast: msg.highContrast
             };
-            const viewHost = new visuals.BoardHost(pxsim.visuals.mkBoardView({
+            this.viewHost = new visuals.BoardHost(pxsim.visuals.mkBoardView({
                 visual: boardDef.visual,
+                boardDef: boardDef,
                 highContrast: msg.highContrast
             }), opts);
 
             document.body.innerHTML = ""; // clear children
-            document.body.appendChild(this.view = viewHost.getView());
+            document.body.appendChild(this.view = this.viewHost.getView());
 
             return Promise.resolve();
         }
 
-        screenshot(): string {
-            return svg.toDataUri(new XMLSerializer().serializeToString(this.view));
+        screenshotAsync(width?: number): Promise<ImageData> {
+            return this.viewHost.screenshotAsync(width);
         }
     }
 

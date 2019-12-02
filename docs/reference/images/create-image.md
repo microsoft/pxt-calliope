@@ -13,12 +13,12 @@ images.createImage(`
 `)
 ```
 
-### Parameters
+## Parameters
 
-* ``leds`` is a [string](/reference/types/string) that says which LEDs
+* ``leds`` is a [string](/types/string) that says which LEDs
 on the screen should be on and which should be off.
 
-### Example: Flip-flopping arrow
+## Example: Flip-flopping arrow
 
 If you press button `A`, this program will make a picture of an
 arrow and show it on the LED screen. If you press button `B`, the
@@ -45,9 +45,9 @@ input.onButtonPressed(Button.B, () => {
 });
 ```
 
-### See also
+## See also
 
-[Getting Started](/getting-started), [image](/reference/images/image),
+[image](/reference/images/image),
 [create big image](/reference/images/create-big-image),
 [show image](/reference/images/show-image),
 [scroll image](/reference/images/scroll-image), [show animation](/reference/basic/show-animation)

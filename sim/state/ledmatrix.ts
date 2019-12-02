@@ -28,17 +28,24 @@ namespace pxsim {
             this.data = data;
         }
         public print() {
-            // console.debug(`Image id:${this.id} refs:${this.refcnt} size:${this.width}x${Image.height}`)
+            console.debug(`Image id:${this.id} size:${this.width}x${Image.height}`)
         }
         public get(x: number, y: number): number {
+            x = x >> 0;
+            y = y >> 0;
             if (x < 0 || x >= this.width || y < 0 || y >= 5) return 0;
             return this.data[y * this.width + x];
         }
         public set(x: number, y: number, v: number) {
+            x = x >> 0;
+            y = y >> 0;
             if (x < 0 || x >= this.width || y < 0 || y >= 5) return;
             this.data[y * this.width + x] = Math.max(0, Math.min(255, v));
         }
         public copyTo(xSrcIndex: number, length: number, target: Image, xTargetIndex: number): void {
+            xSrcIndex = xSrcIndex >> 0;
+            length = length >> 0;
+            xTargetIndex = xTargetIndex >> 0;
             for (let x = 0; x < length; x++) {
                 for (let y = 0; y < 5; y++) {
                     let value = this.get(xSrcIndex + x, y);
@@ -47,12 +54,14 @@ namespace pxsim {
             }
         }
         public shiftLeft(cols: number) {
+            cols = cols >> 0;
             for (let x = 0; x < this.width; ++x)
                 for (let y = 0; y < 5; ++y)
                     this.set(x, y, x < this.width - cols ? this.get(x + cols, y) : 0);
         }
 
         public shiftRight(cols: number) {
+            cols = cols >> 0;
             for (let x = this.width - 1; x >= 0; --x)
                 for (let y = 0; y < 5; ++y)
                     this.set(x, y, x >= cols ? this.get(x - cols, y) : 0);
@@ -65,12 +74,13 @@ namespace pxsim {
     }
 
     export function createInternalImage(width: number): Image {
+        width = width >> 0;
         let img = createImage(width)
-        pxsim.noLeakTracking(img)
         return img
     }
 
     export function createImage(width: number): Image {
+        width = width >> 0;
         return new Image(width, new Array(width * 5));
     }
 
@@ -131,9 +141,12 @@ namespace pxsim.images {
 namespace pxsim.ImageMethods {
     export function showImage(leds: Image, offset: number, interval: number) {
         pxtrt.nullCheck(leds)
+        offset = offset >> 0;
+        interval = interval >> 0;
         let cb = getResume();
         let first = true;
 
+        leds = clampPixelBrightness(leds);
         board().ledMatrixState.animationQ.enqueue({
             interval,
             frame: () => {
@@ -150,7 +163,9 @@ namespace pxsim.ImageMethods {
 
     export function plotImage(leds: Image, offset: number): void {
         pxtrt.nullCheck(leds)
+        offset = offset >> 0;
 
+        leds = clampPixelBrightness(leds);
         board().ledMatrixState.animationQ.enqueue({
             interval: 0,
             frame: () => {
@@ -205,12 +220,15 @@ namespace pxsim.ImageMethods {
 
     export function scrollImage(leds: Image, stride: number, interval: number): void {
         pxtrt.nullCheck(leds)
+        stride = stride >> 0;
+        interval = interval >> 0;
         if (stride == 0) stride = 1;
 
         let cb = getResume();
         let off = stride > 0 ? 0 : leds.width - 1;
         let display = board().ledMatrixState.image;
 
+        leds = clampPixelBrightness(leds);
         board().ledMatrixState.animationQ.enqueue({
             interval: interval,
             frame: () => {
@@ -230,10 +248,27 @@ namespace pxsim.ImageMethods {
             whenDone: cb
         })
     }
+
+    function clampPixelBrightness(img: Image): Image {
+        let res = img;
+        if (led.displayMode() === DisplayMode.greyscale && led.brightness() < 0xff) {
+            res = new Image(img.width, img.data);
+            const b = led.brightness();
+            for (let x = 0; x < res.width; ++x) {
+                for (let y = 0; y < 5; ++y) {
+                    if (pixelBrightness(res, x, y) > b) {
+                        setPixelBrightness(res, x, y, b);
+                    }
+                }
+            }
+        }
+        return res;
+    }
 }
 
 namespace pxsim.basic {
     export function showNumber(x: number, interval: number) {
+        interval = interval >> 0;
         if (interval <= 0)
             interval = 1;
         let leds = createImageFromString(x.toString());
@@ -242,19 +277,21 @@ namespace pxsim.basic {
     }
 
     export function showString(s: string, interval: number) {
+        interval = interval >> 0;
         if (interval <= 0)
             interval = 1;
         if (s.length == 0) {
             clearScreen();
             pause(interval * 5);
+        } else if (s.length > 1) {
+            ImageMethods.scrollImage(createImageFromString(s + " "), 1, interval);
         } else {
-            if (s.length == 1) showLeds(createImageFromString(s), 0);
-            else ImageMethods.scrollImage(createImageFromString(s + " "), 1, interval);
+            showLeds(createImageFromString(s), interval * 5);
         }
     }
 
-    export function showLeds(leds: Image, delay: number): void {
-        showAnimation(leds, delay);
+    export function showLeds(leds: Image, interval: number): void {
+        showAnimation(leds, interval);
     }
 
     export function clearScreen() {
@@ -279,9 +316,10 @@ namespace pxsim.led {
 
     export function plotBrightness(x: number, y: number, brightness: number) {
         const state = board().ledMatrixState;
-        brightness = Math.max(0, Math.min(0xff, brightness));
+        brightness = brightness >> 0;
+        brightness = Math.max(0, Math.min(led.brightness(), brightness));
         if (brightness != 0 && brightness != 0xff && state.displayMode != DisplayMode.greyscale)
-                state.displayMode = DisplayMode.greyscale;
+            state.displayMode = DisplayMode.greyscale;
         state.image.set(x, y, brightness);
         runtime.queueDisplayUpdate()
     }
@@ -300,6 +338,7 @@ namespace pxsim.led {
     }
 
     export function setBrightness(value: number): void {
+        value = value >> 0;
         board().ledMatrixState.brigthness = Math.max(0, Math.min(255, value));
         runtime.queueDisplayUpdate()
     }

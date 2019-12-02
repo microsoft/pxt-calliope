@@ -1,37 +1,53 @@
 namespace pxsim.input {
-    export function onGesture(gesture: number, handler: RefAction) {
+    function accForGesture(gesture: number) {
         let b = board().accelerometerState;
         b.accelerometer.activate();
-
-        if (gesture == 11 && !b.useShake) { // SAKE
+        if (gesture == 11 && !b.useShake) { // SHAKE
             b.useShake = true;
             runtime.queueDisplayUpdate();
         }
+        return b;
+    }
+
+    export function onGesture(gesture: number, handler: RefAction) {
+        const b = accForGesture(gesture);
         pxtcore.registerWithDal(DAL.MICROBIT_ID_GESTURE, gesture, handler);
+    }
+
+    export function isGesture(gesture: number): boolean {
+        const b = accForGesture(gesture);
+        return b.accelerometer.getGesture() == gesture;
     }
 
     export function acceleration(dimension: number): number {
         let b = board().accelerometerState;
         let acc = b.accelerometer;
-        acc.activate();
         switch (dimension) {
-            case 0: return acc.getX();
-            case 1: return acc.getY();
-            case 2: return acc.getZ();
-            default: return Math.floor(Math.sqrt(acc.instantaneousAccelerationSquared()));
+            case 0:
+                acc.activate(AccelerometerFlag.X);
+                return acc.getX();
+            case 1:
+                acc.activate(AccelerometerFlag.Y);
+                return acc.getY();
+            case 2:
+                acc.activate(AccelerometerFlag.Z);
+                return acc.getZ();
+            default:
+                acc.activate();
+                return Math.floor(Math.sqrt(acc.instantaneousAccelerationSquared()));
         }
     }
 
     export function rotation(kind: number): number {
-        let b = board().accelerometerState;
-        let acc = b.accelerometer;
+        const b = board().accelerometerState;
+        const acc = b.accelerometer;
         acc.activate();
-        let x = acc.getX(MicroBitCoordinateSystem.NORTH_EAST_DOWN);
-        let y = acc.getX(MicroBitCoordinateSystem.NORTH_EAST_DOWN);
-        let z = acc.getX(MicroBitCoordinateSystem.NORTH_EAST_DOWN);
+        const x = acc.getX(MicroBitCoordinateSystem.NORTH_EAST_DOWN);
+        const y = acc.getY(MicroBitCoordinateSystem.NORTH_EAST_DOWN);
+        const z = acc.getZ(MicroBitCoordinateSystem.NORTH_EAST_DOWN);
 
-        let roll = Math.atan2(y, z);
-        let pitch = Math.atan(-x / (y * Math.sin(roll) + z * Math.cos(roll)));
+        const roll = Math.atan2(y, z);
+        const pitch = Math.atan(-x / (y * Math.sin(roll) + z * Math.cos(roll)));
 
         let r = 0;
         switch (kind) {
@@ -99,6 +115,12 @@ namespace pxsim {
         NORTH_EAST_DOWN
     }
 
+    export enum AccelerometerFlag {
+        X = 1,
+        Y = 2,
+        Z = 4
+    }
+
     export class Accelerometer {
         private sigma: number = 0;              // the number of ticks that the instantaneous gesture has been stable.
         private lastGesture: number = 0;       // the last, stable gesture recorded.
@@ -110,6 +132,7 @@ namespace pxsim {
         private id: number;
         public isActive = false;
         public sampleRange = 2;
+        public flags: AccelerometerFlag = 0;
 
         constructor(public runtime: Runtime) {
             this.id = DAL.MICROBIT_ID_ACCELEROMETER;
@@ -120,11 +143,13 @@ namespace pxsim {
             this.sampleRange = Math.max(1, Math.min(8, range));
         }
 
-        public activate() {
+        public activate(flags?: AccelerometerFlag) {
             if (!this.isActive) {
                 this.isActive = true;
                 this.runtime.queueDisplayUpdate();
             }
+            if (flags)
+                this.flags |= flags;
         }
 
         /**
@@ -199,9 +224,8 @@ namespace pxsim {
             if (force < sq(DAL.MICROBIT_ACCELEROMETER_FREEFALL_TOLERANCE))
                 return DAL.MICROBIT_ACCELEROMETER_EVT_FREEFALL;
 
-            // TODO: fix this
-            //if (force > sq(DAL.MICROBIT_ACCELEROMETER_3G_TOLERANCE))
-            //    return DAL.MICROBIT_ACCELEROMETER_EVT_3G;
+            if (force > sq(DAL.MICROBIT_ACCELEROMETER_3G_TOLERANCE))
+                return DAL.MICROBIT_ACCELEROMETER_EVT_3G;
 
             if (force > sq(DAL.MICROBIT_ACCELEROMETER_6G_TOLERANCE))
                 return DAL.MICROBIT_ACCELEROMETER_EVT_6G;
@@ -223,10 +247,10 @@ namespace pxsim {
                 return DAL.MICROBIT_ACCELEROMETER_EVT_TILT_UP;
 
             if (this.getZ() < (-1000 + DAL.MICROBIT_ACCELEROMETER_TILT_TOLERANCE))
-                return DAL.MICROBIT_ACCELEROMETER_EVT_FACE_DOWN;
+                return DAL.MICROBIT_ACCELEROMETER_EVT_FACE_UP;
 
             if (this.getZ() > (1000 - DAL.MICROBIT_ACCELEROMETER_TILT_TOLERANCE))
-                return DAL.MICROBIT_ACCELEROMETER_EVT_FACE_UP;
+                return DAL.MICROBIT_ACCELEROMETER_EVT_FACE_DOWN;
 
             return 0;
         }
@@ -236,20 +260,26 @@ namespace pxsim {
             let g = this.instantaneousPosture();
 
             // Perform some low pass filtering to reduce jitter from any detected effects
-            if (g == this.currentGesture) {
-                if (this.sigma < DAL.MICROBIT_ACCELEROMETER_GESTURE_DAMPING)
-                    this.sigma++;
-            }
-            else {
+            if (g != this.currentGesture) {
                 this.currentGesture = g;
                 this.sigma = 0;
+            } else if (this.sigma < DAL.MICROBIT_ACCELEROMETER_GESTURE_DAMPING) {
+                ++this.sigma;
             }
 
-            // If we've reached threshold, update our record and raise the relevant event...
-            if (this.currentGesture != this.lastGesture && this.sigma >= DAL.MICROBIT_ACCELEROMETER_GESTURE_DAMPING) {
-                this.lastGesture = this.currentGesture;
-                board().bus.queue(DAL.MICROBIT_ID_GESTURE, this.lastGesture);
+            if (this.currentGesture !== this.lastGesture && this.sigma >= DAL.MICROBIT_ACCELEROMETER_GESTURE_DAMPING) {
+                this.enqueueCurrentGesture();
             }
+        }
+
+        forceGesture(gesture: number) {
+            this.currentGesture = gesture;
+            this.enqueueCurrentGesture();
+        }
+
+        private enqueueCurrentGesture() {
+            this.lastGesture = this.currentGesture;
+            board().bus.queue(DAL.MICROBIT_ID_GESTURE, this.lastGesture);
         }
 
         /**
@@ -363,6 +393,10 @@ namespace pxsim {
             return this.roll;
         }
 
+        getGesture(): number {
+            return this.lastGesture;
+        }
+
         /**
          * Recalculate roll and pitch values for the current sample.
          * We only do this at most once per sample, as the necessary trigonemteric functions are rather
@@ -384,7 +418,11 @@ namespace pxsim {
         useShake = false;
 
         constructor(runtime: Runtime) {
-           this.accelerometer = new Accelerometer(runtime);
+            this.accelerometer = new Accelerometer(runtime);
+        }
+
+        shake() {
+            this.accelerometer.forceGesture(DAL.MICROBIT_ACCELEROMETER_EVT_SHAKE); // SHAKE == 11
         }
     }
 }

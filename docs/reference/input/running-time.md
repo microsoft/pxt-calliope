@@ -1,17 +1,17 @@
 # Running Time
 
-Find how long it has been since the program started.
+Find how long it has been since the program started in milli-seconds.
 
 ```sig
 input.runningTime();
 ```
 
-### Returns
+## Returns
 
-* the [Number](/reference/types/number) of milliseconds since the program started.
+* the [Number](/types/number) of milliseconds since the program started.
 (One second is 1000 milliseconds.)
 
-### Example: elapsed time
+## Example: elapsed time
 
 When you press button `B` on the microbit, this
 program finds the number of milliseconds since the program started
@@ -25,7 +25,7 @@ input.onButtonPressed(Button.B, () => {
 ```
 
 
-### See also
+## See also
 
 [show number](/reference/basic/show-number), [pause](/reference/basic/pause)
 

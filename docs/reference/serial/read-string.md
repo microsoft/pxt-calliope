@@ -1,16 +1,16 @@
 # Serial Read String
 
-Read the buffered serial data as a string
+Read the buffered serial data as a string.
 
 ```sig
 serial.readString();
 ```
 
-### Returns
+## Returns
 
-* a [string](/reference/types/string) containing input from the serial port. Empty if no data available.
+* a [string](/types/string) containing input from the serial port. The string is empty if no data is available.
 
-### Example
+## Example
 
 The following program scrolls text on the screen as it arrives from serial.
 
@@ -20,7 +20,7 @@ basic.forever(() => {
 });
 ```
 
-### See also
+## See also
 
 [serial](/device/serial),
 [serial write line](/reference/serial/write-line),

@@ -1,29 +1,39 @@
-# Received Signal Strength
+# received Signal Strength
 
-> Note: This API has been deprecated! Use [on data packet received](/reference/radio/on-data-packet-received) instead.
-
-Find how strong the ``radio`` signal is, from `255` to `0`.
-(`255` means a weak signal and `0` means a strong one.)
-
-The @boardname@ finds the signal strength by checking how strong it was
-the last time it ran the
-[on data packet received](/reference/radio/on-data-packet-received) function. That means
-it needs to run **receive number** first.
+Find how strong the radio signal is.
 
 ```sig
 radio.receivedSignalStrength();
 ```
 
-### Returns
+## ~ hint
 
-* a [number](/reference/types/number) between `255` and `0` that means
+**Deprecated**
+
+This API has been deprecated! Use [received packet](/reference/radio/received-packet) instead.
+
+## ~
+
+Find how strong the ``radio`` signal is, from `-128` to `-42`.
+(`-128` means a weak signal and `-42` means a strong one.)
+
+The @boardname@ finds the signal strength by checking how strong it was
+the last time it ran the
+[on received number](/reference/radio/on-received-number) function. That means
+it needs to run **receive number** first.
+
+
+
+## Returns
+
+* a [number](/types/number) between `-128` and `-42` that means
 how strong the signal is.
 
-### Simulator
+## Simulator
 
 This function only works on the @boardname@, not in browsers.
 
-### Example
+## Example
 
 This example shows how strong the radio signal of the
 [light level sender example](/reference/radio/send-number) is.
@@ -37,9 +47,9 @@ basic.forever(() => {
 });
 ```
 
-### See also
+## See also
 
-[on data packet received](/reference/radio/on-data-packet-received), [send number](/reference/radio/send-number), [on data received](/reference/radio/on-data-received)
+[on received number](/reference/radio/on-received-number), [send number](/reference/radio/send-number), [on data received](/reference/radio/on-data-received)
 
 ```package
 radio

@@ -1,6 +1,7 @@
 #include "pxt.h"
 #include "MESEvents.h"
 #include "MicroBitUARTService.h"
+#include "BLEHF2Service.h"
 
 using namespace pxt;
 
@@ -10,7 +11,14 @@ using namespace pxt;
 //% color=#0082FB weight=96 icon="\uf294"
 namespace bluetooth {
     MicroBitUARTService *uart = NULL;
+    BLEHF2Service* pHF2 = NULL;
 
+    //%
+    void __log(String msg) {
+        if (NULL == pHF2)
+            pHF2 = new BLEHF2Service(*uBit.ble);
+        pHF2->sendSerial(msg->getUTF8Data(), msg->getUTF8Size(), false);
+    }
 
     /**
     *  Starts the Bluetooth accelerometer service
@@ -88,16 +96,49 @@ namespace bluetooth {
     }
     
     //%
-    void uartWriteString(StringData *data) {
+    void uartWriteString(String data) {
         startUartService();
-    	uart->send(ManagedString(data));
+    	uart->send(MSTR(data));
     }    
 
     //%
-    StringData* uartReadUntil(StringData *del) {
+    String uartReadUntil(String del) {
         startUartService();
-        return uart->readUntil(ManagedString(del)).leakData();
+        return PSTR(uart->readUntil(MSTR(del)));
     }    
+
+
+    /**
+    * Sends a buffer of data via Bluetooth UART
+    */
+    //%
+    void uartWriteBuffer(Buffer buffer) {
+        startUartService();
+        uart->send(buffer->data, buffer->length);
+    }
+
+    /**
+    * Reads buffered UART data into a buffer
+    */
+    //%
+    Buffer uartReadBuffer() {
+        startUartService();
+        int bytes = uart->rxBufferedSize();
+        auto buffer = mkBuffer(NULL, bytes);
+        int read = uart->read(buffer->data, buffer->length);
+        // read failed
+        if (read < 0) {
+            decrRC(buffer);
+            return mkBuffer(NULL, 0);
+        }
+        // could not fill the buffer
+        if (read != buffer->length) {
+            auto tmp = mkBuffer(buffer->data, read); 
+            decrRC(buffer); 
+            buffer = tmp;
+        }
+        return buffer;
+    }
 
     /**
     * Registers an event to be fired when one of the delimiter is matched.
@@ -105,9 +146,9 @@ namespace bluetooth {
     */
     //% help=bluetooth/on-uart-data-received
     //% weight=18 blockId=bluetooth_on_data_received block="bluetooth|on data received %delimiters=serial_delimiter_conv"
-    void onUartDataReceived(StringData* delimiters, Action body) {
+    void onUartDataReceived(String delimiters, Action body) {
       startUartService();
-      uart->eventOn(ManagedString(delimiters));
+      uart->eventOn(MSTR(delimiters));
       registerWithDal(MICROBIT_ID_BLE_UART, MICROBIT_UART_S_EVT_DELIM_MATCH, body);
     }
 
@@ -131,7 +172,7 @@ namespace bluetooth {
     //% parts="bluetooth"
     void onBluetoothDisconnected(Action body) {
         registerWithDal(MICROBIT_ID_BLE, MICROBIT_BLE_EVT_DISCONNECTED, body);
-    }  
+    } 
 
     const int8_t CALIBRATED_POWERS[] = {-49, -37, -33, -28, -25, -20, -15, -10};
     /**
@@ -143,11 +184,13 @@ namespace bluetooth {
     //% blockId=eddystone_advertise_url block="bluetooth advertise url %url|with power %power|connectable %connectable"
     //% parts=bluetooth weight=11 blockGap=8
     //% help=bluetooth/advertise-url blockExternalInputs=1
-    void advertiseUrl(StringData* url, int power, bool connectable) {
+    void advertiseUrl(String url, int power, bool connectable) {
+#if CONFIG_ENABLED(MICROBIT_BLE_EDDYSTONE_URL)
         power = min(MICROBIT_BLE_POWER_LEVELS-1, max(0, power));
         int8_t level = CALIBRATED_POWERS[power];
-        uBit.bleManager.advertiseEddystoneUrl(ManagedString(url), level, connectable);
+        uBit.bleManager.advertiseEddystoneUrl(MSTR(url), level, connectable);
         uBit.bleManager.setTransmitPower(power);
+#endif
     }
 
     /**
@@ -158,14 +201,14 @@ namespace bluetooth {
     */
     //% parts=bluetooth weight=12 advanced=true
     void advertiseUidBuffer(Buffer nsAndInstance, int power, bool connectable) {
-        ManagedBuffer buf(nsAndInstance);
-        if (buf.length() != 16) return;
+#if CONFIG_ENABLED(MICROBIT_BLE_EDDYSTONE_UID)        
+        auto buf = nsAndInstance;
+        if (buf->length != 16) return;
 
         power = min(MICROBIT_BLE_POWER_LEVELS-1, max(0, power));
         int8_t level = CALIBRATED_POWERS[power];
-        uint8_t uidNs[10]; buf.readBytes(uidNs, 0, 10);
-        uint8_t uidInst[6]; buf.readBytes(uidInst, 10, 6);
-        uBit.bleManager.advertiseEddystoneUid((const char*)uidNs, (const char*)uidInst, level, connectable);
+        uBit.bleManager.advertiseEddystoneUid((const char*)buf->data, (const char*)buf->data + 10, level, connectable);
+#endif
     }
 
     /**
@@ -186,5 +229,5 @@ namespace bluetooth {
     //% help=bluetooth/stop-advertising advanced=true
     void stopAdvertising() {
         uBit.bleManager.stopAdvertising();
-    }
+    } 
 }

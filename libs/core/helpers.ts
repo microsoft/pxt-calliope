@@ -1,17 +1,10 @@
-namespace console {
-    export function log(msg: string) {
-        serial.writeString(msg);
-        serial.writeString("\r\n");
-    }
-}
-
 namespace Math {
     /**
      * Generates a `true` or `false` value randomly, just like flipping a coin.
      */
     //% blockId=logic_random block="pick random true or false"
-    //% help=math/random-boolean color=230
+    //% help=math/random-boolean weight=0 color=712672
     export function randomBoolean(): boolean {
-        return Math.random(2) == 0;
+        return Math.randomRange(0, 1) === 1;
     }
 }

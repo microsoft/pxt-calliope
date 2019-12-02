@@ -1,8 +1,20 @@
+/// <reference no-default-lib="true"/>
 /**
  * Support for additional Bluetooth services.
  */
 //% color=#0082FB weight=96 icon="\uf294"
 namespace bluetooth {
+    export let NEW_LINE = "\r\n";
+
+    /**
+     * Internal use
+     */
+    //% shim=bluetooth::__log
+    export function __log(msg: string) {
+        return;
+    }
+    console.addListener(function (msg) { __log(msg) });
+
     /**
     *  Writes to the Bluetooth UART service buffer. From there the data is transmitted over Bluetooth to a connected device.
     */
@@ -10,8 +22,17 @@ namespace bluetooth {
     //% blockId=bluetooth_uart_write block="bluetooth uart|write string %data" blockGap=8
     //% parts="bluetooth" shim=bluetooth::uartWriteString advanced=true
     export function uartWriteString(data: string): void {
-        // dummy implementation for simulator
-        console.log("UART Write: " + data)
+        console.log(data)
+    }
+
+    /**
+    *  Writes to the Bluetooth UART service buffer. From there the data is transmitted over Bluetooth to a connected device.
+    */
+    //% help=bluetooth/uart-write-line weight=79
+    //% blockId=bluetooth_uart_line block="bluetooth uart|write line %data" blockGap=8
+    //% parts="bluetooth" advanced=true
+    export function uartWriteLine(data: string): void {
+        uartWriteString(data + serial.NEW_LINE);
     }
 
     /**
@@ -33,7 +54,7 @@ namespace bluetooth {
     //% help=bluetooth/uart-write-value advanced=true
     //% blockId=bluetooth_uart_writevalue block="bluetooth uart|write value %name|= %value"
     export function uartWriteValue(name: string, value: number): void {
-        uartWriteString(name + ":" + value + "\r\n");
+        uartWriteString((name ? name + ":" : "") + value + NEW_LINE);
     }
 
     /**
@@ -44,7 +65,7 @@ namespace bluetooth {
     //% parts="bluetooth" shim=bluetooth::uartReadUntil advanced=true
     export function uartReadUntil(del: string): string {
         // dummy implementation for simulator
-        return "???"
+        return ""
     }
 
     /**

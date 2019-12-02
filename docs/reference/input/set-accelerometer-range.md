@@ -9,17 +9,17 @@ or low acceleration.
 input.setAccelerometerRange(AcceleratorRange.OneG);
 ```
 
-### Parameters
+## Parameters
 
 * ``range`` means the biggest number of gravities of acceleration you
   will be measuring (either `1g`, `2g`, `4g`, or `8g`).  Any bigger numbers
   will be ignored by your @boardname@, both when you are picking a
   number of gravities, and when you are measuring acceleration.
 
-### Example
+## Example
 
-This program says the highest acceleration that your @boardname@
-will measure is 4G. Then it measures acceleration from side to side
+This program sets the highest acceleration that your @boardname@
+will measure is 4G. Then it shows acceleration from side to side
 until you stop the program.
 
 ```blocks
@@ -29,13 +29,13 @@ basic.forever(() => {
 });
 ```
 
-#### ~hint
+### ~hint
 
 This program does not work in the simulator, only in a @boardname@.
 
-#### ~
+### ~
 
-### See Also
+## See Also
 
 [compass heading](/reference/input/compass-heading),
 [light level](/reference/input/light-level)

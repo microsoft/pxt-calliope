@@ -127,7 +127,7 @@ enum BeatFraction {
 }
 
 enum MelodyOptions {
-    //% block="once""
+    //% block="once"
     Once = 1,
     //% block="forever"
     Forever = 2,
@@ -135,6 +135,15 @@ enum MelodyOptions {
     OnceInBackground = 4,
     //% block="forever in background"
     ForeverInBackground = 8
+}
+
+enum MelodyStopOptions {
+    //% block="all"
+    All = MelodyOptions.Once | MelodyOptions.OnceInBackground,
+    //% block="foreground"
+    Foreground = MelodyOptions.Once,
+    //% block="background"
+    Background = MelodyOptions.OnceInBackground
 }
 
 enum MusicEvent {
@@ -166,13 +175,19 @@ enum MusicEvent {
 //% color=#DF4600 weight=98 icon="\uf025"
 namespace music {
     let beatsPerMinute: number = 120;
-    let freqTable: number[] = [];
+     //% whenUsed
+     const freqs = hex`
+        1f00210023002500270029002c002e003100340037003a003e004100450049004e00520057005c00620068006e00
+        75007b0083008b0093009c00a500af00b900c400d000dc00e900f70006011501260137014a015d01720188019f01
+        b801d201ee010b022a024b026e029302ba02e40210033f037003a403dc03170455049704dd0427057505c8052006
+        7d06e0064907b8072d08a9082d09b9094d0aea0a900b400cfa0cc00d910e6f0f5a1053115b1272139a14d4152017
+        8018f519801b231dde1e`;
     let _playTone: (frequency: number, duration: number) => void;
     const MICROBIT_MELODY_ID = 2000;
 
     /**
      * Plays a tone through pin ``P0`` for the given duration.
-     * @param frequency pitch of the tone to play in Hertz (Hz)
+     * @param frequency pitch of the tone to play in Hertz (Hz), eg: Note.C
      * @param ms tone duration in milliseconds (ms)
      */
     //% help=music/play-tone weight=90
@@ -186,7 +201,7 @@ namespace music {
 
     /**
      * Plays a tone through pin ``P0``.
-     * @param frequency pitch of the tone to play in Hertz (Hz)
+     * @param frequency pitch of the tone to play in Hertz (Hz), eg: Note.C
      */
     //% help=music/ring-tone weight=80
     //% blockId=device_ring block="ring tone (Hz)|%note=device_note" blockGap=8
@@ -209,21 +224,24 @@ namespace music {
 
 
     /**
-     * Gets the frequency of a note.
+     * Get the frequency of a note.
      * @param name the note name, eg: Note.C
      */
-    //% weight=50 help=music/note-frequency
-    //% blockId=device_note block="%note"
+    //% weight=1 help=music/note-frequency
+    //% blockId=device_note block="%name"
     //% shim=TD_ID
-    //% note.fieldEditor="note" note.defl="262"
+    //% color="#FFFFFF" colorSecondary="#FFFFFF"
+    //% name.fieldEditor="note" name.defl="262"
+    //% name.fieldOptions.decompileLiterals=true
     //% useEnumVal=1
+    //% weight=10 blockGap=8
     export function noteFrequency(name: Note): number {
         return name;
     }
 
+    
     function init() {
         if (beatsPerMinute <= 0) beatsPerMinute = 120;
-        if (freqTable.length == 0) freqTable = [31, 33, 35, 37, 39, 41, 44, 46, 49, 52, 55, 58, 62, 65, 69, 73, 78, 82, 87, 92, 98, 104, 110, 117, 123, 131, 139, 147, 156, 165, 175, 185, 196, 208, 220, 233, 247, 262, 277, 294, 311, 330, 349, 370, 392, 415, 440, 466, 494, 523, 554, 587, 622, 659, 698, 740, 784, 831, 880, 932, 988, 1047, 1109, 1175, 1245, 1319, 1397, 1480, 1568, 1661, 1760, 1865, 1976, 2093, 2217, 2349, 2489, 2637, 2794, 2960, 3136, 3322, 3520, 3729, 3951, 4186]
     }
 
     /**
@@ -234,14 +252,14 @@ namespace music {
     export function beat(fraction?: BeatFraction): number {
         init();
         if (fraction == null) fraction = BeatFraction.Whole;
-        let beat = 60000 / beatsPerMinute;
+        let beat = Math.idiv(60000, beatsPerMinute);
         switch (fraction) {
-            case BeatFraction.Half: return beat / 2;
-            case BeatFraction.Quarter: return beat / 4;
-            case BeatFraction.Eighth: return beat / 8;
-            case BeatFraction.Sixteenth: return beat / 16;
-            case BeatFraction.Double: return beat * 2;
-            case BeatFraction.Breve: return beat * 4;
+            case BeatFraction.Half: return beat >> 1;
+            case BeatFraction.Quarter: return beat >> 2;
+            case BeatFraction.Eighth: return beat >> 3;
+            case BeatFraction.Sixteenth: return beat >> 4;
+            case BeatFraction.Double: return beat << 1;
+            case BeatFraction.Breve: return beat << 2;
             default: return beat;
         }
     }
@@ -299,18 +317,18 @@ namespace music {
      * Registers code to run on various melody events
      */
     //% blockId=melody_on_event block="music on %value"
-    //% help=music/on-event weight=59
-    export function onEvent(value: MusicEvent, handler: Action) {
+    //% help=music/on-event weight=59 blockGap=32
+    export function onEvent(value: MusicEvent, handler: () => void) {
         control.onEvent(MICROBIT_MELODY_ID, value, handler);
     }
 
     /**
      * Starts playing a melody.
      * Notes are expressed as a string of characters with this format: NOTE[octave][:duration]
-     * @param melodyArray the melody array to play, eg: ['g5:1']
+     * @param melodyArray the melody array to play
      * @param options melody options, once / forever, in the foreground / background
      */
-    //% help=music/begin-melody weight=60 blockGap=8
+    //% help=music/begin-melody weight=60 blockGap=16
     //% blockId=device_start_melody block="start melody %melody=device_builtin_melody| repeating %options"
     //% parts="headphone"
     export function beginMelody(melodyArray: string[], options: MelodyOptions = 1) {
@@ -349,6 +367,20 @@ namespace music {
     }
 
     /**
+     * Stops the melodies
+     * @param options which melody to stop
+     */
+    //% help=music/stop-melody weight=59 blockGap=16
+    //% blockId=device_stop_melody block="stop melody $options"
+    //% parts="headphone"
+    export function stopMelody(options: MelodyStopOptions) {
+        if (options & MelodyStopOptions.Background)
+            beginMelody([], MelodyOptions.OnceInBackground);
+        if (options & MelodyStopOptions.Foreground)
+            beginMelody([], MelodyOptions.Once);
+    }
+
+    /**
      * Sets a custom playTone function for playing melodies
      */
     //% help=music/set-play-tone
@@ -368,33 +400,34 @@ namespace music {
         let isrest: boolean = false;
         let beatPos: number;
         let parsingOctave: boolean = true;
+        let prevNote: boolean = false;
 
         for (let pos = 0; pos < currNote.length; pos++) {
             let noteChar = currNote.charAt(pos);
             switch (noteChar) {
-                case 'c': case 'C': note = 1; break;
-                case 'd': case 'D': note = 3; break;
-                case 'e': case 'E': note = 5; break;
-                case 'f': case 'F': note = 6; break;
-                case 'g': case 'G': note = 8; break;
-                case 'a': case 'A': note = 10; break;
-                case 'b': case 'B': note = 12; break;
-                case 'r': case 'R': isrest = true; break;
-                case '#': note++; break;
-                case 'b': note--; break;
-                case ':': parsingOctave = false; beatPos = pos; break;
-                default: if (parsingOctave) currentOctave = parseInt(noteChar);
+                case 'c': case 'C': note = 1; prevNote = true; break;
+                case 'd': case 'D': note = 3; prevNote = true; break;
+                case 'e': case 'E': note = 5; prevNote = true; break;
+                case 'f': case 'F': note = 6; prevNote = true; break;
+                case 'g': case 'G': note = 8; prevNote = true; break;
+                case 'a': case 'A': note = 10; prevNote = true; break;
+                case 'B': note = 12; prevNote = true; break;
+                case 'r': case 'R': isrest = true; prevNote = false; break;
+                case '#': note++; prevNote = false; break;
+                case 'b': if (prevNote) note--; else { note = 12; prevNote = true; } break;
+                case ':': parsingOctave = false; beatPos = pos; prevNote = false; break;
+                default: prevNote = false; if (parsingOctave) currentOctave = parseInt(noteChar);
             }
         }
         if (!parsingOctave) {
             currentDuration = parseInt(currNote.substr(beatPos + 1, currNote.length - beatPos));
         }
-        let beat = (60000 / beatsPerMinute) / 4;
+        let beat = Math.idiv(60000, beatsPerMinute) >> 2;
         if (isrest) {
             music.rest(currentDuration * beat)
         } else {
             let keyNumber = note + (12 * (currentOctave - 1));
-            let frequency = keyNumber >= 0 && keyNumber < freqTable.length ? freqTable[keyNumber] : 0;
+            let frequency = freqs.getNumber(NumberFormat.UInt16LE, keyNumber * 2) || 0;
             music.playTone(frequency, currentDuration * beat);
         }
         melody.currentDuration = currentDuration;

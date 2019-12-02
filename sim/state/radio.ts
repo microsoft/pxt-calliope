@@ -6,6 +6,11 @@ namespace pxsim {
         time: number;
     }
 
+    // Extends interface in pxt-core
+    export interface SimulatorRadioPacketPayload {
+        bufferData?: Uint8Array;
+    }
+
     export class RadioDatagram {
         datagram: PacketBuffer[] = [];
         lastReceived: PacketBuffer = RadioDatagram.defaultPacket();
@@ -24,8 +29,9 @@ namespace pxsim {
             const b = board();
             Runtime.postMessage(<SimulatorRadioPacketMessage>{
                 type: "radiopacket",
-                rssi: 70, // Not yet supported
-                serial: b.radioState.bus.transmitSerialNumber ? pxsim.control.deviceSerialNumber() : 0,
+                broadcast: true,
+                rssi: -42, // -42 is the strongest signal
+                serial: b.radioState.transmitSerialNumber ? pxsim.control.deviceSerialNumber() : 0,
                 time: new Date().getTime(),
                 payload
             })
@@ -42,22 +48,31 @@ namespace pxsim {
                 rssi: -1,
                 serial: 0,
                 time: 0,
-                payload: { type: -1, groupId: 0 }
+                payload: { type: -1, groupId: 0, bufferData: new Uint8Array(0) }
             };
         }
     }
 
-    export class RadioBus {
-        // uint8_t radioDefaultGroup = MICROBIT_RADIO_DEFAULT_GROUP;
+    export class RadioState {
         power = 0;
         transmitSerialNumber = false;
         datagram: RadioDatagram;
+        groupId: number;
+        band: number;
 
-        constructor(private runtime: Runtime) {
+        constructor(runtime: Runtime) {
             this.datagram = new RadioDatagram(runtime);
+            this.power = 6; // default value
+            this.groupId = 0;
+            this.band = 7; // https://github.com/lancaster-university/microbit-dal/blob/master/inc/core/MicroBitConfig.h#L320
+        }
+
+        public setGroup(id: number) {
+            this.groupId = id & 0xff; // byte only
         }
 
         setTransmitPower(power: number) {
+            power = power | 0;
             this.power = Math.max(0, Math.min(7, power));
         }
 
@@ -65,54 +80,33 @@ namespace pxsim {
             this.transmitSerialNumber = !!sn;
         }
 
-        broadcast(msg: number, groupId: number) {
+        setFrequencyBand(band: number) {
+            band = band | 0;
+            if (band < 0 || band > 83) return;
+            this.band = band;
+        }
+
+        raiseEvent(id: number, eventid: number) {
             Runtime.postMessage(<SimulatorEventBusMessage>{
                 type: "eventbus",
-                id: DAL.MES_BROADCAST_GENERAL_ID,
-                eventid: msg,
+                broadcast: true,
+                id,
+                eventid,
                 power: this.power,
-                group: groupId
+                group: this.groupId
             })
         }
-    }
 
-    export class RadioState {
-        bus: RadioBus;
-        groupId: number;
-
-        constructor(runtime: Runtime) {
-            this.bus = new RadioBus(runtime);
-            this.groupId = 0;
-        }
-
-        public setGroup(id: number) {
-            this.groupId = id & 0xff; // byte only
-        }
-
-        public broadcast(msg: number) {
-            this.bus.broadcast(msg, this.groupId)
-        }
-
-        public receivePacket(packet: SimulatorRadioPacketMessage) {
+        receivePacket(packet: SimulatorRadioPacketMessage) {
             if (this.groupId == packet.payload.groupId)
-                this.bus.datagram.queue(packet)
+                this.datagram.queue(packet)
         }
     }
 }
 
 namespace pxsim.radio {
-    enum PacketPayloadType {
-        NUMBER = 0,
-        VALUE = 1,
-        STRING = 2
-    }
-
-    export function broadcastMessage(msg: number): void {
-        board().radioState.broadcast(msg);
-    }
-
-    export function onBroadcastMessageReceived(msg: number, handler: RefAction): void {
-        pxtcore.registerWithDal(DAL.MES_BROADCAST_GENERAL_ID, msg, handler);
+    export function raiseEvent(id: number, eventid: number): void {
+        board().radioState.raiseEvent(id, eventid);
     }
 
     export function setGroup(id: number): void {
@@ -120,99 +114,34 @@ namespace pxsim.radio {
     }
 
     export function setTransmitPower(power: number): void {
-        board().radioState.bus.setTransmitPower(power);
+        board().radioState.setTransmitPower(power);
     }
 
-    export function setTransmitSerialNumber(transmit: boolean): void {
-        board().radioState.bus.setTransmitSerialNumber(transmit);
+    export function setFrequencyBand(band: number) { 
+        board().radioState.setFrequencyBand(band);
     }
 
-    export function sendNumber(value: number): void {
-        board().radioState.bus.datagram.send({
-            type: PacketPayloadType.NUMBER,
+    export function sendRawPacket(buf: RefBuffer) {
+        let cb = getResume();
+        board().radioState.datagram.send({
+            type: 0,
             groupId: board().radioState.groupId,
-            numberData: value,
+            bufferData: buf.data
         });
+        setTimeout(cb, 1);
     }
 
-    export function sendString(msg: string): void {
-        msg = msg.substr(0, 19);
-        board().radioState.bus.datagram.send({
-            type: PacketPayloadType.STRING,
-            groupId: board().radioState.groupId,
-            stringData: msg,
-        });
-    }
-
-    export function writeValueToSerial(): void {
-        const b = board();
-        writePacketToSerial(b, b.radioState.bus.datagram.recv())
-    }
-
-    export function writeReceivedPacketToSerial(): void {
-        const b = board();
-        writePacketToSerial(b, b.radioState.bus.datagram.lastReceived);
-    }
-
-    export function sendValue(name: string, value: number) {
-        name = name.substr(0, 12);
-        const msg: number[] = [];
-        msg.push()
-        board().radioState.bus.datagram.send({
-            type: PacketPayloadType.VALUE,
-            groupId: board().radioState.groupId,
-            stringData: name,
-            numberData: value
-        });
-    }
-
-    export function receiveNumber(): number {
-        const packet = board().radioState.bus.datagram.recv();
-        return receivedNumber();
-    }
-
-    export function receiveString(): string {
-        const packet = board().radioState.bus.datagram.recv();
-        return receivedString();
+    export function readRawPacket() {
+        const packet = board().radioState.datagram.recv();
+        return new RefBuffer(packet.payload.bufferData)
     }
 
     export function receivedSignalStrength(): number {
-        return board().radioState.bus.datagram.lastReceived.rssi;
+        return board().radioState.datagram.lastReceived.rssi;
     }
 
     export function onDataReceived(handler: RefAction): void {
         pxtcore.registerWithDal(DAL.MICROBIT_ID_RADIO, DAL.MICROBIT_RADIO_EVT_DATAGRAM, handler);
-        radio.receiveNumber();
-    }
-
-    export function receivedNumber(): number {
-        return board().radioState.bus.datagram.lastReceived.payload.numberData || 0;
-    }
-
-    export function receivedSerial(): number {
-        return board().radioState.bus.datagram.lastReceived.serial;
-    }
-
-    export function receivedString(): string {
-        return initString(board().radioState.bus.datagram.lastReceived.payload.stringData || "");
-    }
-
-    export function receivedTime(): number {
-        return board().radioState.bus.datagram.lastReceived.time;
-    }
-
-    function writePacketToSerial(b: DalBoard, p: PacketBuffer) {
-        switch(p.payload.type) {
-            case PacketPayloadType.NUMBER:
-                b.writeSerial(`{"t":${p.time},"s":${p.serial},"v":${p.payload.numberData}}\r\n`)
-                break;
-            case PacketPayloadType.VALUE:
-                b.writeSerial(`{"t":${p.time},"s":${p.serial},"n":"${p.payload.stringData}","v":${p.payload.numberData}}\r\n`)
-                break;
-            case PacketPayloadType.STRING:
-                b.writeSerial(`{"t":${p.time},"s":${p.serial},"n":"${p.payload.stringData}"}\r\n`)
-                break;
-            default:
-        }
+        readRawPacket();
     }
 }

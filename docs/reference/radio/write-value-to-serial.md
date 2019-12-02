@@ -1,14 +1,20 @@
-# Write Value To Serial
+# write Value To Serial
 
-> Note: This API has been deprecated! Use [write received packet to serial](/reference/radio/write-received-packet-to-serial) instead.
-
-Writes the data received by ``radio`` to serial in JSON format.
+Write the data received by radio to serial in JSON format.
 
 ```sig
 radio.writeValueToSerial();
 ```
 
-### Data received format
+## ~ hint
+
+**Deprecated**
+
+This API has been deprecated! Use [write received packet to serial](/reference/radio/write-received-packet-to-serial) instead.
+
+## ~
+
+## Data received format
 
 The format for received data printed to serial is as follows:
 
@@ -16,7 +22,7 @@ The format for received data printed to serial is as follows:
 - [send value](/reference/radio/send-value): ```{v:ValueSent,t:MicrobitTimeAlive,s:SerialNumber,n:"Name"}```
 - [send string](/reference/radio/send-string): ```{t:MicrobitTimeAlive,s:SerialNumber,n:"Text"}```
 
-### Examples
+## Examples
 
 When ```radio``` data is received (after pressing the ``A`` button on
 the second @boardname@), this program sends temperature data to
@@ -36,7 +42,7 @@ Sample output to serial when ``A`` button pressed:
 {v:27,t:323,s:0}
 ```
 
-### See also
+## See also
 
 [send number](/reference/radio/send-number),
 [send value](/reference/radio/send-value),

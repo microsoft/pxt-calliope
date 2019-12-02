@@ -2,62 +2,61 @@
 
 Raise an alert on a remote device.
 
-### ~hint
+## ~hint
 
-The functions in the ``devices`` namespace allow the @boardname@ to communicate with a separate (remote) device, 
-such as a smartphone, over Bluetooth (Smart).
-The set of supported events will depend on the remote device and the @boardname@ apps available for the remote device.
+**App required** You must use one of the [micro:bit apps](https://microbit.org/guide/mobile/) to use this functionality.
 
-### ~
+## ~
+
 
 
 ```sig
-export function raiseAlertTo(event: string)
+devices.raiseAlertTo(MesAlertEvent.Vibrate)
 ```
 
-### Parameters
+## Parameters
 
 * event - an event identifier
 
-### Examples
+## Examples
 
 To tell the connected device to display toast
 
 ```blocks
-devices.raiseAlertTo("display toast")
+devices.raiseAlertTo(MesAlertEvent.DisplayToast)
 ```
 
 To tell the connected device to vibrate
 
 ```blocks
-devices.raiseAlertTo("vibrate")
+devices.raiseAlertTo(MesAlertEvent.Vibrate)
 ```
 
 To tell the connected device to play a sound
 
 ```blocks
-devices.raiseAlertTo("play sound")
+devices.raiseAlertTo(MesAlertEvent.PlaySound)
 ```
 
 To tell the connected device to play a ringtone
 
 ```blocks
-devices.raiseAlertTo("play ringtone")
+devices.raiseAlertTo(MesAlertEvent.PlayRingtone)
 ```
 
 To tell the connected device to find my phone
 
 ```blocks
-devices.raiseAlertTo("find my phone")
+devices.raiseAlertTo(MesAlertEvent.FindMyPhone)
 ```
 
 To tell the connected device to ring alarm
 
 ```blocks
-devices.raiseAlertTo("ring alarm")
+devices.raiseAlertTo(MesAlertEvent.RingAlarm)
 ```
 
-### See also
+## See also
 
 [tell remote control to](/reference/devices/tell-remote-control-to), [tell camera to](/reference/devices/tell-camera-to)
 

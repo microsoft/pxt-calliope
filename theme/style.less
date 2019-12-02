@@ -1,10 +1,10 @@
 /* Import all components */
-@import 'semantic';
+@import 'pxtsemantic';
 @import 'pxt';
+@import 'blockly-toolbox';
 @import 'themes/default/globals/site.variables';
 @import 'themes/pxt/globals/site.variables';
 @import 'site/globals/site.variables';
-@import 'themes/default/collections/menu.variables';
 
 /* Reference import */
 @import (reference) "semantic.less";
@@ -12,61 +12,65 @@
 /*******************************
     Add your custom CSS here
 *******************************/
-/* not relevant in new UI
-.openproject {
-    background: #4ECC60 !important;
-} */
 
-.blocks-menuitem.active, .javascript-menuitem.active {
-    background: #738791 !important;
+/* Roboto font */
+@RobotoFont: data-uri("../docs/static/fonts/Roboto_400_normal.woff");
+
+@font-face  {
+    font-family: 'Roboto';
+    src: @RobotoFont format("woff");
 }
 
-/* not relevant in new UI
-.help-dropdown-menuitem, .more-dropdown-menuitem {
-    background: #424955 !important;
-    margin-right:0px !important;
-} */
-
-.huge.download-button i {
-    display:none !important; // otherwise spans 2 lines
+.ui.button.download-button {
+    &:extend(.ui.purple.button all);
 }
 
-.play-button {
-    &:extend(.ui all);
-    &:extend(.button all);
-    &:extend(.blue all);
+.ui.button.download-button:hover {
+    background-color: #30a7a7;
+    color: white;
 }
 
-.download-button {
-    &:extend(.ui all);
-    &:extend(.button all);
-    &:extend(.yellow all);
+.docs.inlinebutton.ui.button.download-button:hover {
+    &:extend(.ui.purple.button all);
 }
 
-#filelist .menu {
-  width: 100%;
+.ui.button.play-button.play-button-full {
+    &:extend(.ui.inverted.button all);
+}
+
+.ui.button.getting-started-btn {
+    &:extend(.ui.orange.button all);
+}
+
+.ui.button.editortools-btn {
+    &:extend(.ui.blue.button all);
+}
+
+.ui.button.exit-tutorial-btn {
+    &:extend(.ui.blue.button all);
+}
+
+#filelist, #editortools {
+    background: #fff data-uri("../docs/static/logo_texture.png") 0 0 repeat !important;
 }
 
 #downloadArea {
     background: transparent !important;
 }
 
-.organization {
-    top: 1.6em;
-}
-
-/* Mobile */
-@media only screen and (max-width: @largestMobileScreen) {
-    .blocklyTreeLabel {
-        font-size: 0.5rem !important;
+.ui.home {
+    .getting-started-segment {
+        background-position: 50% 25%;
     }
 }
-
 
 /* Mobile */
 @media only screen and (max-width: @largestMobileScreen) {
     #filelist {
         background: transparent !important;
+    }
+    #blocklySearchArea {
+        display: none !important;
     }
 }
 
@@ -83,4 +87,30 @@
 
 /* Large Monitor */
 @media only screen and (min-width: @largeMonitorBreakpoint) {
+}
+
+
+/* Download dialog */
+.ui.downloaddialog.modal>.content {
+    padding: 1rem;
+}
+
+.ui.webusbpair, .ui.upload {
+    .firmware {
+        background-color: #FFFFCE;
+        div.image {
+            justify-content: center;
+            display: flex;
+            padding: 1rem;
+    
+            img {
+                height:100px;            
+            }
+        }
+    }
+    .instructions {
+        img {
+            margin-bottom:1rem;            
+        }
+    }
 }
