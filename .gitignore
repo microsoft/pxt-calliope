@@ -15,8 +15,10 @@ clients/win10/app/bld
 clients/win10/*.opendb
 clients/**/bin/**
 clients/**/obj/**
-clients/electron/projects
+electron-out
 hexcache
+build
+crowdinstats.csv
 
 *.user
 *.sw?
@@ -31,3 +33,4 @@ hexcache
 *.iml
 .vscode/.BROWSE.VC.DB-shm
 .vscode/.BROWSE.VC.DB-wal
+package-lock.json
