@@ -12,86 +12,26 @@ has some conflicts with double defines constants
 
 ## Local server
 
-Please add an issue if you discover an (unreported) bug.
+The local server allows to run the editor and the documentation from your computer.
 
-## Developing new extensions
+### Setup
 
-Authoring and testing of new extensions can be done directly from the web editor. See [our documentation](https://makecode.com/blog/github-packages) on how to get started. If you want to run the editor locally, keep reading.
+The following commands are a 1-time setup after synching the repo on your machine.
 
-## Local server setup
-
-The local server lets you to run the editor and serve the documentation from your own computer. It is meant for a single developer used and not designed to serve the editor to a large amount of users.
-
-1. Install [Node.js](https://nodejs.org/) 8.9.4 or higher.
-2. Clone this repository.
+* See requirements for [pxt](https://github.com/Microsoft/pxt)
+* [clone this repo](https://help.github.com/articles/cloning-a-repository/) to your computer and go in the project folder
 ```
 git clone https://github.com/microsoft/pxt-calliope
 cd pxt-calliope
 ```
-3. Install the PXT command line (add `sudo` for Mac/Linux shells).
+* install the PXT command line (add ``sudo`` for Mac/Linux shells).
 ```
 npm install -g pxt
 ```
-4. Install the pxt-microbit dependencies.
+* install the dependencies
 ```
 npm install
 ```
-
-Go to the **Running** section.
-
-### Developer Setup
-
-This is the typical setup used by the MakeCode team to work on the microbit.
-
-1. Install [Node.js](https://nodejs.org/) 8.9.4 or higher.
-2. Install [Docker](https://www.docker.com/get-started) if you plan to build ``.cpp`` files.
-3. Clone the pxt repository.
-```
-git clone https://github.com/microsoft/pxt
-cd pxt
-```
-4. Install the dependencies of pxt and build it
-```
-npm install
-npm run build
-cd ..
-```
-5. Clone the pxt-common-packages repository
-```
-git clone https://github.com/microsoft/pxt-common-packages
-cd pxt-common-packages
-npm install
-cd ..
-```
-6. Clone this repository.
-```
-git clone https://github.com/microsoft/pxt-microbit
-cd pxt-microbit
-```
-7. Install the PXT command line (add `sudo` for Mac/Linux shells).
-```
-npm install -g pxt
-```
-8. Install the pxt-microbit dependencies.
-```
-npm install
-```
-8. Link pxt-microbit back to base pxt repo (add `sudo` for Mac/Linux shells). 
-This step is only required if you intend to make changes to pxt and/or 
-pxt-common-packages repos. If all you want is serve a local Makecode, you can skip
-this step.
-```
-npm link ../pxt
-npm link ../pxt-common-packages
-```
-Note the above command assumes the folder structure of   
-```
-       makecode
-          |
-  ----------------------------------
-  |       |                        |
- pxt      pxt-common-packages  pxt-microbit
- ```
 
 ### Running
 
@@ -105,40 +45,34 @@ Otherwise, the editor will not be able to load the projects.
 If you need modify the `.cpp` files, turn on yotta compilation with the ``-yt`` flag (add ``sudo`` for Mac/Linux shells). On Windows, you must be running
 from the ``Run Yotta`` command prompt.
 ```
-pxt serve --local
+pxt serve -yt
 ```
 
-If you want to speed up the build, you can use the ``rebundle`` option, which skips building and simply refreshes the target information
-```
-pxt serve --rebundle
-```
+## Updates
 
-### Cleaning
-
-Sometimes, your built folder might be in a bad state, clean it and try again.
+To update your PXT version and make sure you're running the latest tools, run (add ``sudo`` for Mac/Linux shells)
 ```
-pxt clean
+pxt update
 ```
 
-### Updates
+More instructions at https://github.com/Microsoft/pxt#running-a-target-from-localhost 
 
-Make sure to pull changes from all repos regularly. More instructions are at https://github.com/Microsoft/pxt#running-a-target-from-localhost
+## Testing
 
-## Repos 
+The build automatically runs the following:
 
 * make sure the built-in packages compile
 * `pxt run` in `libs/lang-test*` - this will run the test in command line runner; 
   there is a number of asserts in both of these
 * `pxt testdir` in `tests` - this makes sure all the files compile and generates .hex files
 
-## History
+To test something on the device:
 
-See the [MakeCode blog](https://makecode.com/blog).
+* do a `pxt deploy` in `libs/lang-test*` - they should show `1` or `2` on the screen (and not unhappy face)
+* run `pxt testdir` in `tests` and deploy some of the hex files from `tests/built`
+
+The `lang-test0` source comes from the `pxt-core` package. It's also tested with `pxt run` there. 
 
 ## Code of Conduct
 
 This project has adopted the [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/). For more information see the [Code of Conduct FAQ](https://opensource.microsoft.com/codeofconduct/faq/) or contact [opencode@microsoft.com](mailto:opencode@microsoft.com) with any additional questions or comments.
-
-## Trademarks
-
-MICROSOFT, the Microsoft Logo, and MAKECODE are registered trademarks of Microsoft Corporation. They can only be used for the purposes described in and in accordance with Microsoft’s Trademark and Brand guidelines published at https://www.microsoft.com/en-us/legal/intellectualproperty/trademarks/usage/general.aspx. If the use is not covered in Microsoft’s published guidelines or you are not sure, please consult your legal counsel or MakeCode team (makecode@microsoft.com).
