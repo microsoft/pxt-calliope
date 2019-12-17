@@ -11,7 +11,7 @@
   * [Output](/calliope/firststeps/Output)
   * [Decisions](/calliope/firststeps/Decisions)
   * [Variables](/calliope/firststeps/Variables)
-* [Turorials](/calliope/tutorials)
+* [Tutorials](/calliope/tutorials)
   * [Flashing Heart](/projects/flashing-heart)
   * [Name Tag](/projects/name-tag)
   * [Smiley Buttons](/projects/smiley-buttons)

@@ -9,7 +9,7 @@
         "largeImageUrl": "/docs/calliope/firststeps/firstSteps.jpg"
     },
     {
-        "name": "Turorials",
+        "name": "Tutorials",
         "url": "/calliope/tutorials",
         "imageUrl": "/docs/calliope/tutorials/01_flashing_heart.gif"
     },
@@ -24,6 +24,6 @@
 ## See Also
 
 [First Steps](/calliope/firststeps),
-[Turorials](/calliope/tutorials),
+[Tutorials](/calliope/tutorials),
 [Calliope Links](/calliope/links)
 
