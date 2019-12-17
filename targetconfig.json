@@ -228,7 +228,7 @@
     ],
     "galleries": {
         "First Steps": "calliope/firststeps",
-        "Turorials": "calliope/tutorials",
+        "Tutorials": "calliope/tutorials",
         "Calliope Links": "calliope/links"
     },
     "electronManifest": {
