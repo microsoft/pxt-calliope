@@ -269,6 +269,7 @@
         "productId": "0x0204",
         "rawHID": true
     },
+    "ignoreDocsErrors": true,
     "appTheme": {
         "accentColor": "#249899",
         "defaultLocale": "de",
@@ -298,7 +299,6 @@
         "extendEditor": true,
         "extendFieldEditors": true,
         "enableTrace": true,
-        "ignoreDocsErrors": true,
         "experiments": [
             "allowPackageExtensions",
             "instructions",
