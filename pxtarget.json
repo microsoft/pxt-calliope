@@ -284,7 +284,7 @@
         "organizationUrl": "https://makecode.com/",
         "organizationLogo": "./static/Microsoft-logo_rgb_c-gray-square.png",
         "organizationWideLogo": "./static/Microsoft-logo_rgb_c-white.png",
-        "homeScreenHero": "./static/hero.png",
+        "homeScreenHero": "./static/hero.jpg",
         "homeUrl": "https://makecode.calliope.cc/",
         "embedUrl": "https://makecode.calliope.cc/",
         "shareUrl": "https://makecode.calliope.cc/",
@@ -427,5 +427,6 @@
                 "hideMenuBar": true
             }
         }
-    }
+    },
+    "disableDocsUpload": true
 }
