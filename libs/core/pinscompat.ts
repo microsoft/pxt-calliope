@@ -125,13 +125,13 @@ namespace pins {
      * Pin P1
      */
     //% fixedInstance whenUsed
-    export const P1: AnalogInPin = new MicrobitPin(DigitalPin.P1);
+    export const P1: PwmPin = new MicrobitPin(DigitalPin.P1);
 
     /**
      * Pin P2
      */
     //% fixedInstance whenUsed
-    export const P2: AnalogInPin = new MicrobitPin(DigitalPin.P2);
+    export const P2: PwmPin = new MicrobitPin(DigitalPin.P2);
 
     /**
      * Pin P3
