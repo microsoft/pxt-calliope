@@ -4,9 +4,8 @@ on:
   push:
     branches: 
       - master
-  release:
-    types:
-      - created
+  create
+
 jobs:
   build:
 
