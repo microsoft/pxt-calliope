@@ -512,15 +512,12 @@ declare namespace motors {
 
 
     declare const enum SerialPin {
-    P0 = 7,  // MICROBIT_ID_IO_P0
-    P1 = 8,  // MICROBIT_ID_IO_P1
-    P2 = 9,  // MICROBIT_ID_IO_P2
-    P8 = 15,  // MICROBIT_ID_IO_P8
-    P12 = 19,  // MICROBIT_ID_IO_P12
-    P13 = 20,  // MICROBIT_ID_IO_P13
-    P14 = 21,  // MICROBIT_ID_IO_P14
-    P15 = 22,  // MICROBIT_ID_IO_P15
-    P16 = 23,  // MICROBIT_ID_IO_P16
+    P0 = 19,  // MICROBIT_ID_IO_P12
+    P1 = 7,  // MICROBIT_ID_IO_P0
+    P2 = 8,  // MICROBIT_ID_IO_P1
+    P3 = 23,  // MICROBIT_ID_IO_P16
+    C16 = 9,  // MICROBIT_ID_IO_P2
+    C17 = 15,  // MICROBIT_ID_IO_P8
     USB_TX = 1001,
     USB_RX = 1002,
     }
