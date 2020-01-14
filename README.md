@@ -1,4 +1,4 @@
-# Calliope target for Microsoft MakeCode [![Build Status](https://travis-ci.org/microsoft/pxt-calliope.svg?branch=master)](https://travis-ci.org/microsoft/pxt-calliope)
+# Calliope target for Microsoft MakeCode
 
 This editor is hosted at https://makecode.calliope.cc.
 
