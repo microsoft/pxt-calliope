@@ -1,6 +1,6 @@
 name: pxt-buildpr
 
-on: [pull-request]
+on: [pullrequest]
 
 jobs:
   build:
