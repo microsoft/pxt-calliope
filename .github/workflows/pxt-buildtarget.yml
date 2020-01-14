@@ -2,8 +2,11 @@ name: pxt-buildtarget
 
 on:
   push:
-    branches: master
-
+    branches: 
+      - master
+  release:
+    types:
+      - created
 jobs:
   build:
 
