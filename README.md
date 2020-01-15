@@ -2,6 +2,7 @@
 
 This editor is hosted at https://makecode.calliope.cc.
 
+* Got a question? Try the forum at https://forum.calliope.cc/
 
 ### BUILD COMMENTS
 
