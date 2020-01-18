@@ -1,7 +1,8 @@
-# Calliope target for Microsoft MakeCode [![Build Status](https://travis-ci.org/calliope-edu/pxt-calliope.svg?branch=master)](https://travis-ci.org/microsoft/pxt-calliope)
+# Calliope target for Microsoft MakeCode
 
 This editor is hosted at https://makecode.calliope.cc.
 
+* Got a question? Try the forum at https://forum.calliope.cc/
 
 ### BUILD COMMENTS
 

@@ -4,12 +4,12 @@
 
 // make sure USB_TX and USB_RX don't overlap with other pin ids
 enum SerialPin {
-    C16 = MICROBIT_ID_IO_P2,
-    C17 = MICROBIT_ID_IO_P8,
     P0 = MICROBIT_ID_IO_P12,
     P1 = MICROBIT_ID_IO_P0,
     P2 = MICROBIT_ID_IO_P1,
     P3 = MICROBIT_ID_IO_P16,
+    C16 = MICROBIT_ID_IO_P2,
+    C17 = MICROBIT_ID_IO_P8,
     USB_TX = 1001,
     USB_RX = 1002
 };
