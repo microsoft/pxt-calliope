@@ -5,7 +5,7 @@
 Code the buttons on the @boardname@ to show that it's happy or sad.
 (Want to learn how the buttons works? [Watch this video](https://youtu.be/t_Qujjd_38o)).
 
-![Pressing the A and B buttons](/docs/calliope/tutorials/03_smiley_button_animation.gif)
+![Pressing the A and B buttons](/calliope/tutorials/03_smiley_button_animation.gif)
 
 ## Step 1 @fullscreen
 

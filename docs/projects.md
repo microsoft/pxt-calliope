@@ -5,18 +5,18 @@
     {
         "name": "First Steps",
         "url": "/calliope/firststeps",
-        "imageUrl": "/docs/calliope/firststeps/connecting.jpg",
-        "largeImageUrl": "/docs/calliope/firststeps/firstSteps.jpg"
+        "imageUrl": "/calliope/firststeps/connecting.jpg",
+        "largeImageUrl": "/calliope/firststeps/firstSteps.jpg"
     },
     {
         "name": "Tutorials",
         "url": "/calliope/tutorials",
-        "imageUrl": "/docs/calliope/tutorials/01_flashing_heart.gif"
+        "imageUrl": "/calliope/tutorials/01_flashing_heart.gif"
     },
     {
         "name": "Calliope Links",
         "url": "/calliope/links",
-        "imageUrl": "/docs/calliope/links/thumbnail_shop.gif"
+        "imageUrl": "/calliope/links/thumbnail_shop.gif"
     }
 ]
 ```

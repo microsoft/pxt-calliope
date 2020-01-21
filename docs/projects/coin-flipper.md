@@ -4,7 +4,7 @@
 
 Let's create a coin flipping program to simulate a real coin toss. We'll use icon images to represent a ``heads`` or ``tails`` result.
 
-![Simulating coin toss](/docs/calliope/tutorials/08_coin_flipper_animation.gif)
+![Simulating coin toss](/calliope/tutorials/08_coin_flipper_animation.gif)
 
 ## Step 1
 

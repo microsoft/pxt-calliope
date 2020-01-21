@@ -2,7 +2,7 @@
 
 ## Introduction @unplugged
 
-![Animation of the Rock Paper Scissors game](/docs/calliope/tutorials/07_stone_paper_scissors_animation.gif)
+![Animation of the Rock Paper Scissors game](/calliope/tutorials/07_stone_paper_scissors_animation.gif)
 
 Use the accelerometer and the screen to build a **Rock Paper Scissors** game that you can play with your friends!
 
