@@ -27,6 +27,7 @@ namespace motors {
     */
     //% blockId=motor_on block="motor on at %percent"
     //% parts=dcmotor weight=90 blockGap=8
+     //% percent.shadow="speedPicker"
     void motorPower(int power) {
         uBit.soundmotor.motorOn(power);
     }
@@ -48,6 +49,7 @@ namespace motors {
     * Controls two motors attached to the board. Switches to dual-motor mode!
     */
     //% blockId=block_dual_motor block="motor %motor|at %percent"
+     //% percent.shadow="speedPicker"
     //% weight=80
     void dualMotorPower(Motor motor, int duty_percent) {
         switch(motor) {
