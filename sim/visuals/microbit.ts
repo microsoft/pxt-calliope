@@ -873,10 +873,6 @@ namespace pxsim.visuals {
         wireframe?: boolean;
     }
 
-    type pinTexts = {
-        [key: string]: SVGTextElement
-    }
-
     export class MicrobitBoardSvg implements BoardView {
         public element: SVGSVGElement;
         private style: SVGStyleElement;
@@ -887,7 +883,7 @@ namespace pxsim.visuals {
         private buttonsOuter: SVGElement[];
         private pins: SVGElement[];
         private pinGradients: SVGLinearGradientElement[];
-        private pinTexts: pinTexts;
+        private pinTexts:{ [key: number]: SVGTextElement };
         private ledsOuter: SVGElement[];
         private leds: SVGElement[];
         private systemLed: SVGCircleElement;
