@@ -1283,10 +1283,10 @@ namespace pxsim.visuals {
             }
             else if (pin.mode & PinFlags.Touch) {
                 v = pin.touched ? "0%" : "100%";
-                if (text) text.textContent = "TOUCHED";
+                if (text) text.textContent = "";
             } else {
                 v = "100%";
-                if (text) text.textContent = "unused";
+                if (text) text.textContent = "";
             }
             if (v) svg.setGradientValue(this.pinGradients[index], v);
         }
