@@ -43,10 +43,10 @@
     "less": "2.7.3",
     "react": "16.8.3",
     "semantic-ui-less": "2.2.14",
-    "typescript": "2.6.1"
+    "typescript": "^3.7.5"
   },
   "dependencies": {
     "pxt-common-packages": "6.18.4",
-    "pxt-core": "5.32.23"
+    "pxt-core": "5.33.3"
   }
 }
