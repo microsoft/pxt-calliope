@@ -44,7 +44,7 @@
     "typescript": "^3.7.5"
   },
   "dependencies": {
-    "pxt-common-packages": "6.18.4",
-    "pxt-core": "5.33.4"
+    "pxt-common-packages": "6.18.6",
+    "pxt-core": "5.33.5"
   }
 }
