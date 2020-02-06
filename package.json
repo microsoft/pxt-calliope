@@ -1,6 +1,6 @@
 {
   "name": "pxt-calliope",
-  "version": "2.1.47",
+  "version": "2.1.48",
   "description": "micro:bit target for Microsoft MakeCode (PXT)",
   "keywords": [
     "JavaScript",
