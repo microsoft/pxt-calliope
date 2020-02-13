@@ -2,7 +2,7 @@
      User Global Variables
 *******************************/
 
-@importGoogleFonts: true;
+@importGoogleFonts: false;
 
 @fontName  : 'Roboto Mono';
 
@@ -24,7 +24,7 @@
 @brown:#6B5B4C;
 @grey:#42495F;
 
-@pageBackground      : #FDFDFA;
+@pageBackground: #FDFDFA;
 
 /*******************************
          PXT Overrides
