@@ -14,13 +14,21 @@
 *******************************/
 
 /* Roboto font */
-@RobotoFont: data-uri("../docs/static/fonts/Roboto_400_normal.woff");
+// @RobotoMonoFont: data-uri("../docs/static/fonts/Roboto_Mono_400_normal.woff2");
 
-@font-face  {
-    font-family: 'Roboto';
-    src: @RobotoFont format("woff");
-}
-
+/* roboto-mono-regular - latin */
+@font-face {
+    font-family: 'Roboto Mono';
+    font-style: normal;
+    font-weight: 400;
+    src: url('../static/fonts/roboto-mono-v7-latin-regular.eot'); /* IE9 Compat Modes */
+    src: local('Roboto Mono'), local('RobotoMono-Regular'),
+         url('../static/fonts/roboto-mono-v7-latin-regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+         url('../static/fonts/roboto-mono-v7-latin-regular.woff2') format('woff2'), /* Super Modern Browsers */
+         url('../static/fonts/roboto-mono-v7-latin-regular.woff') format('woff'), /* Modern Browsers */
+         url('../static/fonts/roboto-mono-v7-latin-regular.ttf') format('truetype'), /* Safari, Android, iOS */
+         url('../static/fonts/roboto-mono-v7-latin-regular.svg#RobotoMono') format('svg'); /* Legacy iOS */
+  }
 .ui.button.download-button {
     &:extend(.ui.purple.button all);
 }
