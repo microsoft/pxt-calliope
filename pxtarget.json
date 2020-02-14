@@ -431,5 +431,5 @@
         }
     },
     "uploadDocs": false,
-    "uploadApiStringsBranchRx": "^(master|v\\d+\\.\\d+\\.\\d+)$"
+    "uploadApiStringsBranchRx": "^(master|v[2-9].\\d+\\.\\d+)$"
 }
