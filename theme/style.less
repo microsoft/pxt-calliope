@@ -14,20 +14,14 @@
 *******************************/
 
 /* Roboto font */
-// @RobotoMonoFont: data-uri("../docs/static/fonts/Roboto_Mono_400_normal.woff2");
+@RobotoMonoFont: data-uri("../docs/static/fonts/roboto-mono-v7-latin-regular.woff");
 
 /* roboto-mono-regular - latin */
 @font-face {
     font-family: 'Roboto Mono';
     font-style: normal;
     font-weight: 400;
-    src: url('../static/fonts/roboto-mono-v7-latin-regular.eot'); /* IE9 Compat Modes */
-    src: local('Roboto Mono'), local('RobotoMono-Regular'),
-         url('../static/fonts/roboto-mono-v7-latin-regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
-         url('../static/fonts/roboto-mono-v7-latin-regular.woff2') format('woff2'), /* Super Modern Browsers */
-         url('../static/fonts/roboto-mono-v7-latin-regular.woff') format('woff'), /* Modern Browsers */
-         url('../static/fonts/roboto-mono-v7-latin-regular.ttf') format('truetype'), /* Safari, Android, iOS */
-         url('../static/fonts/roboto-mono-v7-latin-regular.svg#RobotoMono') format('svg'); /* Legacy iOS */
+    src: @RobotoMonoFont format('woff');
   }
 .ui.button.download-button {
     &:extend(.ui.purple.button all);
@@ -58,8 +52,11 @@
     &:extend(.ui.blue.button all);
 }
 
-#filelist, #editortools {
+#filelist, #editortools, .fullscreensim #boardview {
     background: #fff data-uri("../docs/static/logo_texture.png") 0 0 repeat !important;
+}
+.fullscreensim #mainmenu {
+    background: #1b1c1d !important;
 }
 
 #downloadArea {
@@ -96,7 +93,6 @@
 /* Large Monitor */
 @media only screen and (min-width: @largeMonitorBreakpoint) {
 }
-
 
 /* Download dialog */
 .ui.downloaddialog.modal>.content {
