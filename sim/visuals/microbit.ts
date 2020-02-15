@@ -145,7 +145,7 @@ namespace pxsim.visuals {
         }
     `;
     const BOARD_SVG = `<?xml version="1.0" encoding="utf-8"?>
-    <svg version="1.1" id="CalliopeMini" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
+    <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
          y="0px" viewBox="0 0 530 530" style="enable-background:new 0 0 530 530;" xml:space="preserve">
     <style type="text/css">
         .st0{fill:#044854;}
@@ -443,33 +443,33 @@ namespace pxsim.visuals {
         
             <ellipse id="BTN_B" transform="matrix(0.1602 -0.9871 0.9871 0.1602 157.3084 627.5282)" class="st16" cx="447.4" cy="221.3" rx="11.6" ry="11.6"/>
     </g>
-    <g id="Display">
-        <rect id="LED_0_0" x="208.4" y="139.1" class="st3" width="6.3" height="13.3"/>
-        <rect id="LED_0_1" x="234.3" y="139.1" class="st3" width="6.3" height="13.3"/>
-        <rect id="LED_0_2" x="260.3" y="139.1" class="st3" width="6.3" height="13.3"/>
-        <rect id="LED_0_3" x="286.2" y="139.1" class="st3" width="6.3" height="13.3"/>
-        <rect id="LED_0_4" x="312.2" y="139.1" class="st3" width="6.3" height="13.3"/>
-        <rect id="LED_1_0" x="208.4" y="167.2" class="st3" width="6.3" height="13.3"/>
-        <rect id="LED_1_1" x="234.3" y="167.2" class="st3" width="6.3" height="13.3"/>
-        <rect id="LED_1_2" x="260.3" y="167.2" class="st3" width="6.3" height="13.3"/>
-        <rect id="LED_1_3" x="286.2" y="167.2" class="st3" width="6.3" height="13.3"/>
-        <rect id="LED_1_4" x="312.2" y="167.2" class="st3" width="6.3" height="13.3"/>
-        <rect id="LED_2_0" x="208.4" y="195.3" class="st3" width="6.3" height="13.3"/>
-        <rect id="LED_2_1" x="234.3" y="195.3" class="st3" width="6.3" height="13.3"/>
-        <rect id="LED_2_2" x="260.3" y="195.3" class="st3" width="6.3" height="13.3"/>
-        <rect id="LED_2_3" x="286.2" y="195.3" class="st3" width="6.3" height="13.3"/>
-        <rect id="LED_2_4" x="312.2" y="195.3" class="st3" width="6.3" height="13.3"/>
-        <rect id="LED_3_0" x="208.4" y="223.4" class="st3" width="6.3" height="13.3"/>
-        <rect id="LED_3_1" x="234.3" y="223.4" class="st3" width="6.3" height="13.3"/>
-        <rect id="LED_3_2" x="260.3" y="223.4" class="st3" width="6.3" height="13.3"/>
-        <rect id="LED_3_3" x="286.2" y="223.4" class="st3" width="6.3" height="13.3"/>
-        <rect id="LED_3_4" x="312.2" y="223.4" class="st3" width="6.3" height="13.3"/>
-        <rect id="LED_4_0" x="208.4" y="251.5" class="st3" width="6.3" height="13.3"/>
-        <rect id="LED_4_1" x="234.3" y="251.5" class="st3" width="6.3" height="13.3"/>
-        <rect id="LED_4_2" x="260.3" y="251.5" class="st3" width="6.3" height="13.3"/>
-        <rect id="LED_4_3" x="286.2" y="251.5" class="st3" width="6.3" height="13.3"/>
-        <rect id="LED_4_4" x="312.2" y="251.5" class="st3" width="6.3" height="13.3"/>
-    </g>
+
+    <rect id="LED_0_0" x="210.7" y="146.2" class="st6" width="5.1" height="12.9"/>
+    <rect id="LED_1_0" x="236.8" y="146.2" class="st6" width="5.1" height="12.9"/>
+    <rect id="LED_2_0" x="262.7" y="146.2" class="st6" width="5.1" height="12.9"/>
+    <rect id="LED_3_0" x="288.7" y="146.2" class="st6" width="5.1" height="12.9"/>
+    <rect id="LED_4_0" x="314.6" y="146.2" class="st6" width="5.1" height="12.9"/>
+    <rect id="LED_0_1" x="210.7" y="171.7" class="st6" width="5.1" height="12.9"/>
+    <rect id="LED_1_1" x="236.8" y="171.7" class="st6" width="5.1" height="12.9"/>
+    <rect id="LED_2_1" x="262.7" y="171.7" class="st6" width="5.1" height="12.9"/>
+    <rect id="LED_3_1" x="288.7" y="171.7" class="st6" width="5.1" height="12.9"/>
+    <rect id="LED_4_1" x="314.6" y="171.7" class="st6" width="5.1" height="12.9"/>
+    <rect id="LED_0_2" x="210.7" y="197" class="st6" width="5.1" height="12.9"/>
+    <rect id="LED_1_2" x="236.8" y="197" class="st6" width="5.1" height="12.9"/>
+    <rect id="LED_2_2" x="262.7" y="197" class="st6" width="5.1" height="12.9"/>
+    <rect id="LED_3_2" x="288.7" y="197" class="st6" width="5.1" height="12.9"/>
+    <rect id="LED_4_2" x="314.6" y="197" class="st6" width="5.1" height="12.9"/>
+    <rect id="LED_0_3" x="210.7" y="222.5" class="st6" width="5.1" height="12.9"/>
+    <rect id="LED_1_3" x="236.8" y="222.5" class="st6" width="5.1" height="12.9"/>
+    <rect id="LED_2_3" x="262.7" y="222.5" class="st6" width="5.1" height="12.9"/>
+    <rect id="LED_3_3" x="288.7" y="222.5" class="st6" width="5.1" height="12.9"/>
+    <rect id="LED_4_3" x="314.6" y="222.5" class="st6" width="5.1" height="12.9"/>
+    <rect id="LED_0_4" x="210.7" y="247.8" class="st6" width="5.1" height="12.9"/>
+    <rect id="LED_1_4" x="236.8" y="247.8" class="st6" width="5.1" height="12.9"/>
+    <rect id="LED_2_4" x="262.7" y="247.8" class="st6" width="5.1" height="12.9"/>
+    <rect id="LED_3_4" x="288.7" y="247.8" class="st6" width="5.1" height="12.9"/>
+    <rect id="LED_4_4" x="314.6" y="247.8" class="st6" width="5.1" height="12.9"/>
+
     <g id="PINS">
         <g id="C_GND4">
             <circle class="st11" cx="370.8" cy="422" r="5.2"/>
