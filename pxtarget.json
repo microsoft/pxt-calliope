@@ -421,7 +421,11 @@
         "simScreenshotMaxUriLength": 300000,
         "importExtensionFiles": true,        
         "githubEditor": true,
-        "tutorialBlocksDiff": true
+        "tutorialBlocksDiff": true,
+        "python": true,
+        "pythonToolbox": true,
+        "chooseLanguageRestrictionOnNewProject": true,
+        "openProjectNewTab": true
     },
     "queryVariants": {
         "hidemenu": {
@@ -430,5 +434,6 @@
             }
         }
     },
-    "disableDocsUpload": true
+    "uploadDocs": false,
+    "uploadApiStringsBranchRx": "^(master|v[2-9]\\.\\d+\\.\\d+)$"
 }
