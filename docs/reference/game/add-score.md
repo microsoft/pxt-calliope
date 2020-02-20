@@ -16,11 +16,11 @@ Press button ``A`` as much as possible to increase the score.
 Press ``B`` to display the score and reset the score.
 
 ```blocks
-input.onButtonPressed(Button.B, () => {
+input.input.onButtonEvent(Button.B, DAL.MICROBIT_BUTTON_EVT_CLICK, () => {
     basic.showNumber(game.score())
     game.setScore(0)
 })
-input.onButtonPressed(Button.A, () => {
+input.input.onButtonEvent(Button.A, DAL.MICROBIT_BUTTON_EVT_CLICK, () => {
     game.addScore(1)
 })
 ```

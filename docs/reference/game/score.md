@@ -13,7 +13,7 @@ This program adds one point to your score every time you press button
 second) and shows your score.
 
 ```blocks
-input.onButtonPressed(Button.A, () => {
+input.input.onButtonEvent(Button.A, DAL.MICROBIT_BUTTON_EVT_CLICK, () => {
     game.addScore(1);
     basic.pause(500);
     basic.showNumber(game.score());

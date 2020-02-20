@@ -17,7 +17,7 @@ Press button ``A`` as much as possible.
 At the end of 10 seconds, the program will show your score.
 
 ```blocks
-input.onButtonPressed(Button.A, () => {
+input.input.onButtonEvent(Button.A, DAL.MICROBIT_BUTTON_EVT_CLICK, () => {
     game.addScore(1)
 })
 game.startCountdown(10000)

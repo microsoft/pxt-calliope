@@ -126,7 +126,4 @@
   <block type="device_pin_event" x="555" y="96">
     <field name="name">TouchPin.P2</field>
   </block>
-  <block type="device_pin_released" x="188" y="435">
-    <field name="NAME">TouchPin.P2</field>
-  </block>
 </xml>

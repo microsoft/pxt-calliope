@@ -29,7 +29,7 @@ program shows the light level
 on the [LED screen](/device/screen).
 
 ```blocks
-input.onButtonPressed(Button.B, () => {
+input.input.onButtonEvent(Button.B, DAL.MICROBIT_BUTTON_EVT_CLICK, () => {
     let level = input.lightLevel()
     basic.showNumber(level)
 })

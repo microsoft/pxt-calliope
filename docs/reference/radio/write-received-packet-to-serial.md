@@ -30,7 +30,7 @@ the second @boardname@), this program sends temperature data to the
 serial port.
 
 ```blocks
-input.onButtonPressed(Button.A, function () {
+input.input.onButtonEvent(Button.A, ButtonEvent.Click, function () {
     radio.sendNumber(input.temperature())
     radio.sendValue("temp", input.temperature())
     radio.sendString("It's warm now")

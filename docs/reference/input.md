@@ -3,13 +3,13 @@
 Events and data from sensors
 
 ```cards
-input.onButtonPressed(Button.A, () => {
+input.input.onButtonEvent(Button.A, DAL.MICROBIT_BUTTON_EVT_CLICK, () => {
     
 });
 input.onGesture(Gesture.Shake, () => {
     
 });
-input.onPinPressed(TouchPin.P0, () => {
+input.onPinEvent(TouchPin.P0, Button.Click, () => {
     
 });
 input.buttonIsPressed(Button.A);

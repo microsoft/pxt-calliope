@@ -25,7 +25,7 @@ arrow and show it on the LED screen. If you press button `B`, the
 program will show a picture of the arrow upside-down.
 
 ```blocks
-input.onButtonPressed(Button.A, () => {
+input.input.onButtonEvent(Button.A, DAL.MICROBIT_BUTTON_EVT_CLICK, () => {
     images.createImage(`
         . . # . .
         . # # # .
@@ -34,7 +34,7 @@ input.onButtonPressed(Button.A, () => {
         . . # . .
         `).showImage(0);
 });
-input.onButtonPressed(Button.B, () => {
+input.input.onButtonEvent(Button.B, DAL.MICROBIT_BUTTON_EVT_CLICK, () => {
     images.createImage(`
         . . # . .
         . . # . .

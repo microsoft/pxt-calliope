@@ -43,7 +43,7 @@ music.onEvent(MusicEvent.BackgroundMelodyResumed, () => {
 music.onEvent(MusicEvent.BackgroundMelodyRepeated, () => {
     serial.writeLine("background repeated")
 })
-input.onButtonPressed(Button.A, () => {
+input.input.onButtonEvent(Button.A, DAL.MICROBIT_BUTTON_EVT_CLICK, () => {
     music.beginMelody(music.builtInMelody(Melodies.BaDing), MelodyOptions.Once)
 })
 music.setTempo(100)

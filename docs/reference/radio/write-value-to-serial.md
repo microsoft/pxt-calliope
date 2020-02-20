@@ -29,7 +29,7 @@ the second @boardname@), this program sends temperature data to
 serial.
 
 ```blocks
-input.onButtonPressed(Button.A, () => {
+input.input.onButtonEvent(Button.A, DAL.MICROBIT_BUTTON_EVT_CLICK, () => {
     radio.sendNumber(input.temperature());
 });
 radio.onDataReceived(() => {

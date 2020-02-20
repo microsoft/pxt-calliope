@@ -29,10 +29,10 @@ Display a left arrow when button A is pressed or a right arrow when button B is 
 let arrowLeft = images.arrowImage(ArrowNames.West)
 let arrowRight = images.arrowImage(ArrowNames.East)
 
-input.onButtonPressed(Button.A, () => {
+input.input.onButtonEvent(Button.A, DAL.MICROBIT_BUTTON_EVT_CLICK, () => {
     arrowLeft.showImage(0);
 });
-input.onButtonPressed(Button.B, () => {
+input.input.onButtonEvent(Button.B, DAL.MICROBIT_BUTTON_EVT_CLICK, () => {
     arrowRight.showImage(0);
 });
 ```

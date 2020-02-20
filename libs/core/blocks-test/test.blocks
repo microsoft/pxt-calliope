@@ -350,9 +350,6 @@
               <shadow type="math_number" id="RP?w4vFS1wB4I0nNyldb">
                 <field name="NUM">0</field>
               </shadow>
-              <block type="device_pin_is_pressed">
-                <field name="NAME">TouchPin.P2</field>
-              </block>
             </value>
             <next>
               <block type="variables_set">

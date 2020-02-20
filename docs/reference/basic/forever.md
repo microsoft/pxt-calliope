@@ -43,7 +43,7 @@ let num = 0
 basic.forever(() => {
     basic.showNumber(num)
 })
-input.onButtonPressed(Button.A, () => {
+input.input.onButtonEvent(Button.A, DAL.MICROBIT_BUTTON_EVT_CLICK, () => {
     num = num + 1
 })
 ```
@@ -59,7 +59,7 @@ Try this on your @boardname@:
 basic.forever(() => {
     basic.showNumber(6789)
 })
-input.onButtonPressed(Button.A, () => {
+input.input.onButtonEvent(Button.A, DAL.MICROBIT_BUTTON_EVT_CLICK, () => {
     basic.showNumber(2)
 })
 ```

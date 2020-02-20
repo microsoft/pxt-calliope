@@ -27,7 +27,7 @@ let img = images.createImage(`
 . . . . .
 `)
 img.showImage(0)
-input.onButtonPressed(Button.A, () => {
+input.input.onButtonEvent(Button.A, DAL.MICROBIT_BUTTON_EVT_CLICK, () => {
     img.clear()
     img.showImage(0)
 })

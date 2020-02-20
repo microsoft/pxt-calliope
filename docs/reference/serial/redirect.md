@@ -32,7 +32,7 @@ serial port to use the pins. The new configuration uses pin ``P1`` to transmit a
 ``P2`` to receive. The baud rate is set to `9600`.
 
 ```blocks
-input.onButtonPressed(Button.A, () => {
+input.input.onButtonEvent(Button.A, DAL.MICROBIT_BUTTON_EVT_CLICK, () => {
     serial.redirect(SerialPin.P1, SerialPin.P2, BaudRate.BaudRate9600);
 });
 ```
