@@ -270,7 +270,7 @@ declare namespace input {
      * @param name the pin, eg: TouchPin.P0
      * @param body the code to run when event is fired on pin
      */
-    //% help=input/on-pin-input weight=83 blockGap=32
+    //% help=input/on-pin-touch weight=83 blockGap=32
     //% blockId=device_pin_touch block="on pin %name|is %eventType=control_button_event_value_id" shim=input::onPinTouched
     function onPinTouched(name: TouchPin, eventType: int32, body: () => void): void;
 
