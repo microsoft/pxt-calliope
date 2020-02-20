@@ -257,9 +257,9 @@ declare namespace input {
     /**
      * Do something when a pin is touched and released again (while also touching the GND pin).
      * @param name the pin, eg: TouchPin.P0
-     * @param body the code to run when the pin is pressed
+     * @param body the code to run when event is fired on pin
      */
-    //% help=input/on-pin-pressed weight=83 blockGap=32
+    //% help=input/on-pin-event weight=83 blockGap=32
     //% blockId=device_pin_event block="on pin %name|is %eventType=control_button_event_value_id" shim=input::onPinEvent
     function onPinEvent(name: TouchPin, eventType: int32, body: () => void): void;
 

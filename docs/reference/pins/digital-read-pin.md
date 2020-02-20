@@ -48,7 +48,7 @@ keeper @boardname@, you can press button `B` on the remote to buzz and
 make the score bigger on the other @boardname@.
 
 ```blocks
-input.input.onButtonEvent(Button.B, DAL.MICROBIT_BUTTON_EVT_CLICK, () => {
+input.input.onButtonEvent(Button.B, ButtonEvent.Click, () => {
     pins.digitalWritePin(DigitalPin.P1, 1);
     basic.pause(500);
     pins.digitalWritePin(DigitalPin.P1, 0);

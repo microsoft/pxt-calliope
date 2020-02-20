@@ -15,9 +15,9 @@ namespace pxsim.input {
             b.usesButtonAB = true;
             runtime.queueDisplayUpdate();
         }
-        pxtcore.registerWithDal(button, DAL.MICROBIT_BUTTON_EVT_CLICK, handler);
+        pxtcore.registerWithDal(button, ButtonEvent.Click, handler);
     }
-
+    
     export function buttonIsPressed(button: number): boolean {
         let b = board().buttonPairState;
         if (button == b.abBtn.id && !b.usesButtonAB) {

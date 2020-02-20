@@ -15,7 +15,7 @@ led.enable(false);
 This program turns off the screen when pressing button ``B``
 
 ```blocks
-input.input.onButtonEvent(Button.B, DAL.MICROBIT_BUTTON_EVT_CLICK, () => {
+input.input.onButtonEvent(Button.B, ButtonEvent.Click, () => {
     led.enable(false)
 });
 ```

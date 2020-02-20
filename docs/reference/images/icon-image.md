@@ -20,10 +20,10 @@ Show a happy face when button A is pressed or a sad face when button B is presse
 let iamHappy = images.iconImage(IconNames.Happy)
 let iamSad = images.iconImage(IconNames.Sad)
 
-input.input.onButtonEvent(Button.A, DAL.MICROBIT_BUTTON_EVT_CLICK, () => {
+input.input.onButtonEvent(Button.A, ButtonEvent.Click, () => {
     iamHappy.showImage(0);
 });
-input.input.onButtonEvent(Button.B, DAL.MICROBIT_BUTTON_EVT_CLICK, () => {
+input.input.onButtonEvent(Button.B, ButtonEvent.Click, () => {
     iamSad.showImage(0);
 });
 ```

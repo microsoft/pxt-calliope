@@ -27,7 +27,7 @@ bluetooth.onBluetoothDisconnected(() => {
     basic.showString("D");
     connected = 0;
 });
-input.input.onButtonEvent(Button.A, DAL.MICROBIT_BUTTON_EVT_CLICK, () => {
+input.input.onButtonEvent(Button.A, ButtonEvent.Click, () => {
     if (connected == 1) {
         bluetooth.uartWriteLine("HELLO");
     }

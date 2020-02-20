@@ -476,10 +476,10 @@ function testTiltZ() {
 }
 
 function startIOMonitor() {
-    input.input.onButtonEvent(Button.A, DAL.MICROBIT_BUTTON_EVT_CLICK, () => {
+    input.input.onButtonEvent(Button.A, ButtonEvent.Click, () => {
         AWasPressed = true
     })
-    input.input.onButtonEvent(Button.B, DAL.MICROBIT_BUTTON_EVT_CLICK, () => {
+    input.input.onButtonEvent(Button.B, ButtonEvent.Click, () => {
         BWasPressed = true
     })
     input.onShake(() => {

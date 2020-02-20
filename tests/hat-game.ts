@@ -7,7 +7,7 @@ let level: number
 let swapSpeed: number
 
 initializeGame()
-input.input.onButtonEvent(Button.A, DAL.MICROBIT_BUTTON_EVT_CLICK, () => {
+input.input.onButtonEvent(Button.A, ButtonEvent.Click, () => {
     if (ballRevealing) {
         index = index + 1
         if (index > 2) {
@@ -16,7 +16,7 @@ input.input.onButtonEvent(Button.A, DAL.MICROBIT_BUTTON_EVT_CLICK, () => {
         basic.showString(cupSelect[index], 150)
     }
 })
-input.input.onButtonEvent(Button.B, DAL.MICROBIT_BUTTON_EVT_CLICK, () => {
+input.input.onButtonEvent(Button.B, ButtonEvent.Click, () => {
     if (ballRevealing) {
         ballRevealing = false
         if (correctBall == index) {

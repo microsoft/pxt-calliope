@@ -70,7 +70,7 @@ confuse the @boardname@.
 Keep the calibration handy by running it when the user pressed **A+B**.
 
 ```block
-input.input.onButtonEvent(Button.AB, DAL.MICROBIT_BUTTON_EVT_CLICK, () => {
+input.input.onButtonEvent(Button.AB, ButtonEvent.Click, () => {
     input.calibrateCompass();
 })
 ```

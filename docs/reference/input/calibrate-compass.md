@@ -23,7 +23,7 @@ confuse the @boardname@.
 This example runs the calibration when the user presses **A+B** buttons.
 
 ```blocks
-input.input.onButtonEvent(Button.AB, DAL.MICROBIT_BUTTON_EVT_CLICK, () => {
+input.input.onButtonEvent(Button.AB, ButtonEvent.Click, () => {
     input.calibrateCompass();
 })
 ```

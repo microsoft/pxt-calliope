@@ -12,7 +12,7 @@ Use ``||input:on button pressed||`` to send a text message over radio with ``||r
 Every @boardname@ nearby will receive this message.
 
 ```blocks
-input.input.onButtonEvent(Button.A, DAL.MICROBIT_BUTTON_EVT_CLICK, () => {
+input.input.onButtonEvent(Button.A, ButtonEvent.Click, () => {
     radio.sendString("Yo");
 });
 ```
@@ -41,7 +41,7 @@ radio.onReceivedString(function (receivedString) {
 Press button **A** on the simulator, you will notice that a second @boardname@ appears (if your screen is too small, the simulator might decide not to show it). Try pressing **A** again and notice that the "Yo" message gets displayed on the other @boardname@.
 
 ```blocks
-input.input.onButtonEvent(Button.A, DAL.MICROBIT_BUTTON_EVT_CLICK, () => {
+input.input.onButtonEvent(Button.A, ButtonEvent.Click, () => {
     radio.sendString("Yo");
 });
 radio.onReceivedString(function (receivedString) {

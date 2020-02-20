@@ -107,12 +107,12 @@ basic.forever(() => {
         basic.pause(500)
     }
 })
-input.input.onButtonEvent(Button.A, DAL.MICROBIT_BUTTON_EVT_CLICK, () => {
+input.input.onButtonEvent(Button.A, ButtonEvent.Click, () => {
     let temp = Math.abs(person.dirX) * (-1)
     person.dirX = Math.abs(person.dirY) * (-1)
     person.dirY = temp
 })
-input.input.onButtonEvent(Button.B, DAL.MICROBIT_BUTTON_EVT_CLICK, () => {
+input.input.onButtonEvent(Button.B, ButtonEvent.Click, () => {
     let temp1 = Math.abs(person.dirX)
     person.dirX = Math.abs(person.dirY)
     person.dirY = temp1

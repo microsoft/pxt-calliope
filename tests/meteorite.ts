@@ -18,7 +18,7 @@ counter = 0
 pause = 700
 led.plot(oneX, oneY)
 led.plot(twoX, twoY)
-input.input.onButtonEvent(Button.A, DAL.MICROBIT_BUTTON_EVT_CLICK, () => {
+input.input.onButtonEvent(Button.A, ButtonEvent.Click, () => {
     if (oneX > 0) {
         led.unplot(oneX, oneY)
         led.unplot(twoX, twoY)
@@ -28,7 +28,7 @@ input.input.onButtonEvent(Button.A, DAL.MICROBIT_BUTTON_EVT_CLICK, () => {
         led.plot(twoX, twoY)
     }
 })
-input.input.onButtonEvent(Button.B, DAL.MICROBIT_BUTTON_EVT_CLICK, () => {
+input.input.onButtonEvent(Button.B, ButtonEvent.Click, () => {
     if (twoX < 4) {
         led.unplot(oneX, oneY)
         led.unplot(twoX, twoY)

@@ -13,7 +13,7 @@ namespace pxsim.input {
         if (!pin) return;
         pin.isTouched();
         runtime.queueDisplayUpdate(); 
-        pxtcore.registerWithDal(pin.id, DAL.MICROBIT_BUTTON_EVT_CLICK, handler);
+        pxtcore.registerWithDal(pin.id, ButtonEvent.Click, handler);
     }
 
     // Deprecated 

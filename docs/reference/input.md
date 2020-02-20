@@ -3,7 +3,7 @@
 Events and data from sensors
 
 ```cards
-input.input.onButtonEvent(Button.A, DAL.MICROBIT_BUTTON_EVT_CLICK, () => {
+input.input.onButtonEvent(Button.A, ButtonEvent.Click, () => {
     
 });
 input.onGesture(Gesture.Shake, () => {

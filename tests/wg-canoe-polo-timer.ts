@@ -24,13 +24,13 @@ playOneGame(gameTime)
 showFinalScores(scoreA, scoreB)
 
 function startIOMonitor() {
-    input.input.onButtonEvent(Button.A, DAL.MICROBIT_BUTTON_EVT_CLICK, () => {
+    input.input.onButtonEvent(Button.A, ButtonEvent.Click, () => {
         AWasPressed = true
     })
-    input.input.onButtonEvent(Button.B, DAL.MICROBIT_BUTTON_EVT_CLICK, () => {
+    input.input.onButtonEvent(Button.B, ButtonEvent.Click, () => {
         BWasPressed = true
     })
-    input.input.onButtonEvent(Button.AB, DAL.MICROBIT_BUTTON_EVT_CLICK, () => {
+    input.input.onButtonEvent(Button.AB, ButtonEvent.Click, () => {
         ABWasPressed = true
         AWasPressed = false
         BWasPressed = false

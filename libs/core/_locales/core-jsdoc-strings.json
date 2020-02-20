@@ -388,7 +388,7 @@
   "input.onLogoUp": "Attaches code to run when the logo is oriented upwards and the board is vertical.",
   "input.onLogoUp|param|body": "TODO",
   "input.onPinEvent": "Do something when a pin is touched and released again (while also touching the GND pin).",
-  "input.onPinEvent|param|body": "the code to run when the pin is pressed",
+  "input.onPinEvent|param|body": "the code to run when event is fired on pin",
   "input.onPinEvent|param|name": "the pin, eg: TouchPin.P0",
   "input.onScreenDown": "Attaches code to run when the screen is facing down.",
   "input.onScreenDown|param|body": "TODO",
