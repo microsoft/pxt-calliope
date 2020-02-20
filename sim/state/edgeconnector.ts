@@ -1,5 +1,5 @@
 namespace pxsim.input {
-    export function onPinEvent(pinId: number, pinEvent: number, handler: RefAction) {
+    export function onPinTouched(pinId: number, pinEvent: number, handler: RefAction) {
         let pin = getPin(pinId);
         if (!pin) return;
         pin.isTouched();

@@ -234,6 +234,17 @@ declare namespace input {
     function onButtonEvent(button: Button, eventType: int32, body: () => void): void;
 
     /**
+     * Do something when a button (A, B or both A+B) is pushed down and released again.
+     * @param button the button that needs to be pressed
+     * @param body code to run when event is raised
+     */
+    //% help=input/on-button-pressed weight=85 blockGap=16
+    //% blockId=device_button_pressed block="on button|%NAME|pressed"
+    //% parts="buttonpair"
+    //% blockHidden=true shim=input::onButtonPressed
+    function onButtonPressed(button: Button, body: () => void): void;
+
+    /**
      * Do something when when a gesture is done (like shaking the micro:bit).
      * @param gesture the type of gesture to track, eg: Gesture.Shake
      * @param body code to run when gesture is raised
@@ -259,9 +270,29 @@ declare namespace input {
      * @param name the pin, eg: TouchPin.P0
      * @param body the code to run when event is fired on pin
      */
-    //% help=input/on-pin-event weight=83 blockGap=32
-    //% blockId=device_pin_event block="on pin %name|is %eventType=control_button_event_value_id" shim=input::onPinEvent
-    function onPinEvent(name: TouchPin, eventType: int32, body: () => void): void;
+    //% help=input/on-pin-input weight=83 blockGap=32
+    //% blockId=device_pin_touch block="on pin %name|is %eventType=control_button_event_value_id" shim=input::onPinTouched
+    function onPinTouched(name: TouchPin, eventType: int32, body: () => void): void;
+
+    /**
+     * Do something when a pin is touched and released again (while also touching the GND pin).
+     * @param name the pin that needs to be pressed, eg: TouchPin.P0
+     * @param body the code to run when the pin is pressed
+     */
+    //% help=input/on-pin-pressed weight=83 blockGap=32
+    //% blockId=device_pin_input block="on pin %name|pressed"
+    //% blockHidden=true shim=input::onPinPressed
+    function onPinPressed(name: TouchPin, body: () => void): void;
+
+    /**
+     * Do something when a pin is released.
+     * @param name the pin that needs to be released, eg: TouchPin.P0
+     * @param body the code to run when the pin is released
+     */
+    //% help=input/on-pin-released weight=6 blockGap=16
+    //% blockId=device_pin_released block="on pin %NAME|released"
+    //% blockHidden=true shim=input::onPinReleased
+    function onPinReleased(name: TouchPin, body: () => void): void;
 
     /**
      * Get the button state (pressed or not) for ``A`` and ``B``.

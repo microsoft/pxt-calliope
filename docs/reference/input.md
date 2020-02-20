@@ -9,7 +9,7 @@ input.input.onButtonEvent(Button.A, ButtonEvent.Click, () => {
 input.onGesture(Gesture.Shake, () => {
     
 });
-input.onPinEvent(TouchPin.P0, Button.Click, () => {
+input.onPinTouched(TouchPin.P0, Button.Click, () => {
     
 });
 input.buttonIsPressed(Button.A);

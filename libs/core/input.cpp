@@ -190,8 +190,17 @@ namespace input {
     }
 
     // Deprecated
-    void onButtonPressed(Button button, int eventType, Action body) {
-        registerWithDal((int)button, eventType, body);
+    /**
+     * Do something when a button (A, B or both A+B) is pushed down and released again.
+     * @param button the button that needs to be pressed
+     * @param body code to run when event is raised
+     */
+    //% help=input/on-button-pressed weight=85 blockGap=16
+    //% blockId=device_button_pressed block="on button|%NAME|pressed"
+    //% parts="buttonpair"
+    //% blockHidden=true
+    void onButtonPressed(Button button, Action body) {
+        registerWithDal((int)button, MICROBIT_BUTTON_EVT_CLICK, body);
     }
 
     /**
@@ -232,9 +241,9 @@ namespace input {
      * @param name the pin, eg: TouchPin.P0
      * @param body the code to run when event is fired on pin
      */
-    //% help=input/on-pin-event weight=83 blockGap=32
-    //% blockId=device_pin_event block="on pin %name|is %eventType=control_button_event_value_id"
-    void onPinEvent(TouchPin name, int eventType, Action body) {
+    //% help=input/on-pin-touch weight=83 blockGap=32
+    //% blockId=device_pin_touch block="on pin %name|is %eventType=control_button_event_value_id"
+    void onPinTouched(TouchPin name, int eventType, Action body) {
         auto pin = getPin((int)name);
         if (!pin) return;
 
@@ -244,6 +253,14 @@ namespace input {
     }
 
     // Deprecated
+    /**
+     * Do something when a pin is touched and released again (while also touching the GND pin).
+     * @param name the pin that needs to be pressed, eg: TouchPin.P0
+     * @param body the code to run when the pin is pressed
+     */
+    //% help=input/on-pin-pressed weight=83 blockGap=32
+    //% blockId=device_pin_input block="on pin %name|pressed"
+    //% blockHidden=true
     void onPinPressed(TouchPin name, Action body) {
         auto pin = getPin((int)name);
         if (!pin) return;
@@ -254,6 +271,14 @@ namespace input {
     }
 
     // Deprecated
+    /**
+     * Do something when a pin is released.
+     * @param name the pin that needs to be released, eg: TouchPin.P0
+     * @param body the code to run when the pin is released
+     */
+    //% help=input/on-pin-released weight=6 blockGap=16
+    //% blockId=device_pin_released block="on pin %NAME|released"
+    //% blockHidden=true
     void onPinReleased(TouchPin name, Action body) {
         auto pin = getPin((int)name);
         if (!pin) return;
