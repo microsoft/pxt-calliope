@@ -224,13 +224,14 @@ declare namespace input {
 
     /**
      * Do something when a button (A, B or both A+B) is pushed down and released again.
-     * @param button the button that needs to be pressed
+     * @param button the button
      * @param body code to run when event is raised
+     * @param eventType event Type
      */
-    //% help=input/on-button-pressed weight=85 blockGap=16
-    //% blockId=device_button_event block="on button|%NAME|pressed"
-    //% parts="buttonpair" shim=input::onButtonPressed
-    function onButtonPressed(button: Button, body: () => void): void;
+    //% help=input/on-button-event weight=85 blockGap=16
+    //% blockId=device_button_event block="on button %NAME| is %eventType=control_button_event_value_id"
+    //% parts="buttonpair" shim=input::onButtonEvent
+    function onButtonEvent(button: Button, eventType: int32, body: () => void): void;
 
     /**
      * Do something when when a gesture is done (like shaking the micro:bit).
@@ -255,22 +256,12 @@ declare namespace input {
 
     /**
      * Do something when a pin is touched and released again (while also touching the GND pin).
-     * @param name the pin that needs to be pressed, eg: TouchPin.P0
+     * @param name the pin, eg: TouchPin.P0
      * @param body the code to run when the pin is pressed
      */
     //% help=input/on-pin-pressed weight=83 blockGap=32
-    //% blockId=device_pin_event block="on pin %name|pressed" shim=input::onPinPressed
-    function onPinPressed(name: TouchPin, body: () => void): void;
-
-    /**
-     * Do something when a pin is released.
-     * @param name the pin that needs to be released, eg: TouchPin.P0
-     * @param body the code to run when the pin is released
-     */
-    //% help=input/on-pin-released weight=6 blockGap=16
-    //% blockId=device_pin_released block="on pin %NAME|released"
-    //% advanced=true shim=input::onPinReleased
-    function onPinReleased(name: TouchPin, body: () => void): void;
+    //% blockId=device_pin_event block="on pin %name|is %eventType=control_button_event_value_id" shim=input::onPinEvent
+    function onPinEvent(name: TouchPin, eventType: int32, body: () => void): void;
 
     /**
      * Get the button state (pressed or not) for ``A`` and ``B``.
@@ -655,7 +646,7 @@ declare namespace pins {
 
     /**
      * Read the connector value as analog, that is, as a value comprised between 0 and 1023.
-     * @param name pin to write to, eg: AnalogPin.P1
+     * @param name of pin to read from, eg: AnalogPin.P1
      */
     //% help=pins/analog-read-pin weight=25
     //% blockId=device_get_analog_pin block="analog read|pin %name" blockGap="8"
@@ -665,7 +656,7 @@ declare namespace pins {
 
     /**
      * Set the connector value as analog. Value must be comprised between 0 and 1023.
-     * @param name pin name to write to, eg: AnalogPin.P1
+     * @param name of pin to write to, eg: AnalogPin.P1
      * @param value value to write to the pin between ``0`` and ``1023``. eg:1023,0
      */
     //% help=pins/analog-write-pin weight=24
@@ -760,7 +751,7 @@ declare namespace pins {
     function analogSetPitchPin(name: AnalogPin): void;
 
     /**
-     * Emit a plse-width modulation (PWM) signal to the current pitch pin. Use `analog set pitch pin` to define the pitch pin.
+     * Emit a pulse-width modulation (PWM) signal to the current pitch pin. Use `analog set pitch pin` to define the pitch pin.
      * @param frequency frequency to modulate in Hz.
      * @param ms duration of the pitch in milli seconds.
      */
@@ -769,7 +760,7 @@ declare namespace pins {
     function analogPitch(frequency: int32, ms: int32): void;
 
     /**
-     * Configure the pull directiion of of a pin.
+     * Configure the pull direction of of a pin.
      * @param name pin to set the pull mode on, eg: DigitalPin.P0
      * @param pull one of the mbed pull configurations, eg: PinPullMode.PullUp
      */

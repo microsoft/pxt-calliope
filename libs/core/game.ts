@@ -323,9 +323,9 @@ namespace game {
     }
 
     function unplugEvents(): void {
-        input.onButtonPressed(Button.A, () => { });
-        input.onButtonPressed(Button.B, () => { });
-        input.onButtonPressed(Button.AB, () => {
+        input.onButtonEvent(Button.A, DAL.MICROBIT_BUTTON_EVT_CLICK, () => { });
+        input.onButtonEvent(Button.B, DAL.MICROBIT_BUTTON_EVT_CLICK, () => { });
+        input.onButtonEvent(Button.AB, DAL.MICROBIT_BUTTON_EVT_CLICK, () => {
             control.reset();
         });
     }

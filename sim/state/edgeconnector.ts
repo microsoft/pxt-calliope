@@ -1,4 +1,13 @@
 namespace pxsim.input {
+    export function onPinEvent(pinId: number, pinEvent: number, handler: RefAction) {
+        let pin = getPin(pinId);
+        if (!pin) return;
+        pin.isTouched();
+        runtime.queueDisplayUpdate(); 
+        pxtcore.registerWithDal(pin.id, pinEvent, handler);
+    }
+
+    // Deprecated
     export function onPinPressed(pinId: number, handler: RefAction) {
         let pin = getPin(pinId);
         if (!pin) return;
@@ -7,6 +16,7 @@ namespace pxsim.input {
         pxtcore.registerWithDal(pin.id, DAL.MICROBIT_BUTTON_EVT_CLICK, handler);
     }
 
+    // Deprecated 
     export function onPinReleased(pinId: number, handler: RefAction) {
         let pin = getPin(pinId);
         if (!pin) return;

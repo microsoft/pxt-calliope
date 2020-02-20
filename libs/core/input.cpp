@@ -7,6 +7,21 @@ enum class Button {
     AB = MICROBIT_ID_BUTTON_AB,
 };
 
+enum class ButtonEvent {
+    //% blockIdentity="input.buttonEventValueId"
+    //% block="pressed down"
+    Down = MICROBIT_BUTTON_EVT_DOWN,
+    //% blockIdentity="input.buttonEventValueId"
+    //% block="released up"
+    Up = MICROBIT_BUTTON_EVT_UP,
+    //% blockIdentity="input.buttonEventValueId"
+    //% block="clicked"
+    Click = MICROBIT_BUTTON_EVT_CLICK,
+    //% blockIdentity="input.buttonEventValueId"
+    //% block="long clicked"
+    LongClick = MICROBIT_BUTTON_EVT_LONG_CLICK,
+};
+
 enum class Dimension {
     //% block=x
     X = 0,
@@ -163,14 +178,20 @@ enum class MesDpadButtonInfo {
 namespace input {
     /**
      * Do something when a button (A, B or both A+B) is pushed down and released again.
-     * @param button the button that needs to be pressed
+     * @param button the button
      * @param body code to run when event is raised
+     * @param eventType event Type
      */
-    //% help=input/on-button-pressed weight=85 blockGap=16
-    //% blockId=device_button_event block="on button|%NAME|pressed"
+    //% help=input/on-button-event weight=85 blockGap=16
+    //% blockId=device_button_event block="on button %NAME| is %eventType=control_button_event_value_id"
     //% parts="buttonpair"
-    void onButtonPressed(Button button, Action body) {
-        registerWithDal((int)button, MICROBIT_BUTTON_EVT_CLICK, body);
+    void onButtonEvent(Button button, int eventType, Action body) {
+        registerWithDal((int)button, eventType, body);
+    }
+
+    // Deprecated
+    void onButtonPressed(Button button, int eventType, Action body) {
+        registerWithDal((int)button, eventType, body);
     }
 
     /**
@@ -206,13 +227,23 @@ namespace input {
         return uBit.accelerometer.getGesture() == gi;
     }
 
-     /**
+    /**
      * Do something when a pin is touched and released again (while also touching the GND pin).
-     * @param name the pin that needs to be pressed, eg: TouchPin.P0
+     * @param name the pin, eg: TouchPin.P0
      * @param body the code to run when the pin is pressed
      */
     //% help=input/on-pin-pressed weight=83 blockGap=32
-    //% blockId=device_pin_event block="on pin %name|pressed"
+    //% blockId=device_pin_event block="on pin %name|is %eventType=control_button_event_value_id"
+    void onPinEvent(TouchPin name, int eventType, Action body) {
+        auto pin = getPin((int)name);
+        if (!pin) return;
+
+        // Forces the PIN to switch to makey-makey style detection.
+        pin->isTouched();
+        registerWithDal((int)name, eventType, body);
+    }
+
+    // Deprecated
     void onPinPressed(TouchPin name, Action body) {
         auto pin = getPin((int)name);
         if (!pin) return;
@@ -222,14 +253,7 @@ namespace input {
         registerWithDal((int)name, MICROBIT_BUTTON_EVT_CLICK, body);
     }
 
-    /**
-     * Do something when a pin is released.
-     * @param name the pin that needs to be released, eg: TouchPin.P0
-     * @param body the code to run when the pin is released
-     */
-    //% help=input/on-pin-released weight=6 blockGap=16
-    //% blockId=device_pin_released block="on pin %NAME|released"
-    //% advanced=true
+    // Deprecated
     void onPinReleased(TouchPin name, Action body) {
         auto pin = getPin((int)name);
         if (!pin) return;
