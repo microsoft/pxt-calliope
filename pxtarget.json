@@ -305,9 +305,7 @@
             "bluetoothUartConsole",
             "bluetoothPartialFlashing",
             "simScreenshot",
-            "simGif",
-            "qrCode",
-            "githubBlocksDiff"
+            "simGif"
         ],
         "bluetoothUartFilters": [
             {
@@ -466,9 +464,11 @@
         "simGifTransparent": "rgba(0,0,0,0)",
         "simGifMaxFrames": 44,
         "simScreenshotMaxUriLength": 300000,
+        "qrCode": true,
         "importExtensionFiles": true,
         "githubEditor": true,
-        "openProjectNewTab": true
+        "openProjectNewTab": true,
+        "python": true
     },
     "queryVariants": {
         "hidemenu": {
