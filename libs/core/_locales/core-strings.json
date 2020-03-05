@@ -43,6 +43,7 @@
   "BeatFraction.Quarter|block": "1/4",
   "BeatFraction.Sixteenth|block": "1/16",
   "BeatFraction.Whole|block": "1",
+  "Buffer|block": "Buffer",
   "Button.AB|block": "A+B",
   "Colors.Blue|block": "blue",
   "Colors.Green|block": "green",
