@@ -76,10 +76,6 @@
 ]
 ```
 
-## Flipgrid
-
-https://flipgrid.com/makecodemicrobit
-
 ## See Also
 
 [Tutorials](/tutorials),
@@ -96,3 +92,4 @@ https://flipgrid.com/makecodemicrobit
 [Behind the MakeCode Hardware](/behind-the-makecode-hardware),
 [Science Experiments](/science-experiments),
 [Coding Cards](/coding-cards)
+
