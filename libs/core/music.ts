@@ -363,6 +363,57 @@ namespace music {
         }
     }
 
+
+    /**
+     * Play a melody from the melody editor.
+     * @param melody - string of up to eight notes [C D E F G A B C5] or rests [-] separated by spaces, which will be played one at a time, ex: "E D G F B A C5 B "
+     * @param tempo - number in beats per minute (bpm), dictating how long each note will play for
+     */
+    //% block="play melody $melody at tempo $tempo|(bpm)" blockId=playMelody
+    //% weight=85 blockGap=8 help=music/play-melody
+    //% melody.shadow="melody_editor"
+    //% tempo.min=40 tempo.max=500
+    //% tempo.defl=120
+    //% parts=headphone
+    export function playMelody(melody: string, tempo: number) {
+        melody = melody || "";
+        setTempo(tempo);
+        let notes: string[] = melody.split(" ").filter(n => !!n);
+        let newOctave = false;
+
+        // build melody string, replace '-' with 'R' and add tempo
+        // creates format like "C5-174 B4 A G F E D C "
+        for (let i = 0; i < notes.length; i++) {
+            if (notes[i] === "-") {
+                notes[i] = "R";
+            } else if (notes[i] === "C5") {
+                newOctave = true;
+            } else if (newOctave) { // change the octave if necesary
+                notes[i] += "4";
+                newOctave = false;
+            }
+        }
+
+        music.beginMelody(notes, MelodyOptions.Once)
+    }
+
+    /**
+     * Create a melody with the melody editor.
+     * @param melody
+     */
+    //% block="$melody" blockId=melody_editor
+    //% blockHidden = true
+    //% weight=85 blockGap=8
+    //% duplicateShadowOnDrag
+    //% melody.fieldEditor="melody"
+    //% melody.fieldOptions.decompileLiterals=true
+    //% melody.fieldOptions.decompileIndirectFixedInstances="true"
+    //% melody.fieldOptions.onParentBlock="true"
+    //% shim=TD_ID
+    export function melodyEditor(melody: string): string {
+        return melody;
+    }
+
     /**
      * Stops the melodies
      * @param options which melody to stop
