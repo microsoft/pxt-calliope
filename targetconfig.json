@@ -168,6 +168,7 @@
             "DFRobot/pxt-DFRobot-NaturalScience",
             "strawbees/pxt-robotic-inventions",
             "daferdur/pxt-myHX711",
+            "CytronTechnologies/pxt-edubit",
             "MakeAndLearn/pxt-microshield"
         ],
         "preferredRepos": [
