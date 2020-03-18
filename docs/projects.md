@@ -3,6 +3,11 @@
 ```codecard
 [
     {
+        "name": "Live Coding",
+        "url": "/live-coding",
+        "imageUrl": "/static/live-coding/live.png"
+    },
+    {
         "name": "Tutorials",
         "url": "/tutorials",
         "imageUrl": "/static/mb/projects/a1-display.png",
@@ -69,11 +74,6 @@
         "imageUrl": "/static/mb/science-experiments/data-collection.jpg"
     },
     {
-        "name": "Live Coding",
-        "url": "/live-coding",
-        "imageUrl": "/static/live-coding/showleds.jpg"
-    },
-    {
         "name": "Coding Cards",
         "url": "/coding-cards",
         "imageUrl": "/static/coding-cards/balance-card.jpg"
@@ -83,6 +83,7 @@
 
 ## See Also
 
+[Live Coding](/live-coding),
 [Tutorials](/tutorials),
 [Games](/projects/games),
 [Radio Games](/projects/radio-games),
@@ -96,6 +97,5 @@
 [Courses](/courses),
 [Behind the MakeCode Hardware](/behind-the-makecode-hardware),
 [Science Experiments](/science-experiments),
-[Live Coding](/live-coding),
 [Coding Cards](/coding-cards)
 

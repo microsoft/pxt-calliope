@@ -1,5 +1,11 @@
 # Projects
 
+* [Live Coding](/live-coding)
+  * [9AM PST/noon EST/4PM GMT](https://aka.ms/makecodemicrobitstream)
+  * [Flashing Heart](https://youtu.be/NvEOKZ8wh9s)
+  * [Name Tag](https://youtu.be/xpRI5jjQ31E)
+  * [Dice](https://youtu.be/OmrmjtOm_sQ)
+  * [Playlist](https://www.youtube.com/watch?v=NvEOKZ8wh9s&list=PLMMBk9hE-SepocOwueEtTDyOPI_TBE9yC)
 * [Tutorials](/tutorials)
   * [Flashing Heart](/projects/flashing-heart)
   * [Name Tag](/projects/name-tag)
@@ -104,9 +110,6 @@
   * [Egg Drop](https://youtu.be/tnDJFdC3Nd4)
   * [Battery Tester](https://youtu.be/gdlc34nhjK4)
   * [Rocket Acceleration](https://youtu.be/m9ntqxh8FvQ)
-* [Live Coding](/live-coding)
-  * [Flashing Heart](https://youtu.be/NvEOKZ8wh9s)
-  * [Name Tag](https://youtu.be/xpRI5jjQ31E)
 * [Coding Cards](/coding-cards)
   * [Make a Digital Balance](https://drive.google.com/open?id=1Tl80unLA5_Zwkymh1flSbwuZbCIqSOxQ)
   * [Make a Digital Dice](https://drive.google.com/open?id=1iW75z-7maJ3qixwv9Yuj6rA5U387qVpg)
