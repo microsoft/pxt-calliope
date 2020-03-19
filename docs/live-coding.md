@@ -1,6 +1,6 @@
-# Examples
+# Live coding sessions
 
-Here are some fun programs for your @boardname@!
+Here are some videos of live tutorial sessions with the @boardname@!
 
 ## Fun stuff
 
@@ -14,13 +14,13 @@ Here are some fun programs for your @boardname@!
 },
 {
     "name": "Flashing Heart",
-    "description": "Step by steam live coding stream of the Flashing Heart tutorial.",
+    "description": "Demonstrating the Flashing Heart tutorial, live.",
     "youTubeId": "NvEOKZ8wh9s",
     "imageUrl": "/static/live-coding/showleds.jpg"
 },
 {
     "name": "Name Tag",
-    "description": "Step by steam live coding stream of the Name Tag tutorial.",
+    "description": "A live illustration of the Name tag tutorial",
     "youTubeId": "xpRI5jjQ31E",
     "imageUrl": "/static/live-coding/showstring.jpg"
 },
