@@ -15,7 +15,7 @@ led.enable(false);
 This program turns off the screen when pressing button ``B``
 
 ```blocks
-input.input.onButtonEvent(Button.B, ButtonEvent.Click, () => {
+input.onButtonEvent(Button.B, ButtonEvent.Click, () => {
     led.enable(false)
 });
 ```

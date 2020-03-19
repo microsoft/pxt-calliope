@@ -14,10 +14,10 @@ If you press button `B`, it shows an animation and ends the game.
 
 ```blocks
 basic.showString("PICK A BUTTON");
-input.input.onButtonEvent(Button.A, ButtonEvent.Click, () => {
+input.onButtonEvent(Button.A, ButtonEvent.Click, () => {
     basic.showString("YOU WIN!");
 });
-input.input.onButtonEvent(Button.B, ButtonEvent.Click, () => {
+input.onButtonEvent(Button.B, ButtonEvent.Click, () => {
     game.gameOver();
 });
 ```

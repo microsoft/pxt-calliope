@@ -332,12 +332,12 @@ function checkBufferEqual(a: Buffer, b: Buffer) {
     return true;
 }
 
-input.input.onButtonEvent(Button.A, ButtonEvent.Click, function () {
+input.onButtonEvent(Button.A, ButtonEvent.Click, function () {
     basic.showString("S");
     initSender();
 })
 
-input.input.onButtonEvent(Button.B, ButtonEvent.Click, function () {
+input.onButtonEvent(Button.B, ButtonEvent.Click, function () {
     basic.showString("R");
     initReceiver();
 })

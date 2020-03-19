@@ -55,7 +55,7 @@ Use a ``||input:on button pressed||`` block to handle the **A** button. Put in a
 
 ```blocks
 let sprite: game.LedSprite = null
-input.input.onButtonEvent(Button.A, ButtonEvent.Click, function () {
+input.onButtonEvent(Button.A, ButtonEvent.Click, function () {
     if (sprite.get(LedSpriteProperty.X) == 2) {
     } else {
     }
@@ -74,7 +74,7 @@ Finally, pull out an ``||game:add score||`` and a ``||game:game over||`` block t
 
 ```blocks
 let sprite: game.LedSprite = null
-input.input.onButtonEvent(Button.A, ButtonEvent.Click, function () {
+input.onButtonEvent(Button.A, ButtonEvent.Click, function () {
     if (sprite.get(LedSpriteProperty.X) == 2) {
         game.addScore(1)
     } else {

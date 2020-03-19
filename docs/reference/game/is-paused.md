@@ -15,7 +15,7 @@ game.isPaused()
 Resume the game if it's paused and button **B** is pressed.
 
 ```blocks
-input.input.onButtonEvent(Button.B, ButtonEvent.Click, function () {
+input.onButtonEvent(Button.B, ButtonEvent.Click, function () {
 	if (game.isPaused()) {
         game.resume()
     }
