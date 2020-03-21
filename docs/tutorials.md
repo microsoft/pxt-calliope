@@ -13,13 +13,15 @@ Here are some cool tutorials to get you started with your @boardname@!
   "largeImageUrl": "/static/mb/projects/flashing-heart/sim.gif",
   "cardType": "tutorial",
   "label": "New? Start Here!",
-  "labelClass": "purple ribbon large"
+  "labelClass": "purple ribbon large",
+  "youTubeId": "NvEOKZ8wh9s"
 }, {
   "name": "Name Tag",
   "description": "Scroll your name on the screen",
   "imageUrl": "/static/mb/projects/name-tag.png",
   "url": "/projects/name-tag",
-  "cardType": "tutorial"
+  "cardType": "tutorial",
+  "youTubeId": "xpRI5jjQ31E"
 }, {
   "name": "Smiley Buttons",
   "url":"/projects/smiley-buttons",
@@ -32,7 +34,8 @@ Here are some cool tutorials to get you started with your @boardname@!
   "url":"/projects/dice",
   "description": "Shake the dice and see what number comes up!",
   "imageUrl": "/static/mb/projects/dice.png",
-  "cardType": "tutorial"
+  "cardType": "tutorial",
+  "youTubeId": "OmrmjtOm_sQ"
 }, {
   "name": "Love Meter",
   "url":"/projects/love-meter",
