@@ -8,7 +8,7 @@ Here are some videos of live tutorial sessions with the @boardname@!
 [
 {
     "name": "9AM PST/noon EST/4PM GMT",
-    "description": "Tag along our live coding sessions. 9AM PST / Noon EST / 4PM GMT",
+    "description": "Subscribe to our mixer.com stream. Live coding Monday through Friday at 9AM PST / Noon EST / 4PM GMT",
     "url": "https://mixer.com/MakeCode",
     "imageUrl": "/static/live-coding/live.jpg"
 },    
