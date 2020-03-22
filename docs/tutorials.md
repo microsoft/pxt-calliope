@@ -28,7 +28,8 @@ Here are some cool tutorials to get you started with your @boardname@!
   "description": "Show different smiley images by pressing the buttons.",
   "imageUrl": "/static/mb/projects/a2-buttons.png",
   "largeImageUrl": "/static/mb/projects/smiley-buttons/sim.gif",
-  "cardType": "tutorial"
+  "cardType": "tutorial",
+  "youTubeId": "BgDxz3M7JIM"
 }, {
   "name": "Dice",
   "url":"/projects/dice",

@@ -11,6 +11,7 @@
   * [9AM PST/noon EST/4PM GMT](https://mixer.com/MakeCode)
   * [Flashing Heart](https://youtu.be/NvEOKZ8wh9s)
   * [Name Tag](https://youtu.be/xpRI5jjQ31E)
+  * [Smiley Button](https://youtu.be/BgDxz3M7JIM)
   * [Dice](https://youtu.be/OmrmjtOm_sQ)
   * [Playlist](https://www.youtube.com/watch?v=NvEOKZ8wh9s&list=PLMMBk9hE-SepocOwueEtTDyOPI_TBE9yC)
 * [Games](/projects/games)

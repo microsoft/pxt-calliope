@@ -25,8 +25,13 @@ Here are some videos of live tutorial sessions with the @boardname@!
     "imageUrl": "/static/live-coding/showstring.jpg"
 },
 {
+    "name": "Smiley Button",
+    "description": "Step by step live coding stream of the Smiley Button tutorial.",
+    "youTubeId": "BgDxz3M7JIM"
+},
+{
     "name": "Dice",
-    "description": "Step by steam live coding stream of the Dice tutorial.",
+    "description": "Step by step live coding stream of the Dice tutorial.",
     "youTubeId": "OmrmjtOm_sQ"
 },
 {
