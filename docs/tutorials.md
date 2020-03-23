@@ -43,7 +43,7 @@ Here are some cool tutorials to get you started with your @boardname@!
   "description": "Is the micro:bit is feeling the love, see how much!",
   "imageUrl":"/static/mb/projects/a3-pins.png",
   "cardType": "tutorial",
-  "youTubeId": "BgDxz3M7JIM"
+  "youTubeId": "1IYsy0_9n8g"
 }, {
   "name": "Micro Chat",
   "url":"/projects/micro-chat",

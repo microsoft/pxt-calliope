@@ -37,7 +37,7 @@ Here are some videos of live tutorial sessions with the @boardname@!
 {
     "name": "Love Meter",
     "description": "Steps by step live coding of the Love Meter tutorial",
-    "youTubeId": "BgDxz3M7JIM"
+    "youTubeId": "1IYsy0_9n8g"
 },
 {
     "name": "Playlist",
