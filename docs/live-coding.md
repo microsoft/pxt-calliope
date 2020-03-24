@@ -40,6 +40,11 @@ Here are some videos of live tutorial sessions with the @boardname@!
     "youTubeId": "1IYsy0_9n8g"
 },
 {
+    "name": "Micro Chat",
+    "description": "Steps by step live coding of the Micro Chat tutorial",
+    "youTubeId": "5XqsGROG2fI"
+},
+{
     "name": "Playlist",
     "description": "See all the previous live stream sessions",
     "url": "https://www.youtube.com/watch?v=NvEOKZ8wh9s&list=PLMMBk9hE-SepocOwueEtTDyOPI_TBE9yC",
