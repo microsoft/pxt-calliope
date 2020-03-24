@@ -13,7 +13,7 @@
   * [Name Tag](https://youtu.be/xpRI5jjQ31E)
   * [Smiley Button](https://youtu.be/BgDxz3M7JIM)
   * [Dice](https://youtu.be/OmrmjtOm_sQ)
-  * [Love Meter](https://youtu.be/BgDxz3M7JIM)
+  * [Love Meter](https://youtu.be/1IYsy0_9n8g)
   * [Playlist](https://www.youtube.com/watch?v=NvEOKZ8wh9s&list=PLMMBk9hE-SepocOwueEtTDyOPI_TBE9yC)
 * [Games](/projects/games)
   * [Rock Paper Scissors](/projects/rock-paper-scissors)
