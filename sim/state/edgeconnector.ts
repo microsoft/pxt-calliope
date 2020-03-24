@@ -48,6 +48,7 @@ namespace pxsim.pins {
         let pin = getPin(pinId);
         if (!pin) return;
         pin.pull = pull;
+        pin.value = pull == PinPullMode.PullDown ? 0 : 1023;
     }
 
     export function analogReadPin(pinId: number): number {
