@@ -329,7 +329,7 @@
   "led.toggle|block": "toggle|x %x|y %y",
   "led.unplot|block": "unplot|x %x|y %y",
   "led|block": "led",
-  "motors.dualMotorPower|block": "motor %motor|at %percent",
+  "motors.dualMotorPower|block": "motor %motor|at %percent \\%",
   "motors.motorCommand|block": "motor %command",
   "motors.motorPower|block": "motor on at %percent \\%",
   "motors|block": "motors",

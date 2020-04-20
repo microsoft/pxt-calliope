@@ -613,7 +613,7 @@ declare namespace motors {
     /**
      * Controls two motors attached to the board. Switches to dual-motor mode!
      */
-    //% blockId=block_dual_motor block="motor %motor|at %percent"
+    //% blockId=block_dual_motor block="motor %motor|at %percent \\%"
     //% percent.shadow="speedPicker"
     //% weight=80 shim=motors::dualMotorPower
     function dualMotorPower(motor: Motor, duty_percent: int32): void;
