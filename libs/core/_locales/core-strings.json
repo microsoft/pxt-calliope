@@ -331,7 +331,7 @@
   "led|block": "led",
   "motors.dualMotorPower|block": "motor %motor|at %percent",
   "motors.motorCommand|block": "motor %command",
-  "motors.motorPower|block": "motor on at %percent",
+  "motors.motorPower|block": "motor on at %percent \\%",
   "motors|block": "motors",
   "msgpack|block": "msgpack",
   "music.beat|block": "%fraction|beat",
