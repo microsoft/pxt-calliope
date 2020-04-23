@@ -421,7 +421,7 @@
         "simScreenshotMaxUriLength": 300000,
         "importExtensionFiles": true,        
         "githubEditor": true,
-        "tutorialBlocksDiff": true,
+        "tutorialBlocksDiff": false,
         "python": true,
         "pythonToolbox": true,
         "chooseLanguageRestrictionOnNewProject": true,
