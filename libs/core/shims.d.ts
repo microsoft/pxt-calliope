@@ -369,22 +369,6 @@ declare namespace input {
     function magneticForce(dimension: Dimension): int32;
 
     /**
-     * Gets the number of milliseconds elapsed since power on.
-     */
-    //% help=input/running-time weight=50 blockGap=8
-    //% blockId=device_get_running_time block="running time (ms)"
-    //% advanced=true shim=input::runningTime
-    function runningTime(): int32;
-
-    /**
-     * Gets the number of microseconds elapsed since power on.
-     */
-    //% help=input/running-time-micros weight=49
-    //% blockId=device_get_running_time_micros block="running time (micros)"
-    //% advanced=true shim=input::runningTimeMicros
-    function runningTimeMicros(): int32;
-
-    /**
      * Obsolete, compass calibration is automatic.
      */
     //% help=input/calibrate-compass advanced=true
@@ -411,11 +395,31 @@ declare namespace input {
 declare namespace control {
 
     /**
+     * Gets the number of milliseconds elapsed since power on.
+     */
+    //% help=control/millis weight=50
+    //% blockId=control_running_time block="millis (ms)" shim=control::millis
+    function millis(): int32;
+
+    /**
+     * Gets current time in microseconds. Overflows every ~18 minutes.
+     */
+    //% shim=control::micros
+    function micros(): int32;
+
+    /**
      * Schedules code that run in the background.
      */
     //% help=control/in-background blockAllowMultiple=1 afterOnStart=true
     //% blockId="control_in_background" block="run in background" blockGap=8 shim=control::inBackground
     function inBackground(a: () => void): void;
+
+    /**
+     * Blocks the calling thread until the specified event is raised.
+     */
+    //% help=control/wait-for-event async
+    //% blockId=control_wait_for_event block="wait for event|from %src|with value %value" shim=control::waitForEvent
+    function waitForEvent(src: int32, value: int32): void;
 
     /**
      * Resets the BBC micro:bit.
@@ -620,7 +624,7 @@ declare namespace motors {
      * Turns on the motor at a certain percent of power. Switches to single motor mode!
      * @param power %percent of power sent to the motor. Negative power goes backward. eg: 50
      */
-    //% blockId=motor_on block="motor on at %percent"
+    //% blockId=motor_on block="motor on at %percent \\%"
     //% parts=dcmotor weight=90 blockGap=8
     //% percent.shadow="speedPicker" shim=motors::motorPower
     function motorPower(power: int32): void;
@@ -635,7 +639,7 @@ declare namespace motors {
     /**
      * Controls two motors attached to the board. Switches to dual-motor mode!
      */
-    //% blockId=block_dual_motor block="motor %motor|at %percent"
+    //% blockId=block_dual_motor block="motor %motor|at %percent \\%"
     //% percent.shadow="speedPicker"
     //% weight=80 shim=motors::dualMotorPower
     function dualMotorPower(motor: Motor, duty_percent: int32): void;
