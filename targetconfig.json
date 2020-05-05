@@ -211,21 +211,9 @@
         ]
     },
     "galleries": {
-        "Tutorials": "tutorials",
-        "Live Coding": "live-coding",
-        "Games": "projects/games",
-        "Radio Games": "projects/radio-games",
-        "Fashion": "projects/fashion",
-        "Music": "projects/music",
-        "Toys": "projects/toys",
-        "Science": "projects/science",
-        "Tools": "projects/tools",
-        "Turtle": "projects/turtle",
-        "Blocks To JavaScript": "courses/blocks-to-javascript",
-        "Courses": "courses",
-        "Behind the MakeCode Hardware": "behind-the-makecode-hardware",
-        "Science Experiments": "science-experiments",
-        "Coding Cards": "coding-cards"
+        "First Steps": "calliope/firststeps",
+        "Tutorials": "calliope/tutorials",
+        "Calliope Links": "calliope/links"
     },
     "electronManifest": {
         "latest": "v2.0.3"
