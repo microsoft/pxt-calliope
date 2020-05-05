@@ -598,7 +598,7 @@ declare namespace motors {
      * Turns on the motor at a certain percent of power. Switches to single motor mode!
      * @param power %percent of power sent to the motor. Negative power goes backward. eg: 50
      */
-    //% blockId=motor_on block="motor on at %percent"
+    //% blockId=motor_on block="motor on at %percent \\%"
     //% parts=dcmotor weight=90 blockGap=8
     //% percent.shadow="speedPicker" shim=motors::motorPower
     function motorPower(power: int32): void;
@@ -613,7 +613,7 @@ declare namespace motors {
     /**
      * Controls two motors attached to the board. Switches to dual-motor mode!
      */
-    //% blockId=block_dual_motor block="motor %motor|at %percent"
+    //% blockId=block_dual_motor block="motor %motor|at %percent \\%"
     //% percent.shadow="speedPicker"
     //% weight=80 shim=motors::dualMotorPower
     function dualMotorPower(motor: Motor, duty_percent: int32): void;
@@ -655,7 +655,7 @@ declare namespace pins {
 
     /**
      * Read the connector value as analog, that is, as a value comprised between 0 and 1023.
-     * @param name pin to write to, eg: AnalogPin.P1
+     * @param name of pin to read from, eg: AnalogPin.P1
      */
     //% help=pins/analog-read-pin weight=25
     //% blockId=device_get_analog_pin block="analog read|pin %name" blockGap="8"
@@ -665,7 +665,7 @@ declare namespace pins {
 
     /**
      * Set the connector value as analog. Value must be comprised between 0 and 1023.
-     * @param name pin name to write to, eg: AnalogPin.P1
+     * @param name of pin to write to, eg: AnalogPin.P1
      * @param value value to write to the pin between ``0`` and ``1023``. eg:1023,0
      */
     //% help=pins/analog-write-pin weight=24
@@ -733,6 +733,12 @@ declare namespace pins {
     function servoWritePin(name: AnalogPin, value: int32): void;
 
     /**
+     * Specifies that a continuous servo is connected.
+     */
+    //% shim=pins::servoSetContinuous
+    function servoSetContinuous(name: AnalogPin, value: boolean): void;
+
+    /**
      * Configure the IO pin as an analog/pwm output and set a pulse width. The period is 20 ms period and the pulse width is set based on the value given in **microseconds** or `1/1000` milliseconds.
      * @param name pin name
      * @param micros pulse duration in micro seconds, eg:1500
@@ -754,7 +760,7 @@ declare namespace pins {
     function analogSetPitchPin(name: AnalogPin): void;
 
     /**
-     * Emit a plse-width modulation (PWM) signal to the current pitch pin. Use `analog set pitch pin` to define the pitch pin.
+     * Emit a pulse-width modulation (PWM) signal to the current pitch pin. Use `analog set pitch pin` to define the pitch pin.
      * @param frequency frequency to modulate in Hz.
      * @param ms duration of the pitch in milli seconds.
      */
@@ -763,7 +769,7 @@ declare namespace pins {
     function analogPitch(frequency: int32, ms: int32): void;
 
     /**
-     * Configure the pull directiion of of a pin.
+     * Configure the pull direction of of a pin.
      * @param name pin to set the pull mode on, eg: DigitalPin.P0
      * @param pull one of the mbed pull configurations, eg: PinPullMode.PullUp
      */
@@ -1036,14 +1042,14 @@ declare namespace control {
      * Create a new zero-initialized buffer.
      * @param size number of bytes in the buffer
      */
-    //% shim=control::createBuffer
+    //% deprecated=1 shim=control::createBuffer
     function createBuffer(size: int32): Buffer;
 
     /**
      * Create a new buffer with UTF8-encoded string
      * @param str the string to put in the buffer
      */
-    //% shim=control::createBufferFromUTF8
+    //% deprecated=1 shim=control::createBufferFromUTF8
     function createBufferFromUTF8(str: string): Buffer;
 }
 

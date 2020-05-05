@@ -25,7 +25,7 @@ namespace motors {
     * Turns on the motor at a certain percent of power. Switches to single motor mode!
     * @param power %percent of power sent to the motor. Negative power goes backward. eg: 50
     */
-    //% blockId=motor_on block="motor on at %percent"
+    //% blockId=motor_on block="motor on at %percent \\%"
     //% parts=dcmotor weight=90 blockGap=8
      //% percent.shadow="speedPicker"
     void motorPower(int power) {
@@ -48,7 +48,7 @@ namespace motors {
     /**
     * Controls two motors attached to the board. Switches to dual-motor mode!
     */
-    //% blockId=block_dual_motor block="motor %motor|at %percent"
+    //% blockId=block_dual_motor block="motor %motor|at %percent \\%"
      //% percent.shadow="speedPicker"
     //% weight=80
     void dualMotorPower(Motor motor, int duty_percent) {
