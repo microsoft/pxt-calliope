@@ -931,7 +931,7 @@ function webUsbPairDialogAsync(confirmAsync: (options: any) => Promise<number>):
                                                 <span className="ui purple circular label">2</span>
                                                 <strong>{lf("Pair your {0}", boardName)}</strong>
                                                 <br />
-                                                <span className="ui small">{lf("Click 'Pair device' below and select BBC micro:bit CMSIS-DAP or DAPLink CMSIS-DAP from the list")}</span>
+                                                <span className="ui small">{lf("Click 'Pair device' below and select Calliope Mini CMSIS-DAP or DAPLink CMSIS-DAP from the list")}</span>
                                             </div>
                                         </div>
                                     </div>

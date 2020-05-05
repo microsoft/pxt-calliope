@@ -4,7 +4,7 @@
 
 Tell everyone who you are. Show you name on the LEDs.
 
-![Name scrolling on the LEDs](/static/mb/projects/name-tag/name-tag.gif)
+![Name scrolling on the LEDs](/calliope/tutorials/02_nametag_animation.gif)
 
 ## Step 1 @fullscreen
 
@@ -12,7 +12,7 @@ Place the ``||basic:show string||`` block in the ``||basic:forever||`` block to 
 
 ```blocks
 basic.forever(() => {
-    basic.showString("MICRO");
+    basic.showString("Emma");
 });
 ```
 
@@ -20,7 +20,7 @@ basic.forever(() => {
 
 Look at the simulator and make sure it shows your name on the screen.
 
-![Name scrolling on the LEDs](/static/mb/projects/name-tag/name-tag.gif)
+![Name scrolling on the LEDs](/calliope/tutorials/02_nametag_animation.gif)
 
 ## Step 3 @fullscreen
 
@@ -28,7 +28,7 @@ Place more ``||basic:show string||`` blocks to create your own story.
 
 ```blocks
 basic.forever(() => {
-    basic.showString("MICRO");
+    basic.showString("Emma");
     basic.showString("<3<3<3");
 })
 ```

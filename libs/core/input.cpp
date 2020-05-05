@@ -26,9 +26,10 @@ enum class Rotation {
 };
 
 enum class TouchPin {
-    P0 = MICROBIT_ID_IO_P0,
-    P1 = MICROBIT_ID_IO_P1,
-    P2 = MICROBIT_ID_IO_P2,
+    P0 = MICROBIT_ID_IO_P12,
+    P1 = MICROBIT_ID_IO_P0,
+    P2 = MICROBIT_ID_IO_P1,
+    P3 = MICROBIT_ID_IO_P16
 };
 
 enum class AcceleratorRange {
@@ -158,7 +159,7 @@ enum class MesDpadButtonInfo {
     _4Up = MES_DPAD_BUTTON_4_UP,
 };
 
-//% color=#D400D4 weight=111 icon="\uf192"
+//% color=#B4009E weight=99 icon="\uf192"
 namespace input {
     /**
      * Do something when a button (A, B or both A+B) is pushed down and released again.
@@ -199,6 +200,8 @@ namespace input {
     //% parts="accelerometer"
     //% gesture.fieldEditor="gestures" gesture.fieldOptions.columns=4
     bool isGesture(Gesture gesture) {
+        // turn on acceleration
+        uBit.accelerometer.getX();
         int gi = (int)gesture;
         return uBit.accelerometer.getGesture() == gi;
     }

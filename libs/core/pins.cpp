@@ -1,60 +1,34 @@
 #include "pxt.h"
 
 enum class DigitalPin {
-    P0 = MICROBIT_ID_IO_P0,
-    P1 = MICROBIT_ID_IO_P1,
-    P2 = MICROBIT_ID_IO_P2,
-    P3 = MICROBIT_ID_IO_P3,
-    P4 = MICROBIT_ID_IO_P4,
-    P5 = MICROBIT_ID_IO_P5,
-    P6 = MICROBIT_ID_IO_P6,
-    P7 = MICROBIT_ID_IO_P7,
-    P8 = MICROBIT_ID_IO_P8,
-    P9 = MICROBIT_ID_IO_P9,
-    P10 = MICROBIT_ID_IO_P10,
-    P11 = MICROBIT_ID_IO_P11,
-    P12 = MICROBIT_ID_IO_P12,
-    P13 = MICROBIT_ID_IO_P13,
-    P14 = MICROBIT_ID_IO_P14,
-    P15 = MICROBIT_ID_IO_P15,
-    P16 = MICROBIT_ID_IO_P16,
-    P19 = MICROBIT_ID_IO_P19,
-    P20 = MICROBIT_ID_IO_P20,
+    P0 = MICROBIT_ID_IO_P12,   // edge connector 0
+    P1 = MICROBIT_ID_IO_P0,    // edge connector 1
+    P2 = MICROBIT_ID_IO_P1,    // edge connector 2
+    P3 = MICROBIT_ID_IO_P16,   // edge connector 3
+    C4 = MICROBIT_ID_IO_P3,    // LED matrix C1
+    C5 = MICROBIT_ID_IO_P4,    // LED matrix C2
+    C6 = MICROBIT_ID_IO_P10,   // LED matrix C3
+    C7 = MICROBIT_ID_IO_P13,   // LED matrix C4
+    C8 = MICROBIT_ID_IO_P14,   // LED matrix C5
+    C9 = MICROBIT_ID_IO_P15,   // LED matrix C6
+    C10 = MICROBIT_ID_IO_P9,   // LED matrix C7
+    C11 = MICROBIT_ID_IO_P7,   // LED matrix C8
+    C12 = MICROBIT_ID_IO_P6,   // LED matrix C9
+    C16 = MICROBIT_ID_IO_P2,   // RX
+    C17 = MICROBIT_ID_IO_P8,   // TX
+    C18 = MICROBIT_ID_IO_P20,  // SDA
+    C19 = MICROBIT_ID_IO_P19   // SCL
 };
 
 enum class AnalogPin {
-    P0 = MICROBIT_ID_IO_P0,
-    P1 = MICROBIT_ID_IO_P1,
-    P2 = MICROBIT_ID_IO_P2,
-    P3 = MICROBIT_ID_IO_P3,
-    P4 = MICROBIT_ID_IO_P4,
-    P10 = MICROBIT_ID_IO_P10,
-    //% block="P5 (write only)"
-    P5 = MICROBIT_ID_IO_P5,
-    //% block="P6 (write only)"
-    P6 = MICROBIT_ID_IO_P6,
-    //% block="P7 (write only)"
-    P7 = MICROBIT_ID_IO_P7,
-    //% block="P8 (write only)"
-    P8 = MICROBIT_ID_IO_P8,
-    //% block="P9 (write only)"
-    P9 = MICROBIT_ID_IO_P9,
-    //% block="P11 (write only)"
-    P11 = MICROBIT_ID_IO_P11,
-    //% block="P12 (write only)"
-    P12 = MICROBIT_ID_IO_P12,
-    //% block="P13 (write only)"
-    P13 = MICROBIT_ID_IO_P13,
-    //% block="P14 (write only)"
-    P14 = MICROBIT_ID_IO_P14,
-    //% block="P15 (write only)"
-    P15 = MICROBIT_ID_IO_P15,
-    //% block="P16 (write only)"
-    P16 = MICROBIT_ID_IO_P16,
-    //% block="P19 (write only)"
-    P19 = MICROBIT_ID_IO_P19,
-    //% block="P20 (write only)"
-    P20 = MICROBIT_ID_IO_P20
+    P1 = MICROBIT_ID_IO_P0,   // edge connector 1
+    P2 = MICROBIT_ID_IO_P1,   // edge connector 2
+    C4 = MICROBIT_ID_IO_P3,   // LED matrix C1
+    C5 = MICROBIT_ID_IO_P4,   // LED matrix C2
+    C6 = MICROBIT_ID_IO_P10,  // LED matrix C3
+    C16 = MICROBIT_ID_IO_P2,  // RX
+    C17 = MICROBIT_ID_IO_P8,  // TX
+    MIC = MICROBIT_ID_IO_P21  // microphone
 };
 
 enum class PulseValue {
@@ -108,6 +82,7 @@ MicroBitPin *getPin(int id) {
         case MICROBIT_ID_IO_P16: return &uBit.io.P16;
         case MICROBIT_ID_IO_P19: return &uBit.io.P19;
         case MICROBIT_ID_IO_P20: return &uBit.io.P20;
+        case MICROBIT_ID_IO_P21: return &uBit.io.P21;
         default: return NULL;
     }
 }
@@ -138,7 +113,7 @@ namespace pins {
     //% help=pins/digital-read-pin weight=30
     //% blockId=device_get_digital_pin block="digital read|pin %name" blockGap=8
     //% name.fieldEditor="gridpicker" name.fieldOptions.columns=4
-    //% name.fieldOptions.tooltips="false" name.fieldOptions.width="250"
+    //% name.fieldOptions.tooltips="false" name.fieldOptions.width="300"
     int digitalReadPin(DigitalPin name) {
         PINREAD(getDigitalValue());
     }
@@ -152,14 +127,14 @@ namespace pins {
     //% blockId=device_set_digital_pin block="digital write|pin %name|to %value"
     //% value.min=0 value.max=1
     //% name.fieldEditor="gridpicker" name.fieldOptions.columns=4
-    //% name.fieldOptions.tooltips="false" name.fieldOptions.width="250"
+    //% name.fieldOptions.tooltips="false" name.fieldOptions.width="300"
     void digitalWritePin(DigitalPin name, int value) {
         PINOP(setDigitalValue(value));
     }
 
     /**
      * Read the connector value as analog, that is, as a value comprised between 0 and 1023.
-     * @param name pin to write to, eg: AnalogPin.P0
+     * @param name pin to write to, eg: AnalogPin.P1
      */
     //% help=pins/analog-read-pin weight=25
     //% blockId=device_get_analog_pin block="analog read|pin %name" blockGap="8"
@@ -171,7 +146,7 @@ namespace pins {
 
     /**
      * Set the connector value as analog. Value must be comprised between 0 and 1023.
-     * @param name pin name to write to, eg: AnalogPin.P0
+     * @param name pin name to write to, eg: AnalogPin.P1
      * @param value value to write to the pin between ``0`` and ``1023``. eg:1023,0
      */
     //% help=pins/analog-write-pin weight=24
@@ -186,7 +161,7 @@ namespace pins {
     /**
      * Configure the pulse-width modulation (PWM) period of the analog output in microseconds.
      * If this pin is not configured as an analog output (using `analog write pin`), the operation has no effect.
-     * @param name analog pin to set period to, eg: AnalogPin.P0
+     * @param name analog pin to set period to, eg: AnalogPin.P1
      * @param micros period in micro seconds. eg:20000
      */
     //% help=pins/analog-set-period weight=23 blockGap=8
@@ -205,7 +180,7 @@ namespace pins {
     //% help=pins/on-pulsed weight=22 blockGap=16 advanced=true
     //% blockId=pins_on_pulsed block="on|pin %pin|pulsed %pulse"
     //% pin.fieldEditor="gridpicker" pin.fieldOptions.columns=4
-    //% pin.fieldOptions.tooltips="false" pin.fieldOptions.width="250"
+    //% pin.fieldOptions.tooltips="false" pin.fieldOptions.width="300"
     void onPulsed(DigitalPin name, PulseValue pulse, Action body) {
         MicroBitPin* pin = getPin((int)name);
         if (!pin) return;
@@ -234,7 +209,7 @@ namespace pins {
     //% weight=20 advanced=true
     //% help=pins/pulse-in
     //% name.fieldEditor="gridpicker" name.fieldOptions.columns=4
-    //% name.fieldOptions.tooltips="false" name.fieldOptions.width="250"
+    //% name.fieldOptions.tooltips="false" name.fieldOptions.width="300"
     int pulseIn(DigitalPin name, PulseValue value, int maxDuration = 2000000) {
         MicroBitPin* pin = getPin((int)name);
         if (!pin) return 0;
@@ -256,9 +231,20 @@ namespace pins {
         return end - start;
     }
 
+    // TODO FIX THIS IN THE DAL!
+    inline void fixMotorIssue(AnalogPin name) {
+        NRF_TIMER2->SHORTS = TIMER_SHORTS_COMPARE3_CLEAR_Msk;
+        NRF_TIMER2->INTENCLR = TIMER_INTENCLR_COMPARE3_Msk;
+        NRF_TIMER2->PRESCALER = 4;
+        NRF_TIMER2->CC[3] = 20000;
+        NRF_TIMER2->TASKS_START = 1;
+        NRF_TIMER2->EVENTS_COMPARE[3] = 0;
+        PINOP(getDigitalValue());
+    }
+
     /**
      * Write a value to the servo, controlling the shaft accordingly. On a standard servo, this will set the angle of the shaft (in degrees), moving the shaft to that orientation. On a continuous rotation servo, this will set the speed of the servo (with ``0`` being full-speed in one direction, ``180`` being full speed in the other, and a value near ``90`` being no movement).
-     * @param name pin to write to, eg: AnalogPin.P0
+     * @param name pin to write to, eg: AnalogPin.P1
      * @param value angle or rotation speed, eg:180,90,0
      */
     //% help=pins/servo-write-pin weight=20
@@ -268,6 +254,7 @@ namespace pins {
     //% name.fieldEditor="gridpicker" name.fieldOptions.columns=4
     //% name.fieldOptions.tooltips="false" name.fieldOptions.width="250"
     void servoWritePin(AnalogPin name, int value) {
+        fixMotorIssue(name);
         PINOP(setServoValue(value));
     }
 
@@ -281,6 +268,7 @@ namespace pins {
     //% value.fieldEditor="gridpicker" value.fieldOptions.columns=4
     //% value.fieldOptions.tooltips="false" value.fieldOptions.width="250"
     void servoSetPulse(AnalogPin name, int micros) {
+        fixMotorIssue(name);
         PINOP(setServoPulseUs(micros));
     }
 
@@ -307,21 +295,21 @@ namespace pins {
     //% blockId=device_analog_pitch block="analog pitch %frequency|for (ms) %ms"
     //% help=pins/analog-pitch weight=4 async advanced=true blockGap=8
     void analogPitch(int frequency, int ms) {
-      if (pitchPin == NULL)
-        analogSetPitchPin(AnalogPin::P0);
-      if (frequency <= 0) {
-        pitchPin->setAnalogValue(0);
-      } else {
-        pitchPin->setAnalogValue(512);
-        pitchPin->setAnalogPeriodUs(1000000/frequency);
-      }
-
-      if (ms > 0) {
-          fiber_sleep(ms);
-          pitchPin->setAnalogValue(0);
-          // TODO why do we use wait_ms() here? it's a busy wait I think
-          wait_ms(5);
-      }
+        if (pitchPin == NULL)
+          analogSetPitchPin(AnalogPin::P1);
+        if (frequency <= 0) {
+            pitchPin->setAnalogValue(0);		
+	    } else {		
+	        pitchPin->setAnalogValue(512);		
+	        pitchPin->setAnalogPeriodUs(1000000/frequency);		
+	    }		
+			
+	    if (ms > 0) {		
+	        fiber_sleep(ms);
+            pitchPin->setAnalogValue(0);
+            // TODO why do we use wait_ms() here? it's a busy wait I think
+            wait_ms(5);
+        }
     }
 
 
@@ -333,7 +321,7 @@ namespace pins {
     //% help=pins/set-pull weight=3 advanced=true
     //% blockId=device_set_pull block="set pull|pin %pin|to %pull"
     //% pin.fieldEditor="gridpicker" pin.fieldOptions.columns=4
-    //% pin.fieldOptions.tooltips="false" pin.fieldOptions.width="250"
+    //% pin.fieldOptions.tooltips="false" pin.fieldOptions.width="300"
     void setPull(DigitalPin name, PinPullMode pull) {
         PinMode m = pull == PinPullMode::PullDown
             ? PinMode::PullDown
@@ -351,7 +339,7 @@ namespace pins {
     //% help=pins/set-events weight=4 advanced=true
     //% blockId=device_set_pin_events block="set pin %pin|to emit %type|events"
     //% pin.fieldEditor="gridpicker" pin.fieldOptions.columns=4
-    //% pin.fieldOptions.tooltips="false" pin.fieldOptions.width="250"
+    //% pin.fieldOptions.tooltips="false" pin.fieldOptions.width="300"
     void setEvents(DigitalPin name, PinEventType type) {
         getPin((int)name)->eventOn((int)type);
     }

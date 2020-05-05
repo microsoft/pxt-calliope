@@ -2,34 +2,41 @@
      User Global Variables
 *******************************/
 
-@importGoogleFonts: false;
+@importGoogleFonts: true;
 
-@headerFont        : Roboto,"Arial Narrow","Helvetica Neue",Helvetica,Arial,sans-serif;
-@pageFont          : Roboto,"Helvetica Neue",Helvetica,Arial,sans-serif;
+@fontName  : 'Roboto Mono';
 
-@primaryColor: @purple;
+@headerFont  : 'Roboto Mono';
+@pageFont  : 'Roboto Mono';
 
-@teal: #3891A6;
-@blue: #3454D1;
-@red: #EF767A;
-@pink: #F46197;
-@yellow: #FDE74C;
-@grey: #95a5a6;
-@green: #107C10;
+@primaryColor: #3CB5B5;
+@secondaryColor: #43C9C9;
 
-/* Microbit.org colors */
-@orange: #ff8b27;
-@purple: #6633cc;
+@red:#E81123;
+@orange:#DF4600;
+@yellow:#F4C918;
+@green:#3FC863;
+@teal:#008272;
+@blue:#54C9C9;
+@violet:#C90072;
+@purple:#8169E6;
+@pink:#E2008C;
+@brown:#6B5B4C;
+@grey:#42495F;
 
-@pageBackground: #fff;
+@pageBackground      : #FDFDFA;
 
 /*******************************
          PXT Overrides
 *******************************/
 
+@blocklyToolboxColor: #F6F4E6;
+
+@blocklyFlyoutColor: #42495F;
+
 /*-------------------
    Menu
---------------------*/
+--------------------
 
 @mainMenuInvertedBackground: @blue;
 @mainMenuTutorialBackground: @orange;
@@ -37,51 +44,58 @@
 @mainMenuBlocksJsToggleColor: @primaryColor;
 
 @tutorialSelectedMenuColor: @blue;
+*/
 
 /*-------------------
    Layout
---------------------*/
+--------------------
 
 @sideBarWidth: 22rem;
 @simulatorWidth: 27rem;
 @simulatorWidthSmall: 20rem;
+*/
 
 /*-------------------
    Background
---------------------*/
+--------------------
 
 @simulatorBackground: #FDFDFF;
 @editorToolsBackground: @simulatorBackground;
 @blocklySvgColor: #ecf0f1;
+*/
 
 /*-------------------
    Side Docs
---------------------*/
+--------------------
 
 @sidedocsButtonsTop: (@mainMenuHeight + 1rem);
 @sidedocsButtonsRight: 4.25rem;
+*/
 
 /*-------------------
    Editor
---------------------*/
+--------------------
 
 @blocklyToolboxColor: rgba(0, 0, 0, 0.05);
 @trashIconColor: @primaryColor;
+*/
 
 
 /*-------------------
    Flyout
---------------------*/
+--------------------
 
 @flyoutLabelColor: white;
 @blocklyFlyoutColor: #4b4949;
 @blocklyFlyoutColorOpacity: 1.0;
 @monacoFlyoutColor: @blocklyFlyoutColor;
 @blocklyFlyoutButtonColor: @secondaryColor;
+*/
 
 /*-------------------
    Serial
---------------------*/
+--------------------
 
 @serialTextColor: black;
 @serialGraphBackground: #d9d9d9;
+*/

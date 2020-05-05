@@ -1,7 +1,7 @@
 /**
  * Control currents in Pins for analog/digital signals, servos, i2c, ...
  */
-//% color=#B22222 weight=30 icon="\uf140"
+//% color=#A80000 weight=30 icon="\uf140"
 //% advanced=true
 namespace pins {
     /**

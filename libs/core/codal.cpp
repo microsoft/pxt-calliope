@@ -18,14 +18,22 @@ extern "C" void target_reset() {
     microbit_reset();
 }
 
+uint32_t device_heap_size(uint8_t heap_index); // defined in microbit-dal
+
 namespace pxt {
 
 MicroBit uBit;
 MicroBitEvent lastEvent;
 
 void platform_init() {
-    microbit_seed_random();
+    microbit_seed_random();    
     seedRandom(microbit_random(0x7fffffff));
+}
+
+void initMicrobitGC() {
+    uBit.init();
+    if (device_heap_size(1) > NON_GC_HEAP_RESERVATION + 4)
+        gcPreAllocateBlock(device_heap_size(1) - NON_GC_HEAP_RESERVATION);
 }
 
 void platform_init();
@@ -36,9 +44,6 @@ struct FreeList {
 };
 
 static void initCodal() {
-
-    uBit.init();
-
     // repeat error 4 times and restart as needed
     microbit_panic_timeout(4);
 }
@@ -217,7 +222,6 @@ void sendSerial(const char *data, int len) {
     logwriten(data, len);
 }
 
-#ifdef PXT_GC
 ThreadContext *getThreadContext() {
     if (!currentFiber)
         return NULL;
@@ -268,6 +272,5 @@ void gcProcessStacks(int flags) {
     }
     xfree(fibers);
 }
-#endif
 
 } // namespace pxt

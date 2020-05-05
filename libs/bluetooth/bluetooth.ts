@@ -2,7 +2,7 @@
 /**
  * Support for additional Bluetooth services.
  */
-//% color=#007EF4 weight=96 icon="\uf294"
+//% color=#0082FB weight=96 icon="\uf294"
 namespace bluetooth {
     export let NEW_LINE = "\r\n";
 

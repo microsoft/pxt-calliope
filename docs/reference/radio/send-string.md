@@ -4,7 +4,7 @@ Sends a string to other @boardname@s in the area connected by radio. The
 maximum string length is 19 characters.
 
 ```sig
-radio.sendString("Hello!")
+radio.sendString("hi!")
 ```
 
 ## Parameters

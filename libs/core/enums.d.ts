@@ -60,9 +60,10 @@ declare namespace basic {
 
 
     declare const enum TouchPin {
-    P0 = 7,  // MICROBIT_ID_IO_P0
-    P1 = 8,  // MICROBIT_ID_IO_P1
-    P2 = 9,  // MICROBIT_ID_IO_P2
+    P0 = 19,  // MICROBIT_ID_IO_P12
+    P1 = 7,  // MICROBIT_ID_IO_P0
+    P2 = 8,  // MICROBIT_ID_IO_P1
+    P3 = 23,  // MICROBIT_ID_IO_P16
     }
 
 
@@ -404,11 +405,11 @@ declare namespace input {
 
     declare const enum EventFlags {
     //%
-    QueueIfBusy = 16,  // MESSAGE_BUS_LISTENER_QUEUE_IF_BUSY
+    QueueIfBusy = 0x0010,  // MESSAGE_BUS_LISTENER_QUEUE_IF_BUSY
     //%
-    DropIfBusy = 32,  // MESSAGE_BUS_LISTENER_DROP_IF_BUSY
+    DropIfBusy = 0x0020,  // MESSAGE_BUS_LISTENER_DROP_IF_BUSY
     //%
-    Reentrant = 8,  // MESSAGE_BUS_LISTENER_REENTRANT
+    Reentrant = 0x0008,  // MESSAGE_BUS_LISTENER_REENTRANT
     }
 declare namespace control {
 }
@@ -427,62 +428,56 @@ declare namespace led {
 }
 
 
+    declare const enum MotorCommand {
+    //% block=coast
+    Coast = 0,
+    //% block=break
+    Break = 1,
+    //% block=sleep
+    Sleep = 2,
+    }
+
+
+    declare const enum Motor {
+    A = 0,
+    B = 1,
+    //% block="A and B"
+    AB = 2,
+    }
+declare namespace motors {
+}
+
+
     declare const enum DigitalPin {
-    P0 = 7,  // MICROBIT_ID_IO_P0
-    P1 = 8,  // MICROBIT_ID_IO_P1
-    P2 = 9,  // MICROBIT_ID_IO_P2
-    P3 = 10,  // MICROBIT_ID_IO_P3
-    P4 = 11,  // MICROBIT_ID_IO_P4
-    P5 = 12,  // MICROBIT_ID_IO_P5
-    P6 = 13,  // MICROBIT_ID_IO_P6
-    P7 = 14,  // MICROBIT_ID_IO_P7
-    P8 = 15,  // MICROBIT_ID_IO_P8
-    P9 = 16,  // MICROBIT_ID_IO_P9
-    P10 = 17,  // MICROBIT_ID_IO_P10
-    P11 = 18,  // MICROBIT_ID_IO_P11
-    P12 = 19,  // MICROBIT_ID_IO_P12
-    P13 = 20,  // MICROBIT_ID_IO_P13
-    P14 = 21,  // MICROBIT_ID_IO_P14
-    P15 = 22,  // MICROBIT_ID_IO_P15
-    P16 = 23,  // MICROBIT_ID_IO_P16
-    P19 = 24,  // MICROBIT_ID_IO_P19
-    P20 = 25,  // MICROBIT_ID_IO_P20
+    P0 = 19,  // MICROBIT_ID_IO_P12
+    P1 = 7,  // MICROBIT_ID_IO_P0
+    P2 = 8,  // MICROBIT_ID_IO_P1
+    P3 = 23,  // MICROBIT_ID_IO_P16
+    C4 = 10,  // MICROBIT_ID_IO_P3
+    C5 = 11,  // MICROBIT_ID_IO_P4
+    C6 = 17,  // MICROBIT_ID_IO_P10
+    C7 = 20,  // MICROBIT_ID_IO_P13
+    C8 = 21,  // MICROBIT_ID_IO_P14
+    C9 = 22,  // MICROBIT_ID_IO_P15
+    C10 = 16,  // MICROBIT_ID_IO_P9
+    C11 = 14,  // MICROBIT_ID_IO_P7
+    C12 = 13,  // MICROBIT_ID_IO_P6
+    C16 = 9,  // MICROBIT_ID_IO_P2
+    C17 = 15,  // MICROBIT_ID_IO_P8
+    C18 = 25,  // MICROBIT_ID_IO_P20
+    C19 = 24,  // MICROBIT_ID_IO_P19
     }
 
 
     declare const enum AnalogPin {
-    P0 = 7,  // MICROBIT_ID_IO_P0
-    P1 = 8,  // MICROBIT_ID_IO_P1
-    P2 = 9,  // MICROBIT_ID_IO_P2
-    P3 = 10,  // MICROBIT_ID_IO_P3
-    P4 = 11,  // MICROBIT_ID_IO_P4
-    P10 = 17,  // MICROBIT_ID_IO_P10
-    //% block="P5 (write only)"
-    P5 = 12,  // MICROBIT_ID_IO_P5
-    //% block="P6 (write only)"
-    P6 = 13,  // MICROBIT_ID_IO_P6
-    //% block="P7 (write only)"
-    P7 = 14,  // MICROBIT_ID_IO_P7
-    //% block="P8 (write only)"
-    P8 = 15,  // MICROBIT_ID_IO_P8
-    //% block="P9 (write only)"
-    P9 = 16,  // MICROBIT_ID_IO_P9
-    //% block="P11 (write only)"
-    P11 = 18,  // MICROBIT_ID_IO_P11
-    //% block="P12 (write only)"
-    P12 = 19,  // MICROBIT_ID_IO_P12
-    //% block="P13 (write only)"
-    P13 = 20,  // MICROBIT_ID_IO_P13
-    //% block="P14 (write only)"
-    P14 = 21,  // MICROBIT_ID_IO_P14
-    //% block="P15 (write only)"
-    P15 = 22,  // MICROBIT_ID_IO_P15
-    //% block="P16 (write only)"
-    P16 = 23,  // MICROBIT_ID_IO_P16
-    //% block="P19 (write only)"
-    P19 = 24,  // MICROBIT_ID_IO_P19
-    //% block="P20 (write only)"
-    P20 = 25,  // MICROBIT_ID_IO_P20
+    P1 = 7,  // MICROBIT_ID_IO_P0
+    P2 = 8,  // MICROBIT_ID_IO_P1
+    C4 = 10,  // MICROBIT_ID_IO_P3
+    C5 = 11,  // MICROBIT_ID_IO_P4
+    C6 = 17,  // MICROBIT_ID_IO_P10
+    C16 = 9,  // MICROBIT_ID_IO_P2
+    C17 = 15,  // MICROBIT_ID_IO_P8
+    MIC = 50,  // MICROBIT_ID_IO_P21
     }
 
 
@@ -517,15 +512,12 @@ declare namespace led {
 
 
     declare const enum SerialPin {
-    P0 = 7,  // MICROBIT_ID_IO_P0
-    P1 = 8,  // MICROBIT_ID_IO_P1
-    P2 = 9,  // MICROBIT_ID_IO_P2
-    P8 = 15,  // MICROBIT_ID_IO_P8
-    P12 = 19,  // MICROBIT_ID_IO_P12
-    P13 = 20,  // MICROBIT_ID_IO_P13
-    P14 = 21,  // MICROBIT_ID_IO_P14
-    P15 = 22,  // MICROBIT_ID_IO_P15
-    P16 = 23,  // MICROBIT_ID_IO_P16
+    P0 = 19,  // MICROBIT_ID_IO_P12
+    P1 = 7,  // MICROBIT_ID_IO_P0
+    P2 = 8,  // MICROBIT_ID_IO_P1
+    P3 = 23,  // MICROBIT_ID_IO_P16
+    C16 = 9,  // MICROBIT_ID_IO_P2
+    C17 = 15,  // MICROBIT_ID_IO_P8
     USB_TX = 1001,
     USB_RX = 1002,
     }

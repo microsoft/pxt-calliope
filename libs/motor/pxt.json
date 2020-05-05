@@ -1,0 +1,11 @@
+{
+    "name": "calliope",
+    "description": "Motors Example",
+    "files": [
+        "motor.ts"
+    ],
+    "public": true,
+    "dependencies": {
+        "core": "file:../core"
+    }
+}

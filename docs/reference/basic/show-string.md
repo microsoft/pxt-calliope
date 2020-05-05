@@ -3,7 +3,7 @@
 Show a string on the [LED screen](/device/screen). It will scroll to left if it's bigger than the screen.
 
 ```sig
-basic.showString("Hello!")
+basic.showString("hi!")
 ```
 
 ## Parameters

@@ -1,4 +1,4 @@
-enum PinEvent {
+const enum PinEvent {
     //% block="pulse high"
     PulseHigh = DAL.MICROBIT_PIN_EVT_PULSE_HI,  // DEVICE_PIN_EVT_PULSE_HI
     //% block="pulse low"
@@ -125,107 +125,96 @@ namespace pins {
      * Pin P1
      */
     //% fixedInstance whenUsed
-    export const P1: PwmPin = new MicrobitPin(DigitalPin.P1);
+    export const P1: AnalogInPin = new MicrobitPin(DigitalPin.P1);
 
     /**
      * Pin P2
      */
     //% fixedInstance whenUsed
-    export const P2: PwmPin = new MicrobitPin(DigitalPin.P2);
+    export const P2: AnalogInPin = new MicrobitPin(DigitalPin.P2);
 
     /**
      * Pin P3
      */
     //% fixedInstance whenUsed
-    export const P3: AnalogInPin = new MicrobitPin(DigitalPin.P3);
+    export const P3: PwmPin = new MicrobitPin(DigitalPin.P3);
 
     /**
-     * Pin P4
+     * Pin C4
      */
     //% fixedInstance whenUsed
-    export const P4: AnalogInPin = new MicrobitPin(DigitalPin.P4);
+    export const C4: AnalogInPin = new MicrobitPin(DigitalPin.C4);
 
     /**
-     * Pin P5
+     * Pin C5
      */
     //% fixedInstance whenUsed
-    export const P5: DigitalInOutPin = new MicrobitPin(DigitalPin.P5);
+    export const C5: AnalogInPin = new MicrobitPin(DigitalPin.C5);
 
     /**
-     * Pin P6
+     * Pin C6
      */
     //% fixedInstance whenUsed
-    export const P6: DigitalInOutPin = new MicrobitPin(DigitalPin.P6);
+    export const C6: AnalogInPin = new MicrobitPin(DigitalPin.C6);
 
     /**
-     * Pin P7
+     * Pin C7
      */
     //% fixedInstance whenUsed
-    export const P7: DigitalInOutPin = new MicrobitPin(DigitalPin.P7);
+    export const C7: DigitalInOutPin = new MicrobitPin(DigitalPin.C7);
 
     /**
-     * Pin P8
+     * Pin C8
      */
     //% fixedInstance whenUsed
-    export const P8: DigitalInOutPin = new MicrobitPin(DigitalPin.P8);
+    export const C8: DigitalInOutPin = new MicrobitPin(DigitalPin.C8);
 
     /**
-     * Pin P9
+     * Pin C9
      */
     //% fixedInstance whenUsed
-    export const P9: DigitalInOutPin = new MicrobitPin(DigitalPin.P9);
+    export const C9: DigitalInOutPin = new MicrobitPin(DigitalPin.C9);
 
     /**
-     * Pin P10
+     * Pin C10
      */
     //% fixedInstance whenUsed
-    export const P10: AnalogInPin = new MicrobitPin(DigitalPin.P10);
+    export const C10: DigitalInOutPin = new MicrobitPin(DigitalPin.C10);
 
     /**
-     * Pin P3
+     * Pin C11
      */
     //% fixedInstance whenUsed
-    export const P11: DigitalInOutPin = new MicrobitPin(DigitalPin.P11);
+    export const C11: DigitalInOutPin = new MicrobitPin(DigitalPin.C11);
 
     /**
-     * Pin P12
+     * Pin C12
      */
     //% fixedInstance whenUsed
-    export const P12: DigitalInOutPin = new MicrobitPin(DigitalPin.P12);
+    export const C12: DigitalInOutPin = new MicrobitPin(DigitalPin.C12);
+
 
     /**
-     * Pin P13
+     * Pin C16
      */
     //% fixedInstance whenUsed
-    export const P13: DigitalInOutPin = new MicrobitPin(DigitalPin.P13);
+    export const C16: AnalogInPin = new MicrobitPin(DigitalPin.C16);
 
     /**
-     * Pin P14
+     * Pin C17
      */
     //% fixedInstance whenUsed
-    export const P14: DigitalInOutPin = new MicrobitPin(DigitalPin.P14);
+    export const C17: AnalogInPin = new MicrobitPin(DigitalPin.C17);
 
     /**
-     * Pin P15
+     * Pin C18
      */
     //% fixedInstance whenUsed
-    export const P15: DigitalInOutPin = new MicrobitPin(DigitalPin.P15);
+    export const C18: DigitalInOutPin = new MicrobitPin(DigitalPin.C18);
 
     /**
-     * Pin P16
+     * Pin C19
      */
     //% fixedInstance whenUsed
-    export const P16: DigitalInOutPin = new MicrobitPin(DigitalPin.P16);
-
-    /**
-     * Pin P19
-     */
-    //% fixedInstance whenUsed
-    export const P19: DigitalInOutPin = new MicrobitPin(DigitalPin.P19);
-
-    /**
-     * Pin P19
-     */
-    //% fixedInstance whenUsed
-    export const P20: DigitalInOutPin = new MicrobitPin(DigitalPin.P20);
+    export const C19: DigitalInOutPin = new MicrobitPin(DigitalPin.C19);
 }

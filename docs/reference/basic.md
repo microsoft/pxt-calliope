@@ -12,7 +12,7 @@ basic.showLeds(`
 . . . . .
 . . . . .
 `);
-basic.showString("Hello!");
+basic.showString("hi!");
 basic.clearScreen();
 basic.forever(() => {
     

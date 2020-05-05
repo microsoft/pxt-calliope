@@ -17,7 +17,7 @@
               <block type="device_print_message">
                 <value name="text">
                   <shadow type="text">
-                    <field name="TEXT">Hello!</field>
+                    <field name="TEXT">hi!</field>
                   </shadow>
                 </value>
                 <next>

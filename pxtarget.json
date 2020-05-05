@@ -1,16 +1,15 @@
 {
-    "id": "microbit",
-    "nickname": "microbit",
-    "name": "makecode.microbit.org",
-    "title": "Microsoft MakeCode for micro:bit",
-    "description": "A Blocks / JavaScript code editor for the micro:bit powered by Microsoft MakeCode.",
+    "id": "calliopemini",
+    "nickname": "mini",
+    "name": "makecode.calliope.cc",
+    "title": "Microsoft MakeCode for Calliope mini",
+    "description": "A Blocks / JavaScript code editor for the Calliope mini powered by Microsoft MakeCode.",
     "corepkg": "core",
     "bundleddirs": [
         "libs/core",
         "libs/radio",
         "libs/devices",
         "libs/bluetooth",
-        "libs/servo",
         "libs/radio-broadcast"
     ],
     "cloud": {
@@ -23,17 +22,20 @@
         "preferredPackages": [
             "Microsoft/pxt-neopixel"
         ],
-        "githubPackages": true
+        "githubPackages": true,
+        "cloudProviders": {
+            "github": {}
+        }
     },
     "compile": {
-        "isNative": false,
+        "isNative": true,
         "hasHex": true,
-        "deployDrives": "(MICROBIT|MBED)",
-        "driveName": "MICROBIT",
-        "hexMimeType": "application/x-microbit-hex",
+        "deployDrives": "MINI",
+        "driveName": "MINI",
+        "hexMimeType": "application/x-calliope-hex",
         "openocdScript": "source [find interface/cmsis-dap.cfg]; source [find target/nrf51.cfg]",
-        "flashUsableEnd": 242688,
-        "flashEnd": 242688,
+        "flashUsableEnd": 245760,
+        "flashEnd": 245760,
         "flashCodeAlign": 1024,
         "floatingPoint": true,
         "taggedInts": true,
@@ -128,90 +130,96 @@
                 }
             ]
         },
-        "onStartColor": "#1E90FF",
+        "onStartColor": "#54C9C9",
         "onStartNamespace": "basic",
         "onStartWeight": 54
     },
     "simulator": {
         "autoRun": true,
-        "streams": false,
-        "aspectRatio": 1.22,
-        "parts": true,
+        "enableTrace": true,
+        "streams": true,
+        "aspectRatio": 1.13,
+        "parts": false,
         "partsAspectRatio": 0.69,
         "boardDefinition": {
-            "visual": "microbit",
+            "visual": "calliope",
             "gpioPinBlocks": [
                 [
-                    "P0"
+                    "EDGE_P0"
                 ],
                 [
-                    "P1"
+                    "EDGE_P1"
                 ],
                 [
-                    "P2"
+                    "EDGE_P2"
                 ],
                 [
-                    "P3"
+                    "EDGE_P3"
                 ],
                 [
-                    "P4",
-                    "P5",
-                    "P6",
-                    "P7"
+                    "C_P4",
+                    "C_P5",
+                    "C_P6",
+                    "C_P7"
                 ],
                 [
-                    "P8",
-                    "P9",
-                    "P10",
-                    "P11",
-                    "P12"
+                    "C_P8",
+                    "C_P9",
+                    "C_P10",
+                    "C_P11",
+                    "C_P12"
                 ],
                 [
-                    "P16"
+                    "C_P16"
                 ]
             ],
             "gpioPinMap": {
-                "P0": "P0",
-                "P1": "P1",
-                "P2": "P2",
-                "P3": "P3",
-                "P4": "P4",
-                "P5": "P5",
-                "P6": "P6",
-                "P7": "P7",
-                "P8": "P8",
-                "P9": "P9",
-                "P10": "P10",
-                "P11": "P11",
-                "P12": "P12",
-                "P13": "P13",
-                "P14": "P14",
-                "P15": "P15",
-                "P16": "P16",
-                "P19": "P19",
-                "P20": "P20"
+                "P0": "EDGE_P0",
+                "P1": "EDGE_P1",
+                "P2": "EDGE_P2",
+                "P3": "EDGE_P3",
+                "C4": "C_P4",
+                "C5": "C_P5",
+                "C6": "C_P6",
+                "C7": "C_P7",
+                "C8": "C_P8",
+                "C9": "C_P9",
+                "C10": "C_P10",
+                "C11": "C_P11",
+                "C12": "C_P12",
+                "C13": "C_P13",
+                "C14": "C_P14",
+                "C15": "C_P15",
+                "C19": "C_P19",
+                "C20": "C_P20",
+                "EXT_PWR":"EXT_PWR", 
+                "SPKR":"SPKR",
+                "BTN_A": "BTN_A", 
+                "BTN_B": "BTN_B",
+                "MOTOR1": "M_OUT1",
+                "MOTOR2": "M_OUT2"
             },
             "spiPins": {
-                "MOSI": "P15",
-                "MISO": "P14",
-                "SCK": "P13"
+                "MOSI": "C_P15",
+                "MISO": "C_P14",
+                "SCK": "C_P13"
             },
             "i2cPins": {
-                "SDA": "P20",
-                "SCL": "P19"
+                "SDA": "C_P20",
+                "SCL": "C_P19"
             },
             "analogInPins": [
-                "P0",
                 "P1",
                 "P2",
-                "P3",
-                "P10"
+                "C4",
+                "C5",
+                "C6"
             ],
             "groundPins": [
-                "GND"
+                "EDGE_GND"
             ],
             "threeVoltPins": [
-                "+3v3"
+                "EDGE_VCC"
             ],
             "attachPowerOnRight": true,
             "onboardComponents": [
@@ -221,15 +229,12 @@
                 "speaker",
                 "bluetooth",
                 "thermometer",
-                "compass"
+                "compass",
+                "speaker",
+                "microphone",
+                "rgbled"
             ],
-            "pinStyles": {
-                "P0": "croc",
-                "P1": "croc",
-                "P2": "croc",
-                "GND": "croc",
-                "+3v3": "croc"
-            },
+            "useCrocClips": true,
             "marginWhenBreadboarding": [
                 0,
                 0,
@@ -239,12 +244,11 @@
         }
     },
     "compileService": {
-        "yottaTarget": "bbc-microbit-classic-gcc",
+        "yottaTarget": "calliope-mini-classic-gcc",
         "yottaCorePackage": "microbit",
-        "githubCorePackage": "lancaster-university/microbit",
+        "githubCorePackage": "calliope-mini/microbit",
         "gittag": "pxtgc-0",
-        "serviceId": "microbit",
-        "dockerImage": "pext/yotta:latest"
+        "serviceId": "calliope"
     },
     "serial": {
         "nameFilter": "^(mbed Serial Port|DAPLink CMSIS-DAP)",
@@ -265,35 +269,36 @@
         "productId": "0x0204",
         "rawHID": true
     },
+    "ignoreDocsErrors": true,
     "appTheme": {
-        "accentColor": "#5C005C",
-        "logoUrl": "https://microbit.org/code/",
-        "logo": "./static/logo.portrait.white.svg",
-        "docsLogo": "./static/logo.square.white.svg",
-        "portraitLogo": "./static/logo.square.white.svg",
-        "footerLogo": "./static/logo.portrait.black.svg",
+        "accentColor": "#249899",
+        "defaultLocale": "de",
+        "logoUrl": "https://calliope.cc/",
+        "logo": "./static/Calliopeminieditor.svg",
+        "docsLogo": "./static/Logo_Calliope_Woman.svg",
+        "portraitLogo": "./static/Logo_Calliope_Woman.svg",
+        "footerLogo": "./static/Calliopeminieditor.svg",
         "cardLogo": "./static/icons/apple-touch-icon.png",
         "appLogo": "./static/icons/apple-touch-icon.png",
         "organization": "Microsoft MakeCode",
         "organizationUrl": "https://makecode.com/",
         "organizationLogo": "./static/Microsoft-logo_rgb_c-gray-square.png",
         "organizationWideLogo": "./static/Microsoft-logo_rgb_c-white.png",
-        "homeScreenHero": "./static/hero.png",
-        "homeUrl": "https://makecode.microbit.org/",
-        "embedUrl": "https://makecode.microbit.org/",
-        "shareUrl": "https://makecode.microbit.org/",
-        "privacyUrl": "https://makecode.com/privacy",
-        "termsOfUseUrl": "https://makecode.com/termsofuse",
-        "githubUrl": "https://github.com/Microsoft/pxt-microbit",
-        "boardName": "micro:bit",
-        "driveDisplayName": "MICROBIT",
-        "appStoreID": "1092687276",
+        "homeScreenHero": "./static/hero.jpg",
+        "homeUrl": "https://makecode.calliope.cc/",
+        "embedUrl": "https://makecode.calliope.cc/",
+        "shareUrl": "https://makecode.calliope.cc/",
+        "privacyUrl": "https://go.microsoft.com/fwlink/?LinkId=521839",
+        "termsOfUseUrl": "https://go.microsoft.com/fwlink/?LinkID=206977",
+        "githubUrl": "https://github.com/Microsoft/pxt-calliope",
+        "boardName": "Calliope mini",
+        "driveDisplayName": "MINI",
+        "appStoreID": "1309545545",
         "mobileSafariDownloadProtocol": "microbithex://?data",
         "crowdinProject": "kindscript",
         "extendEditor": true,
         "extendFieldEditors": true,
         "enableTrace": true,
-        "ignoreDocsErrors": true,
         "experiments": [
             "allowPackageExtensions",
             "instructions",
@@ -303,17 +308,18 @@
             "bluetoothPartialFlashing",
             "simScreenshot",
             "simGif",
-            "qrCode"
+            "qrCode",
+            "githubBlocksDiff"
         ],
         "bluetoothUartFilters": [
             {
-                "namePrefix": "BBC micro:bit"
+                "namePrefix": "Calliope mini"
             }
         ],
         "docMenu": [
             {
                 "name": "Support",
-                "path": "https://support.microbit.org/"
+                "path": "https://calliope.cc/faq"
             },
             {
                 "name": "Reference",
@@ -333,73 +339,10 @@
             },
             {
                 "name": "Buy",
-                "path": "https://microbit.org/resellers"
+                "path": "https://shop.calliope.cc/"
             }
         ],
-        "hasReferenceDocs": true,
-        "usbDocs": "/device/usb",
-        "usbHelp": [
-            {
-                "name": "connection",
-                "os": "*",
-                "browser": "*",
-                "path": "/static/mb/device/usb-generic.jpg"
-            },
-            {
-                "name": "connection",
-                "os": "mac",
-                "browser": "*",
-                "path": "/static/mb/device/usb-mac.jpg"
-            },
-            {
-                "name": "save",
-                "os": "windows",
-                "browser": "firefox",
-                "path": "/static/mb/device/usb-windows-firefox-1.png"
-            },
-            {
-                "name": "save",
-                "os": "mac",
-                "browser": "firefox",
-                "path": "/static/mb/device/usb-osx-firefox-1.jpg"
-            },
-            {
-                "name": "save",
-                "os": "mac",
-                "browser": "chrome",
-                "path": "/static/mb/device/usb-osx-chrome.png"
-            },
-            {
-                "name": "save",
-                "os": "windows",
-                "browser": "edge",
-                "path": "/static/mb/device/usb-windows-edge-1.png"
-            },
-            {
-                "name": "save",
-                "os": "windows",
-                "browser": "ie",
-                "path": "/static/mb/device/usb-windows-ie11-1.png"
-            },
-            {
-                "name": "save",
-                "os": "windows",
-                "browser": "chrome",
-                "path": "/static/mb/device/usb-windows-chrome.png"
-            },
-            {
-                "name": "copy",
-                "os": "mac",
-                "browser": "*",
-                "path": "/static/mb/device/usb-osx-dnd.png"
-            },
-            {
-                "name": "copy",
-                "os": "windows",
-                "browser": "*",
-                "path": "/static/mb/device/usb-windows-sendto.jpg"
-            }
-        ],
+        "hasReferenceDocs": false,
         "invertedMenu": true,
         "coloredToolbox": true,
         "monacoToolbox": true,
@@ -413,13 +356,19 @@
             }
         },
         "blockColors": {
-            "logic": "#00A4A6",
-            "loops": "#00AA00",
-            "math": "#9400D3",
-            "variables": "#DC143C",
-            "text": "#B8860B",
-            "advanced": "#00272B",
-            "functions": "#3455DB",
+            "basic": "#54C9C9",
+            "input": "#C94600",
+            "music": "#DF4600",
+            "led": "#8169E6",
+            "radio": "#E3008C",
+            "motors": "#008272",
+            "logic": "#006970",
+            "loops": "#107C10",
+            "math": "#712672",
+            "variables": "#A80000",
+            "text": "#996600",
+            "advanced": "#DDDDDD",
+            "functions": "#005A9E",
             "arrays": "#E65722"
         },
         "highContrast": true,
@@ -443,6 +392,7 @@
             "ko",
             "nl",
             "no",
+            "pl",
             "pt-BR",
             "pt-PT",
             "ru",
@@ -458,15 +408,26 @@
             "editor.background": "#ecf0f1"
         },
         "browserDbPrefixes": {
-            "1": "v1"
+            "1": "v1",
+            "2": "v2"
         },
         "editorVersionPaths": {
             "0": "v0"
         },
+        "showProjectSettings": true,
         "scriptManager": true,
         "simGifTransparent": "rgba(0,0,0,0)",
         "simGifMaxFrames": 44,
         "simScreenshotMaxUriLength": 300000,
-        "importExtensionFiles": true
-    }
+        "importExtensionFiles": true,        
+        "githubEditor": true
+    },
+    "queryVariants": {
+        "hidemenu": {
+            "appTheme": {
+                "hideMenuBar": true
+            }
+        }
+    },
+    "disableDocsUpload": true
 }

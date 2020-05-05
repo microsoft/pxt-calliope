@@ -5,7 +5,7 @@
 Let's turn the @boardname@ into a dice!
 (Want to learn how the accelerometer works? [Watch this video](https://youtu.be/byngcwjO51U)).
 
-![A microbit dice](/static/mb/projects/dice.png)
+![A mini dice](/calliope/tutorials/04_dice_animation.gif)
 
 ## Step 1 @fullscreen
 

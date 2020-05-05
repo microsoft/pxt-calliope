@@ -16,10 +16,6 @@ enum RadioPacketProperty {
  */
 //% color=#E3008C weight=96 icon="\uf012"
 namespace radio {
-    export const MAKECODE_RADIO_EVT_NUMBER = 10;
-    export const MAKECODE_RADIO_EVT_STRING = 11;
-    export const MAKECODE_RADIO_EVT_BUFFER = 12;
-    export const MAKECODE_RADIO_EVT_VALUE = 13;
 
     const MAX_FIELD_DOUBLE_NAME_LENGTH = 8;
     const MAX_PAYLOAD_LENGTH = 20;
@@ -51,32 +47,45 @@ namespace radio {
     let initialized = false;
 
     export let lastPacket: RadioPacket;
+    let onReceivedNumberHandler: (receivedNumber: number) => void;
+    let onReceivedValueHandler: (name: string, value: number) => void;
+    let onReceivedStringHandler: (receivedString: string) => void;
+    let onReceivedBufferHandler: (receivedBuffer: Buffer) => void;
 
     function init() {
         if (initialized) return;
         initialized = true;
+        onDataReceived(handleDataReceived);
+    }
 
-        onDataReceived(() => {
-            lastPacket = RadioPacket.getPacket(readRawPacket());
-            lastPacket.signal = receivedSignalStrength();
-
+    function handleDataReceived() {
+        let buffer: Buffer = readRawPacket();
+        while (buffer && buffer.length) {
+            lastPacket = RadioPacket.getPacket(buffer);
             switch (lastPacket.packetType) {
                 case PACKET_TYPE_NUMBER:
                 case PACKET_TYPE_DOUBLE:
-                    control.raiseEvent(DAL.MICROBIT_ID_RADIO, MAKECODE_RADIO_EVT_NUMBER);
+                    if (onReceivedNumberHandler)
+                        onReceivedNumberHandler(lastPacket.numberPayload);
                     break;
                 case PACKET_TYPE_VALUE:
                 case PACKET_TYPE_DOUBLE_VALUE:
-                    control.raiseEvent(DAL.MICROBIT_ID_RADIO, MAKECODE_RADIO_EVT_VALUE);
+                    if (onReceivedValueHandler)
+                        onReceivedValueHandler(lastPacket.stringPayload, lastPacket.numberPayload);
                     break;
                 case PACKET_TYPE_BUFFER:
-                    control.raiseEvent(DAL.MICROBIT_ID_RADIO, MAKECODE_RADIO_EVT_BUFFER);
+                    if (onReceivedBufferHandler)
+                        onReceivedBufferHandler(lastPacket.bufferPayload);
                     break;
                 case PACKET_TYPE_STRING:
-                    control.raiseEvent(DAL.MICROBIT_ID_RADIO, MAKECODE_RADIO_EVT_STRING);
+                    if (onReceivedStringHandler)
+                        onReceivedStringHandler(lastPacket.stringPayload);
                     break;
             }
-        })
+
+                // read next packet if any
+                buffer = readRawPacket();
+        }
     }
 
     /**
@@ -87,9 +96,7 @@ namespace radio {
     //% useLoc="radio.onDataPacketReceived" draggableParameters=reporter
     export function onReceivedNumber(cb: (receivedNumber: number) => void) {
         init();
-        control.onEvent(DAL.MICROBIT_ID_RADIO, MAKECODE_RADIO_EVT_NUMBER, () => {
-            cb(lastPacket.numberPayload);
-        });
+        onReceivedNumberHandler = cb;
     }
 
     /**
@@ -100,9 +107,7 @@ namespace radio {
     //% useLoc="radio.onDataPacketReceived" draggableParameters=reporter
     export function onReceivedValue(cb: (name: string, value: number) => void) {
         init();
-        control.onEvent(DAL.MICROBIT_ID_RADIO, MAKECODE_RADIO_EVT_VALUE, () => {
-            cb(lastPacket.stringPayload, lastPacket.numberPayload);
-        });
+        onReceivedValueHandler = cb;
     }
 
     /**
@@ -113,9 +118,7 @@ namespace radio {
     //% useLoc="radio.onDataPacketReceived" draggableParameters=reporter
     export function onReceivedString(cb: (receivedString: string) => void) {
         init();
-        control.onEvent(DAL.MICROBIT_ID_RADIO, MAKECODE_RADIO_EVT_STRING, () => {
-            cb(lastPacket.stringPayload);
-        });
+        onReceivedStringHandler = cb;
     }
 
     /**
@@ -126,9 +129,7 @@ namespace radio {
     //% useLoc="radio.onDataPacketReceived" draggableParameters=reporter
     export function onReceivedBuffer(cb: (receivedBuffer: Buffer) => void) {
         init();
-        control.onEvent(DAL.MICROBIT_ID_RADIO, MAKECODE_RADIO_EVT_BUFFER, () => {
-            cb(lastPacket.bufferPayload);
-        });
+        onReceivedBufferHandler = cb;
     }
 
     /**
@@ -140,7 +141,7 @@ namespace radio {
     //% blockId=radio_received_packet block="received packet %type=radio_packet_property" blockGap=16
     export function receivedPacket(type: number) {
         if (lastPacket) {
-            switch(type) {
+            switch (type) {
                 case RadioPacketProperty.Time: return lastPacket.time;
                 case RadioPacketProperty.SerialNumber: return lastPacket.serial;
                 case RadioPacketProperty.SignalStrength: return lastPacket.signal;
@@ -161,6 +162,7 @@ namespace radio {
 
     export class RadioPacket {
         public static getPacket(data: Buffer) {
+            // last 4 bytes is RSSi
             return new RadioPacket(data);
         }
 
@@ -171,10 +173,12 @@ namespace radio {
         }
 
         private constructor(public readonly data?: Buffer) {
-            if (!data) this.data = control.createBuffer(32);
+            if (!data) this.data = control.createBuffer(DAL.MICROBIT_RADIO_MAX_PACKET_SIZE + 4);
         }
 
-        public signal: number;
+        get signal() {
+            return this.data.getNumber(NumberFormat.Int32LE, this.data.length - 4);
+        }
 
         get packetType() {
             return this.data[0];
@@ -355,6 +359,18 @@ namespace radio {
     //% advanced=true
     export function setTransmitSerialNumber(transmit: boolean) {
         transmittingSerial = transmit;
+    }
+
+    /**
+     * Gets the received signal strength indicator (RSSI) from the last packet taken
+     * from the radio queue (via ``receiveNumber``, ``receiveString``, etc). Not supported in simulator.
+     */
+    //% help=radio/received-signal-strength
+    //% weight=40
+    //% blockId=radio_datagram_rssi block="radio received signal strength"
+    //% deprecated=true blockHidden=true
+    export function receivedSignalStrength(): number {
+        return lastPacket ? lastPacket.signal : 0;
     }
 
     export function writeToSerial(packet: RadioPacket) {

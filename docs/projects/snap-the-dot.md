@@ -2,6 +2,8 @@
 
 ## Introduction @unplugged
 
+![Animation of the snap the dot game](/calliope/tutorials/09_snap_the_dot_animation.gif)
+
 Snap the dot is a game of skill where the player has to press **A** exactly when the dot reaches the center of the screen.
 
 This tutorial shows how to use the game engine.

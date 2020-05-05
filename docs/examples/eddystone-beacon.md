@@ -3,7 +3,7 @@
 ```blocks
 led.enable(false)
 bluetooth.advertiseUrl(
-    "https://makecode.com",
+    "https://calliope.cc",
     7,
     false
 )
