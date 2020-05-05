@@ -367,7 +367,7 @@
             "math": "#712672",
             "variables": "#A80000",
             "text": "#996600",
-            "advanced": "#DDDDDD",
+            "advanced": "#42495f",
             "functions": "#005A9E",
             "arrays": "#E65722"
         },
@@ -420,7 +420,12 @@
         "simGifMaxFrames": 44,
         "simScreenshotMaxUriLength": 300000,
         "importExtensionFiles": true,        
-        "githubEditor": true
+        "githubEditor": true,
+        "tutorialBlocksDiff": false,
+        "python": true,
+        "pythonToolbox": true,
+        "chooseLanguageRestrictionOnNewProject": true,
+        "openProjectNewTab": true
     },
     "queryVariants": {
         "hidemenu": {
@@ -429,5 +434,6 @@
             }
         }
     },
-    "disableDocsUpload": true
+    "uploadDocs": false,
+    "uploadApiStringsBranchRx": "^(master|v[2-9]\\.\\d+\\.\\d+)$"
 }
