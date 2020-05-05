@@ -224,12 +224,38 @@ namespace control {
     }
 
     /**
+    * Gets the number of milliseconds elapsed since power on.
+    */
+    //% help=control/millis weight=50
+    //% blockId=control_running_time block="millis (ms)"
+    int millis() {
+        return system_timer_current_time();
+    }
+
+    /**
+    * Gets current time in microseconds. Overflows every ~18 minutes.
+    */
+    //%
+    int micros() {
+        return system_timer_current_time_us() & 0x3fffffff;
+    }
+
+    /**
      * Schedules code that run in the background.
      */
     //% help=control/in-background blockAllowMultiple=1 afterOnStart=true
     //% blockId="control_in_background" block="run in background" blockGap=8
     void inBackground(Action a) {
       runInParallel(a);
+    }
+
+    /**
+    * Blocks the calling thread until the specified event is raised.
+    */
+    //% help=control/wait-for-event async
+    //% blockId=control_wait_for_event block="wait for event|from %src|with value %value"
+    void waitForEvent(int src, int value) {
+        pxt::waitForEvent(src, value);
     }
 
     /**

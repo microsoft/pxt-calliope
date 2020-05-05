@@ -161,7 +161,16 @@
             "dugbraden/pxt-climate-action-kit",
             "alsrobot-microbit-makecode-packages/MiniCruise",
             "4tronix/ServoBit",
-            "DFRobot/pxt-maqueen"
+            "DFRobot/pxt-maqueen",
+            "DFRobot/pxt-DFRobot-microIoT",
+            "mu-opensource/pxt-muvision",
+            "KitronikLtd/pxt-kitronik-clip-detector",
+            "DFRobot/pxt-DFRobot-NaturalScience",
+            "strawbees/pxt-robotic-inventions",
+            "daferdur/pxt-myHX711",
+            "CytronTechnologies/pxt-edubit",
+            "MakeAndLearn/pxt-microshield",
+            "elecfreaks/pxt-TPBot"
         ],
         "preferredRepos": [
             "Microsoft/pxt-neopixel",
@@ -175,35 +184,9 @@
             "Tinkertanker/pxt-ringbitcar"
         ]
     },
-    "languages": [
-        "en",
-        "ar",
-        "cs",
-        "da",
-        "de",
-        "el",
-        "es-ES",
-        "fi",
-        "fr",
-        "hu",
-        "it",
-        "ja",
-        "ko",
-        "nl",
-        "no",
-        "pt-BR",
-        "pt-PT",
-        "ru",
-        "si-LK",
-        "sk",
-        "sv-SE",
-        "tr",
-        "uk",
-        "zh-CN",
-        "zh-TW"
-    ],
     "galleries": {
         "Tutorials": "tutorials",
+        "Live Coding": "live-coding",
         "Games": "projects/games",
         "Radio Games": "projects/radio-games",
         "Fashion": "projects/fashion",
@@ -215,6 +198,7 @@
         "Blocks To JavaScript": "courses/blocks-to-javascript",
         "Courses": "courses",
         "Behind the MakeCode Hardware": "behind-the-makecode-hardware",
+        "Science Experiments": "science-experiments",
         "Coding Cards": "coding-cards"
     },
     "electronManifest": {
