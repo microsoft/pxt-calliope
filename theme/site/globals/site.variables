@@ -4,10 +4,10 @@
 
 @importGoogleFonts: false;
 
-@fontName  : 'Roboto Mono';
+@fontName  : 'Roboto Mono', 'Courier New', Courier, monospace, sans-serif;
 
-@headerFont  : 'Roboto Mono';
-@pageFont  : 'Roboto Mono';
+@headerFont  : 'Roboto Mono', 'Courier New', Courier, monospace, sans-serif;
+@pageFont  : 'Roboto Mono', 'Courier New', Courier, monospace, sans-serif;
 
 @primaryColor: #3CB5B5;
 @secondaryColor: #43C9C9;
