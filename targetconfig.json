@@ -185,7 +185,18 @@
             "EBOTICS/pxt-eboticsMIBO",
             "KitronikLtd/pxt-kitronik-halohd",
             "dugbraden/pxt-climate-action-kit",
-            "alsrobot-microbit-makecode-packages/MiniCruise"
+            "alsrobot-microbit-makecode-packages/MiniCruise",
+            "4tronix/ServoBit",
+            "DFRobot/pxt-maqueen",
+            "DFRobot/pxt-DFRobot-microIoT",
+            "mu-opensource/pxt-muvision",
+            "KitronikLtd/pxt-kitronik-clip-detector",
+            "DFRobot/pxt-DFRobot-NaturalScience",
+            "strawbees/pxt-robotic-inventions",
+            "daferdur/pxt-myHX711",
+            "CytronTechnologies/pxt-edubit",
+            "MakeAndLearn/pxt-microshield",
+            "elecfreaks/pxt-TPBot"
         ],
         "preferredRepos": [
             "Microsoft/pxt-neopixel",
@@ -199,33 +210,6 @@
             "MKleinSB/pxt-foldio"
         ]
     },
-    "languages": [
-        "en",
-        "ar",
-        "cs",
-        "da",
-        "de",
-        "el",
-        "es-ES",
-        "fi",
-        "fr",
-        "hu",
-        "it",
-        "ja",
-        "ko",
-        "nl",
-        "no",
-        "pt-BR",
-        "pt-PT",
-        "ru",
-        "si-LK",
-        "sk",
-        "sv-SE",
-        "tr",
-        "uk",
-        "zh-CN",
-        "zh-TW"
-    ],
     "galleries": {
         "First Steps": "calliope/firststeps",
         "Tutorials": "calliope/tutorials",
