@@ -23,7 +23,7 @@ confuse the @boardname@.
 This example runs the calibration when the user presses **A+B** buttons.
 
 ```blocks
-input.onButtonEvent(Button.AB, ButtonEvent.Click, () => {
+input.onButtonPressed(Button.AB, () => {
     input.calibrateCompass();
 })
 ```

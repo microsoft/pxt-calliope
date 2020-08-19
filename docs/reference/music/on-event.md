@@ -43,7 +43,7 @@ music.onEvent(MusicEvent.BackgroundMelodyResumed, () => {
 music.onEvent(MusicEvent.BackgroundMelodyRepeated, () => {
     serial.writeLine("background repeated")
 })
-input.onButtonEvent(Button.A, ButtonEvent.Click, () => {
+input.onButtonPressed(Button.A, () => {
     music.beginMelody(music.builtInMelody(Melodies.BaDing), MelodyOptions.Once)
 })
 music.setTempo(100)
@@ -56,7 +56,7 @@ The events related to background melody get triggered by a melody that is played
 
 ```
 control.inBackground(function () {
-    basic.pause(Math.randomRange(0, 5000))
+    basic.pause(randint(0, 5000))
     music.beginMelody(music.builtInMelody(Melodies.Entertainer), MelodyOptions.Once)
 })
 music.onEvent(MusicEvent.BackgroundMelodyStarted, function () {

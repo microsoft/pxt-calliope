@@ -70,7 +70,7 @@ confuse the @boardname@.
 Keep the calibration handy by running it when the user pressed **A+B**.
 
 ```block
-input.onButtonEvent(Button.AB, ButtonEvent.Click, () => {
+input.onButtonPressed(Button.AB, () => {
     input.calibrateCompass();
 })
 ```

@@ -7,21 +7,6 @@ enum class Button {
     AB = MICROBIT_ID_BUTTON_AB,
 };
 
-enum class ButtonEvent {
-    //% blockIdentity="input.buttonEventValueId"
-    //% block="pressed down"
-    Down = MICROBIT_BUTTON_EVT_DOWN,
-    //% blockIdentity="input.buttonEventValueId"
-    //% block="released up"
-    Up = MICROBIT_BUTTON_EVT_UP,
-    //% blockIdentity="input.buttonEventValueId"
-    //% block="clicked"
-    Click = MICROBIT_BUTTON_EVT_CLICK,
-    //% blockIdentity="input.buttonEventValueId"
-    //% block="long clicked"
-    LongClick = MICROBIT_BUTTON_EVT_LONG_CLICK,
-};
-
 enum class Dimension {
     //% block=x
     X = 0,
@@ -90,13 +75,13 @@ enum class Gesture {
     //% jres=gestures.tiltbackwards
     LogoDown = MICROBIT_ACCELEROMETER_EVT_TILT_DOWN,
     /**
-     * Raised when the screen is pointing down and the board is horizontal
+     * Raised when the screen is pointing up and the board is horizontal
      */
     //% block="screen up"
     //% jres=gestures.frontsideup
     ScreenUp = MICROBIT_ACCELEROMETER_EVT_FACE_UP,
     /**
-     * Raised when the screen is pointing up and the board is horizontal
+     * Raised when the screen is pointing down and the board is horizontal
      */
     //% block="screen down"
     //% jres=gestures.backsideup
@@ -178,27 +163,12 @@ enum class MesDpadButtonInfo {
 namespace input {
     /**
      * Do something when a button (A, B or both A+B) is pushed down and released again.
-     * @param button the button
-     * @param body code to run when event is raised
-     * @param eventType event Type
-     */
-    //% help=input/on-button-event weight=85 blockGap=16
-    //% blockId=device_button_event block="on button %NAME| is %eventType=control_button_event_value_id"
-    //% parts="buttonpair"
-    void onButtonEvent(Button button, int eventType, Action body) {
-        registerWithDal((int)button, eventType, body);
-    }
-
-    // Deprecated
-    /**
-     * Do something when a button (A, B or both A+B) is pushed down and released again.
      * @param button the button that needs to be pressed
      * @param body code to run when event is raised
      */
     //% help=input/on-button-pressed weight=85 blockGap=16
-    //% blockId=device_button_pressed block="on button|%NAME|pressed"
+    //% blockId=device_button_event block="on button|%NAME|pressed"
     //% parts="buttonpair"
-    //% blockHidden=true
     void onButtonPressed(Button button, Action body) {
         registerWithDal((int)button, MICROBIT_BUTTON_EVT_CLICK, body);
     }
@@ -236,31 +206,13 @@ namespace input {
         return uBit.accelerometer.getGesture() == gi;
     }
 
-    /**
-     * Do something when a pin is touched and released again (while also touching the GND pin).
-     * @param name the pin, eg: TouchPin.P0
-     * @param body the code to run when event is fired on pin
-     */
-    //% help=input/on-pin-touch weight=83 blockGap=32
-    //% blockId=device_pin_touch block="on pin %name|is %eventType=control_button_event_value_id"
-    void onPinTouched(TouchPin name, int eventType, Action body) {
-        auto pin = getPin((int)name);
-        if (!pin) return;
-
-        // Forces the PIN to switch to makey-makey style detection.
-        pin->isTouched();
-        registerWithDal((int)name, eventType, body);
-    }
-
-    // Deprecated
-    /**
+     /**
      * Do something when a pin is touched and released again (while also touching the GND pin).
      * @param name the pin that needs to be pressed, eg: TouchPin.P0
      * @param body the code to run when the pin is pressed
      */
     //% help=input/on-pin-pressed weight=83 blockGap=32
-    //% blockId=device_pin_input block="on pin %name|pressed"
-    //% blockHidden=true
+    //% blockId=device_pin_event block="on pin %name|pressed"
     void onPinPressed(TouchPin name, Action body) {
         auto pin = getPin((int)name);
         if (!pin) return;
@@ -270,7 +222,6 @@ namespace input {
         registerWithDal((int)name, MICROBIT_BUTTON_EVT_CLICK, body);
     }
 
-    // Deprecated
     /**
      * Do something when a pin is released.
      * @param name the pin that needs to be released, eg: TouchPin.P0
@@ -278,7 +229,7 @@ namespace input {
      */
     //% help=input/on-pin-released weight=6 blockGap=16
     //% blockId=device_pin_released block="on pin %NAME|released"
-    //% blockHidden=true
+    //% advanced=true
     void onPinReleased(TouchPin name, Action body) {
         auto pin = getPin((int)name);
         if (!pin) return;
@@ -399,37 +350,17 @@ namespace input {
     //% blockId=device_get_magnetic_force block="magnetic force (µT)|%NAME" blockGap=8
     //% parts="compass"
     //% advanced=true
-    int magneticForce(Dimension dimension) {
-      if (!uBit.compass.isCalibrated())
-        uBit.compass.calibrate();
-
-      switch (dimension) {
-      case Dimension::X: return uBit.compass.getX() / 1000;
-      case Dimension::Y: return uBit.compass.getY() / 1000;
-      case Dimension::Z: return uBit.compass.getZ() / 1000;
-      case Dimension::Strength: return uBit.compass.getFieldStrength() / 1000;
-      }
-      return 0;
-    }
-
-    /**
-     * Gets the number of milliseconds elapsed since power on.
-     */
-    //% help=input/running-time weight=50 blockGap=8
-    //% blockId=device_get_running_time block="running time (ms)"
-    //% advanced=true
-    int runningTime() {
-        return system_timer_current_time();
-    }
-
-    /**
-     * Gets the number of microseconds elapsed since power on.
-     */
-    //% help=input/running-time-micros weight=49
-    //% blockId=device_get_running_time_micros block="running time (micros)"
-    //% advanced=true
-    int runningTimeMicros() {
-        return system_timer_current_time_us();
+    TNumber magneticForce(Dimension dimension) {
+        if (!uBit.compass.isCalibrated())
+            uBit.compass.calibrate();
+        double d = 0;        
+        switch (dimension) {
+            case Dimension::X: d = uBit.compass.getX(); break;
+            case Dimension::Y: d = uBit.compass.getY(); break;
+            case Dimension::Z: d = uBit.compass.getZ(); break;
+            case Dimension::Strength: d = uBit.compass.getFieldStrength() ; break;
+        }
+        return fromDouble(d / 1000.0);
     }
 
     /**

@@ -140,8 +140,30 @@ namespace pxsim.visuals {
             stroke: none;
             fill: #777;
         }
+        .sim-label, .sim-button-label {
+            fill: #000;
+        }
         .sim-wireframe .sim-board {
             stroke-width: 2px;
+        }
+        *:focus {
+            outline: none;
+        }
+        *:focus .sim-button-outer,
+        .sim-pin:focus,
+        .sim-thermometer:focus,
+        .sim-shake:focus,
+        .sim-light-level-button:focus {
+            stroke: #4D90FE;
+            stroke-width: 5px !important;
+        }
+        .no-drag, .sim-text, .sim-text-pin {
+            user-drag: none;
+            user-select: none;
+            -moz-user-select: none;
+            -webkit-user-drag: none;
+            -webkit-user-select: none;
+            -ms-user-select: none;
         }
     `;
     const BOARD_SVG = `<?xml version="1.0" encoding="utf-8"?>
@@ -692,8 +714,8 @@ namespace pxsim.visuals {
     export interface IBoardProps {
         runtime?: pxsim.Runtime;
         theme?: IBoardTheme;
-        disableTilt?: boolean;
         wireframe?: boolean;
+        disableTilt?: boolean;
     }
 
     export class MicrobitBoardSvg implements BoardView {
@@ -711,6 +733,7 @@ namespace pxsim.visuals {
         private leds: SVGElement[];
         private systemLed: SVGCircleElement;
         private antenna: SVGPolylineElement;
+        private rssi: SVGTextElement;
         private lightLevelButton: SVGCircleElement;
         private lightLevelGradient: SVGLinearGradientElement;
         private lightLevelText: SVGTextElement;
@@ -925,6 +948,7 @@ namespace pxsim.visuals {
 		};
 
         constructor(public props: IBoardProps) {
+            
             this.buildDom();
             if (props && props.wireframe)
                 U.addClass(this.element, "sim-wireframe");
@@ -968,7 +992,6 @@ namespace pxsim.visuals {
 				const r = p.getBoundingClientRect();
                 this.pinNmToCoord[nm] = [r.left + r.width / 2, r.top + r.height / 2];
             });
-			console.log(JSON.stringify(this.pinNmToCoord, null, 2))
         }
 
         private updateTheme() {
@@ -981,6 +1004,7 @@ namespace pxsim.visuals {
             svg.fill(this.buttons[1], theme.buttonUps[1]);
             svg.fill(this.buttonsOuter[2], theme.virtualButtonOuter);
             svg.fill(this.buttons[2], theme.virtualButtonUp);
+            if (this.shakeButton) svg.fill(this.shakeButton, theme.virtualButtonUp);
 
             this.pinGradients.forEach(lg => svg.setGradientColors(lg, theme.pin, theme.pinActive));
             svg.setGradientColors(this.lightLevelGradient, theme.lightLevelOn, theme.lightLevelOff);
@@ -1031,6 +1055,7 @@ namespace pxsim.visuals {
             this.updateGestures();
             this.updateRgbLed();
 			this.updateSpeaker();
+            this.updateRSSI();
 
             if (!runtime || runtime.dead) U.addClass(this.element, "grayscale");
             else U.removeClass(this.element, "grayscale");
@@ -1092,6 +1117,33 @@ namespace pxsim.visuals {
             }
         }
 
+        private updateRSSI() {
+            let state = this.board;
+            if (!state) return;
+            const v = state.radioState.datagram.rssi;
+            if (v === undefined) return;
+
+            if (!this.rssi) {
+                let ax = 380;
+                let dax = 18;
+                let ayt = 10;
+                let ayb = 40;
+                const wh = dax * 5;
+                for (let i = 0; i < 4; ++i)
+                    svg.child(this.g, "rect", { x: ax - 90 + i * 6, y: ayt + 28 - i * 4, width: 4, height: 2 + i * 4, fill: "#fff" })
+                this.rssi = svg.child(this.g, "text", { x: ax - 64, y: ayb, class: "sim-text" }) as SVGTextElement;
+                this.rssi.textContent = "";
+            }
+
+            const vt = v.toString();
+            if (vt !== this.rssi.textContent) {
+                this.rssi.textContent = v.toString();
+                this.antenna.setAttribute("aria-valuenow", this.rssi.textContent);
+                accessibility.setLiveContent(this.rssi.textContent);
+            }
+        }
+
+
         private updatePin(pin: Pin, index: number) {
             if (!pin) return;
             let text = this.pinTexts[pin.id];
@@ -1112,6 +1164,16 @@ namespace pxsim.visuals {
                 if (text) text.textContent = "";
             }
             if (v) svg.setGradientValue(this.pinGradients[index], v);
+
+            if (pin.mode !== PinFlags.Unused) {
+                accessibility.makeFocusable(this.pins[index]);
+                accessibility.setAria(this.pins[index], "slider", this.pins[index].firstChild.textContent);
+                this.pins[index].setAttribute("aria-valuemin", "0");
+                this.pins[index].setAttribute("aria-valuemax", pin.mode & PinFlags.Analog ? "1023" : "100");
+                this.pins[index].setAttribute("aria-orientation", "vertical");
+                this.pins[index].setAttribute("aria-valuenow", text ? text.textContent : v);
+                accessibility.setLiveContent(text ? text.textContent : v);
+            }
         }
 
         private updateTemperature() {

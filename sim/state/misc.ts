@@ -47,6 +47,19 @@ namespace pxsim.control {
     export function waitMicros(micros: number) {
         // TODO
     }
+    export function waitForEvent(id: number, evid: number) {
+        const cb = getResume();
+        board().bus.wait(id, evid, cb);
+    }
+
+    export function millis(): number {
+        return runtime.runningTime();
+    }
+
+    export function micros(): number {
+        return runtime.runningTimeUs();
+    }
+
 
     export function deviceName(): string {
         let b = board();
@@ -94,14 +107,6 @@ namespace pxsim.pxtcore {
 }
 
 namespace pxsim.input {
-    export function runningTime(): number {
-        return runtime.runningTime();
-    }
-
-    export function runningTimeMicros(): number {
-        return runtime.runningTimeUs();
-    }
-
     export function calibrateCompass() {
         // device calibrates...
     }
@@ -129,6 +134,10 @@ namespace pxsim.pins {
     export function spiWrite(value: number): number {
         // TODO
         return 0;
+    }
+
+    export function spiTransfer(cmd: RefBuffer, resp: RefBuffer): void {
+        // TODO
     }
 
     export function spiFrequency(f: number): void {
@@ -214,7 +223,7 @@ namespace pxsim.bluetooth {
     }
 
     export function uartReadBuffer(): RefBuffer {
-        return pins.createBuffer(0);        
+        return pins.createBuffer(0);
     }
 
     export function uartReadUntil(del: string): string {
@@ -236,3 +245,14 @@ namespace pxsim.bluetooth {
     export function setTransmitPower(power: number) { }
 }
 
+namespace pxsim.light {
+    export function sendWS2812Buffer(buffer: RefBuffer, pin: number) {
+        pxsim.sendBufferAsm(buffer, pin)
+    }
+
+    export function setMode(pin: number, mode: number) {
+        const lp = neopixelState(pin);
+        if (!lp) return;
+        lp.mode = mode & 0xff;
+    }
+}

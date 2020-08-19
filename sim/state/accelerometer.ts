@@ -16,6 +16,7 @@ namespace pxsim.input {
 
     export function isGesture(gesture: number): boolean {
         const b = accForGesture(gesture);
+        b.accelerometer.activate();
         return b.accelerometer.getGesture() == gesture;
     }
 
@@ -33,28 +34,25 @@ namespace pxsim.input {
                 acc.activate(AccelerometerFlag.Z);
                 return acc.getZ();
             default:
-                acc.activate();
-                return Math.floor(Math.sqrt(acc.instantaneousAccelerationSquared()));
+                acc.activate(AccelerometerFlag.Strength);
+                return acc.getStrength();
         }
     }
 
     export function rotation(kind: number): number {
         const b = board().accelerometerState;
         const acc = b.accelerometer;
-        acc.activate();
-        const x = acc.getX(MicroBitCoordinateSystem.NORTH_EAST_DOWN);
-        const y = acc.getY(MicroBitCoordinateSystem.NORTH_EAST_DOWN);
-        const z = acc.getZ(MicroBitCoordinateSystem.NORTH_EAST_DOWN);
-
-        const roll = Math.atan2(y, z);
-        const pitch = Math.atan(-x / (y * Math.sin(roll) + z * Math.cos(roll)));
-
-        let r = 0;
         switch (kind) {
-            case 0: r = pitch; break;
-            case 1: r = roll; break;
+            case 0: {
+                acc.activate(AccelerometerFlag.Pitch);
+                return acc.getPitch(); 
+            }
+            case 1: {
+                acc.activate(AccelerometerFlag.Roll);
+                return acc.getRoll(); 
+            }
+            default: return 0;
         }
-        return Math.floor(r / Math.PI * 180);
     }
 
     export function setAccelerometerRange(range: number) {
@@ -117,8 +115,11 @@ namespace pxsim {
 
     export enum AccelerometerFlag {
         X = 1,
-        Y = 2,
-        Z = 4
+        Y = 1 << 1,
+        Z = 1 << 2,
+        Strength = 1 << 3,
+        Pitch = 1 << 4,
+        Roll = 1 << 5
     }
 
     export class Accelerometer {
@@ -148,7 +149,7 @@ namespace pxsim {
                 this.isActive = true;
                 this.runtime.queueDisplayUpdate();
             }
-            if (flags)
+            if (!!flags)
                 this.flags |= flags;
         }
 
@@ -169,7 +170,29 @@ namespace pxsim {
             board().bus.queue(this.id, DAL.MICROBIT_ACCELEROMETER_EVT_DATA_UPDATE)
         }
 
-        public instantaneousAccelerationSquared() {
+        public getStrength() {
+            return Math.floor(Math.sqrt(this.instantaneousAccelerationSquared()));
+        }
+
+        updateEnvironmentGlobals() {
+            // update debugger
+            if (this.isActive) {
+                if (this.flags & AccelerometerFlag.X)
+                    this.runtime.environmentGlobals[pxsim.localization.lf("acceleration.x")] = this.sample.x;
+                if (this.flags & AccelerometerFlag.Y)
+                    this.runtime.environmentGlobals[pxsim.localization.lf("acceleration.y")] = this.sample.y;
+                if (this.flags & AccelerometerFlag.Z)
+                    this.runtime.environmentGlobals[pxsim.localization.lf("acceleration.z")] = this.sample.z;
+                if (this.flags & AccelerometerFlag.Strength)
+                    this.runtime.environmentGlobals[pxsim.localization.lf("acceleration.strength")] = Math.sqrt(this.instantaneousAccelerationSquared());
+                if (this.flags & AccelerometerFlag.Pitch)
+                    this.runtime.environmentGlobals[pxsim.localization.lf("acceleration.pitch")] = this.getPitch();
+                if (this.flags & AccelerometerFlag.Roll)
+                    this.runtime.environmentGlobals[pxsim.localization.lf("acceleration.roll")] = this.getRoll();
+            }
+        }
+
+        private instantaneousAccelerationSquared() {
             // Use pythagoras theorem to determine the combined force acting on the device.
             return this.sample.x * this.sample.x + this.sample.y * this.sample.y + this.sample.z * this.sample.z;
         }
@@ -294,7 +317,6 @@ namespace pxsim {
           * @endcode
           */
         public getX(system: MicroBitCoordinateSystem = MicroBitCoordinateSystem.SIMPLE_CARTESIAN): number {
-            this.activate();
             switch (system) {
                 case MicroBitCoordinateSystem.SIMPLE_CARTESIAN:
                     return -this.sample.x;
@@ -319,7 +341,6 @@ namespace pxsim {
           * @endcode
           */
         public getY(system: MicroBitCoordinateSystem = MicroBitCoordinateSystem.SIMPLE_CARTESIAN): number {
-            this.activate();
             switch (system) {
                 case MicroBitCoordinateSystem.SIMPLE_CARTESIAN:
                     return -this.sample.y;
@@ -344,7 +365,6 @@ namespace pxsim {
           * @endcode
           */
         public getZ(system: MicroBitCoordinateSystem = MicroBitCoordinateSystem.SIMPLE_CARTESIAN): number {
-            this.activate();
             switch (system) {
                 case MicroBitCoordinateSystem.NORTH_EAST_DOWN:
                     return -this.sample.z;
@@ -365,7 +385,6 @@ namespace pxsim {
           * @endcode
           */
         public getPitch(): number {
-            this.activate();
             return Math.floor((360 * this.getPitchRadians()) / (2 * Math.PI));
         }
 
@@ -384,7 +403,6 @@ namespace pxsim {
           * @endcode
           */
         public getRoll(): number {
-            this.activate();
             return Math.floor((360 * this.getRollRadians()) / (2 * Math.PI));
         }
 

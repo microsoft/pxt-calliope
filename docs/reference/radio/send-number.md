@@ -27,7 +27,7 @@ in the `x` direction (left and right) to other @boardname@s.  This kind
 of program might be useful in a model car or model rocket.
 
 ```blocks
-input.onButtonEvent(Button.A, ButtonEvent.Click, () => {
+input.onButtonPressed(Button.A, () => {
     radio.sendNumber(input.acceleration(Dimension.X))
 })
 ```

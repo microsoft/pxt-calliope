@@ -16,7 +16,8 @@ declare namespace radio {
     function raiseEvent(src: int32, value: int32): void;
 
     /**
-     * Internal use only. Takes the next packet from the radio queue and returns its contents + RSSI in a Buffer
+     * Internal use only. Takes the next packet from the radio queue and returns its contents + RSSI in a Buffer.
+     * @returns NULL if no packet available
      */
     //% shim=radio::readRawPacket
     function readRawPacket(): Buffer;
@@ -28,12 +29,12 @@ declare namespace radio {
     function sendRawPacket(msg: Buffer): void;
 
     /**
-     * Registers code to run when a packet is received over radio.
+     * Used internally by the library.
      */
     //% help=radio/on-data-received
-    //% weight=50
+    //% weight=0
     //% blockId=radio_datagram_received_event block="radio on data received" blockGap=8
-    //% deprecated=true shim=radio::onDataReceived
+    //% deprecated=true blockHidden=1 shim=radio::onDataReceived
     function onDataReceived(body: () => void): void;
 
     /**
