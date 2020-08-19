@@ -1,12 +1,22 @@
 namespace pxsim.input {
+    export function onPinTouched(pinId: number, pinEvent: number, handler: RefAction) {
+        let pin = getPin(pinId);
+        if (!pin) return;
+        pin.isTouched();
+        runtime.queueDisplayUpdate(); 
+        pxtcore.registerWithDal(pin.id, pinEvent, handler);
+    }
+
+    // Deprecated
     export function onPinPressed(pinId: number, handler: RefAction) {
         let pin = getPin(pinId);
         if (!pin) return;
         pin.isTouched();
         runtime.queueDisplayUpdate(); 
-        pxtcore.registerWithDal(pin.id, DAL.MICROBIT_BUTTON_EVT_CLICK, handler);
+        pxtcore.registerWithDal(pin.id, ButtonEvent.Click, handler);
     }
 
+    // Deprecated 
     export function onPinReleased(pinId: number, handler: RefAction) {
         let pin = getPin(pinId);
         if (!pin) return;

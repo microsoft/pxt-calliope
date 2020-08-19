@@ -20,10 +20,10 @@ Show a happy face when button A is pressed or a sad face when button B is presse
 let iamHappy = images.iconImage(IconNames.Happy)
 let iamSad = images.iconImage(IconNames.Sad)
 
-input.onButtonPressed(Button.A, () => {
+input.onButtonEvent(Button.A, ButtonEvent.Click, () => {
     iamHappy.showImage(0);
 });
-input.onButtonPressed(Button.B, () => {
+input.onButtonEvent(Button.B, ButtonEvent.Click, () => {
     iamSad.showImage(0);
 });
 ```

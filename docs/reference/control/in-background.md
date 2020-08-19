@@ -29,7 +29,7 @@ control.inBackground(() => {
         basic.pause(100)
     }
 })
-input.onButtonPressed(Button.A, () => {
+input.onButtonEvent(Button.A, ButtonEvent.Click, () => {
     num++;
 })
 ```
@@ -42,7 +42,7 @@ let num = 0
 basic.forever(() => {
     basic.showNumber(num)
 })
-input.onButtonPressed(Button.A, () => {
+input.onButtonEvent(Button.A, ButtonEvent.Click, () => {
     num++;
 })
 ```

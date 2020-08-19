@@ -224,12 +224,24 @@ declare namespace input {
 
     /**
      * Do something when a button (A, B or both A+B) is pushed down and released again.
+     * @param button the button
+     * @param body code to run when event is raised
+     * @param eventType event Type
+     */
+    //% help=input/on-button-event weight=85 blockGap=16
+    //% blockId=device_button_event block="on button %NAME| is %eventType=control_button_event_value_id"
+    //% parts="buttonpair" shim=input::onButtonEvent
+    function onButtonEvent(button: Button, eventType: int32, body: () => void): void;
+
+    /**
+     * Do something when a button (A, B or both A+B) is pushed down and released again.
      * @param button the button that needs to be pressed
      * @param body code to run when event is raised
      */
     //% help=input/on-button-pressed weight=85 blockGap=16
-    //% blockId=device_button_event block="on button|%NAME|pressed"
-    //% parts="buttonpair" shim=input::onButtonPressed
+    //% blockId=device_button_pressed block="on button|%NAME|pressed"
+    //% parts="buttonpair"
+    //% blockHidden=true shim=input::onButtonPressed
     function onButtonPressed(button: Button, body: () => void): void;
 
     /**
@@ -255,11 +267,21 @@ declare namespace input {
 
     /**
      * Do something when a pin is touched and released again (while also touching the GND pin).
+     * @param name the pin, eg: TouchPin.P0
+     * @param body the code to run when event is fired on pin
+     */
+    //% help=input/on-pin-touch weight=83 blockGap=32
+    //% blockId=device_pin_touch block="on pin %name|is %eventType=control_button_event_value_id" shim=input::onPinTouched
+    function onPinTouched(name: TouchPin, eventType: int32, body: () => void): void;
+
+    /**
+     * Do something when a pin is touched and released again (while also touching the GND pin).
      * @param name the pin that needs to be pressed, eg: TouchPin.P0
      * @param body the code to run when the pin is pressed
      */
     //% help=input/on-pin-pressed weight=83 blockGap=32
-    //% blockId=device_pin_event block="on pin %name|pressed" shim=input::onPinPressed
+    //% blockId=device_pin_input block="on pin %name|pressed"
+    //% blockHidden=true shim=input::onPinPressed
     function onPinPressed(name: TouchPin, body: () => void): void;
 
     /**
@@ -269,7 +291,7 @@ declare namespace input {
      */
     //% help=input/on-pin-released weight=6 blockGap=16
     //% blockId=device_pin_released block="on pin %NAME|released"
-    //% advanced=true shim=input::onPinReleased
+    //% blockHidden=true shim=input::onPinReleased
     function onPinReleased(name: TouchPin, body: () => void): void;
 
     /**

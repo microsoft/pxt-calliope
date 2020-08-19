@@ -15,7 +15,7 @@ game.isRunning()
 If the game is currently running, end the game if button **B** is pressed.
 
 ```blocks
-input.onButtonPressed(Button.B, function () {
+input.onButtonEvent(Button.B, ButtonEvent.Click, function () {
 	if (game.isRunning()) {
         game.gameOver()
     }

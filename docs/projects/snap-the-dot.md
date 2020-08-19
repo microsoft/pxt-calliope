@@ -58,8 +58,8 @@ When **A** is pressed, we test if the sprite is in the center or not.
 Use a ``||input:on button pressed||`` block to handle the **A** button. Put in a ``||logic:if||`` block and test if ``||game:x||`` is equal to `2`.
 
 ```blocks
-let sprite = game.createSprite(2, 2)
-input.onButtonPressed(Button.A, function () {
+let sprite: game.LedSprite = null
+input.onButtonEvent(Button.A, ButtonEvent.Click, function () {
     if (sprite.get(LedSpriteProperty.X) == 2) {
     } else {
     }
@@ -76,8 +76,8 @@ basic.forever(function () {
 Finally, pull out an ``||game:add score||`` and a ``||game:game over||`` block to handle both success (sprite in the center) and failure (sprite not in the center).
 
 ```blocks
-let sprite = game.createSprite(2, 2)
-input.onButtonPressed(Button.A, function () {
+let sprite: game.LedSprite = null
+input.onButtonEvent(Button.A, ButtonEvent.Click, function () {
     if (sprite.get(LedSpriteProperty.X) == 2) {
         game.addScore(1)
     } else {

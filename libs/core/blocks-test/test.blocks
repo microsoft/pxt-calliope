@@ -117,7 +117,7 @@
       </block>
     </statement>
   </block>
-  <block type="device_pin_event" x="2407" y="0">
+  <block type="device_pin_touch" x="2407" y="0">
     <field name="name">TouchPin.P2</field>
     <statement name="HANDLER">
       <block type="device_led_toggle">
@@ -350,9 +350,6 @@
               <shadow type="math_number" id="RP?w4vFS1wB4I0nNyldb">
                 <field name="NUM">0</field>
               </shadow>
-              <block type="device_pin_is_pressed">
-                <field name="NAME">TouchPin.P2</field>
-              </block>
             </value>
             <next>
               <block type="variables_set">
@@ -481,14 +478,6 @@
             </value>
           </block>
         </next>
-      </block>
-    </statement>
-  </block>
-  <block type="device_pin_released" x="942" y="723">
-    <field name="NAME">TouchPin.P2</field>
-    <statement name="HANDLER">
-      <block type="device_set_accelerometer_range">
-        <field name="range">AcceleratorRange.EightG</field>
       </block>
     </statement>
   </block>

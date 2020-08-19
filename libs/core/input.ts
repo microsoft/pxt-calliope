@@ -4,6 +4,15 @@
 //% color=#C90072 weight=99
 namespace input {
     /**
+     * Returns the value of a C++ runtime constant
+     */
+    //% weight=1 weight=19 blockId="control_button_event_value_id" block="%id"
+    //% shim=TD_ID advanced=true
+    export function buttonEventValueId(id: ButtonEvent): number {
+        return id;
+    }
+
+    /**
      * Attaches code to run when the screen is facing up.
      * @param body TODO
      */
