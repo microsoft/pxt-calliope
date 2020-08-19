@@ -274,7 +274,7 @@ namespace control {
     //% help=control/wait-micros weight=29
     //% blockId="control_wait_us" block="wait (µs)%micros"
     void waitMicros(int micros) {
-        wait_us(micros);
+        sleep_us(micros);
     }
 
     /**
@@ -297,7 +297,7 @@ namespace control {
     //% help=control/on-event
     //% blockExternalInputs=1
     void onEvent(int src, int value, Action handler, int flags = 0) {
-        if (!flags) flags = EventFlags::QueueIfBusy;
+        if (!flags) flags = ::EventFlags::QueueIfBusy;
         registerWithDal(src, value, handler, (int)flags);
     }
 
@@ -325,6 +325,7 @@ namespace control {
      * Make a friendly name for the device based on its serial number
      */
     //% blockId="control_device_name" block="device name" weight=10 blockGap=8
+    //% help=control/device-name
     //% advanced=true
     String deviceName() {
         return mkString(microbit_friendly_name(), -1);
@@ -334,6 +335,7 @@ namespace control {
     * Derive a unique, consistent serial number of this device from internal data.
     */
     //% blockId="control_device_serial_number" block="device serial number" weight=9
+    //% help=control/device-serial-number
     //% advanced=true
     int deviceSerialNumber() {
         return microbit_serial_number();

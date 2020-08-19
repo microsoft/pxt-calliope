@@ -476,10 +476,10 @@ function testTiltZ() {
 }
 
 function startIOMonitor() {
-    input.onButtonEvent(Button.A, ButtonEvent.Click, () => {
+    input.onButtonPressed(Button.A, () => {
         AWasPressed = true
     })
-    input.onButtonEvent(Button.B, ButtonEvent.Click, () => {
+    input.onButtonPressed(Button.B, () => {
         BWasPressed = true
     })
     input.onShake(() => {

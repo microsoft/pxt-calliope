@@ -13,7 +13,7 @@ through your body and back into the @boardname@. This is called
 **completing a circuit**. It's like you're a big wire!
 
 ```sig
-input.onPinTouched(TouchPin.P0, ButtonEvent.Click, () => {
+input.onPinReleased(TouchPin.P0, () => {
 })
 ```
 
@@ -36,7 +36,7 @@ Every time you release the pin, the program shows the number of times on the scr
 ```blocks
 let count = 0
 basic.showNumber(count, 100)
-input.onPinTouched(TouchPin.P0, ButtonEvent.Click, () => {
+input.onPinReleased(TouchPin.P0, () => {
     count = count + 1
     basic.showNumber(count, 100)
 })

@@ -22,10 +22,10 @@ enum RadioMessage {
     heart,
     skull
 }
-input.onButtonEvent(Button.A, ButtonEvent.Click, function () {
+input.onButtonPressed(Button.A, function () {
     radio.sendMessage(RadioMessage.heart)
 })
-input.onButtonEvent(Button.B, ButtonEvent.Click, function () {
+input.onButtonPressed(Button.B, function () {
     radio.sendMessage(RadioMessage.skull)
 })
 radio.onReceivedMessage(RadioMessage.heart, function () {

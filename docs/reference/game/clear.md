@@ -27,7 +27,7 @@ let img = images.createImage(`
 . . . . .
 `)
 img.showImage(0)
-input.onButtonEvent(Button.A, ButtonEvent.Click, () => {
+input.onButtonPressed(Button.A, () => {
     img.clear()
     img.showImage(0)
 })

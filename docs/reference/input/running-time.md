@@ -18,7 +18,7 @@ program finds the number of milliseconds since the program started
 and shows it on the [LED screen](/device/screen).
 
 ```blocks
-input.onButtonEvent(Button.B, ButtonEvent.Click, () => {
+input.onButtonPressed(Button.B, () => {
     let now = input.runningTime()
     basic.showNumber(now)
 })

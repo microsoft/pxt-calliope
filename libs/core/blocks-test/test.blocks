@@ -117,7 +117,7 @@
       </block>
     </statement>
   </block>
-  <block type="device_pin_touch" x="2407" y="0">
+  <block type="device_pin_event" x="2407" y="0">
     <field name="name">TouchPin.P2</field>
     <statement name="HANDLER">
       <block type="device_led_toggle">
@@ -150,31 +150,31 @@
                 <field name="mode">DisplayMode.Greyscale</field>
                 <next>
                   <block type="device_set_analog_pin">
-                    <field name="name">AnalogPin.P4</field>
+                    <field name="name">AnalogPin.C4</field>
                     <value name="value">
                       <shadow type="math_number_minmax" id=",:%8N*FL3wa-zFQ[+^$9">
                         <mutation min="0" max="1023" label="Value"></mutation>
                         <field name="SLIDER">1023</field>
                       </shadow>
                       <block type="device_get_analog_pin">
-                        <field name="name">AnalogPin.P13</field>
+                        <field name="name">AnalogPin.C5</field>
                       </block>
                     </value>
                     <next>
                       <block type="device_set_digital_pin">
-                        <field name="name">DigitalPin.P10</field>
+                        <field name="name">DigitalPin.C10</field>
                         <value name="value">
                           <shadow type="math_number_minmax" id="W~pvdj%jFEj?EHmT{81Z">
                             <mutation min="0" max="1" label="Value"></mutation>
                             <field name="SLIDER">0</field>
                           </shadow>
                           <block type="device_get_digital_pin">
-                            <field name="name">DigitalPin.P15</field>
+                            <field name="name">DigitalPin.C15</field>
                           </block>
                         </value>
                         <next>
                           <block type="device_set_analog_period">
-                            <field name="pin">AnalogPin.P9</field>
+                            <field name="pin">AnalogPin.C6</field>
                             <value name="micros">
                               <shadow type="math_number" id="4a@.1MdG`n=p;34mQOpC">
                                 <field name="NUM">1234</field>
@@ -230,7 +230,7 @@
                                 </value>
                                 <next>
                                   <block type="device_set_servo_pulse">
-                                    <field name="value">AnalogPin.P14</field>
+                                    <field name="value">AnalogPin.C4</field>
                                     <value name="micros">
                                       <shadow type="math_number" id="@*C3kzJkeeUQ@s$N5?K}">
                                         <field name="NUM">1500</field>
@@ -350,6 +350,9 @@
               <shadow type="math_number" id="RP?w4vFS1wB4I0nNyldb">
                 <field name="NUM">0</field>
               </shadow>
+              <block type="device_pin_is_pressed">
+                <field name="NAME">TouchPin.P2</field>
+              </block>
             </value>
             <next>
               <block type="variables_set">
@@ -481,6 +484,14 @@
       </block>
     </statement>
   </block>
+  <block type="device_pin_released" x="942" y="723">
+    <field name="NAME">TouchPin.P2</field>
+    <statement name="HANDLER">
+      <block type="device_set_accelerometer_range">
+        <field name="range">AcceleratorRange.EightG</field>
+      </block>
+    </statement>
+  </block>
   <block type="serial_on_data_received" x="419" y="933">
     <value name="delimiters">
       <shadow type="serial_delimiter_conv">
@@ -499,7 +510,7 @@
     </statement>
   </block>
   <block type="pins_on_pulsed" x="1538" y="929">
-    <field name="pin">DigitalPin.P10</field>
+    <field name="pin">DigitalPin.C10</field>
     <field name="pulse">PulseValue.Low</field>
     <statement name="HANDLER">
       <block type="i2c_writenumber">
@@ -564,8 +575,8 @@
                                 <next>
                                   <block type="spi_pins">
                                     <field name="mosi">DigitalPin.P9</field>
-                                    <field name="miso">DigitalPin.P14</field>
-                                    <field name="sck">DigitalPin.P16</field>
+                                    <field name="miso">DigitalPin.C14</field>
+                                    <field name="sck">DigitalPin.C16</field>
                                     <next>
                                       <block type="control_reset"></block>
                                     </next>

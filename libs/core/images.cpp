@@ -11,7 +11,7 @@ void RefMImage::destroy(RefMImage *t) {
 }
 
 void RefMImage::print(RefMImage *t) {
-    DMESG("RefMImage %p r=%d size=%d x %d", t, t->refcnt, img->width, img->height);
+    DMESG("RefMImage %p size=%d x %d", t, t->img->width, t->img->height);
 }
 
 void RefMImage::makeWritable() {
@@ -52,6 +52,22 @@ Image createImage(ImageLiteral_ leds) {
 Image createBigImage(ImageLiteral_ leds) {
     return createImage(leds);
 }
+
+//%
+Buffer charCodeBuffer(int charCode) {
+    if(charCode < MICROBIT_FONT_ASCII_START || charCode > MICROBIT_FONT_ASCII_END)
+        return NULL;
+#if MICROBIT_CODAL
+    auto font = codal::BitmapFont::getSystemFont();
+#else
+    auto font = MicroBitFont::getSystemFont();
+#endif
+    const int offset = (charCode - MICROBIT_FONT_ASCII_START) * 5;;
+    const uint8_t* charBuffer = font.characters + offset;
+    
+    return PXT_CREATE_BUFFER(charBuffer, 5);
+}
+
 } // namespace images
 
 namespace ImageMethods {
@@ -83,7 +99,7 @@ void showImage(Image sprite, int xOffset, int interval = 400) {
 //% parts="ledmatrix"
 void plotFrame(Image i, int xOffset) {
     // TODO showImage() used in original implementation
-    plotImage(i, xOffset * 5);
+    plotImage(i, xOffset * i->img->height);
 }
 
 /**
@@ -178,6 +194,6 @@ bool pixel(Image i, int x, int y) {
 //% weight=70 help=images/show-frame
 //% parts="ledmatrix"
 void showFrame(Image i, int frame, int interval = 400) {
-    showImage(i, frame * 5, interval);
+    showImage(i, frame * i->img->height, interval);
 }
 } // namespace ImageMethods

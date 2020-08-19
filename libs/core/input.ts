@@ -4,15 +4,6 @@
 //% color=#C90072 weight=99
 namespace input {
     /**
-     * Returns the value of a C++ runtime constant
-     */
-    //% weight=1 weight=19 blockId="control_button_event_value_id" block="%id"
-    //% shim=TD_ID advanced=true
-    export function buttonEventValueId(id: ButtonEvent): number {
-        return id;
-    }
-
-    /**
      * Attaches code to run when the screen is facing up.
      * @param body TODO
      */
@@ -34,6 +25,7 @@ namespace input {
      * Attaches code to run when the device is shaken.
      * @param body TODO
      */
+    //% deprecated=true
     //% help=input/on-shake
     export function onShake(body: () => void): void {
         onGesture(Gesture.Shake, body);

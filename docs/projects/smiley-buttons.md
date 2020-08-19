@@ -12,7 +12,7 @@ Code the buttons on the @boardname@ to show that it's happy or sad.
 Place a ``||input:on button pressed||`` block to run code when button **A** is pressed.
 
 ```blocks
-input.onButtonEvent(Button.A, ButtonEvent.Click, () => { 
+input.onButtonPressed(Button.A, () => { 
 });
 ```
 
@@ -21,7 +21,7 @@ input.onButtonEvent(Button.A, ButtonEvent.Click, () => {
 Place a ``||basic:show leds||`` block inside ``||input:on button pressed||`` to display a smiley on the screen. Press the **A** button in the simulator to see the smiley.
 
 ```blocks
-input.onButtonEvent(Button.A, ButtonEvent.Click, () => { 
+input.onButtonPressed(Button.A, () => { 
     basic.showLeds(`
         # # . # #
         # # . # #
@@ -37,7 +37,7 @@ input.onButtonEvent(Button.A, ButtonEvent.Click, () => {
 Add ``||input:on button pressed||`` and ``||basic:show leds||`` blocks to display a frowny when button **B** is pressed.
 
 ```blocks
-input.onButtonEvent(Button.B, ButtonEvent.Click, () => { 
+input.onButtonPressed(Button.B, () => { 
     basic.showLeds(`
         # # . # #
         # # . # #
@@ -53,7 +53,7 @@ input.onButtonEvent(Button.B, ButtonEvent.Click, () => {
 Add a secret mode that happens when **A** and **B** are pressed together. For this case, add multiple ``||basic:show leds||`` blocks to create an animation.
 
 ```blocks
-input.onButtonEvent(Button.AB, ButtonEvent.Click, () => {
+input.onButtonPressed(Button.AB, () => {
     basic.showLeds(`
         . . . . .
         # . # . .

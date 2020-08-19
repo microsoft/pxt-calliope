@@ -224,24 +224,12 @@ declare namespace input {
 
     /**
      * Do something when a button (A, B or both A+B) is pushed down and released again.
-     * @param button the button
-     * @param body code to run when event is raised
-     * @param eventType event Type
-     */
-    //% help=input/on-button-event weight=85 blockGap=16
-    //% blockId=device_button_event block="on button %NAME| is %eventType=control_button_event_value_id"
-    //% parts="buttonpair" shim=input::onButtonEvent
-    function onButtonEvent(button: Button, eventType: int32, body: () => void): void;
-
-    /**
-     * Do something when a button (A, B or both A+B) is pushed down and released again.
      * @param button the button that needs to be pressed
      * @param body code to run when event is raised
      */
     //% help=input/on-button-pressed weight=85 blockGap=16
-    //% blockId=device_button_pressed block="on button|%NAME|pressed"
-    //% parts="buttonpair"
-    //% blockHidden=true shim=input::onButtonPressed
+    //% blockId=device_button_event block="on button|%NAME|pressed"
+    //% parts="buttonpair" shim=input::onButtonPressed
     function onButtonPressed(button: Button, body: () => void): void;
 
     /**
@@ -267,21 +255,11 @@ declare namespace input {
 
     /**
      * Do something when a pin is touched and released again (while also touching the GND pin).
-     * @param name the pin, eg: TouchPin.P0
-     * @param body the code to run when event is fired on pin
-     */
-    //% help=input/on-pin-touch weight=83 blockGap=32
-    //% blockId=device_pin_touch block="on pin %name|is %eventType=control_button_event_value_id" shim=input::onPinTouched
-    function onPinTouched(name: TouchPin, eventType: int32, body: () => void): void;
-
-    /**
-     * Do something when a pin is touched and released again (while also touching the GND pin).
      * @param name the pin that needs to be pressed, eg: TouchPin.P0
      * @param body the code to run when the pin is pressed
      */
     //% help=input/on-pin-pressed weight=83 blockGap=32
-    //% blockId=device_pin_input block="on pin %name|pressed"
-    //% blockHidden=true shim=input::onPinPressed
+    //% blockId=device_pin_event block="on pin %name|pressed" shim=input::onPinPressed
     function onPinPressed(name: TouchPin, body: () => void): void;
 
     /**
@@ -291,7 +269,7 @@ declare namespace input {
      */
     //% help=input/on-pin-released weight=6 blockGap=16
     //% blockId=device_pin_released block="on pin %NAME|released"
-    //% blockHidden=true shim=input::onPinReleased
+    //% advanced=true shim=input::onPinReleased
     function onPinReleased(name: TouchPin, body: () => void): void;
 
     /**
@@ -366,7 +344,7 @@ declare namespace input {
     //% blockId=device_get_magnetic_force block="magnetic force (µT)|%NAME" blockGap=8
     //% parts="compass"
     //% advanced=true shim=input::magneticForce
-    function magneticForce(dimension: Dimension): int32;
+    function magneticForce(dimension: Dimension): number;
 
     /**
      * Obsolete, compass calibration is automatic.
@@ -475,6 +453,7 @@ declare namespace control {
      * Make a friendly name for the device based on its serial number
      */
     //% blockId="control_device_name" block="device name" weight=10 blockGap=8
+    //% help=control/device-name
     //% advanced=true shim=control::deviceName
     function deviceName(): string;
 
@@ -482,6 +461,7 @@ declare namespace control {
      * Derive a unique, consistent serial number of this device from internal data.
      */
     //% blockId="control_device_serial_number" block="device serial number" weight=9
+    //% help=control/device-serial-number
     //% advanced=true shim=control::deviceSerialNumber
     function deviceSerialNumber(): int32;
 
@@ -543,16 +523,17 @@ declare namespace led {
     function unplot(x: int32, y: int32): void;
 
     /**
-     * Get the on/off state of the specified LED using x, y coordinates. (0,0) is upper left.
+     * Get the brightness state of the specified LED using x, y coordinates. (0,0) is upper left.
      * @param x the horizontal coordinate of the LED
      * @param y the vertical coordinate of the LED
      */
-    //% help=led/point weight=76
-    //% blockId=device_point block="point|x %x|y %y"
+    //% help=led/point-brightness weight=76
+    //% blockId=device_point_brightness block="point|x %x|y %y brightness"
     //% parts="ledmatrix"
     //% x.min=0 x.max=4 y.min=0 y.max=4
-    //% x.fieldOptions.precision=1 y.fieldOptions.precision=1 shim=led::point
-    function point(x: int32, y: int32): boolean;
+    //% x.fieldOptions.precision=1 y.fieldOptions.precision=1
+    //% advanced=true shim=led::pointBrightness
+    function pointBrightness(x: int32, y: int32): int32;
 
     /**
      * Get the screen brightness from 0 (off) to 255 (full bright).
@@ -664,7 +645,7 @@ declare namespace pins {
     //% help=pins/digital-read-pin weight=30
     //% blockId=device_get_digital_pin block="digital read|pin %name" blockGap=8
     //% name.fieldEditor="gridpicker" name.fieldOptions.columns=4
-    //% name.fieldOptions.tooltips="false" name.fieldOptions.width="300" shim=pins::digitalReadPin
+    //% name.fieldOptions.tooltips="false" name.fieldOptions.width="250" shim=pins::digitalReadPin
     function digitalReadPin(name: DigitalPin): int32;
 
     /**
@@ -676,12 +657,12 @@ declare namespace pins {
     //% blockId=device_set_digital_pin block="digital write|pin %name|to %value"
     //% value.min=0 value.max=1
     //% name.fieldEditor="gridpicker" name.fieldOptions.columns=4
-    //% name.fieldOptions.tooltips="false" name.fieldOptions.width="300" shim=pins::digitalWritePin
+    //% name.fieldOptions.tooltips="false" name.fieldOptions.width="250" shim=pins::digitalWritePin
     function digitalWritePin(name: DigitalPin, value: int32): void;
 
     /**
      * Read the connector value as analog, that is, as a value comprised between 0 and 1023.
-     * @param name of pin to read from, eg: AnalogPin.P1
+     * @param name pin to write to, eg: AnalogPin.P0
      */
     //% help=pins/analog-read-pin weight=25
     //% blockId=device_get_analog_pin block="analog read|pin %name" blockGap="8"
@@ -691,7 +672,7 @@ declare namespace pins {
 
     /**
      * Set the connector value as analog. Value must be comprised between 0 and 1023.
-     * @param name of pin to write to, eg: AnalogPin.P1
+     * @param name pin name to write to, eg: AnalogPin.P0
      * @param value value to write to the pin between ``0`` and ``1023``. eg:1023,0
      */
     //% help=pins/analog-write-pin weight=24
@@ -704,7 +685,7 @@ declare namespace pins {
     /**
      * Configure the pulse-width modulation (PWM) period of the analog output in microseconds.
      * If this pin is not configured as an analog output (using `analog write pin`), the operation has no effect.
-     * @param name analog pin to set period to, eg: AnalogPin.P1
+     * @param name analog pin to set period to, eg: AnalogPin.P0
      * @param micros period in micro seconds. eg:20000
      */
     //% help=pins/analog-set-period weight=23 blockGap=8
@@ -721,7 +702,7 @@ declare namespace pins {
     //% help=pins/on-pulsed weight=22 blockGap=16 advanced=true
     //% blockId=pins_on_pulsed block="on|pin %pin|pulsed %pulse"
     //% pin.fieldEditor="gridpicker" pin.fieldOptions.columns=4
-    //% pin.fieldOptions.tooltips="false" pin.fieldOptions.width="300" shim=pins::onPulsed
+    //% pin.fieldOptions.tooltips="false" pin.fieldOptions.width="250" shim=pins::onPulsed
     function onPulsed(name: DigitalPin, pulse: PulseValue, body: () => void): void;
 
     /**
@@ -742,12 +723,12 @@ declare namespace pins {
     //% weight=20 advanced=true
     //% help=pins/pulse-in
     //% name.fieldEditor="gridpicker" name.fieldOptions.columns=4
-    //% name.fieldOptions.tooltips="false" name.fieldOptions.width="300" maxDuration.defl=2000000 shim=pins::pulseIn
+    //% name.fieldOptions.tooltips="false" name.fieldOptions.width="250" maxDuration.defl=2000000 shim=pins::pulseIn
     function pulseIn(name: DigitalPin, value: PulseValue, maxDuration?: int32): int32;
 
     /**
      * Write a value to the servo, controlling the shaft accordingly. On a standard servo, this will set the angle of the shaft (in degrees), moving the shaft to that orientation. On a continuous rotation servo, this will set the speed of the servo (with ``0`` being full-speed in one direction, ``180`` being full speed in the other, and a value near ``90`` being no movement).
-     * @param name pin to write to, eg: AnalogPin.P1
+     * @param name pin to write to, eg: AnalogPin.P0
      * @param value angle or rotation speed, eg:180,90,0
      */
     //% help=pins/servo-write-pin weight=20
@@ -786,7 +767,23 @@ declare namespace pins {
     function analogSetPitchPin(name: AnalogPin): void;
 
     /**
-     * Emit a pulse-width modulation (PWM) signal to the current pitch pin. Use `analog set pitch pin` to define the pitch pin.
+     * Sets the volume on the pitch pin
+     * @param volume the intensity of the sound from 0..255
+     */
+    //% blockId=device_analog_set_pitch_volume block="analog set pitch volume $volume"
+    //% help=pins/analog-set-pitch-volume weight=3 advanced=true
+    //% volume.min=0 volume.max=255 shim=pins::analogSetPitchVolume
+    function analogSetPitchVolume(volume: int32): void;
+
+    /**
+     * Gets the volume the pitch pin from 0..255
+     */
+    //% blockId=device_analog_pitch_volume block="analog pitch volume"
+    //% help=pins/analog-pitch-volume weight=3 advanced=true shim=pins::analogPitchVolume
+    function analogPitchVolume(): int32;
+
+    /**
+     * Emit a plse-width modulation (PWM) signal to the current pitch pin. Use `analog set pitch pin` to define the pitch pin.
      * @param frequency frequency to modulate in Hz.
      * @param ms duration of the pitch in milli seconds.
      */
@@ -795,14 +792,14 @@ declare namespace pins {
     function analogPitch(frequency: int32, ms: int32): void;
 
     /**
-     * Configure the pull direction of of a pin.
+     * Configure the pull directiion of of a pin.
      * @param name pin to set the pull mode on, eg: DigitalPin.P0
      * @param pull one of the mbed pull configurations, eg: PinPullMode.PullUp
      */
     //% help=pins/set-pull weight=3 advanced=true
     //% blockId=device_set_pull block="set pull|pin %pin|to %pull"
     //% pin.fieldEditor="gridpicker" pin.fieldOptions.columns=4
-    //% pin.fieldOptions.tooltips="false" pin.fieldOptions.width="300" shim=pins::setPull
+    //% pin.fieldOptions.tooltips="false" pin.fieldOptions.width="250" shim=pins::setPull
     function setPull(name: DigitalPin, pull: PinPullMode): void;
 
     /**
@@ -814,7 +811,7 @@ declare namespace pins {
     //% help=pins/set-events weight=4 advanced=true
     //% blockId=device_set_pin_events block="set pin %pin|to emit %type|events"
     //% pin.fieldEditor="gridpicker" pin.fieldOptions.columns=4
-    //% pin.fieldOptions.tooltips="false" pin.fieldOptions.width="300" shim=pins::setEvents
+    //% pin.fieldOptions.tooltips="false" pin.fieldOptions.width="250" shim=pins::setEvents
     function setEvents(name: DigitalPin, type: PinEventType): void;
 
     /**
@@ -843,6 +840,14 @@ declare namespace pins {
     //% help=pins/spi-write weight=5 advanced=true
     //% blockId=spi_write block="spi write %value" shim=pins::spiWrite
     function spiWrite(value: int32): int32;
+
+    /**
+     * Write to and read from the SPI slave at the same time
+     * @param command Data to be sent to the SPI slave (can be null)
+     * @param response Data received from the SPI slave (can be null)
+     */
+    //% help=pins/spi-transfer argsNullable shim=pins::spiTransfer
+    function spiTransfer(command: Buffer, response: Buffer): void;
 
     /**
      * Set the SPI frequency
@@ -874,6 +879,12 @@ declare namespace pins {
     //% sck.fieldEditor="gridpicker" sck.fieldOptions.columns=4
     //% sck.fieldOptions.tooltips="false" sck.fieldOptions.width="250" shim=pins::spiPins
     function spiPins(mosi: DigitalPin, miso: DigitalPin, sck: DigitalPin): void;
+
+    /**
+     * Mounts a push button on the given pin
+     */
+    //% help=pins/push-button advanced=true shim=pins::pushButton
+    function pushButton(pin: DigitalPin): void;
 }
 
 
@@ -947,6 +958,16 @@ declare namespace serial {
     //% rx.fieldOptions.tooltips="false"
     //% blockGap=8 shim=serial::redirect
     function redirect(tx: SerialPin, rx: SerialPin, rate: BaudRate): void;
+
+    /**
+    Set the baud rate of the serial port
+     */
+    //% weight=10
+    //% blockId=serial_setbaudrate block="serial|set baud rate %rate"
+    //% blockGap=8 inlineInputMode=inline
+    //% help=serial/set-baud-rate
+    //% group="Configuration" advanced=true shim=serial::setBaudRate
+    function setBaudRate(rate: BaudRate): void;
 
     /**
      * Direct the serial input and output to use the USB connection.
@@ -1061,6 +1082,12 @@ declare interface Buffer {
      */
     //% shim=BufferMethods::write
     write(dstOffset: int32, src: Buffer): void;
+
+    /**
+     * Compute k-bit FNV-1 non-cryptographic hash of the buffer.
+     */
+    //% shim=BufferMethods::hash
+    hash(bits: int32): uint32;
 }
 declare namespace control {
 
@@ -1077,6 +1104,22 @@ declare namespace control {
      */
     //% deprecated=1 shim=control::createBufferFromUTF8
     function createBufferFromUTF8(str: string): Buffer;
+}
+declare namespace light {
+
+    /**
+     * Sends a color buffer to a light strip
+     **/
+    //% advanced=true
+    //% shim=light::sendWS2812Buffer
+    function sendWS2812Buffer(buf: Buffer, pin: int32): void;
+
+    /**
+     * Sets the light mode of a pin
+     **/
+    //% advanced=true
+    //% shim=light::setMode
+    function setMode(pin: int32, mode: int32): void;
 }
 
 // Auto-generated. Do not edit. Really.

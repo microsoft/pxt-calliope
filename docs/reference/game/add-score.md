@@ -16,11 +16,11 @@ Press button ``A`` as much as possible to increase the score.
 Press ``B`` to display the score and reset the score.
 
 ```blocks
-input.onButtonEvent(Button.B, ButtonEvent.Click, () => {
+input.onButtonPressed(Button.B, () => {
     basic.showNumber(game.score())
     game.setScore(0)
 })
-input.onButtonEvent(Button.A, ButtonEvent.Click, () => {
+input.onButtonPressed(Button.A, () => {
     game.addScore(1)
 })
 ```

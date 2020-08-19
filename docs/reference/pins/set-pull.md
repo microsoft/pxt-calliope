@@ -11,7 +11,7 @@ is connected to ``GND`` (0 volts), then when you press the button,
 button press.
 
 ```sig
-pins.setPull(DigitalPin.P9, PinPullMode.PullDown);
+pins.setPull(DigitalPin.C9, PinPullMode.PullDown);
 ```
 
 The pull-up and -down resistors are about 13kOhm.

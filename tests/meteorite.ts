@@ -18,7 +18,7 @@ counter = 0
 pause = 700
 led.plot(oneX, oneY)
 led.plot(twoX, twoY)
-input.onButtonEvent(Button.A, ButtonEvent.Click, () => {
+input.onButtonPressed(Button.A, () => {
     if (oneX > 0) {
         led.unplot(oneX, oneY)
         led.unplot(twoX, twoY)
@@ -28,7 +28,7 @@ input.onButtonEvent(Button.A, ButtonEvent.Click, () => {
         led.plot(twoX, twoY)
     }
 })
-input.onButtonEvent(Button.B, ButtonEvent.Click, () => {
+input.onButtonPressed(Button.B, () => {
     if (twoX < 4) {
         led.unplot(oneX, oneY)
         led.unplot(twoX, twoY)

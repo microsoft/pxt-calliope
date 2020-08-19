@@ -17,6 +17,8 @@
         "core.cpp",
         "pxt-helpers.ts",
         "helpers.ts",
+        "pxt-python.d.ts",
+        "pxt-python-helpers.ts",
         "pinscompat.ts",
         "configkeys.h",
         "gc.cpp",
@@ -31,6 +33,8 @@
         "gestures.jres",
         "control.ts",
         "control.cpp",
+        "interval.ts",
+        "gcstats.ts",
         "console.ts",
         "game.ts",
         "led.cpp",
@@ -50,18 +54,50 @@
         "trig.cpp",
         "fixed.ts",
         "templates.ts",
+        "sendbuffer.s",
+        "light.cpp",
         "parts/speaker.svg",
         "parts/headphone.svg",
         "parts/dcmotor.svg",
         "_locales/de/core-jsdoc-strings.json",
         "_locales/de/core-strings.json"
     ],
+    "testFiles": [],
     "public": true,
     "dependencies": {},
+    "dalDTS": {
+        "compileServiceVariant": "mbcodal",
+        "includeDirs": [
+            "libraries/codal-core/inc",
+            "libraries/codal-microbit/inc",
+            "libraries/codal-microbit/model",
+            "libraries/codal-microbit/inc/compat",
+            "pxtapp"
+        ],
+        "excludePrefix": [
+            "USB_",
+            "REQUEST_",
+            "LIS3DH_",
+            "FXOS8700_",
+            "MMA8",
+            "LSM303_",
+            "MAG_",
+            "MPU6050_",
+            "REF_TAG_",
+            "HF2_",
+            "PXT_REF_TAG_",
+            "MS_",
+            "SCSI_"
+        ]
+    },
     "yotta": {
+        "config": {
+            "microbit-dal": {
+                "fiber_user_data": 1
+            }
+        },
         "optionalConfig": {
             "microbit-dal": {
-                "fiber_user_data": 1,
                 "bluetooth": {
                     "private_addressing": 0,
                     "advertising_timeout": 0,
