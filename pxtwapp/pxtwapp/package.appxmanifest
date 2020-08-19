@@ -51,7 +51,7 @@
       </Device>
     </DeviceCapability>
     <DeviceCapability Name="humaninterfacedevice">
-      <Device Id="vidpid:0d28 0204">
+      <Device Id="vidpid:1366 1025">
         <Function Type="usage:FF00 *" />
       </Device>
     </DeviceCapability>

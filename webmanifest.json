@@ -1,5 +1,5 @@
 {
-	"name": "makecode.microbit.org",
+	"name": "makecode.calliope.cc",
 	"display": "fullscreen",
 	"orientation": "portrait",
 	"icons": [
@@ -53,7 +53,7 @@
 	"related_applications": [
 		{
 			"platform": "play",
-			"id": "com.samsung.microbit"
+			"id": "cc.calliope.mini"
 		}
 	]
 }

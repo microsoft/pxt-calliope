@@ -34,7 +34,7 @@ export function renderUsbPairDialog(firmwareUrl?: string, failedOnce?: boolean):
                                     <span className="ui purple circular label">2</span>
                                     <strong>{lf("Pair your {0}", boardName)}</strong>
                                     <br />
-                                    <span className="ui small">{lf("Click 'Pair device' below and select BBC micro:bit CMSIS-DAP or DAPLink CMSIS-DAP from the list")}</span>
+                                    <span className="ui small">{lf("Click 'Pair device' below and select 'Calliope mini' or 'DAPLink CMSIS-DAP' from the list")}</span>
                                 </div>
                             </div>
                         </div>

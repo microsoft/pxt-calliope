@@ -108,8 +108,8 @@
             {
                 "usagePage": "0xFF00",
                 "usageId": "0x0001",
-                "vid": "0x0d28",
-                "pid": "0x0204"
+                "vid": "0x1366",
+                "pid": "0x1025"
             }
         ],
         "webUSB": true,
@@ -270,7 +270,7 @@
         }
     },
     "serial": {
-        "nameFilter": "^(mbed Serial Port|DAPLink CMSIS-DAP)",
+        "nameFilter": "^(Calliope mini|mbed Serial Port|DAPLink CMSIS-DAP)",
         "log": true,
         "useEditor": true,
         "editorTheme": {
@@ -284,8 +284,8 @@
                 "#107C10"
             ]
         },
-        "vendorId": "0x0d28",
-        "productId": "0x0204",
+        "vendorId": "0x1366",
+        "productId": "0x1025",
         "rawHID": true
     },
     "appTheme": {

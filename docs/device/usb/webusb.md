@@ -21,7 +21,7 @@ Here are the steps on the supported browsers:
 * connect your @boardname@ to your computer with the microUSB cable
 * open a project
 * click the triple dot icon on the **Download** button and click **Pair device**
-* click on the **Pair device** button and select **BBC micro:bit CMSIS-DAP** or **DAPLink CMSIS-DAP** from the list.
+* click on the **Pair device** button and select **Calliope mini** or **DAPLink CMSIS-DAP** from the list.
 
 If you don't see any devices in the list and @boardname@ has the right firmware (**0249** or above), you can create a [support ticket](https://support.microbit.org/support/tickets/new) to notify the Micro:bit Foundation of the problem. Skip the rest of these steps.
 
@@ -30,7 +30,7 @@ If you don't see any devices in the list and @boardname@ has the right firmware 
 You will need to unpair your device from the editor to disable WebUSB.
 
 * Click on the **lock** icon in the address bar
-* Uncheck each **BBC micro:bit CMSIS-DAP** or **DAPLink CMSIS-DAP** device
+* Uncheck each **Calliope mini** or **DAPLink CMSIS-DAP** device
 * Reload the page
 
 ![](/static/webusb/unpair.gif)

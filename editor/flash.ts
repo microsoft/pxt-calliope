@@ -70,7 +70,7 @@ class DAPWrapper implements pxt.packetio.PacketIOWrapper {
     private binName = pxtc.BINARY_HEX;
 
     constructor(public readonly io: pxt.packetio.PacketIO) {
-        this.familyID = 0x0D28; // this is the microbit vendor id, not quite UF2 family id
+        this.familyID = 0x1366; // this is the microbit vendor id, not quite UF2 family id
         this.io.onDeviceConnectionChanged = (connect) =>
             this.disconnectAsync()
                 .then(() => connect && this.reconnectAsync());
