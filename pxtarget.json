@@ -388,6 +388,7 @@
         "blocksCollapsing": true,
         "highContrast": true,
         "greenScreen": true,
+        "accessibleBlocks": true,
         "print": true,
         "selectLanguage": true,
         "availableLocales": [
