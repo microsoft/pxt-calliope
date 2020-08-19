@@ -26,7 +26,7 @@ Read the value of the _WHOAMI_ register from the device connected to the SPI bus
 
 ```blocks
 pins.digitalWritePin(DigitalPin.P0, 1);
-pins.spiPins(DigitalPin.P15, DigitalPin.P14, DigitalPin.P13);
+pins.spiPins(DigitalPin.C15, DigitalPin.C14, DigitalPin.C13);
 pins.spiFormat(8, 3);
 pins.spiFrequency(1000000);
 pins.digitalWritePin(DigitalPin.P0, 0);

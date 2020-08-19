@@ -108,9 +108,9 @@ basic.forever(function () {
         pins.digitalWritePin(DigitalPin.P3, 0)
     }
     if (A && B) {
-        pins.digitalWritePin(DigitalPin.P4, 1)
+        pins.digitalWritePin(DigitalPin.C4, 1)
     } else {
-        pins.digitalWritePin(DigitalPin.P4, 0)
+        pins.digitalWritePin(DigitalPin.C4, 0)
     }
     basic.pause(100)
 })
@@ -122,7 +122,7 @@ As easy way to see what the outputs of our PLD are, you can use the **P6** pin a
 
 ```blocks
 basic.forever(function () {
-if (pins.digitalReadPin(DigitalPin.P6) > 0) {
+if (pins.digitalReadPin(DigitalPin.C6) > 0) {
         basic.showString("T")
     } else {
         basic.showString("F")
