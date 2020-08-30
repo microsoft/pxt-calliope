@@ -21,10 +21,8 @@ enum class DigitalPin {
 };
 
 enum class AnalogPin {
-    P0 = MICROBIT_ID_IO_P12,   // edge connector 0
     P1 = MICROBIT_ID_IO_P0,    // edge connector 1
     P2 = MICROBIT_ID_IO_P1,    // edge connector 2
-    P3 = MICROBIT_ID_IO_P16,   // edge connector 3
     C4 = MICROBIT_ID_IO_P3,   // LED matrix C1
     C5 = MICROBIT_ID_IO_P4,   // LED matrix C2
     C6 = MICROBIT_ID_IO_P10,  // LED matrix C3
