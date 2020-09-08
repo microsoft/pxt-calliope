@@ -457,5 +457,6 @@
             }
         }
     },
-    "uploadDocs": true
+    "uploadDocs": true,
+    "ignoreDocsErrors": true
 }
