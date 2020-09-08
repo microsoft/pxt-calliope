@@ -9,14 +9,18 @@ PXT_ABI(__aeabi_ddiv)
 PXT_ABI(__aeabi_dmul)
 
 extern "C" void target_panic(int error_code) {
+#if !MICROBIT_CODAL
     // wait for serial to flush
-    wait_us(300000);
+    sleep_us(300000);
+#endif
     microbit_panic(error_code);
 }
 
+#if !MICROBIT_CODAL
 extern "C" void target_reset() {
     microbit_reset();
 }
+#endif
 
 uint32_t device_heap_size(uint8_t heap_index); // defined in microbit-dal
 
@@ -27,7 +31,9 @@ MicroBitEvent lastEvent;
 
 void platform_init() {
     microbit_seed_random();    
-    seedRandom(microbit_random(0x7fffffff));
+    int seed = microbit_random(0x7fffffff);
+    DMESG("random seed: %d", seed);
+    seedRandom(seed);
 }
 
 void initMicrobitGC() {
@@ -43,7 +49,25 @@ struct FreeList {
     FreeList *next;
 };
 
+void dispatchForeground(MicroBitEvent e, void *action) {
+    lastEvent = e;
+    auto value = fromInt(e.value);
+    runAction1((Action)action, value);
+}
+
+void deleteListener(MicroBitListener *l) {
+    if (l->cb_param == (void (*)(MicroBitEvent, void *))dispatchForeground) {
+        decr((Action)(l->cb_arg));
+        unregisterGCPtr((Action)(l->cb_arg));
+    }
+}
+
 static void initCodal() {
+    // TODO!!!
+#ifndef MICROBIT_CODAL
+    uBit.messageBus.setListenerDeletionCallback(deleteListener);
+#endif
+
     // repeat error 4 times and restart as needed
     microbit_panic_timeout(4);
 }
@@ -54,27 +78,11 @@ void dumpDmesg() {}
 // An adapter for the API expected by the run-time.
 // ---------------------------------------------------------------------------
 
-// We have the invariant that if [dispatchEvent] is registered against the DAL
-// for a given event, then [handlersMap] contains a valid entry for that
-// event.
-void dispatchEvent(MicroBitEvent e) {
-    lastEvent = e;
-
-    auto curr = findBinding(e.source, e.value);
-    auto value = fromInt(e.value);
-    if (curr)
-        runAction1(curr->action, value);
-
-    curr = findBinding(e.source, DEVICE_EVT_ANY);
-    if (curr)
-        runAction1(curr->action, value);
-}
-
 void registerWithDal(int id, int event, Action a, int flags) {
-    // first time?
-    if (!findBinding(id, event))
-        uBit.messageBus.listen(id, event, dispatchEvent, flags);
-    setBinding(id, event, a);
+    uBit.messageBus.ignore(id, event, dispatchForeground);
+    uBit.messageBus.listen(id, event, dispatchForeground, a);
+    incr(a);
+    registerGCPtr(a);
 }
 
 void fiberDone(void *a) {
@@ -92,7 +100,11 @@ void sleep_ms(unsigned ms) {
 }
 
 void sleep_us(uint64_t us) {
+#if MICROBIT_CODAL
+    target_wait_us(us);
+#else
     wait_us(us);
+#endif
 }
 
 void forever_stub(void *a) {
@@ -232,21 +244,43 @@ void setThreadContext(ThreadContext *ctx) {
     currentFiber->user_data = ctx;
 }
 
+#if !MICROBIT_CODAL
+#define tcb_get_stack_base(tcb) (tcb).stack_base
+#endif
+
 static void *threadAddressFor(Fiber *fib, void *sp) {
     if (fib == currentFiber)
         return sp;
-    return (uint8_t *)sp + ((uint8_t *)fib->stack_top - (uint8_t *)fib->tcb.stack_base);
+
+    return (uint8_t *)sp + ((uint8_t *)fib->stack_top - (uint8_t *)tcb_get_stack_base(fib->tcb));
 }
 
 void gcProcessStacks(int flags) {
     // check scheduler is initialized
     if (!currentFiber) {
         // make sure we allocate something to at least initalize the memory allocator
-        void * volatile p = xmalloc(1);
+        void *volatile p = xmalloc(1);
         xfree(p);
         return;
     }
 
+#ifdef MICROBIT_GET_FIBER_LIST_SUPPORTED
+    for (Fiber *fib = get_fiber_list(); fib; fib = fib->next) {
+        auto ctx = (ThreadContext *)fib->user_data;
+        if (!ctx)
+            continue;
+        for (auto seg = &ctx->stack; seg; seg = seg->next) {
+            auto ptr = (TValue *)threadAddressFor(fib, seg->top);
+            auto end = (TValue *)threadAddressFor(fib, seg->bottom);
+            if (flags & 2)
+                DMESG("RS%d:%p/%d", cnt++, ptr, end - ptr);
+            // VLOG("mark: %p - %p", ptr, end);
+            while (ptr < end) {
+                gcProcess(*ptr++);
+            }
+        }
+    }
+#else
     int numFibers = list_fibers(NULL);
     Fiber **fibers = (Fiber **)xmalloc(sizeof(Fiber *) * numFibers);
     int num2 = list_fibers(fibers);
@@ -262,8 +296,10 @@ void gcProcessStacks(int flags) {
         for (auto seg = &ctx->stack; seg; seg = seg->next) {
             auto ptr = (TValue *)threadAddressFor(fib, seg->top);
             auto end = (TValue *)threadAddressFor(fib, seg->bottom);
-            if (flags & 2)
-                DMESG("RS%d:%p/%d", cnt++, ptr, end - ptr);
+            if (flags & 2) {
+                DMESG("RS%d:%p/%d", cnt, ptr, end - ptr);
+                cnt++;
+            }
             // VLOG("mark: %p - %p", ptr, end);
             while (ptr < end) {
                 gcProcess(*ptr++);
@@ -271,6 +307,7 @@ void gcProcessStacks(int flags) {
         }
     }
     xfree(fibers);
+#endif
 }
 
 } // namespace pxt

@@ -35,7 +35,7 @@ declare namespace basic {
     A = 1,  // MICROBIT_ID_BUTTON_A
     B = 2,  // MICROBIT_ID_BUTTON_B
     //% block="A+B"
-    AB = 26,  // MICROBIT_ID_BUTTON_AB
+    AB = 3,  // MICROBIT_ID_BUTTON_AB
     }
 
 
@@ -60,10 +60,10 @@ declare namespace basic {
 
 
     declare const enum TouchPin {
-    P0 = 19,  // MICROBIT_ID_IO_P12
-    P1 = 7,  // MICROBIT_ID_IO_P0
-    P2 = 8,  // MICROBIT_ID_IO_P1
-    P3 = 23,  // MICROBIT_ID_IO_P16
+    P0 = 112,  // MICROBIT_ID_IO_P12
+    P1 = 100,  // MICROBIT_ID_IO_P0
+    P2 = 101,  // MICROBIT_ID_IO_P1
+    P3 = 116,  // MICROBIT_ID_IO_P16
     }
 
 
@@ -221,51 +221,51 @@ declare namespace input {
     //% blockIdentity="control.eventSourceId"
     MICROBIT_ID_BUTTON_B = 2,  // MICROBIT_ID_BUTTON_B
     //% blockIdentity="control.eventSourceId"
-    MICROBIT_ID_BUTTON_AB = 26,  // MICROBIT_ID_BUTTON_AB
+    MICROBIT_ID_BUTTON_AB = 3,  // MICROBIT_ID_BUTTON_AB
     //% blockIdentity="control.eventSourceId"
-    MICROBIT_ID_RADIO = 29,  // MICROBIT_ID_RADIO
+    MICROBIT_ID_RADIO = 9,  // MICROBIT_ID_RADIO
     //% blockIdentity="control.eventSourceId"
-    MICROBIT_ID_GESTURE = 27,  // MICROBIT_ID_GESTURE
+    MICROBIT_ID_GESTURE = 13,  // MICROBIT_ID_GESTURE
     //% blockIdentity="control.eventSourceId"
-    MICROBIT_ID_ACCELEROMETER = 4,  // MICROBIT_ID_ACCELEROMETER
+    MICROBIT_ID_ACCELEROMETER = 5,  // MICROBIT_ID_ACCELEROMETER
     //% blockIdentity="control.eventSourceId"
-    MICROBIT_ID_IO_P0 = 7,  // MICROBIT_ID_IO_P0
+    MICROBIT_ID_IO_P0 = 100,  // MICROBIT_ID_IO_P0
     //% blockIdentity="control.eventSourceId"
-    MICROBIT_ID_IO_P1 = 8,  // MICROBIT_ID_IO_P1
+    MICROBIT_ID_IO_P1 = 101,  // MICROBIT_ID_IO_P1
     //% blockIdentity="control.eventSourceId"
-    MICROBIT_ID_IO_P2 = 9,  // MICROBIT_ID_IO_P2
+    MICROBIT_ID_IO_P2 = 102,  // MICROBIT_ID_IO_P2
     //% blockIdentity="control.eventSourceId"
-    MICROBIT_ID_IO_P3 = 10,  // MICROBIT_ID_IO_P3
+    MICROBIT_ID_IO_P3 = 103,  // MICROBIT_ID_IO_P3
     //% blockIdentity="control.eventSourceId"
-    MICROBIT_ID_IO_P4 = 11,  // MICROBIT_ID_IO_P4
+    MICROBIT_ID_IO_P4 = 104,  // MICROBIT_ID_IO_P4
     //% blockIdentity="control.eventSourceId"
-    MICROBIT_ID_IO_P5 = 12,  // MICROBIT_ID_IO_P5
+    MICROBIT_ID_IO_P5 = 105,  // MICROBIT_ID_IO_P5
     //% blockIdentity="control.eventSourceId"
-    MICROBIT_ID_IO_P6 = 13,  // MICROBIT_ID_IO_P6
+    MICROBIT_ID_IO_P6 = 106,  // MICROBIT_ID_IO_P6
     //% blockIdentity="control.eventSourceId"
-    MICROBIT_ID_IO_P7 = 14,  // MICROBIT_ID_IO_P7
+    MICROBIT_ID_IO_P7 = 107,  // MICROBIT_ID_IO_P7
     //% blockIdentity="control.eventSourceId"
-    MICROBIT_ID_IO_P8 = 15,  // MICROBIT_ID_IO_P8
+    MICROBIT_ID_IO_P8 = 108,  // MICROBIT_ID_IO_P8
     //% blockIdentity="control.eventSourceId"
-    MICROBIT_ID_IO_P9 = 16,  // MICROBIT_ID_IO_P9
+    MICROBIT_ID_IO_P9 = 109,  // MICROBIT_ID_IO_P9
     //% blockIdentity="control.eventSourceId"
-    MICROBIT_ID_IO_P10 = 17,  // MICROBIT_ID_IO_P10
+    MICROBIT_ID_IO_P10 = 110,  // MICROBIT_ID_IO_P10
     //% blockIdentity="control.eventSourceId"
-    MICROBIT_ID_IO_P11 = 18,  // MICROBIT_ID_IO_P11
+    MICROBIT_ID_IO_P11 = 111,  // MICROBIT_ID_IO_P11
     //% blockIdentity="control.eventSourceId"
-    MICROBIT_ID_IO_P12 = 19,  // MICROBIT_ID_IO_P12
+    MICROBIT_ID_IO_P12 = 112,  // MICROBIT_ID_IO_P12
     //% blockIdentity="control.eventSourceId"
-    MICROBIT_ID_IO_P13 = 20,  // MICROBIT_ID_IO_P13
+    MICROBIT_ID_IO_P13 = 113,  // MICROBIT_ID_IO_P13
     //% blockIdentity="control.eventSourceId"
-    MICROBIT_ID_IO_P14 = 21,  // MICROBIT_ID_IO_P14
+    MICROBIT_ID_IO_P14 = 114,  // MICROBIT_ID_IO_P14
     //% blockIdentity="control.eventSourceId"
-    MICROBIT_ID_IO_P15 = 22,  // MICROBIT_ID_IO_P15
+    MICROBIT_ID_IO_P15 = 115,  // MICROBIT_ID_IO_P15
     //% blockIdentity="control.eventSourceId"
-    MICROBIT_ID_IO_P16 = 23,  // MICROBIT_ID_IO_P16
+    MICROBIT_ID_IO_P16 = 116,  // MICROBIT_ID_IO_P16
     //% blockIdentity="control.eventSourceId"
-    MICROBIT_ID_IO_P19 = 24,  // MICROBIT_ID_IO_P19
+    MICROBIT_ID_IO_P19 = 119,  // MICROBIT_ID_IO_P19
     //% blockIdentity="control.eventSourceId"
-    MICROBIT_ID_IO_P20 = 25,  // MICROBIT_ID_IO_P20
+    MICROBIT_ID_IO_P20 = 120,  // MICROBIT_ID_IO_P20
     //% blockIdentity="control.eventSourceId"
     MES_DEVICE_INFO_ID = 1103,  // MES_DEVICE_INFO_ID
     //% blockIdentity="control.eventSourceId"
@@ -405,11 +405,11 @@ declare namespace input {
 
     declare const enum EventFlags {
     //%
-    QueueIfBusy = 0x0010,  // MESSAGE_BUS_LISTENER_QUEUE_IF_BUSY
+    QueueIfBusy = 16,  // MESSAGE_BUS_LISTENER_QUEUE_IF_BUSY
     //%
-    DropIfBusy = 0x0020,  // MESSAGE_BUS_LISTENER_DROP_IF_BUSY
+    DropIfBusy = 32,  // MESSAGE_BUS_LISTENER_DROP_IF_BUSY
     //%
-    Reentrant = 0x0008,  // MESSAGE_BUS_LISTENER_REENTRANT
+    Reentrant = 8,  // MESSAGE_BUS_LISTENER_REENTRANT
     }
 declare namespace control {
 }
@@ -449,35 +449,37 @@ declare namespace motors {
 
 
     declare const enum DigitalPin {
-    P0 = 19,  // MICROBIT_ID_IO_P12
-    P1 = 7,  // MICROBIT_ID_IO_P0
-    P2 = 8,  // MICROBIT_ID_IO_P1
-    P3 = 23,  // MICROBIT_ID_IO_P16
-    C4 = 10,  // MICROBIT_ID_IO_P3
-    C5 = 11,  // MICROBIT_ID_IO_P4
-    C6 = 17,  // MICROBIT_ID_IO_P10
-    C7 = 20,  // MICROBIT_ID_IO_P13
-    C8 = 21,  // MICROBIT_ID_IO_P14
-    C9 = 22,  // MICROBIT_ID_IO_P15
-    C10 = 16,  // MICROBIT_ID_IO_P9
-    C11 = 14,  // MICROBIT_ID_IO_P7
-    C12 = 13,  // MICROBIT_ID_IO_P6
-    C16 = 9,  // MICROBIT_ID_IO_P2
-    C17 = 15,  // MICROBIT_ID_IO_P8
-    C18 = 25,  // MICROBIT_ID_IO_P20
-    C19 = 24,  // MICROBIT_ID_IO_P19
+    P0 = 112,  // MICROBIT_ID_IO_P12
+    P1 = 100,  // MICROBIT_ID_IO_P0
+    P2 = 101,  // MICROBIT_ID_IO_P1
+    P3 = 116,  // MICROBIT_ID_IO_P16
+    C4 = 103,  // MICROBIT_ID_IO_P3
+    C5 = 104,  // MICROBIT_ID_IO_P4
+    C6 = 110,  // MICROBIT_ID_IO_P10
+    C7 = 113,  // MICROBIT_ID_IO_P13
+    C8 = 114,  // MICROBIT_ID_IO_P14
+    C9 = 115,  // MICROBIT_ID_IO_P15
+    C10 = 109,  // MICROBIT_ID_IO_P9
+    C11 = 107,  // MICROBIT_ID_IO_P7
+    C12 = 106,  // MICROBIT_ID_IO_P6
+    C16 = 102,  // MICROBIT_ID_IO_P2
+    C17 = 108,  // MICROBIT_ID_IO_P8
+    C18 = 120,  // MICROBIT_ID_IO_P20
+    C19 = 119,  // MICROBIT_ID_IO_P19
     }
 
 
     declare const enum AnalogPin {
-    P1 = 7,  // MICROBIT_ID_IO_P0
-    P2 = 8,  // MICROBIT_ID_IO_P1
-    C4 = 10,  // MICROBIT_ID_IO_P3
-    C5 = 11,  // MICROBIT_ID_IO_P4
-    C6 = 17,  // MICROBIT_ID_IO_P10
-    C16 = 9,  // MICROBIT_ID_IO_P2
-    C17 = 15,  // MICROBIT_ID_IO_P8
-    MIC = 50,  // MICROBIT_ID_IO_P21
+    P0 = 112,  // MICROBIT_ID_IO_P12
+    P1 = 100,  // MICROBIT_ID_IO_P0
+    P2 = 101,  // MICROBIT_ID_IO_P1
+    P3 = 116,  // MICROBIT_ID_IO_P16
+    C4 = 103,  // MICROBIT_ID_IO_P3
+    C5 = 104,  // MICROBIT_ID_IO_P4
+    C6 = 110,  // MICROBIT_ID_IO_P10
+    C16 = 102,  // MICROBIT_ID_IO_P2
+    C17 = 108,  // MICROBIT_ID_IO_P8
+    MIC = 121,  // MICROBIT_ID_IO_P21
     }
 
 
@@ -501,23 +503,23 @@ declare namespace motors {
 
     declare const enum PinEventType {
     //% block="edge"
-    Edge = 1,  // MICROBIT_PIN_EVENT_ON_EDGE
+    Edge = 2,  // MICROBIT_PIN_EVENT_ON_EDGE
     //% block="pulse"
-    Pulse = 2,  // MICROBIT_PIN_EVENT_ON_PULSE
+    Pulse = 3,  // MICROBIT_PIN_EVENT_ON_PULSE
     //% block="touch"
-    Touch = 3,  // MICROBIT_PIN_EVENT_ON_TOUCH
+    Touch = 4,  // MICROBIT_PIN_EVENT_ON_TOUCH
     //% block="none"
     None = 0,  // MICROBIT_PIN_EVENT_NONE
     }
 
 
     declare const enum SerialPin {
-    P0 = 19,  // MICROBIT_ID_IO_P12
-    P1 = 7,  // MICROBIT_ID_IO_P0
-    P2 = 8,  // MICROBIT_ID_IO_P1
-    P3 = 23,  // MICROBIT_ID_IO_P16
-    C16 = 9,  // MICROBIT_ID_IO_P2
-    C17 = 15,  // MICROBIT_ID_IO_P8
+    P0 = 112,  // MICROBIT_ID_IO_P12
+    P1 = 100,  // MICROBIT_ID_IO_P0
+    P2 = 101,  // MICROBIT_ID_IO_P1
+    P3 = 116,  // MICROBIT_ID_IO_P16
+    C16 = 102,  // MICROBIT_ID_IO_P2
+    C17 = 108,  // MICROBIT_ID_IO_P8
     USB_TX = 1001,
     USB_RX = 1002,
     }
@@ -546,22 +548,6 @@ declare namespace motors {
     BaudRate2400 = 2400,
     //% block=1200
     BaudRate1200 = 1200,
-    }
-
-
-    declare const enum Delimiters {
-    //% block="new line"
-    NewLine = 1,
-    //% block=","
-    Comma = 2,
-    //% block="$"
-    Dollar = 3,
-    //% block=":"
-    Colon = 4,
-    //% block="."
-    Fullstop = 5,
-    //% block="#"
-    Hash = 6,
     }
 declare namespace serial {
 }

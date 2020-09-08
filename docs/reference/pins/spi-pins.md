@@ -31,7 +31,7 @@ If you don't set the pins for the SPI connection, the default pin assignments ar
 Set the pin assignments for a SPI connection to the default pins.
 
 ```blocks
-pins.spiPins(DigitalPin.P15, DigitalPin.P14, DigitalPin.P13);
+pins.spiPins(DigitalPin.C15, DigitalPin.C14, DigitalPin.C13);
 ```
 
 ## See also

@@ -10,7 +10,9 @@
         "libs/radio",
         "libs/devices",
         "libs/bluetooth",
-        "libs/radio-broadcast"
+        "libs/servo",
+        "libs/radio-broadcast",
+        "libs/microphone"
     ],
     "cloud": {
         "workspace": false,
@@ -28,20 +30,22 @@
         }
     },
     "compile": {
-        "isNative": true,
+        "isNative": false,
         "hasHex": true,
         "deployDrives": "MINI",
         "driveName": "MINI",
-        "hexMimeType": "application/x-calliope-hex",
+        "hexMimeType": "application/x-microbit-hex",
         "openocdScript": "source [find interface/cmsis-dap.cfg]; source [find target/nrf51.cfg]",
-        "flashUsableEnd": 245760,
-        "flashEnd": 245760,
+        "flashUsableEnd": 242688,
+        "flashEnd": 242688,
         "flashCodeAlign": 1024,
         "floatingPoint": true,
         "taggedInts": true,
         "utf8": false,
         "gc": true,
         "imageRefTag": 9,
+        "shimRenames": {
+        },
         "patches": {
             "0.0.0 - 1.0.0": [
                 {
@@ -104,12 +108,20 @@
             {
                 "usagePage": "0xFF00",
                 "usageId": "0x0001",
-                "vid": "0x0d28",
-                "pid": "0x0204"
+                "vid": "0x1366",
+                "pid": "0x1025"
             }
         ],
         "webUSB": true,
         "useNewFunctions": true
+    },
+    "compileService": {
+        "yottaTarget": "calliope-mini-classic-gcc",
+        "yottaCorePackage": "microbit",
+        "githubCorePackage": "Amerlander/microbit",
+        "gittag": "v2.2.0-rc6.03",
+        "serviceId": "calliope",
+        "dockerImage": "pext/yotta:latest"
     },
     "runtime": {
         "mathBlocks": true,
@@ -119,6 +131,8 @@
         "textBlocks": true,
         "listsBlocks": true,
         "functionBlocks": true,
+        "breakBlock": true,
+        "continueBlock": true,
         "functionsOptions": {
             "useNewFunctions": true,
             "extraFunctionEditorTypes": [
@@ -127,6 +141,12 @@
                     "label": "LedSprite",
                     "icon": "send",
                     "defaultName": "sprite"
+                },
+                {
+                    "typeName": "Image",
+                    "label": "Image",
+                    "icon": "image outline",
+                    "defaultName": "image"
                 }
             ]
         },
@@ -136,10 +156,9 @@
     },
     "simulator": {
         "autoRun": true,
-        "enableTrace": true,
-        "streams": true,
+        "streams": false,
         "aspectRatio": 1.13,
-        "parts": false,
+        "parts": true,
         "partsAspectRatio": 0.69,
         "boardDefinition": {
             "visual": "calliope",
@@ -234,7 +253,14 @@
                 "microphone",
                 "rgbled"
             ],
-            "useCrocClips": true,
+            "pinStyles": {
+                "P0": "croc",
+                "P1": "croc",
+                "P2": "croc",
+                "P3": "croc",
+                "EDGE_GND": "croc",
+                "EDGE_VCC": "croc"
+            },
             "marginWhenBreadboarding": [
                 0,
                 0,
@@ -243,15 +269,8 @@
             ]
         }
     },
-    "compileService": {
-        "yottaTarget": "calliope-mini-classic-gcc",
-        "yottaCorePackage": "microbit",
-        "githubCorePackage": "calliope-mini/microbit",
-        "gittag": "pxtgc-0",
-        "serviceId": "calliope"
-    },
     "serial": {
-        "nameFilter": "^(mbed Serial Port|DAPLink CMSIS-DAP)",
+        "nameFilter": "^(Calliope mini|mbed Serial Port|DAPLink CMSIS-DAP)",
         "log": true,
         "useEditor": true,
         "editorTheme": {
@@ -265,11 +284,10 @@
                 "#107C10"
             ]
         },
-        "vendorId": "0x0d28",
-        "productId": "0x0204",
+        "vendorId": "0x1366",
+        "productId": "0x1025",
         "rawHID": true
     },
-    "ignoreDocsErrors": true,
     "appTheme": {
         "accentColor": "#249899",
         "defaultLocale": "de",
@@ -332,6 +350,7 @@
             }
         ],
         "hasReferenceDocs": false,
+        "hideHomeDetailsVideo": true,
         "invertedMenu": true,
         "coloredToolbox": true,
         "monacoToolbox": true,
@@ -366,14 +385,15 @@
             "functions": "#005A9E",
             "arrays": "#E65722"
         },
+        "blocksCollapsing": true,
         "highContrast": true,
         "greenScreen": true,
-        "accessibleBlocks": true,
         "print": true,
         "selectLanguage": true,
         "availableLocales": [
             "en",
             "ar",
+            "bg",
             "cs",
             "da",
             "de",
@@ -381,6 +401,7 @@
             "es-ES",
             "fi",
             "fr",
+            "he",
             "hu",
             "is",
             "it",
@@ -388,6 +409,7 @@
             "ko",
             "nl",
             "nb",
+            "nn-NO",
             "pl",
             "pt-BR",
             "pt-PT",
@@ -405,7 +427,8 @@
         },
         "browserDbPrefixes": {
             "1": "v1",
-            "2": "v2"
+            "2": "v2",
+            "3": "v3"
         },
         "editorVersionPaths": {
             "0": "v0"
@@ -416,13 +439,15 @@
         "simGifTransparent": "rgba(0,0,0,0)",
         "simGifMaxFrames": 44,
         "simScreenshotMaxUriLength": 300000,
-        "importExtensionFiles": true,        
+        "qrCode": true,
+        "importExtensionFiles": true,
+        "nameProjectFirst": true,
         "githubEditor": true,
         "tutorialBlocksDiff": false,
-        "python": true,
-        "pythonToolbox": true,
         "chooseLanguageRestrictionOnNewProject": true,
-        "openProjectNewTab": true
+        "openProjectNewTab": true,
+        "python": true,
+        "appFlashingTroubleshoot": "/device/windows-app/troubleshoot"
     },
     "queryVariants": {
         "hidemenu": {
@@ -431,6 +456,5 @@
             }
         }
     },
-    "uploadDocs": false,
-    "uploadApiStringsBranchRx": "^(master|v[2-9]\\.\\d+\\.\\d+)$"
+    "uploadDocs": true
 }

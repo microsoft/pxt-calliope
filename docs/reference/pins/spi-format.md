@@ -30,7 +30,7 @@ The default number of bits is `8` and the default mode value is `3`.
 Set the pins and format for the SPI connection.
 
 ```blocks
-pins.spiPins(DigitalPin.P15, DigitalPin.P14, DigitalPin.P13);
+pins.spiPins(DigitalPin.C15, DigitalPin.C14, DigitalPin.C13);
 pins.spiFormat(8, 3);
 ```
 

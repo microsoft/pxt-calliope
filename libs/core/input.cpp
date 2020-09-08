@@ -350,17 +350,17 @@ namespace input {
     //% blockId=device_get_magnetic_force block="magnetic force (µT)|%NAME" blockGap=8
     //% parts="compass"
     //% advanced=true
-    int magneticForce(Dimension dimension) {
-      if (!uBit.compass.isCalibrated())
-        uBit.compass.calibrate();
-
-      switch (dimension) {
-      case Dimension::X: return uBit.compass.getX() / 1000;
-      case Dimension::Y: return uBit.compass.getY() / 1000;
-      case Dimension::Z: return uBit.compass.getZ() / 1000;
-      case Dimension::Strength: return uBit.compass.getFieldStrength() / 1000;
-      }
-      return 0;
+    TNumber magneticForce(Dimension dimension) {
+        if (!uBit.compass.isCalibrated())
+            uBit.compass.calibrate();
+        double d = 0;        
+        switch (dimension) {
+            case Dimension::X: d = uBit.compass.getX(); break;
+            case Dimension::Y: d = uBit.compass.getY(); break;
+            case Dimension::Z: d = uBit.compass.getZ(); break;
+            case Dimension::Strength: d = uBit.compass.getFieldStrength() ; break;
+        }
+        return fromDouble(d / 1000.0);
     }
 
     /**
