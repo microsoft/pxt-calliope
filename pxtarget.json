@@ -35,6 +35,7 @@
         "deployDrives": "MINI",
         "driveName": "MINI",
         "hexMimeType": "application/x-microbit-hex",
+        "moveHexEof": true,
         "openocdScript": "source [find interface/cmsis-dap.cfg]; source [find target/nrf51.cfg]",
         "flashUsableEnd": 242688,
         "flashEnd": 242688,
@@ -456,5 +457,6 @@
             }
         }
     },
-    "uploadDocs": true
+    "uploadDocs": true,
+    "ignoreDocsErrors": true
 }

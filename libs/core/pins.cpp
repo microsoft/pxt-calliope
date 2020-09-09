@@ -342,7 +342,7 @@ namespace pins {
     void analogPitch(int frequency, int ms) {
         // init pins if needed
         if (NULL == pitchPin) {
-            pitchPin = getPin((int)AnalogPin::P0);
+            pitchPin = getPin((int)DigitalPin::P0);
 #ifdef SOUND_MIRROR_EXTENSION
             pitchPin2 = &SOUND_MIRROR_EXTENSION;
 #endif           
