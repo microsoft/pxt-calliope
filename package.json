@@ -1,6 +1,6 @@
 {
   "name": "pxt-calliope",
-  "version": "1.0.25",
+  "version": "1.0.30",
   "description": "Calliope Mini editor for PXT",
   "keywords": [
     "JavaScript",
@@ -36,7 +36,7 @@
     "semantic-ui-less": "2.2.14"
   },
   "dependencies": {
-    "pxt-core": "0.18.5"
+    "pxt-core": "0.18.7"
   },
   "scripts": {
     "test": "node node_modules/pxt-core/built/pxt.js travis"
