@@ -310,6 +310,7 @@
   "images.createBigImage|block": "create big image",
   "images.createImage|block": "create image",
   "images.iconImage|block": "icon image %i",
+  "images.showCompass|block": "show compass needle for $interval|ms",
   "images|block": "images",
   "input.acceleration|block": "acceleration (mg)|%NAME",
   "input.buttonIsPressed|block": "button|%NAME|is pressed",
