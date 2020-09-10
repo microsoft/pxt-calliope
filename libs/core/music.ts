@@ -200,7 +200,7 @@ namespace music {
     //% group="Tone"
     export function playTone(frequency: number, ms: number): void {
         if (_playTone) _playTone(frequency, ms);
-        else pins.analogPitch(frequency, ms);
+        else speakerPlayTone(frequency, ms);
     }
 
     /**
