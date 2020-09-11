@@ -211,7 +211,6 @@
             "tinysuperlab/motionkit",
             "tinysuperlab/touchkit",
             "calliope-edu/pxt-grove",
-            "Microsoft/pxt-neopixel",
             "Microsoft/pxt-microturtle",
             "MKleinSB/pxt-OLED-SSD1306",
             "MKleinSB/pxt-iot-lora-node",
@@ -221,7 +220,7 @@
             "MKleinSB/pxt-dht11",
             "MKleinSB/pxt-esp-thingspeak",
             "MKleinSB/pxt-neopixel-calliope",
-            "kittenbot/pxt-robotbit"
+            "Microsoft/pxt-neopixel"
         ]
     },
     "galleries": {
