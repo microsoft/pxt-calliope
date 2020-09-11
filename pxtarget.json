@@ -21,9 +21,6 @@
         "thumbnails": true,
         "publishing": true,
         "importing": true,
-        "preferredPackages": [
-            "Microsoft/pxt-neopixel"
-        ],
         "githubPackages": true,
         "cloudProviders": {
             "github": {}
@@ -113,7 +110,7 @@
                 "pid": "0x1025"
             }
         ],
-        "webUSB": true,
+        "webUSB": false,
         "useNewFunctions": true
     },
     "compileService": {
@@ -159,7 +156,7 @@
         "autoRun": true,
         "streams": false,
         "aspectRatio": 1.13,
-        "parts": true,
+        "parts": false,
         "partsAspectRatio": 0.69,
         "boardDefinition": {
             "visual": "calliope",
@@ -313,7 +310,6 @@
         "boardName": "Calliope mini",
         "driveDisplayName": "MINI",
         "appStoreID": "1309545545",
-        "mobileSafariDownloadProtocol": "microbithex://?data",
         "crowdinProject": "kindscript",
         "extendEditor": true,
         "extendFieldEditors": true,
@@ -357,10 +353,10 @@
         "monacoToolbox": true,
         "hasAudio": true,
         "socialOptions": {
-            "orgTwitterHandle": "MSMakeCode",
-            "hashtags": "MakeCode",
-            "discourse": "https://forum.makecode.com/",
-            "discourseCategory": "micro:bit"
+            "orgTwitterHandle": "calliopemini",
+            "hashtags": "calliopemini",
+            "discourse": "https://forum.calliope.cc",
+            "discourseCategory": "Probleme-Software"
         },
         "blocklyOptions": {
             "grid": {

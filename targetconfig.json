@@ -196,18 +196,32 @@
             "daferdur/pxt-myHX711",
             "CytronTechnologies/pxt-edubit",
             "MakeAndLearn/pxt-microshield",
-            "elecfreaks/pxt-TPBot"
-        ],
-        "preferredRepos": [
-            "Microsoft/pxt-neopixel",
+            "elecfreaks/pxt-TPBot",
             "calliope-edu/pxt-grove",
             "tinysuperlab/motionkit",
             "tinysuperlab/touchkit",
+            "MKleinSB/pxt-seeed-temperature",
+            "MKleinSB/pxt-iot-lora-node-calliope",
+            "MKleinSB/pxt-dht11",
+            "MKleinSB/pxt-esp-thingspeak",
+            "MKleinSB/pxt-neopixel-calliope",
+            "MKleinSB/pxt-OLED-SSD1306"
+        ],
+        "preferredRepos": [
+            "tinysuperlab/motionkit",
+            "tinysuperlab/touchkit",
+            "calliope-edu/pxt-grove",
+            "Microsoft/pxt-neopixel",
             "Microsoft/pxt-microturtle",
             "MKleinSB/pxt-OLED-SSD1306",
             "MKleinSB/pxt-iot-lora-node",
-            "kittenbot/pxt-robotbit",
-            "MKleinSB/pxt-foldio"
+            "MKleinSB/pxt-foldio",
+            "MKleinSB/pxt-seeed-temperature",
+            "MKleinSB/pxt-iot-lora-node-calliope",
+            "MKleinSB/pxt-dht11",
+            "MKleinSB/pxt-esp-thingspeak",
+            "MKleinSB/pxt-neopixel-calliope",
+            "kittenbot/pxt-robotbit"
         ]
     },
     "galleries": {
