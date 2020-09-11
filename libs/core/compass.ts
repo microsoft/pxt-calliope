@@ -229,7 +229,7 @@ let compassImagesDownside = [
 
 
 
-namespace images {
+namespace basic {
     /**
      * Draws needle on the screen which always points to north
      * @param interval the amount of time (milliseconds) to show the needle. Default is 600.

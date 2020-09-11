@@ -145,7 +145,31 @@ enum IconNames {
     SmallSquare,
     //% block="scissors"
     //% jres=icons.scissors
-    Scissors
+    Scissors,
+    //% block="arrow north"
+    //% jres=icons.arrownorth
+    ArrowNorth,
+    //% block="arrow north east"
+    //% jres=icons.arrownortheast
+    ArrowNorthEast,
+    //% block="arrow East"
+    //% jres=icons.arroweast
+    ArrowEast,
+    //% block="arrow south east"
+    //% jres=icons.arrowsoutheast
+    ArrowSouthEast,
+    //% block="arrow south"
+    //% jres=icons.arrowsouth
+    ArrowSouth,
+    //% block="arrow south west"
+    //% jres=icons.arrowsouthwest
+    ArrowSouthWest,
+    //% block="arrow west"
+    //% jres=icons.arrowwest
+    ArrowWest,
+    //% block="arrow north west"
+    //% jres=icons.arrownorthwest
+    ArrowNorthWest
 }
 
 enum ArrowNames {
@@ -164,7 +188,7 @@ enum ArrowNames {
     //% blockIdentity=images.arrowNumber block="West"
     West,
     //% blockIdentity=images.arrowNumber block="North West"
-    NorthWest,
+    NorthWest
 }
 
 namespace basic {
@@ -199,6 +223,7 @@ namespace basic {
     //% parts="ledmatrix"
     //% advanced=true
     //% help=basic/show-arrow
+    //% deprecated=true
     export function showArrow(direction: number, interval = 600) {
         let res = images.arrowImage(direction)
         res.showImage(0, interval)
@@ -528,6 +553,55 @@ namespace images {
                                         # # . # #
                                         . # # # .
                                         . . # . .`);
+            // arrows
+            case IconNames.ArrowNorth: return images.createImage(`
+                                        . . # . .
+                                        . # # # .
+                                        # . # . #
+                                        . . # . .
+                                        . . # . .`);
+            case IconNames.ArrowNorthEast: return images.createImage(`
+                                        . . # # #
+                                        . . . # #
+                                        . . # . #
+                                        . # . . .
+                                        # . . . .`);
+            case IconNames.ArrowEast: return images.createImage(`
+                                        . . # . .
+                                        . . . # .
+                                        # # # # #
+                                        . . . # .
+                                        . . # . .`);
+            case IconNames.ArrowSouthEast: return images.createImage(`
+                                        # . . . .
+                                        . # . . .
+                                        . . # . #
+                                        . . . # #
+                                        . . # # #`);
+            case IconNames.ArrowSouth: return images.createImage(`
+                                        . . # . .
+                                        . . # . .
+                                        # . # . #
+                                        . # # # .
+                                        . . # . .`);
+            case IconNames.ArrowSouthWest: return images.createImage(`
+                                        . . . . #
+                                        . . . # .
+                                        # . # . .
+                                        # # . . .
+                                        # # # . .`);
+            case IconNames.ArrowWest: return images.createImage(`
+                                        . . # . .
+                                        . # . . .
+                                        # # # # #
+                                        . # . . .
+                                        . . # . .`);
+            case IconNames.ArrowNorthWest: return images.createImage(`
+                                        # # # . .
+                                        # # . . .
+                                        # . # . .
+                                        . . . # .
+                                        . . . . #`);
             default: return images.createImage(`
                                         . . . . .
                                         . . . . .

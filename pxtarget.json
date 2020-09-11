@@ -331,19 +331,23 @@
         "docMenu": [
             {
                 "name": "Support",
-                "path": "https://calliope.cc/faq"
+                "path": "https://calliope.cc/en/impressum"
             },
             {
                 "name": "Reference",
-                "path": "/reference"
+                "path": "/about"
             },
             {
                 "name": "Hardware",
-                "path": "/device"
+                "path": "https://calliope.cc/en/calliope-mini/tech-facts/"
             },
             {
                 "name": "Buy",
                 "path": "https://shop.calliope.cc/"
+            },
+            {
+                "name": "Forum",
+                "path": "https://forum.calliope.cc/"
             }
         ],
         "hasReferenceDocs": false,
@@ -355,7 +359,7 @@
         "socialOptions": {
             "orgTwitterHandle": "calliopemini",
             "hashtags": "calliopemini",
-            "discourse": "https://forum.calliope.cc",
+            "discourse": "https://forum.calliope.cc/",
             "discourseCategory": "Probleme-Software"
         },
         "blocklyOptions": {
