@@ -21,12 +21,6 @@
         "thumbnails": true,
         "publishing": true,
         "importing": true,
-        "preferredPackages": [
-            "tinysuperlab/motionkit",
-            "tinysuperlab/touchkit",
-            "calliope-edu/pxt-grove",
-            "Microsoft/pxt-neopixel"
-        ],
         "githubPackages": true,
         "cloudProviders": {
             "github": {}
