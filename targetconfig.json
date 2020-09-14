@@ -201,11 +201,12 @@
             "tinysuperlab/motionkit",
             "tinysuperlab/touchkit",
             "MKleinSB/pxt-seeed-temperature",
-            "MKleinSB/pxt-iot-lora-node-calliope",
             "MKleinSB/pxt-dht11",
             "MKleinSB/pxt-esp-thingspeak",
-            "MKleinSB/pxt-neopixel-calliope",
-            "MKleinSB/pxt-OLED-SSD1306"
+            "MKleinSB/pxt-OLED-SSD1306",
+            "https://github.com/MKleinSB/pxt-pca9685",
+            "https://github.com/MKleinSB/pxt-mpr121",
+            "https://github.com/MKleinSB/pxt-gatorlog-calliope"
         ],
         "preferredRepos": [
             "tinysuperlab/motionkit",
@@ -213,14 +214,15 @@
             "calliope-edu/pxt-grove",
             "Microsoft/pxt-microturtle",
             "MKleinSB/pxt-OLED-SSD1306",
-            "MKleinSB/pxt-iot-lora-node",
             "MKleinSB/pxt-foldio",
             "MKleinSB/pxt-seeed-temperature",
             "MKleinSB/pxt-iot-lora-node-calliope",
             "MKleinSB/pxt-dht11",
             "MKleinSB/pxt-esp-thingspeak",
-            "MKleinSB/pxt-neopixel-calliope",
-            "Microsoft/pxt-neopixel"
+            "Microsoft/pxt-neopixel",
+            "https://github.com/MKleinSB/pxt-pca9685",
+            "https://github.com/MKleinSB/pxt-mpr121",
+            "https://github.com/MKleinSB/pxt-gatorlog-calliope"
         ]
     },
     "galleries": {

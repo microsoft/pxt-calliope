@@ -464,8 +464,6 @@ declare namespace motors {
     C12 = 106,  // MICROBIT_ID_IO_P6
     C16 = 102,  // MICROBIT_ID_IO_P2
     C17 = 108,  // MICROBIT_ID_IO_P8
-    C18 = 120,  // MICROBIT_ID_IO_P20
-    C19 = 119,  // MICROBIT_ID_IO_P19
     }
 
 

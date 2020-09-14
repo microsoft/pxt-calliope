@@ -15,9 +15,7 @@ enum class DigitalPin {
     C11 = MICROBIT_ID_IO_P7,   // LED matrix C8
     C12 = MICROBIT_ID_IO_P6,   // LED matrix C9
     C16 = MICROBIT_ID_IO_P2,   // RX
-    C17 = MICROBIT_ID_IO_P8,   // TX
-    C18 = MICROBIT_ID_IO_P20,  // SDA
-    C19 = MICROBIT_ID_IO_P19   // SCL
+    C17 = MICROBIT_ID_IO_P8   // TX
 };
 
 enum class AnalogPin {
