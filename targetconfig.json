@@ -216,7 +216,6 @@
             "MKleinSB/pxt-OLED-SSD1306",
             "MKleinSB/pxt-foldio",
             "MKleinSB/pxt-seeed-temperature",
-            "MKleinSB/pxt-iot-lora-node-calliope",
             "MKleinSB/pxt-dht11",
             "MKleinSB/pxt-esp-thingspeak",
             "Microsoft/pxt-neopixel",

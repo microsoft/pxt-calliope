@@ -236,6 +236,7 @@ namespace images {
     //% weight=50 blockGap=8
     //% help=images/arrow-image
     //% blockId=builtin_arrow_image block="arrow image %i"
+    //% deprecated=true
     export function arrowImage(i: ArrowNames): Image {
         switch (i) {
             // compass directions
@@ -616,6 +617,7 @@ namespace images {
     //% help=images/arrow-number
     //% blockId=device_arrow block="%arrow"
     //% shim=TD_ID
+    //% deprecated=true
     export function arrowNumber(arrow: ArrowNames): number {
         return arrow;
     }
