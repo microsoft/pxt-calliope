@@ -213,4 +213,10 @@ namespace pins {
     //% fixedInstance whenUsed
     export const C17: AnalogInPin = new MicrobitPin(DigitalPin.C17);
     
+    /**
+     * Pin C18
+     */
+    //% fixedInstance whenUsed
+    export const C18: DigitalInOutPin = new MicrobitPin(DigitalPin.C18);
+    
 }
