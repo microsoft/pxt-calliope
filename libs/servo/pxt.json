@@ -6,6 +6,7 @@
         "ns.ts",
         "targetoverrides.ts"
     ],
+    "icon": "./static/packages/servo/icon.png",
     "public": true,
     "dependencies": {
         "core": "file:../core"
