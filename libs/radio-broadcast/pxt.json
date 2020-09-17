@@ -1,3 +1,4 @@
 {
-    "additionalFilePath": "../../node_modules/pxt-common-packages/libs/radio-broadcast"
+    "additionalFilePath": "../../node_modules/pxt-common-packages/libs/radio-broadcast",
+    "icon": "./static/packages/radio-broadcast/icon.png"
 }

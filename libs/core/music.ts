@@ -482,6 +482,7 @@ namespace music {
     //% help=music/set-volume
     //% weight=70
     //% group="Volume"
+    //% deprecated=true
     export function setVolume(volume: number): void {
         pins.analogSetPitchVolume(volume);
     }
@@ -494,6 +495,7 @@ namespace music {
     //% help=music/volume
     //% weight=69
     //% group="Volume"
+    //% deprecated=true
     export function volume(): number {
         return pins.analogPitchVolume();
     }

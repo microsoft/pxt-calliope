@@ -1,5 +1,6 @@
 {
     "additionalFilePath": "../../node_modules/pxt-common-packages/libs/radio",
+    "icon": "./static/packages/radio/icon.png",
     "yotta": {
         "config": {
             "microbit-dal": {
