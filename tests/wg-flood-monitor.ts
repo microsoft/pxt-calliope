@@ -130,7 +130,7 @@ function readSensor(): number {
     // Produce a sensor value in range 0..1023
     if (sensorType == "ANALOG") {
         // Input range is 0..1023
-        value = pins.analogReadPin(AnalogPin.P0)
+        value = pins.analogReadPin(AnalogPin.P1)
     } else if (sensorType == "TILT") {
         // Input range is -1024 (pads highest)..1023 (pads lowest)
         value = input.acceleration(Dimension.Y)

@@ -21,10 +21,8 @@ enum class DigitalPin {
 };
 
 enum class AnalogPin {
-    P0 = MICROBIT_ID_IO_P12,   // edge connector 0
     P1 = MICROBIT_ID_IO_P0,    // edge connector 1
     P2 = MICROBIT_ID_IO_P1,    // edge connector 2
-    P3 = MICROBIT_ID_IO_P16,   // edge connector 3
     C4 = MICROBIT_ID_IO_P3,   // LED matrix C1
     C5 = MICROBIT_ID_IO_P4,   // LED matrix C2
     C6 = MICROBIT_ID_IO_P10,  // LED matrix C3
@@ -114,7 +112,7 @@ namespace pins {
 
     /**
      * Read the specified pin or connector as either 0 or 1
-     * @param name pin to read from, eg: DigitalPin.P0
+     * @param name pin to read from, eg: DigitalPin.P1
      */
     //% help=pins/digital-read-pin weight=30
     //% blockId=device_get_digital_pin block="digital read|pin %name" blockGap=8
@@ -126,7 +124,7 @@ namespace pins {
 
     /**
       * Set a pin or connector value to either 0 or 1.
-      * @param name pin to write to, eg: DigitalPin.P0
+      * @param name pin to write to, eg: DigitalPin.P1
       * @param value value to set on the pin, 1 eg,0
       */
     //% help=pins/digital-write-pin weight=29
@@ -140,7 +138,7 @@ namespace pins {
 
     /**
      * Read the connector value as analog, that is, as a value comprised between 0 and 1023.
-     * @param name pin to write to, eg: AnalogPin.P0
+     * @param name pin to write to, eg: AnalogPin.P1
      */
     //% help=pins/analog-read-pin weight=25
     //% blockId=device_get_analog_pin block="analog read|pin %name" blockGap="8"
@@ -152,7 +150,7 @@ namespace pins {
 
     /**
      * Set the connector value as analog. Value must be comprised between 0 and 1023.
-     * @param name pin name to write to, eg: AnalogPin.P0
+     * @param name pin name to write to, eg: AnalogPin.P1
      * @param value value to write to the pin between ``0`` and ``1023``. eg:1023,0
      */
     //% help=pins/analog-write-pin weight=24
@@ -167,7 +165,7 @@ namespace pins {
     /**
      * Configure the pulse-width modulation (PWM) period of the analog output in microseconds.
      * If this pin is not configured as an analog output (using `analog write pin`), the operation has no effect.
-     * @param name analog pin to set period to, eg: AnalogPin.P0
+     * @param name analog pin to set period to, eg: AnalogPin.P1
      * @param micros period in micro seconds. eg:20000
      */
     //% help=pins/analog-set-period weight=23 blockGap=8
@@ -180,7 +178,7 @@ namespace pins {
 
     /**
     * Configure the pin as a digital input and generate an event when the pin is pulsed either high or low.
-    * @param name digital pin to register to, eg: DigitalPin.P0
+    * @param name digital pin to register to, eg: DigitalPin.P1
     * @param pulse the value of the pulse, eg: PulseValue.High
     */
     //% help=pins/on-pulsed weight=22 blockGap=16 advanced=true
@@ -207,7 +205,7 @@ namespace pins {
 
     /**
     * Return the duration of a pulse at a pin in microseconds.
-    * @param name the pin which measures the pulse, eg: DigitalPin.P0
+    * @param name the pin which measures the pulse, eg: DigitalPin.P1
     * @param value the value of the pulse, eg: PulseValue.High
     * @param maximum duration in microseconds
     */
@@ -250,7 +248,7 @@ namespace pins {
 
     /**
      * Write a value to the servo, controlling the shaft accordingly. On a standard servo, this will set the angle of the shaft (in degrees), moving the shaft to that orientation. On a continuous rotation servo, this will set the speed of the servo (with ``0`` being full-speed in one direction, ``180`` being full speed in the other, and a value near ``90`` being no movement).
-     * @param name pin to write to, eg: AnalogPin.P0
+     * @param name pin to write to, eg: AnalogPin.P1
      * @param value angle or rotation speed, eg:180,90,0
      */
     //% help=pins/servo-write-pin weight=20
@@ -344,7 +342,7 @@ namespace pins {
     void analogPitch(int frequency, int ms) {
         // init pins if needed
         if (NULL == pitchPin) {
-            pitchPin = getPin((int)AnalogPin::P0);
+            pitchPin = getPin((int)DigitalPin::P1);
 #ifdef SOUND_MIRROR_EXTENSION
             pitchPin2 = &SOUND_MIRROR_EXTENSION;
 #endif           
@@ -368,7 +366,7 @@ namespace pins {
 
     /**
     * Configure the pull directiion of of a pin.
-    * @param name pin to set the pull mode on, eg: DigitalPin.P0
+    * @param name pin to set the pull mode on, eg: DigitalPin.P1
     * @param pull one of the mbed pull configurations, eg: PinPullMode.PullUp
     */
     //% help=pins/set-pull weight=3 advanced=true
@@ -394,7 +392,7 @@ namespace pins {
     /**
     * Configure the events emitted by this pin. Events can be subscribed to
     * using ``control.onEvent()``.
-    * @param name pin to set the event mode on, eg: DigitalPin.P0
+    * @param name pin to set the event mode on, eg: DigitalPin.P1
     * @param type the type of events for this pin to emit, eg: PinEventType.Edge
     */
     //% help=pins/set-events weight=4 advanced=true

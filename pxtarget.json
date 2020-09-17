@@ -35,6 +35,7 @@
         "deployDrives": "MINI",
         "driveName": "MINI",
         "hexMimeType": "application/x-microbit-hex",
+        "moveHexEof": true,
         "openocdScript": "source [find interface/cmsis-dap.cfg]; source [find target/nrf51.cfg]",
         "flashUsableEnd": 242688,
         "flashEnd": 242688,
@@ -157,7 +158,7 @@
     "simulator": {
         "autoRun": true,
         "streams": false,
-        "aspectRatio": 1.22,
+        "aspectRatio": 1.13,
         "parts": true,
         "partsAspectRatio": 0.69,
         "boardDefinition": {
@@ -264,7 +265,7 @@
             "marginWhenBreadboarding": [
                 0,
                 0,
-                0,
+                80,
                 0
             ]
         }
@@ -456,5 +457,6 @@
             }
         }
     },
-    "uploadDocs": true
+    "uploadDocs": true,
+    "ignoreDocsErrors": true
 }

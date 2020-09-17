@@ -470,10 +470,8 @@ declare namespace motors {
 
 
     declare const enum AnalogPin {
-    P0 = 112,  // MICROBIT_ID_IO_P12
     P1 = 100,  // MICROBIT_ID_IO_P0
     P2 = 101,  // MICROBIT_ID_IO_P1
-    P3 = 116,  // MICROBIT_ID_IO_P16
     C4 = 103,  // MICROBIT_ID_IO_P3
     C5 = 104,  // MICROBIT_ID_IO_P4
     C6 = 110,  // MICROBIT_ID_IO_P10
