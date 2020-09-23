@@ -1,6 +1,6 @@
 {
     "name": "pxt-calliopemini",
-    "version": "3.0.34",
+    "version": "3.0.35",
     "description": "calliope mini target for Microsoft MakeCode (PXT)",
     "keywords": [
         "JavaScript",
