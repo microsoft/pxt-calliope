@@ -92,7 +92,7 @@ namespace bluetooth {
         // 61 octet buffer size is 3 x (MTU - 3) + 1
         // MTU on nRF51822 is 23 octets. 3 are used by Attribute Protocol header data leaving 20 octets for payload
         // So we allow a RX buffer that can contain 3 x max length messages plus one octet for a terminator character
-        uart = new MicroBitUARTService(*uBit.ble, 20, 20);
+        uart = new MicroBitUARTService(*uBit.ble, 61, 60);
     }
     
     //%
