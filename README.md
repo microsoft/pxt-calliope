@@ -2,7 +2,7 @@
 
 
 
-pxt-calliope is a [Microsoft Programming Experience Toolkit (PXT)](https://github.com/Microsoft/pxt) target that allows you to program a [BBC micro:bit](https://microbit.org/). 
+pxt-calliope is a [Microsoft Programming Experience Toolkit (PXT)](https://github.com/Microsoft/pxt) target that allows you to program a [Calliope mini](https://calliope.cc/en). 
 
 
 * [Try it live](https://makecode.calliope.cc/)
