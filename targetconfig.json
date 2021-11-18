@@ -124,6 +124,7 @@
             "MKleinSB/pxt-mpr121",
             "MKleinSB/pxt-gatorlog-calliope",
             "MKleinSB/pxt-callibot",
+            "MKleinSB/pxt-serialmp3",
             "dl1ekm/pxt-calliope-ADS1x15",
             "dl1ekm/pxt-calliope-PCF85063-RTC"
         ],
@@ -142,6 +143,7 @@
             "MKleinSB/pxt-mpr121",
             "MKleinSB/pxt-gatorlog-calliope",
             "MKleinSB/pxt-callibot",
+            "MKleinSB/pxt-serialmp3",
             "dl1ekm/pxt-calliope-ADS1x15",
             "dl1ekm/pxt-calliope-PCF85063-RTC"
         ]

@@ -1,7 +1,7 @@
 {
     "name": "pxt-calliopemini",
-    "version": "3.0.33",
-    "description": "micro:bit target for Microsoft MakeCode (PXT)",
+    "version": "3.0.36",
+    "description": "calliope mini target for Microsoft MakeCode (PXT)",
     "keywords": [
         "JavaScript",
         "education",
@@ -10,11 +10,11 @@
     ],
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/Microsoft/pxt-microbit.git"
+        "url": "git+https://github.com/microsoft/pxt-calliope.git"
     },
     "author": "",
     "license": "MIT",
-    "homepage": "https://github.com/Microsoft/pxt-microbit#readme",
+    "homepage": "https://github.com/microsoft/pxt-calliope#readme",
     "files": [
         "README.md",
         "pxtarget.json",
@@ -46,6 +46,6 @@
     },
     "dependencies": {
         "pxt-common-packages": "7.0.4",
-        "pxt-core": "6.0.23"
+        "pxt-core": "6.0.24"
     }
 }

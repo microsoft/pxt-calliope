@@ -1,10 +1,10 @@
 {
 	"folders": [
 		{
-			"path": "..\\pxt"
+			"path": "../pxt"
 		},
 		{
-			"path": "..\\pxt-common-packages"
+			"path": "../pxt-common-packages"
 		},
 		{
 			"path": "."
