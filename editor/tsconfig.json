@@ -1,6 +1,6 @@
 {
     "compilerOptions": {
-        "target": "es5",
+        "target": "es2017",
         "noImplicitAny": true,
         "noImplicitReturns": true,
         "noImplicitThis": true,
@@ -12,6 +12,13 @@
         "rootDir": ".",
         "newLine": "LF",
         "sourceMap": false,
-        "jsx": "react"
+        "jsx": "react",
+        "lib": [
+            "dom",
+            "dom.iterable",
+            "scripthost",
+            "es2017",
+            "ES2018.Promise"
+        ]
     }
 }

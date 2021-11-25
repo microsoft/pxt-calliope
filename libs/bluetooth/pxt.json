@@ -10,12 +10,13 @@
         "BLEHF2Service.h",
         "BLEHF2Service.cpp"
     ],
+    "weight": 10,
+    "searchOnly": true,
     "icon": "./static/packages/bluetooth/icon.png",
     "public": true,
     "dependencies": {
         "core": "file:../core"
     },
-    "disablesVariants": ["mbcodal"],
     "yotta": {
         "config": {
             "microbit-dal": {
@@ -29,7 +30,18 @@
                 "stack_size": 1280,
                 "gatt_table_size": "0x700"
             }
-        }
-    },
-    "installedVersion": "vzlhfd"
+        },
+        "userConfigs": [
+            {
+                "description": "Disable Bluetooth Event Service",
+                "config": {
+                    "microbit-dal": {
+                        "bluetooth": {
+                            "event_service": 0
+                        }
+                    }
+                }
+            }
+        ]
+    }
 }

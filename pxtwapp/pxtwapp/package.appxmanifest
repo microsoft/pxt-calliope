@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Package xmlns="http://schemas.microsoft.com/appx/manifest/foundation/windows10" xmlns:mp="http://schemas.microsoft.com/appx/2014/phone/manifest" xmlns:uap="http://schemas.microsoft.com/appx/manifest/uap/windows10" xmlns:uap3="http://schemas.microsoft.com/appx/manifest/uap/windows10/3" IgnorableNamespaces="uap uap3 mp">
   <Identity Name="MicrobitEducationalFounda.196216C47839B" Version="1.1.0.0" Publisher="CN=DA0852B7-E38D-4F10-9429-7A96575322FD" />
   <mp:PhoneIdentity PhoneProductId="5ddd542e-5ab4-48bc-b116-0782dc08ab97" PhonePublisherId="00000000-0000-0000-0000-000000000000" />

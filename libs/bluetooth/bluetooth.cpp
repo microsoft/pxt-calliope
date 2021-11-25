@@ -14,7 +14,7 @@ namespace bluetooth {
     BLEHF2Service* pHF2 = NULL;
 
     //%
-    void __log(String msg) {
+    void __log(int priority, String msg) {
         if (NULL == pHF2)
             pHF2 = new BLEHF2Service(*uBit.ble);
         pHF2->sendSerial(msg->getUTF8Data(), msg->getUTF8Size(), false);
@@ -125,19 +125,18 @@ namespace bluetooth {
         startUartService();
         int bytes = uart->rxBufferedSize();
         auto buffer = mkBuffer(NULL, bytes);
+        auto res = buffer;
+        registerGCObj(buffer);
         int read = uart->read(buffer->data, buffer->length);
         // read failed
         if (read < 0) {
-            decrRC(buffer);
-            return mkBuffer(NULL, 0);
+            res = mkBuffer(NULL, 0);
+        } else if (read != buffer->length) {
+            // could not fill the buffer
+            res = mkBuffer(buffer->data, read); 
         }
-        // could not fill the buffer
-        if (read != buffer->length) {
-            auto tmp = mkBuffer(buffer->data, read); 
-            decrRC(buffer); 
-            buffer = tmp;
-        }
-        return buffer;
+        unregisterGCObj(buffer);
+        return res;
     }
 
     /**
@@ -184,6 +183,7 @@ namespace bluetooth {
     //% blockId=eddystone_advertise_url block="bluetooth advertise url %url|with power %power|connectable %connectable"
     //% parts=bluetooth weight=11 blockGap=8
     //% help=bluetooth/advertise-url blockExternalInputs=1
+    //% hidden=1 deprecated=1
     void advertiseUrl(String url, int power, bool connectable) {
 #if CONFIG_ENABLED(MICROBIT_BLE_EDDYSTONE_URL)
         power = min(MICROBIT_BLE_POWER_LEVELS-1, max(0, power));
@@ -199,7 +199,7 @@ namespace bluetooth {
 	* @param power power level between 0 and 7, eg: 7
     * @param connectable true to keep bluetooth connectable for other services, false otherwise.
     */
-    //% parts=bluetooth weight=12 advanced=true
+    //% parts=bluetooth weight=12 advanced=true deprecated=1
     void advertiseUidBuffer(Buffer nsAndInstance, int power, bool connectable) {
 #if CONFIG_ENABLED(MICROBIT_BLE_EDDYSTONE_UID)        
         auto buf = nsAndInstance;
@@ -227,6 +227,7 @@ namespace bluetooth {
     //% blockId=eddystone_stop_advertising block="bluetooth stop advertising"
     //% parts=bluetooth weight=10
     //% help=bluetooth/stop-advertising advanced=true
+    //% hidden=1 deprecated=1
     void stopAdvertising() {
         uBit.bleManager.stopAdvertising();
     } 

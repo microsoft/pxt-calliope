@@ -12,7 +12,7 @@ export function renderUsbPairDialog(firmwareUrl?: string, failedOnce?: boolean):
                     <div className="column">
                         <div className="ui">
                             <div className="image">
-                                <img alt={lf("Comic connecting micro:bit to computer")} className="ui medium rounded image" src="./static/download/connect.png" />
+                                <img alt={lf("Comic connecting calliope mini to computer")} className="ui medium rounded image" src="./static/download/connect.png" />
                             </div>
                             <div className="content">
                                 <div className="description">
@@ -27,7 +27,7 @@ export function renderUsbPairDialog(firmwareUrl?: string, failedOnce?: boolean):
                     <div className="column">
                         <div className="ui">
                             <div className="image">
-                                <img alt={lf("Comic of successful micro:bit connection")} className="ui medium rounded image" src="./static/download/pair.png" />
+                                <img alt={lf("Comic of successful calliope mini connection")} className="ui medium rounded image" src="./static/download/pair.png" />
                             </div>
                             <div className="content">
                                 <div className="description">
@@ -51,7 +51,7 @@ export function renderUsbPairDialog(firmwareUrl?: string, failedOnce?: boolean):
             <div className="ui header inverted">{lf("Update Firmware")}</div>
             <strong className="ui small">{lf("You must have version 0249 or above of the firmware")}</strong>
             <div className="image">
-                <img alt={lf("Comic rainbow updating micro:bit firmware")} className="ui image" src="./static/download/firmware.png" />
+                <img alt={lf("Comic rainbow updating calliope mini firmware")} className="ui image" src="./static/download/firmware.png" />
             </div>
             <a className="ui button" role="button" href={firmwareUrl} target="_blank">{lf("Check Firmware")}</a>
         </div>
@@ -73,7 +73,7 @@ export function renderBrowserDownloadInstructions(): JSX.Element {
                             <div className="column">
                                 <div className="ui">
                                     <div className="image">
-                                        <img alt={lf("Comic connecting micro:bit to computer")} className="ui medium rounded image" src="./static/download/connect.png" />
+                                        <img alt={lf("Comic connecting calliope mini to computer")} className="ui medium rounded image" src="./static/download/connect.png" />
                                     </div>
                                     <div className="content">
                                         <div className="description">
@@ -88,7 +88,7 @@ export function renderBrowserDownloadInstructions(): JSX.Element {
                             <div className="column">
                                 <div className="ui">
                                     <div className="image">
-                                        <img alt={lf("Comic moving hex file to micro:bit")} className="ui medium rounded image" src="./static/download/transfer.png" />
+                                        <img alt={lf("Comic moving hex file to calliope mini")} className="ui medium rounded image" src="./static/download/transfer.png" />
                                     </div>
                                     <div className="content">
                                         <div className="description">

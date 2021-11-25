@@ -126,12 +126,29 @@
             "MKleinSB/pxt-callibot",
             "MKleinSB/pxt-serialmp3",
             "dl1ekm/pxt-calliope-ADS1x15",
-            "dl1ekm/pxt-calliope-PCF85063-RTC"
+            "dl1ekm/pxt-calliope-PCF85063-RTC",
+            "MKleinSB/pxt-columbuseye",
+            "MKleinSB/pxt-callicross",
+            "MKleinSB/pxt-callicolor",
+            "calliope-edu/pxt-SCD30",
+            "calliope-edu/pxt-TCS34725FN",
+            "calliope-edu/pxt-sunlightsensor-si1145",
+            "calliope-edu/CO2-Sensor-SCD40"
         ],
         "preferredRepos": [
             "tinysuperlab/motionkit",
             "tinysuperlab/touchkit",
             "calliope-edu/pxt-grove",
+            "calliope-edu/pxt-sunlightsensor-si1145",
+            "calliope-edu/pxt-rgblcd",
+            "calliope-mini/pxt-SCD30",
+            "calliope-edu/CO2-Sensor-SCD40",
+            "calliope-edu/pxt-temperatursensor",
+            "calliope-edu/pxt-display",
+            "calliope-edu/pxt-HM3301_Dust_Sensor",
+            "MKleinSB/pxt-callimotor",
+            "MKleinSB/pxt-kitronik-zip-tile-calliope",
+            "MKleinSB/pxt-MAX7219_8x8",
             "Microsoft/pxt-microturtle",
             "MKleinSB/pxt-OLED-SSD1306",
             "MKleinSB/pxt-foldio",
@@ -145,8 +162,20 @@
             "MKleinSB/pxt-callibot",
             "MKleinSB/pxt-serialmp3",
             "dl1ekm/pxt-calliope-ADS1x15",
-            "dl1ekm/pxt-calliope-PCF85063-RTC"
+            "dl1ekm/pxt-calliope-PCF85063-RTC",
+            "MKleinSB/pxt-callicross",
+            "MKleinSB/pxt-callicolor",
+            "calliope-edu/pxt-SCD30",
+            "calliope-edu/pxt-TCS34725FN",
+            "calliope-edu/pxt-sunlightsensor-si1145",
+            "calliope-edu/makecode-extension-scd41"
         ]
+    },
+    "skillMap": {
+        "defaultPath": "docs:/skillmap/mini",
+        "pathAliases": {
+            "space": "docs:/skillmap/space"
+        }
     },
     "galleries": {
         "First Steps": "calliope/firststeps",

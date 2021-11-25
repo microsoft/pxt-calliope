@@ -1,5 +1,12 @@
 #include "pxt.h"
 
+#if MICROBIT_CODAL
+#include "Pin.h"
+#define PinCompat codal::Pin
+#else
+#define PinCompat MicroBitPin
+#endif
+
 enum class DigitalPin {
     P0 = MICROBIT_ID_IO_P12,   // edge connector 0
     P1 = MICROBIT_ID_IO_P0,    // edge connector 1
@@ -111,7 +118,7 @@ namespace pins {
 
     /**
      * Read the specified pin or connector as either 0 or 1
-     * @param name pin to read from, eg: DigitalPin.P1
+     * @param name pin to read from, eg: DigitalPin.P0
      */
     //% help=pins/digital-read-pin weight=30
     //% blockId=device_get_digital_pin block="digital read|pin %name" blockGap=8
@@ -123,7 +130,7 @@ namespace pins {
 
     /**
       * Set a pin or connector value to either 0 or 1.
-      * @param name pin to write to, eg: DigitalPin.P1
+      * @param name pin to write to, eg: DigitalPin.P0
       * @param value value to set on the pin, 1 eg,0
       */
     //% help=pins/digital-write-pin weight=29
@@ -177,7 +184,7 @@ namespace pins {
 
     /**
     * Configure the pin as a digital input and generate an event when the pin is pulsed either high or low.
-    * @param name digital pin to register to, eg: DigitalPin.P1
+    * @param name digital pin to register to, eg: DigitalPin.P0
     * @param pulse the value of the pulse, eg: PulseValue.High
     */
     //% help=pins/on-pulsed weight=22 blockGap=16 advanced=true
@@ -204,7 +211,7 @@ namespace pins {
 
     /**
     * Return the duration of a pulse at a pin in microseconds.
-    * @param name the pin which measures the pulse, eg: DigitalPin.P1
+    * @param name the pin which measures the pulse, eg: DigitalPin.P0
     * @param value the value of the pulse, eg: PulseValue.High
     * @param maximum duration in microseconds
     */
@@ -217,6 +224,17 @@ namespace pins {
         MicroBitPin* pin = getPin((int)name);
         if (!pin) return 0;
 
+#if MICROBIT_CODAL
+        // set polarity
+        pin->setPolarity(PulseValue::High == value ? 1 : 0);
+        // record pulse
+        int period = pin->getPulseUs(maxDuration);
+        // timeout
+        if (DEVICE_CANCELLED == period)
+            return 0;
+        // success!
+        return period;
+#else
         int pulse = value == PulseValue::High ? 1 : 0;
         uint64_t tick =  system_timer_current_time_us();
         uint64_t maxd = (uint64_t)maxDuration;
@@ -232,6 +250,7 @@ namespace pins {
         }
         uint64_t end =  system_timer_current_time_us();
         return end - start;
+#endif
     }
 
     // TODO FIX THIS IN THE DAL!
@@ -257,7 +276,6 @@ namespace pins {
     //% name.fieldEditor="gridpicker" name.fieldOptions.columns=4
     //% name.fieldOptions.tooltips="false" name.fieldOptions.width="250"
     void servoWritePin(AnalogPin name, int value) {
-        fixMotorIssue(name);
         PINOP(setServoValue(value));
     }
 
@@ -284,9 +302,10 @@ namespace pins {
     }
 
 
-    MicroBitPin* pitchPin = NULL;
-    MicroBitPin* pitchPin2 = NULL;
+    PinCompat* pitchPin = NULL;
+    PinCompat* pitchPin2 = NULL;
     uint8_t pitchVolume = 0xff;
+    bool analogTonePlaying = false;
 
     /**
      * Set the pin used when using analog pitch or music.
@@ -296,12 +315,13 @@ namespace pins {
     //% help=pins/analog-set-pitch-pin weight=3 advanced=true
     //% name.fieldEditor="gridpicker" name.fieldOptions.columns=4
     //% name.fieldOptions.tooltips="false" name.fieldOptions.width="250"
+    //% blockHidden=true
     void analogSetPitchPin(AnalogPin name) {
         pitchPin = getPin((int)name);
         pitchPin2 = NULL;
     }
 
-    void pinAnalogSetPitch(MicroBitPin* pin, int frequency, int ms) {
+    void pinAnalogSetPitch(PinCompat* pin, int frequency, int ms) {
       if (frequency <= 0 || pitchVolume == 0) {
         pin->setAnalogValue(0);
       } else {
@@ -318,8 +338,15 @@ namespace pins {
     //% blockId=device_analog_set_pitch_volume block="analog set pitch volume $volume"
     //% help=pins/analog-set-pitch-volume weight=3 advanced=true
     //% volume.min=0 volume.max=255
+    //% blockHidden=true
     void analogSetPitchVolume(int volume) {
         pitchVolume = max(0, min(0xff, volume));
+
+        if (analogTonePlaying) {
+            int v = pitchVolume == 0 ? 0 : 1 << (pitchVolume >> 5);
+            if (NULL != pitchPin)
+                pitchPin->setAnalogValue(v);
+        }
     }
 
     /**
@@ -327,6 +354,7 @@ namespace pins {
     */
     //% blockId=device_analog_pitch_volume block="analog pitch volume"
     //% help=pins/analog-pitch-volume weight=3 advanced=true
+    //% blockHidden=true
     int analogPitchVolume() {
         return pitchVolume;
     }
@@ -338,6 +366,7 @@ namespace pins {
      */
     //% blockId=device_analog_pitch block="analog pitch %frequency|for (ms) %ms"
     //% help=pins/analog-pitch weight=4 async advanced=true blockGap=8
+    //% blockHidden=true
     void analogPitch(int frequency, int ms) {
         // init pins if needed
         if (NULL == pitchPin) {
@@ -347,6 +376,7 @@ namespace pins {
 #endif           
         }
         // set pitch
+        analogTonePlaying = true;
         if (NULL != pitchPin)
             pinAnalogSetPitch(pitchPin, frequency, ms);
         if (NULL != pitchPin2)
@@ -356,16 +386,16 @@ namespace pins {
             fiber_sleep(ms);
             if (NULL != pitchPin)
                 pitchPin->setAnalogValue(0);
-            if (NULL != pitchPin2)
-                pitchPin2->setAnalogValue(0);
-            fiber_sleep(5);
+            analogTonePlaying = false;
+            // causes issues with v2 DMA.
+            // fiber_sleep(5);
         }
     }
 
 
     /**
     * Configure the pull directiion of of a pin.
-    * @param name pin to set the pull mode on, eg: DigitalPin.P1
+    * @param name pin to set the pull mode on, eg: DigitalPin.P0
     * @param pull one of the mbed pull configurations, eg: PinPullMode.PullUp
     */
     //% help=pins/set-pull weight=3 advanced=true
@@ -373,7 +403,7 @@ namespace pins {
     //% pin.fieldEditor="gridpicker" pin.fieldOptions.columns=4
     //% pin.fieldOptions.tooltips="false" pin.fieldOptions.width="250"
     void setPull(DigitalPin name, PinPullMode pull) {
-#if MICROBIT_CODAL        
+#if MICROBIT_CODAL
         codal::PullMode m = pull == PinPullMode::PullDown
             ? codal::PullMode::Down
             : pull == PinPullMode::PullUp ? codal::PullMode::Up
@@ -391,7 +421,7 @@ namespace pins {
     /**
     * Configure the events emitted by this pin. Events can be subscribed to
     * using ``control.onEvent()``.
-    * @param name pin to set the event mode on, eg: DigitalPin.P1
+    * @param name pin to set the event mode on, eg: DigitalPin.P0
     * @param type the type of events for this pin to emit, eg: PinEventType.Edge
     */
     //% help=pins/set-events weight=4 advanced=true
@@ -411,6 +441,21 @@ namespace pins {
     {
         return mkBuffer(NULL, size);
     }
+
+
+    /**
+     * Set the matrix width for Neopixel strip (already assigned to a pin).
+     * Should be used in conjunction with `set matrix width` from Neopixel package.
+     * @param name pin of Neopixel strip, eg: DigitalPin.P1
+     * @param value width of matrix (at least ``2``)
+     */
+    //% help=pins/neopixel-matrix-width weight=3 advanced=true
+    //% blockId=pin_neopixel_matrix_width block="neopixel matrix width|pin %pin %width" blockGap=8
+    //% pin.fieldEditor="gridpicker" pin.fieldOptions.columns=4
+    //% pin.fieldOptions.tooltips="false" pin.fieldOptions.width="250"
+    //% width.defl=5 width.min=2
+    //% blockHidden=true
+    void setMatrixWidth(DigitalPin pin, int width) {}
 
 #if MICROBIT_CODAL
 #define BUFFER_TYPE uint8_t*
@@ -500,7 +545,7 @@ namespace pins {
     //% blockId=spi_format block="spi format|bits %bits|mode %mode"
     void spiFormat(int bits, int mode) {
         auto p = allocSPI();
-        p->format(bits, mode);        
+        p->format(bits, mode);
     }
 
 #if MICROBIT_CODAL
@@ -534,10 +579,26 @@ namespace pins {
     */
     //% help=pins/push-button advanced=true
     void pushButton(DigitalPin pin) {
+        new MicroBitButton((PinName)getPin((int)(pin))->name, (int)pin, MICROBIT_BUTTON_ALL_EVENTS, PinMode::PullUp);
+    }
+
+    /**
+    * Set the pin used when producing sounds and melodies. Default is P0.
+    * @param name pin to modulate pitch from
+    */
+    //% blockId=pin_set_audio_pin block="set audio pin $name"
+    //% help=pins/set-audio-pin weight=3
+    //% name.fieldEditor="gridpicker" name.fieldOptions.columns=4
+    //% name.fieldOptions.tooltips="false" name.fieldOptions.width="250"
+    //% weight=1
+    //% blockHidden=true
+    void setAudioPin(AnalogPin name) {
 #if MICROBIT_CODAL
-        new MicroBitButton(PIN_ARG(pin), (int)pin, DEVICE_BUTTON_ALL_EVENTS, ACTIVE_LOW, codal::PullMode::Up);
+        uBit.audio.setPin(*getPin((int)name));
+        uBit.audio.setPinEnabled(true);
 #else
-        new MicroBitButton(PIN_ARG(pin), PinMode::PullUp);
+        // v1 behavior
+        pins::analogSetPitchPin(name);
 #endif
     }
 }

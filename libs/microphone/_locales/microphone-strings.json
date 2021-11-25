@@ -6,5 +6,6 @@
   "input.soundLevel|block": "sound level",
   "input|block": "input",
   "{id:category}Input": "Input",
-  "{id:group}More": "More"
+  "{id:group}More": "More",
+  "{id:group}Sensors": "Sensors"
 }

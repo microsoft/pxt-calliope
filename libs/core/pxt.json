@@ -33,12 +33,16 @@
         "gestures.jres",
         "control.ts",
         "control.cpp",
+        "controlgc.cpp",
+        "perfcounters.ts",
         "interval.ts",
         "gcstats.ts",
         "console.ts",
         "game.ts",
         "led.cpp",
         "led.ts",
+        "loops.ts",
+        "microphone.ts",
         "motors.cpp",
         "music.cpp",
         "music.ts",
@@ -49,12 +53,17 @@
         "serial.ts",
         "buffer.cpp",
         "buffer.ts",
+        "json.ts",
+        "poll.ts",
+        "controlmessage.ts",
         "pxtparts.json",
         "advmath.cpp",
         "trig.cpp",
         "fixed.ts",
         "templates.ts",
         "sendbuffer.s",
+        "sendbuffernrf52.s",
+        "sendbufferbrightness.s",
         "light.cpp",
         "compass.ts",
         "parts/speaker.svg",
@@ -94,7 +103,8 @@
     "yotta": {
         "config": {
             "microbit-dal": {
-                "fiber_user_data": 1
+                "fiber_user_data": 1,
+                "pxt": 1
             }
         },
         "optionalConfig": {
@@ -116,8 +126,7 @@
                 }
             }
         },
-        "userConfigs": [
-            {
+        "userConfigs": [{
                 "description": "No Pairing Required: Anyone can connect via Bluetooth.",
                 "config": {
                     "microbit-dal": {
@@ -137,18 +146,6 @@
                             "open": 0,
                             "whitelist": 1,
                             "security_level": "SECURITY_MODE_ENCRYPTION_NO_MITM"
-                        }
-                    }
-                }
-            },
-            {
-                "description": "Passkey pairing: Pairing requires 6 digit key to pair.",
-                "config": {
-                    "microbit-dal": {
-                        "bluetooth": {
-                            "open": 0,
-                            "whitelist": 1,
-                            "security_level": "SECURITY_MODE_ENCRYPTION_WITH_MITM"
                         }
                     }
                 }

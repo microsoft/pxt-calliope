@@ -8,6 +8,21 @@ PXT_ABI(__aeabi_dsub)
 PXT_ABI(__aeabi_ddiv)
 PXT_ABI(__aeabi_dmul)
 
+#if MICROBIT_CODAL
+namespace codal {
+int list_fibers(Fiber **dest) {
+    int i = 0;
+    for (Fiber *fib = codal::get_fiber_list(); fib; fib = fib->next) {
+        if (dest)
+            dest[i] = fib;
+        i++;
+    }
+    return i;
+}
+
+} // namespace codal
+#endif
+
 extern "C" void target_panic(int error_code) {
 #if !MICROBIT_CODAL
     // wait for serial to flush
@@ -28,6 +43,7 @@ namespace pxt {
 
 MicroBit uBit;
 MicroBitEvent lastEvent;
+bool serialLoggingDisabled;
 
 void platform_init() {
     microbit_seed_random();    
@@ -152,7 +168,8 @@ int current_time_ms() {
 }
 
 static void logwriten(const char *msg, int l) {
-    uBit.serial.send((uint8_t *)msg, l);
+    if (!serialLoggingDisabled)
+        uBit.serial.send((uint8_t *)msg, l);
 }
 
 static void logwrite(const char *msg) {
