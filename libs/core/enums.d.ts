@@ -564,5 +564,7 @@ declare namespace motors {
     }
 declare namespace serial {
 }
+declare namespace storage {
+}
 
 // Auto-generated. Do not edit. Really.

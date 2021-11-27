@@ -687,5 +687,22 @@
   "serial.writeString": "Send a piece of text through the serial connection.",
   "serial.writeValue": "Write a name:value pair as a line to the serial port.",
   "serial.writeValue|param|name": "name of the value stream, eg: x",
-  "serial.writeValue|param|value": "to write"
+  "serial.writeValue|param|value": "to write",
+  "storage": "Provides access to persistent storage functionality.\n\r\nProvides access to persistent storage functionality.",
+  "storage.getNumber": "Reads a key value pair from the non volatile storage as a number",
+  "storage.getNumber|param|key": "the key for accesing the value",
+  "storage.getString": "Reads a key value pair from the non volatile storage as a string",
+  "storage.getString|param|key": "the key for accesing the value",
+  "storage.getValue": "Reads a key value pair from the non volatile storage",
+  "storage.getValue|param|key": "the key for accesing the value",
+  "storage.putString": "Saves a key value pair in the non volatile storage",
+  "storage.putString|param|key": "the key for accesing the value",
+  "storage.putString|param|value": "value to store",
+  "storage.putValue": "Saves a key value pair in the non volatile storage",
+  "storage.putValue|param|key": "the key for accesing the value",
+  "storage.putValue|param|value": "value to store",
+  "storage.remove": "Reads a key value pair from the non volatile storage",
+  "storage.removeKey": "Deletes the key from the non volatile storage",
+  "storage.removeKey|param|key": "the key for accesing the value",
+  "storage.remove|param|key": "the key for accesing the value"
 }

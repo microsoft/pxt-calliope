@@ -1308,6 +1308,49 @@ declare namespace control {
     //% deprecated=1 shim=control::createBufferFromUTF8
     function createBufferFromUTF8(str: string): Buffer;
 }
+
+
+    /**
+     * Provides access to persistent storage functionality.
+     */
+
+declare namespace storage {
+
+    /**
+     * Saves a key value pair in the non volatile storage
+     * @param key the key for accesing the value
+     * @param value value to store
+     */
+    //% weight=100 blockGap=16
+    //% block="Put into %key a value of %value as number"
+    //% blockId=storage_put_value
+    //%
+    //% group="Put"
+    //% blockHidden=true value.defl=0 shim=storage::putValue
+    function putValue(key: string, value?: string): void;
+
+    /**
+     * Reads a key value pair from the non volatile storage
+     * @param key the key for accesing the value
+     */
+    //% weight=100 blockGap=16
+    //% block="get number from %key"
+    //% blockId=storage_get_value
+    //% group="Get"
+    //% blockHidden=true shim=storage::getValue
+    function getValue(key: string): string;
+
+    /**
+     * Reads a key value pair from the non volatile storage
+     * @param key the key for accesing the value
+     */
+    //% weight=100 blockGap=16
+    //% block="remove %key"
+    //% blockId=storage_remove
+    //% group="Remove"
+    //% blockHidden=true shim=storage::remove
+    function remove(key: string): void;
+}
 declare namespace light {
 
     /**
