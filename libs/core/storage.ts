@@ -17,6 +17,7 @@ enum StorageSlots {
 
 let storagesStr = ['s1', 's2', 's3', 's4', 's5', 's6', 's7'];
 let storagesInt = ['i1', 'i2', 'i3', 'i4', 'i5', 'i6', 'i7'];
+
 /**
  * Provides access to persistent storage functionality.
  */
@@ -49,7 +50,7 @@ namespace storage {
     //% blockId=storage_put_number
     //% group="Put"
     export function putNumber(key: StorageSlots, value: number) : void {
-      let managedValue = Math.floor(value * 1000);
+      let managedValue = Math.floor(value * 100);
        putValueInt(storagesInt[key], managedValue);
     }
 
@@ -63,7 +64,7 @@ namespace storage {
     //% group="Get"
     export function getNumber(key: StorageSlots) : number {
        let value = getValueInt(storagesInt[key]);
-      return value / 1000;
+      return value / 100;
     }
 
     /**
