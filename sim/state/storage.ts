@@ -1,14 +1,13 @@
 
 namespace pxsim.storage {
 
-    function putValue(key: string, value: string) : void {
+    export function putValue(key: string, value: string) : void {
         sessionStorage.setItem('simulatorValue_'+key, value);
     }
 
-    function putValueInt(key: string, value: number) : void {
+    export function putValueInt(key: string, value: number) : void {
         sessionStorage.setItem('simulatorValue_'+key, value+"");
     }
-
 
     export function getValue(key: string) : string {
         if(sessionStorage.getItem('simulatorValue_'+key)) {
