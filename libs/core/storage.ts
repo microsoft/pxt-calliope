@@ -45,7 +45,7 @@ namespace storage {
      * @param key the key for accesing the value
      * @param value value to store
      */
-    //% weight=100 blockGap=16
+    //% weight=90 blockGap=16
     //% block="Save into number %key a value of %value"
     //% blockId=storage_put_number
     //% group="Put"
@@ -58,7 +58,7 @@ namespace storage {
      * Reads a key value pair from the non volatile storage as a number
      * @param key the key for accesing the value
      */
-    //% weight=100 blockGap=16
+    //% weight=70 blockGap=16
     //% block="read from number %key"
     //% blockId=storage_get_number
     //% group="Get"
@@ -71,7 +71,7 @@ namespace storage {
      * Reads a key value pair from the non volatile storage as a string
      * @param key the key for accesing the value
      */
-    //% weight=100 blockGap=16
+    //% weight=80 blockGap=16
     //% block="read from string %key"
     //% blockId=storage_get_string
     //% group="Get"
@@ -83,7 +83,7 @@ namespace storage {
      * Deletes the key from the non volatile storage
      * @param key the key for accesing the value
      */
-    //% weight=100 blockGap=16
+    //% weight=60 blockGap=16
     //% block="Clear string %key"
     //% blockId=storage_remove_key_string
     //% group="Remove"
@@ -95,7 +95,7 @@ namespace storage {
      * Deletes the key from the non volatile storage
      * @param key the key for accesing the value
      */
-    //% weight=100 blockGap=16
+    //% weight=50 blockGap=16
     //% block="Clear number %key"
     //% blockId=storage_remove_key_int
     //% group="Remove"
