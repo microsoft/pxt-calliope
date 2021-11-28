@@ -685,7 +685,7 @@
   "serial.writeValue": "Write a name:value pair as a line to the serial port.",
   "serial.writeValue|param|name": "name of the value stream, eg: x",
   "serial.writeValue|param|value": "to write",
-  "storage": "Provides access to persistent storage functionality.\n\r\nProvides access to persistent storage functionality.",
+  "storage": "Provides access to persistent storage functionality.\n\nProvides access to persistent storage functionality.",
   "storage.getNumber": "Reads a key value pair from the non volatile storage as a number",
   "storage.getNumber|param|key": "the key for accesing the value",
   "storage.getString": "Reads a key value pair from the non volatile storage as a string",

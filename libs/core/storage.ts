@@ -49,7 +49,7 @@ namespace storage {
     //% blockId=storage_put_number
     //% group="Put"
     export function putNumber(key: StorageSlots, value: number) : void {
-      let managedValue = (value * 1000) | 0;
+      let managedValue = Math.floor(value * 1000);
        putValueInt(storagesInt[key], managedValue);
     }
 
