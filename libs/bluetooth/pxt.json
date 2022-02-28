@@ -32,16 +32,6 @@
             }
         },
         "userConfigs": [
-            {
-                "description": "Disable Bluetooth Event Service",
-                "config": {
-                    "microbit-dal": {
-                        "bluetooth": {
-                            "event_service": 0
-                        }
-                    }
-                }
-            }
         ]
     }
 }

@@ -1,8 +1,7 @@
 {
     "name": "{0} block",
     "dependencies": {
-        "core": "file:../core",
-        "radio": "file:../radio"
+        "core": "file:../core"
     },
     "description": "",
     "files": [

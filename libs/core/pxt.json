@@ -112,42 +112,32 @@
         "optionalConfig": {
             "microbit-dal": {
                 "bluetooth": {
+                    "enabled": 1,
+                    "pairing_mode": 1,
                     "private_addressing": 0,
+                    "open": 1,
+                    "security_level": null,
+                    "whitelist": 1,
                     "advertising_timeout": 0,
                     "tx_power": 6,
                     "dfu_service": 1,
-                    "event_service": 1,
-                    "device_info_service": 1,
-                    "eddystone_url": 1,
-                    "eddystone_uid": 1,
-                    "open": 0,
-                    "pairing_mode": 1,
-                    "whitelist": 1,
-                    "security_level": "SECURITY_MODE_ENCRYPTION_NO_MITM",
-                    "partial_flashing": 1
-                }
+                    "event_service": 0,
+                    "device_info_service": 0
+                },
+                "stack_size": 1280,
+                "gatt_table_size": "0x600",
+                "panic_on_heap_full": 0,
+                "debug": 0,
+                "heap_debug": 0
             }
         },
-        "userConfigs": [{
-                "description": "No Pairing Required: Anyone can connect via Bluetooth.",
-                "config": {
-                    "microbit-dal": {
-                        "bluetooth": {
-                            "open": 1,
-                            "whitelist": 0,
-                            "security_level": null
-                        }
-                    }
-                }
-            },
+        "userConfigs": [
             {
-                "description": "JustWorks pairing (default): Pairing is automatic once the pairing is initiated.",
+                "description": "Limit bluetooth access to BLE mode (A + B + Reset)",
                 "config": {
                     "microbit-dal": {
                         "bluetooth": {
-                            "open": 0,
-                            "whitelist": 1,
-                            "security_level": "SECURITY_MODE_ENCRYPTION_NO_MITM"
+                            "enabled": 0
                         }
                     }
                 }
