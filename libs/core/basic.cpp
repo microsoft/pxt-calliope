@@ -25,7 +25,7 @@ namespace basic {
     /**
      * Display text on the display, one character at a time. If the string fits on the screen (i.e. is one letter), does not scroll.
      * @param text the text to scroll on the screen, eg: "hi!"
-     * @param interval how fast to shift characters; eg: 150, 100, 200, -100
+     * @param interval how fast to shift characters; eg: 50, 100, 150, 200
      */
     //% help=basic/show-string
     //% weight=100 blockGap=16
@@ -35,9 +35,9 @@ namespace basic {
     //% parts="ledmatrix"
     //% text.shadowOptions.toString=true
     //% expandableArgumentMode="toggle"
-    //% interval.defl=150
+    //% interval.defl=80
     //% group="LED matrix"
-    void showString(String text, int interval = 150) {
+    void showString(String text, int interval = 80) {
       if (interval <= 0)
         interval = 1;
       int l = text ? text->getUTF8Size() : 0;

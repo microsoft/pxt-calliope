@@ -43,7 +43,7 @@ namespace basic {
     
     /**
      * Scroll a number on the screen. If the number fits on the screen (i.e. is a single digit), do not scroll.
-     * @param interval speed of scroll; eg: 150, 100, 200, -100
+     * @param interval speed of scroll; eg: 50, 100, 150, 200
      */
     //% help=basic/show-number
     //% weight=95
@@ -52,7 +52,7 @@ namespace basic {
     //% async
     //% parts="ledmatrix"
     //% expandableArgumentMode="toggle"
-    //% interval.defl=150
+    //% interval.defl=80
     //% group="LED matrix"
     export function showNumber(value: number, interval?: number) {
         showString(Math.roundWithPrecision(value, 2).toString(), interval);

@@ -149,7 +149,7 @@ declare namespace basic {
     /**
      * Display text on the display, one character at a time. If the string fits on the screen (i.e. is one letter), does not scroll.
      * @param text the text to scroll on the screen, eg: "hi!"
-     * @param interval how fast to shift characters; eg: 150, 100, 200, -100
+     * @param interval how fast to shift characters; eg: 50, 100, 150, 200
      */
     //% help=basic/show-string
     //% weight=100 blockGap=16
@@ -160,7 +160,7 @@ declare namespace basic {
     //% text.shadowOptions.toString=true
     //% expandableArgumentMode="toggle"
     //%
-    //% group="LED matrix" interval.defl=150 shim=basic::showString
+    //% group="LED matrix" interval.defl=80 shim=basic::showString
     function showString(text: string, interval?: int32): void;
 
     /**
