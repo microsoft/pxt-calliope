@@ -109,10 +109,10 @@
         "useNewFunctions": true
     },
     "compileService": {
-        "yottaTarget": "calliope-mini-classic-gcc@https://github.com/calliope-mini/target-calliope-mini-classic-gcc#v1.2.0-yotta-32kb",
+        "yottaTarget": "calliope-mini-classic-gcc@https://github.com/calliope-mini/target-calliope-mini-classic-gcc#v1.2.0-yotta",
         "yottaCorePackage": "microbit",
         "githubCorePackage": "calliope-mini/microbit",
-        "gittag": "v2.2.0-rc6-calliope.rc4-32kb",
+        "gittag": "v2.2.0-rc6-calliope.rc3-iss0.3",
         "serviceId": "calliope",
         "dockerImage": "pext/yotta:latest"
     },
