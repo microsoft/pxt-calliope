@@ -125,7 +125,7 @@
                     "device_info_service": 0
                 },
                 "stack_size": 1280,
-                "gatt_table_size": "0x600",
+                "gatt_table_size": "0x300",
                 "panic_on_heap_full": 0,
                 "debug": 0,
                 "heap_debug": 0
