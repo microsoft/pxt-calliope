@@ -27,7 +27,8 @@ namespace motors {
     */
     //% blockId=motor_on block="motor on at %percent \\%"
     //% parts=dcmotor weight=90 blockGap=8
-     //% percent.shadow="speedPicker"
+    //% percent.shadow="speedPicker"
+    //% power.defl=100
     void motorPower(int power) {
         uBit.soundmotor.motorOn(power);
     }
@@ -51,20 +52,26 @@ namespace motors {
     //% blockId=block_dual_motor block="motor %motor|at %percent \\%"
      //% percent.shadow="speedPicker"
     //% weight=80
+    //% duty_percent.defl=100
     void dualMotorPower(Motor motor, int duty_percent) {
         switch(motor) {
-            case Motor::A: if (duty_percent <= 0) uBit.soundmotor.motorAOff();
-            else uBit.soundmotor.motorAOn(duty_percent); break;
-            case Motor::B: if (duty_percent <= 0) uBit.soundmotor.motorBOff();
-            else uBit.soundmotor.motorBOn(duty_percent); break;
-            case Motor::AB: if (duty_percent <= 0) {
-                uBit.soundmotor.motorAOff();
-                uBit.soundmotor.motorBOff();
-            } else {
-                uBit.soundmotor.motorAOn(duty_percent);
-                uBit.soundmotor.motorBOn(duty_percent);
-            }
-            break;
+            case Motor::A: 
+                if (duty_percent <= 0) uBit.soundmotor.motorAOff();
+                else uBit.soundmotor.motorAOn(duty_percent);
+                break;
+            case Motor::B: 
+                if (duty_percent <= 0) uBit.soundmotor.motorBOff();
+                else uBit.soundmotor.motorBOn(duty_percent);
+                break;
+            case Motor::AB: 
+                if (duty_percent <= 0) {
+                    uBit.soundmotor.motorAOff();
+                    uBit.soundmotor.motorBOff();
+                } else {
+                    uBit.soundmotor.motorAOn(duty_percent);
+                    uBit.soundmotor.motorBOn(duty_percent);
+                }
+                break;
         }
     }
 }

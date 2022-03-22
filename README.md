@@ -1,4 +1,4 @@
-# micro:bit target for PXT
+# calliope target for PXT
 
 
 

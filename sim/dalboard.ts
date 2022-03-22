@@ -4,7 +4,11 @@
 
 namespace pxsim {
     export class DalBoard extends CoreBoard
-        implements RadioBoard, LightBoard {
+        implements CommonBoard
+        , RadioBoard
+        , LightBoard
+        , MicrophoneBoard
+        , ControlMessageBoard {
         // state & update logic for component services
         ledMatrixState: LedMatrixState;
         edgeConnectorState: EdgeConnectorState;
@@ -20,10 +24,16 @@ namespace pxsim {
         rgbLedState: number;
         speakerState: SpeakerState;
         fileSystem: FileSystemState;
+        logoTouch: Button;
+        speakerEnabled: boolean = true;
+        controlMessageState: ControlMessageState;
 
         // visual
         viewHost: visuals.BoardHost;
         view: SVGElement;
+
+        // board hardware version
+        hardwareVersion = 1;
 
         constructor() {
             super()
@@ -31,6 +41,7 @@ namespace pxsim {
             // components
             this.lightState = {};
             this.fileSystem = new FileSystemState();
+            this.controlMessageState = new ControlMessageState(this);
             this.builtinParts["ledmatrix"] = this.ledMatrixState = new LedMatrixState(runtime);
             this.builtinParts["buttonpair"] = this.buttonPairState = new ButtonPairState({
                 ID_BUTTON_A: DAL.MICROBIT_ID_BUTTON_A,
@@ -41,8 +52,10 @@ namespace pxsim {
             });
             this.builtinParts["edgeconnector"] = this.edgeConnectorState = new EdgeConnectorState({
                 pins: [
+                    DAL.MICROBIT_ID_IO_P12,
                     DAL.MICROBIT_ID_IO_P0,
                     DAL.MICROBIT_ID_IO_P1,
+                    DAL.MICROBIT_ID_IO_P16,
                     DAL.MICROBIT_ID_IO_P2,
                     DAL.MICROBIT_ID_IO_P3,
                     DAL.MICROBIT_ID_IO_P4,
@@ -52,12 +65,10 @@ namespace pxsim {
                     DAL.MICROBIT_ID_IO_P8,
                     DAL.MICROBIT_ID_IO_P9,
                     DAL.MICROBIT_ID_IO_P10,
-                    DAL.MICROBIT_ID_IO_P11,
-                    DAL.MICROBIT_ID_IO_P12,
+                    DAL.MICROBIT_ID_IO_P11, 
                     DAL.MICROBIT_ID_IO_P13,
                     DAL.MICROBIT_ID_IO_P14,
                     DAL.MICROBIT_ID_IO_P15,
-                    DAL.MICROBIT_ID_IO_P16,
                     0,
                     0,
                     DAL.MICROBIT_ID_IO_P19,
@@ -71,13 +82,13 @@ namespace pxsim {
                     "P3": DAL.MICROBIT_ID_IO_P16
                 }
             });
-            this.builtinParts["radio"] = this.radioState = new RadioState(runtime, {
+            this.builtinParts["radio"] = this.radioState = new RadioState(runtime, this, {
                 ID_RADIO: DAL.MICROBIT_ID_RADIO,
                 RADIO_EVT_DATAGRAM: DAL.MICROBIT_RADIO_EVT_DATAGRAM
             });
-            this.builtinParts["microphone"] = this.microphoneState = new AnalogSensorState(3001 /* DEVICE_ID_MICROPHONE */, 52, 120, 75, 96);
+            this.builtinParts["microphone"] = this.microphoneState = new AnalogSensorState(3001 /* DEVICE_ID_MICROPHONE */, 0, 255, 75, 180);
             this.builtinParts["accelerometer"] = this.accelerometerState = new AccelerometerState(runtime);
-            this.builtinParts["serial"] = this.serialState = new SerialState();
+            this.builtinParts["serial"] = this.serialState = new SerialState(runtime, this);
             this.builtinParts["thermometer"] = this.thermometerState = new ThermometerState();
             this.builtinParts["lightsensor"] = this.lightSensorState = new LightSensorState();
             this.builtinParts["compass"] = this.compassState = new CompassState();
@@ -97,24 +108,13 @@ namespace pxsim {
             this.builtinPartVisuals["microservo"] = (xy: visuals.Coord) => visuals.mkMicroServoPart(xy);
         }
 
-        receiveMessage(msg: SimulatorMessage) {
-            if (!runtime || runtime.dead) return;
-
-            switch (msg.type || "") {
-                case "eventbus":
-                    const ev = <SimulatorEventBusMessage>msg;
-                    this.bus.queue(ev.id, ev.eventid, ev.value);
-                    break;
-                case "serial":
-                    const data = (<SimulatorSerialMessage>msg).data || "";
-                    this.serialState.receiveData(data);
-                    break;
-                case "radiopacket":
-                    const packet = <SimulatorRadioPacketMessage>msg;
-                    this.radioState.receivePacket(packet);
-                    break;
+        ensureHardwareVersion(version: number) {
+            if (version > this.hardwareVersion) {
+                this.hardwareVersion = version;
+                this.updateView();
             }
         }
+
 
         initAsync(msg: SimulatorRunMessage): Promise<void> {
             super.initAsync(msg);
@@ -123,6 +123,21 @@ namespace pxsim {
             const cmpsList = msg.parts;
             const cmpDefs = msg.partDefinitions || {};
             const fnArgs = msg.fnArgs;
+
+            const v2Parts: pxt.Map<boolean> = { 
+                "microphone": true, 
+                "logotouch": true, 
+                "builtinspeaker": true,
+                "v2": true
+            };
+            if (msg.builtinParts) {
+                const v2PartsUsed = msg.builtinParts.filter(k => v2Parts[k])
+                if (v2PartsUsed.length) {
+                    console.log(`detected v2 feature`, v2PartsUsed);
+                    cmpsList.push(...v2PartsUsed);
+                    this.hardwareVersion = 2;
+                }
+            }
 
             const opts: visuals.BoardHostOpts = {
                 state: this,
@@ -134,6 +149,7 @@ namespace pxsim {
                 maxHeight: "100%",
                 highContrast: msg.highContrast
             };
+
             this.viewHost = new visuals.BoardHost(pxsim.visuals.mkBoardView({
                 visual: boardDef.visual,
                 boardDef: boardDef,

@@ -37,13 +37,34 @@ enum Colors {
 /**
  * Provides access to basic micro:bit functionality.
  */
-//% color=#54C9C9 weight=100
+//% color=#54C9C9 weight=100 icon="\uf00a"
+//% groups=['LED matrix', 'Control', 'RGB LED', 'others']
 namespace basic {
+    
+    /**
+     * Scroll a number on the screen. If the number fits on the screen (i.e. is a single digit), do not scroll.
+     * @param interval speed of scroll; eg: 50, 100, 150, 200
+     */
+    //% help=basic/show-number
+    //% weight=95
+    //% blockId=device_show_number
+    //% block="show|number %number || in an interval of %interval ms" blockGap=8
+    //% async
+    //% parts="ledmatrix"
+    //% expandableArgumentMode="toggle"
+    //% interval.defl=80
+    //% group="LED matrix"
+    export function showNumber(value: number, interval?: number) {
+        showString(Math.roundWithPrecision(value, 2).toString(), interval);
+    }
 
     /**
      * Converts the color name to a number
      */
     //% blockId=color_id block="%c" shim=TD_ID
+    //% group="RGB LED"
+    //% weight=1
+    //% deprecated=true
     export function color(c: Colors): number {
         return c;
     }
@@ -53,33 +74,37 @@ namespace basic {
      * @param red value of the red channel between 0 and 255. eg: 255
      * @param green value of the green channel between 0 and 255. eg: 255
      * @param blue value of the blue channel between 0 and 255. eg: 255
+     */
+    //% weight=3
+    //% blockId="core_rgb" block="red %red|green %green|blue %blue"
+    //% group="RGB LED"
+    export function rgb(red: number, green: number, blue: number): number {
+        return ((red & 0xFF) << 16) | ((green & 0xFF) << 8) | (blue & 0xFF);
+    }
+
+
+    /**
+     * Converts red, green, blue channels into a RGB color
+     * @param red value of the red channel between 0 and 255. eg: 255
+     * @param green value of the green channel between 0 and 255. eg: 255
+     * @param blue value of the blue channel between 0 and 255. eg: 255
      * @param white value of the white channel between 0 and 255. eg: 0
      */
-    //% weight=1
-    //% blockId="core_rgb" block="red %red|green %green|blue %blue|white %white"
+    //% weight=2
+    //% blockId="core_rgbw" block="red %red|green %green|blue %blue|white %white"
+    //% group="RGB LED"
+    //% deprecated=true
     export function rgbw(red: number, green: number, blue: number, white:number): number {
         return ((white & 0xFF) << 24) | ((red & 0xFF) << 16) | ((green & 0xFF) << 8) | (blue & 0xFF);
     }
-    
-    /**
-     * Scroll a number on the screen. If the number fits on the screen (i.e. is a single digit), do not scroll.
-     * @param interval speed of scroll; eg: 150, 100, 200, -100
-     */
-    //% help=basic/show-number
-    //% weight=96
-    //% blockId=device_show_number block="show|number %number" blockGap=8
-    //% async
-    //% parts="ledmatrix" interval.defl=150
-    export function showNumber(value: number, interval?: number) {
-        showString(Math.roundWithPrecision(value, 2).toString(), interval);
-    }
+
 }
 
 /**
  * Pause for the specified time in milliseconds
  * @param ms how long to pause for, eg: 100, 200, 500, 1000, 2000
  */
-function pause(ms: number): void {
+    function pause(ms: number): void {
     basic.pause(ms);
 }
 

@@ -10,10 +10,10 @@ namespace bluetooth {
      * Internal use
      */
     //% shim=bluetooth::__log
-    export function __log(msg: string) {
+    export function __log(priority: number, msg: string) {
         return;
     }
-    console.addListener(function (msg) { __log(msg) });
+    console.addListener(function (_pri, msg) { __log(_pri, msg) });
 
     /**
     *  Writes to the Bluetooth UART service buffer. From there the data is transmitted over Bluetooth to a connected device.
@@ -78,6 +78,7 @@ namespace bluetooth {
     //% blockId=eddystone_advertise_uid block="bluetooth advertise UID|namespace (bytes 6-9)%ns|instance (bytes 2-6)%instance|with power %power|connectable %connectable"
     //% parts=bluetooth weight=12 blockGap=8
     //% help=bluetooth/advertise-uid blockExternalInputs=1
+    //% hidden=1 deprecated=1
     export function advertiseUid(ns: number, instance: number, power: number, connectable: boolean) {
         const buf = pins.createBuffer(16);
         buf.setNumber(NumberFormat.Int32BE, 6, ns);

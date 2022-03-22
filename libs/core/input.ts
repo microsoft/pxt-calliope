@@ -1,62 +1,18 @@
 /**
  * Events and data from sensors
  */
-//% color=#C90072 weight=99
+//% color=#C90072 weight=99 icon="\uf192"
+//% groups=['Events', 'States', 'Sensors', 'Configuration', 'System', 'others']
 namespace input {
     /**
-     * Attaches code to run when the screen is facing up.
-     * @param body TODO
+     * Returns the value of a C++ runtime constant
      */
-    //% help=input/on-screen-up
-    export function onScreenUp(body: () => void): void {
-        onGesture(Gesture.ScreenUp, body);
+    //% weight=1 weight=19 blockId="control_button_event_value_id" block="%id"
+    //% shim=TD_ID advanced=true
+    //% blockHidden=true
+    export function buttonEventValueId(id: ButtonEvent): number {
+        return id;
     }
-
-    /**
-     * Attaches code to run when the screen is facing down.
-     * @param body TODO
-     */
-    //% help=input/on-screen-down
-    export function onScreenDown(body: () => void): void {
-        onGesture(Gesture.ScreenDown, body);
-    }
-
-    /**
-     * Attaches code to run when the device is shaken.
-     * @param body TODO
-     */
-    //% deprecated=true
-    //% help=input/on-shake
-    export function onShake(body: () => void): void {
-        onGesture(Gesture.Shake, body);
-    }
-
-    /**
-     * Attaches code to run when the logo is oriented upwards and the board is vertical.
-     * @param body TODO
-     */
-    //% help=input/on-logo-up
-    export function onLogoUp(body: () => void): void {
-        onGesture(Gesture.LogoUp, body);
-    }
-
-    /**
-     * Attaches code to run when the logo is oriented downwards and the board is vertical.
-     * @param body TODO
-     */
-    //% help=input/on-logo-down
-    export function onLogoDown(body: () => void): void {
-        onGesture(Gesture.LogoDown, body);
-    }
-
-    /**
-     * Obsolete, use input.calibrateCompass instead.
-     */
-    //% weight=0 help=input/calibrate-compass
-    export function calibrate() {
-        input.calibrateCompass();
-    }
-
 
     /**
      * Gets the number of milliseconds elapsed since power on.
@@ -64,6 +20,7 @@ namespace input {
     //% help=input/running-time weight=50 blockGap=8
     //% blockId=device_get_running_time block="running time (ms)"
     //% advanced=true
+    //% group="System"
     export function runningTime() {
         return control.millis();
     }
@@ -71,33 +28,12 @@ namespace input {
     /**
      * Gets the number of microseconds elapsed since power on.
      */
-    //% help=input/running-time-micros weight=49
+    //% help=input/running-time-micros weight=49 blockGap=8
     //% blockId=device_get_running_time_micros block="running time (micros)"
     //% advanced=true
+    //% group="System"
     export function runningTimeMicros() {
         return control.micros();
     }
-
-    /**
-     * gets the level of loudness in 0-100%
-     */
-    //% blockId="loudness"
-    //% block="Loudness"
-
-    export function soundLevel(): number {
-        let value = 0
-        let max = 0
-        let min = 1023
-        for (let index = 0; index < 32; index++) {
-            value = pins.analogReadPin(AnalogPin.MIC)
-            if (value > max) {
-                max = value
-            } else if (value < min) {
-                min = value
-            }
-        }
-        value = (max - min) * 977 / 10000
-        return value
-    }
-
+    
 }

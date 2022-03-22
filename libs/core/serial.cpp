@@ -106,24 +106,29 @@ namespace serial {
     }
 
     /**
-    * Read multiple characters from the receive buffer. Pause until enough characters are present.
-    * @param length default buffer length, eg: 64
+    * Read multiple characters from the receive buffer. 
+    * If length is positive, pauses until enough characters are present.
+    * @param length default buffer length
     */
     //% blockId=serial_readbuffer block="serial|read buffer %length"
     //% help=serial/read-buffer advanced=true weight=5
     Buffer readBuffer(int length) {
-      if (length <= 0)
-        length = MICROBIT_SERIAL_READ_BUFFER_LENGTH;
-
-      auto buf = mkBuffer(NULL, length);
-      int read = uBit.serial.read(buf->data, buf->length);
-      if (read != length) {
-        auto prev = buf;
-        buf = mkBuffer(buf->data, read);
-        decrRC(prev);
+      auto mode = SYNC_SLEEP;
+      if (length <= 0) {
+        length = uBit.serial.getRxBufferSize();
+        mode = ASYNC;
       }
 
-      return buf;
+      auto buf = mkBuffer(NULL, length);
+      auto res = buf;
+      registerGCObj(buf); // make sure buffer is pinned, while we wait for data
+      int read = uBit.serial.read(buf->data, buf->length, mode);
+      if (read != length) {
+        res = mkBuffer(buf->data, read);
+      }
+      unregisterGCObj(buf);
+
+      return res;
     }
 
     bool tryResolvePin(SerialPin p, PinName& name) {
