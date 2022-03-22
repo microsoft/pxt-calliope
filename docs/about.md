@@ -78,6 +78,13 @@ input.onButtonPressed(Button.B, () => {
 
 We have tons of [projects](/projects), [examples](/examples) and [courses](/courses) to get your started!
 
+## C++ Runtime
+
+The [C++ micro:bit runtime](http://lancaster-university.github.io/microbit-docs/), created at [Lancaster University](http://www.lancaster.ac.uk/), provides access to the hardware functions of the micro:bit, 
+as well as a set of helper functions (such as displaying a number/image/string on the LED screen). 
+
+The [micro:bit library](/reference) mirrors the functions of the C++ library. 
+When code is compiled to ARM machine code, the calls to JavaScript micro:bit functions are replaced with calls to the corresponding C++ functions.
 
 ## [Command Line Tools](/cli)
 

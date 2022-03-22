@@ -39,6 +39,22 @@ declare namespace basic {
     }
 
 
+    declare const enum ButtonEvent {
+    //% blockIdentity="input.buttonEventValueId"
+    //% block="pressed down"
+    Down = 1,  // MICROBIT_BUTTON_EVT_DOWN
+    //% blockIdentity="input.buttonEventValueId"
+    //% block="released up"
+    Up = 2,  // MICROBIT_BUTTON_EVT_UP
+    //% blockIdentity="input.buttonEventValueId"
+    //% block="clicked"
+    Click = 3,  // MICROBIT_BUTTON_EVT_CLICK
+    //% blockIdentity="input.buttonEventValueId"
+    //% block="long clicked"
+    LongClick = 4,  // MICROBIT_BUTTON_EVT_LONG_CLICK
+    }
+
+
     declare const enum Dimension {
     //% block=x
     X = 0,
@@ -547,6 +563,8 @@ declare namespace motors {
     BaudRate1200 = 1200,
     }
 declare namespace serial {
+}
+declare namespace storage {
 }
 
 // Auto-generated. Do not edit. Really.

@@ -1,4 +1,14 @@
 namespace pxsim.input {
+    export function onButtonEvent(button: number, buttonEvent: number, handler: RefAction): void {
+        let b = board().buttonPairState;
+        if (button == b.props.ID_BUTTON_AB && !b.usesButtonAB) {
+            b.usesButtonAB = true;
+            runtime.queueDisplayUpdate();
+        }
+        pxtcore.registerWithDal(button, buttonEvent, handler);
+    }
+
+    // Deprecated
     export function onButtonPressed(button: number, handler: RefAction): void {
         let b = board().buttonPairState;
         if (button == b.props.ID_BUTTON_AB && !b.usesButtonAB) {

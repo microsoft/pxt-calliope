@@ -1,6 +1,6 @@
 {
 	"masterPicture": "docs/static/microbit.simplified.svg",
-	"iconsPath": "/static/icons",
+	"iconsPath": "/docs/static/icons",
 	"design": {
 		"ios": {
 			"pictureAspect": "backgroundAndMargin",

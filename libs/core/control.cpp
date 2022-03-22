@@ -1,5 +1,7 @@
 #include "pxt.h"
 
+extern uint32_t __StackTop;
+
 /**
  * How to create the event.
  */
@@ -271,8 +273,9 @@ namespace control {
     * Blocks the current fiber for the given microseconds
     * @param micros number of micro-seconds to wait. eg: 4
     */
-    //% help=control/wait-micros weight=29
+    //% help=control/wait-micros weight=29 async
     //% blockId="control_wait_us" block="wait (µs)%micros"
+    //% micros.min=0 micros.max=6000
     void waitMicros(int micros) {
         sleep_us(micros);
     }
@@ -341,6 +344,15 @@ namespace control {
         return microbit_serial_number();
     }
 
+   /**
+    * Derive a unique, consistent 64-bit serial number of this device from internal data.
+    */
+    //% help=control/device-long-serial-number
+    //% advanced=true
+    Buffer deviceLongSerialNumber() {
+        return mkBuffer((uint8_t*)&NRF_FICR->DEVICEID[0], sizeof(uint64_t));
+    }
+
     /**
     * Informs simulator/runtime of a MIDI message
     * Internal function to support the simulator.
@@ -354,8 +366,44 @@ namespace control {
     *
     */
     //%
-    void __log(String text) {
+    void __log(int priority, String text) {
         if (NULL == text) return;
         pxt::sendSerial(text->getUTF8Data(), text->getUTF8Size());
     }
+
+
+
+/**
+* Allocates the next user notification event
+*/
+//% help=control/allocate-notify-event
+int allocateNotifyEvent() {
+#if MICROBIT_CODAL
+    return ::allocateNotifyEvent();
+#else
+    static int notifyEv = 1024;
+    return ++notifyEv;
+#endif
+}
+
+/** Write a message to DMESG debugging buffer. */
+//%
+void dmesg(String s) {
+    // this is no-op on v1
+    DMESG("# %s", s->getUTF8Data());
+}
+
+/** Write a message and value (pointer) to DMESG debugging buffer. */
+//%
+void dmesgPtr(String str, Object_ ptr) {
+    // this is no-op on v1
+    DMESG("# %s: %p", str->getUTF8Data(), ptr);
+}
+
+//%
+uint32_t _ramSize()
+{
+    return (uint32_t)&__StackTop & 0x1fffffff;
+}
+
 }

@@ -8,8 +8,22 @@ namespace pxsim.input {
         return b.heading;
     }
 
+    export function assumeCalibrationCompass(){
+    }
+
+    export function clearCalibrationCompass(){
+    }    
+
+    export function isCalibratedCompass(): boolean {
+        // let b = board().compassState;
+        // return b.isCalibrated;
+        // TODO
+        return true;
+    }
+
     export function magneticForce(): number {
         // TODO
         return 0;
     }
+
 }

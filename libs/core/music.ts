@@ -223,7 +223,7 @@ namespace music {
     //% help=music/rest weight=79
     //% blockId=device_rest block="rest(ms)|%duration=device_beat"
     //% parts="speaker"
-    //% group="Tone"
+    //% group="Silence"
     export function rest(ms: number): void {
         playTone(0, ms);
     }
@@ -233,7 +233,7 @@ namespace music {
      * Gets the frequency of a note.
      * @param name the note name
      */
-    //% weight=50 help=music/note-frequency
+    //% weight=50
     //% blockId=device_note block="%name"
     //% shim=TD_ID color="#FFFFFF" colorSecondary="#FFFFFF"
     //% name.fieldEditor="note" name.defl="262"
@@ -241,6 +241,7 @@ namespace music {
     //% useEnumVal=1
     //% group="Tone"
     //% blockGap=8
+    //% blockHidden=true
     export function noteFrequency(name: Note): number {
         return name;
     }
@@ -289,6 +290,7 @@ namespace music {
     //% help=music/change-tempo-by weight=39
     //% blockId=device_change_tempo block="change tempo by (bpm)|%value" blockGap=8
     //% group="Tempo"
+    //% weight=100
     export function changeTempoBy(bpm: number): void {
         init();
         setTempo(beatsPerMinute + bpm);
@@ -302,6 +304,7 @@ namespace music {
     //% blockId=device_set_tempo block="set tempo to (bpm)|%value"
     //% bpm.min=4 bpm.max=400
     //% group="Tempo"
+    //% weight=99
     export function setTempo(bpm: number): void {
         init();
         if (bpm > 0) {
@@ -330,6 +333,7 @@ namespace music {
     //% blockId=melody_on_event block="music on %value"
     //% help=music/on-event weight=59 blockGap=32
     //% group="Melody Advanced"
+    //% blockHidden=true
     export function onEvent(value: MusicEvent, handler: () => void) {
         control.onEvent(MICROBIT_MELODY_ID, value, handler);
     }
@@ -354,6 +358,7 @@ namespace music {
     //% blockId=device_start_melody block="start melody %melody=device_builtin_melody| repeating %options"
     //% parts="speaker"
     //% group="Melody Advanced"
+    //% blockHidden=true
     export function startMelody(melodyArray: string[], options: MelodyOptions = 1) {
         init();
         if (currentMelody != undefined) {
@@ -453,13 +458,26 @@ namespace music {
     //% help=music/stop-melody weight=59 blockGap=16
     //% blockId=device_stop_melody block="stop melody $options"
     //% parts="speaker"
-    //% group="Melody Advanced"
+    //% group="Silence"
     export function stopMelody(options: MelodyStopOptions) {
         if (options & MelodyStopOptions.Background)
             startMelody([], MelodyOptions.OnceInBackground);
         if (options & MelodyStopOptions.Foreground)
             startMelody([], MelodyOptions.Once);
     }
+
+    /**
+     * Stop all sounds and melodies currently playing.
+     */
+    //% help=music/stop-all-sounds
+    //% blockId=music_stop_all_sounds block="stop all sounds"
+    //% weight=10
+    //% group="Silence"
+    export function stopAllSounds() {
+        rest(0);
+        stopMelody(MelodyStopOptions.All);
+    }
+
 
     /**
      * Sets a custom playTone function for playing melodies
@@ -469,35 +487,6 @@ namespace music {
     //% group="Tone"
     export function setPlayTone(f: (frequency: number, duration: number) => void) {
         _playTone = f;
-    }
-
-    /**
-     * Set the default output volume of the sound synthesizer.
-     * @param volume the volume 0...255
-     */
-    //% blockId=synth_set_volume block="set volume %volume"
-    //% parts="speaker"
-    //% volume.min=0 volume.max=255
-    //% volume.defl=127
-    //% help=music/set-volume
-    //% weight=70
-    //% group="Volume"
-    //% deprecated=true
-    export function setVolume(volume: number): void {
-        pins.analogSetPitchVolume(volume);
-    }
-
-    /**
-     * Returns the current output volume of the sound synthesizer.
-     */
-    //% blockId=synth_get_volume block="volume"
-    //% parts="speaker"
-    //% help=music/volume
-    //% weight=69
-    //% group="Volume"
-    //% deprecated=true
-    export function volume(): number {
-        return pins.analogPitchVolume();
     }
 
     function playNextNote(melody: Melody): void {

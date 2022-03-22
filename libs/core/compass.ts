@@ -1,174 +1,4 @@
-let compassImages = [
-    images.createImage(`
-    . . # . .
-    . . . . .
-    . . # . .
-    . . . . .
-    . . . . .
-    `),
-    images.createImage(`
-    . # . . .
-    . . . . .
-    . . # . .
-    . . . . .
-    . . . . .
-    `),
-    images.createImage(`
-    # . . . .
-    . . . . .
-    . . # . .
-    . . . . .
-    . . . . .
-    `),
-    images.createImage(`
-    . . . . .
-    # . . . .
-    . . # . .
-    . . . . .
-    . . . . .
-    `),
-    images.createImage(`
-    . . . . .
-    . . . . .
-    # . # . .
-    . . . . .
-    . . . . .
-    `),
-    images.createImage(`
-    . . . . .
-    . . . . .
-    . . # . .
-    # . . . .
-    . . . . .
-    `),
-    images.createImage(`
-    . . . . .
-    . . . . .
-    . . # . .
-    . . . . .
-    # . . . .
-    `),
-    images.createImage(`
-    . . . . .
-    . . . . .
-    . . # . .
-    . . . . .
-    . # . . .
-    `),
-    images.createImage(`
-    . . . . .
-    . . . . .
-    . . # . .
-    . . . . .
-    . . # . .
-    `),
-    images.createImage(`
-    . . . . .
-    . . . . .
-    . . # . .
-    . . . . .
-    . . . # .
-    `),
-    images.createImage(`
-    . . . . .
-    . . . . .
-    . . # . .
-    . . . . .
-    . . . . #
-    `),
-    images.createImage(`
-    . . . . .
-    . . . . .
-    . . # . .
-    . . . . #
-    . . . . .
-    `),
-    images.createImage(`
-    . . . . .
-    . . . . .
-    . . # . #
-    . . . . .
-    . . . . .
-    `),
-    images.createImage(`
-    . . . . .
-    . . . . #
-    . . # . .
-    . . . . .
-    . . . . .
-    `),
-    images.createImage(`
-    . . . . #
-    . . . . .
-    . . # . .
-    . . . . .
-    . . . . .
-    `),
-    images.createImage(`
-    . . . # .
-    . . . . .
-    . . # . .
-    . . . . .
-    . . . . .
-    `)];
-
-let compassImagesDownside = [
-    images.createImage(`
-    . . . . .
-    . . . . .
-    . . # . .
-    . . . . .
-    . . # . .
-    `),
-    images.createImage(`
-    . . . . .
-    . . . . .
-    . . # . .
-    . . . . .
-    . . . # .
-    `),
-    images.createImage(`
-    . . . . .
-    . . . . .
-    . . # . .
-    . . . . .
-    . . . . #
-    `),
-    images.createImage(`
-    . . . . .
-    . . . . .
-    . . # . .
-    . . . . #
-    . . . . .
-    `),
-    images.createImage(`
-    . . . . .
-    . . . . .
-    . . # . #
-    . . . . .
-    . . . . .
-    `),
-    images.createImage(`
-    . . . . .
-    . . . . #
-    . . # . .
-    . . . . .
-    . . . . .
-    `),
-    images.createImage(`
-    . . . . #
-    . . . . .
-    . . # . .
-    . . . . .
-    . . . . .
-    `),
-    images.createImage(`
-    . . . # .
-    . . . . .
-    . . # . .
-    . . . . .
-    . . . . .
-    `),
+const compassImagesLeft = [
     images.createImage(`
     . . # . .
     . . . . .
@@ -226,7 +56,66 @@ let compassImagesDownside = [
     . # . . .
     `)];
 
+const compassImagesRight = [
+    images.createImage(`
+    . . . . .
+    . . . . .
+    . . # . .
+    . . . . .
+    . . # . .
+    `),
+    images.createImage(`
+    . . . . .
+    . . . . .
+    . . # . .
+    . . . . .
+    . . . # .
+    `),
+    images.createImage(`
+    . . . . .
+    . . . . .
+    . . # . .
+    . . . . .
+    . . . . #
+    `),
+    images.createImage(`
+    . . . . .
+    . . . . .
+    . . # . .
+    . . . . #
+    . . . . .
+    `),
+    images.createImage(`
+    . . . . .
+    . . . . .
+    . . # . #
+    . . . . .
+    . . . . .
+    `),
+    images.createImage(`
+    . . . . .
+    . . . . #
+    . . # . .
+    . . . . .
+    . . . . .
+    `),
+    images.createImage(`
+    . . . . #
+    . . . . .
+    . . # . .
+    . . . . .
+    . . . . .
+    `),
+    images.createImage(`
+    . . . # .
+    . . . . .
+    . . # . .
+    . . . . .
+    . . . . .
+    `)];
 
+const compassImages = compassImagesLeft.concat(compassImagesRight);
+const compassImagesDownside = compassImagesRight.concat(compassImagesLeft);
 
 
 namespace basic {
@@ -242,6 +131,7 @@ namespace basic {
     //% interval.defl=600
     //% parts="ledmatrix"
     //% advanced=true
+    //% group="LED matrix"
     export function showCompass(interval = 600) {
         let i = 0
         let startTime = input.runningTime()
@@ -251,22 +141,15 @@ namespace basic {
         
         while ((endTime) > (input.runningTime() + refreshRate)) {
             i = Math.round((input.compassHeading() - 11.25) / 22.5)
-            if (input.isGesture(Gesture.ScreenDown)) {
-                compassImagesDownside[i].showImage(0, refreshRate)
-            } else {
-                compassImages[i].showImage(0, refreshRate)
-            }
+            let images = (input.isGesture(Gesture.ScreenDown)) ? compassImagesDownside : compassImages;
+            images[i].showImage(0, refreshRate)
         }
 
         rest = (endTime - input.runningTime())
         if(rest > 0) {
             i = Math.round((input.compassHeading() - 11.25) / 22.5)
-            if (input.isGesture(Gesture.ScreenDown)) {
-                compassImagesDownside[i].showImage(0, rest)
-            } else {
-                compassImages[i].showImage(0, rest)
-            }
-           
+            let images = (input.isGesture(Gesture.ScreenDown)) ? compassImagesDownside : compassImages;
+            images[i].showImage(0, rest) 
         }    
     }
 

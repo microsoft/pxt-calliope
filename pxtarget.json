@@ -42,10 +42,10 @@
         "gc": true,
         "imageRefTag": 9,
         "shimRenames": {
+            "sendBufferAsm": "light::sendWS2812Buffer"
         },
         "patches": {
-            "0.0.0 - 1.0.0": [
-                {
+            "0.0.0 - 1.0.0": [{
                     "type": "package",
                     "map": {
                         "microbit": "core",
@@ -92,31 +92,27 @@
                     }
                 }
             ],
-            "0.0.0 - 1.4.12": [
-                {
-                    "type": "api",
-                    "map": {
-                        "DisplayMode\\s*\\.\\s*BackAndWhite": "DisplayMode.BlackAndWhite"
-                    }
+            "0.0.0 - 1.4.12": [{
+                "type": "api",
+                "map": {
+                    "DisplayMode\\s*\\.\\s*BackAndWhite": "DisplayMode.BlackAndWhite"
                 }
-            ]
+            }]
         },
-        "hidSelectors": [
-            {
-                "usagePage": "0xFF00",
-                "usageId": "0x0001",
-                "vid": "0x1366",
-                "pid": "0x1025"
-            }
-        ],
+        "hidSelectors": [{
+            "usagePage": "0xFF00",
+            "usageId": "0x0001",
+            "vid": "0x1366",
+            "pid": "0x1025"
+        }],
         "webUSB": false,
         "useNewFunctions": true
     },
     "compileService": {
-        "yottaTarget": "calliope-mini-classic-gcc",
+        "yottaTarget": "calliope-mini-classic-gcc@https://github.com/calliope-mini/target-calliope-mini-classic-gcc#v1.2.3",
         "yottaCorePackage": "microbit",
         "githubCorePackage": "calliope-mini/microbit",
-        "gittag": "v2.2.0-rc6-calliope.rc3",
+        "gittag": "v2.2.0-rc6-calliope.rc3-iss0.3",
         "serviceId": "calliope",
         "dockerImage": "pext/yotta:latest"
     },
@@ -132,8 +128,7 @@
         "continueBlock": true,
         "functionsOptions": {
             "useNewFunctions": true,
-            "extraFunctionEditorTypes": [
-                {
+            "extraFunctionEditorTypes": [{
                     "typeName": "game.LedSprite",
                     "label": "LedSprite",
                     "icon": "send",
@@ -149,7 +144,8 @@
         },
         "onStartColor": "#54C9C9",
         "onStartNamespace": "basic",
-        "onStartWeight": 54
+        "onStartWeight": 60,
+        "onStartGroup": "Control"
     },
     "simulator": {
         "autoRun": true,
@@ -208,9 +204,9 @@
                 "C15": "C_P15",
                 "C19": "C_P19",
                 "C20": "C_P20",
-                "EXT_PWR":"EXT_PWR", 
-                "SPKR":"SPKR",
-                "BTN_A": "BTN_A", 
+                "EXT_PWR": "EXT_PWR",
+                "SPKR": "SPKR",
+                "BTN_A": "BTN_A",
                 "BTN_B": "BTN_B",
                 "MOTOR1": "M_OUT1",
                 "MOTOR2": "M_OUT2"
@@ -299,7 +295,14 @@
         "organizationUrl": "https://makecode.com/",
         "organizationLogo": "./static/Microsoft-logo_rgb_c-gray-square.png",
         "organizationWideLogo": "./static/Microsoft-logo_rgb_c-white.png",
-        "homeScreenHero": "./static/hero.jpg",
+        "homeScreenHero": {
+            "imageUrl": "./static/hero.jpg",
+            "name": "Flashing Heart",
+            "url": "/calliope/firststeps/firstSteps",
+            "description": "Let's go – start your first tutorial with Calliope mini",
+            "cardType": "tutorial"
+        },
+        "homeScreenHeroGallery": "/hero-banner",
         "homeUrl": "https://makecode.calliope.cc/",
         "embedUrl": "https://makecode.calliope.cc/",
         "shareUrl": "https://makecode.calliope.cc/",
@@ -309,26 +312,27 @@
         "boardName": "Calliope mini",
         "driveDisplayName": "MINI",
         "appStoreID": "1309545545",
-        "crowdinProject": "kindscript",
+        "crowdinProject": "makecode",
         "extendEditor": true,
         "extendFieldEditors": true,
         "enableTrace": true,
+        "ignoreDocsErrors": false,
+        "errorList": true,
+        "allowPackageExtensions": true,
+        "addNewTypeScriptFile": true,
         "experiments": [
-            "allowPackageExtensions",
-            "instructions",
+            "accessibleBlocks",
             "debugExtensionCode",
             "bluetoothUartConsole",
             "bluetoothPartialFlashing",
             "simScreenshot",
-            "simGif"
+            "simGif",
+            "blocksErrorList"
         ],
-        "bluetoothUartFilters": [
-            {
-                "namePrefix": "Calliope mini"
-            }
-        ],
-        "docMenu": [
-            {
+        "bluetoothUartFilters": [{
+            "namePrefix": "Calliope mini"
+        }],
+        "docMenu": [{
                 "name": "Support",
                 "path": "https://calliope.cc/en/impressum"
             },
@@ -395,6 +399,7 @@
             "ar",
             "bg",
             "cs",
+            "cy",
             "da",
             "de",
             "el",
@@ -416,6 +421,7 @@
             "ru",
             "si-LK",
             "sk",
+            "sr",
             "sv-SE",
             "tr",
             "uk",
@@ -428,7 +434,8 @@
         "browserDbPrefixes": {
             "1": "v1",
             "2": "v2",
-            "3": "v3"
+            "3": "v3",
+            "4": "v4"
         },
         "editorVersionPaths": {
             "0": "v0"
@@ -447,15 +454,46 @@
         "chooseLanguageRestrictionOnNewProject": true,
         "openProjectNewTab": true,
         "python": true,
-        "appFlashingTroubleshoot": "/device/windows-app/troubleshoot"
+        "appFlashingTroubleshoot": "/device/windows-app/troubleshoot",
+        "immersiveReader": true,
+        "tutorialCodeValidation": true,
+        "downloadDialogTheme": {
+            "webUSBDeviceNames": ["Calliope mini CMSIS-DAP", "DAPLink CMSIS-DAP"],
+            "minimumFirmwareVersion": "0249",
+            "deviceIcon": "xicon microbit",
+            "deviceSuccessIcon": "xicon microbit-check",
+
+            "downloadMenuHelpURL": "/device/usb",
+            "downloadHelpURL": "/device/usb",
+            "firmwareHelpURL": "/device/usb/webusb/troubleshoot",
+            "troubleshootWebUSBHelpURL": "/device/usb/webusb/troubleshoot",
+            "incompatibleHardwareHelpURL": "/device/v2",
+
+            "dragFileImage": "./static/download/transfer.png",
+            "connectDeviceImage": "./static/download/connect.png",
+            "selectDeviceImage": "./static/download/pair.png",
+            "connectionSuccessImage": "/static/download/connected.png",
+            "checkFirmwareVersionImage": "./static/download/firmware.png",
+            "checkUSBCableImage": "./static/download/connect.pn",
+            "incompatibleHardwareImage": "/static/download/incompatible.png"
+        },
+        "winAppDeprImage": "/static/winapp.PNG",
+        "showWinAppDeprBanner": false
     },
     "queryVariants": {
         "hidemenu": {
             "appTheme": {
                 "hideMenuBar": true
             }
+        },
+        "androidapp": {
+            "compile": {
+                "webUSB": false
+            },
+            "appTheme": {
+                "disableBlobObjectDownload": true
+            }
         }
     },
-    "uploadDocs": true,
-    "ignoreDocsErrors": true
+    "uploadDocs": true
 }
