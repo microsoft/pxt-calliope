@@ -316,7 +316,7 @@
         "extendEditor": true,
         "extendFieldEditors": true,
         "enableTrace": true,
-        "ignoreDocsErrors": false,
+        "ignoreDocsErrors": true,
         "errorList": true,
         "allowPackageExtensions": true,
         "addNewTypeScriptFile": true,
