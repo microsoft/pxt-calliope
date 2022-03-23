@@ -64,7 +64,7 @@ Buffer charCodeBuffer(int charCode) {
 #endif
     const int offset = (charCode - MICROBIT_FONT_ASCII_START) * 5;;
     const uint8_t* charBuffer = font.characters + offset;
-    
+
     return PXT_CREATE_BUFFER(charBuffer, 5);
 }
 
@@ -111,7 +111,7 @@ void plotFrame(Image i, int xOffset) {
  */
 //% help=images/scroll-image weight=79 async blockNamespace=images
 //% blockId=device_scroll_image
-//% block="scroll image %sprite(myImage)|with offset %frameoffset|and interval (ms) %interval"
+//% block="scroll image %sprite(myImage)|with offset %frameoffset|and interval (ms) %delay"
 //% blockGap=8 parts="ledmatrix"
 void scrollImage(Image id, int frameOffset, int interval) {
     MicroBitImage i(id->img);
