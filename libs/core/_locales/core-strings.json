@@ -120,7 +120,7 @@
   "IconNames.SmallHeart|block": "small heart",
   "IconNames.Surprised|block": "surprised",
   "IconNames.Yes|block": "yes",
-  "Image.scrollImage|block": "scroll image %sprite(myImage)|with offset %frameoffset|and interval (ms) %interval",
+  "Image.scrollImage|block": "scroll image %sprite(myImage)|with offset %frameoffset|and interval (ms) %delay",
   "Image.showImage|block": "show image %sprite(myImage)|at offset %offset ||and interval (ms) %interval",
   "JSON|block": "JSON",
   "LedSpriteProperty.Blink|block": "blink",
