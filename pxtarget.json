@@ -316,7 +316,6 @@
         "extendEditor": true,
         "extendFieldEditors": true,
         "enableTrace": true,
-        "ignoreDocsErrors": false,
         "errorList": true,
         "allowPackageExtensions": true,
         "addNewTypeScriptFile": true,
@@ -495,5 +494,6 @@
             }
         }
     },
+    "ignoreDocsErrors": true,
     "uploadDocs": true
 }
