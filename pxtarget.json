@@ -97,7 +97,15 @@
                 "map": {
                     "DisplayMode\\s*\\.\\s*BackAndWhite": "DisplayMode.BlackAndWhite"
                 }
-            }]
+            }],
+            "0.0.0 - 3.0.33": [
+                {
+                    "type": "api",
+                    "map": {
+                        "basic\\s*\\.\\s*showArrow\\s*\\(\\s*ArrowNames\\s*\\.\\s*": "basic.showIcon(IconNames.Arrow"
+                    }
+                }
+            ]
         },
         "hidSelectors": [{
             "usagePage": "0xFF00",
