@@ -1,20 +1,8 @@
 
 namespace pxsim.storage {
 
-    export function putValue(key: string, value: string) : void {
-        sessionStorage.setItem('simulatorValue_'+key, value);
-    }
-
     export function putValueInt(key: string, value: number) : void {
         sessionStorage.setItem('simulatorValue_'+key, value+"");
-    }
-
-    export function getValue(key: string) : string {
-        if(sessionStorage.getItem('simulatorValue_'+key)) {
-            return sessionStorage.getItem('simulatorValue_'+key);
-        } else {
-            return "";
-        }
     }
 
     export function getValueInt(key: string) : number {
@@ -25,11 +13,7 @@ namespace pxsim.storage {
         }
     }
 
-    export function removeStr(key: string) : void {
-        sessionStorage.removeItem('simulatorValue_'+key);
-    }
-
-    export function removeInt(key: string) : void {
+    export function remove(key: string) : void {
         sessionStorage.removeItem('simulatorValue_'+key);
     }
 
