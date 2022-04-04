@@ -26,10 +26,6 @@
             }
         },
         "optionalConfig": {
-            "microbit-dal": {
-                "stack_size": 1280,
-                "gatt_table_size": "0x700"
-            }
         },
         "userConfigs": [
         ]
