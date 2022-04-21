@@ -1,3 +1,65 @@
+
+export function patchBlocks(pkgTargetVersion: string, dom: Element) {
+    console.error("A");
+    console.log(pkgTargetVersion)
+    // is this a old script?
+    if (pxt.semver.majorCmp(pkgTargetVersion || "0.0.0", "4.0.0") >= 0) return;
+
+
+    // arrow blocks
+    /*
+<block type="basic_show_arrow">
+    <value name="i">
+        <shadow type="device_arrow">
+            <field name="arrow">ArrowNames.North</field>
+        </shadow>
+    </value>
+</block>
+
+<block type="basic_show_arrow" disabled="true" x="304" y="734">
+    <value name="i">
+        <shadow type="device_arrow">
+            <field name="arrow">ArrowNames.North</field>
+        </shadow>
+    </value>
+</block>
+
+    converts to
+
+<block type="basic_show_icon">
+    <mutation xmlns="http://www.w3.org/1999/xhtml" _expanded="0" _input_init="false"></mutation>
+    <field name="i">IconNames.ArrowNorth</field>
+</block>
+
+    */
+console.log(dom.outerHTML);
+const arrowNodes = pxt.U.toArray(dom.querySelectorAll("block[type=basic_show_arrow]"))
+arrowNodes.forEach(node => {
+    node.setAttribute("type", "basic_show_icon");
+    const arrowNode = node.querySelectorAll("value[name=i]")[0]
+    const iconName = "IconNames.Arrow" + arrowNode.querySelectorAll("field[name=arrow]")[0].innerHTML.split('.')[1];
+    console.log(iconName);
+    
+    const iconNode = node.ownerDocument.createElement("field");
+    iconNode.setAttribute("name", "i")
+    iconNode.innerHTML = iconName;
+
+    const mutationNode = node.ownerDocument.createElement("mutation");
+    // mutationNode.setAttribute("xmlns", "http://www.w3.org/1999/xhtml")
+    mutationNode.setAttribute("_expanded", "0")
+    mutationNode.setAttribute("_input_init", "false")
+
+    node.prepend(iconNode)
+    node.prepend(mutationNode)
+    node.removeChild(arrowNode);
+});
+
+console.log(dom.outerHTML);
+
+    // is this a very old script?
+    if (pxt.semver.majorCmp(pkgTargetVersion || "0.0.0", "1.0.0") >= 0) return;
+
+    // LEDs
 /**
  *       <block type="device_show_leds">
     <field name="LED00">FALSE</field>
@@ -40,11 +102,6 @@
   </block>
  */
 
-export function patchBlocks(pkgTargetVersion: string, dom: Element) {
-    // is this a old script?
-    if (pxt.semver.majorCmp(pkgTargetVersion || "0.0.0", "1.0.0") >= 0) return;
-
-    // showleds
     const nodes = pxt.U.toArray(dom.querySelectorAll("block[type=device_show_leds]"))
         .concat(pxt.U.toArray(dom.querySelectorAll("block[type=device_build_image]")))
         .concat(pxt.U.toArray(dom.querySelectorAll("shadow[type=device_build_image]")))
@@ -73,6 +130,8 @@ export function patchBlocks(pkgTargetVersion: string, dom: Element) {
         f.appendChild(node.ownerDocument.createTextNode(s));
         node.insertBefore(f, null);
     });
+
+
 
     // radio
     /*
