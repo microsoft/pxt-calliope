@@ -16,21 +16,12 @@ export function patchBlocks(pkgTargetVersion: string, dom: Element) {
     </value>
 </block>
 
-<block type="basic_show_arrow" disabled="true" x="304" y="734">
-    <value name="i">
-        <shadow type="device_arrow">
-            <field name="arrow">ArrowNames.North</field>
-        </shadow>
-    </value>
-</block>
-
     converts to
 
 <block type="basic_show_icon">
     <mutation xmlns="http://www.w3.org/1999/xhtml" _expanded="0" _input_init="false"></mutation>
     <field name="i">IconNames.ArrowNorth</field>
 </block>
-
     */
 console.log(dom.outerHTML);
 const arrowNodes = pxt.U.toArray(dom.querySelectorAll("block[type=basic_show_arrow]"))
@@ -38,7 +29,6 @@ arrowNodes.forEach(node => {
     node.setAttribute("type", "basic_show_icon");
     const arrowNode = node.querySelectorAll("value[name=i]")[0]
     const iconName = "IconNames.Arrow" + arrowNode.querySelectorAll("field[name=arrow]")[0].innerHTML.split('.')[1];
-    console.log(iconName);
     
     const iconNode = node.ownerDocument.createElement("field");
     iconNode.setAttribute("name", "i")
@@ -52,6 +42,26 @@ arrowNodes.forEach(node => {
     node.prepend(iconNode)
     node.prepend(mutationNode)
     node.removeChild(arrowNode);
+});
+
+    // arrow icons
+    /*
+<block type="builtin_arrow_image">
+    <field name="i">ArrowNames.East</field>
+</block>
+
+    converts to
+
+<block type="builtin_image">
+    <field name="i">IconNames.ArrowEast</field>
+</block>
+    */
+const arrowImageNodes = pxt.U.toArray(dom.querySelectorAll("block[type=builtin_arrow_image]"))
+arrowImageNodes.forEach(node => {
+    console.log(node.innerHTML)
+    node.setAttribute("type", "builtin_image");
+    const arrowNode = node.querySelectorAll("field[name=i]")[0];
+    arrowNode.innerHTML = "IconNames.Arrow" + arrowNode.innerHTML.split('.')[1];
 });
 
 console.log(dom.outerHTML);
