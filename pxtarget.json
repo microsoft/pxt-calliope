@@ -98,12 +98,13 @@
                     "DisplayMode\\s*\\.\\s*BackAndWhite": "DisplayMode.BlackAndWhite"
                 }
             }],
-            "0.0.0 - 3.0.33": [
+            "0.0.0 - 4.0.20": [
                 {
                     "type": "api",
                     "map": {
-                        "basic\\s*\\.\\s*showArrow\\s*\\(\\s*ArrowNames\\s*\\.\\s*": "basic.showIcon(IconNames.Arrow",
-                        "images\\s*\\.\\s*arrowImage\\s*\\(\\s*ArrowNames\\s*\\.\\s*": "images.iconImage(IconNames.Arrow"
+                        "basic\\s*\\.\\s*showArrow\\s*\\(\\s*": "basic.showIcon(",
+                        "images\\s*\\.\\s*arrowImage\\s*\\(\\s*": "images.iconImage(",
+                        "ArrowNames\\s*\\.\\s*": "IconNames.Arrow"
                     }
                 }
             ]
