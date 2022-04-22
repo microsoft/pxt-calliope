@@ -57,7 +57,7 @@ You could simply save the light measurements in an array like this:
 
 ```blocks
 let darkness: number[] = []
-input.onButtonPressed(Button.A, () => {
+input.onButtonEvent(Button.A, ButtonEvent.Down, () => {
     for (let i = 0; i < 60 * 4; i++) {
         darkness.push(input.lightLevel())
         basic.pause(60000)
@@ -77,7 +77,7 @@ The code in blocks for recording the light level is modified to make our file da
 
 ```typescript-ignore
 let darkness = pins.createBuffer(60 * 4);
-input.onButtonPressed(Button.A, () => {
+input.onButtonEvent(Button.A, ButtonEvent.Down, () => {
     for (let i = 0; i < 60 * 4; i++) {
         darkness.setNumber(NumberFormat.UInt8LE, i, input.lightLevel())
         basic.pause(60000)
@@ -90,7 +90,7 @@ Later, we can upload the file to the laptop computer by pressing the **B** butto
 ```typescript-ignore
 let dataReady = false;
 let darkness = pins.createBuffer(60 * 4);
-input.onButtonPressed(Button.A, () => {
+input.onButtonEvent(Button.A, ButtonEvent.Down, () => {
     for (let i = 0; i < 60 * 4; i++) {
         darkness.setNumber(NumberFormat.UInt8LE, i, input.lightLevel())
         basic.pause(60000)
@@ -98,7 +98,7 @@ input.onButtonPressed(Button.A, () => {
     dataReady = true;
 })
 
-input.onButtonPressed(Button.B, () => {
+input.onButtonEvent(Button.B, ButtonEvent.Down, () => {
     if (dataReady) {
         serial.writeLine("Transferring file: DARKNESS, Length: " + darkness.length + " bytes...");
         serial.writeBuffer(darkness)

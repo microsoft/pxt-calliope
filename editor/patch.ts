@@ -3,8 +3,93 @@ export function patchBlocks(pkgTargetVersion: string, dom: Element) {
     console.error("A");
     console.log(pkgTargetVersion)
     // is this a old script?
-    if (pxt.semver.majorCmp(pkgTargetVersion || "0.0.0", "4.0.0") >= 0) return;
+    if (pxt.semver.majorCmp(pkgTargetVersion || "0.0.0", "4.0.20") >= 0) return;
+    // console.log(dom.outerHTML);
+    // button and pin pressed/released blocks
+/*
+    <block type="device_button_event" x="354" y="30">
+        <field name="NAME">Button.A</field>
+    </block>
+    <block type="device_pin_event" x="610" y="33">
+        <field name="name">TouchPin.P0</field>
+    </block>
+    <block type="device_pin_released" x="361" y="158">
+        <field name="NAME">TouchPin.P1</field>
+    </block>
 
+    converts to
+
+    <block type="device_button_selected_event" x="35" y="429">
+        <field name="NAME">Button.B</field>
+        <value name="eventType">
+            <shadow type="control_button_event_value_id">
+                <field name="id">ButtonEvent.Down</field>
+            </shadow>
+        </value>
+    </block>
+    <block type="device_pin_custom_event" x="368" y="428">
+        <field name="name">TouchPin.P2</field>
+        <value name="eventType">
+            <shadow type="control_button_event_value_id">
+                <field name="id">ButtonEvent.Up</field>
+            </shadow>
+        </value>
+    </block>
+*/
+const inputNodes = pxt.U.toArray(dom.querySelectorAll("block[type=device_button_event]"))
+        .concat(pxt.U.toArray(dom.querySelectorAll("block[type=device_pin_event]")))
+        .concat(pxt.U.toArray(dom.querySelectorAll("block[type=device_pin_released]")))
+        inputNodes.forEach(node => {
+            const nodeType = node.getAttribute("type");
+            if(nodeType === "device_button_event") {
+                node.setAttribute("type", "device_button_selected_event");
+            } else {
+                node.setAttribute("type", "device_pin_custom_event");
+            }
+            const valueNode = node.ownerDocument.createElement("value");
+            valueNode.setAttribute("name", "eventType")
+
+            const shadowNode = node.ownerDocument.createElement("shadow");
+            shadowNode.setAttribute("type", "control_button_event_value_id")
+
+            const fieldNode = node.ownerDocument.createElement("field");
+            fieldNode.setAttribute("name", "id")
+
+            if(nodeType === "device_button_event") {
+                fieldNode.innerHTML = "ButtonEvent.Click";
+            } else if(nodeType === "device_pin_released") {
+                fieldNode.innerHTML = "ButtonEvent.Up";
+            } else {
+                fieldNode.innerHTML = "ButtonEvent.Down";
+            }
+
+            shadowNode.prepend(fieldNode)
+            valueNode.prepend(shadowNode)
+            node.prepend(valueNode)
+
+        });
+
+
+
+// loudness
+    /*
+    <block type="loudness" />
+
+    converts to
+
+    <block type="soundLevel" />
+    */
+    const loudnessNodes = pxt.U.toArray(dom.querySelectorAll("block[type=loudness]"))
+    loudnessNodes.forEach(node => {
+        node.setAttribute("type", "soundLevel");
+    });
+
+    // rgbw to rgb block
+    const rgbwNodes = pxt.U.toArray(dom.querySelectorAll("block[type=core_rgbw]"))
+    rgbwNodes.forEach(node => {
+        node.setAttribute("type", "core_rgb");
+        node.querySelectorAll("value[name=white]")[0].remove();
+    }); 
 
     // arrow blocks
     /*
@@ -23,7 +108,6 @@ export function patchBlocks(pkgTargetVersion: string, dom: Element) {
     <field name="i">IconNames.ArrowNorth</field>
 </block>
     */
-console.log(dom.outerHTML);
 const arrowNodes = pxt.U.toArray(dom.querySelectorAll("block[type=basic_show_arrow]"))
 arrowNodes.forEach(node => {
     node.setAttribute("type", "basic_show_icon");

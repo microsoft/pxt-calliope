@@ -34,7 +34,7 @@ If you load this program onto two or more @boardname@s, you can send a code word
 The other @boardname@s will receive the code word and then show it.
 
 ```blocks
-input.onButtonPressed(Button.A, () => {
+input.onButtonEvent(Button.A, ButtonEvent.Down, () => {
     radio.sendString("Codeword: TRIMARAN")
     basic.showString("SENT");
 })
@@ -59,10 +59,10 @@ This program will also receive your friend's mood.
 
 ```blocks
 let data: string = "";
-input.onButtonPressed(Button.A, () => {
+input.onButtonEvent(Button.A, ButtonEvent.Down, () => {
     radio.sendString("H");
 });
-input.onButtonPressed(Button.B, () => {
+input.onButtonEvent(Button.B, ButtonEvent.Down, () => {
     radio.sendString("S");
 });
 radio.onDataReceived(() => {

@@ -46,7 +46,7 @@ will use ``digital write pin`` to make the other @boardname@ buzz and
 make the score bigger.
 
 ```blocks
-input.onButtonPressed(Button.B, () => {
+input.onButtonEvent(Button.B, ButtonEvent.Down, () => {
     pins.digitalWritePin(DigitalPin.P1, 1);
     basic.pause(500);
     pins.digitalWritePin(DigitalPin.P1, 0);

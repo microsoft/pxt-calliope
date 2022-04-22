@@ -107,12 +107,12 @@ basic.forever(() => {
         basic.pause(500)
     }
 })
-input.onButtonPressed(Button.A, () => {
+input.onButtonEvent(Button.A, ButtonEvent.Down, () => {
     let temp = Math.abs(person.dirX) * (-1)
     person.dirX = Math.abs(person.dirY) * (-1)
     person.dirY = temp
 })
-input.onButtonPressed(Button.B, () => {
+input.onButtonEvent(Button.B, ButtonEvent.Down, () => {
     let temp1 = Math.abs(person.dirX)
     person.dirX = Math.abs(person.dirY)
     person.dirY = temp1

@@ -17,7 +17,7 @@ This example send the frequency and duration over radio
 and plays it on the remote @boardname@.
 
 ```typescript
-input.onButtonPressed(Button.A, () => {
+input.onButtonEvent(Button.A, ButtonEvent.Down, () => {
     music.playTone(440, 120)
     led.toggle(0, 0)
 })
@@ -26,7 +26,7 @@ radio.onReceivedNumber(function (receivedNumber) {
     const duration = receivedNumber & 0xffff;
     music.playTone(freq, duration);
 })
-input.onButtonPressed(Button.B, () => {
+input.onButtonEvent(Button.B, ButtonEvent.Down, () => {
     music.setPlayTone((frequency: number, duration: number) => {
         radio.sendNumber((frequency << 16) | (duration & 0xffff));
     })    

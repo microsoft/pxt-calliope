@@ -26,7 +26,7 @@ code word from one of them to the others by pressing button `A`.  The
 other @boardname@s will receive the code word and then show it.
 
 ```blocks
-input.onButtonPressed(Button.A, () => {
+input.onButtonEvent(Button.A, ButtonEvent.Down, () => {
     radio.sendString("Codeword: TRIMARAN")
     basic.showString("SENT");
 })

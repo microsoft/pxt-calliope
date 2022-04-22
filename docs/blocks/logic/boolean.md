@@ -17,7 +17,7 @@ if (led.point(1,1) && led.point(2,2)) {
 When you compare two Numbers, you get a Boolean value, such as the comparison `x < 5` in the code below:
 
 ```blocks
-input.onButtonPressed(Button.A, () => {
+input.onButtonEvent(Button.A, ButtonEvent.Down, () => {
     let x = randint(0, 5)
     if(x < 5) {
     basic.showString("low");

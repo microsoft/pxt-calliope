@@ -13,7 +13,7 @@ First, let's get your name to display on the screen.
 From the ``||input:Input||`` Toolbox drawer, drag an ``||input:on button A pressed||`` block onto the Workspace.
 
 ```blocks
-input.onButtonPressed(Button.A, function () {
+input.onButtonEvent(Button.A, ButtonEvent.Down, function () {
 
 })
 ```
@@ -23,7 +23,7 @@ input.onButtonPressed(Button.A, function () {
 From the ``||basic:Basic||`` Toolbox drawer drag a ``||basic:show string||`` block into the ``||input:on button A pressed||`` block.
 
 ```blocks
-input.onButtonPressed(Button.A, function () {
+input.onButtonEvent(Button.A, ButtonEvent.Down, function () {
     basic.showString("Hello!")
 })
 ```
@@ -33,7 +33,7 @@ input.onButtonPressed(Button.A, function () {
 In the ``||basic:show string||`` block, type your name.
 
 ```blocks
-input.onButtonPressed(Button.A, function () {
+input.onButtonEvent(Button.A, ButtonEvent.Down, function () {
     basic.showString("My Name")
 })
 ```
@@ -43,7 +43,7 @@ input.onButtonPressed(Button.A, function () {
 Go to the simulator and test your name badge by pressing button **A**.
 
 ```sim
-input.onButtonPressed(Button.A, function () {
+input.onButtonEvent(Button.A, ButtonEvent.Down, function () {
     basic.showString("My Name")
 })
 ```

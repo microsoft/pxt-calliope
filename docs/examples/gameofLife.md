@@ -22,13 +22,13 @@ Here's a program that simulates cell life in the LED matrix. Use button ``A`` fo
 let lifeChart: Image = null
 
 //Use button A for the next iteration of game of life
-input.onButtonPressed(Button.A, () => {
+input.onButtonEvent(Button.A, ButtonEvent.Down, () => {
     gameOfLife();
     show();
 })
 
 //Use button B for reseting to random initial seed state
-input.onButtonPressed(Button.B, () => {
+input.onButtonEvent(Button.B, ButtonEvent.Down, () => {
     reset();
     show();
 })
