@@ -28,7 +28,7 @@ export function patchBlocks(pkgTargetVersion: string, dom: Element) {
         </value>
     </block>
     <block type="device_pin_custom_event" x="368" y="428">
-        <field name="name">TouchPin.P2</field>
+        <field name="NAME">TouchPin.P2</field>
         <value name="eventType">
             <shadow type="control_button_event_value_id">
                 <field name="id">ButtonEvent.Up</field>
@@ -45,6 +45,10 @@ const inputNodes = pxt.U.toArray(dom.querySelectorAll("block[type=device_button_
                 node.setAttribute("type", "device_button_selected_event");
             } else {
                 node.setAttribute("type", "device_pin_custom_event");
+            }
+            // fix lowercase 'name'in device_pin_event
+            if(nodeType === "device_pin_event") {
+                node.querySelectorAll("field[name=name]")[0].setAttribute("name", "NAME")
             }
             const valueNode = node.ownerDocument.createElement("value");
             valueNode.setAttribute("name", "eventType")
