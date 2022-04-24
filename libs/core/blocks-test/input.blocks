@@ -3,8 +3,13 @@
     <variable type="" id="wUkGVHoc@p^mter~Rc7h">item</variable>
     <variable type="" id=")f$ml.CVl6|1^?sPWl:;">sdfsadf</variable>
   </variables>
-  <block type="device_button_event" x="-6" y="17">
+  <block type="device_button_selected_event" x="-6" y="17">
     <field name="NAME">Button.AB</field>
+    <value name="eventType">
+        <shadow type="control_button_event_value_id">
+            <field name="id">ButtonEvent.Click</field>
+        </shadow>
+    </value>
     <statement name="HANDLER">
       <block type="variables_set">
         <field name="VAR" id="wUkGVHoc@p^mter~Rc7h" variabletype="">item</field>
@@ -123,10 +128,20 @@
   <block type="device_gesture_event" x="472" y="-8">
     <field name="NAME">Gesture.SixG</field>
   </block>
-  <block type="device_pin_event" x="555" y="96">
+  <block type="device_pin_custom_event" x="555" y="96">
     <field name="name">TouchPin.P2</field>
+    <value name="eventType">
+        <shadow type="control_button_event_value_id">
+            <field name="id">ButtonEvent.Down</field>
+        </shadow>
+    </value>
   </block>
-  <block type="device_pin_released" x="188" y="435">
+  <block type="device_pin_custom_event" x="188" y="435">
     <field name="NAME">TouchPin.P2</field>
+    <value name="eventType">
+        <shadow type="control_button_event_value_id">
+            <field name="id">ButtonEvent.Up</field>
+        </shadow>
+    </value>
   </block>
 </xml>
