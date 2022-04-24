@@ -23,7 +23,7 @@ export function patchBlocks(pkgTargetVersion: string, dom: Element) {
         <field name="NAME">Button.B</field>
         <value name="eventType">
             <shadow type="control_button_event_value_id">
-                <field name="id">ButtonEvent.Down</field>
+                <field name="id">ButtonEvent.Click</field>
             </shadow>
         </value>
     </block>
