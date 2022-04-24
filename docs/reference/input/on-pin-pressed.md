@@ -14,7 +14,7 @@ through your body and back into the @boardname@. This is called
 **completing a circuit**. It's like you're a big wire!
 
 ```sig
-input.onPinTouchEvent(TouchPin.P0, ButtonEvent.Down, () => {
+input.onPinTouchEvent(TouchPin.P0, ButtonEvent.Click, () => {
 })
 ```
 
@@ -43,7 +43,7 @@ Every time you press the pin, the program shows the number of times on the scree
 ```blocks
 let count = 0
 basic.showNumber(count)
-input.onPinTouchEvent(TouchPin.P0, ButtonEvent.Down, () => {
+input.onPinTouchEvent(TouchPin.P0, ButtonEvent.Click, () => {
     count = count + 1
     basic.showNumber(count)
 })

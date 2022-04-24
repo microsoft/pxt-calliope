@@ -63,7 +63,7 @@ for (let i = 0; i < values.length; i++) {
 The ``||led:plot bar graph||`` also sends the number value it's plotting to the console. You can see the output in the Data Viewer. It charts the values and they appear as individual numbers in console.
 
 ```blocks
-input.onButtonEvent(Button.B, ButtonEvent.Down, () => {
+input.onButtonEvent(Button.B, ButtonEvent.Click, () => {
     for (let i = 0; i < 25; i++) {
         if (i % 2 > 0) {
             led.plotBarGraph(0, 0)

@@ -29,7 +29,7 @@ or model rocket.
 
 ```blocks
 radio.setGroup(99)
-input.onButtonEvent(Button.A, ButtonEvent.Down, () => {
+input.onButtonEvent(Button.A, ButtonEvent.Click, () => {
     radio.sendValue("acc", input.acceleration(Dimension.X))
 })
 ```

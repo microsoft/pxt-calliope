@@ -43,7 +43,7 @@ music.onEvent(MusicEvent.BackgroundMelodyResumed, () => {
 music.onEvent(MusicEvent.BackgroundMelodyRepeated, () => {
     serial.writeLine("background repeated")
 })
-input.onButtonEvent(Button.A, ButtonEvent.Down, () => {
+input.onButtonEvent(Button.A, ButtonEvent.Click, () => {
     music.beginMelody(music.builtInMelody(Melodies.BaDing), MelodyOptions.Once)
 })
 music.setTempo(100)

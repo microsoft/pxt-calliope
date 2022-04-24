@@ -132,7 +132,7 @@
     <field name="name">TouchPin.P2</field>
     <value name="eventType">
         <shadow type="control_button_event_value_id">
-            <field name="id">ButtonEvent.Down</field>
+            <field name="id">ButtonEvent.Click</field>
         </shadow>
     </value>
   </block>
