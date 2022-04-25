@@ -1,1 +1,54 @@
-<xml xmlns="https://developers.google.com/blockly/xml"><variables><variable id="tgDN]qF_Ah1Z*?=|+?^Y">item</variable></variables><block type="pxt-on-start" x="48" y="151"><statement name="HANDLER"><block type="variables_set"><field name="VAR" id="tgDN]qF_Ah1Z*?=|+?^Y">item</field><value name="VALUE"><shadow type="math_number"><field name="NUM">0</field></shadow><block type="builtin_image"><field name="i">IconNames.Yes</field></block></value><next><block type="device_show_image_offset"><mutation xmlns="http://www.w3.org/1999/xhtml" _expanded="0" _input_init="false"></mutation><value name="sprite"><block type="builtin_image"><field name="i">IconNames.Heart</field></block></value><value name="offset"><shadow type="math_number"><field name="NUM">0</field></shadow></value><next><block type="device_scroll_image"><value name="sprite"><block type="variables_get"><field name="VAR" id="tgDN]qF_Ah1Z*?=|+?^Y">item</field></block></value><value name="frameoffset"><shadow type="math_number"><field name="NUM">1</field></shadow></value><value name="delay"><shadow type="math_number"><field name="NUM">200</field></shadow></value></block></next></block></next></block></statement></block></xml>
+<xml xmlns="https://developers.google.com/blockly/xml">
+    <variables>
+        <variable id="tgDN]qF_Ah1Z*?=|+?^Y">item</variable>
+    </variables>
+    <block type="pxt-on-start" x="48" y="151">
+        <statement name="HANDLER">
+            <block type="variables_set">
+                <field name="VAR" id="tgDN]qF_Ah1Z*?=|+?^Y">item</field>
+                <value name="VALUE">
+                    <shadow type="math_number">
+                        <field name="NUM">0</field>
+                    </shadow>
+                    <block type="builtin_image">
+                        <field name="i">IconNames.Yes</field>
+                    </block>
+                </value>
+                <next>
+                    <block type="device_show_image_offset">
+                        <mutation xmlns="http://www.w3.org/1999/xhtml" _expanded="0" _input_init="false"></mutation>
+                        <value name="sprite">
+                            <block type="builtin_image">
+                                <field name="i">IconNames.Heart</field>
+                            </block>
+                        </value>
+                        <value name="offset">
+                            <shadow type="math_number">
+                                <field name="NUM">0</field>
+                            </shadow>
+                        </value>
+                        <next>
+                            <block type="device_scroll_image">
+                                <value name="sprite">
+                                    <block type="variables_get">
+                                        <field name="VAR" id="tgDN]qF_Ah1Z*?=|+?^Y">item</field>
+                                    </block>
+                                </value>
+                                <value name="frameoffset">
+                                    <shadow type="math_number">
+                                        <field name="NUM">1</field>
+                                    </shadow>
+                                </value>
+                                <value name="delay">
+                                    <shadow type="math_number">
+                                        <field name="NUM">200</field>
+                                    </shadow>
+                                </value>
+                            </block>
+                        </next>
+                    </block>
+                </next>
+            </block>
+        </statement>
+    </block>
+</xml>
