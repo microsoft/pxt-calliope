@@ -1,147 +1,147 @@
-<xml xmlns="http://www.w3.org/1999/xhtml">
-  <variables>
-    <variable type="" id="wUkGVHoc@p^mter~Rc7h">item</variable>
-    <variable type="" id=")f$ml.CVl6|1^?sPWl:;">sdfsadf</variable>
-  </variables>
-  <block type="device_button_selected_event" x="-6" y="17">
-    <field name="NAME">Button.AB</field>
-    <value name="eventType">
-        <shadow type="control_button_event_value_id">
-            <field name="id">ButtonEvent.Click</field>
-        </shadow>
-    </value>
-    <statement name="HANDLER">
-      <block type="variables_set">
-        <field name="VAR" id="wUkGVHoc@p^mter~Rc7h" variabletype="">item</field>
-        <value name="VALUE">
-          <shadow type="math_number" id="*jGI?[NsA.f}=qk0RHHf">
-            <field name="NUM">0</field>
-          </shadow>
-          <block type="device_get_button2">
-            <field name="NAME">Button.B</field>
-          </block>
+<xml xmlns="https://developers.google.com/blockly/xml">
+    <variables>
+        <variable id="wUkGVHoc@p^mter~Rc7h">item</variable>
+        <variable id=")f$ml.CVl6|1^?sPWl:;">sdfsadf</variable>
+    </variables>
+    <block type="device_button_selected_event" x="0" y="0">
+        <field name="NAME">Button.AB</field>
+        <value name="eventType">
+            <shadow type="control_button_event_value_id">
+                <field name="id">ButtonEvent.Click</field>
+            </shadow>
         </value>
-        <next>
-          <block type="variables_set">
-            <field name="VAR" id="wUkGVHoc@p^mter~Rc7h" variabletype="">item</field>
-            <value name="VALUE">
-              <shadow type="math_number" id="*jGI?[NsA.f}=qk0RHHf">
-                <field name="NUM">0</field>
-              </shadow>
-              <block type="device_pin_is_pressed">
-                <field name="NAME">TouchPin.P1</field>
-              </block>
-            </value>
-            <next>
-              <block type="variables_set">
-                <field name="VAR" id=")f$ml.CVl6|1^?sPWl:;" variabletype="">sdfsadf</field>
+        <statement name="HANDLER">
+            <block type="variables_set">
+                <field name="VAR" id="wUkGVHoc@p^mter~Rc7h">item</field>
                 <value name="VALUE">
-                  <shadow type="math_number" id="bZBPUCLiZ6#D@e_[Y`:0">
-                    <field name="NUM">0</field>
-                  </shadow>
-                  <block type="device_acceleration">
-                    <field name="NAME">Dimension.Y</field>
-                  </block>
+                    <shadow type="math_number">
+                        <field name="NUM">0</field>
+                    </shadow>
+                    <block type="device_get_button2">
+                        <field name="NAME">Button.B</field>
+                    </block>
                 </value>
                 <next>
-                  <block type="variables_set">
-                    <field name="VAR" id=")f$ml.CVl6|1^?sPWl:;" variabletype="">sdfsadf</field>
-                    <value name="VALUE">
-                      <shadow type="math_number" id="bZBPUCLiZ6#D@e_[Y`:0">
-                        <field name="NUM">0</field>
-                      </shadow>
-                      <block type="device_get_light_level"></block>
-                    </value>
-                    <next>
-                      <block type="variables_set">
-                        <field name="VAR" id=")f$ml.CVl6|1^?sPWl:;" variabletype="">sdfsadf</field>
+                    <block type="variables_set">
+                        <field name="VAR" id="wUkGVHoc@p^mter~Rc7h">item</field>
                         <value name="VALUE">
-                          <shadow type="math_number" id="bZBPUCLiZ6#D@e_[Y`:0">
-                            <field name="NUM">0</field>
-                          </shadow>
-                          <block type="device_heading"></block>
+                            <shadow type="math_number">
+                                <field name="NUM">0</field>
+                            </shadow>
+                            <block type="device_pin_is_pressed">
+                                <field name="NAME">TouchPin.P1</field>
+                            </block>
                         </value>
                         <next>
-                          <block type="variables_set">
-                            <field name="VAR" id=")f$ml.CVl6|1^?sPWl:;" variabletype="">sdfsadf</field>
-                            <value name="VALUE">
-                              <shadow type="math_number" id="bZBPUCLiZ6#D@e_[Y`:0">
-                                <field name="NUM">0</field>
-                              </shadow>
-                              <block type="device_temperature"></block>
-                            </value>
-                            <next>
-                              <block type="variables_set">
-                                <field name="VAR" id=")f$ml.CVl6|1^?sPWl:;" variabletype="">sdfsadf</field>
+                            <block type="variables_set">
+                                <field name="VAR" id=")f$ml.CVl6|1^?sPWl:;">sdfsadf</field>
                                 <value name="VALUE">
-                                  <shadow type="math_number" id="o~k},FK*r@[O2)Cy!lM}">
-                                    <field name="NUM">0</field>
-                                  </shadow>
-                                  <block type="device_get_rotation">
-                                    <field name="NAME">Rotation.Roll</field>
-                                  </block>
+                                    <shadow type="math_number">
+                                        <field name="NUM">0</field>
+                                    </shadow>
+                                    <block type="device_acceleration">
+                                        <field name="NAME">Dimension.Y</field>
+                                    </block>
                                 </value>
                                 <next>
-                                  <block type="variables_set">
-                                    <field name="VAR" id=")f$ml.CVl6|1^?sPWl:;" variabletype="">sdfsadf</field>
-                                    <value name="VALUE">
-                                      <shadow type="math_number" id="Uu,ZpYs7!BzIpX`%V_^!">
-                                        <field name="NUM">0</field>
-                                      </shadow>
-                                      <block type="device_get_magnetic_force">
-                                        <field name="NAME">Dimension.Z</field>
-                                      </block>
-                                    </value>
-                                    <next>
-                                      <block type="variables_set">
-                                        <field name="VAR" id=")f$ml.CVl6|1^?sPWl:;" variabletype="">sdfsadf</field>
+                                    <block type="variables_set">
+                                        <field name="VAR" id=")f$ml.CVl6|1^?sPWl:;">sdfsadf</field>
                                         <value name="VALUE">
-                                          <shadow type="math_number" id="s{USu#UBc84Ao*jy(EQC">
-                                            <field name="NUM">0</field>
-                                          </shadow>
-                                          <block type="device_get_running_time"></block>
+                                            <shadow type="math_number">
+                                                <field name="NUM">0</field>
+                                            </shadow>
+                                            <block type="device_get_light_level" />
                                         </value>
                                         <next>
-                                          <block type="device_set_accelerometer_range">
-                                            <field name="range">AcceleratorRange.TwoG</field>
-                                          </block>
+                                            <block type="variables_set">
+                                                <field name="VAR" id=")f$ml.CVl6|1^?sPWl:;">sdfsadf</field>
+                                                <value name="VALUE">
+                                                    <shadow type="math_number">
+                                                        <field name="NUM">0</field>
+                                                    </shadow>
+                                                    <block type="device_heading" />
+                                                </value>
+                                                <next>
+                                                    <block type="variables_set">
+                                                        <field name="VAR" id=")f$ml.CVl6|1^?sPWl:;">sdfsadf</field>
+                                                        <value name="VALUE">
+                                                            <shadow type="math_number">
+                                                                <field name="NUM">0</field>
+                                                            </shadow>
+                                                            <block type="device_temperature" />
+                                                        </value>
+                                                        <next>
+                                                            <block type="variables_set">
+                                                                <field name="VAR" id=")f$ml.CVl6|1^?sPWl:;">sdfsadf</field>
+                                                                <value name="VALUE">
+                                                                    <shadow type="math_number">
+                                                                        <field name="NUM">0</field>
+                                                                    </shadow>
+                                                                    <block type="device_get_rotation">
+                                                                        <field name="NAME">Rotation.Roll</field>
+                                                                    </block>
+                                                                </value>
+                                                                <next>
+                                                                    <block type="variables_set">
+                                                                        <field name="VAR" id=")f$ml.CVl6|1^?sPWl:;">sdfsadf</field>
+                                                                        <value name="VALUE">
+                                                                            <shadow type="math_number">
+                                                                                <field name="NUM">0</field>
+                                                                            </shadow>
+                                                                            <block type="device_get_magnetic_force">
+                                                                                <field name="NAME">Dimension.Z</field>
+                                                                            </block>
+                                                                        </value>
+                                                                        <next>
+                                                                            <block type="variables_set">
+                                                                                <field name="VAR" id=")f$ml.CVl6|1^?sPWl:;">sdfsadf</field>
+                                                                                <value name="VALUE">
+                                                                                    <shadow type="math_number">
+                                                                                        <field name="NUM">0</field>
+                                                                                    </shadow>
+                                                                                    <block type="device_get_running_time" />
+                                                                                </value>
+                                                                                <next>
+                                                                                    <block type="device_set_accelerometer_range">
+                                                                                        <field name="range">AcceleratorRange.TwoG</field>
+                                                                                    </block>
+                                                                                </next>
+                                                                            </block>
+                                                                        </next>
+                                                                    </block>
+                                                                </next>
+                                                            </block>
+                                                        </next>
+                                                    </block>
+                                                </next>
+                                            </block>
                                         </next>
-                                      </block>
-                                    </next>
-                                  </block>
+                                    </block>
                                 </next>
-                              </block>
-                            </next>
-                          </block>
+                            </block>
                         </next>
-                      </block>
-                    </next>
-                  </block>
+                    </block>
                 </next>
-              </block>
-            </next>
-          </block>
-        </next>
-      </block>
-    </statement>
-  </block>
-  <block type="device_gesture_event" x="472" y="-8">
-    <field name="NAME">Gesture.SixG</field>
-  </block>
-  <block type="device_pin_custom_event" x="555" y="96">
-    <field name="NAME">TouchPin.P2</field>
-    <value name="eventType">
-        <shadow type="control_button_event_value_id">
-            <field name="id">ButtonEvent.Click</field>
-        </shadow>
-    </value>
-  </block>
-  <block type="device_pin_custom_event" x="188" y="435">
-    <field name="NAME">TouchPin.P2</field>
-    <value name="eventType">
-        <shadow type="control_button_event_value_id">
-            <field name="id">ButtonEvent.Up</field>
-        </shadow>
-    </value>
-  </block>
+            </block>
+        </statement>
+    </block>
+    <block type="device_gesture_event" x="555" y="30">
+        <field name="NAME">Gesture.SixG</field>
+    </block>
+    <block type="device_pin_custom_event" x="556" y="156">
+        <field name="name">TouchPin.P0</field>
+        <value name="eventType">
+            <shadow type="control_button_event_value_id">
+                <field name="id">ButtonEvent.Click</field>
+            </shadow>
+        </value>
+    </block>
+    <block type="device_pin_custom_event" x="560" y="274">
+        <field name="name">TouchPin.P0</field>
+        <value name="eventType">
+            <shadow type="control_button_event_value_id">
+                <field name="id">ButtonEvent.Up</field>
+            </shadow>
+        </value>
+    </block>
 </xml>

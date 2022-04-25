@@ -152,7 +152,7 @@ arrowImageNodes.forEach(node => {
     arrowNode.innerHTML = "IconNames.Arrow" + arrowNode.innerHTML.split('.')[1];
 });
 
-console.log(dom.outerHTML);
+// console.log(dom.outerHTML);
 
     // is this a very old script?
     if (pxt.semver.majorCmp(pkgTargetVersion || "0.0.0", "1.0.0") >= 0) return;
