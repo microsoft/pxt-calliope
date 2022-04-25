@@ -129,7 +129,7 @@
     <field name="NAME">Gesture.SixG</field>
   </block>
   <block type="device_pin_custom_event" x="555" y="96">
-    <field name="name">TouchPin.P2</field>
+    <field name="NAME">TouchPin.P2</field>
     <value name="eventType">
         <shadow type="control_button_event_value_id">
             <field name="id">ButtonEvent.Click</field>
