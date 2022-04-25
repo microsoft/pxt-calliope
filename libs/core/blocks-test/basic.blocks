@@ -5,7 +5,6 @@
         <block type="pxt-on-start" x="-307" y="-128">
                 <statement name="HANDLER">
                         <block type="device_show_number">
-                                <mutation xmlns="http://www.w3.org/1999/xhtml" _expanded="0" _input_init="false"></mutation>
                                 <value name="number">
                                         <shadow type="math_number">
                                                 <field name="NUM">12</field>
@@ -13,33 +12,19 @@
                                 </value>
                                 <next>
                                         <block type="device_show_number">
-                                                <mutation xmlns="http://www.w3.org/1999/xhtml" _expanded="1" _input_init="true"></mutation>
                                                 <value name="number">
                                                         <shadow type="math_number">
                                                                 <field name="NUM">0</field>
                                                         </shadow>
                                                 </value>
-                                                <value name="interval">
-                                                        <shadow type="math_number">
-                                                                <field name="NUM">40</field>
-                                                        </shadow>
-                                                </value>
                                                 <next>
                                                         <block type="basic_show_icon">
-                                                                <mutation xmlns="http://www.w3.org/1999/xhtml" _expanded="0" _input_init="false"></mutation>
                                                                 <field name="i">IconNames.Umbrella</field>
                                                                 <next>
                                                                         <block type="basic_show_icon">
-                                                                                <mutation xmlns="http://www.w3.org/1999/xhtml" _expanded="1" _input_init="true"></mutation>
                                                                                 <field name="i">IconNames.Heart</field>
-                                                                                <value name="interval">
-                                                                                        <shadow type="math_number">
-                                                                                                <field name="NUM">100</field>
-                                                                                        </shadow>
-                                                                                </value>
-                                                                                <next>
+                                                                                                                                                                <next>
                                                                                         <block type="device_print_message">
-                                                                                                <mutation xmlns="http://www.w3.org/1999/xhtml" _expanded="0" _input_init="false"></mutation>
                                                                                                 <value name="text">
                                                                                                         <shadow type="text">
                                                                                                                 <field name="TEXT">hi!</field>
@@ -47,15 +32,9 @@
                                                                                                 </value>
                                                                                                 <next>
                                                                                                         <block type="device_print_message">
-                                                                                                                <mutation xmlns="http://www.w3.org/1999/xhtml" _expanded="1" _input_init="true"></mutation>
                                                                                                                 <value name="text">
                                                                                                                         <shadow type="text">
                                                                                                                                 <field name="TEXT">hi!</field>
-                                                                                                                        </shadow>
-                                                                                                                </value>
-                                                                                                                <value name="interval">
-                                                                                                                        <shadow type="math_number">
-                                                                                                                                <field name="NUM">50</field>
                                                                                                                         </shadow>
                                                                                                                 </value>
                                                                                                                 <next>
@@ -85,7 +64,6 @@
                                                                                                                                                                                 </value>
                                                                                                                                                                                 <next>
                                                                                                                                                                                         <block type="device_show_number">
-                                                                                                                                                                                                <mutation xmlns="http://www.w3.org/1999/xhtml" _expanded="1" _input_init="true"></mutation>
                                                                                                                                                                                                 <value name="number">
                                                                                                                                                                                                         <shadow type="math_number">
                                                                                                                                                                                                                 <field name="NUM">0</field>
@@ -107,11 +85,6 @@
                                                                                                                                                                                                                         </shadow>
                                                                                                                                                                                                                 </value>
                                                                                                                                                                                                         </block>
-                                                                                                                                                                                                </value>
-                                                                                                                                                                                                <value name="interval">
-                                                                                                                                                                                                        <shadow type="math_number">
-                                                                                                                                                                                                                <field name="NUM">80</field>
-                                                                                                                                                                                                        </shadow>
                                                                                                                                                                                                 </value>
                                                                                                                                                                                                 <next>
                                                                                                                                                                                                         <block type="basic_show_compass">

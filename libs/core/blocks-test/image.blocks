@@ -16,7 +16,6 @@
                 </value>
                 <next>
                     <block type="device_show_image_offset">
-                        <mutation xmlns="http://www.w3.org/1999/xhtml" _expanded="0" _input_init="false"></mutation>
                         <value name="sprite">
                             <block type="builtin_image">
                                 <field name="i">IconNames.Heart</field>
