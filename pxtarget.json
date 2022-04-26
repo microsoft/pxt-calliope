@@ -98,7 +98,7 @@
                     "DisplayMode\\s*\\.\\s*BackAndWhite": "DisplayMode.BlackAndWhite"
                 }
             }],
-            "0.0.0 - 4.0.19": [
+            "0.0.0 - 4.0.20": [
                 {
                     "type": "api",
                     "map": {
@@ -109,7 +109,7 @@
                         "input\\s*\\.\\s*onPinPressed\\s*\\(\\s*(.*?),": "input.onPinTouchEvent($1, ButtonEvent.Down,",
                         "input\\s*\\.\\s*onPinReleased\\s*\\(\\s*(.*?),": "input.onPinTouchEvent($1, ButtonEvent.Up,",
                         "input\\s*\\.\\s*loudness\\s*\\(": "input.soundLevel(",
-                        "basic\\s*\\.\\s*rgbw\\s*\\(\\s*(.*?),\\s*(.*?),\\s*(.*?),\\s*(.*?)\\)": "basic.rgb($1, $2, $3)"
+                        "basic\\s*\\.\\s*rgbw\\s*\\(\\s*(.*?),\\s*(.*?),\\s*(.*?),\\s*(.*?)\\s*\\)": "basic.rgb($1, $2, $3)"
                     }
                 }
             ]
