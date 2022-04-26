@@ -1,10 +1,7 @@
 
 export function patchBlocks(pkgTargetVersion: string, dom: Element) {
-    console.error("A");
-    console.log(pkgTargetVersion)
     // is this a old script?
     if (pxt.semver.majorCmp(pkgTargetVersion || "0.0.0", "4.0.20") >= 0) return;
-    // console.log(dom.outerHTML);
     // button and pin pressed/released blocks
 /*
     <block type="device_button_event" x="354" y="30">
@@ -60,11 +57,11 @@ const inputNodes = pxt.U.toArray(dom.querySelectorAll("block[type=device_button_
             fieldNode.setAttribute("name", "id")
 
             if(nodeType === "device_button_event") {
-                fieldNode.innerHTML = "ButtonEvent.Click";
+                fieldNode.innerText = "ButtonEvent.Click";
             } else if(nodeType === "device_pin_released") {
-                fieldNode.innerHTML = "ButtonEvent.Up";
+                fieldNode.innerText = "ButtonEvent.Up";
             } else {
-                fieldNode.innerHTML = "ButtonEvent.Down";
+                fieldNode.innerText = "ButtonEvent.Down";
             }
 
             shadowNode.prepend(fieldNode)
@@ -116,11 +113,11 @@ const arrowNodes = pxt.U.toArray(dom.querySelectorAll("block[type=basic_show_arr
 arrowNodes.forEach(node => {
     node.setAttribute("type", "basic_show_icon");
     const arrowNode = node.querySelectorAll("value[name=i]")[0]
-    const iconName = "IconNames.Arrow" + arrowNode.querySelectorAll("field[name=arrow]")[0].innerHTML.split('.')[1];
+    const iconName = "IconNames.Arrow" + arrowNode.querySelectorAll("field[name=arrow]")[0].innerText.split('.')[1];
     
     const iconNode = node.ownerDocument.createElement("field");
     iconNode.setAttribute("name", "i")
-    iconNode.innerHTML = iconName;
+    iconNode.innerText = iconName;
 
     const mutationNode = node.ownerDocument.createElement("mutation");
     // mutationNode.setAttribute("xmlns", "http://www.w3.org/1999/xhtml")
@@ -146,13 +143,10 @@ arrowNodes.forEach(node => {
     */
 const arrowImageNodes = pxt.U.toArray(dom.querySelectorAll("block[type=builtin_arrow_image]"))
 arrowImageNodes.forEach(node => {
-    console.log(node.innerHTML)
     node.setAttribute("type", "builtin_image");
     const arrowNode = node.querySelectorAll("field[name=i]")[0];
-    arrowNode.innerHTML = "IconNames.Arrow" + arrowNode.innerHTML.split('.')[1];
+    arrowNode.innerText = "IconNames.Arrow" + arrowNode.innerText.split('.')[1];
 });
-
-// console.log(dom.outerHTML);
 
     // is this a very old script?
     if (pxt.semver.majorCmp(pkgTargetVersion || "0.0.0", "1.0.0") >= 0) return;
@@ -217,7 +211,7 @@ arrowImageNodes.forEach(node => {
                 let n = lednode.getAttribute("name");
                 let col = parseInt(n[3]);
                 let row = parseInt(n[4]);
-                leds[row][col] = lednode.innerHTML == "TRUE" ? "#" : ".";
+                leds[row][col] = lednode.innerText == "TRUE" ? "#" : ".";
                 // remove node
                 node.removeChild(lednode);
             });
@@ -270,7 +264,7 @@ converts to
         node.appendChild(f);
     }
 
-    pxt.U.toArray(dom.querySelectorAll("variable")).forEach(node => varids[node.innerHTML] = node.getAttribute("id"));
+    pxt.U.toArray(dom.querySelectorAll("variable")).forEach(node => varids[node.innerText] = node.getAttribute("id"));
     pxt.U.toArray(dom.querySelectorAll("block[type=radio_on_packet]"))
         .forEach(node => {
             const mutation = node.querySelector("mutation");
