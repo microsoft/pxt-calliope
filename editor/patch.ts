@@ -57,11 +57,11 @@ const inputNodes = pxt.U.toArray(dom.querySelectorAll("block[type=device_button_
             fieldNode.setAttribute("name", "id")
 
             if(nodeType === "device_button_event") {
-                fieldNode.innerText = "ButtonEvent.Click";
+                fieldNode.textContent = "ButtonEvent.Click";
             } else if(nodeType === "device_pin_released") {
-                fieldNode.innerText = "ButtonEvent.Up";
+                fieldNode.textContent = "ButtonEvent.Up";
             } else {
-                fieldNode.innerText = "ButtonEvent.Down";
+                fieldNode.textContent = "ButtonEvent.Down";
             }
 
             shadowNode.prepend(fieldNode)
@@ -113,11 +113,11 @@ const arrowNodes = pxt.U.toArray(dom.querySelectorAll("block[type=basic_show_arr
 arrowNodes.forEach(node => {
     node.setAttribute("type", "basic_show_icon");
     const arrowNode = node.querySelectorAll("value[name=i]")[0]
-    const iconName = "IconNames.Arrow" + arrowNode.querySelectorAll("field[name=arrow]")[0].innerText.split('.')[1];
+    const iconName = "IconNames.Arrow" + arrowNode.querySelectorAll("field[name=arrow]")[0].textContent.split('.')[1];
     
     const iconNode = node.ownerDocument.createElement("field");
     iconNode.setAttribute("name", "i")
-    iconNode.innerText = iconName;
+    iconNode.textContent  = iconName;
 
     const mutationNode = node.ownerDocument.createElement("mutation");
     // mutationNode.setAttribute("xmlns", "http://www.w3.org/1999/xhtml")
@@ -145,7 +145,7 @@ const arrowImageNodes = pxt.U.toArray(dom.querySelectorAll("block[type=builtin_a
 arrowImageNodes.forEach(node => {
     node.setAttribute("type", "builtin_image");
     const arrowNode = node.querySelectorAll("field[name=i]")[0];
-    arrowNode.innerText = "IconNames.Arrow" + arrowNode.innerText.split('.')[1];
+    arrowNode.textContent  = "IconNames.Arrow" + arrowNode.textContent.split('.')[1];
 });
 
     // is this a very old script?
@@ -211,7 +211,7 @@ arrowImageNodes.forEach(node => {
                 let n = lednode.getAttribute("name");
                 let col = parseInt(n[3]);
                 let row = parseInt(n[4]);
-                leds[row][col] = lednode.innerText == "TRUE" ? "#" : ".";
+                leds[row][col] = lednode.textContent  == "TRUE" ? "#" : ".";
                 // remove node
                 node.removeChild(lednode);
             });
@@ -264,7 +264,7 @@ converts to
         node.appendChild(f);
     }
 
-    pxt.U.toArray(dom.querySelectorAll("variable")).forEach(node => varids[node.innerText] = node.getAttribute("id"));
+    pxt.U.toArray(dom.querySelectorAll("variable")).forEach(node => varids[node.textContent] = node.getAttribute("id"));
     pxt.U.toArray(dom.querySelectorAll("block[type=radio_on_packet]"))
         .forEach(node => {
             const mutation = node.querySelector("mutation");
