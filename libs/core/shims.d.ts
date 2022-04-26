@@ -217,9 +217,10 @@ declare namespace basic {
      */
     //% blockId=device_set_led_color
     //% block="set led to %color=colorNumberPicker"
+    //%
     //% weight=10
-    //% group="RGB LED" shim=basic::setLedColor
-    function setLedColor(color: int32): void;
+    //% group="RGB LED" color.defl=0xff0000 shim=basic::setLedColor
+    function setLedColor(color?: int32): void;
 
     /**
      * Sets the color on the build-in LED. Set to 0 to turn off.
