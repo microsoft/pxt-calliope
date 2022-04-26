@@ -3,13 +3,13 @@
 Events and data from sensors
 
 ```cards
-input.onButtonPressed(Button.A, () => {
+input.onButtonEvent(Button.A, ButtonEvent.Click, () => {
     
 });
 input.onGesture(Gesture.Shake, () => {
     
 });
-input.onPinPressed(TouchPin.P0, () => {
+input.onPinTouchEvent(TouchPin.P0, ButtonEvent.Click, () => {
     
 });
 input.buttonIsPressed(Button.A);

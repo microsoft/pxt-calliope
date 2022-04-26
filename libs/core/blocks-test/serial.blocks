@@ -59,8 +59,8 @@
                         </value>
                         <next>
                           <block type="serial_redirect">
-                            <field name="tx">SerialPin.P12</field>
-                            <field name="rx">SerialPin.P13</field>
+                            <field name="tx">SerialPin.C16</field>
+                            <field name="rx">SerialPin.C17</field>
                             <field name="rate">BaudRate.BaudRate28800</field>
                             <next>
                               <block type="serial_writebuffer">

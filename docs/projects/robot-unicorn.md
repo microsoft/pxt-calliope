@@ -123,7 +123,7 @@ basic.forever(function () {
 **MakeCode blocks for the Robot Unicorn controller**
 
 ```blocks
-input.onButtonPressed(Button.AB, function () {
+input.onButtonEvent(Button.AB, ButtonEvent.Down, function () {
     radio.sendNumber(4)
     basic.showLeds(`
         # . . . #

@@ -60,7 +60,7 @@ namespace storage {
     //% block="Clear number %key"
     //% blockId=storage_remove_key_int
     //% group="Remove"
-    export function removeKeyInt(key: StorageSlots) : void {
+    export function removeNumber(key: StorageSlots) : void {
       remove(storagesInt[key]);
     }
 

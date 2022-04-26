@@ -1,0 +1,29 @@
+<xml xmlns="https://developers.google.com/blockly/xml">
+    <block type="pxt-on-start" x="20" y="20">
+        <statement name="HANDLER">
+            <block type="motor_on">
+                <value name="percent">
+                    <shadow type="speedPicker">
+                        <field name="speed">100</field>
+                    </shadow>
+                </value>
+                <next>
+                    <block type="motor_command">
+                        <field name="command">MotorCommand.Break</field>
+                        <next>
+                            <block type="block_dual_motor">
+                                <field name="motor">Motor.A</field>
+                                <value name="percent">
+                                    <shadow type="speedPicker">
+                                        <field name="speed">100</field>
+                                    </shadow>
+                                </value>
+                            </block>
+                        </next>
+                    </block>
+                </next>
+            </block>
+        </statement>
+    </block>
+    <block type="device_forever" x="294" y="22" />
+</xml>

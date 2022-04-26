@@ -27,7 +27,7 @@ bluetooth.onBluetoothDisconnected(() => {
     basic.showString("D");
     connected = 0;
 });
-input.onButtonPressed(Button.A, () => {
+input.onButtonEvent(Button.A, ButtonEvent.Down, () => {
     if (connected == 1) {
         bluetooth.uartWriteString("HELLO");
     }

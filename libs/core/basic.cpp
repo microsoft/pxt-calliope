@@ -118,6 +118,7 @@ namespace basic {
     */
     //% blockId=device_set_led_color
     //% block="set led to %color=colorNumberPicker"
+    //% color.defl=0xff0000
     //% weight=10
     //% group="RGB LED"
     void setLedColor(int color) {

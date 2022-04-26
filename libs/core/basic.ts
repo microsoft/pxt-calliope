@@ -82,22 +82,6 @@ namespace basic {
         return ((red & 0xFF) << 16) | ((green & 0xFF) << 8) | (blue & 0xFF);
     }
 
-
-    /**
-     * Converts red, green, blue channels into a RGB color
-     * @param red value of the red channel between 0 and 255. eg: 255
-     * @param green value of the green channel between 0 and 255. eg: 255
-     * @param blue value of the blue channel between 0 and 255. eg: 255
-     * @param white value of the white channel between 0 and 255. eg: 0
-     */
-    //% weight=2
-    //% blockId="core_rgbw" block="red %red|green %green|blue %blue|white %white"
-    //% group="RGB LED"
-    //% deprecated=true
-    export function rgbw(red: number, green: number, blue: number, white:number): number {
-        return ((white & 0xFF) << 24) | ((red & 0xFF) << 16) | ((green & 0xFF) << 8) | (blue & 0xFF);
-    }
-
 }
 
 /**

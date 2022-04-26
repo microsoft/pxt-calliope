@@ -190,21 +190,6 @@ namespace input {
         registerWithDal((int)button, eventType, body);
     }
 
-
-    /**
-     * Do something when a button (A, B or both A+B) is pushed down and released again.
-     * @param button the button that needs to be pressed
-     * @param body code to run when event is raised
-     */
-    //% help=input/on-button-pressed weight=85 blockGap=16
-    //% blockId=device_button_event block="on button|%NAME|pressed"
-    //% parts="buttonpair"
-    //% deprecated=true
-    //% group="Events"
-    void onButtonPressed(Button button, Action body) {
-        registerWithDal((int)button, MICROBIT_BUTTON_EVT_CLICK, body);
-    }
-
     /**
      * Do something when when a gesture is done (like shaking the micro:bit).
      * @param gesture the type of gesture to track, eg: Gesture.Shake
@@ -240,7 +225,6 @@ namespace input {
         return uBit.accelerometer.getGesture() == gi;
     }
 
-
     /**
      * Do something when a pin receives an touch event (while also touching the GND pin).
      * @param name the pin, eg: TouchPin.P0
@@ -256,43 +240,6 @@ namespace input {
         // Forces the PIN to switch to makey-makey style detection.
         pin->isTouched();
         registerWithDal((int)name, eventType, body);
-    }
-
-     /**
-     * Do something when a pin is touched and released again (while also touching the GND pin).
-     * @param name the pin that needs to be pressed, eg: TouchPin.P0
-     * @param body the code to run when the pin is pressed
-     */
-    //% help=input/on-pin-pressed weight=83 blockGap=16
-    //% blockId=device_pin_event block="on pin %name|pressed"
-    //% group="Events"
-    //% deprecated=true
-    void onPinPressed(TouchPin name, Action body) {
-        auto pin = getPin((int)name);
-        if (!pin) return;
-
-        // Forces the PIN to switch to makey-makey style detection.
-        pin->isTouched();
-        registerWithDal((int)name, MICROBIT_BUTTON_EVT_CLICK, body);
-    }
-
-    /**
-     * Do something when a pin is released.
-     * @param name the pin that needs to be released, eg: TouchPin.P0
-     * @param body the code to run when the pin is released
-     */
-    //% help=input/on-pin-released weight=6 blockGap=16
-    //% blockId=device_pin_released block="on pin %NAME|released"
-    //% advanced=true
-    //% group="Events"
-    //% deprecated=true
-    void onPinReleased(TouchPin name, Action body) {
-        auto pin = getPin((int)name);
-        if (!pin) return;
-
-        // Forces the PIN to switch to makey-makey style detection.
-        pin->isTouched();
-        registerWithDal((int)name, MICROBIT_BUTTON_EVT_UP, body);
     }
 
     /**

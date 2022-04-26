@@ -13,7 +13,7 @@ basic.showString("My Name")
 Well, you noticed that the text stopped. Place the ``||basic:show string||`` block in an ``||input:on button pressed||`` block to scroll your name whenever button **A** is pressed.
 
 ```block
-input.onButtonPressed(Button.A, () => {
+input.onButtonEvent(Button.A, ButtonEvent.Click, () => {
     basic.showString("My Name")
 });
 ```
@@ -23,7 +23,7 @@ input.onButtonPressed(Button.A, () => {
 Ok, let's try to talk to the @boardname@ using a button. Change the text in ``||basic:show string||`` to ask the question "How are you?". Add another ``||basic:show string||`` with "....." to show that the @boardname@ is thinking.
 
 ```block
-input.onButtonPressed(Button.A, () => {
+input.onButtonEvent(Button.A, ButtonEvent.Click, () => {
     basic.showString("How are you?")
     basic.showString(".....");
 })
@@ -34,7 +34,7 @@ input.onButtonPressed(Button.A, () => {
 Now, make the @boardname@ give an answer with a smiley face! Find the ``||basic:show leds||`` and draw a smiley face on the block by clicking on the LEDs. Press button **A** in the simulator and see the @boardname@ respond to your question.
 
 ```block
-input.onButtonPressed(Button.A, () => {
+input.onButtonEvent(Button.A, ButtonEvent.Click, () => {
     basic.showString("How are you?")
     basic.showString(".....");
     basic.showLeds(`

@@ -1,3 +1,157 @@
+
+export function patchBlocks(pkgTargetVersion: string, dom: Element) {
+    // is this a old script?
+    if (pxt.semver.majorCmp(pkgTargetVersion || "0.0.0", "4.0.20") >= 0) return;
+    // button and pin pressed/released blocks
+/*
+    <block type="device_button_event" x="354" y="30">
+        <field name="NAME">Button.A</field>
+    </block>
+    <block type="device_pin_event" x="610" y="33">
+        <field name="name">TouchPin.P0</field>
+    </block>
+    <block type="device_pin_released" x="361" y="158">
+        <field name="NAME">TouchPin.P1</field>
+    </block>
+
+    converts to
+
+    <block type="device_button_selected_event" x="35" y="429">
+        <field name="NAME">Button.B</field>
+        <value name="eventType">
+            <shadow type="control_button_event_value_id">
+                <field name="id">ButtonEvent.Click</field>
+            </shadow>
+        </value>
+    </block>
+    <block type="device_pin_custom_event" x="368" y="428">
+        <field name="NAME">TouchPin.P2</field>
+        <value name="eventType">
+            <shadow type="control_button_event_value_id">
+                <field name="id">ButtonEvent.Up</field>
+            </shadow>
+        </value>
+    </block>
+*/
+const inputNodes = pxt.U.toArray(dom.querySelectorAll("block[type=device_button_event]"))
+        .concat(pxt.U.toArray(dom.querySelectorAll("block[type=device_pin_event]")))
+        .concat(pxt.U.toArray(dom.querySelectorAll("block[type=device_pin_released]")))
+        inputNodes.forEach(node => {
+            const nodeType = node.getAttribute("type");
+            if(nodeType === "device_button_event") {
+                node.setAttribute("type", "device_button_selected_event");
+            } else {
+                node.setAttribute("type", "device_pin_custom_event");
+            }
+            // fix lowercase 'name'in device_pin_event
+            if(nodeType === "device_pin_event") {
+                node.querySelectorAll("field[name=name]")[0].setAttribute("name", "NAME")
+            }
+            const valueNode = node.ownerDocument.createElement("value");
+            valueNode.setAttribute("name", "eventType")
+
+            const shadowNode = node.ownerDocument.createElement("shadow");
+            shadowNode.setAttribute("type", "control_button_event_value_id")
+
+            const fieldNode = node.ownerDocument.createElement("field");
+            fieldNode.setAttribute("name", "id")
+
+            if(nodeType === "device_button_event") {
+                fieldNode.textContent = "ButtonEvent.Click";
+            } else if(nodeType === "device_pin_released") {
+                fieldNode.textContent = "ButtonEvent.Up";
+            } else {
+                fieldNode.textContent = "ButtonEvent.Down";
+            }
+
+            shadowNode.prepend(fieldNode)
+            valueNode.prepend(shadowNode)
+            node.prepend(valueNode)
+
+        });
+
+
+
+// loudness
+    /*
+    <block type="loudness" />
+
+    converts to
+
+    <block type="soundLevel" />
+    */
+    const loudnessNodes = pxt.U.toArray(dom.querySelectorAll("block[type=loudness]"))
+    loudnessNodes.forEach(node => {
+        node.setAttribute("type", "soundLevel");
+    });
+
+    // rgbw to rgb block
+    const rgbwNodes = pxt.U.toArray(dom.querySelectorAll("block[type=core_rgbw]"))
+    rgbwNodes.forEach(node => {
+        node.setAttribute("type", "core_rgb");
+        node.querySelectorAll("value[name=white]")[0].remove();
+    }); 
+
+    // arrow blocks
+    /*
+<block type="basic_show_arrow">
+    <value name="i">
+        <shadow type="device_arrow">
+            <field name="arrow">ArrowNames.North</field>
+        </shadow>
+    </value>
+</block>
+
+    converts to
+
+<block type="basic_show_icon">
+    <mutation xmlns="http://www.w3.org/1999/xhtml" _expanded="0" _input_init="false"></mutation>
+    <field name="i">IconNames.ArrowNorth</field>
+</block>
+    */
+const arrowNodes = pxt.U.toArray(dom.querySelectorAll("block[type=basic_show_arrow]"))
+arrowNodes.forEach(node => {
+    node.setAttribute("type", "basic_show_icon");
+    const arrowNode = node.querySelectorAll("value[name=i]")[0]
+    const iconName = "IconNames.Arrow" + arrowNode.querySelectorAll("field[name=arrow]")[0].textContent.split('.')[1];
+    
+    const iconNode = node.ownerDocument.createElement("field");
+    iconNode.setAttribute("name", "i")
+    iconNode.textContent  = iconName;
+
+    const mutationNode = node.ownerDocument.createElement("mutation");
+    // mutationNode.setAttribute("xmlns", "http://www.w3.org/1999/xhtml")
+    mutationNode.setAttribute("_expanded", "0")
+    mutationNode.setAttribute("_input_init", "false")
+
+    node.prepend(iconNode)
+    node.prepend(mutationNode)
+    node.removeChild(arrowNode);
+});
+
+    // arrow icons
+    /*
+<block type="builtin_arrow_image">
+    <field name="i">ArrowNames.East</field>
+</block>
+
+    converts to
+
+<block type="builtin_image">
+    <field name="i">IconNames.ArrowEast</field>
+</block>
+    */
+const arrowImageNodes = pxt.U.toArray(dom.querySelectorAll("block[type=builtin_arrow_image]"))
+arrowImageNodes.forEach(node => {
+    node.setAttribute("type", "builtin_image");
+    const arrowNode = node.querySelectorAll("field[name=i]")[0];
+    arrowNode.textContent  = "IconNames.Arrow" + arrowNode.textContent.split('.')[1];
+});
+
+    // is this a very old script?
+    if (pxt.semver.majorCmp(pkgTargetVersion || "0.0.0", "1.0.0") >= 0) return;
+
+    // LEDs
 /**
  *       <block type="device_show_leds">
     <field name="LED00">FALSE</field>
@@ -40,11 +194,6 @@
   </block>
  */
 
-export function patchBlocks(pkgTargetVersion: string, dom: Element) {
-    // is this a old script?
-    if (pxt.semver.majorCmp(pkgTargetVersion || "0.0.0", "1.0.0") >= 0) return;
-
-    // showleds
     const nodes = pxt.U.toArray(dom.querySelectorAll("block[type=device_show_leds]"))
         .concat(pxt.U.toArray(dom.querySelectorAll("block[type=device_build_image]")))
         .concat(pxt.U.toArray(dom.querySelectorAll("shadow[type=device_build_image]")))
@@ -62,7 +211,7 @@ export function patchBlocks(pkgTargetVersion: string, dom: Element) {
                 let n = lednode.getAttribute("name");
                 let col = parseInt(n[3]);
                 let row = parseInt(n[4]);
-                leds[row][col] = lednode.innerHTML == "TRUE" ? "#" : ".";
+                leds[row][col] = lednode.textContent  == "TRUE" ? "#" : ".";
                 // remove node
                 node.removeChild(lednode);
             });
@@ -73,6 +222,8 @@ export function patchBlocks(pkgTargetVersion: string, dom: Element) {
         f.appendChild(node.ownerDocument.createTextNode(s));
         node.insertBefore(f, null);
     });
+
+
 
     // radio
     /*
@@ -113,7 +264,7 @@ converts to
         node.appendChild(f);
     }
 
-    pxt.U.toArray(dom.querySelectorAll("variable")).forEach(node => varids[node.innerHTML] = node.getAttribute("id"));
+    pxt.U.toArray(dom.querySelectorAll("variable")).forEach(node => varids[node.textContent] = node.getAttribute("id"));
     pxt.U.toArray(dom.querySelectorAll("block[type=radio_on_packet]"))
         .forEach(node => {
             const mutation = node.querySelector("mutation");

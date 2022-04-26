@@ -97,7 +97,22 @@
                 "map": {
                     "DisplayMode\\s*\\.\\s*BackAndWhite": "DisplayMode.BlackAndWhite"
                 }
-            }]
+            }],
+            "0.0.0 - 4.0.20": [
+                {
+                    "type": "api",
+                    "map": {
+                        "basic\\s*\\.\\s*showArrow\\s*\\(": "basic.showIcon(",
+                        "images\\s*\\.\\s*arrowImage\\s*\\(": "images.iconImage(",
+                        "ArrowNames\\s*\\.\\s*": "IconNames.Arrow",
+                        "input\\s*\\.\\s*onButtonPressed\\s*\\(\\s*(.*?),": "input.onButtonEvent($1, ButtonEvent.Click,",
+                        "input\\s*\\.\\s*onPinPressed\\s*\\(\\s*(.*?),": "input.onPinTouchEvent($1, ButtonEvent.Down,",
+                        "input\\s*\\.\\s*onPinReleased\\s*\\(\\s*(.*?),": "input.onPinTouchEvent($1, ButtonEvent.Up,",
+                        "input\\s*\\.\\s*loudness\\s*\\(": "input.soundLevel(",
+                        "basic\\s*\\.\\s*rgbw\\s*\\(\\s*(.*?),\\s*(.*?),\\s*(.*?),\\s*(.*?)\\s*\\)": "basic.rgb($1, $2, $3)"
+                    }
+                }
+            ]
         },
         "hidSelectors": [{
             "usagePage": "0xFF00",
