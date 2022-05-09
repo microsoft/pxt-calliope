@@ -230,7 +230,7 @@ namespace input {
      * @param name the pin, eg: TouchPin.P0
      * @param body the code to run when event is fired on pin
      */
-    //% help=input/on-pin-touch weight=99 blockGap=16
+    //% help=input/on-pin-event weight=99 blockGap=16
     //% blockId=device_pin_custom_event block="on pin %name| %eventType=control_button_event_value_id"
     //% group="Events"
     void onPinTouchEvent(TouchPin name, int eventType, Action body) {
