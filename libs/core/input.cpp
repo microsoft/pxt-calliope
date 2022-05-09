@@ -9,17 +9,17 @@ enum class Button {
 
 enum class ButtonEvent {
     //% blockIdentity="input.buttonEventValueId"
-    //% block="pressed down"
-    Down = MICROBIT_BUTTON_EVT_DOWN,
-    //% blockIdentity="input.buttonEventValueId"
-    //% block="released up"
-    Up = MICROBIT_BUTTON_EVT_UP,
-    //% blockIdentity="input.buttonEventValueId"
     //% block="clicked"
     Click = MICROBIT_BUTTON_EVT_CLICK,
     //% blockIdentity="input.buttonEventValueId"
     //% block="long clicked"
     LongClick = MICROBIT_BUTTON_EVT_LONG_CLICK,
+    //% blockIdentity="input.buttonEventValueId"
+    //% block="pressed down"
+    Down = MICROBIT_BUTTON_EVT_DOWN,
+    //% blockIdentity="input.buttonEventValueId"
+    //% block="released up"
+    Up = MICROBIT_BUTTON_EVT_UP,
 };
 
 enum class Dimension {
@@ -187,7 +187,7 @@ namespace input {
     //% parts="buttonpair"
     //% group="Events"
     void onButtonEvent(Button button, int eventType, Action body) {
-        registerWithDal((int)button, eventType, body);
+        registerWithDal((int)button, (int)eventType, body);
     }
 
     /**
@@ -230,7 +230,7 @@ namespace input {
      * @param name the pin, eg: TouchPin.P0
      * @param body the code to run when event is fired on pin
      */
-    //% help=input/on-pin-touch weight=99 blockGap=16
+    //% help=input/on-pin-event weight=99 blockGap=16
     //% blockId=device_pin_custom_event block="on pin %name| %eventType=control_button_event_value_id"
     //% group="Events"
     void onPinTouchEvent(TouchPin name, int eventType, Action body) {
@@ -239,7 +239,7 @@ namespace input {
 
         // Forces the PIN to switch to makey-makey style detection.
         pin->isTouched();
-        registerWithDal((int)name, eventType, body);
+        registerWithDal((int)name, (int)eventType, body);
     }
 
     /**
