@@ -9,17 +9,17 @@ enum class Button {
 
 enum class ButtonEvent {
     //% blockIdentity="input.buttonEventValueId"
-    //% block="pressed down"
-    Down = MICROBIT_BUTTON_EVT_DOWN,
-    //% blockIdentity="input.buttonEventValueId"
-    //% block="released up"
-    Up = MICROBIT_BUTTON_EVT_UP,
-    //% blockIdentity="input.buttonEventValueId"
     //% block="clicked"
     Click = MICROBIT_BUTTON_EVT_CLICK,
     //% blockIdentity="input.buttonEventValueId"
     //% block="long clicked"
     LongClick = MICROBIT_BUTTON_EVT_LONG_CLICK,
+    //% blockIdentity="input.buttonEventValueId"
+    //% block="pressed down"
+    Down = MICROBIT_BUTTON_EVT_DOWN,
+    //% blockIdentity="input.buttonEventValueId"
+    //% block="released up"
+    Up = MICROBIT_BUTTON_EVT_UP,
 };
 
 enum class Dimension {
@@ -187,7 +187,7 @@ namespace input {
     //% parts="buttonpair"
     //% group="Events"
     void onButtonEvent(Button button, int eventType, Action body) {
-        registerWithDal((int)button, eventType, body);
+        registerWithDal((int)button, (int)eventType, body);
     }
 
     /**
@@ -239,7 +239,7 @@ namespace input {
 
         // Forces the PIN to switch to makey-makey style detection.
         pin->isTouched();
-        registerWithDal((int)name, eventType, body);
+        registerWithDal((int)name, (int)eventType, body);
     }
 
     /**
