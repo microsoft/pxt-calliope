@@ -190,7 +190,7 @@ namespace pxsim.visuals {
     `;
     const BOARD_SVG = `<?xml version="1.0" encoding="utf-8"?>
     <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
-         y="0px" viewBox="0 0 530 530" style="enable-background:new 0 0 530 530;" xml:space="preserve">
+         y="0px" viewBox="0 0 530 630" style="enable-background:new 0 0 530 630;" xml:space="preserve">
     <style type="text/css">
         .st0{fill:#044854;}
         .st1{fill:none;stroke:#989899;stroke-width:0.5;stroke-linecap:square;stroke-miterlimit:10;}
@@ -691,7 +691,7 @@ namespace pxsim.visuals {
         "C16, Serial - RX", "C17, Serial - TX", "+3v3", "GND"
     ];
     const MB_WIDTH = 530;
-    const MB_HEIGHT = 530;
+    const MB_HEIGHT = 630;
     export interface IBoardTheme {
         accent?: string;
         display?: string;
@@ -1236,7 +1236,7 @@ namespace pxsim.visuals {
             if (!this.thermometer) {
                 let gid = "gradient-thermometer";
                 this.thermometerGradient = svg.linearGradient(this.defs, gid);
-				const ty = MB_HEIGHT - 200;
+				const ty = MB_HEIGHT - 270;
                 this.thermometer = <SVGRectElement>svg.child(this.g, "rect", {
                     class: "sim-thermometer",
                     x: 0,
@@ -1309,7 +1309,7 @@ namespace pxsim.visuals {
                 const level = state.microphoneState.getLevel();
                 let gid = "gradient-soundlevel";
                 this.soundLevelGradient = svg.linearGradient(this.defs, gid);
-                const ty = MB_HEIGHT - 200;
+                const ty = MB_HEIGHT - 270;
                 this.soundLevel = <SVGRectElement>svg.child(this.g, "rect", {
                     class: "sim-thermometer",
                     x: 490,
