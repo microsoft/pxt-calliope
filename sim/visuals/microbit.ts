@@ -1,5 +1,28 @@
 namespace pxsim.visuals {
     const MB_STYLE = `
+        button {
+            font-size: 1.2rem;
+
+        .simEventBtn {
+            font-size: 1.4rem;
+            font-weight: 900;
+            padding: 1.25rem 1.75rem;
+            border-radius: 3.5rem / 100%;
+            border: 0;
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 0.07em;
+            color: white;
+            background: #42c9c9;
+            font-family: 'Roboto Mono', monospace;
+        }
+        button:hover {
+            opacity: .7;
+        }
+        button:active {
+            background: #e6007d;
+        }
+
         svg.sim {
             margin-bottom:1em;
         }
@@ -760,7 +783,7 @@ namespace pxsim.visuals {
         private display: SVGElement;
         private buttons: SVGElement[];
         private buttonsOuter: SVGElement[];
-        private buttonABText: SVGTextElement;
+        // private buttonABText: SVGTextElement;
         private pins: SVGElement[];
         private pinGradients: SVGLinearGradientElement[];
         private pinTexts:{ [key: number]: SVGTextElement };
@@ -781,7 +804,7 @@ namespace pxsim.visuals {
         private soundLevelText: SVGTextElement;
         private soundLevelIcon: SVGTextElement;
         private shakeButton: SVGElement;
-        private shakeText: SVGTextElement;
+        // private shakeText: SVGTextElement;
         public board: pxsim.DalBoard;
         private domHardwareVersion = 1;
         private rgbLed: SVGElement;
@@ -1135,9 +1158,9 @@ namespace pxsim.visuals {
         private updateGestures() {
             let state = this.board;
             if (state.accelerometerState.useShake && !this.shakeButton) {
-                let shake = this.mkBtn(280, MB_HEIGHT - 45);
+                let shake = this.mkBtn(240, MB_HEIGHT - 75, 'Schütteln');
                 this.shakeButton = shake.inner;
-                svg.fill(this.shakeButton, this.props.theme.virtualButtonUp)
+                // svg.fill(this.shakeButton, this.props.theme.virtualButtonUp)
                 svg.buttonEvents(shake.outer,
                     ev => { },
                     (ev) => {
@@ -1148,8 +1171,8 @@ namespace pxsim.visuals {
                         this.board.bus.queue(DAL.MICROBIT_ID_GESTURE, 11); // GESTURE_SHAKE
                     }
                 )
-                let shakeText = svg.child(shake.outer, "text", { x: 280, y: MB_HEIGHT - 5, class: "sim-text big inverted centered" }) as SVGTextElement;
-                shakeText.textContent = "SHAKE"
+                // let shakeText = svg.child(shake.outer, "text", { x: 280, y: MB_HEIGHT - 5, class: "sim-text big inverted centered" }) as SVGTextElement;
+                // shakeText.textContent = "SHAKE"
             }
         }
 
@@ -1684,39 +1707,52 @@ namespace pxsim.visuals {
 
             // BTN A+B
             const outerBtn = (left: number, top: number) => {
-                const button = this.mkBtn(left, top);
+                const button = this.mkBtn(left, top, 'A + B');
                 this.buttonsOuter.push(button.outer);
                 this.buttons.push(button.inner);
-
                 return button;
             }
 
-            let ab = outerBtn(210, MB_HEIGHT - 45);
-            let abtext = svg.child(ab.outer, "text", { x: 210, y: MB_HEIGHT - 5, class: "sim-text big inverted centered" }) as SVGTextElement;
-            abtext.textContent = "A+B";
+            let ab = outerBtn(100, MB_HEIGHT - 75);
+            // let abtext = svg.child(ab.outer, "text", { x: 210, y: MB_HEIGHT - 5, class: "sim-text big inverted centered" }) as SVGTextElement;
+            // abtext.textContent = "A+B";
             (<any>this.buttonsOuter[2]).style.visibility = "hidden";
             (<any>this.buttons[2]).style.visibility = "hidden";
         }
 
-        private mkBtn(left: number, top: number): { outer: SVGElement, inner: SVGElement } {
+        private mkBtn(left: number, top: number, text: string): { outer: SVGElement, inner: SVGElement } {
             const btnr = 2;
             const btnw = 20;
             const btnn = 1.6;
             const btnnm = 2;
             const btnb = 5;
             let btng = svg.child(this.g, "g", { class: "sim-button-group" });
-            svg.child(btng, "rect", { class: "sim-button-outer", x: left, y: top, rx: btnr, ry: btnr, width: btnw, height: btnw });
-            svg.child(btng, "circle", { class: "sim-button-nut", cx: left + btnnm, cy: top + btnnm, r: btnn });
-            svg.child(btng, "circle", { class: "sim-button-nut", cx: left + btnnm, cy: top + btnw - btnnm, r: btnn });
-            svg.child(btng, "circle", { class: "sim-button-nut", cx: left + btnw - btnnm, cy: top + btnw - btnnm, r: btnn });
-            svg.child(btng, "circle", { class: "sim-button-nut", cx: left + btnw - btnnm, cy: top + btnnm, r: btnn });
+            // var fo = document.createElementNS("http://www.w3.org/2000/svg", "foreignObject");
+            var fo = svg.child(btng, "foreignObject");
+            fo.setAttribute("id", "y");
+            fo.setAttribute("x", left+'');
+            fo.setAttribute("y", top+'');
+            fo.setAttribute("width", "300");
+            fo.setAttribute("height", "100");
+            fo.innerHTML = `<body xmlns="http://www.w3.org/1999/xhtml">
+             <button class="simEventBtn">${text}</button>
+          </body>`;
+            // var ta = document.createElement("button");
+            // ta.innerText = text;
+            // fo.appendChild(ta);
+            
+            // svg.child(btng, "rect", { class: "sim-button-outer", x: left, y: top, rx: btnr, ry: btnr, width: btnw, height: btnw });
+            // svg.child(btng, "circle", { class: "sim-button-nut", cx: left + btnnm, cy: top + btnnm, r: btnn });
+            // svg.child(btng, "circle", { class: "sim-button-nut", cx: left + btnnm, cy: top + btnw - btnnm, r: btnn });
+            // svg.child(btng, "circle", { class: "sim-button-nut", cx: left + btnw - btnnm, cy: top + btnw - btnnm, r: btnn });
+            // svg.child(btng, "circle", { class: "sim-button-nut", cx: left + btnw - btnnm, cy: top + btnnm, r: btnn });
 
             const outer = btng;
             const inner = svg.child(btng, "circle", {
                 class: "sim-button",
                 cx: left + btnw / 2,
                 cy: top + btnw / 2,
-                r: btnb
+                r: 0
             });
 
             return { outer, inner };
