@@ -1,8 +1,5 @@
 namespace pxsim.visuals {
     const MB_STYLE = `
-        button {
-            font-size: 1.2rem;
-
         .simEventBtn {
             font-size: 1.4rem;
             font-weight: 900;
@@ -51,15 +48,16 @@ namespace pxsim.visuals {
         .sim-button-nut:hover {
             stroke:1px solid #704A4A;
         }
+        .sim-pin {
+            cursor: pointer;
+        }
         .sim-pin:hover {
             stroke:#D4AF37;
             stroke-width:2px;
         }
-
         .sim-pin-touch.touched:hover {
             stroke:darkorange;
         }
-
         .sim-led-back:hover {
             stroke:#fff;
             stroke-width:3px;
@@ -87,16 +85,16 @@ namespace pxsim.visuals {
         }
 
         .sim-text {
-            font-family:"Lucida Console", Monaco, monospace;
+            font-family: 'Roboto Mono', monospace;
             font-size:14px;
             fill:#fff;
             pointer-events: none; user-select: none;
         }
 
         .sim-text-pin {
-            font-family:"Lucida Console", Monaco, monospace;
+            font-family: 'Roboto Mono', monospace;
             pointer-events: none; user-select: none;
-            fill:#3cb5b5;
+            fill:#000;
             font-size:24px;
             stroke:#fff;
             stroke-alignment: outside;
@@ -210,6 +208,30 @@ namespace pxsim.visuals {
             -webkit-user-select: none;
             -ms-user-select: none;
         }
+
+        .shake_animation {
+            animation: shake 0.42s cubic-bezier(.36,.07,.19,.97) both;
+            transform: translate3d(0, 0, 0);
+            backface-visibility: hidden;
+        }
+
+        @keyframes shake {
+            10%, 90% {
+              transform: translate3d(-1px, 0, 0);
+            }
+            
+            20%, 80% {
+              transform: translate3d(2px, 0, 0);
+            }
+          
+            30%, 50%, 70% {
+              transform: translate3d(-4px, 0, 0);
+            }
+          
+            40%, 60% {
+              transform: translate3d(4px, 0, 0);
+            }
+          }
     `;
     const BOARD_SVG = `<?xml version="1.0" encoding="utf-8"?>
     <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
@@ -234,6 +256,7 @@ namespace pxsim.visuals {
         .st16{fill:#E6007D;}
         .st17{fill:#000000;}
     </style>
+    <g id="calliope_mini">
     <path id="mini_Board" class="st0" d="M552.7,263.2c-0.8-12-8.7-22.4-20.1-26.3c-4.4-1.5-8.8-3.3-13-5.4c-4.6-2.3-9.1-4.9-13.4-7.7
         l0,0c-16.3-10.7-35.1-27.7-55.4-54.2c-29.5-38.6-28.6-86.6-25.7-117c0.8-2.9,1.3-6,1.3-9c0-18.5-15-33.5-33.5-33.5
         c-10.3,0-20.1,4.8-26.4,12.9c-0.2,0.3-0.5,0.6-0.7,0.9C343.1,39.3,319.6,50,295,54.8c-1.9,0.4-3.7,0.8-5.6,1.2l0,0
@@ -670,18 +693,18 @@ namespace pxsim.visuals {
         </g>
     </g>
     <g id="EDGE_PINS">
-        <path id="EDGE_P3" class="st11" d="M520.9,231.4c-18.5,0-33.5,15-33.5,33.5c0,18.5,15,33.5,33.5,33.5
+        <path id="EDGE_P3" class="" d="M520.9,231.4c-18.5,0-33.5,15-33.5,33.5c0,18.5,15,33.5,33.5,33.5
             c18.5,0,33.5-14.9,33.5-33.4c0.1-18.5-14.9-33.5-33.3-33.6C521,231.4,521,231.4,520.9,231.4z M520.9,280.6c-8.7,0-15.7-7-15.7-15.7
             c0-8.7,7-15.7,15.7-15.7c8.7,0,15.7,7,15.7,15.7c0,0,0,0,0,0C536.6,273.5,529.6,280.6,520.9,280.6
             C520.9,280.6,520.9,280.6,520.9,280.6L520.9,280.6z"/>
-        <path id="EDGE_P2" class="st11" d="M392.7,452c-18.5,0-33.5,15-33.5,33.5c0,18.5,15,33.5,33.5,33.5c18.5,0,33.5-15,33.5-33.5
+        <path id="EDGE_P2" class="" d="M392.7,452c-18.5,0-33.5,15-33.5,33.5c0,18.5,15,33.5,33.5,33.5c18.5,0,33.5-15,33.5-33.5
             c0,0,0,0,0,0C426.2,467,411.2,452,392.7,452C392.7,452,392.7,452,392.7,452z M392.7,501.1c-8.7,0-15.7-7-15.7-15.7
             c0-8.7,7-15.7,15.7-15.7c8.7,0,15.7,7,15.7,15.7c0,0,0,0,0,0c0.1,8.7-6.9,15.7-15.6,15.8C392.8,501.2,392.7,501.2,392.7,501.1
             L392.7,501.1z"/>
-        <path id="EDGE_P1" class="st11" d="M137.1,452c-18.5,0-33.5,15-33.5,33.5c0,18.5,15,33.5,33.5,33.5c18.5,0,33.5-15,33.5-33.5
+        <path id="EDGE_P1" class="" d="M137.1,452c-18.5,0-33.5,15-33.5,33.5c0,18.5,15,33.5,33.5,33.5c18.5,0,33.5-15,33.5-33.5
             c0,0,0,0,0,0C170.6,467,155.6,452,137.1,452L137.1,452z M137.1,501.1c-8.7,0-15.7-7-15.7-15.7c0-8.7,7-15.7,15.7-15.7
             c8.7,0,15.7,7,15.7,15.7c0,0,0,0,0,0c0.1,8.7-6.9,15.7-15.6,15.8C137.2,501.2,137.1,501.2,137.1,501.1L137.1,501.1z"/>
-        <path id="EDGE_P0" class="st11" d="M8.1,231.4c-18.5,0-33.5,15-33.5,33.5c0,18.5,15,33.5,33.5,33.5c18.4,0,33.4-14.9,33.5-33.4
+        <path id="EDGE_P0" class="" d="M8.1,231.4c-18.5,0-33.5,15-33.5,33.5c0,18.5,15,33.5,33.5,33.5c18.4,0,33.4-14.9,33.5-33.4
             c0.1-18.5-14.9-33.5-33.3-33.6C8.2,231.4,8.1,231.4,8.1,231.4z M8.1,280.6c-8.7,0-15.7-7-15.7-15.7c0-8.7,7-15.7,15.7-15.7
             c8.7,0,15.7,7,15.7,15.7c0,0,0,0,0,0C23.8,273.5,16.8,280.6,8.1,280.6C8.1,280.6,8.1,280.6,8.1,280.6L8.1,280.6z"/>
         <path id="EDGE_VCC" class="st11" d="M392.7,10c-18.5,0-33.5,15-33.5,33.5c0,18.5,15,33.5,33.5,33.5c18.5,0,33.5-15,33.5-33.5
@@ -691,11 +714,14 @@ namespace pxsim.visuals {
             c0,0,0,0,0,0C170.6,25,155.6,10,137.1,10L137.1,10z M137.1,59.2c-8.7,0-15.7-7-15.7-15.7c0-8.7,7-15.7,15.7-15.7
             c8.7,0,15.7,7,15.7,15.7c0,0,0,0,0,0C152.8,52.1,145.8,59.2,137.1,59.2C137.1,59.2,137.1,59.2,137.1,59.2z"/>
     </g>
+    </g>
     </svg>`;
 
+
     const pinNames = [
-        "BTN_A", "BTN_B",
+        
         "EDGE_P0", "EDGE_P1", "EDGE_P2", "EDGE_P3", "EDGE_GND", "EDGE_VCC",
+        "BTN_A", "BTN_B",
         "C_GND1", "C_GND2", "C_GND3", "C_GND4", "C_VCC1", "C_VCC2",
         "C_P0", "C_P2", "C_P4", "C_P6", "C_P8", "C_P10", "C_P12", "C_P14", "C_P16", "C_P18",
         "C_P1", "C_P3", "C_P5", "C_P7", "C_P9", "C_P11", "C_P13", "C_P15", "C_P17", "C_P19",
@@ -704,8 +730,9 @@ namespace pxsim.visuals {
         "G_A1_RX", "G_A1_TX", "G_A1_VCC", "G_A1_GND"
     ];
     const pinTitles = [
-        "Button A", "Button B",
+        
         "P0", "P1, ANALOG IN", "P2, ANALOG IN", "P3", "GND", "+3v3",
+        "Button A", "Button B",
         "GND", "GND", "GND", "GND", "+3v3", "+3v3",
         "C0", "C2", "C4", "C6", "C8", "C10", "C12", "C14", "C16", "C18",
         "C1", "C3", "C5", "C7", "C9", "C11", "C13", "C15", "C17", "C19",
@@ -738,9 +765,9 @@ namespace pxsim.visuals {
     export var themes: IBoardTheme[] = ["#3ADCFE"].map(accent => {
         return {
             accent: accent,
-            pin: "#EFDA48",
+            pin: "#F6C426",
             pinTouched: "#FFA500",
-            pinActive: "#FF5500",
+            pinActive: "#E6007D",
             ledOn: "#ff5555",
             ledOff: "#e0e1e2",
             buttonOuter: "#979797",
@@ -1064,7 +1091,7 @@ namespace pxsim.visuals {
 
             svg.fills(this.leds, theme.ledOn);
             svg.fills(this.ledsOuter, theme.ledOff);
-            svg.fills(this.buttonsOuter.slice(0, 2), theme.buttonOuter);
+            svg.fills(this.buttonsOuter.slice(6, 8), theme.buttonOuter);
             svg.fill(this.buttons[0], theme.buttonUps[0]);
             svg.fill(this.buttons[1], theme.buttonUps[1]);
             svg.fill(this.buttonsOuter[2], theme.virtualButtonOuter);
@@ -1160,11 +1187,18 @@ namespace pxsim.visuals {
             if (state.accelerometerState.useShake && !this.shakeButton) {
                 let shake = this.mkBtn(240, MB_HEIGHT - 75, 'Schütteln');
                 this.shakeButton = shake.inner;
+                let board = this.element.getElementById("calliope_mini")
+                console.log(board)
                 // svg.fill(this.shakeButton, this.props.theme.virtualButtonUp)
                 svg.buttonEvents(shake.outer,
                     ev => { },
                     (ev) => {
-                        svg.fill(this.shakeButton, this.props.theme.virtualButtonDown)
+                        svg.fill(this.shakeButton, this.props.theme.virtualButtonDown);
+                         board.classList.remove("shake_animation");
+                         setTimeout(()=>{
+                            board.classList.add("shake_animation");
+                         }, 1)
+                        
                     },
                     (ev) => {
                         svg.fill(this.shakeButton, this.props.theme.virtualButtonUp);
@@ -1692,10 +1726,10 @@ namespace pxsim.visuals {
             //     ].map(p => <SVGTextElement>svg.child(this.g, "text", { class: "sim-text-pin", x: p[0], y: p[1] }));
 
             this.pinTexts = { 
-                [DigitalPin.P0]: <SVGTextElement>svg.child(this.g, "text", { class: "sim-text-pin big centered", x: 20, y: 315 }),
-                [DigitalPin.P1]: <SVGTextElement>svg.child(this.g, "text", { class: "sim-text-pin big centered", x: 135, y: 530 }),
-                [DigitalPin.P2]: <SVGTextElement>svg.child(this.g, "text", { class: "sim-text-pin big centered", x: 395, y: 530 }),
-                [DigitalPin.P3]: <SVGTextElement>svg.child(this.g, "text", { class: "sim-text-pin big centered", x: 535, y: 315 })
+                [DigitalPin.P0]: <SVGTextElement>svg.child(this.g, "text", { class: "sim-text-pin big centered", x: 20, y: 325 }),
+                [DigitalPin.P1]: <SVGTextElement>svg.child(this.g, "text", { class: "sim-text-pin big centered", x: 135, y: 540 }),
+                [DigitalPin.P2]: <SVGTextElement>svg.child(this.g, "text", { class: "sim-text-pin big centered", x: 395, y: 540 }),
+                [DigitalPin.P3]: <SVGTextElement>svg.child(this.g, "text", { class: "sim-text-pin big centered", x: 540, y: 325 })
             }
 
             // BTN A, B
@@ -1834,7 +1868,7 @@ namespace pxsim.visuals {
         }
 
         private attachPinsIOEvents() {
-            this.pins.slice(2, 6).forEach((pin, index) => {
+            this.pins.slice(0, 4).forEach((pin, index) => {
                 // var index = i + 2;
                 if (!this.board.edgeConnectorState.pins[index]) return;
                 let pt = this.element.createSVGPoint();
@@ -1899,8 +1933,8 @@ namespace pxsim.visuals {
         }
 
         private attachPinsTouchEvents() {
-            this.pins.slice(2, 6).forEach((btn, i) => {
-                var index = i + 2;
+            this.pins.slice(0, 4).forEach((btn, i) => {
+                var index = i;
                 let state = this.board;
                 let pressedTime: number;
                 pointerEvents.down.forEach(evid => btn.addEventListener(evid, ev => {
@@ -1944,8 +1978,8 @@ namespace pxsim.visuals {
         private attachABEvents() {
             const bpState = this.board.buttonPairState;
             const stateButtons: Button[] = [bpState.aBtn, bpState.bBtn];
-            const elButtonOuters = this.buttonsOuter.slice(0, 2);
-            const elButtons = this.buttons.slice(0, 2);
+            const elButtonOuters = this.buttonsOuter.slice(6, 8);
+            const elButtons = this.buttons.slice(6, 8);
 
             elButtonOuters.forEach((btn, index) => {
                 let pressedTime: number;
