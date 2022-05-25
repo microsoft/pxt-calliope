@@ -165,9 +165,9 @@
     "simulator": {
         "autoRun": true,
         "streams": false,
-        "aspectRatio": 1.13,
+        "aspectRatio": 0.94,
         "parts": false,
-        "partsAspectRatio": 0.69,
+        "partsAspectRatio": 0.7,
         "boardDefinition": {
             "visual": "calliope",
             "gpioPinBlocks": [
