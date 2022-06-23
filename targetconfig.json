@@ -6,6 +6,7 @@
             "51bit/SmartTools",
             "51bit/dfplayermini",
             "coding4coconut/pxt-lcd128x160-st7735s",
+            "coding4coconut/pxt-oled128x128-sh1107",
             "Freenove/Makecode-Extension-Starter-Kit",
             "joernalraun/pxt-remember-int",
             "KitronikLtd/pxt-kitronik-I2C-16-servo",
