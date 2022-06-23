@@ -1873,7 +1873,7 @@ namespace pxsim.visuals {
                 if (!this.board.edgeConnectorState.pins[index]) return;
                 let pt = this.element.createSVGPoint();
                 let xpos = (index === 0 || index === 3) ? 300 : 520;
-                let vMax = (index === 0 || index === 3) ? 1 : 1032;
+                let vMax = (index === 0 || index === 3) ? 1 : 1023;
                 svg.buttonEvents(pin,
                     // move
                     ev => {
@@ -1978,8 +1978,8 @@ namespace pxsim.visuals {
         private attachABEvents() {
             const bpState = this.board.buttonPairState;
             const stateButtons: Button[] = [bpState.aBtn, bpState.bBtn];
-            const elButtonOuters = this.buttonsOuter.slice(6, 8);
-            const elButtons = this.buttons.slice(6, 8);
+            const elButtonOuters = this.buttonsOuter.slice(0,2);
+            const elButtons = this.buttons.slice(0,2);
 
             elButtonOuters.forEach((btn, index) => {
                 let pressedTime: number;
