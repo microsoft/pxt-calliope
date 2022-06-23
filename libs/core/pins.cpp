@@ -124,6 +124,7 @@ namespace pins {
     //% blockId=device_get_digital_pin block="digital read|pin %name" blockGap=8
     //% name.fieldEditor="gridpicker" name.fieldOptions.columns=4
     //% name.fieldOptions.tooltips="false" name.fieldOptions.width="250"
+    //% group="Digital"
     int digitalReadPin(DigitalPin name) {
         PINREAD(getDigitalValue());
     }
@@ -138,6 +139,7 @@ namespace pins {
     //% value.min=0 value.max=1
     //% name.fieldEditor="gridpicker" name.fieldOptions.columns=4
     //% name.fieldOptions.tooltips="false" name.fieldOptions.width="250"
+    //% group="Digital"
     void digitalWritePin(DigitalPin name, int value) {
         PINOP(setDigitalValue(value));
     }
@@ -150,6 +152,7 @@ namespace pins {
     //% blockId=device_get_analog_pin block="analog read|pin %name" blockGap="8"
     //% name.fieldEditor="gridpicker" name.fieldOptions.columns=4
     //% name.fieldOptions.tooltips="false" name.fieldOptions.width="250"
+    //% group="Analog"
     int analogReadPin(AnalogPin name) {
         PINREAD(getAnalogValue());
     }
@@ -164,6 +167,7 @@ namespace pins {
     //% value.min=0 value.max=1023
     //% name.fieldEditor="gridpicker" name.fieldOptions.columns=4
     //% name.fieldOptions.tooltips="false" name.fieldOptions.width="250"
+    //% group="Analog"
     void analogWritePin(AnalogPin name, int value) {
         PINOP(setAnalogValue(value));
     }
@@ -178,6 +182,7 @@ namespace pins {
     //% blockId=device_set_analog_period block="analog set period|pin %pin|to (µs)%micros"
     //% pin.fieldEditor="gridpicker" pin.fieldOptions.columns=4
     //% pin.fieldOptions.tooltips="false"
+    //% group="Analog"
     void analogSetPeriod(AnalogPin name, int micros) {
         PINOP(setAnalogPeriodUs(micros));
     }
@@ -191,6 +196,7 @@ namespace pins {
     //% blockId=pins_on_pulsed block="on|pin %pin|pulsed %pulse"
     //% pin.fieldEditor="gridpicker" pin.fieldOptions.columns=4
     //% pin.fieldOptions.tooltips="false" pin.fieldOptions.width="250"
+    //% group="Pulse"
     void onPulsed(DigitalPin name, PulseValue pulse, Action body) {
         MicroBitPin* pin = getPin((int)name);
         if (!pin) return;
@@ -205,6 +211,7 @@ namespace pins {
     //% help=pins/pulse-duration advanced=true
     //% blockId=pins_pulse_duration block="pulse duration (µs)"
     //% weight=21 blockGap=8
+    //% group="Pulse"
     int pulseDuration() {
         return pxt::lastEvent.timestamp;
     }
@@ -220,6 +227,7 @@ namespace pins {
     //% help=pins/pulse-in
     //% name.fieldEditor="gridpicker" name.fieldOptions.columns=4
     //% name.fieldOptions.tooltips="false" name.fieldOptions.width="250"
+    //% group="Pulse"
     int pulseIn(DigitalPin name, PulseValue value, int maxDuration = 2000000) {
         MicroBitPin* pin = getPin((int)name);
         if (!pin) return 0;
@@ -275,6 +283,7 @@ namespace pins {
     //% value.min=0 value.max=180
     //% name.fieldEditor="gridpicker" name.fieldOptions.columns=4
     //% name.fieldOptions.tooltips="false" name.fieldOptions.width="250"
+    //% group="Servo"
     void servoWritePin(AnalogPin name, int value) {
         PINOP(setServoValue(value));
     }
@@ -283,6 +292,7 @@ namespace pins {
     * Specifies that a continuous servo is connected.
     */
     //%
+    //% group="Servo"
     void servoSetContinuous(AnalogPin name, bool value) {
         // handled in simulator
     }
@@ -296,6 +306,7 @@ namespace pins {
     //% blockId=device_set_servo_pulse block="servo set pulse|pin %value|to (µs) %micros"
     //% value.fieldEditor="gridpicker" value.fieldOptions.columns=4
     //% value.fieldOptions.tooltips="false" value.fieldOptions.width="250"
+    //% group="Servo"
     void servoSetPulse(AnalogPin name, int micros) {
         fixMotorIssue(name);
         PINOP(setServoPulseUs(micros));
@@ -316,6 +327,7 @@ namespace pins {
     //% name.fieldEditor="gridpicker" name.fieldOptions.columns=4
     //% name.fieldOptions.tooltips="false" name.fieldOptions.width="250"
     //% blockHidden=true
+    //% group="Pitch"
     void analogSetPitchPin(AnalogPin name) {
         pitchPin = getPin((int)name);
         pitchPin2 = NULL;
@@ -339,6 +351,7 @@ namespace pins {
     //% help=pins/analog-set-pitch-volume weight=3 advanced=true
     //% volume.min=0 volume.max=255
     //% blockHidden=true
+    //% group="Pitch"
     void analogSetPitchVolume(int volume) {
         pitchVolume = max(0, min(0xff, volume));
 
@@ -355,6 +368,7 @@ namespace pins {
     //% blockId=device_analog_pitch_volume block="analog pitch volume"
     //% help=pins/analog-pitch-volume weight=3 advanced=true
     //% blockHidden=true
+    //% group="Pitch"
     int analogPitchVolume() {
         return pitchVolume;
     }
@@ -367,6 +381,7 @@ namespace pins {
     //% blockId=device_analog_pitch block="analog pitch %frequency|for (ms) %ms"
     //% help=pins/analog-pitch weight=4 async advanced=true blockGap=8
     //% blockHidden=true
+    //% group="Pitch"
     void analogPitch(int frequency, int ms) {
         // init pins if needed
         if (NULL == pitchPin) {
@@ -402,6 +417,7 @@ namespace pins {
     //% blockId=device_set_pull block="set pull|pin %pin|to %pull"
     //% pin.fieldEditor="gridpicker" pin.fieldOptions.columns=4
     //% pin.fieldOptions.tooltips="false" pin.fieldOptions.width="250"
+    //% group="Digital"
     void setPull(DigitalPin name, PinPullMode pull) {
 #if MICROBIT_CODAL
         codal::PullMode m = pull == PinPullMode::PullDown
@@ -428,6 +444,7 @@ namespace pins {
     //% blockId=device_set_pin_events block="set pin %pin|to emit %type|events"
     //% pin.fieldEditor="gridpicker" pin.fieldOptions.columns=4
     //% pin.fieldOptions.tooltips="false" pin.fieldOptions.width="250"
+    //% group="Digital"
     void setEvents(DigitalPin name, PinEventType type) {
         getPin((int)name)->eventOn((int)type);
     }
@@ -467,6 +484,7 @@ namespace pins {
      * Read `size` bytes from a 7-bit I2C `address`.
      */
     //%
+    //% group="i2c"
     Buffer i2cReadBuffer(int address, int size, bool repeat = false)
     {
       Buffer buf = createBuffer(size);
@@ -478,6 +496,7 @@ namespace pins {
      * Write bytes to a 7-bit I2C `address`.
      */
     //%
+    //% group="i2c"
     int i2cWriteBuffer(int address, Buffer buf, bool repeat = false)
     {
       return uBit.i2c.write(address << 1, (BUFFER_TYPE)buf->data, buf->length, repeat);
@@ -496,6 +515,7 @@ namespace pins {
     */
     //% help=pins/spi-write weight=5 advanced=true
     //% blockId=spi_write block="spi write %value"
+    //% group="spi"
     int spiWrite(int value) {
         auto p = allocSPI();
         return p->write(value);
@@ -507,6 +527,7 @@ namespace pins {
     * @param response Data received from the SPI slave (can be null)
     */
     //% help=pins/spi-transfer argsNullable
+    //% group="spi"
     void spiTransfer(Buffer command, Buffer response) {
         if (!command && !response)
             target_panic(PANIC_INVALID_ARGUMENT);
@@ -531,6 +552,7 @@ namespace pins {
     */
     //% help=pins/spi-frequency weight=4 advanced=true
     //% blockId=spi_frequency block="spi frequency %frequency"
+    //% group="spi"
     void spiFrequency(int frequency) {
         auto p = allocSPI();
         p->frequency(frequency);
@@ -543,6 +565,7 @@ namespace pins {
     */
     //% help=pins/spi-format weight=3 advanced=true
     //% blockId=spi_format block="spi format|bits %bits|mode %mode"
+    //% group="spi"
     void spiFormat(int bits, int mode) {
         auto p = allocSPI();
         p->format(bits, mode);
@@ -566,6 +589,7 @@ namespace pins {
     //% miso.fieldOptions.tooltips="false" miso.fieldOptions.width="250"
     //% sck.fieldEditor="gridpicker" sck.fieldOptions.columns=4
     //% sck.fieldOptions.tooltips="false" sck.fieldOptions.width="250"
+    //% group="spi"
     void spiPins(DigitalPin mosi, DigitalPin miso, DigitalPin sck) {
         if (NULL != spi) {
             delete spi;
@@ -578,6 +602,7 @@ namespace pins {
     * Mounts a push button on the given pin
     */
     //% help=pins/push-button advanced=true
+    //% group="Digital"
     void pushButton(DigitalPin pin) {
         new MicroBitButton((PinName)getPin((int)(pin))->name, (int)pin, MICROBIT_BUTTON_ALL_EVENTS, PinMode::PullUp);
     }
@@ -592,6 +617,7 @@ namespace pins {
     //% name.fieldOptions.tooltips="false" name.fieldOptions.width="250"
     //% weight=1
     //% blockHidden=true
+    //% group="Pitch"
     void setAudioPin(AnalogPin name) {
 #if MICROBIT_CODAL
         uBit.audio.setPin(*getPin((int)name));

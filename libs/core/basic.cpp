@@ -35,9 +35,9 @@ namespace basic {
     //% parts="ledmatrix"
     //% text.shadowOptions.toString=true
     //% expandableArgumentMode="toggle"
-    //% interval.defl=80
+    //% interval.defl=150
     //% group="LED matrix"
-    void showString(String text, int interval = 80) {
+    void showString(String text, int interval = 150) {
       if (interval <= 0)
         interval = 1;
       int l = text ? text->getUTF8Size() : 0;

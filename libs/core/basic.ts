@@ -52,7 +52,7 @@ namespace basic {
     //% async
     //% parts="ledmatrix"
     //% expandableArgumentMode="toggle"
-    //% interval.defl=80
+    //% interval.defl=150
     //% group="LED matrix"
     export function showNumber(value: number, interval?: number) {
         showString(Math.roundWithPrecision(value, 2).toString(), interval);
