@@ -196,7 +196,7 @@ namespace basic {
     /**
      * Draws the selected icon on the LED screen
      * @param icon the predefined icon id
-     * @param interval the amount of time (milliseconds) to block the LED Matrix for showing the icon. Default is 200.
+     * @param interval the amount of time (milliseconds) to block the LED Matrix for showing the icon. Default is 600.
      */
     //% weight=90 blockGap=8
     //% blockId=basic_show_icon
@@ -208,9 +208,9 @@ namespace basic {
     //% icon.fieldOptions.width="380"
     //% icon.fieldOptions.maxRows=4
     //% expandableArgumentMode="toggle"
-    //% interval.defl=200
+    //% interval.defl=600
     //% group="LED matrix"
-    export function showIcon(icon: IconNames, interval = 200) {
+    export function showIcon(icon: IconNames, interval = 600) {
         let res = images.iconImage(icon)
         res.showImage(0, interval)
     }

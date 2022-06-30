@@ -1873,7 +1873,7 @@ namespace pxsim.visuals {
                 if (!this.board.edgeConnectorState.pins[index]) return;
                 let pt = this.element.createSVGPoint();
                 let xpos = (index === 0 || index === 3) ? 300 : 520;
-                let vMax = (index === 0 || index === 3) ? 1 : 1032;
+                let vMax = (index === 0 || index === 3) ? 1 : 1023;
                 svg.buttonEvents(pin,
                     // move
                     ev => {
@@ -1978,8 +1978,8 @@ namespace pxsim.visuals {
         private attachABEvents() {
             const bpState = this.board.buttonPairState;
             const stateButtons: Button[] = [bpState.aBtn, bpState.bBtn];
-            const elButtonOuters = this.buttonsOuter.slice(6, 8);
-            const elButtons = this.buttons.slice(6, 8);
+            const elButtonOuters = this.buttonsOuter.slice(0,2);
+            const elButtons = this.buttons.slice(0,2);
 
             elButtonOuters.forEach((btn, index) => {
                 let pressedTime: number;
@@ -2015,6 +2015,7 @@ namespace pxsim.visuals {
 
         private attachAPlusBEvents() {
             const bpState = this.board.buttonPairState;
+            const stateButtons: Button[] = [bpState.aBtn, bpState.bBtn];
             let pressedTime: number;
             // A+B
             pointerEvents.down.forEach(evid => this.buttonsOuter[2].addEventListener(evid, ev => {
@@ -2024,6 +2025,8 @@ namespace pxsim.visuals {
                 svg.fill(this.buttons[0], this.props.theme.buttonDown);
                 svg.fill(this.buttons[1], this.props.theme.buttonDown);
                 svg.fill(this.buttons[2], this.props.theme.buttonDown);
+                this.board.bus.queue(stateButtons[0].id, DAL.MICROBIT_BUTTON_EVT_DOWN);
+                this.board.bus.queue(stateButtons[1].id, DAL.MICROBIT_BUTTON_EVT_DOWN);
                 this.board.bus.queue(bpState.abBtn.id, DAL.MICROBIT_BUTTON_EVT_DOWN);
                 pressedTime = runtime.runningTime()
             }));
@@ -2043,6 +2046,8 @@ namespace pxsim.visuals {
                 svg.fill(this.buttons[1], this.props.theme.buttonUps[1]);
                 svg.fill(this.buttons[2], this.props.theme.virtualButtonUp);
 
+                this.board.bus.queue(stateButtons[0].id, DAL.MICROBIT_BUTTON_EVT_UP);
+                this.board.bus.queue(stateButtons[1].id, DAL.MICROBIT_BUTTON_EVT_UP);
                 this.board.bus.queue(bpState.abBtn.id, DAL.MICROBIT_BUTTON_EVT_UP);
                 const currentTime = runtime.runningTime()
                 if (currentTime - pressedTime > DAL.DEVICE_BUTTON_LONG_CLICK_TIME)

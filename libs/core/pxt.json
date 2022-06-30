@@ -116,6 +116,7 @@
                     "pairing_mode": 1,
                     "private_addressing": 0,
                     "open": 1,
+                    "partial_flashing": 1,
                     "security_level": null,
                     "whitelist": 1,
                     "advertising_timeout": 0,
@@ -125,7 +126,7 @@
                     "device_info_service": 0
                 },
                 "stack_size": 1280,
-                "gatt_table_size": "0xD8",
+                "gatt_table_size": "0x200",
                 "panic_on_heap_full": 0,
                 "debug": 0,
                 "heap_debug": 0,
@@ -139,7 +140,7 @@
                 "config": {
                     "microbit-dal": {
                         "stack_size": 2048,
-                        "gatt_table_size": "0x600",
+                        "gatt_table_size": "0x700",
                         "sram_end": "0x20008000",
                         "RAM_SIZE": "\"32K\""
                     }
@@ -150,7 +151,7 @@
                 "config": {
                     "microbit-dal": {
                         "stack_size": 1280,
-                        "gatt_table_size": "0xD8",
+                        "gatt_table_size": "0x200",
                         "sram_end": "0x20004000",
                         "RAM_SIZE": "\"16K\""
                     }
