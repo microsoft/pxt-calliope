@@ -157,7 +157,7 @@
             "Microsoft/pxt-microturtle",
             "Microsoft/pxt-neopixel",
             "dl1ekm/pxt-calliope-ADS1x15",
-            "dl1ekm/pxt-calliope-PCF85063-RTC",
+            "dl1ekm/pxt-calliope-PCF85063-RTC"
         ]
     },
     "skillMap": {
