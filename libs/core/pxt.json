@@ -116,17 +116,15 @@
                     "pairing_mode": 1,
                     "private_addressing": 0,
                     "open": 1,
-                    "partial_flashing": 1,
+                    "partial_flashing": 0,
                     "security_level": null,
-                    "whitelist": 1,
+                    "whitelist": 0,
                     "advertising_timeout": 0,
                     "tx_power": 6,
-                    "dfu_service": 1,
-                    "event_service": 0,
-                    "device_info_service": 0
+                    "event_service": 0
                 },
                 "stack_size": 1280,
-                "gatt_table_size": "0x200",
+                "gatt_table_size": "0x300",
                 "panic_on_heap_full": 0,
                 "debug": 0,
                 "heap_debug": 0,
@@ -139,8 +137,15 @@
                 "description": "32K RAM (mini v2 and some v1.3)",
                 "config": {
                     "microbit-dal": {
+                        "bluetooth": {
+                            "pairing_mode": 1,
+                            "partial_flashing": 1,
+                            "dfu_service": 1,
+                            "event_service": 1,
+                            "device_info_service": 1
+                        },
                         "stack_size": 2048,
-                        "gatt_table_size": "0x700",
+                        "gatt_table_size": "0x800",
                         "sram_end": "0x20008000",
                         "RAM_SIZE": "\"32K\""
                     }
@@ -150,8 +155,13 @@
                 "description": "16K RAM (mini v1.3 and below)",
                 "config": {
                     "microbit-dal": {
+                        "bluetooth": {
+                            "pairing_mode": 1,
+                            "partial_flashing": 0,
+                            "event_service": 0
+                        },
                         "stack_size": 1280,
-                        "gatt_table_size": "0x200",
+                        "gatt_table_size": "0x300",
                         "sram_end": "0x20004000",
                         "RAM_SIZE": "\"16K\""
                     }

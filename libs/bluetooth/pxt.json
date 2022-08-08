@@ -24,10 +24,6 @@
                     "enabled": 1
                 }
             }
-        },
-        "optionalConfig": {
-        },
-        "userConfigs": [
-        ]
+        }
     }
 }
