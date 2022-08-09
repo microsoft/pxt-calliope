@@ -273,7 +273,7 @@ namespace input {
     //% deprecated=true
     //% group="Events"
     void onButtonPressed(Button button, Action body) {
-        registerWithDal((int)button, MICROBIT_BUTTON_EVT_CLICK, body);
+        onButtonEvent((int)button, (int)MICROBIT_BUTTON_EVT_CLICK, body);
     }
 
     /**
@@ -286,12 +286,7 @@ namespace input {
     //% group="Events"
     //% deprecated=true
     void onPinPressed(TouchPin name, Action body) {
-        auto pin = getPin((int)name);
-        if (!pin) return;
-
-        // Forces the PIN to switch to makey-makey style detection.
-        pin->isTouched();
-        registerWithDal((int)name, MICROBIT_BUTTON_EVT_CLICK, body);
+        onPinTouchEvent((int)name, MICROBIT_BUTTON_EVT_CLICK, body);
     }
 
     /**
@@ -305,12 +300,7 @@ namespace input {
     //% group="Events"
     //% deprecated=true
     void onPinReleased(TouchPin name, Action body) {
-        auto pin = getPin((int)name);
-        if (!pin) return;
-
-        // Forces the PIN to switch to makey-makey style detection.
-        pin->isTouched();
-        registerWithDal((int)name, MICROBIT_BUTTON_EVT_UP, body);
+        onPinTouchEvent((int)name, MICROBIT_BUTTON_EVT_UP, body);
     }
 
     /**
