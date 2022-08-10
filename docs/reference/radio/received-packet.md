@@ -18,7 +18,7 @@ In addition to a [number](types/number), [string](/types/string), or name-value 
 ## Returns
 
 * a [number](/types/number) that is the property selected in the **type** parameter:
->* ``signal strength``: the value ranges from `-128` to `-42` (`-128` means a weak signal and `-42` means a strong one.)
+>* ``signal strength``: the value ranges from `-128` up to `-28` (`-128` means a weak signal and `-28` means a strong one.)
 >* ``serial number``: the value is the serial number of the board sending the packet.
 >* ``time``: the value is the system time, in microseconds, of the sender at the time when the packet was sent.
 
@@ -28,6 +28,7 @@ This program uses the signal strength from received packets to graph the
 approximate distance between two @boardname@s.
 
 ```blocks
+radio.setGroup(1)
 basic.forever(() => {
     radio.sendNumber(0)
 })

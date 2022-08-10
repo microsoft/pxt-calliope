@@ -9,17 +9,20 @@ enum class Button {
 
 enum class ButtonEvent {
     //% blockIdentity="input.buttonEventValueId"
+    //% block="pressed down"
+    Down = MICROBIT_BUTTON_EVT_DOWN,
+    //% blockIdentity="input.buttonEventValueId"
+    //% block="released up"
+    Up = MICROBIT_BUTTON_EVT_UP,
+    //% blockIdentity="input.buttonEventValueId"
     //% block="clicked"
     Click = MICROBIT_BUTTON_EVT_CLICK,
     //% blockIdentity="input.buttonEventValueId"
     //% block="long clicked"
     LongClick = MICROBIT_BUTTON_EVT_LONG_CLICK,
     //% blockIdentity="input.buttonEventValueId"
-    //% block="pressed down"
-    Down = MICROBIT_BUTTON_EVT_DOWN,
-    //% blockIdentity="input.buttonEventValueId"
-    //% block="released up"
-    Up = MICROBIT_BUTTON_EVT_UP,
+    //% block="hold"
+    Hold = MICROBIT_BUTTON_EVT_HOLD,
 };
 
 enum class Dimension {
@@ -176,6 +179,8 @@ enum class MesDpadButtonInfo {
 
 //% color=#B4009E weight=99 icon="\uf192"
 namespace input {
+
+
     /**
      * Do something when a button (A, B or both A+B) receives an event.
      * @param button the button
@@ -183,7 +188,8 @@ namespace input {
      * @param eventType event Type
      */
     //% help=input/on-button-event weight=100 blockGap=16
-    //% blockId=device_button_selected_event block="on button %NAME| %eventType=control_button_event_value_id"
+    //% blockId=device_button_selected_event block="on button %NAME| %eventType"
+    //% eventType.shadow="control_button_event_click"
     //% parts="buttonpair"
     //% group="Events"
     void onButtonEvent(Button button, int eventType, Action body) {
@@ -231,7 +237,8 @@ namespace input {
      * @param body the code to run when event is fired on pin
      */
     //% help=input/on-pin-event weight=99 blockGap=16
-    //% blockId=device_pin_custom_event block="on pin %name| %eventType=control_button_event_value_id"
+    //% blockId=device_pin_custom_event block="on pin %name| %eventType"
+    //% eventType.shadow="control_button_event_down"
     //% group="Events"
     void onPinTouchEvent(TouchPin name, int eventType, Action body) {
         auto pin = getPin((int)name);
@@ -273,7 +280,7 @@ namespace input {
     //% deprecated=true
     //% group="Events"
     void onButtonPressed(Button button, Action body) {
-        registerWithDal((int)button, MICROBIT_BUTTON_EVT_CLICK, body);
+        onButtonEvent(button, MICROBIT_BUTTON_EVT_CLICK, body);
     }
 
     /**
@@ -286,12 +293,7 @@ namespace input {
     //% group="Events"
     //% deprecated=true
     void onPinPressed(TouchPin name, Action body) {
-        auto pin = getPin((int)name);
-        if (!pin) return;
-
-        // Forces the PIN to switch to makey-makey style detection.
-        pin->isTouched();
-        registerWithDal((int)name, MICROBIT_BUTTON_EVT_CLICK, body);
+        onPinTouchEvent(name, MICROBIT_BUTTON_EVT_CLICK, body);
     }
 
     /**
@@ -305,12 +307,7 @@ namespace input {
     //% group="Events"
     //% deprecated=true
     void onPinReleased(TouchPin name, Action body) {
-        auto pin = getPin((int)name);
-        if (!pin) return;
-
-        // Forces the PIN to switch to makey-makey style detection.
-        pin->isTouched();
-        registerWithDal((int)name, MICROBIT_BUTTON_EVT_UP, body);
+        onPinTouchEvent(name, MICROBIT_BUTTON_EVT_UP, body);
     }
 
     /**
@@ -366,6 +363,7 @@ namespace input {
     /**
      * gets the level of loudness from 0 (silent) to 255 (loud)
      */
+    //% help=input/sound-level
     //% blockId="soundLevel" weight=58
     //% block="soundLevel" blockGap=8
     //% group="Sensors"

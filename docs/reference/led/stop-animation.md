@@ -13,7 +13,7 @@ This program sets up the ``stop animation`` part of the program,
 and then shows a string that you can stop with button ``B``.
 
 ```blocks
-input.onButtonEvent(Button.B, ButtonEvent.Click, () => {
+input.onButtonEvent(Button.B, input.buttonEventClick(), () => {
     led.stopAnimation();
 });
 basic.showString("STOP ME! STOP ME! PLEASE, WON'T SOMEBODY STOP ME?");
@@ -29,4 +29,4 @@ to go.
 
 ## See Also
 
-[show animation](/reference/basic/show-animation)
+[show leds](/reference/basic/show-leds), [show icon](/reference/basic/show-icon), [plot](/reference/led/plot)

@@ -215,6 +215,7 @@ declare namespace basic {
     /**
      * Sets the color on the build-in LED. Set to 0 to turn off.
      */
+    //% help=basic/set-led-color
     //% blockId=device_set_led_color
     //% block="set led to %color=colorNumberPicker"
     //%
@@ -226,6 +227,7 @@ declare namespace basic {
      * Sets the color on the build-in LED. Set to 0 to turn off.
      */
     //% blockId=device_turn_rgb_led_off block="turn build-in LED off"
+    //% help=basic/turn-rgb-led-off
     //% weight=10
     //% group="RGB LED"
     //% advanced=true shim=basic::turnRgbLedOff
@@ -244,7 +246,8 @@ declare namespace input {
      * @param eventType event Type
      */
     //% help=input/on-button-event weight=100 blockGap=16
-    //% blockId=device_button_selected_event block="on button %NAME| %eventType=control_button_event_value_id"
+    //% blockId=device_button_selected_event block="on button %NAME| %eventType"
+    //% eventType.shadow="control_button_event_click"
     //% parts="buttonpair"
     //% group="Events" shim=input::onButtonEvent
     function onButtonEvent(button: Button, eventType: int32, body: () => void): void;
@@ -278,7 +281,8 @@ declare namespace input {
      * @param body the code to run when event is fired on pin
      */
     //% help=input/on-pin-event weight=99 blockGap=16
-    //% blockId=device_pin_custom_event block="on pin %name| %eventType=control_button_event_value_id"
+    //% blockId=device_pin_custom_event block="on pin %name| %eventType"
+    //% eventType.shadow="control_button_event_down"
     //% group="Events" shim=input::onPinTouchEvent
     function onPinTouchEvent(name: TouchPin, eventType: int32, body: () => void): void;
 
@@ -361,6 +365,7 @@ declare namespace input {
     /**
      * gets the level of loudness from 0 (silent) to 255 (loud)
      */
+    //% help=input/sound-level
     //% blockId="soundLevel" weight=58
     //% block="soundLevel" blockGap=8
     //% group="Sensors" shim=input::soundLevel

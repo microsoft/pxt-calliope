@@ -4,7 +4,7 @@ Runtime and event utilities.
 
 ```cards
 control.inBackground(() => {
-    
+
 });
 control.reset();
 control.waitMicros(4);

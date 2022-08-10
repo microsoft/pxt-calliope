@@ -19,7 +19,7 @@ export function patchBlocks(pkgTargetVersion: string, dom: Element) {
     <block type="device_button_selected_event" x="35" y="429">
         <field name="NAME">Button.B</field>
         <value name="eventType">
-            <shadow type="control_button_event_value_id">
+            <shadow type="control_button_event_value">
                 <field name="id">ButtonEvent.Click</field>
             </shadow>
         </value>
@@ -27,7 +27,7 @@ export function patchBlocks(pkgTargetVersion: string, dom: Element) {
     <block type="device_pin_custom_event" x="368" y="428">
         <field name="NAME">TouchPin.P2</field>
         <value name="eventType">
-            <shadow type="control_button_event_value_id">
+            <shadow type="control_button_event_value">
                 <field name="id">ButtonEvent.Up</field>
             </shadow>
         </value>
@@ -51,7 +51,7 @@ const inputNodes = pxt.U.toArray(dom.querySelectorAll("block[type=device_button_
             valueNode.setAttribute("name", "eventType")
 
             const shadowNode = node.ownerDocument.createElement("shadow");
-            shadowNode.setAttribute("type", "control_button_event_value_id")
+            shadowNode.setAttribute("type", "control_button_event_value")
 
             const fieldNode = node.ownerDocument.createElement("field");
             fieldNode.setAttribute("name", "id")

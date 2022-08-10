@@ -4,14 +4,36 @@
 //% color=#C90072 weight=99 icon="\uf192"
 //% groups=['Events', 'States', 'Sensors', 'Configuration', 'System', 'others']
 namespace input {
+
     /**
-     * Returns the value of a C++ runtime constant
+     * Returns the ID of an Button Event
      */
-    //% weight=1 weight=19 blockId="control_button_event_value_id" block="%id"
+    //% help=input/button-event
+    //% weight=19 blockId="control_button_event_value" block="%id"
     //% shim=TD_ID advanced=true
-    //% blockHidden=true
-    export function buttonEventValueId(id: ButtonEvent): number {
+    //% group="Events"
+    export function buttonEventValue(id: ButtonEvent): number {
         return id;
+    }
+
+    /**
+     * Returns the ID of an Click Event
+     */
+    //% blockId="control_button_event_click" block="clicked"
+    //% advanced=true
+    //% blockHidden=true
+    export function buttonEventClick(): number {
+        return ButtonEvent.Click;
+    }
+
+    /**
+     * Returns the ID of an Down Event
+     */
+    //% blockId="control_button_event_down" block="pressed down"
+    //% advanced=true
+    //% blockHidden=true
+    export function buttonEventDown(): number {
+        return ButtonEvent.Down;
     }
 
     /**

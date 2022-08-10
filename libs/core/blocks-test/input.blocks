@@ -6,7 +6,7 @@
     <block type="device_button_selected_event" x="0" y="0">
         <field name="NAME">Button.AB</field>
         <value name="eventType">
-            <shadow type="control_button_event_value_id"></shadow>
+            <shadow type="control_button_event_value"></shadow>
         </value>
         <statement name="HANDLER">
             <block type="variables_set">
@@ -129,13 +129,13 @@
     <block type="device_pin_custom_event" x="556" y="156">
         <field name="name">TouchPin.P0</field>
         <value name="eventType">
-            <shadow type="control_button_event_value_id"></shadow>
+            <shadow type="control_button_event_value"></shadow>
         </value>
     </block>
     <block type="device_pin_custom_event" x="560" y="274">
         <field name="name">TouchPin.P0</field>
         <value name="eventType">
-            <shadow type="control_button_event_value_id"></shadow>
+            <shadow type="control_button_event_value"></shadow>
         </value>
     </block>
 </xml>

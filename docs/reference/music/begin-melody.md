@@ -22,7 +22,7 @@ Melodies are a sequence of notes, each played for some small amount time, one af
 music.beginMelody(['g4:1', 'c5', 'e', 'g:2', 'e:1', 'g:3'], MelodyOptions.Once)
 ```
 
-Melodies are played either in the _foreground_ or _background_. This allows more than one melody to be active at once. If a melody is set to play in the background, it can be interrupted, or paused, temporarily while a melody set for the foreground is played. If the foreground melody is not set to play ``forever``, then the background melody resumes when the foreground melody is finished.
+Melodies are played either in the _foreground_ or _background_. This allows more than one melody to be active at once. If a melody is set to play in the background, it can be interrupeted, or paused, temporarily while a melody set for the foreground is played. If the foreground melody is not set to play ``forever``, then the background melody resumes when the foreground melody is finished.
 
 You can set options for how you want the melody to play. You can ask that the melody plays just one time, ``once``, or have it keep repeating, ``forever``. With these options the melody will play in the foreground either once or continue to repeat. Of course, if you set ``forever``, any melody that was started in background will never play unless you [stop](/reference/music/stop-melody) the foreground melody. To make a background melody, set the option to ``once in background`` or ``forever in background``.
 
