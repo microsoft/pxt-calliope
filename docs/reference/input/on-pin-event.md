@@ -4,7 +4,7 @@ Start an [event handler](/reference/event-handler) (part of the
 program that will run when something happens, like when a button is
 pressed).  This handler works when you touch pin `0`, `1`, or `2`
 together with `GND`, and release it within 1 second. You can choose another event type by using 
-the [button event block](/reference/button-event). Possible event types are `pressed down` (1), `released up` (2), `clicked` (3), `long clicked` (4) or `hold` (5).
+the [button event block](/reference/input/button-event). Possible event types are `pressed down` (1), `released up` (2), `clicked` (3), `long clicked` (4) or `hold` (5).
 When you are using this function in a web
 browser, click the pins on the screen instead of the ones on the
 @boardname@.
@@ -52,5 +52,5 @@ input.onPinTouchEvent(TouchPin.P0, ButtonEvent.Click, () => {
 
 ## See also
 
-[@boardname@ pins](/device/pins), [pin is pressed](/reference/input/pin-is-pressed), [analog read pin](/reference/pins/analog-read-pin), [analog write pin](/reference/pins/analog-write-pin), [digital read pin](/reference/pins/digital-read-pin), [digital write pin](/reference/pins/digital-write-pin), [button event block](/reference/button-event)
+[@boardname@ pins](/device/pins), [pin is pressed](/reference/input/pin-is-pressed), [analog read pin](/reference/pins/analog-read-pin), [analog write pin](/reference/pins/analog-write-pin), [digital read pin](/reference/pins/digital-read-pin), [digital write pin](/reference/pins/digital-write-pin), [button event block](/reference/input/button-event)
 

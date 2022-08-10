@@ -363,6 +363,7 @@ namespace input {
     /**
      * gets the level of loudness from 0 (silent) to 255 (loud)
      */
+    //% help=input/sound-level
     //% blockId="soundLevel" weight=58
     //% block="soundLevel" blockGap=8
     //% group="Sensors"
