@@ -5,7 +5,6 @@
 //% groups=['Events', 'States', 'Sensors', 'Configuration', 'System', 'others']
 namespace input {
 
-
     /**
      * Returns the ID of an Button Event
      */

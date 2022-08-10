@@ -9,17 +9,17 @@ enum class Button {
 
 enum class ButtonEvent {
     //% blockIdentity="input.buttonEventValueId"
-    //% block="clicked"
-    Click = MICROBIT_BUTTON_EVT_CLICK,
-    //% blockIdentity="input.buttonEventValueId"
-    //% block="long clicked"
-    LongClick = MICROBIT_BUTTON_EVT_LONG_CLICK,
-    //% blockIdentity="input.buttonEventValueId"
     //% block="pressed down"
     Down = MICROBIT_BUTTON_EVT_DOWN,
     //% blockIdentity="input.buttonEventValueId"
     //% block="released up"
     Up = MICROBIT_BUTTON_EVT_UP,
+    //% blockIdentity="input.buttonEventValueId"
+    //% block="clicked"
+    Click = MICROBIT_BUTTON_EVT_CLICK,
+    //% blockIdentity="input.buttonEventValueId"
+    //% block="long clicked"
+    LongClick = MICROBIT_BUTTON_EVT_LONG_CLICK,
     //% blockIdentity="input.buttonEventValueId"
     //% block="hold"
     Hold = MICROBIT_BUTTON_EVT_HOLD,
@@ -188,7 +188,8 @@ namespace input {
      * @param eventType event Type
      */
     //% help=input/on-button-event weight=100 blockGap=16
-    //% blockId=device_button_selected_event block="on button %NAME| %eventType=control_button_event_click_id"
+    //% blockId=device_button_selected_event block="on button %NAME| %eventType"
+    //% eventType.shadow="control_button_event_click_id"
     //% parts="buttonpair"
     //% group="Events"
     void onButtonEvent(Button button, int eventType, Action body) {
@@ -236,7 +237,8 @@ namespace input {
      * @param body the code to run when event is fired on pin
      */
     //% help=input/on-pin-event weight=99 blockGap=16
-    //% blockId=device_pin_custom_event block="on pin %name| %eventType=control_button_event_down_id"
+    //% blockId=device_pin_custom_event block="on pin %name| %eventType"
+    //% eventType.shadow="control_button_event_down_id"
     //% group="Events"
     void onPinTouchEvent(TouchPin name, int eventType, Action body) {
         auto pin = getPin((int)name);
