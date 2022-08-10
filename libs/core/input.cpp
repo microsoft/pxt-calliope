@@ -20,6 +20,9 @@ enum class ButtonEvent {
     //% blockIdentity="input.buttonEventValueId"
     //% block="released up"
     Up = MICROBIT_BUTTON_EVT_UP,
+    //% blockIdentity="input.buttonEventValueId"
+    //% block="hold"
+    Hold = MICROBIT_BUTTON_EVT_HOLD,
 };
 
 enum class Dimension {
@@ -176,6 +179,8 @@ enum class MesDpadButtonInfo {
 
 //% color=#B4009E weight=99 icon="\uf192"
 namespace input {
+
+
     /**
      * Do something when a button (A, B or both A+B) receives an event.
      * @param button the button
@@ -183,7 +188,7 @@ namespace input {
      * @param eventType event Type
      */
     //% help=input/on-button-event weight=100 blockGap=16
-    //% blockId=device_button_selected_event block="on button %NAME| %eventType=control_button_event_value_id"
+    //% blockId=device_button_selected_event block="on button %NAME| %eventType=control_button_event_click_id"
     //% parts="buttonpair"
     //% group="Events"
     void onButtonEvent(Button button, int eventType, Action body) {
@@ -231,7 +236,7 @@ namespace input {
      * @param body the code to run when event is fired on pin
      */
     //% help=input/on-pin-event weight=99 blockGap=16
-    //% blockId=device_pin_custom_event block="on pin %name| %eventType=control_button_event_value_id"
+    //% blockId=device_pin_custom_event block="on pin %name| %eventType=control_button_event_down_id"
     //% group="Events"
     void onPinTouchEvent(TouchPin name, int eventType, Action body) {
         auto pin = getPin((int)name);
@@ -273,7 +278,7 @@ namespace input {
     //% deprecated=true
     //% group="Events"
     void onButtonPressed(Button button, Action body) {
-        onButtonEvent((int)button, (int)MICROBIT_BUTTON_EVT_CLICK, body);
+        onButtonEvent(button, MICROBIT_BUTTON_EVT_CLICK, body);
     }
 
     /**
@@ -286,7 +291,7 @@ namespace input {
     //% group="Events"
     //% deprecated=true
     void onPinPressed(TouchPin name, Action body) {
-        onPinTouchEvent((int)name, MICROBIT_BUTTON_EVT_CLICK, body);
+        onPinTouchEvent(name, MICROBIT_BUTTON_EVT_CLICK, body);
     }
 
     /**
@@ -300,7 +305,7 @@ namespace input {
     //% group="Events"
     //% deprecated=true
     void onPinReleased(TouchPin name, Action body) {
-        onPinTouchEvent((int)name, MICROBIT_BUTTON_EVT_UP, body);
+        onPinTouchEvent(name, MICROBIT_BUTTON_EVT_UP, body);
     }
 
     /**

@@ -244,7 +244,7 @@ declare namespace input {
      * @param eventType event Type
      */
     //% help=input/on-button-event weight=100 blockGap=16
-    //% blockId=device_button_selected_event block="on button %NAME| %eventType=control_button_event_value_id"
+    //% blockId=device_button_selected_event block="on button %NAME| %eventType=control_button_event_click_id"
     //% parts="buttonpair"
     //% group="Events" shim=input::onButtonEvent
     function onButtonEvent(button: Button, eventType: int32, body: () => void): void;
@@ -278,7 +278,7 @@ declare namespace input {
      * @param body the code to run when event is fired on pin
      */
     //% help=input/on-pin-event weight=99 blockGap=16
-    //% blockId=device_pin_custom_event block="on pin %name| %eventType=control_button_event_value_id"
+    //% blockId=device_pin_custom_event block="on pin %name| %eventType=control_button_event_down_id"
     //% group="Events" shim=input::onPinTouchEvent
     function onPinTouchEvent(name: TouchPin, eventType: int32, body: () => void): void;
 

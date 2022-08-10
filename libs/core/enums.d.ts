@@ -52,6 +52,9 @@ declare namespace basic {
     //% blockIdentity="input.buttonEventValueId"
     //% block="released up"
     Up = 2,  // MICROBIT_BUTTON_EVT_UP
+    //% blockIdentity="input.buttonEventValueId"
+    //% block="hold"
+    Hold = 5,  // MICROBIT_BUTTON_EVT_HOLD
     }
 
 
