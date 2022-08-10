@@ -9,31 +9,30 @@ namespace input {
      * Returns the ID of an Button Event
      */
     //% help=input/button-event
-    //% weight=1 weight=19 blockId="control_button_event_value_id" block="%id"
+    //% weight=19 blockId="control_button_event_value" block="%id"
     //% shim=TD_ID advanced=true
-    //% block="%id"
     //% group="Events"
-    export function buttonEventValueId(id: ButtonEvent): number {
+    export function buttonEventValue(id: ButtonEvent): number {
         return id;
     }
 
     /**
-     * Returns the ID of an Button Event
+     * Returns the ID of an Click Event
      */
-    //% weight=1 weight=19 blockId="control_button_event_click_id" block="clicked"
-    //% shim=TD_ID advanced=true
+    //% blockId="control_button_event_click" block="clicked"
+    //% advanced=true
     //% blockHidden=true
-    export function buttonEventClickId(): number {
+    export function buttonEventClick(): number {
         return ButtonEvent.Click;
     }
 
     /**
-     * Returns the ID of an Button Event
+     * Returns the ID of an Down Event
      */
-    //% weight=1 weight=19 blockId="control_button_event_down_id" block="pressed down"
-    //% shim=TD_ID advanced=true
+    //% blockId="control_button_event_down" block="pressed down"
+    //% advanced=true
     //% blockHidden=true
-    export function buttonEventDownId(): number {
+    export function buttonEventDown(): number {
         return ButtonEvent.Down;
     }
 

@@ -189,7 +189,7 @@ namespace input {
      */
     //% help=input/on-button-event weight=100 blockGap=16
     //% blockId=device_button_selected_event block="on button %NAME| %eventType"
-    //% eventType.shadow="control_button_event_click_id"
+    //% eventType.shadow="control_button_event_click"
     //% parts="buttonpair"
     //% group="Events"
     void onButtonEvent(Button button, int eventType, Action body) {
@@ -238,7 +238,7 @@ namespace input {
      */
     //% help=input/on-pin-event weight=99 blockGap=16
     //% blockId=device_pin_custom_event block="on pin %name| %eventType"
-    //% eventType.shadow="control_button_event_down_id"
+    //% eventType.shadow="control_button_event_down"
     //% group="Events"
     void onPinTouchEvent(TouchPin name, int eventType, Action body) {
         auto pin = getPin((int)name);
