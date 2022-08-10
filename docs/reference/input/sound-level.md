@@ -26,7 +26,6 @@ basic.forever(function () {
 
 ## See also
 
-[on sound](/reference/input/on-sound), [set sound threshold](/reference/input/set-sound-threshold)
 
 ```package
 microphone

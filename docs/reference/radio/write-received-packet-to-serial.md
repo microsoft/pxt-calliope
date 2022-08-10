@@ -9,6 +9,14 @@ radio.writeReceivedPacketToSerial();
 This should be called within a callback to
 [on data packet received](/reference/radio/on-data-packet-received).
 
+### ~ hint
+
+#### Deprecated
+
+This API has been deprecated! Use [serial write value](/reference/serial/write-value) instead.
+
+### ~
+
 ## Data received format
 
 The format for received data when these send functions are used:
@@ -18,6 +26,8 @@ The format for received data when these send functions are used:
 - [send string](/reference/radio/send-string): ```{t:MicrobitTimeAlive,s:SerialNumber,n:"Text"}```
 
 ### ~hint
+
+#### Default serial number
 
 The serial number value sent in the packet is set to `0` unless transmission of the serial number is enabled with ``||radio:radio set transmit serial number||``.
 
@@ -30,7 +40,8 @@ the second @boardname@), this program sends temperature data to the
 serial port.
 
 ```blocks
-input.onButtonEvent(Button.A, ButtonEvent.Click, function () {
+radio.setGroup(44)
+input.onButtonEvent(Button.A, input.buttonEventClick(), function () {
     radio.sendNumber(input.temperature())
     radio.sendValue("temp", input.temperature())
     radio.sendString("It's warm now")

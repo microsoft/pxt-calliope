@@ -11,7 +11,7 @@ on the @boardname@.
 * For `A` and `B` together: This handler works when `A` and `B` are both pushed down, then one of them is released within 1.5 seconds of pushing down the second button.
 
 ```sig
-input.onButtonEvent(Button.A, ButtonEvent.Click, () => {})
+input.onButtonEvent(Button.A, input.buttonEventClick(), () => {})
 ```
 
 Find out how buttons provide input to the @boardname@ in this video:
@@ -26,7 +26,7 @@ Each time you press the button, the [LED screen](/device/screen) shows the `coun
 ```blocks
 let count = 0
 basic.showNumber(count)
-input.onButtonEvent(Button.A, ButtonEvent.Click, () => {
+input.onButtonEvent(Button.A, input.buttonEventClick(), () => {
     count++;
     basic.showNumber(count);
 })
@@ -37,7 +37,7 @@ input.onButtonEvent(Button.A, ButtonEvent.Click, () => {
 This example shows a number from 1 to 6 when you press the `B` button.
 
 ```blocks
-input.onButtonEvent(Button.B, ButtonEvent.Click, () => {
+input.onButtonEvent(Button.B, input.buttonEventClick(), () => {
     let dice = randint(0, 5) + 1
     basic.showNumber(dice)
 })
