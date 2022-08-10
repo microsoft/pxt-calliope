@@ -116,6 +116,7 @@ namespace basic {
    /**
     * Sets the color on the build-in LED. Set to 0 to turn off.
     */
+   //% help=basic/set-led-color
     //% blockId=device_set_led_color
     //% block="set led to %color=colorNumberPicker"
     //% color.defl=0xff0000
@@ -140,6 +141,7 @@ namespace basic {
     * Sets the color on the build-in LED. Set to 0 to turn off.
     */
     //% blockId=device_turn_rgb_led_off block="turn build-in LED off"
+    //% help=basic/turn-rgb-led-off
     //% weight=10
     //% group="RGB LED"
     //% advanced=true

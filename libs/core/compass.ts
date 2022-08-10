@@ -124,6 +124,7 @@ namespace basic {
      * @param interval the amount of time (milliseconds) to show the needle. Default is 600.
      */
     //% weight=50 blockGap=8
+    //% help=basic/show-compass
     //% blockId=basic_show_compass
     //% block="show compass needle for $interval|ms"
     //% interval.shadow=timePicker
