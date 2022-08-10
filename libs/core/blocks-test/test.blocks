@@ -133,7 +133,7 @@
         </block>
         <block type="device_pin_custom_event" x="2009" y="121">
                 <value name="eventType">
-                        <shadow type="control_button_event_value_id"></shadow>
+                        <shadow type="control_button_event_value"></shadow>
                 </value>
                 <statement name="HANDLER">
                         <block type="device_led_toggle">
@@ -435,7 +435,7 @@
         <block type="device_button_selected_event" x="896" y="634">
                 <field name="NAME">Button.AB</field>
                 <value name="eventType">
-                        <shadow type="control_button_event_value_id"></shadow>
+                        <shadow type="control_button_event_value"></shadow>
                 </value>
                 <statement name="HANDLER">
                         <block type="device_plot">
@@ -512,7 +512,7 @@
         </block>
         <block type="device_pin_custom_event" x="478" y="950">
                 <value name="eventType">
-                        <shadow type="control_button_event_value_id"></shadow>
+                        <shadow type="control_button_event_value"></shadow>
                 </value>
                 <statement name="HANDLER"></statement>
         </block>
