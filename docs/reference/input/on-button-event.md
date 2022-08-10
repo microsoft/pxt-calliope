@@ -1,7 +1,9 @@
 # On Button Event
 
 Start an [event handler](/reference/event-handler) (part of the program that will run when something happens, like when a button is pressed).
-This handler works when button `A` or `B` is pressed, or `A` and `B` together.
+This handler works when button `A` or `B` is clicked, or `A` and `B` together. You can choose another event type by using 
+the [button event block](/reference/button-event). Possible event types are `pressed down` (1), `released up` (2), `clicked` (3), `long clicked` (4) or `hold` (5).
+
 When you are using this function in a web browser, click the buttons on the screen instead of the ones
 on the @boardname@.
 
@@ -50,5 +52,5 @@ Otherwise, sometimes they would show a `0`.
 
 ## See also
 
-[button is pressed](/reference/input/button-is-pressed), [forever](/reference/basic/forever), [random](/blocks/math)
+[button is pressed](/reference/input/button-is-pressed), [forever](/reference/basic/forever), [random](/blocks/math), [button event block](/reference/button-event)
 

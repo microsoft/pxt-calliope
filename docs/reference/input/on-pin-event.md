@@ -3,12 +3,13 @@
 Start an [event handler](/reference/event-handler) (part of the
 program that will run when something happens, like when a button is
 pressed).  This handler works when you touch pin `0`, `1`, or `2`
-together with `GND`, and release it within 1 second.
+together with `GND`, and release it within 1 second. You can choose another event type by using 
+the [button event block](/reference/button-event). Possible event types are `pressed down` (1), `released up` (2), `clicked` (3), `long clicked` (4) or `hold` (5).
 When you are using this function in a web
 browser, click the pins on the screen instead of the ones on the
 @boardname@.
 
-If you hold the `GND` pin with one hand and touch pin `0`, `1`, or `2`
+If you hold the `GND` pin with one hand and touch pin `0`, `1`, `2` or `3`
 with the other, a very small (safe) amount of electricity will flow
 through your body and back into the @boardname@. This is called
 **completing a circuit**. It's like you're a big wire!
@@ -51,5 +52,5 @@ input.onPinTouchEvent(TouchPin.P0, ButtonEvent.Click, () => {
 
 ## See also
 
-[@boardname@ pins](/device/pins), [pin is pressed](/reference/input/pin-is-pressed), [analog read pin](/reference/pins/analog-read-pin), [analog write pin](/reference/pins/analog-write-pin), [digital read pin](/reference/pins/digital-read-pin), [digital write pin](/reference/pins/digital-write-pin)
+[@boardname@ pins](/device/pins), [pin is pressed](/reference/input/pin-is-pressed), [analog read pin](/reference/pins/analog-read-pin), [analog write pin](/reference/pins/analog-write-pin), [digital read pin](/reference/pins/digital-read-pin), [digital write pin](/reference/pins/digital-write-pin), [button event block](/reference/button-event)
 

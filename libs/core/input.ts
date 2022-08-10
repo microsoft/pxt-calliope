@@ -8,6 +8,7 @@ namespace input {
     /**
      * Returns the ID of an Button Event
      */
+    //% help=input/button-event
     //% weight=1 weight=19 blockId="control_button_event_value_id" block="%id"
     //% shim=TD_ID advanced=true
     //% block="%id"
