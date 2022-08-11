@@ -53,7 +53,7 @@
   "ButtonEvent.Click|block": "geklickt",
   "ButtonEvent.Down|block": "gedrückt",
   "ButtonEvent.Hold|block": "gehalten",
-  "ButtonEvent.LongClick|block": "lang geklickt",
+  "ButtonEvent.LongClick|block": "lange geklickt",
   "ButtonEvent.Up|block": "losgelassen",
   "Colors.Blue|block": "Blau",
   "Colors.Green|block": "Grün",
