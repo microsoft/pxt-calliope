@@ -114,14 +114,16 @@
                 "bluetooth": {
                     "enabled": 1,
                     "pairing_mode": 1,
+                    "partial_flashing": 0,
+                    "dfu_service": 1,
+                    "event_service": 0,
+                    "device_info_service": 1,
                     "private_addressing": 0,
                     "open": 1,
-                    "partial_flashing": 0,
                     "security_level": null,
                     "whitelist": 0,
                     "advertising_timeout": 0,
-                    "tx_power": 6,
-                    "event_service": 0
+                    "tx_power": 6
                 },
                 "stack_size": 1280,
                 "gatt_table_size": "0x300",
@@ -158,7 +160,9 @@
                         "bluetooth": {
                             "pairing_mode": 1,
                             "partial_flashing": 0,
-                            "event_service": 0
+                            "dfu_service": 1,
+                            "event_service": 0,
+                            "device_info_service": 1
                         },
                         "stack_size": 1280,
                         "gatt_table_size": "0x300",
