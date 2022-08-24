@@ -125,6 +125,16 @@
             "vengit/pxt-sbrick"
         ],
         "preferredRepos": [
+            "calliope-edu/CO2-Sensor-SCD40",
+            "calliope-edu/pxt-HM3301_Dust_Sensor",
+            "calliope-edu/pxt-TCS34725FN",
+            "calliope-edu/pxt-display",
+            "calliope-edu/pxt-grove",
+            "calliope-edu/pxt-rgblcd",
+            "calliope-edu/pxt-sunlightsensor-si1145",
+            "calliope-mini/pxt-SCD30",
+            "tinysuperlab/motionkit",
+            "tinysuperlab/touchkit",
             "MKleinSB/pxt-KY-040",
             "MKleinSB/pxt-MAX7219_8x8",
             "MKleinSB/pxt-OLED-SSD1306",
@@ -134,6 +144,7 @@
             "MKleinSB/pxt-callicross",
             "MKleinSB/pxt-callimotor",
             "MKleinSB/pxt-calliope-buttons",
+            "MKleinSB/pxt-CO2OLED",
             "MKleinSB/pxt-dht11",
             "MKleinSB/pxt-esp-thingspeak",
             "MKleinSB/pxt-gatorlog-calliope",
@@ -145,19 +156,8 @@
             "MKleinSB/pxt-serialmp3",
             "Microsoft/pxt-microturtle",
             "Microsoft/pxt-neopixel",
-            "calliope-edu/CO2-Sensor-SCD40",
-            "calliope-edu/makecode-extension-scd41",
-            "calliope-edu/pxt-HM3301_Dust_Sensor",
-            "calliope-edu/pxt-TCS34725FN",
-            "calliope-edu/pxt-display",
-            "calliope-edu/pxt-grove",
-            "calliope-edu/pxt-rgblcd",
-            "calliope-edu/pxt-sunlightsensor-si1145",
-            "calliope-mini/pxt-SCD30",
             "dl1ekm/pxt-calliope-ADS1x15",
-            "dl1ekm/pxt-calliope-PCF85063-RTC",
-            "tinysuperlab/motionkit",
-            "tinysuperlab/touchkit"
+            "dl1ekm/pxt-calliope-PCF85063-RTC"
         ]
     },
     "skillMap": {
