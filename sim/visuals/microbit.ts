@@ -1188,21 +1188,21 @@ namespace pxsim.visuals {
                 let shake = this.mkBtn(240, MB_HEIGHT - 75, 'Schütteln');
                 this.shakeButton = shake.inner;
                 let board = this.element.getElementById("calliope_mini")
-                console.log(board)
+                // console.log(board)
                 // svg.fill(this.shakeButton, this.props.theme.virtualButtonUp)
                 svg.buttonEvents(shake.outer,
                     ev => { },
                     (ev) => {
-                        svg.fill(this.shakeButton, this.props.theme.virtualButtonDown);
+                        // svg.fill(this.shakeButton, this.props.theme.virtualButtonDown);
                          board.classList.remove("shake_animation");
                          setTimeout(()=>{
                             board.classList.add("shake_animation");
                          }, 1)
-                        
+                         this.board.bus.queue(DAL.MICROBIT_ID_GESTURE, 11); // GESTURE_SHAKE
                     },
                     (ev) => {
-                        svg.fill(this.shakeButton, this.props.theme.virtualButtonUp);
-                        this.board.bus.queue(DAL.MICROBIT_ID_GESTURE, 11); // GESTURE_SHAKE
+                        // svg.fill(this.shakeButton, this.props.theme.virtualButtonUp);
+                        
                     }
                 )
                 // let shakeText = svg.child(shake.outer, "text", { x: 280, y: MB_HEIGHT - 5, class: "sim-text big inverted centered" }) as SVGTextElement;
