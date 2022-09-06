@@ -1,5 +1,8 @@
 # Projects
 
+* [New Project (iPad)](/calliope/templates)
+  * [Calliope mini 2.x](_f7ACuxgaocvr)
+  * [Calliope mini 1.x](_7YbU6iMhoTdR)
 * [First Steps](/calliope/firststeps)
   * [Get Ready](/calliope/firststeps/firstSteps)
   * [The 5x5 LED matrix](/calliope/firststeps/5x5LED)

@@ -3,6 +3,12 @@
 ```codecard
 [
     {
+        "name": "New Project (iPad)",
+        "url": "/calliope/templates",
+        "imageUrl": "/calliope/templates/32KB.png",
+        "largeImageUrl": "/calliope/templates/32KB_L.png"
+    },
+    {
         "name": "First Steps",
         "url": "/calliope/firststeps",
         "imageUrl": "/calliope/firststeps/connecting.jpg",
@@ -23,6 +29,7 @@
 
 ## See Also
 
+[New Project (iPad)](/calliope/templates),
 [First Steps](/calliope/firststeps),
 [Tutorials](/calliope/tutorials),
 [Calliope Links](/calliope/links)
