@@ -1384,7 +1384,7 @@ namespace pxsim.visuals {
                 }) as SVGTextElement;
                 this.soundLevelIcon = svg.child(this.g, "svg", {
                     x: 495,
-                    y: 400,
+                    y: 425,
                     viewbox: "0 0 20 29",
                     role: "img",
                 }) as SVGTextElement;
@@ -1650,7 +1650,7 @@ namespace pxsim.visuals {
 
             // filters
             let ledglow = svg.child(this.defs, "filter", { id: "ledglow", x: "-75%", y: "-75%", width: "300%", height: "300%" });
-            svg.child(ledglow, "feMorphology", { operator: "dilate", radius: "4", in: "SourceAlpha", result: "thicken" });
+            svg.child(ledglow, "feMorphology", { operator: "dilate", radius: "1", in: "SourceAlpha", result: "thicken" });
             svg.child(ledglow, "feGaussianBlur", { stdDeviation: "5", in: "thicken", result: "blurred" });
             svg.child(ledglow, "feFlood", { "flood-color": "rgb(255, 17, 77)", result: "glowColor" });
             svg.child(ledglow, "feComposite", { in: "glowColor", in2: "blurred", operator: "in", result: "ledglow_colored" });
