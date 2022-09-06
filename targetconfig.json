@@ -160,13 +160,8 @@
             "dl1ekm/pxt-calliope-PCF85063-RTC"
         ]
     },
-    "skillMap": {
-        "defaultPath": "docs:/skillmap/mini",
-        "pathAliases": {
-            "space": "docs:/skillmap/space"
-        }
-    },
     "galleries": {
+        "New Project (iPad)": "calliope/templates",
         "First Steps": "calliope/firststeps",
         "Tutorials": "calliope/tutorials",
         "Calliope Links": "calliope/links"
