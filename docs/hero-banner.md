@@ -9,7 +9,7 @@ Here are some cool activities to get you started with your @boardname@!
 * description: CALLIOPEO – Taking the Calliope mini to the ISS.
 * imageUrl: /calliope/02_Hero_CalliopEO.png
 * url: https://calliope.cc/calliopeo
-* buttonLabel: Participate!
+* buttonLabel: Explore!
 * cardType: link
 ---
 * name: The 5x5 LED matrix

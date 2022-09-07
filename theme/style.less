@@ -74,6 +74,15 @@
     padding: 25% 0;
 }
 
+// Safari Only for iPad and iPhone
+@media not all and (min-resolution:.001dpcm) { 
+    @supports (-webkit-appearance:none) {
+        #mainmenu .right.menu {
+            margin-right: 4rem;
+        }
+    }
+}
+
 /* Mobile */
 @media only screen and (max-width: @largestMobileScreen) {
     #filelist {

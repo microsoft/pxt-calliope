@@ -1188,21 +1188,21 @@ namespace pxsim.visuals {
                 let shake = this.mkBtn(240, MB_HEIGHT - 75, 'Schütteln');
                 this.shakeButton = shake.inner;
                 let board = this.element.getElementById("calliope_mini")
-                console.log(board)
+                // console.log(board)
                 // svg.fill(this.shakeButton, this.props.theme.virtualButtonUp)
                 svg.buttonEvents(shake.outer,
                     ev => { },
                     (ev) => {
-                        svg.fill(this.shakeButton, this.props.theme.virtualButtonDown);
+                        // svg.fill(this.shakeButton, this.props.theme.virtualButtonDown);
                          board.classList.remove("shake_animation");
                          setTimeout(()=>{
                             board.classList.add("shake_animation");
                          }, 1)
-                        
+                         this.board.bus.queue(DAL.MICROBIT_ID_GESTURE, 11); // GESTURE_SHAKE
                     },
                     (ev) => {
-                        svg.fill(this.shakeButton, this.props.theme.virtualButtonUp);
-                        this.board.bus.queue(DAL.MICROBIT_ID_GESTURE, 11); // GESTURE_SHAKE
+                        // svg.fill(this.shakeButton, this.props.theme.virtualButtonUp);
+                        
                     }
                 )
                 // let shakeText = svg.child(shake.outer, "text", { x: 280, y: MB_HEIGHT - 5, class: "sim-text big inverted centered" }) as SVGTextElement;
@@ -1384,7 +1384,7 @@ namespace pxsim.visuals {
                 }) as SVGTextElement;
                 this.soundLevelIcon = svg.child(this.g, "svg", {
                     x: 495,
-                    y: 400,
+                    y: 425,
                     viewbox: "0 0 20 29",
                     role: "img",
                 }) as SVGTextElement;
@@ -1650,7 +1650,7 @@ namespace pxsim.visuals {
 
             // filters
             let ledglow = svg.child(this.defs, "filter", { id: "ledglow", x: "-75%", y: "-75%", width: "300%", height: "300%" });
-            svg.child(ledglow, "feMorphology", { operator: "dilate", radius: "4", in: "SourceAlpha", result: "thicken" });
+            svg.child(ledglow, "feMorphology", { operator: "dilate", radius: "1", in: "SourceAlpha", result: "thicken" });
             svg.child(ledglow, "feGaussianBlur", { stdDeviation: "5", in: "thicken", result: "blurred" });
             svg.child(ledglow, "feFlood", { "flood-color": "rgb(255, 17, 77)", result: "glowColor" });
             svg.child(ledglow, "feComposite", { in: "glowColor", in2: "blurred", operator: "in", result: "ledglow_colored" });
