@@ -6,7 +6,7 @@ The code below shows a simple script that sends a line when the BBC micro:bit st
 
 ```blocks
 serial.writeLine("started...")
-input.onButtonEvent(Button.A, ButtonEvent.Down, () => {
+input.onButtonEvent(Button.A, input.buttonEventValue(ButtonEvent.Down), () => {
     serial.writeLine("A pressed")
 })
 ```

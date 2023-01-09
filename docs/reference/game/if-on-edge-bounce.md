@@ -20,7 +20,7 @@ degrees -- exactly the opposite direction.
 ```blocks
 let ball = game.createSprite(4, 2);
 basic.showNumber(ball.get(LedSpriteProperty.Direction));
-input.onButtonEvent(Button.B, ButtonEvent.Down, () => {
+input.onButtonEvent(Button.B, input.buttonEventValue(ButtonEvent.Down), () => {
     ball.ifOnEdgeBounce();
     basic.showNumber(ball.get(LedSpriteProperty.Direction));
 });

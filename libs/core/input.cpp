@@ -7,21 +7,11 @@ enum class Button {
     AB = MICROBIT_ID_BUTTON_AB,
 };
 
-enum class ButtonEvent {
-    //% blockIdentity="input.buttonEventValueId"
-    //% block="pressed down"
+enum class ButtonEvents {
     Down = MICROBIT_BUTTON_EVT_DOWN,
-    //% blockIdentity="input.buttonEventValueId"
-    //% block="released up"
     Up = MICROBIT_BUTTON_EVT_UP,
-    //% blockIdentity="input.buttonEventValueId"
-    //% block="clicked"
     Click = MICROBIT_BUTTON_EVT_CLICK,
-    //% blockIdentity="input.buttonEventValueId"
-    //% block="long clicked"
     LongClick = MICROBIT_BUTTON_EVT_LONG_CLICK,
-    //% blockIdentity="input.buttonEventValueId"
-    //% block="hold"
     Hold = MICROBIT_BUTTON_EVT_HOLD,
 };
 

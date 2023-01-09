@@ -24,13 +24,13 @@ playOneGame(gameTime)
 showFinalScores(scoreA, scoreB)
 
 function startIOMonitor() {
-    input.onButtonEvent(Button.A, ButtonEvent.Click, () => {
+    input.onButtonEvent(Button.A, input.buttonEventValue(ButtonEvent.Click), () => {
         AWasPressed = true
     })
-    input.onButtonEvent(Button.B, ButtonEvent.Click, () => {
+    input.onButtonEvent(Button.B, input.buttonEventValue(ButtonEvent.Click), () => {
         BWasPressed = true
     })
-    input.onButtonEvent(Button.AB, ButtonEvent.Click, () => {
+    input.onButtonEvent(Button.AB, input.buttonEventValue(ButtonEvent.Click), () => {
         ABWasPressed = true
         AWasPressed = false
         BWasPressed = false

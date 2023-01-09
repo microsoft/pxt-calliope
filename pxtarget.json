@@ -105,11 +105,19 @@
                         "basic\\s*\\.\\s*showArrow\\s*\\(": "basic.showIcon(",
                         "images\\s*\\.\\s*arrowImage\\s*\\(": "images.iconImage(",
                         "ArrowNames\\s*\\.\\s*": "IconNames.Arrow",
-                        "input\\s*\\.\\s*onButtonPressed\\s*\\(\\s*(.*?),": "input.onButtonEvent($1, ButtonEvent.Click,",
-                        "input\\s*\\.\\s*onPinPressed\\s*\\(\\s*(.*?),": "input.onPinTouchEvent($1, ButtonEvent.Down,",
-                        "input\\s*\\.\\s*onPinReleased\\s*\\(\\s*(.*?),": "input.onPinTouchEvent($1, ButtonEvent.Up,",
+                        "input\\s*\\.\\s*onButtonPressed\\s*\\(\\s*(.*?),": "input.onButtonEvent($1, input.buttonEventValue(ButtonEvent.Click),",
+                        "input\\s*\\.\\s*onPinPressed\\s*\\(\\s*(.*?),": "input.onPinTouchEvent($1, input.buttonEventValue(ButtonEvent.Down),",
+                        "input\\s*\\.\\s*onPinReleased\\s*\\(\\s*(.*?),": "input.onPinTouchEvent($1, input.buttonEventValue(ButtonEvent.Up),",
                         "input\\s*\\.\\s*loudness\\s*\\(": "input.soundLevel(",
                         "basic\\s*\\.\\s*rgbw\\s*\\(\\s*(.*?),\\s*(.*?),\\s*(.*?),\\s*(.*?)\\s*\\)": "basic.rgb($1, $2, $3)"
+                    }
+                }
+            ],
+            "0.0.0 - 4.0.29": [
+                {
+                    "type": "api",
+                    "map": {
+                        "input\\s*\\.\\s*onButtonEvent\\s*\\(\\s*(.*?),\\s*ButtonEvent\\s*.\\s*(.*?),": "input.onButtonEvent($1, input.buttonEventValue(ButtonEvent.$2),"
                     }
                 }
             ]

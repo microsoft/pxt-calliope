@@ -11,7 +11,7 @@ Let's create a coin flipping program to simulate a real coin toss. We'll use ico
 Get an ``||input:on button A pressed||`` block from the ``||input:Input||`` drawer in the toolbox. We'll put our coin flipping code in here.
 
 ```blocks
-input.onButtonEvent(Button.A, ButtonEvent.Click, () => {
+input.onButtonEvent(Button.A, input.buttonEventValue(ButtonEvent.Click), () => {
 })
 ```
 
@@ -22,7 +22,7 @@ Grab an ``||logic:if else||`` block and set it inside ``||input:on button A pres
 The ``||Math:pick random true or false||`` returns a random ``true`` or ``false`` value which we use to determine a ``heads`` or ``tails`` result for a coin toss.
 
 ```blocks
-input.onButtonEvent(Button.A, ButtonEvent.Click, () => {
+input.onButtonEvent(Button.A, input.buttonEventValue(ButtonEvent.Click), () => {
     if (Math.randomBoolean()) {
     } else {
     }
@@ -34,7 +34,7 @@ input.onButtonEvent(Button.A, ButtonEvent.Click, () => {
 Now, put a ``||basic:show icon||`` block inside both the ``||logic:if||`` and the ``||logic:else||``. Pick images to mean ``heads`` and ``tails``.
 
 ```blocks
-input.onButtonEvent(Button.A, ButtonEvent.Click, () => {
+input.onButtonEvent(Button.A, input.buttonEventValue(ButtonEvent.Click), () => {
     if (Math.randomBoolean()) {
         basic.showIcon(IconNames.Skull)
     } else {
@@ -52,7 +52,7 @@ Press button **A** in the simulator to try the coin toss code.
 You can animate the coin toss to add the feeling of suspense. Place different ``||basic:show icon||`` blocks before the ``||logic:if||`` to show that the coin is flipping.
 
 ```blocks
-input.onButtonEvent(Button.A, ButtonEvent.Click, () => {
+input.onButtonEvent(Button.A, input.buttonEventValue(ButtonEvent.Click), () => {
     basic.showIcon(IconNames.Diamond)
     basic.showIcon(IconNames.SmallDiamond)
     basic.showIcon(IconNames.Diamond)

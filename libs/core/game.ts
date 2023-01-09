@@ -323,9 +323,9 @@ namespace game {
     }
 
     function unplugEvents(): void {
-        input.onButtonEvent(Button.A, ButtonEvent.Click, () => { });
-        input.onButtonEvent(Button.B, ButtonEvent.Click, () => { });
-        input.onButtonEvent(Button.AB, ButtonEvent.Click, () => {
+        input.onButtonEvent(Button.A, input.buttonEventValue(ButtonEvent.Click), () => { });
+        input.onButtonEvent(Button.B, input.buttonEventValue(ButtonEvent.Click), () => { });
+        input.onButtonEvent(Button.AB, input.buttonEventValue(ButtonEvent.Click), () => {
             control.reset();
         });
     }

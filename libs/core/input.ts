@@ -1,3 +1,23 @@
+enum ButtonEvent {
+    //% blockIdentity="input.buttonEventValueId"
+    //% block="pressed down"
+    Down = ButtonEvents.Down,
+    //% blockIdentity="input.buttonEventValueId"
+    //% block="released up"
+    Up = ButtonEvents.Up,
+    //% blockIdentity="input.buttonEventValueId"
+    //% block="clicked"
+    Click = ButtonEvents.Click,
+    //% blockIdentity="input.buttonEventValueId"
+    //% block="long clicked"
+    LongClick = ButtonEvents.LongClick,
+    //% blockIdentity="input.buttonEventValueId"
+    //% block="hold"
+    Hold = ButtonEvents.Hold,
+};
+
+
+
 /**
  * Events and data from sensors
  */
@@ -10,7 +30,7 @@ namespace input {
      */
     //% help=input/button-event
     //% weight=19 blockId="control_button_event_value" block="%id"
-    //% shim=TD_ID advanced=true
+    //% advanced=true
     //% group="Events"
     export function buttonEventValue(id: ButtonEvent): number {
         return id;
