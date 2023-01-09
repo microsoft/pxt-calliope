@@ -1,5 +1,9 @@
 {
-    "additionalFilePath": "../../node_modules/pxt-common-packages/libs/microphone",
+    "name": "microphone",
+    "description": "The microphone library",
+    "dependencies": {
+        "core": "file:../core"
+    },
     "files": [
         "README.md",
         "microphone.cpp",
@@ -7,8 +11,10 @@
         "enums.d.ts",
         "shims.d.ts"
     ],
-    "hidden": true,
-    "dependencies": {
-        "core": "file:../core"
-    }
+    "testFiles": [
+        "test.ts"
+    ],
+    "public": true,
+    "additionalFilePath": "../../node_modules/pxt-common-packages/libs/microphone",
+    "hidden": true
 }

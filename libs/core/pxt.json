@@ -1,7 +1,7 @@
 {
     "name": "core",
     "description": "The microbit core library",
-    "additionalFilePath": "../../node_modules/pxt-common-packages/libs/base",
+    "dependencies": {},
     "files": [
         "README.md",
         "platform.h",
@@ -76,7 +76,7 @@
     ],
     "testFiles": [],
     "public": true,
-    "dependencies": {},
+    "additionalFilePath": "../../node_modules/pxt-common-packages/libs/base",
     "dalDTS": {
         "compileServiceVariant": "mbcodal",
         "includeDirs": [
@@ -172,5 +172,6 @@
                 }
             }
         ]
-    }
+    },
+    "partial": true
 }

@@ -1,4 +1,13 @@
 {
+    "name": "radio-broadcast",
+    "description": "Adds new blocks for message communication in the radio category",
+    "dependencies": {
+        "core": "file:../core",
+        "radio": "file:../radio"
+    },
+    "files": [
+        "radio-broadcast.ts"
+    ],
     "additionalFilePath": "../../node_modules/pxt-common-packages/libs/radio-broadcast",
     "icon": "./static/packages/radio-broadcast/icon.png"
 }
