@@ -1,10 +1,10 @@
 {
     "name": "{0} block",
+    "description": "",
     "dependencies": {
         "core": "file:../core",
         "bluetooth": "file:../bluetooth"
     },
-    "description": "",
     "files": [
         "main.blocks",
         "main.ts",

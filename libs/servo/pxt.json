@@ -1,14 +1,16 @@
 {
-    "additionalFilePath": "../../node_modules/pxt-common-packages/libs/servo",
+    "name": "servo",
+    "description": "A micro-servo library",
+    "dependencies": {
+        "core": "file:../core"
+    },
     "files": [
         "README.md",
         "servo.ts",
         "ns.ts",
         "targetoverrides.ts"
     ],
-    "icon": "./static/packages/servo/icon.png",
     "public": true,
-    "dependencies": {
-        "core": "file:../core"
-    }
+    "additionalFilePath": "../../node_modules/pxt-common-packages/libs/servo",
+    "icon": "./static/packages/servo/icon.png"
 }

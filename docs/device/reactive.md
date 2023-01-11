@@ -51,7 +51,7 @@ The first job of the scheduler is to allow multiple *subprograms* to be queued u
 ```typescript
 let count = 0
 
-input.onButtonEvent(Button.A, ButtonEvent.Down, () => {
+input.onButtonEvent(Button.A, input.buttonEventValue(ButtonEvent.Down), () => {
     count++;
 })
 
@@ -74,7 +74,7 @@ The second statement informs the scheduler that on each and every event of the *
 // statement 1
 let count = 0
 // statement 2
-input.onButtonEvent(Button.A, ButtonEvent.Down, () => {
+input.onButtonEvent(Button.A, input.buttonEventValue(ButtonEvent.Down), () => {
     count++;
 })
 ```
@@ -85,7 +85,7 @@ The third statement queues a `forever` loop for later execution by the scheduler
 // statement 1
 let count = 0
 // statement 2
-input.onButtonEvent(Button.A, ButtonEvent.Down, () => {
+input.onButtonEvent(Button.A, input.buttonEventValue(ButtonEvent.Down), () => {
     count++;
 })
 // statement 3
@@ -157,7 +157,7 @@ As a result, you can easily add a new capability to the micro:bit by just adding
 ```typescript
 let count = 0
 
-input.onButtonEvent(Button.A, ButtonEvent.Down, () => {
+input.onButtonEvent(Button.A, input.buttonEventValue(ButtonEvent.Down), () => {
     count = count + 1
 })
 
@@ -165,7 +165,7 @@ basic.forever(() => {
     basic.showNumber(count)
 })
 
-input.onButtonEvent(Button.B, ButtonEvent.Down, () => {
+input.onButtonEvent(Button.B, input.buttonEventValue(ButtonEvent.Down), () => {
     count = 0
 })
 ```

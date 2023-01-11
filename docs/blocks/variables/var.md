@@ -59,7 +59,7 @@ A counter is a great example:
 
 ```blocks
 let counter = 0;
-input.onButtonEvent(Button.A, ButtonEvent.Down, () => { 
+input.onButtonEvent(Button.A, input.buttonEventValue(ButtonEvent.Down), () => { 
   counter = counter + 1;
   basic.showNumber(counter);
 });

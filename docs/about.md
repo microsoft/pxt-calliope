@@ -26,12 +26,12 @@ The Calliope mini is packaged with sensors, radio and other goodies. Learn about
 You can program the Calliope mini using [Blocks](/blocks) or [JavaScript](/javascript) in your web browser via the [Calliope mini APIs](/reference):
 
 ```block
-input.onButtonEvent(Button.A, ButtonEvent.Down, () => {
+input.onButtonEvent(Button.A, input.buttonEventValue(ButtonEvent.Down), () => {
     basic.showString("Hi!");
 })
 ```
 ```typescript
-input.onButtonEvent(Button.A, ButtonEvent.Down, () => {
+input.onButtonEvent(Button.A, input.buttonEventValue(ButtonEvent.Down), () => {
     basic.showString("Hi!");
 })
 ```
@@ -54,7 +54,7 @@ The simulator has support for the LED screen, buttons, as well as compass, accel
 basic.forever(() => {
   basic.showString("Hi!");
 })
-input.onButtonEvent(Button.A, ButtonEvent.Down, () => {
+input.onButtonEvent(Button.A, input.buttonEventValue(ButtonEvent.Down), () => {
     led.stopAnimation();
     basic.showLeds(`
 . . . . .
@@ -63,7 +63,7 @@ input.onButtonEvent(Button.A, ButtonEvent.Down, () => {
 # . . . #
 . # # # .`);
 });
-input.onButtonEvent(Button.B, ButtonEvent.Down, () => {
+input.onButtonEvent(Button.B, input.buttonEventValue(ButtonEvent.Down), () => {
     led.stopAnimation();
     basic.showLeds(`
 . # . # .

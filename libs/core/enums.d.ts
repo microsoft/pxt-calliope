@@ -39,21 +39,11 @@ declare namespace basic {
     }
 
 
-    declare const enum ButtonEvent {
-    //% blockIdentity="input.buttonEventValueId"
-    //% block="pressed down"
+    declare const enum ButtonEvents {
     Down = 1,  // MICROBIT_BUTTON_EVT_DOWN
-    //% blockIdentity="input.buttonEventValueId"
-    //% block="released up"
     Up = 2,  // MICROBIT_BUTTON_EVT_UP
-    //% blockIdentity="input.buttonEventValueId"
-    //% block="clicked"
     Click = 3,  // MICROBIT_BUTTON_EVT_CLICK
-    //% blockIdentity="input.buttonEventValueId"
-    //% block="long clicked"
     LongClick = 4,  // MICROBIT_BUTTON_EVT_LONG_CLICK
-    //% blockIdentity="input.buttonEventValueId"
-    //% block="hold"
     Hold = 5,  // MICROBIT_BUTTON_EVT_HOLD
     }
 

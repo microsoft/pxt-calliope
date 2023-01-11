@@ -1,6 +1,9 @@
 {
     "name": "bluetooth",
     "description": "Bluetooth services",
+    "dependencies": {
+        "core": "file:../core"
+    },
     "files": [
         "README.md",
         "enums.d.ts",
@@ -10,13 +13,10 @@
         "BLEHF2Service.h",
         "BLEHF2Service.cpp"
     ],
+    "public": true,
     "weight": 10,
     "searchOnly": true,
     "icon": "./static/packages/bluetooth/icon.png",
-    "public": true,
-    "dependencies": {
-        "core": "file:../core"
-    },
     "yotta": {
         "config": {
             "microbit-dal": {

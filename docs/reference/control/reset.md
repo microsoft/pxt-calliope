@@ -24,11 +24,11 @@ When you get tired of counting, press button `B` to reset the
 ```blocks
 let item = 0;
 basic.showNumber(item);
-input.onButtonEvent(Button.A, ButtonEvent.Down, () => {
+input.onButtonEvent(Button.A, input.buttonEventValue(ButtonEvent.Down), () => {
     item = item + 1;
     basic.showNumber(item);
 });
-input.onButtonEvent(Button.B, ButtonEvent.Down, () => {
+input.onButtonEvent(Button.B, input.buttonEventValue(ButtonEvent.Down), () => {
     control.reset();
 });
 ```

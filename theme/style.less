@@ -82,6 +82,12 @@
         }
     }
 }
+// Safari Only for iPad and iPhone second rule
+@supports (-webkit-touch-callout: none) {
+    #mainmenu .right.menu {
+        margin-right: 4rem;
+    }
+}
 
 /* Mobile */
 @media only screen and (max-width: @largestMobileScreen) {

@@ -83,7 +83,7 @@ Now that we are detecting pulses, we can use a variable to count them too. In th
 
 ```blocks
 let pulseCount = 0
-input.onButtonEvent(Button.A, ButtonEvent.Down, function () {
+input.onButtonEvent(Button.A, input.buttonEventValue(ButtonEvent.Down), function () {
     basic.showNumber(pulseCount)
     pulseCount = 0
 })
