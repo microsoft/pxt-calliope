@@ -136,8 +136,7 @@
             "tinysuperlab/motionkit",
             "tinysuperlab/touchkit",
             "vengit/pxt-sbrick",
-            "dl1ekm/pxt-calliope-ADS1x15",
-            "dl1ekm/pxt-calliope-PCF85063-RTC"
+            "CalliTGS3/pxt-calliope-grovePCF85063TP"
         ],
         "preferredRepos": [
             "calliope-edu/CO2-Sensor-SCD40",
@@ -171,8 +170,7 @@
             "MKleinSB/pxt-serialmp3",
             "Microsoft/pxt-microturtle",
             "Microsoft/pxt-neopixel",
-            "dl1ekm/pxt-calliope-ADS1x15",
-            "dl1ekm/pxt-calliope-PCF85063-RTC"
+            "CalliTGS3/pxt-calliope-grovePCF85063TP"
         ]
     },
     "galleries": {
