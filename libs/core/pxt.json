@@ -129,32 +129,12 @@
                 "gatt_table_size": "0x600",
                 "panic_on_heap_full": 0,
                 "debug": 0,
-                "heap_debug": 0,
-                "sram_end": "0x20004000",
-                "RAM_SIZE": "\"16K\""
+                "heap_debug": 0
             }
         },
         "userConfigs": [
             {
-                "description": "Use 32 KB RAM (from Calliope mini 2.0 on)",
-                "config": {
-                    "microbit-dal": {
-                        "sram_end": "0x20008000",
-                        "RAM_SIZE": "\"32K\""
-                    }
-                }
-            },
-            {
-                "description": "Disable Partial Flashing (Safes RAM)",
-                "config": {
-                    "microbit-dal": {
-                        "bluetooth": {
-                            "partial_flashing": 0
-                        }
-                    }
-                }
-            },{
-                "description": "Require A+B & Reset for BLE usage (Safes RAM)",
+                "description": "Require A+B & Reset for BLE coupling (increases available RAM)",
                 "config": {
                     "microbit-dal": {
                         "bluetooth": {
