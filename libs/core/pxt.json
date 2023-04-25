@@ -134,6 +134,16 @@
         },
         "userConfigs": [
             {
+                "description": "BLE coupling always available",
+                "config": {
+                    "microbit-dal": {
+                        "bluetooth": {
+                            "enabled": 1
+                        }
+                    }
+                }
+            },
+            {
                 "description": "Require A+B & Reset for BLE coupling (increases available RAM)",
                 "config": {
                     "microbit-dal": {
