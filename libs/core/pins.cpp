@@ -24,9 +24,14 @@ enum class DigitalPin {
     C16 = MICROBIT_ID_IO_P2,   // RX
     C17 = MICROBIT_ID_IO_P8,   // TX
     C18 = MICROBIT_ID_IO_P20,  // SDA
+    //% block="A1 RX"
     A1_RX = MICROBIT_ID_IO_P2,   // RX // C16
+    //% block="A1 TX"
     A1_TX = MICROBIT_ID_IO_P8,   // TX // C17
-    A0_SDA = MICROBIT_ID_IO_P20  // SDA // C18
+    //% blockHidden=true
+    A0_SCL = MICROBIT_ID_IO_P19, // SCL // C19
+    //% blockHidden=true
+    A0_SDA = MICROBIT_ID_IO_P20,  // SDA // C18
 };
 
 enum class AnalogPin {
@@ -38,15 +43,10 @@ enum class AnalogPin {
     C16 = MICROBIT_ID_IO_P2,  // RX
     C17 = MICROBIT_ID_IO_P8,  // TX
     MIC = MICROBIT_ID_IO_P21,  // microphone
+    //% block="A1 RX"
     A1_RX = MICROBIT_ID_IO_P2,   // RX // C16
-    A1_TX = MICROBIT_ID_IO_P8   // TX // C17
-};
-
-enum class GrovePin {
-    A1_RX = MICROBIT_ID_IO_P2,   // RX // C16
+    //% block="A1 TX"
     A1_TX = MICROBIT_ID_IO_P8,   // TX // C17
-    A0_SCL = MICROBIT_ID_IO_P19, // SCL // C19
-    A0_SDA = MICROBIT_ID_IO_P20  // SDA // C18
 };
 
 enum class PulseValue {
