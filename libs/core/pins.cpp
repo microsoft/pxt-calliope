@@ -37,6 +37,13 @@ enum class AnalogPin {
     MIC = MICROBIT_ID_IO_P21  // microphone
 };
 
+enum class GrovePin {
+    A1_RX = MICROBIT_ID_IO_P2,   // RX // C16
+    A1_TX = MICROBIT_ID_IO_P8,   // TX // C17
+    A0_SCL = MICROBIT_ID_IO_P19 // SCL // C19
+    A0_SDA = MICROBIT_ID_IO_P20  // SDA // C18
+};
+
 enum class PulseValue {
     //% block=high
     High = MICROBIT_PIN_EVT_PULSE_HI,
