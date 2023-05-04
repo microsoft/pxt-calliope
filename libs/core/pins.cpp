@@ -23,7 +23,7 @@ enum class DigitalPin {
     C12 = MICROBIT_ID_IO_P6,   // LED matrix C9
     C16 = MICROBIT_ID_IO_P2,   // RX
     C17 = MICROBIT_ID_IO_P8,   // TX
-    C18 = MICROBIT_ID_IO_P20  // SDA
+    C18 = MICROBIT_ID_IO_P20,  // SDA
     A1_RX = MICROBIT_ID_IO_P2,   // RX // C16
     A1_TX = MICROBIT_ID_IO_P8,   // TX // C17
     A0_SDA = MICROBIT_ID_IO_P20  // SDA // C18
@@ -37,9 +37,9 @@ enum class AnalogPin {
     C6 = MICROBIT_ID_IO_P10,  // LED matrix C3
     C16 = MICROBIT_ID_IO_P2,  // RX
     C17 = MICROBIT_ID_IO_P8,  // TX
-    MIC = MICROBIT_ID_IO_P21  // microphone
+    MIC = MICROBIT_ID_IO_P21,  // microphone
     A1_RX = MICROBIT_ID_IO_P2,   // RX // C16
-    A1_TX = MICROBIT_ID_IO_P8,   // TX // C17
+    A1_TX = MICROBIT_ID_IO_P8   // TX // C17
 };
 
 enum class GrovePin {
