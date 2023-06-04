@@ -3,7 +3,7 @@
 ```codecard
 [
     {
-        "name": "New Project (iPad)",
+        "name": "New project (iOS)",
         "url": "/calliope/templates",
         "imageUrl": "/calliope/templates/32KB.png",
         "largeImageUrl": "/calliope/templates/32KB_L.png"
@@ -29,7 +29,7 @@
 
 ## See Also
 
-[New Project (iPad)](/calliope/templates),
+[New project (iOS)](/calliope/templates),
 [First Steps](/calliope/firststeps),
 [Tutorials](/calliope/tutorials),
 [Calliope Links](/calliope/links)
