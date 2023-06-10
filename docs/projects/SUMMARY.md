@@ -1,5 +1,9 @@
 # Projects
 
+* [Board Templates](/boards)
+  * [Was ist neu?](/calliope/neu)
+  * [v2 Legacy Template](_6wpJJxes0czy)
+  * [v1 Legacy Template](_dy85AC94M1Yu)
 * [New project (iOS)](/calliope/templates)
   * [Calliope mini 2.x](_6wpJJxes0czy)
   * [Calliope mini 1.x](_dy85AC94M1Yu)

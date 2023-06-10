@@ -3,6 +3,11 @@
 ```codecard
 [
     {
+        "name": "Board Templates",
+        "url": "/boards",
+        "imageUrl": "/calliope/templates/16KB.png"
+    },
+    {
         "name": "New project (iOS)",
         "url": "/calliope/templates",
         "imageUrl": "/calliope/templates/32KB.png",
@@ -29,6 +34,7 @@
 
 ## See Also
 
+[Board Templates](/boards),
 [New project (iOS)](/calliope/templates),
 [First Steps](/calliope/firststeps),
 [Tutorials](/calliope/tutorials),

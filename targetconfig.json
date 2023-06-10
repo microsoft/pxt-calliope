@@ -174,7 +174,7 @@
         ]
     },
     "galleries": {
-        "New project (iOS)": "calliope/templates",
+        "New project (iOS)": "/boards",
         "First Steps": "calliope/firststeps",
         "Tutorials": "calliope/tutorials",
         "Calliope Links": "calliope/links"
