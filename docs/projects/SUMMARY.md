@@ -1,12 +1,9 @@
 # Projects
 
-* [Board Templates](/boards)
-  * [Was ist neu?](/calliope/neu)
-  * [v2 Legacy Template](_6wpJJxes0czy)
-  * [v1 Legacy Template](_dy85AC94M1Yu)
-* [New project (iOS)](/calliope/templates)
-  * [Calliope mini 2.x](_6wpJJxes0czy)
-  * [Calliope mini 1.x](_dy85AC94M1Yu)
+* [New project (iOS)](/boards/calliope)
+  * [v2](/boards/calliope-mini-v2)
+  * [v1](/boards/calliope-mini-v1)
+  * [v1 no BLE](/boards/calliope-mini-v1-no-ble)
 * [First Steps](/calliope/firststeps)
   * [Get Ready](/calliope/firststeps/firstSteps)
   * [The 5x5 LED matrix](/calliope/firststeps/5x5LED)

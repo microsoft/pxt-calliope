@@ -114,7 +114,7 @@
                 "bluetooth": {
                     "enabled": 1,
                     "pairing_mode": 1,
-                    "partial_flashing": 1,
+                    "partial_flashing": 0,
                     "dfu_service": 1,
                     "event_service": 0,
                     "device_info_service": 1,
@@ -126,13 +126,84 @@
                     "tx_power": 6
                 },
                 "stack_size": 1280,
-                "gatt_table_size": "0x600",
+                "gatt_table_size": "0x300",
                 "panic_on_heap_full": 0,
                 "debug": 0,
-                "heap_debug": 0
+                "heap_debug": 0,
+                "sram_end": "0x20004000",
+                "RAM_SIZE": "\"16K\""
             }
         },
         "userConfigs": [
+            {
+                "description": "V2 Template settings",
+                "config": {
+                    "microbit-dal": {
+                        "bluetooth": {
+                            "enabled": 1,
+                            "partial_flashing": 1
+                        },
+                        "gatt_table_size": "0x600",
+                        "sram_end": "0x20008000",
+                        "RAM_SIZE": "\"32K\""
+                    }
+                }
+            },
+            {
+                "description": "V1 Template settings",
+                "config": {
+                    "microbit-dal": {
+                        "bluetooth": {
+                            "enabled": 1,
+                            "partial_flashing": 0
+                        },
+                        "gatt_table_size": "0x300",
+                        "sram_end": "0x20004000",
+                        "RAM_SIZE": "\"16K\""
+                    }
+                }
+            },
+            {
+                "description": "V1 no BLE Template settings",
+                "config": {
+                    "microbit-dal": {
+                        "bluetooth": {
+                            "enabled": 0,
+                            "partial_flashing": 1
+                        },
+                        "gatt_table_size": "0x600",
+                        "sram_end": "0x20004000",
+                        "RAM_SIZE": "\"16K\""
+                    }
+                }
+            },
+            {
+                "description": "Partial flashing (from Calliope mini 2.0 on)",
+                "config": {
+                    "microbit-dal": {
+                        "bluetooth": {
+                            "partial_flashing": 1
+                        }
+                    }
+                }
+            },
+            {
+                "description": "Use 32 KB RAM (from Calliope mini 2.0 on)",
+                "config": {
+                    "microbit-dal": {
+                        "sram_end": "0x20008000",
+                        "RAM_SIZE": "\"32K\""
+                    }
+                }
+            },
+            {
+                "description": "Increase GATT Table Size",
+                "config": {
+                    "microbit-dal": {
+                        "gatt_table_size": "0x600"
+                    }
+                }
+            },
             {
                 "description": "Require A+B & Reset for BLE coupling (increases available RAM)",
                 "config": {
@@ -144,6 +215,5 @@
                 }
             }
         ]
-    },
-    "partial": true
+    }
 }

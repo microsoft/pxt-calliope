@@ -3,15 +3,9 @@
 ```codecard
 [
     {
-        "name": "Board Templates",
-        "url": "/boards",
-        "imageUrl": "/calliope/templates/16KB.png"
-    },
-    {
         "name": "New project (iOS)",
-        "url": "/calliope/templates",
-        "imageUrl": "/calliope/templates/32KB.png",
-        "largeImageUrl": "/calliope/templates/32KB_L.png"
+        "url": "/boards/calliope",
+        "imageUrl": "/calliope/templates/32KB.png"
     },
     {
         "name": "First Steps",
@@ -34,8 +28,7 @@
 
 ## See Also
 
-[Board Templates](/boards),
-[New project (iOS)](/calliope/templates),
+[New project (iOS)](/boards/calliope),
 [First Steps](/calliope/firststeps),
 [Tutorials](/calliope/tutorials),
 [Calliope Links](/calliope/links)

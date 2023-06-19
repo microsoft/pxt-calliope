@@ -1,0 +1,32 @@
+{
+    "name": "mini2",
+    "description": "mini 2",
+    "dependencies": {
+        "core": "file:../core"
+    },
+    "files": [],
+    "public": true,
+    "icon": "./calliope/templates/32KB.png",
+    "yotta": {
+        "config": {
+            "microbit-dal": {
+                "bluetooth": {
+                    "partial_flashing": 1
+                },
+                "gatt_table_size": "0x600",
+                "sram_end": "0x20008000",
+                "RAM_SIZE": "\"32K\""
+            }
+        },
+        "optionalConfig": {
+            "microbit-dal": {
+                "bluetooth": {
+                    "partial_flashing": 1
+                },
+                "gatt_table_size": "0x600",
+                "sram_end": "0x20008000",
+                "RAM_SIZE": "\"32K\""
+            }
+        }
+    }
+}

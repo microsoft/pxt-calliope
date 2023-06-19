@@ -7,6 +7,9 @@
     "corepkg": "core",
     "bundleddirs": [
         "libs/core",
+        "libs/mini2",
+        "libs/mini1",
+        "libs/mini1noble",
         "libs/radio",
         "libs/devices",
         "libs/bluetooth",
