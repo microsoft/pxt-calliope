@@ -1,42 +1,35 @@
 # Welche Vorlage wählen?
 
-Ab sofort brauchst du dir keine Sorgen mehr machen, welches Template (16KB oder 32KB) du wählen sollst. Klicke einfach auf `|Neues Projekt|`, um mit der Programmierung auf deinem Calliope mini zu beginnen.
+Ab sofort brauchst du dir keine Sorgen mehr machen, welche Projektvorlage (Calliope mini 1.x oder Calliope mini 2.x) die richtige für dich ist. Klicke einfach auf `|Neues Projekt|`, um mit der Programmierung auf deinem Calliope mini zu beginnen. Nutzt du den Calliope mini mobil, kann es trotzdem sinnvoll sein, eine der beiden iOS Projektvorlagen zu nehmen. Im folgenden findest du mehr Informationen.
 
-## Wichtige Hinweise für iOS-Nutzer:
+## Hinweise für iOS-Nutzer:
 
-Wenn du dein Calliope mini zuvor mit einem anderen Editor bespielt oder mit einem der Templates (16KB oder 32KB) programmiert hast, kannst du das neue Projekt nicht direkt über iOS übertragen. Selbst wenn die Übertragung erfolgreich ist, bleibt das vorherige Programm aktiv. Um dieses Problem zu umgehen, empfehlen wir dir, einmalig einen der folgenden Schritte durchzuführen:
+Wenn du dein Calliope mini zuvor mit einem anderen Editor bespielt oder mit einem der iOS Projektvorlagen (Calliope mini 1.x oder Calliope mini 2.x) programmiert hast, kannst du die normale Projektvorlage nicht direkt mobil übertragen. Die Bluetooth-Voreinstellungen haben sich in dieser Vorlage geändert, deshalb ist einer der folgende Schritte nötig, damit du dein Programm problemlos mobil üerpsielen kannst.
 
-### a) Programm 25 laden:
+### a) Programm 25 aus dem Flash-Speicher laden (Calliope mini 2.x):
 
 Um das Programm mit der Nummer '25' auf deinen Calliope mini zu laden, befolge bitte diese Schritte:
 
 - Halte den Reset-Knopf deines Calliope mini für etwa 5 Sekunden gedrückt, bis alle LEDs kurz aufleuchten und anschließend erlöschen.
 - Drücke die Taste 'A', um einen Schritt zurückzugehen. Dadurch sollte die 25. LED auf dem Display leuchten.
 - Drücke gleichzeitig die Tasten 'A' und 'B', um deine Auswahl zu bestätigen und das Programm 25 zu laden.
+Übrigens kannst du mit diesem Vorgehen auch alle anderen Probleme, die beim Überspielen auftreten können, lösen. Der Calliope mini ist nach dem überspielen wieder im 'Auslieferungszustand'.
 
-### b) Das Demoprogramm oder ein neues Projekt aufspielen:
+### b) Das Demoprogramm oder ein neues Projekt aufspielen (Calliope mini 1.x und Calliope mini 2.x):
 
-Du hast zwei Möglichkeiten, um deinen Calliope mini mit einem Programm zu versehen:
+In der Calliope mini App findest du im Bereich 'Editoren und Programme' das 'Startprogramm'. Sobald du dieses auf deinen Calliope mini spielst, kannst du die normale Projektvorlage nutzen.
 
-#### Lade das Demoprogramm herunter:
+### c) Die iOS Projekt-Vorlagen verwenden
 
-Besuche lade [das Demoprogramm](https://calliope.cc/media/pages/dateien/hex/633b0676ca-1582275052/calliope-demo.hex) für den Calliope mini herunter. Übertrage das Programm dann per USB-Kabel oder mit einem Android-Gerät auf deinen Mini.
-
-#### Erstelle ein neues Projekt in MakeCode:
-
-Besuche die MakeCode-Plattform und erstelle ein neues Projekt für den Calliope mini. Sobald du dein Programm erstellt hast, kannst du es entweder per USB-Kabel oder mit einem Android-Gerät auf deinen Mini übertragen.
-
-### c) Die Legacy Templates verwenden
-
-Falls es nicht möglich ist, das neue Projekt auf diese Weise zu übertragen, kannst du vorübergehend weiterhin das alte Template verwenden, bis du Zugriff auf einen Computer oder ein Android-Gerät hast. Bitte beachte jedoch, dass ein Wechsel zwischen den Editoren unter iOS in diesem Fall nicht möglich ist. Sobald du Zugriff auf einen Computer oder ein Android-Gerät hast, kannst du das neue Projekt erstellen und übertragen.
+Falls es nicht möglich ist, das neue Projekt auf diese Weise zu übertragen, kannst du weiterhin die iOS Projekt-Vorlagen verwenden, bis du die Möglichkeit hast, das 'Demoprogramm' zu übertragen.
 
 ### ~ codecard
 
-* name: Calliope mini 2.x ‎ ‎ (VERALTET)
+* name: Calliope mini 2.x
 * url: _6wpJJxes0czy
 * cardType: sharedExample
 * imageUrl: /calliope/templates/32KB.png
-* description: Verwende diese Vorlage nur, wenn du und keine Möglichkeit hast, Programm 25 zu laden oder deinen Calliope mini per USB oder Android zu programmieren und du die Vorlage oder einen anderen Editor vorher zum Programmieren deines minis verwendet hast. Bitte beachte auch die Informationen in "Welche Vorlage wählen" für weitere Details.
+* description: Für die optimale Nutzung dieser Projektvorlage, überspiele vorab einmalig das Demoprogramm aus dem Flash-Speicher oder der App.
 
 ---
 
@@ -44,6 +37,6 @@ Falls es nicht möglich ist, das neue Projekt auf diese Weise zu übertragen, ka
 * url: _dy85AC94M1Yu
 * cardType: sharedExample
 * imageUrl: /calliope/templates/16KB.png
-* description: Verwende diese Vorlage nur, wenn du und keine Möglichkeit hast, deinen Calliope mini per USB oder Android zu programmieren und du die Vorlage oder einen anderen Editor vorher zum Programmieren deines minis verwendet hast. Bitte beachte auch die Informationen in "Welche Vorlage" für weitere Details.
+* description: Verwende diese Projektvorlage für erste Projekte. Werden die Projekte komplexer, überspiele einmalig das Demoprogramm aus der App oder über eine USB-Verbindung und verwende die Standard-Projektvorlage.
 
 ### ~
