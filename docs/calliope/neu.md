@@ -1,27 +1,27 @@
-# Welche Vorlage wählen?
+# Which template to choose?
 
-Ab sofort brauchst du dir keine Sorgen mehr machen, welche Projektvorlage (Calliope mini 1.x oder Calliope mini 2.x) die richtige für dich ist. Klicke einfach auf `|Neues Projekt|`, um mit der Programmierung auf deinem Calliope mini zu beginnen. Nutzt du den Calliope mini mobil, kann es trotzdem sinnvoll sein, eine der beiden iOS Projektvorlagen zu nehmen. Im folgenden findest du mehr Informationen.
+From now on you don't have to worry about which project template (Calliope mini 1.x or Calliope mini 2.x) is the right one for you. Just click on `|New Project|` to start programming on your Calliope mini. If you are using the Calliope mini mobile, it may still make sense to use one of the two iOS project templates. You can find more information in the following.
 
-## Hinweise für iOS-Nutzer:
+## Notes for iOS users:
 
-Wenn du dein Calliope mini zuvor mit einem anderen Editor bespielt oder mit einem der iOS Projektvorlagen (Calliope mini 1.x oder Calliope mini 2.x) programmiert hast, kannst du die normale Projektvorlage nicht direkt mobil übertragen. Die Bluetooth-Voreinstellungen haben sich in dieser Vorlage geändert, deshalb ist einer der folgende Schritte nötig, damit du dein Programm problemlos mobil üerpsielen kannst.
+If you have previously recorded your Calliope mini with another editor or programmed it with one of the iOS project templates (Calliope mini 1.x or Calliope mini 2.x), you cannot transfer the normal project template directly to mobile. The Bluetooth settings have changed in this template, so one of the following steps is necessary so that you can transfer your programme to mobile devices without any problems.
 
-### a) Programm 25 aus dem Flash-Speicher laden (Calliope mini 2.x):
+### a) Load programme 25 from the flash memory (Calliope mini 2.x):
 
-Um das Programm mit der Nummer '25' auf deinen Calliope mini zu laden, befolge bitte diese Schritte:
+To load the programme with the number '25' onto your Calliope mini, please follow these steps:
 
-- Halte den Reset-Knopf deines Calliope mini für etwa 5 Sekunden gedrückt, bis alle LEDs kurz aufleuchten und anschließend erlöschen.
-- Drücke die Taste 'A', um einen Schritt zurückzugehen. Dadurch sollte die 25. LED auf dem Display leuchten.
-- Drücke gleichzeitig die Tasten 'A' und 'B', um deine Auswahl zu bestätigen und das Programm 25 zu laden.
-Übrigens kannst du mit diesem Vorgehen auch alle anderen Probleme, die beim Überspielen auftreten können, lösen. Der Calliope mini ist nach dem überspielen wieder im 'Auslieferungszustand'.
+- Press and hold the reset button on your Calliope mini for about 5 seconds until all LEDs light up briefly and then go out.
+- Press the 'A' button to go back one step. This should light up the 25th LED on the display.
+- Press the 'A' and 'B' keys simultaneously to confirm your selection and load programme 25.
+By the way, this procedure will also solve any other problems that may occur during the transfer. After the transfer, the Calliope mini is back in the 'delivery state'.
 
-### b) Das Demoprogramm oder ein neues Projekt aufspielen (Calliope mini 1.x und Calliope mini 2.x):
+### b) Load the demo programme or a new project (Calliope mini 1.x and Calliope mini 2.x):
 
-In der Calliope mini App findest du im Bereich 'Editoren und Programme' das 'Startprogramm'. Sobald du dieses auf deinen Calliope mini spielst, kannst du die normale Projektvorlage nutzen.
+In the Calliope mini app, you will find the 'Start programme' in the 'Editors and programmes' section. As soon as you play this onto your Calliope mini, you can use the normal project template.
 
-### c) Die iOS Projekt-Vorlagen verwenden
+### c) Using the iOS project templates
 
-Falls es nicht möglich ist, das neue Projekt auf diese Weise zu übertragen, kannst du weiterhin die iOS Projekt-Vorlagen verwenden, bis du die Möglichkeit hast, das 'Demoprogramm' zu übertragen.
+If it is not possible to transfer the new project in this way, you can continue to use the iOS project templates until you are able to transfer the 'demo program'.
 
 ### ~ codecard
 
@@ -29,14 +29,14 @@ Falls es nicht möglich ist, das neue Projekt auf diese Weise zu übertragen, ka
 * url: _6wpJJxes0czy
 * cardType: sharedExample
 * imageUrl: /calliope/templates/32KB.png
-* description: Für die optimale Nutzung dieser Projektvorlage, überspiele vorab einmalig das Demoprogramm aus dem Flash-Speicher oder der App.
+* description: For optimal use of this project template, transfer the demo programme from the flash memory or the app once beforehand.
 
 ---
 
-* name: Calliope mini 1.x ‎ ‎ (VERALTET)
+* name: Calliope mini 1.x (OLD).
 * url: _dy85AC94M1Yu
 * cardType: sharedExample
 * imageUrl: /calliope/templates/16KB.png
-* description: Verwende diese Projektvorlage für erste Projekte. Werden die Projekte komplexer, überspiele einmalig das Demoprogramm aus der App oder über eine USB-Verbindung und verwende die Standard-Projektvorlage.
+* description: Use this project template for first projects. If the projects become more complex, transfer the demo programme once from the app or via a USB connection and use the standard project template.
 
 ### ~
