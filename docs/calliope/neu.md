@@ -1,42 +1,26 @@
-# Which template to choose?
+# Choosing the Right Template for Calliope mini
 
-From now on you don't have to worry about which project template (Calliope mini 1.x or Calliope mini 2.x) is the right one for you. Just click on `|New Project|` to start programming on your Calliope mini. If you are using the Calliope mini mobile, it may still make sense to use one of the two iOS project templates. You can find more information in the following.
+Are you unsure which project template is the best fit for your Calliope mini device? Don't worry, we've got you covered! With our simplified approach, you can now start programming your Calliope mini without worrying about compatibility issues. Simply select the `New Project` option, and you're ready to go. However, if you're using the Calliope mini mobile app, you may still find value in using the iOS project templates. Let's explore the options:
 
-## Notes for iOS users:
+|                      | New Project           | V2 Template                                  | V1 Template                                  |
+|----------------------|-----------------------|----------------------------------------------|----------------------------------------------|
+| Description          | Compatible with all Calliope mini versions | Designed for Calliope mini 2.x               | Designed for Calliope mini 1.x with easy BLE integration |
+| RAM Size             | 16KB                  | 32KB                                         | 16KB                                         |
+| BLE Configuration    | Requires A+B & Reset to enable Bluetooth    | Bluetooth always enabled                     | Bluetooth always enabled                     |
+| Memory Constraints   | None                  | None                                         | Potential memory limitations due to BLE stack |
 
-If you have previously recorded your Calliope mini with another editor or programmed it with one of the iOS project templates (Calliope mini 1.x or Calliope mini 2.x), you cannot transfer the normal project template directly to mobile. The Bluetooth settings have changed in this template, so one of the following steps is necessary so that you can transfer your programme to mobile devices without any problems.
+## Additional Notes for iOS Users:
 
-### a) Load programme 25 from the flash memory (Calliope mini 2.x):
+If you have previously recorded your Calliope mini with another editor or programmed it with the Calliope mini 2.x template, you cannot transfer the normal project template directly to mobile. The Bluetooth settings have changed in this template, so one of the following steps is necessary so that you can transfer your program to mobile devices without any problems:
 
-To load the programme with the number '25' onto your Calliope mini, please follow these steps:
+### Option A: Load Program 25 (Calliope mini 2.x):
 
-- Press and hold the reset button on your Calliope mini for about 5 seconds until all LEDs light up briefly and then go out.
-- Press the 'A' button to go back one step. This should light up the 25th LED on the display.
-- Press the 'A' and 'B' keys simultaneously to confirm your selection and load programme 25.
-By the way, this procedure will also solve any other problems that may occur during the transfer. After the transfer, the Calliope mini is back in the 'delivery state'.
+To load Program with the number '25' onto your Calliope mini, follow these steps:
 
-### b) Load the demo programme or a new project (Calliope mini 1.x and Calliope mini 2.x):
+1. Press and hold the reset button on your Calliope mini for approximately 5 seconds until all LEDs briefly light up and then turn off.
+2. Press the 'A' button to go back one step. This will illuminate the 25th LED on the display.
+3. Press the 'A' and 'B' buttons simultaneously to confirm your selection and load Program 25. This process also resolves any other transfer issues. Once completed, your Calliope mini will be restored to its default state.
 
-In the Calliope mini app, you will find the 'Start programme' in the 'Editors and programmes' section. As soon as you play this onto your Calliope mini, you can use the normal project template.
+### Option B: Load the Demo Program:
 
-### c) Using the iOS project templates
-
-If it is not possible to transfer the new project in this way, you can continue to use the iOS project templates until you are able to transfer the 'demo program'.
-
-### ~ codecard
-
-* name: Calliope mini 2.x
-* url: _6wpJJxes0czy
-* cardType: sharedExample
-* imageUrl: /calliope/templates/32KB.png
-* description: For optimal use of this project template, transfer the demo programme from the flash memory or the app once beforehand.
-
----
-
-* name: Calliope mini 1.x (OLD).
-* url: _dy85AC94M1Yu
-* cardType: sharedExample
-* imageUrl: /calliope/templates/16KB.png
-* description: Use this project template for first projects. If the projects become more complex, transfer the demo programme once from the app or via a USB connection and use the standard project template.
-
-### ~
+In the Calliope mini app, navigate to the 'Editors and Programs' section and locate the 'Start Program' option. Load this program onto your Calliope mini, and you'll be able to use the standard project template without any concerns.
