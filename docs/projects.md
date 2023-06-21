@@ -24,7 +24,7 @@
         "imageUrl": "/calliope/links/thumbnail_shop.gif"
     },
     {
-        "name": "New project (iOS)",
+        "name": "New Project (iPad)",
         "url": "/calliope/templates",
         "imageUrl": "/calliope/templates/32KB.png",
         "largeImageUrl": "/calliope/templates/32KB_L.png"
@@ -38,5 +38,5 @@
 [First Steps](/calliope/firststeps),
 [Tutorials](/calliope/tutorials),
 [Calliope Links](/calliope/links),
-[New Project (iPad))](/calliope/templates)
+[New Project (iPad)](/calliope/templates)
 
