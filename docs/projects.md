@@ -38,5 +38,5 @@
 [First Steps](/calliope/firststeps),
 [Tutorials](/calliope/tutorials),
 [Calliope Links](/calliope/links),
-[New project (iOS)](/calliope/templates)
+[New Project (iPad))](/calliope/templates)
 
