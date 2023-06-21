@@ -13,7 +13,7 @@ basic.showString("Micro!")
 Well, the text stopped scrolling. Place the ``||basic:show string||`` block in the ``||input:on button pressed||`` slot to scroll your name when button **A** is pressed.
 
 ```blocks
-input.onButtonEvent(Button.A, input.buttonEventValue(ButtonEvent.Click), () => {
+input.onButtonEvent(Button.A, input.buttonEventClick(), function () {
     basic.showString("Micro!")
 });
 ```
@@ -25,7 +25,7 @@ Place some blocks to display a smiley when button **B** is pressed.
 Use the dropdown to find ``B``!
 
 ```blocks
-input.onButtonEvent(Button.B, input.buttonEventValue(ButtonEvent.Click), () => {
+input.onButtonEvent(Button.B, input.buttonEventClick(), function () {
     basic.showLeds(`
     # # . # #
     # # . # #

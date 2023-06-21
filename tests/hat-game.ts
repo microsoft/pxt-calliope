@@ -7,7 +7,7 @@ let level: number
 let swapSpeed: number
 
 initializeGame()
-input.onButtonEvent(Button.A, input.buttonEventValue(ButtonEvent.Click), () => {
+input.onButtonEvent(Button.A, input.buttonEventClick(), function () {
     if (ballRevealing) {
         index = index + 1
         if (index > 2) {
@@ -16,7 +16,7 @@ input.onButtonEvent(Button.A, input.buttonEventValue(ButtonEvent.Click), () => {
         basic.showString(cupSelect[index], 150)
     }
 })
-input.onButtonEvent(Button.B, input.buttonEventValue(ButtonEvent.Click), () => {
+input.onButtonEvent(Button.B, input.buttonEventClick(), function () {
     if (ballRevealing) {
         ballRevealing = false
         if (correctBall == index) {
