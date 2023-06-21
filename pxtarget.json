@@ -7,6 +7,7 @@
     "corepkg": "core",
     "bundleddirs": [
         "libs/core",
+        "libs/mini2",
         "libs/radio",
         "libs/devices",
         "libs/bluetooth",
@@ -138,6 +139,40 @@
         "gittag": "v2.2.0-rc6-calliope.rc3-iss0.3",
         "serviceId": "calliope",
         "dockerImage": "pext/yotta:latest"
+    },
+    "yottaConfig": {
+        "sram_end": "0x20004000",
+        "RAM_SIZE": "\"16K\""
+    },
+    "variants": {
+        "mbdal16": {
+            "compile": {},
+            "compileService": {}
+        },
+        "mbdal32": {
+            "compile": {
+                "flashUsableEnd": 342688,
+                "flashEnd": 342688,
+                "flashCodeAlign": 1024
+            },
+            "compileService": {
+            },
+            "yottaConfig": {
+                    "microbit-dal": {
+                        "sram_end": "0x20008000",
+                        "RAM_SIZE": "\"32K\""
+                    }
+            }
+        },
+        "mbcodal": {
+            "compile": {
+                "flashUsableEnd": 487424,
+                "flashEnd": 524288,
+                "flashCodeAlign": 4096
+            },
+            "compileService": {
+            }
+        }
     },
     "runtime": {
         "mathBlocks": true,

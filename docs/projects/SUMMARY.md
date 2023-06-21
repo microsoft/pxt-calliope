@@ -1,8 +1,9 @@
 # Projects
 
-* [New Project (iPad)](/calliope/templates)
-  * [Calliope mini 2.x](_f7ACuxgaocvr)
-  * [Calliope mini 1.x](_7YbU6iMhoTdR)
+* [New project templates](/calliope/templates/templates)
+  * [Calliope mini 2.x](/calliope/templates/calliope-mini-2)
+  * [Calliope mini 1.x](/calliope/templates/calliope-mini-1)
+  * [Which template?](/calliope/neu)
 * [First Steps](/calliope/firststeps)
   * [Get Ready](/calliope/firststeps/firstSteps)
   * [The 5x5 LED matrix](/calliope/firststeps/5x5LED)
@@ -30,3 +31,6 @@
   * [Projects](https://calliope.cc/en/projekte)
   * [Teaching materials](https://calliope.cc/schulen/schulmaterial)
   * [Forum](https://forum.calliope.cc)
+* [New project (iOS)](/calliope/templates)
+  * [Calliope mini 2.x](/boards/calliope-mini-v2)
+  * [Calliope mini 1.x](/calliope/templates/calliope-mini-1)
