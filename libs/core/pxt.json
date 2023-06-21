@@ -112,9 +112,9 @@
         "optionalConfig": {
             "microbit-dal": {
                 "bluetooth": {
-                    "enabled": 0,
+                    "enabled": 1,
                     "pairing_mode": 1,
-                    "partial_flashing": 1,
+                    "partial_flashing": 0,
                     "dfu_service": 1,
                     "event_service": 0,
                     "device_info_service": 1,
@@ -126,7 +126,7 @@
                     "tx_power": 6
                 },
                 "stack_size": 1280,
-                "gatt_table_size": "0x600",
+                "gatt_table_size": "0x300",
                 "panic_on_heap_full": 0,
                 "debug": 0,
                 "heap_debug": 0,
@@ -136,39 +136,30 @@
         },
         "userConfigs": [
             {
-                "description": "Enable partial flashing mode for Bluetooth",
+                "description": "Bluetooth manuell bei bedarf laden: kurz Reset drücken und dabei A+B halten",
                 "config": {
                     "microbit-dal": {
                         "bluetooth": {
+                            "enabled": 0,
                             "partial_flashing": 1
-                        }
+                        },
+                        "sram_end": "0x20004000",
+                        "RAM_SIZE": "\"16K\"",
+                        "gatt_table_size": "0x600"
                     }
                 }
             },
             {
-                "description": "Increase RAM to 32 KB (for Calliope mini 2.0 onwards)",
-                "config": {
-                    "microbit-dal": {
-                        "sram_end": "0x20008000",
-                        "RAM_SIZE": "\"32K\""
-                    }
-                }
-            },
-            {
-                "description": "Decreased GATT Table Size: Reduce the size of the GATT table to increase available RAM and Flash memory.",
-                "config": {
-                    "microbit-dal": {
-                        "gatt_table_size": "0x300"
-                    }
-                }
-            },
-            {
-                "description": "Require A+B & Reset for BLE coupling (increases available RAM)",
+                "description": "Programm für den Calliope mini 2.x optimieren (Nutzung von 32 KB Arbeitsspeicher)",
                 "config": {
                     "microbit-dal": {
                         "bluetooth": {
-                            "enabled": 0
-                        }
+                            "enabled": 1,
+                            "partial_flashing": 1
+                        },
+                        "sram_end": "0x20008000",
+                        "RAM_SIZE": "\"32K\"",
+                        "gatt_table_size": "0x600"
                     }
                 }
             }

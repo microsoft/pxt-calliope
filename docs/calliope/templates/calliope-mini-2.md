@@ -1,7 +1,7 @@
 # Calliope mini v2
 
 ```blocks
-basic.showString("mini 2 template")
+basic.showString("Hi!")
 basic.forever(function () {
 	
 })

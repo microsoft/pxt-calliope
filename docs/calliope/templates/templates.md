@@ -8,15 +8,15 @@
 * url: /calliope/templates/calliope-mini-2
 * cardType: template
 * imageUrl: /calliope/templates/32KB.png
-* description: Universal template for all mini 2.x with easy BLE usage and 32 KB of RAM.
+* description: Universal template for all mini 2.x.
 
 ---
 
-* name: Calliope mini 1.x BLE
+* name: Calliope mini 1.x
 * url: /calliope/templates/calliope-mini-1
 * cardType: template
 * imageUrl: /calliope/templates/16KB.png
-* description: Enable easy BLE usage with Calliope mini 1.x, featuring 16 KB of RAM.
+* description: Universal template for all mini 1.x.
 
 ---
 

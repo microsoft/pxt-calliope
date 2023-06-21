@@ -1,12 +1,12 @@
 # Calliope mini v1
 
 ```blocks
-basic.showString("mini 1 template")
+basic.showString("Hi!")
 basic.forever(function () {
 	
 })
 ```
 
 ```package
-mini1
+core
 ```

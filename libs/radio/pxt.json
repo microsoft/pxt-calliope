@@ -19,15 +19,19 @@
         "config": {
             "microbit-dal": {
                 "bluetooth": {
-                    "enabled": 0
-                }
+                    "enabled": 0,
+                    "partial_flashing": 1
+                },
+                "gatt_table_size": "0x600"
             }
         },
         "optionalConfig": {
             "microbit-dal": {
                 "bluetooth": {
-                    "enabled": 0
-                }
+                    "enabled": 0,
+                    "partial_flashing": 1
+                },
+                "gatt_table_size": "0x600"
             }
         }
     }

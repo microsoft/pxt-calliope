@@ -1,13 +1,12 @@
 # Choosing the Right Template for Calliope mini
 
-Are you unsure which project template is the best fit for your Calliope mini device? Don't worry, we've got you covered! With our simplified approach, you can now start programming your Calliope mini without worrying about compatibility issues. Simply select the `New Project` option, and you're ready to go. However, if you're using the Calliope mini mobile app, you may still find value in using the iOS project templates. Let's explore the options:
+No matter which version of Calliope mini you have or whether you're programming on a mobile device or PC, you can always create a New Project and start programming.
 
-|                      | New Project           | V2 Template                                  | V1 Template                                  |
-|----------------------|-----------------------|----------------------------------------------|----------------------------------------------|
-| Description          | Compatible with all Calliope mini versions | Designed for Calliope mini 2.x               | Designed for Calliope mini 1.x with easy BLE integration |
-| RAM Size             | 16KB                  | 32KB                                         | 16KB                                         |
-| BLE Configuration    | Requires A+B & Reset to enable Bluetooth    | Bluetooth always enabled                     | Bluetooth always enabled                     |
-| Memory Constraints   | None                  | None                                         | Potential memory limitations due to BLE stack |
+If you're using Calliope mini 2, you can also choose the optimized template designed specifically for it. This allows your mini to utilize the full 32KB of available RAM. The settings loaded with the mini 2 template can also be activated in any existing project through the settings menu.
+
+If you encounter performance issues with the default template ("mini 1 template" or "New Project") and your mini 1 freezes, it may be due to limited available RAM. To free up more memory for your program, you can disable autolading the Bluetooth functionality in the settings. Bluetooth will only be active when displaying patterns on the LED matrix. To do this, perform the "brace grip": hold down buttons A and B, briefly tap the Reset button, and continue holding A and B until the pattern appears on the LED matrix.
+
+Regardless of your mini version, if you include the radio extension in your program, the Bluetooth functionality will be set to manual loading. This means that before transferring your program to mobile devices, you will need to perform the "brace grip" to activate Bluetooth each time.
 
 ## Additional Notes for iOS Users:
 

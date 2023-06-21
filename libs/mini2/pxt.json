@@ -7,10 +7,13 @@
     "files": [],
     "public": true,
     "icon": "./calliope/templates/32KB.png",
+    "searchOnly": true,
     "yotta": {
         "config": {
             "microbit-dal": {
                 "bluetooth": {
+                    "enabled": 1,
+                    "partial_flashing": 1
                 },
                 "gatt_table_size": "0x600",
                 "sram_end": "0x20008000",
