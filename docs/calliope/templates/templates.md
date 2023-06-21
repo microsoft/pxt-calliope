@@ -8,7 +8,7 @@
 * url: /calliope/templates/calliope-mini-2
 * cardType: template
 * imageUrl: /calliope/templates/32KB.png
-* description: Universal template for all mini 2.x.
+* description: Project template for all Calliope mini 2.x
 
 ---
 
@@ -16,7 +16,7 @@
 * url: /calliope/templates/calliope-mini-1
 * cardType: template
 * imageUrl: /calliope/templates/16KB.png
-* description: Universal template for all mini 1.x.
+* description: Project template for all Calliope mini 1.x
 
 ---
 
