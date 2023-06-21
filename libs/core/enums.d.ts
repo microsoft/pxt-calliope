@@ -494,9 +494,9 @@ declare namespace motors {
     C16 = 102,  // MICROBIT_ID_IO_P2
     C17 = 108,  // MICROBIT_ID_IO_P8
     MIC = 121,  // MICROBIT_ID_IO_P21
-    //% block="A1 RX"
+    //% block="A1 RX" blockHidden=true
     A1_RX = 102,  // MICROBIT_ID_IO_P2
-    //% block="A1 TX"
+    //% block="A1 TX" blockHidden=true
     A1_TX = 108,  // MICROBIT_ID_IO_P8
     }
 

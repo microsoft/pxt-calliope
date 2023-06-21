@@ -31,6 +31,6 @@
   * [Projects](https://calliope.cc/en/projekte)
   * [Teaching materials](https://calliope.cc/schulen/schulmaterial)
   * [Forum](https://forum.calliope.cc)
-* [New project (iOS)](/calliope/templates)
+* [New Project (iPad)](/calliope/templates)
   * [Calliope mini 2.x](/boards/calliope-mini-v2)
   * [Calliope mini 1.x](/calliope/templates/calliope-mini-1)

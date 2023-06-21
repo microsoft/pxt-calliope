@@ -1,44 +1,5 @@
 import * as React from "react";
 
-export async function showProgramTooLargeErrorAsync(variants: string[], confirmAsync: (opts: any) => Promise<number>) {
-    if (variants.length !== 2) return undefined;
-
-    const choice = await confirmAsync({
-        header: lf("Oops, there was a problem downloading your code"),
-        body: lf("Great coding skills! Unfortunately, your program is too large to fit on a calliope mini with 16KB 😢. You can go back and try to make your program smaller, or you can download your program onto a calliope mini using 32KB of RAM."),
-        bigHelpButton: true,
-        agreeLbl: lf("Go Back"),
-        agreeClass: "cancel",
-        agreeIcon: "cancel",
-        disagreeLbl: lf("Download for 32KB only"),
-        disagreeClass: "positive",
-        disagreeIcon: "checkmark"
-    });
-
-    if (!choice) {
-        // try {
-        pxt.setAppTargetVariant("mbdal32")
-        return {
-            recompile: true,
-            useVariants: [] as string[]
-        }
-        // } catch(e) {
-        //     alert("failed")
-        //     console.log(e)
-
-        //     return {
-        //         recompile: false,
-        //         useVariants: []
-        //     }
-        // }
-        
-    }
-    return {
-        recompile: false,
-        useVariants: [] as string[]
-    }
-}
-
 export function renderUsbPairDialog(firmwareUrl?: string, failedOnce?: boolean): JSX.Element {
     const boardName = pxt.appTarget.appTheme.boardName || "???";
     const helpUrl = pxt.appTarget.appTheme.usbDocs;
