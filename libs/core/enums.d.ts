@@ -474,6 +474,14 @@ declare namespace motors {
     C16 = 102,  // MICROBIT_ID_IO_P2
     C17 = 108,  // MICROBIT_ID_IO_P8
     C18 = 120,  // MICROBIT_ID_IO_P20
+    //% block="A1 RX" blockHidden=true
+    A1_RX = 102,  // MICROBIT_ID_IO_P2
+    //% block="A1 TX" blockHidden=true
+    A1_TX = 108,  // MICROBIT_ID_IO_P8
+    //% block="A0 SDA" blockHidden=true
+    A0_SCL = 119,  // MICROBIT_ID_IO_P19
+    //% block="A0 SDA" blockHidden=true
+    A0_SDA = 120,  // MICROBIT_ID_IO_P20
     }
 
 
@@ -486,6 +494,10 @@ declare namespace motors {
     C16 = 102,  // MICROBIT_ID_IO_P2
     C17 = 108,  // MICROBIT_ID_IO_P8
     MIC = 121,  // MICROBIT_ID_IO_P21
+    //% block="A1 RX" blockHidden=true
+    A1_RX = 102,  // MICROBIT_ID_IO_P2
+    //% block="A1 TX" blockHidden=true
+    A1_TX = 108,  // MICROBIT_ID_IO_P8
     }
 
 

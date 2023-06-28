@@ -19,8 +19,23 @@
         "config": {
             "microbit-dal": {
                 "bluetooth": {
-                    "enabled": 0
-                }
+                    "enabled": 0,
+                    "partial_flashing": 1
+                },
+                "sram_end": "0x20004000",
+                "RAM_SIZE": "\"16K\"",
+                "gatt_table_size": "0x600"
+            }
+        },
+        "optionalConfig": {
+            "microbit-dal": {
+                "bluetooth": {
+                    "enabled": 0,
+                    "partial_flashing": 1
+                },
+                "sram_end": "0x20004000",
+                "RAM_SIZE": "\"16K\"",
+                "gatt_table_size": "0x600"
             }
         }
     }
