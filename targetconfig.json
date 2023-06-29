@@ -174,11 +174,11 @@
         ]
     },
     "galleries": {
-        "New project templates": "/calliope/templates/templates",
+        "New Project (iPad)": "/calliope/templates",
         "First Steps": "calliope/firststeps",
         "Tutorials": "calliope/tutorials",
         "Calliope Links": "calliope/links",
-        "New Project (iPad)": "/calliope/templates"
+        "New project templates": "/calliope/templates/templates"
     },
     "electronManifest": {
         "latest": "v2.0.3"
