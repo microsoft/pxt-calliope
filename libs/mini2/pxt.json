@@ -1,6 +1,6 @@
 {
     "name": "mini2",
-    "description": "mini 2",
+    "description": "Calliope mini 2",
     "dependencies": {
         "core": "file:../core"
     },
@@ -12,7 +12,6 @@
         "config": {
             "microbit-dal": {
                 "bluetooth": {
-                    "enabled": 1,
                     "partial_flashing": 1
                 },
                 "gatt_table_size": "0x600",
@@ -37,7 +36,6 @@
                 "config": {
                     "microbit-dal": {
                         "bluetooth": {
-                            "enabled": 1,
                             "partial_flashing": 1
                         },
                         "sram_end": "0x20008000",
