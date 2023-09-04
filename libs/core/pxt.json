@@ -1,7 +1,7 @@
 {
     "name": "core",
     "description": "The microbit core library",
-    "dependencies": {},
+    "additionalFilePath": "../../node_modules/pxt-common-packages/libs/base",
     "files": [
         "README.md",
         "platform.h",
@@ -41,9 +41,7 @@
         "game.ts",
         "led.cpp",
         "led.ts",
-        "loops.ts",
-        "microphone.ts",
-        "motors.cpp",
+        "microphone.cpp",
         "music.cpp",
         "music.ts",
         "melodies.ts",
@@ -64,26 +62,24 @@
         "sendbuffer.s",
         "sendbuffernrf52.s",
         "sendbufferbrightness.s",
-        "storage.cpp",
-        "storage.ts",
         "light.cpp",
-        "compass.ts",
-        "parts/speaker.svg",
-        "parts/headphone.svg",
-        "parts/dcmotor.svg",
+        "loops.ts",
         "_locales/de/core-jsdoc-strings.json",
-        "_locales/de/core-strings.json"
+        "_locales/de/core-strings.json",
+        "soundexpressions.cpp",
+        "parts/speaker.svg",
+        "parts/headphone.svg"
     ],
     "testFiles": [],
     "public": true,
-    "additionalFilePath": "../../node_modules/pxt-common-packages/libs/base",
+    "dependencies": {},
     "dalDTS": {
-        "compileServiceVariant": "mbcodal",
+        "compileServiceVariant": "minicodal",
         "includeDirs": [
             "libraries/codal-core/inc",
-            "libraries/codal-microbit/inc",
-            "libraries/codal-microbit/model",
-            "libraries/codal-microbit/inc/compat",
+            "libraries/codal-microbit-v2/inc",
+            "libraries/codal-microbit-v2/model",
+            "libraries/codal-microbit-v2/inc/compat",
             "pxtapp"
         ],
         "excludePrefix": [
@@ -112,9 +108,8 @@
         "optionalConfig": {
             "microbit-dal": {
                 "bluetooth": {
-                    "enabled": 1,
                     "pairing_mode": 1,
-                    "partial_flashing": 0,
+                    "partial_flashing": 1,
                     "dfu_service": 1,
                     "event_service": 0,
                     "device_info_service": 1,
@@ -126,24 +121,42 @@
                     "tx_power": 6
                 },
                 "stack_size": 1280,
-                "gatt_table_size": "0x300",
+                "gatt_table_size": "0x600",
                 "panic_on_heap_full": 0,
                 "debug": 0,
-                "heap_debug": 0,
-                "sram_end": "0x20004000",
-                "RAM_SIZE": "\"16K\""
+                "heap_debug": 0
             }
         },
         "userConfigs": [
             {
-                "description": "Manual Bluetooth activation by holding A+B and briefly the Reset button",
+                "description": "Only load Bluetooth while Paring-Mode is activated (holding A+B and briefly the Reset button)",
                 "config": {
                     "microbit-dal": {
                         "bluetooth": {
-                            "enabled": 0,
-                            "partial_flashing": 1
-                        },
-                        "gatt_table_size": "0x600"
+                            "enabled": 0
+                        }
+                    }
+                }
+            },
+            {
+                "description": "Disable partial flashing (increases available RAM)",
+                "config": {
+                    "microbit-dal": {
+                        "bluetooth": {
+                            "partial_flashing": 0
+                        }
+                    }
+                }
+            },
+            {
+                "description": "Bluetooth: Require Pariring (Solves an Android 13+ bug)",
+                "config": {
+                    "microbit-dal": {
+                        "bluetooth": {
+                            "open": 0,
+                            "security_level": "SECURITY_MODE_ENCRYPTION_NO_MITM",
+                            "whitelist": 1
+                        }
                     }
                 }
             }

@@ -1,0 +1,15 @@
+{
+    "name": "datalogger",
+    "description": "Data logging to flash memory. micro:bit (V2) only.",
+    "files": [
+        "datalogger.ts"
+    ],
+    "public": true,
+    "disablesVariants": [
+        "minidal"
+    ],
+    "dependencies": {
+        "core": "file:../core",
+        "flashlog": "file:../flashlog"
+    }
+}

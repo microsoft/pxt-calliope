@@ -5,12 +5,21 @@
 // make sure USB_TX and USB_RX don't overlap with other pin ids
 // also, 1001,1002 need to be kept in sync with getPin() function
 enum SerialPin {
-    P0 = MICROBIT_ID_IO_P12,
-    P1 = MICROBIT_ID_IO_P0,
-    P2 = MICROBIT_ID_IO_P1,
-    P3 = MICROBIT_ID_IO_P16,
-    C16 = MICROBIT_ID_IO_P2,
-    C17 = MICROBIT_ID_IO_P8,
+    P0 = MICROBIT_ID_IO_P0,
+    P1 = MICROBIT_ID_IO_P1,
+    P2 = MICROBIT_ID_IO_P2,
+    P3 = MICROBIT_ID_IO_P3,
+    P8 = MICROBIT_ID_IO_P8,
+    P12 = MICROBIT_ID_IO_P12,
+    P13 = MICROBIT_ID_IO_P13,
+    P14 = MICROBIT_ID_IO_P14,
+    P15 = MICROBIT_ID_IO_P15,
+    P16 = MICROBIT_ID_IO_A1_RX,
+    //% blockHidden=true
+    C16 = MICROBIT_ID_IO_A1_RX,
+    P17 = MICROBIT_ID_IO_A1_TX,
+    //% blockHidden=true
+    C17 = MICROBIT_ID_IO_A1_TX,
     USB_TX = 1001,
     USB_RX = 1002
 };
@@ -43,6 +52,10 @@ enum BaudRate {
 //% weight=2 color=#002050 icon="\uf287"
 //% advanced=true
 namespace serial {
+#if MICROBIT_CODAL
+    bool is_redirected;
+#endif
+
     // note that at least one // followed by % is needed per declaration!
 
     /**
@@ -164,8 +177,10 @@ namespace serial {
     //% blockGap=8
     void redirect(SerialPin tx, SerialPin rx, BaudRate rate) {
 #if MICROBIT_CODAL
-      if (getPin(tx) && getPin(rx))
+      if (getPin(tx) && getPin(rx)) {
         uBit.serial.redirect(*getPin(tx), *getPin(rx));
+        is_redirected = 1;
+      }
       uBit.serial.setBaud(rate);
 #else
       PinName txn;
@@ -200,6 +215,7 @@ namespace serial {
     //% blockId=serial_redirect_to_usb block="serial|redirect to USB"
     void redirectToUSB() {
 #if MICROBIT_CODAL
+      is_redirected = false;
       uBit.serial.redirect(uBit.io.usbTx, uBit.io.usbRx);
       uBit.serial.setBaud(115200);
 #else
@@ -229,4 +245,27 @@ namespace serial {
     void setTxBufferSize(uint8_t size) {
       uBit.serial.setTxBufferSize(size);
     }
+
+     /** Send DMESG debug buffer over serial. */
+    //%
+    void writeDmesg() {
+        pxt::dumpDmesg();
+    }
+}
+
+namespace pxt {
+
+static void sendString(const char *c, int len) {
+  while (len--)
+    uBit.serial.putc(*c++);
+}
+
+void dumpDmesg() {
+#if MICROBIT_CODAL
+    if (serial::is_redirected)
+      return;
+    microbit_dmesg_flush();
+#endif
+}
+
 }

@@ -36,6 +36,16 @@ namespace pxsim {
                 this.serialOutBuffer = '';
             }
         }
+
+        writeCsv(s: string, type: "headers" | "row" | "clear") {
+            Runtime.postMessage(<SimulatorSerialMessage>{
+                type: 'serial',
+                data: s,
+                id: runtime.id,
+                csvType: type,
+                sim: true
+            })
+        }
     }
 }
 
@@ -85,6 +95,10 @@ namespace pxsim.serial {
     }
 
     export function setBaudRate(rate: number) {
+        // TODO
+    }
+
+    export function writeDmesg() {
         // TODO
     }
 }

@@ -134,8 +134,8 @@ declare namespace basic {
 
     /**
      * Draws an image on the LED screen.
-     * @param leds the pattern of LED to turn on/off
-     * @param interval time in milliseconds to pause after drawing
+     * @param leds the pattern of LED to turn on/off.
+     * @param interval time in milliseconds to pause after drawing.
      */
     //% help=basic/show-leds
     //% weight=85 blockGap=8
@@ -164,9 +164,19 @@ declare namespace basic {
     function showString(text: string, interval?: int32): void;
 
     /**
+     * Turn off all LEDs
+     */
+    //% help=basic/clear-screen weight=75
+    //% blockId=device_clear_display block="clear screen"
+    //% parts="ledmatrix"
+    //% group="LED matrix"
+    //% advanced=true shim=basic::clearScreen
+    function clearScreen(): void;
+
+    /**
      * Shows a sequence of LED screens as an animation.
      * @param leds pattern of LEDs to turn on/off
-     * @param interval time in milliseconds between each redraw
+     * @param interval time in milliseconds between each redraw.
      */
     //% help=basic/show-animation weight=83 imageLiteral=1 async
     //% parts="ledmatrix"
@@ -181,16 +191,6 @@ declare namespace basic {
     //% parts="ledmatrix"
     //% group="LED matrix" imageLiteral=1 shim=basic::plotLeds
     function plotLeds(leds: string): void;
-
-    /**
-     * Turn off all LEDs
-     */
-    //% help=basic/clear-screen weight=75
-    //% blockId=device_clear_display block="clear screen"
-    //% parts="ledmatrix"
-    //% group="LED matrix"
-    //% advanced=true shim=basic::clearScreen
-    function clearScreen(): void;
 
     /**
      * Repeats the code forever in the background. On each iteration, allows other codes to run.
@@ -211,27 +211,6 @@ declare namespace basic {
     //% pause.shadow=timePicker
     //% group="Control" shim=basic::pause
     function pause(ms: int32): void;
-
-    /**
-     * Sets the color on the build-in LED. Set to 0 to turn off.
-     */
-    //% help=basic/set-led-color
-    //% blockId=device_set_led_color
-    //% block="set led to %color=colorNumberPicker"
-    //%
-    //% weight=10
-    //% group="RGB LED" color.defl=0xff0000 shim=basic::setLedColor
-    function setLedColor(color?: int32): void;
-
-    /**
-     * Sets the color on the build-in LED. Set to 0 to turn off.
-     */
-    //% blockId=device_turn_rgb_led_off block="turn build-in LED off"
-    //% help=basic/turn-rgb-led-off
-    //% weight=10
-    //% group="RGB LED"
-    //% advanced=true shim=basic::turnRgbLedOff
-    function turnRgbLedOff(): void;
 }
 
 
@@ -363,15 +342,6 @@ declare namespace input {
     function lightLevel(): int32;
 
     /**
-     * gets the level of loudness from 0 (silent) to 255 (loud)
-     */
-    //% help=input/sound-level
-    //% blockId="soundLevel" weight=58
-    //% block="soundLevel" blockGap=8
-    //% group="Sensors" shim=input::soundLevel
-    function soundLevel(): int32;
-
-    /**
      * Get the current compass heading in degrees.
      */
     //% help=input/compass-heading
@@ -420,35 +390,6 @@ declare namespace input {
     //% weight=20 gap=8
     //% group="Configuration" shim=input::calibrateCompass
     function calibrateCompass(): void;
-
-    /**
-     * Returns 'true' when the compass is calibrated. Otherwise returns 'false'.
-     */
-    //% help=input/calibrate-compass advanced=true
-    //% blockId="input_compass_is_calibrated" block="is compass calibrated"
-    //% weight=19
-    //% group="System" shim=input::isCalibratedCompass
-    function isCalibratedCompass(): boolean;
-
-    /**
-     * Obsolete, compass calibration is automatic.
-     */
-    //% help=input/calibrate-compass advanced=true
-    //% blockId="input_compass_clear_calibration" block="clear calibration compass"
-    //% weight=17
-    //% group="Configuration"
-    //% blockHidden=true shim=input::clearCalibrationCompass
-    function clearCalibrationCompass(): void;
-
-    /**
-     * Obsolete, compass calibration is automatic.
-     */
-    //% help=input/calibrate-compass advanced=true
-    //% blockId="input_compass_assume_calibration" block="assume calibration compass"
-    //% weight=16
-    //% group="Configuration"
-    //% blockHidden=true shim=input::assumeCalibrationCompass
-    function assumeCalibrationCompass(): void;
 
     /**
      * Sets the accelerometer sample range in gravities.
@@ -554,6 +495,12 @@ declare namespace control {
     //% help=control/device-name
     //% advanced=true shim=control::deviceName
     function deviceName(): string;
+
+    /**
+     * Returns the major version of the microbit
+     */
+    //% help=control/hardware-version shim=control::_hardwareVersion
+    function _hardwareVersion(): string;
 
     /**
      * Derive a unique, consistent serial number of this device from internal data.
@@ -746,37 +693,19 @@ declare namespace led {
 }
 
 
-    /**
-     * Blocks to control the onboard motors
-     */
-    //% color=#008272 weight=30 icon="\uf1b9"
-declare namespace motors {
+
+    //% color=#B4009E weight=99 icon="\uf192"
+declare namespace input {
 
     /**
-     * Turns on the motor at a certain percent of power. Switches to single motor mode!
-     * @param power %percent of power sent to the motor. Negative power goes backward. eg: 50
+     * Reads the loudness through the microphone from 0 (silent) to 255 (loud)
      */
-    //% blockId=motor_on block="motor on at %percent \\%"
-    //% parts=dcmotor weight=90 blockGap=8
-    //% percent.shadow="speedPicker"
-    //% power.defl=100 shim=motors::motorPower
-    function motorPower(power?: int32): void;
-
-    /**
-     * Send break, coast or sleep commands to the motor. Has no effect in dual-motor mode.
-     */
-    //% blockId=motor_command block="motor %command"
-    //% parts=dcmotor weight=85 shim=motors::motorCommand
-    function motorCommand(command: MotorCommand): void;
-
-    /**
-     * Controls two motors attached to the board. Switches to dual-motor mode!
-     */
-    //% blockId=block_dual_motor block="motor %motor|at %percent \\%"
-    //% percent.shadow="speedPicker"
-    //% weight=80
-    //% duty_percent.defl=100 shim=motors::dualMotorPower
-    function dualMotorPower(motor: Motor, duty_percent?: int32): void;
+    //% help=input/sound-level
+    //% blockId=device_get_sound_level block="sound level"
+    //% parts="microphone"
+    //% weight=34 blockGap=8
+    //% group="Sound" shim=input::soundLevel
+    function soundLevel(): int32;
 }
 declare namespace music {
 
@@ -788,31 +717,6 @@ declare namespace music {
     //%
     //% parts="speaker" async useEnumVal=1 shim=music::speakerPlayTone
     function speakerPlayTone(frequency: int32, ms: int32): void;
-
-    /**
-     * Set the default output volume of the sound synthesizer.
-     * @param volume the volume 0...255
-     */
-    //% blockId=synth_set_volume block="set volume %volume"
-    //% volume.min=0 volume.max=255
-    //%
-    //% help=music/set-volume
-    //% weight=70
-    //% group="Volume"
-    //% blockGap=8
-    //% blockHidden=true volume.defl=127 shim=music::setVolume
-    function setVolume(volume?: int32): void;
-
-    /**
-     * Returns the current output volume of the sound synthesizer.
-     */
-    //% blockId=synth_get_volume block="volume"
-    //% help=music/volume
-    //% weight=69
-    //% group="Volume"
-    //% blockGap=8
-    //% blockHidden=true shim=music::volume
-    function volume(): int32;
 }
 declare namespace pins {
 
@@ -983,9 +887,11 @@ declare namespace pins {
      * @param ms duration of the pitch in milli seconds.
      */
     //% blockId=device_analog_pitch block="analog pitch %frequency|for (ms) %ms"
-    //% help=pins/analog-pitch weight=4 async advanced=true blockGap=8
+    //% help=pins/analog-pitch async advanced=true
+    //% group="Pitch"
     //% blockHidden=true
-    //% group="Pitch" shim=pins::analogPitch
+    //% weight=14
+    //% blockGap=8 shim=pins::analogPitch
     function analogPitch(frequency: int32, ms: int32): void;
 
     /**
@@ -1119,6 +1025,15 @@ declare namespace pins {
     //% blockHidden=true
     //% group="Pitch" shim=pins::setAudioPin
     function setAudioPin(name: AnalogPin): void;
+
+    /**
+     * Sets whether or not audio will be output using a pin on the edge
+     * connector.
+     */
+    //% blockId=pin_set_audio_pin_enabled
+    //% block="set audio pin enabled $enabled"
+    //% weight=0 shim=pins::setAudioPinEnabled
+    function setAudioPinEnabled(enabled: boolean): void;
 }
 
 
@@ -1228,6 +1143,10 @@ declare namespace serial {
     //% blockId=serialSetTxBufferSize block="serial set tx buffer size to $size"
     //% advanced=true shim=serial::setTxBufferSize
     function setTxBufferSize(size: uint8): void;
+
+    /** Send DMESG debug buffer over serial. */
+    //% shim=serial::writeDmesg
+    function writeDmesg(): void;
 }
 
 
@@ -1340,49 +1259,6 @@ declare namespace control {
     //% deprecated=1 shim=control::createBufferFromUTF8
     function createBufferFromUTF8(str: string): Buffer;
 }
-
-
-    /**
-     * Provides access to persistent storage functionality.
-     */
-
-declare namespace storage {
-
-    /**
-     * Saves a key value pair in the non volatile storage
-     * @param key the key for accesing the value
-     * @param value value to store
-     */
-    //% weight=100 blockGap=16
-    //% block="Put into %key a value of %value as Int"
-    //% blockId=storage_put_value_int
-    //%
-    //% group="Put"
-    //% blockHidden=true value.defl=0 shim=storage::putValueInt
-    function putValueInt(key: string, value?: int32): void;
-
-    /**
-     * Reads a key value pair from the non volatile storage
-     * @param key the key for accesing the value
-     */
-    //% weight=100 blockGap=16
-    //% block="get number from %key"
-    //% blockId=storage_get_value_int
-    //% group="Get"
-    //% blockHidden=true shim=storage::getValueInt
-    function getValueInt(key: string): int32;
-
-    /**
-     * Removes a key value pair from the non volatile storage
-     * @param key the key for accesing the value
-     */
-    //% weight=100 blockGap=16
-    //% block="remove %key"
-    //% blockId=storage_remove
-    //% group="Remove"
-    //% blockHidden=true shim=storage::remove
-    function remove(key: string): void;
-}
 declare namespace light {
 
     /**
@@ -1403,6 +1279,20 @@ declare namespace light {
     //% advanced=true
     //% shim=light::setMode
     function setMode(pin: int32, mode: int32): void;
+}
+declare namespace music {
+
+    /**
+     * Internal use only
+     **/
+    //% async shim=music::__playSoundExpression
+    function __playSoundExpression(nodes: string, waitTillDone: boolean): void;
+
+    /**
+     * Internal use only
+     */
+    //% shim=music::__stopSoundExpressions
+    function __stopSoundExpressions(): void;
 }
 
 // Auto-generated. Do not edit. Really.

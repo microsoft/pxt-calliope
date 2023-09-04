@@ -16,6 +16,8 @@ enum class EventCreationMode {
     CreateAndFire = CREATE_AND_FIRE,
 };
 
+const char *MICROBIT_BOARD_VERSION[3] = { "2.0", "2.2", "2.X" };
+
 // note the trailing '_' in names - otherwise we get conflict with the pre-processor
 // this trailing underscore is removed by enums.d.ts generation process
 
@@ -66,12 +68,12 @@ enum EventBusSource {
     MICROBIT_ID_IO_P14_ = MICROBIT_ID_IO_P14,
     //% blockIdentity="control.eventSourceId"
     MICROBIT_ID_IO_P15_ = MICROBIT_ID_IO_P15,
-    //% blockIdentity="control.eventSourceId"
-    MICROBIT_ID_IO_P16_ = MICROBIT_ID_IO_P16,
-    //% blockIdentity="control.eventSourceId"
-    MICROBIT_ID_IO_P19_ = MICROBIT_ID_IO_P19,
-    //% blockIdentity="control.eventSourceId"
-    MICROBIT_ID_IO_P20_ = MICROBIT_ID_IO_P20,
+    // //% blockIdentity="control.eventSourceId"
+    // MICROBIT_ID_IO_P16_ = MICROBIT_ID_IO_P16,
+    // //% blockIdentity="control.eventSourceId"
+    // MICROBIT_ID_IO_P19_ = MICROBIT_ID_IO_P19,
+    // //% blockIdentity="control.eventSourceId"
+    // MICROBIT_ID_IO_P20_ = MICROBIT_ID_IO_P20,
     //% blockIdentity="control.eventSourceId"
     MES_DEVICE_INFO_ID_ = MES_DEVICE_INFO_ID,
     //% blockIdentity="control.eventSourceId"
@@ -332,6 +334,33 @@ namespace control {
     //% advanced=true
     String deviceName() {
         return mkString(microbit_friendly_name(), -1);
+    }
+
+    /**
+     * Returns the major version of the microbit
+     */
+    //% help=control/hardware-version
+    String _hardwareVersion() {
+        #if MICROBIT_CODAL
+            MicroBitVersion v = uBit.power.getVersion();
+            int versionIdx;
+            switch (v.board) {
+                case 0x9903:
+                case 0x9904:
+                    versionIdx = 0;
+                    break;
+                case 0x9905:
+                case 0x9906:
+                    versionIdx = 1;
+                    break;
+                default:
+                    versionIdx = 2;
+                    break;
+            }
+            return mkString(MICROBIT_BOARD_VERSION[versionIdx], -1);
+        #else
+            return mkString("1.X", 1);
+        #endif
     }
 
     /**

@@ -1,0 +1,18 @@
+{
+    "name": "mini-3",
+    "description": "The calliope mini 3 core library",
+    "core": true,
+    "compileServiceVariant": "minicodal",
+    "disablesVariants": [
+        "minidal"
+    ],
+    "dependencies": {
+        "core": "file:../core",
+        "core-mini-codal": "file:../core-mini-codal"
+    },
+    "icon": "./static/devices/mini3.png",
+    "files": [
+        "README.md",
+        "board.json"
+    ]
+}

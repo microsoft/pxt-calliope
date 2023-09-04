@@ -19,7 +19,8 @@ namespace pxsim {
         lightSensorState: LightSensorState;
         buttonPairState: ButtonPairState;
         radioState: RadioState;
-        microphoneState: AnalogSensorState;
+        microphoneState: MicrophoneState;
+        recordingState: RecordingState;
         lightState: pxt.Map<CommonNeoPixelState>;
         rgbLedState: number;
         speakerState: SpeakerState;
@@ -52,10 +53,8 @@ namespace pxsim {
             });
             this.builtinParts["edgeconnector"] = this.edgeConnectorState = new EdgeConnectorState({
                 pins: [
-                    DAL.MICROBIT_ID_IO_P12,
                     DAL.MICROBIT_ID_IO_P0,
                     DAL.MICROBIT_ID_IO_P1,
-                    DAL.MICROBIT_ID_IO_P16,
                     DAL.MICROBIT_ID_IO_P2,
                     DAL.MICROBIT_ID_IO_P3,
                     DAL.MICROBIT_ID_IO_P4,
@@ -65,28 +64,31 @@ namespace pxsim {
                     DAL.MICROBIT_ID_IO_P8,
                     DAL.MICROBIT_ID_IO_P9,
                     DAL.MICROBIT_ID_IO_P10,
-                    DAL.MICROBIT_ID_IO_P11, 
-                    DAL.MICROBIT_ID_IO_P13,
+                    DAL.MICROBIT_ID_IO_P11,
+                    DAL.MICROBIT_ID_IO_P12,
+                    DAL.MICROBIT_ID_IO_P13, 
                     DAL.MICROBIT_ID_IO_P14,
                     DAL.MICROBIT_ID_IO_P15,
+                    DAL.MICROBIT_ID_IO_A1_RX,
                     0,
                     0,
-                    DAL.MICROBIT_ID_IO_P19,
-                    DAL.MICROBIT_ID_IO_P20,
-                    DAL.MICROBIT_ID_IO_P21
+                    DAL.MICROBIT_ID_IO_A0_SCL,
+                    DAL.MICROBIT_ID_IO_A0_SDA,
+                    DAL.MICROBIT_ID_LOGO
                 ],
                 servos: {
-                    "P0": DAL.MICROBIT_ID_IO_P12,
-                    "P1": DAL.MICROBIT_ID_IO_P0,
-                    "P2": DAL.MICROBIT_ID_IO_P1,
-                    "P3": DAL.MICROBIT_ID_IO_P16
+                    "P0": DAL.MICROBIT_ID_IO_P0,
+                    "P1": DAL.MICROBIT_ID_IO_P1,
+                    "P2": DAL.MICROBIT_ID_IO_P2,
+                    "P3": DAL.MICROBIT_ID_IO_P3
                 }
             });
             this.builtinParts["radio"] = this.radioState = new RadioState(runtime, this, {
                 ID_RADIO: DAL.MICROBIT_ID_RADIO,
                 RADIO_EVT_DATAGRAM: DAL.MICROBIT_RADIO_EVT_DATAGRAM
             });
-            this.builtinParts["microphone"] = this.microphoneState = new AnalogSensorState(3001 /* DEVICE_ID_MICROPHONE */, 0, 255, 75, 180);
+            this.builtinParts["microphone"] = this.microphoneState = new MicrophoneState(DAL.DEVICE_ID_MICROPHONE, 0, 255, 75, 180);
+            this.builtinParts["recording"] = this.recordingState = new RecordingState();
             this.builtinParts["accelerometer"] = this.accelerometerState = new AccelerometerState(runtime);
             this.builtinParts["serial"] = this.serialState = new SerialState(runtime, this);
             this.builtinParts["thermometer"] = this.thermometerState = new ThermometerState();
@@ -124,9 +126,9 @@ namespace pxsim {
             const cmpDefs = msg.partDefinitions || {};
             const fnArgs = msg.fnArgs;
 
-            const v2Parts: pxt.Map<boolean> = { 
-                "microphone": true, 
-                "logotouch": true, 
+            const v2Parts: pxt.Map<boolean> = {
+                "microphone": true,
+                "logotouch": true,
                 "builtinspeaker": true,
                 "v2": true
             };
@@ -159,6 +161,15 @@ namespace pxsim {
             document.body.innerHTML = ""; // clear children
             document.body.appendChild(this.view = this.viewHost.getView());
 
+            if (shouldShowMute()) {
+                document.body.appendChild(createMuteButton());
+                AudioContextManager.mute(true);
+                setParentMuteState("disabled");
+            }
+
+            if (msg.theme === "mbcodal") {
+                this.ensureHardwareVersion(2);
+            }
             return Promise.resolve();
         }
 

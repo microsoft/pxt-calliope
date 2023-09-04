@@ -31,6 +31,9 @@ namespace pxsim.visuals {
         .sim-button-group {
             cursor: pointer;
         }
+        .sim-head .sim-button {
+            pointer-events: unset;
+        }
         .sim-button {
             pointer-events: none;
         }
@@ -730,7 +733,6 @@ namespace pxsim.visuals {
         "G_A1_RX", "G_A1_TX", "G_A1_VCC", "G_A1_GND"
     ];
     const pinTitles = [
-        
         "P0", "P1, ANALOG IN", "P2, ANALOG IN", "P3", "GND", "+3v3",
         "Button A", "Button B",
         "GND", "GND", "GND", "GND", "+3v3", "+3v3",
@@ -1110,6 +1112,9 @@ namespace pxsim.visuals {
             let theme = this.props.theme;
 
             this.updateMicrophone();
+            this.updateRecordingActive();
+            this.updateButtonPairs();
+            this.updateLEDMatrix();
             this.updatePins();
             this.updateTilt();
             this.updateHeading();
@@ -1119,14 +1124,24 @@ namespace pxsim.visuals {
             this.updateGestures();
             this.updateRgbLed();
 			this.updateSpeaker();
-            this.updateRSSI();
+            this.updateRSSI();           
 
-            let bpState = state.buttonPairState;
-            let buttons = [bpState.aBtn, bpState.bBtn, bpState.abBtn];
+            if (!runtime || runtime.dead) U.addClass(this.element, "grayscale");
+            else U.removeClass(this.element, "grayscale");
+        }
+
+        private updateButtonPairs() {
+            const state = this.board;
+            const theme = this.props.theme;
+            const bpState = state.buttonPairState;
+            const buttons = [bpState.aBtn, bpState.bBtn, bpState.abBtn];
             buttons.forEach((btn, index) => {
                 svg.fill(this.buttons[index], btn.pressed ? (btn.virtual ? theme.virtualButtonDown : theme.buttonDown) : (btn.virtual ? theme.virtualButtonUp : theme.buttonUps[index]));
             });
+        }
 
+        private updateLEDMatrix() {
+            const state = this.board;
             if (state.ledMatrixState.disabled) {
                 this.leds.forEach((led, i) => {
                     const sel = (<SVGStyleElement><any>led)
@@ -1150,10 +1165,6 @@ namespace pxsim.visuals {
                     }
                 })
             }
-            
-
-            if (!runtime || runtime.dead) U.addClass(this.element, "grayscale");
-            else U.removeClass(this.element, "grayscale");
         }
 
         private updateRgbLed() {
@@ -1214,6 +1225,23 @@ namespace pxsim.visuals {
             const b = board();
             if (!b || !b.microphoneState.sensorUsed) return;
             this.updateSoundLevel();
+        }
+
+        private updateRecordingActive() {
+            const b = board();
+            if (!b)
+                return;
+
+            let theme = this.props.theme;
+            if (this.microphoneLed) {
+                if (b.recordingState.currentlyRecording || b.microphoneState.soundLevelRequested) {
+                    svg.fills([this.microphoneLed], theme.ledOn);
+                    svg.filter(this.microphoneLed, `url(#ledglow)`);
+                } else if (!(b.microphoneState.onSoundRegistered || b.microphoneState.soundLevelRequested)) {
+                    svg.fills([this.microphoneLed], theme.ledOff);
+                    svg.filter(this.microphoneLed, `url(#none)`);
+                }
+            }
         }
 
         private updateButtonAB() {

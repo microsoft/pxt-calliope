@@ -8,11 +8,13 @@ Use the accelerometer and the screen to build a **Rock Paper Scissors** game tha
 
 ## Step 1 @fullscreen
 
-Add a ``||input:on shake||`` block to run code when you shake the @boardname@.
+Let's use a ``||input:on shake||`` block to run code when you shake the @boardname@.
 
 ```blocks
 input.onGesture(Gesture.Shake, () => {
     
+input.onGesture(Gesture.Shake, function() {
+
 })
 ```
 
@@ -28,8 +30,8 @@ Add a ``||math:pick random||`` block to pick a random number from `1` to `3` and
 
 ```blocks
 let hand = 0;
-input.onGesture(Gesture.Shake, () => {
-    hand = Math.randomRange(1, 3)
+input.onGesture(Gesture.Shake, function() {
+    hand = randint(1, 3)
 })
 ```
 
@@ -43,8 +45,8 @@ Place an ``||logic:if||`` block under the ``||math:pick random||`` and check whe
 
 ```blocks
 let hand = 0;
-input.onGesture(Gesture.Shake, () => {
-    hand = Math.randomRange(1, 3)
+input.onGesture(Gesture.Shake, function() {
+    hand = randint(1, 3)
     if (hand == 1) {
         basic.showLeds(`
             # # # # #
@@ -71,8 +73,8 @@ Click the **(+)** button to add an ``||logic:else||`` section.
 
 ```blocks
 let hand = 0;
-input.onGesture(Gesture.Shake, () => {
-    hand = Math.randomRange(1, 3)
+input.onGesture(Gesture.Shake, function() {
+    hand = randint(1, 3)
     if (hand == 1) {
         basic.showLeds(`
             # # # # #
@@ -93,8 +95,8 @@ Add a ``||basic:show leds||`` block inside the ``||logic:else||``. Make a pictur
 
 ```blocks
 let hand = 0;
-input.onGesture(Gesture.Shake, () => {
-    hand = Math.randomRange(1, 3)
+input.onGesture(Gesture.Shake, function() {
+    hand = randint(1, 3)
     if (hand == 1) {
         basic.showLeds(`
             # # # # #
@@ -127,8 +129,8 @@ Get one more ``||basic:show leds||`` block and put it in the ``||logic:else if||
 
 ```blocks
 let hand = 0;
-input.onGesture(Gesture.Shake, () => {
-    hand = Math.randomRange(1, 3)
+input.onGesture(Gesture.Shake, function() {
+    hand = randint(1, 3)
     if (hand == 1) {
         basic.showLeds(`
             # # # # #
@@ -169,3 +171,7 @@ If you have a @boardname@, click on ``|Download|`` and follow the instructions t
 onto your @boardname@. Your game is ready! Gather your friends and play Rock Paper Scissors!
 
 <!-- ![A @boardname@ in a hand](/static/mb/projects/rock-paper-scissors/hand.jpg) -->
+
+```template
+input.onGesture(Gesture.Shake, function() {})
+```

@@ -5,6 +5,7 @@ namespace pxsim.input {
         const b = microphoneState();
         if (!b) return 0;
         b.setUsed();
+        b.pingSoundLevel();
         return b.getLevel();
     }
 
@@ -12,13 +13,13 @@ namespace pxsim.input {
         const b = microphoneState();
         if (!b) return;
         b.setUsed();
+        b.onSoundRegistered = true;
         pxtcore.registerWithDal(b.id, sound, body);
     }
 
     export function setSoundThreshold(sound: number, threshold: number){
         const b = microphoneState();
         if (!b) return;
-        b.setUsed();
         if (sound === 2 /* SoundThreshold.Loud */)
             b.setHighThreshold(threshold);
         else

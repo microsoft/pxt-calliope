@@ -3,11 +3,6 @@
 ```codecard
 [
     {
-        "name": "New project templates",
-        "url": "/calliope/templates/new-project-pxt4",
-        "imageUrl": "/calliope/templates/32KB.png"
-    },
-    {
         "name": "First Steps",
         "url": "/calliope/firststeps",
         "imageUrl": "/calliope/firststeps/connecting.jpg",
@@ -28,7 +23,6 @@
 
 ## See Also
 
-[New project templates](/calliope/templates/new-project-pxt4),
 [First Steps](/calliope/firststeps),
 [Tutorials](/calliope/tutorials),
 [Calliope Links](/calliope/links)

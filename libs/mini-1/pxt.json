@@ -1,0 +1,37 @@
+{
+    "name": "mini-1",
+    "version": "1.0.0",
+    "description": "The calliope mini 1 core library",
+    "compileServiceVariant": "minidal",
+    "disablesVariants": [
+        "minicodal"
+    ],
+    "core": true,
+    "dependencies": {
+        "core": "file:../core",
+        "core-mini-dal": "file:../core-mini-dal"
+    },
+    "icon": "./static/devices/mini1.png",
+    "files": [
+        "README.md",
+        "board.json"
+    ],
+    "yotta": {
+        "config": {
+            "microbit-dal": {
+                "bluetooth": {
+                    "enabled": 0
+                },
+                "sram_end": "0x20004000",
+                "RAM_SIZE": "\"16K\""
+            }
+        },
+        "optionalConfig": {
+            "microbit-dal": {
+                "bluetooth": {
+                    "enabled": 0
+                }
+            }
+        }
+    }
+}
