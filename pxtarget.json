@@ -39,6 +39,7 @@
     },
     "compile": {
         "isNative": false,
+        "useUF2": false,
         "hasHex": true,
         "deployDrives": "MINI",
         "driveName": "MINI",
