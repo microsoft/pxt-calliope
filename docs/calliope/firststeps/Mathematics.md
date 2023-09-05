@@ -15,3 +15,12 @@ You can find the required block in the menu Math. From the block's drop-down lis
 
 ### Random numbers
 You can have Calliope mini create a random number: You can find the corresponding block in the menu Math ("pick random 0 to 10"). By changing the two numbers within the block, you determine how small or how large the random number is allowed to become.
+
+```blocks
+basic.showLeds(`
+    . # . # .
+    # # # # #
+    # # # # #
+    . # # # .
+    . . # . .`);
+```

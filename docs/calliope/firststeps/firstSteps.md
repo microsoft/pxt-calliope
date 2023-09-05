@@ -59,3 +59,12 @@ You can now play arround or try some of our other guided first-steps tutorials..
 [Play with colors and sound](#tutorial:/calliope/firststeps/Output)
 
 [See how to Controll your mini with the buttons and pins](#tutorial:/calliope/firststeps/Inputs)
+
+```blocks
+basic.showLeds(`
+    . # . # .
+    # # # # #
+    # # # # #
+    . # # # .
+    . . # . .`);
+```

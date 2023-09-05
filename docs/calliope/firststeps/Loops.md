@@ -16,3 +16,12 @@ Of course, you can also specify how often something should be repeated:
 
 ### Repeat block
 Use the „on start“ block or any other block that usually initiates a one time cycle. Take the "Repeat 4 times" block from the Loops section and enter the desired number in the number field. Whatever task is within this block will be executed for the number of times you entered within the “Repeat …“ number.
+
+```blocks
+basic.showLeds(`
+    . # . # .
+    # # # # #
+    # # # # #
+    . # # # .
+    . . # . .`);
+```

@@ -21,3 +21,12 @@ To turn the LED off, you can use the "turn build-in led off“ block or put the 
 
 ### The speaker
 You can play individual notes or music pieces. Simply open the Music section and drag the "play tone 262 Hz for 1 beat“ and chance the value of the tone to see how you can adjust the height of the note.
+
+```blocks
+basic.showLeds(`
+    . # . # .
+    # # # # #
+    # # # # #
+    . # # # .
+    . . # . .`);
+```

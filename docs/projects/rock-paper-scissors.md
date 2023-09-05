@@ -11,9 +11,7 @@ Use the accelerometer and the screen to build a **Rock Paper Scissors** game tha
 Let's use a ``||input:on shake||`` block to run code when you shake the @boardname@.
 
 ```blocks
-input.onGesture(Gesture.Shake, () => {
-    
-input.onGesture(Gesture.Shake, function() {
+ input.onGesture(Gesture.Shake, function() {
 
 })
 ```

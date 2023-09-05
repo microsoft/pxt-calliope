@@ -21,3 +21,12 @@ After the if…then block the program continues in any case, no matter whether t
 If you expand the if…then block, the first if condition is checked first, if it is not fulfilled the second if condition is checked. Only those actions are triggered for which the associated condition is fulfilled.
 
 Click on the + on the bottom of the block to unfold the if…then block. The probability to display either a happy or a sad smiley on the LED grid is 50/50.
+
+```blocks
+basic.showLeds(`
+    . # . # .
+    # # # # #
+    # # # # #
+    . # # # .
+    . . # . .`);
+```

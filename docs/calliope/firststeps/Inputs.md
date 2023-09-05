@@ -30,3 +30,12 @@ Your text will be displayed when pin – and pin 0 are both pressed at the same 
 You can program the Calliope mini to respond to more than one input. There are two possible ways of doing this:
 You can use indiviual events separated from each other with different actions to run after that condition is met.
 Nevertheless, you can also use an "if" or "while" condition (from the Logic and Loops sections) and wait for your inputs to be met.
+
+```blocks
+basic.showLeds(`
+    . # . # .
+    # # # # #
+    # # # # #
+    . # # # .
+    . . # . .`);
+```
