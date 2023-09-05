@@ -18,3 +18,12 @@ You can find a separate block for each variable, which you can use to display it
 
 ### Count your score
 By combining what you have learned so far, you can program a simple score counter: When button A is pressed, the number of goals variable is increased by one numerical value and then displayed. Have a try!
+
+```blocks
+basic.showLeds(`
+    . # . # .
+    # # # # #
+    # # # # #
+    . # # # .
+    . . # . .`);
+```

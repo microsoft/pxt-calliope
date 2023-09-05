@@ -23,3 +23,12 @@ Set the same channel as on the sending Calliope mini one.
 Use the "on radio received receivedString“ block to look for data.
 Include the "show string receivedString“ inside.
 Let’s try with two (or more) Calliope mini!
+
+```blocks
+basic.showLeds(`
+    . # . # .
+    # # # # #
+    # # # # #
+    . # # # .
+    . . # . .`);
+```

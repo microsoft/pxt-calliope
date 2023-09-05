@@ -1,0 +1,15 @@
+{
+    "dependencies": {
+        "core": "file:../core"
+    },
+    "files": [
+        "shims.d.ts",
+        "enums.d.ts",
+        "compass.ts",
+        "motors.cpp",
+        "storage.cpp",
+        "storage.ts",
+        "rgbled.cpp",
+        "rgbled.ts"
+    ]
+}

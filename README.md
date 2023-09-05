@@ -60,26 +60,31 @@ cd pxt-common-packages
 npm install
 cd ..
 ```
-6. Clone this repository.
+6. Link pxt-common-packages to pxt
+```
+npm link ../pxt
+cd ..
+```
+7. Clone this repository.
 ```
 git clone https://github.com/microsoft/pxt-calliope
 cd pxt-calliope
 ```
-7. Install the PXT command line (add `sudo` for Mac/Linux shells).
+8. Install the PXT command line (add `sudo` for Mac/Linux shells).
 ```
 npm install -g pxt
 ```
-8. Install the pxt-calliope dependencies.
+9. Install the pxt-calliope dependencies.
 ```
 npm install
 ```
-8. Link pxt-calliope back to base pxt repo (add `sudo` for Mac/Linux shells). 
+10. Link pxt-calliope back to base pxt repo (add `sudo` for Mac/Linux shells). 
 This step is only required if you intend to make changes to pxt and/or 
 pxt-common-packages repos. If all you want is serve a local Makecode, you can skip
 this step.
 ```
-pxt link ../pxt
-pxt link ../pxt-common-packages
+npm link ../pxt
+npm link ../pxt-common-packages
 ```
 Note the above command assumes the folder structure of   
 ```

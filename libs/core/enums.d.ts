@@ -69,10 +69,10 @@ declare namespace basic {
 
 
     declare const enum TouchPin {
-    P0 = 112,  // MICROBIT_ID_IO_P12
-    P1 = 100,  // MICROBIT_ID_IO_P0
-    P2 = 101,  // MICROBIT_ID_IO_P1
-    P3 = 116,  // MICROBIT_ID_IO_P16
+    P0 = 100,  // MICROBIT_ID_IO_P0
+    P1 = 101,  // MICROBIT_ID_IO_P1
+    P2 = 102,  // MICROBIT_ID_IO_P2
+    P3 = 103,  // MICROBIT_ID_IO_P3
     }
 
 
@@ -269,12 +269,12 @@ declare namespace input {
     MICROBIT_ID_IO_P14 = 114,  // MICROBIT_ID_IO_P14
     //% blockIdentity="control.eventSourceId"
     MICROBIT_ID_IO_P15 = 115,  // MICROBIT_ID_IO_P15
-    //% blockIdentity="control.eventSourceId"
-    MICROBIT_ID_IO_P16 = 116,  // MICROBIT_ID_IO_P16
-    //% blockIdentity="control.eventSourceId"
-    MICROBIT_ID_IO_P19 = 119,  // MICROBIT_ID_IO_P19
-    //% blockIdentity="control.eventSourceId"
-    MICROBIT_ID_IO_P20 = 120,  // MICROBIT_ID_IO_P20
+    // //% blockIdentity="control.eventSourceId"
+    // MICROBIT_ID_IO_P16_ = MICROBIT_ID_IO_P16,
+    // //% blockIdentity="control.eventSourceId"
+    // MICROBIT_ID_IO_P19_ = MICROBIT_ID_IO_P19,
+    // //% blockIdentity="control.eventSourceId"
+    // MICROBIT_ID_IO_P20_ = MICROBIT_ID_IO_P20,
     //% blockIdentity="control.eventSourceId"
     MES_DEVICE_INFO_ID = 1103,  // MES_DEVICE_INFO_ID
     //% blockIdentity="control.eventSourceId"
@@ -435,69 +435,122 @@ declare namespace control {
     }
 declare namespace led {
 }
-
-
-    declare const enum MotorCommand {
-    //% block=coast
-    Coast = 0,
-    //% block=break
-    Break = 1,
-    //% block=sleep
-    Sleep = 2,
-    }
-
-
-    declare const enum Motor {
-    A = 0,
-    B = 1,
-    //% block="A and B"
-    AB = 2,
-    }
-declare namespace motors {
+declare namespace input {
 }
 
 
     declare const enum DigitalPin {
-    P0 = 112,  // MICROBIT_ID_IO_P12
-    P1 = 100,  // MICROBIT_ID_IO_P0
-    P2 = 101,  // MICROBIT_ID_IO_P1
-    P3 = 116,  // MICROBIT_ID_IO_P16
-    C4 = 103,  // MICROBIT_ID_IO_P3
-    C5 = 104,  // MICROBIT_ID_IO_P4
-    C6 = 110,  // MICROBIT_ID_IO_P10
-    C7 = 113,  // MICROBIT_ID_IO_P13
-    C8 = 114,  // MICROBIT_ID_IO_P14
-    C9 = 115,  // MICROBIT_ID_IO_P15
-    C10 = 109,  // MICROBIT_ID_IO_P9
-    C11 = 107,  // MICROBIT_ID_IO_P7
-    C12 = 106,  // MICROBIT_ID_IO_P6
-    C16 = 102,  // MICROBIT_ID_IO_P2
-    C17 = 108,  // MICROBIT_ID_IO_P8
-    C18 = 120,  // MICROBIT_ID_IO_P20
-    //% block="A1 RX" blockHidden=true
-    A1_RX = 102,  // MICROBIT_ID_IO_P2
-    //% block="A1 TX" blockHidden=true
-    A1_TX = 108,  // MICROBIT_ID_IO_P8
-    //% block="A0 SDA" blockHidden=true
-    A0_SCL = 119,  // MICROBIT_ID_IO_P19
-    //% block="A0 SDA" blockHidden=true
-    A0_SDA = 120,  // MICROBIT_ID_IO_P20
+    P0 = 100,  // MICROBIT_ID_IO_P0
+    P1 = 101,  // MICROBIT_ID_IO_P1
+    P2 = 102,  // MICROBIT_ID_IO_P2
+    P3 = 103,  // MICROBIT_ID_IO_P3
+
+    //% blockHidden=true
+    C4 = 104,  // MICROBIT_ID_IO_P4
+    P4 = 104,  // MICROBIT_ID_IO_P4
+
+    C5 = 105,  // MICROBIT_ID_IO_P5
+    P5 = 105,  // MICROBIT_ID_IO_P5
+
+    //% blockHidden=true
+    C6 = 106,  // MICROBIT_ID_IO_P6
+    P6 = 106,  // MICROBIT_ID_IO_P6
+
+    //% blockHidden=true
+    C7 = 107,  // MICROBIT_ID_IO_P7
+    P7 = 107,  // MICROBIT_ID_IO_P7
+
+    //% blockHidden=true
+    C8 = 108,  // MICROBIT_ID_IO_P8
+    P8 = 108,  // MICROBIT_ID_IO_P8
+
+    //% blockHidden=true
+    C9 = 109,  // MICROBIT_ID_IO_P9
+    P9 = 109,  // MICROBIT_ID_IO_P9
+
+    //% blockHidden=true
+    C10 = 110,  // MICROBIT_ID_IO_P10
+    P10 = 110,  // MICROBIT_ID_IO_P10
+
+    //% blockHidden=true
+    C11 = 111,  // MICROBIT_ID_IO_P11
+    P11 = 111,  // MICROBIT_ID_IO_P11
+
+    //% blockHidden=true
+    C12 = 112,  // MICROBIT_ID_IO_P12
+    P12 = 112,  // MICROBIT_ID_IO_P12
+
+    P13 = 113,  // MICROBIT_ID_IO_P13
+    P14 = 114,  // MICROBIT_ID_IO_P14
+    P15 = 115,  // MICROBIT_ID_IO_P15
+
+    //% blockHidden=true
+    C16 = 116,  // MICROBIT_ID_IO_A1_RX
+    //% blockHidden=true
+    C17 = 117,  // MICROBIT_ID_IO_A1_TX
+    //% blockHidden=true
+    C18 = 120,  // MICROBIT_ID_IO_A0_SDA
+
+    //% block="A1 RX"
+    A1_RX = 116,  // MICROBIT_ID_IO_A1_RX
+    //% block="A1 TX"
+    A1_TX = 117,  // MICROBIT_ID_IO_A1_TX
+    //% block="A0 SCL" blockHidden=true
+    A0_SCL = 119,  // MICROBIT_ID_IO_A0_SCL
+    //% block="A0 SDA"
+    A0_SDA = 120,  // MICROBIT_ID_IO_A0_SDA
+
+    //% blockHidden=true
+    M_MODE = 156,  // MICROBIT_ID_IO_M_MODE
+
+    //% blockHidden=true
+    M_A_IN1 = 152,  // MICROBIT_ID_IO_M_A_IN1
+
+    //% blockHidden=true
+    M_B_IN1 = 154,  // MICROBIT_ID_IO_M_B_IN1
+
+    //% blockHidden=true
+    RGB = 151,  // MICROBIT_ID_IO_RGB
+
     }
 
 
     declare const enum AnalogPin {
-    P1 = 100,  // MICROBIT_ID_IO_P0
-    P2 = 101,  // MICROBIT_ID_IO_P1
-    C4 = 103,  // MICROBIT_ID_IO_P3
-    C5 = 104,  // MICROBIT_ID_IO_P4
-    C6 = 110,  // MICROBIT_ID_IO_P10
-    C16 = 102,  // MICROBIT_ID_IO_P2
-    C17 = 108,  // MICROBIT_ID_IO_P8
-    MIC = 121,  // MICROBIT_ID_IO_P21
-    //% block="A1 RX" blockHidden=true
-    A1_RX = 102,  // MICROBIT_ID_IO_P2
-    //% block="A1 TX" blockHidden=true
-    A1_TX = 108,  // MICROBIT_ID_IO_P8
+    P0 = 100,  // MICROBIT_ID_IO_P0
+    P1 = 101,  // MICROBIT_ID_IO_P1
+    P2 = 102,  // MICROBIT_ID_IO_P2
+
+    //% blockHidden=true
+    C4 = 104,  // MICROBIT_ID_IO_P4
+    P4 = 104,  // MICROBIT_ID_IO_P4
+
+    //% blockHidden=true
+    C5 = 105,  // MICROBIT_ID_IO_P5
+    P5 = 105,  // MICROBIT_ID_IO_P5
+
+    //% blockHidden=true
+    C6 = 106,  // MICROBIT_ID_IO_P6
+    P6 = 106,  // MICROBIT_ID_IO_P6
+
+    //% blockHidden=true
+    C16 = 116,  // MICROBIT_ID_IO_A1_RX
+    //% blockHidden=true
+    C17 = 117,  // MICROBIT_ID_IO_A1_TX
+
+    //% blockHidden=true
+    // C18 = MICROBIT_ID_IO_P18,  // P18
+    // P18 = MICROBIT_ID_IO_P18,  // P18
+
+    A1_RX = 116,  // MICROBIT_ID_IO_A1_RX
+    A1_TX = 117,  // MICROBIT_ID_IO_A1_TX
+
+    //% blockHidden=true
+    MIC = 121,  // MICROBIT_ID_LOGO
+
+    //% blockHidden=true
+    M_A_IN2 = 153,  // MICROBIT_ID_IO_M_A_IN2
+    //% blockHidden=true
+    M_B_IN2 = 155,  // MICROBIT_ID_IO_M_B_IN2
     }
 
 
@@ -532,12 +585,21 @@ declare namespace motors {
 
 
     declare const enum SerialPin {
-    P0 = 112,  // MICROBIT_ID_IO_P12
-    P1 = 100,  // MICROBIT_ID_IO_P0
-    P2 = 101,  // MICROBIT_ID_IO_P1
-    P3 = 116,  // MICROBIT_ID_IO_P16
-    C16 = 102,  // MICROBIT_ID_IO_P2
-    C17 = 108,  // MICROBIT_ID_IO_P8
+    P0 = 100,  // MICROBIT_ID_IO_P0
+    P1 = 101,  // MICROBIT_ID_IO_P1
+    P2 = 102,  // MICROBIT_ID_IO_P2
+    P3 = 103,  // MICROBIT_ID_IO_P3
+    P8 = 108,  // MICROBIT_ID_IO_P8
+    P12 = 112,  // MICROBIT_ID_IO_P12
+    P13 = 113,  // MICROBIT_ID_IO_P13
+    P14 = 114,  // MICROBIT_ID_IO_P14
+    P15 = 115,  // MICROBIT_ID_IO_P15
+    P16 = 116,  // MICROBIT_ID_IO_A1_RX
+    //% blockHidden=true
+    C16 = 116,  // MICROBIT_ID_IO_A1_RX
+    P17 = 117,  // MICROBIT_ID_IO_A1_TX
+    //% blockHidden=true
+    C17 = 117,  // MICROBIT_ID_IO_A1_TX
     USB_TX = 1001,
     USB_RX = 1002,
     }
@@ -568,8 +630,6 @@ declare namespace motors {
     BaudRate1200 = 1200,
     }
 declare namespace serial {
-}
-declare namespace storage {
 }
 
 // Auto-generated. Do not edit. Really.

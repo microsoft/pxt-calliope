@@ -8,8 +8,8 @@ namespace basic {
 
     /**
      * Draws an image on the LED screen.
-     * @param leds the pattern of LED to turn on/off
-     * @param interval time in milliseconds to pause after drawing
+     * @param leds the pattern of LED to turn on/off.
+     * @param interval time in milliseconds to pause after drawing.
      */
     //% help=basic/show-leds
     //% weight=85 blockGap=8
@@ -52,9 +52,21 @@ namespace basic {
     }
 
     /**
+     * Turn off all LEDs
+     */
+    //% help=basic/clear-screen weight=75
+    //% blockId=device_clear_display block="clear screen"
+    //% parts="ledmatrix"
+    //% group="LED matrix"
+    //% advanced=true
+    void clearScreen() {
+      uBit.display.image.clear();
+    }
+
+    /**
      * Shows a sequence of LED screens as an animation.
      * @param leds pattern of LEDs to turn on/off
-     * @param interval time in milliseconds between each redraw
+     * @param interval time in milliseconds between each redraw.
      */
     //% help=basic/show-animation weight=83 imageLiteral=1 async
     //% parts="ledmatrix"
@@ -74,19 +86,6 @@ namespace basic {
       MicroBitImage i(imageBytes(leds));
       uBit.display.print(i, 0, 0, 0, 0);
     }
-
-    /**
-     * Turn off all LEDs
-     */
-    //% help=basic/clear-screen weight=75
-    //% blockId=device_clear_display block="clear screen"
-    //% parts="ledmatrix"
-    //% group="LED matrix"
-    //% advanced=true
-    void clearScreen() {
-      uBit.display.image.clear();
-    }
-
 
     /**
      * Repeats the code forever in the background. On each iteration, allows other codes to run.
@@ -111,43 +110,5 @@ namespace basic {
     void pause(int ms) {
       fiber_sleep(ms);
     }
-
-
-   /**
-    * Sets the color on the build-in LED. Set to 0 to turn off.
-    */
-   //% help=basic/set-led-color
-    //% blockId=device_set_led_color
-    //% block="set led to %color=colorNumberPicker"
-    //% color.defl=0xff0000
-    //% weight=10
-    //% group="RGB LED"
-    void setLedColor(int color) {
-      if (!color) {
-        uBit.rgb.off();
-        return;
-      }
-
-      int w = (color >> 24) & 0xFF;
-      int r = (color >> 16) & 0xFF;
-      int g = (color >> 8) & 0xFF;
-      int b = (color) & 0xFF;
-      
-      uBit.rgb.setColour(r,g,b,w);
-    }
-
-
-    /**
-    * Sets the color on the build-in LED. Set to 0 to turn off.
-    */
-    //% blockId=device_turn_rgb_led_off block="turn build-in LED off"
-    //% help=basic/turn-rgb-led-off
-    //% weight=10
-    //% group="RGB LED"
-    //% advanced=true
-    void turnRgbLedOff() {
-        uBit.rgb.off();
-    }
-
 
 }

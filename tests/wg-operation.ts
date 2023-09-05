@@ -377,11 +377,11 @@ function beepNTimesFor(times: number, duration: number) {
 
 function startIOMonitor() {
     aWasPressed = false
-    input.onButtonEvent(Button.A, input.buttonEventClick(), function () {
+    input.onButtonEvent(Button.A, input.buttonEventValue(ButtonEvent.Click), () => {
         aWasPressed = true
     })
     bWasPressed = false
-    input.onButtonEvent(Button.B, input.buttonEventClick(), function () {
+    input.onButtonEvent(Button.B, input.buttonEventValue(ButtonEvent.Click), () => {
         bWasPressed = true
     })
     wasTweezers = false

@@ -25,6 +25,16 @@ Here are the steps on the supported browsers:
 
 If you don't see any devices in the list and @boardname@ has the right firmware (**0249** or above), you can create a [support ticket](https://support.microbit.org/support/tickets/new) to notify the Micro:bit Foundation of the problem. Skip the rest of these steps.
 
+![Device list for WebUSB pairing](/static/mb/device/usb/no-pair.jpg)
+
+* When your @boardname@ is connected, you'll see the **Connected to micro:bit** message window. Click on **Done** and you're ready to go!
+
+![Connected message window](/static/mb/device/usb/connected.jpg)
+
+* If the connection to your @boardname@ was unsuccessful, you'll see the **Connect failed** message. You can press **Try Again** to attempt the connection again or cancel the window and [troubleshoot](/device/usb/webusb/troubleshoot) your connection.
+
+![Connect failed message window](/static/mb/device/usb/connect-fail.jpg)
+
 ## Unpair your @boardname@ #unpair
 
 You will need to unpair your device from the editor to disable WebUSB.

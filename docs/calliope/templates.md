@@ -6,28 +6,22 @@ Here are some cool tutorials to get you started with your @boardname@!
 
 ```codecard
 [
-  {
-    "name": "Calliope mini 2.x",
-    "url":"_JdL3fHU2g0TF",
-    "description": "The Calliope mini 2.0 and newer has a larger memory than the previous versions. If you use this template for your project, you can make the most of all the features on your Calliope mini!",
-    "imageUrl": "/calliope/templates/32KB.png",
-    "largeImageUrl": "/calliope/templates/32KB_L.png",
-    "cardType": "sharedExample",
-    "buttonLabel": "New project"
-  },{
-    "name": "Calliope mini 1.x",
-    "url":"_cMV8p9XzKd6e",
-    "description": "This template is designed for all Calliope mini, but especially for those up to version 1.3. If you have such a Calliope mini or an earlier version, you can start directly with this template.",
-    "imageUrl": "/calliope/templates/16KB.png",
-    "largeImageUrl": "/calliope/templates/16KB_L.png",
-    "cardType": "sharedExample",
-    "buttonLabel": "New project"
-  },
-  {
-  "name": "Which template?",
-  "url": "/calliope/neu",
-  "imageUrl": "/calliope/templates/info.png",
-  "description": "Not sure which template is right for you? Here you will find the necessary information."
-  }
+{
+  "name": "Calliope mini 2.x",
+  "url":"_f7ACuxgaocvr",
+  "description": "The Calliope mini 2.0 and newer has a larger memory than the previous versions. If you use this template for your project, you can make the most of all the features on your Calliope mini!",
+  "imageUrl": "/calliope/templates/32KB.png",
+  "largeImageUrl": "/calliope/templates/32KB_L.png",
+  "cardType": "sharedExample",
+  "buttonLabel": "New project"
+},{
+  "name": "Calliope mini 1.x",
+  "url":"_7YbU6iMhoTdR",
+  "description": "This template is designed for all Calliope mini, but especially for those up to version 1.3. If you have such a Calliope mini or an earlier version, you can start directly with this template.",
+  "imageUrl": "/calliope/templates/16KB.png",
+  "largeImageUrl": "/calliope/templates/16KB_L.png",
+  "cardType": "sharedExample",
+  "buttonLabel": "New project"
+}
 ]
 ```

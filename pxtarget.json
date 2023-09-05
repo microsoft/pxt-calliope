@@ -7,13 +7,22 @@
     "corepkg": "core",
     "bundleddirs": [
         "libs/core",
-        "libs/mini2",
+        "libs/core-mini",
+        "libs/core-mini-dal",
+        "libs/core-mini-codal",
+        "libs/mini-1",
+        "libs/mini-2",
         "libs/radio",
         "libs/devices",
         "libs/bluetooth",
         "libs/servo",
         "libs/radio-broadcast",
-        "libs/microphone"
+        "libs/microphone",
+        "libs/settings",
+        "libs/flashlog",
+        "libs/datalogger",
+        "libs/color",
+        "libs/audio-recording"
     ],
     "cloud": {
         "workspace": false,
@@ -22,6 +31,7 @@
         "thumbnails": true,
         "publishing": true,
         "importing": true,
+        "showBadges": false,
         "githubPackages": true,
         "cloudProviders": {
             "github": {}
@@ -29,6 +39,7 @@
     },
     "compile": {
         "isNative": false,
+        "useUF2": false,
         "hasHex": true,
         "deployDrives": "MINI",
         "driveName": "MINI",
@@ -129,48 +140,46 @@
             "vid": "0x1366",
             "pid": "0x1025"
         }],
-        "webUSB": false,
+        "webUSB": true,
         "useNewFunctions": true
     },
     "compileService": {
         "yottaTarget": "calliope-mini-classic-gcc@https://github.com/calliope-mini/target-calliope-mini-classic-gcc#v1.2.4",
         "yottaCorePackage": "microbit",
         "githubCorePackage": "calliope-mini/microbit",
-        "gittag": "v2.2.0-rc6-calliope.rc3-iss0.3",
+        "gittag": "master-iss",
         "serviceId": "calliope",
-        "dockerImage": "pext/yotta:latest"
-    },
-    "yottaConfig": {
-        "sram_end": "0x20004000",
-        "RAM_SIZE": "\"16K\""
+        "dockerImage": "pext/yotta:update-yotta3"
     },
     "variants": {
-        "mbdal16": {
-            "compile": {},
-            "compileService": {}
-        },
-        "mbdal32": {
+        "minidal": {
             "compile": {
-                "flashUsableEnd": 342688,
-                "flashEnd": 342688,
-                "flashCodeAlign": 1024
+                "useUF2": false
             },
             "compileService": {
-            },
-            "yottaConfig": {
-                    "microbit-dal": {
-                        "sram_end": "0x20008000",
-                        "RAM_SIZE": "\"32K\""
-                    }
             }
         },
-        "mbcodal": {
+        "minicodal": {
             "compile": {
+                "flashCodeAlign": 4096,
                 "flashUsableEnd": 487424,
                 "flashEnd": 524288,
-                "flashCodeAlign": 4096
+                "useUF2": false
             },
             "compileService": {
+                "buildEngine": "codal",
+                "codalTarget": {
+                    "name": "codal-microbit-v2",
+                    "url": "https://github.com/calliope-edu/codal-microbit-v2",
+                    "branch": "v0.2.57-calliope",
+                    "type": "git"
+                },
+                "codalBinary": "MICROBIT",
+                "githubCorePackage": "calliope-edu/microbit-v2-samples",
+                "gittag": "v0.2.13-calliope",
+                "serviceId": "mbcodal2",
+                "dockerImage": "pext/yotta:update-yotta3",
+                "yottaConfigCompatibility": true
             }
         }
     },
@@ -211,6 +220,15 @@
         "aspectRatio": 0.94,
         "parts": false,
         "partsAspectRatio": 0.7,
+        "messageSimulators": {
+            "jacdac": {
+                "url": "https://microsoft.github.io/jacdac-docs/tools/makecode-sim?webusb=0&parentOrigin=$PARENT_ORIGIN$",
+                "localHostUrl": "http://localhost:8000/tools/makecode-sim?webusb=0&parentOrigin=$PARENT_ORIGIN$",
+                "aspectRatio": 1.22,
+                "permanent": true
+            }
+        },
+        "dynamicBoardDefinition": true,
         "boardDefinition": {
             "visual": "calliope",
             "gpioPinBlocks": [
@@ -369,12 +387,14 @@
         "githubUrl": "https://github.com/Microsoft/pxt-calliope",
         "boardName": "Calliope mini",
         "driveDisplayName": "MINI",
+        "chooseBoardOnNewProject": true,
         "appStoreID": "1309545545",
         "crowdinProject": "makecode",
         "extendEditor": true,
         "extendFieldEditors": true,
         "enableTrace": true,
         "errorList": true,
+        "workspaceSearch": true,
         "allowPackageExtensions": true,
         "addNewTypeScriptFile": true,
         "experiments": [
@@ -384,6 +404,7 @@
             "bluetoothPartialFlashing",
             "simScreenshot",
             "simGif",
+            "identity",
             "blocksErrorList"
         ],
         "bluetoothUartFilters": [{
@@ -392,10 +413,6 @@
         "docMenu": [{
                 "name": "Support",
                 "path": "https://calliope.cc/en/impressum"
-            },
-            {
-                "name": "Reference",
-                "path": "/about"
             },
             {
                 "name": "Hardware",
@@ -411,6 +428,7 @@
             }
         ],
         "hasReferenceDocs": false,
+        "usbDocs": "/device/usb",
         "hideHomeDetailsVideo": true,
         "invertedMenu": true,
         "coloredToolbox": true,
@@ -455,6 +473,7 @@
             "en",
             "ar",
             "bg",
+            "ca",
             "cs",
             "cy",
             "da",
@@ -488,11 +507,16 @@
         "monacoColors": {
             "editor.background": "#ecf0f1"
         },
+        "monacoFieldEditors": [
+            "soundeffect-editor"
+        ],
         "browserDbPrefixes": {
             "1": "v1",
             "2": "v2",
             "3": "v3",
-            "4": "v4"
+            "4": "v4",
+            "5": "v5",
+            "6": "v6"
         },
         "editorVersionPaths": {
             "0": "v0"
@@ -502,7 +526,10 @@
         "debugger": true,
         "simGifTransparent": "rgba(0,0,0,0)",
         "simGifMaxFrames": 44,
+        "simScreenshot": true,
         "simScreenshotMaxUriLength": 300000,
+        "simGif": true,
+        "simGifWidth": 240,
         "qrCode": true,
         "importExtensionFiles": true,
         "nameProjectFirst": true,
@@ -515,27 +542,36 @@
         "immersiveReader": true,
         "tutorialCodeValidation": true,
         "downloadDialogTheme": {
-            "webUSBDeviceNames": ["Calliope mini CMSIS-DAP", "DAPLink CMSIS-DAP"],
+            "webUSBDeviceNames": ["Calliope mini CMSIS-DAP", "DAPLink CMSIS-DAP", "Calliope mini", "J-Link"],
             "minimumFirmwareVersion": "0249",
             "deviceIcon": "xicon microbit",
             "deviceSuccessIcon": "xicon microbit-check",
 
-            "downloadMenuHelpURL": "/device/usb",
-            "downloadHelpURL": "/device/usb",
+            "downloadMenuHelpURL" : "/device/usb",
+            "downloadHelpURL" : "/device/usb",
             "firmwareHelpURL": "/device/usb/webusb/troubleshoot",
             "troubleshootWebUSBHelpURL": "/device/usb/webusb/troubleshoot",
             "incompatibleHardwareHelpURL": "/device/v2",
 
-            "dragFileImage": "./static/download/transfer.png",
-            "connectDeviceImage": "./static/download/connect.png",
-            "selectDeviceImage": "./static/download/pair.png",
+            "dragFileImage": "/static/download/transfer.png",
+            "connectDeviceImage": "/static/download/connect.png",
+            "selectDeviceImage": "/static/download/pair.png",
             "connectionSuccessImage": "/static/download/connected.png",
-            "checkFirmwareVersionImage": "./static/download/firmware.png",
-            "checkUSBCableImage": "./static/download/connect.pn",
+            "checkFirmwareVersionImage": "/static/download/firmware.png",
+            "checkUSBCableImage": "/static/download/connect.png",
             "incompatibleHardwareImage": "/static/download/incompatible.png"
         },
         "winAppDeprImage": "/static/winapp.PNG",
-        "showWinAppDeprBanner": false
+        "showWinAppDeprBanner": false,
+        "tours": {
+            "editor": "/tours/editor-tour"
+        },
+        "tutorialSimSidebarLayout": true,
+        "preferWebUSBDownload": true,
+        "hideReplaceMyCode": true,
+        "matchWebUSBDeviceInSim": true,
+        "condenseProfile": true,
+        "cloudProfileIcon": "/static/profile/microbit-cloud.png"
     },
     "queryVariants": {
         "hidemenu": {
@@ -549,6 +585,40 @@
             },
             "appTheme": {
                 "disableBlobObjectDownload": true
+            }
+        },
+        "identity=1": {
+            "cloud": {
+                "cloudProviders": {
+                    "github": {
+                        "id": "github",
+                        "name": "GitHub",
+                        "icon": "/static/providers/github-mark.png",
+                        "identity": false,
+                        "order": 3
+                    },
+                    "microsoft": {
+                        "id": "microsoft",
+                        "name": "Microsoft",
+                        "icon": "/static/providers/microsoft-logo.svg",
+                        "identity": true,
+                        "redirect": true,
+                        "order": 1
+                    },
+                    "google": {
+                        "id": "google",
+                        "name": "Google",
+                        "icon": "/static/providers/google-logo.svg",
+                        "identity": true,
+                        "redirect": true,
+                        "order": 2
+                    }
+                }
+            }
+        },
+        "skillsMap=1": {
+            "appTheme": {
+                "hideReplaceMyCode": false
             }
         }
     },

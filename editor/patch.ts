@@ -180,7 +180,7 @@ arrowImageNodes.forEach(node => {
     <field name="LED34">FALSE</field>
     <field name="LED44">FALSE</field>
   </block>
- 
+
   to
 <block type="device_show_leds">
     <field name="LEDS">`
@@ -194,6 +194,44 @@ arrowImageNodes.forEach(node => {
   </block>
  */
 
+
+    if (pxt.semver.majorCmp(pkgTargetVersion || "0.0.0", "5.0.12") <= 0) {
+        // Eighth note misspelling
+        /*
+        <block type="basic_show_icon">
+            <field name="i">IconNames.EigthNote</field>
+        </block>
+
+        converts to
+
+        <block type="basic_show_icon">
+            <field name="i">IconNames.EighthNote</field>
+        </block>
+        */
+        pxt.U.toArray(dom.querySelectorAll("block[type=basic_show_icon]>field[name=i]"))
+            .filter(node => node.textContent === "IconNames.EigthNote")
+            .forEach(node => node.textContent = "IconNames.EighthNote");
+
+        // Italian translation error
+        /*
+        <shadow type="device_note">
+            <field name="note">466</field>
+        </shadow>
+
+        converts to
+
+        <shadow type="device_note">
+            <field name="name">466</field>
+        </shadow>
+        */
+        pxt.U.toArray(dom.querySelectorAll("shadow[type=device_note]>field[name=note]"))
+            .forEach(node => node.setAttribute("name", "name"));
+    }
+
+    // is this a old script?
+    if (pxt.semver.majorCmp(pkgTargetVersion || "0.0.0", "1.0.0") >= 0) return;
+
+    // showleds
     const nodes = pxt.U.toArray(dom.querySelectorAll("block[type=device_show_leds]"))
         .concat(pxt.U.toArray(dom.querySelectorAll("block[type=device_build_image]")))
         .concat(pxt.U.toArray(dom.querySelectorAll("shadow[type=device_build_image]")))
@@ -240,9 +278,9 @@ arrowImageNodes.forEach(node => {
 <mutation callbackproperties="receivedString" renamemap="{}"></mutation>
 <field name="receivedString">receivedString</field>
 </block>
- 
+
 converts to
- 
+
 <block type="radio_on_number" x="196" y="208">
 <field name="HANDLER_receivedNumber" id="DCy(W;1)*jLWQUpoy4Mm" variabletype="">receivedNumber</field>
 </block>

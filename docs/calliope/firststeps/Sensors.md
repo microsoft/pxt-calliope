@@ -28,3 +28,12 @@ The built in magnetometer allows the Calliope mini to tell in which direction it
 
 ### Temperature sensor
 You can select the temperature sensor by dragging the block from the Input section into the number block.
+
+```blocks
+basic.showLeds(`
+    . # . # .
+    # # # # #
+    # # # # #
+    . # # # .
+    . . # . .`);
+```

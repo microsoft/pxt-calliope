@@ -1,9 +1,5 @@
 # Projects
 
-* [New project templates](/calliope/templates/new-project-pxt4)
-  * [Calliope mini 2.x](/calliope/templates/calliope-mini-2)
-  * [Calliope mini 1.x](/calliope/templates/calliope-mini-1)
-  * [Which template?](/calliope/neu)
 * [First Steps](/calliope/firststeps)
   * [Get Ready](/calliope/firststeps/firstSteps)
   * [The 5x5 LED matrix](/calliope/firststeps/5x5LED)

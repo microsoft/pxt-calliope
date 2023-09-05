@@ -1,0 +1,27 @@
+{
+    "name": "mini-2",
+    "version": "1.0.0",
+    "description": "The calliope mini 2 core library",
+    "compileServiceVariant": "minidal",
+    "disablesVariants": [
+        "minicodal"
+    ],
+    "core": true,
+    "dependencies": {
+        "core": "file:../core",
+        "core-mini-dal": "file:../core-mini-dal"
+    },
+    "icon": "./static/devices/mini2.png",
+    "files": [
+        "README.md",
+        "board.json"
+    ],
+    "yotta": {
+        "config": {
+            "microbit-dal": {
+                "sram_end": "0x20008000",
+                "RAM_SIZE": "\"32K\""
+            }
+        }
+    }
+}

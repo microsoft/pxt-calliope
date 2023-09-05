@@ -9,10 +9,10 @@ Code the buttons on the @boardname@ to show that it's happy or sad.
 
 ## Step 1 @fullscreen
 
-Place a ``||input:on button pressed||`` block to run code when button **A** is pressed.
+Use the ``||input:on button pressed||`` block to run code when button **A** is pressed.
 
 ```blocks
-input.onButtonEvent(Button.A, input.buttonEventClick(), function () { 
+input.onButtonEvent(Button.A, input.buttonEventValue(ButtonEvent.Click), () => { 
 });
 ```
 
@@ -21,15 +21,15 @@ input.onButtonEvent(Button.A, input.buttonEventClick(), function () {
 Place a ``||basic:show leds||`` block inside ``||input:on button pressed||`` to display a smiley on the screen. Press the **A** button in the simulator to see the smiley.
 
 ```blocks
-input.onButtonEvent(Button.A, input.buttonEventClick(), function () { 
+input.onButtonEvent(Button.A, input.buttonEventValue(ButtonEvent.Click), () => { 
     basic.showLeds(`
         # # . # #
         # # . # #
         . . . . .
         # . . . #
         . # # # .`
-        );
-});
+        )
+})
 ```
 
 ## Step 3 @fullscreen
@@ -37,7 +37,7 @@ input.onButtonEvent(Button.A, input.buttonEventClick(), function () {
 Add ``||input:on button pressed||`` and ``||basic:show leds||`` blocks to display a frowny when button **B** is pressed.
 
 ```blocks
-input.onButtonEvent(Button.B, input.buttonEventClick(), function () { 
+input.onButtonEvent(Button.B, input.buttonEventValue(ButtonEvent.Click), () => { 
     basic.showLeds(`
         # # . # #
         # # . # #
@@ -53,7 +53,7 @@ input.onButtonEvent(Button.B, input.buttonEventClick(), function () {
 Add a secret mode that happens when **A** and **B** are pressed together. For this case, add multiple ``||basic:show leds||`` blocks to create an animation.
 
 ```blocks
-input.onButtonEvent(Button.AB, input.buttonEventClick(), function () {
+input.onButtonEvent(Button.AB, input.buttonEventValue(ButtonEvent.Click), () => {
     basic.showLeds(`
         . . . . .
         # . # . .
@@ -79,3 +79,6 @@ If you have a @boardname@, connect it to USB and click ``|Download|`` to transfe
 
 Nice! Now go and show it off to your friends!
 
+```template
+input.onButtonPressed(Button.A, function() {})
+```

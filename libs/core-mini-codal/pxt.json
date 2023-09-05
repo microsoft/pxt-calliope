@@ -1,0 +1,21 @@
+{
+    "dependencies": {
+        "core": "file:../core",
+        "core-mini": "file:../core-mini",
+        "microphone": "file:../microphone"
+    },
+    "disablesVariants": [
+        "minidal"
+    ],
+    "files": [
+        "shims.d.ts",
+        "enums.d.ts",
+        "README.md",
+        "music.cpp",
+        "music.ts",
+        "motors.ts",
+        "soundexpressions.ts",
+        "playable.ts",
+        "rgbled.ts"
+    ]
+}

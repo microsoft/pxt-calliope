@@ -4,7 +4,7 @@
 /// <reference path="../node_modules/pxt-core/built/pxtlib.d.ts" />
 /// <reference path="../node_modules/pxt-core/built/pxteditor.d.ts" />
 /// <reference path="dapjs.d.ts" />
-import * as dialogs from "./dialogs";
+// import * as dialogs from "./dialogs";
 import * as flash from "./flash";
 import * as patch from "./patch";
 
@@ -37,9 +37,18 @@ pxt.editor.initExtensionsAsync = function (opts: pxt.editor.ExtensionOptions): P
         productId: 0x0204,
         classCode: 0xff,
         subclassCode: 0x00 // the custom CMSIS2 endpoint
+    }, {
+        vendorId: 0x1366, // Segger
+        productId: 0x1015 // Mini 2.0
+    }, {
+        vendorId: 0x1366, // Segger
+        productId: 0x1025 // Mini 2.1
+    }, {
+        vendorId: 0x1366 // Segger
     }])
 
     res.mkPacketIOWrapper = flash.mkDAPLinkPacketIOWrapper;
     res.blocklyPatch = patch.patchBlocks;
+    // res.showProgramTooLargeErrorAsync = dialogs.showProgramTooLargeErrorAsync;
     return Promise.resolve<pxt.editor.ExtensionResult>(res);
 }

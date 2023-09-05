@@ -1,0 +1,17 @@
+{
+    "dependencies": {
+        "core": "file:../core",
+        "core-mini": "file:../core-mini"
+    },
+    "disablesVariants": [
+        "minicodal"
+    ],
+    "files": [
+        "shims.d.ts",
+        "enums.d.ts",
+        "microphone.ts",
+        "motors.ts",
+        "parts/dcmotor.svg",
+        "input.cpp"
+    ]
+}

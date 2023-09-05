@@ -23,17 +23,34 @@ namespace led {
     let barGraphHighLast = 0;
 
     /**
+     * Controls where plotbargraph prints to the console
+     **/
+    export let barGraphToConsole = true
+
+
+    /**
      * Displays a vertical bar graph based on the `value` and `high` value.
      * If `high` is 0, the chart gets adjusted automatically.
      * @param value current value to plot
      * @param high maximum value. If 0, maximum value adjusted automatically, eg: 0
+     * @param valueToConsole if true, prints value to the serial port
      */
     //% help=led/plot-bar-graph weight=20
-    //% blockId=device_plot_bar_graph block="plot bar graph of %value up to %high" icon="\uf080" blockExternalInputs=true
+    //% blockId=device_plot_bar_graph block="plot bar graph of $value up to $high|| serial write $valueToConsole" icon="\uf080" blockExternalInputs=true
     //% parts="ledmatrix"
-    export function plotBarGraph(value: number, high: number): void {
+    //% valueToConsole.shadow=toggleOnOff
+    //% valueToConsole.defl=true
+    export function plotBarGraph(value: number, high: number, valueToConsole?: boolean): void {
+        if (valueToConsole == undefined) {
+            valueToConsole = barGraphToConsole;
+        }
         const now = input.runningTime();
-        console.logValue("", value);
+        if (valueToConsole)
+            console.logValue("", value);
+        if (isNaN(value)) {
+            basic.clearScreen()
+            return
+        }
         value = Math.abs(value);
 
         // auto-scale "high" is not provided
@@ -112,7 +129,7 @@ namespace led {
 
     /**
      * Fades in the screen display.
-     * @param ms fade time in milleseconds
+     * @param ms fade time in milliseconds
      */
     //% help=led/fade-in
     //% parts="ledmatrix"

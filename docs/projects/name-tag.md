@@ -35,3 +35,7 @@ basic.forever(() => {
 ## Step 4
 
 If you have a @boardname@ connected, click ``|Download|`` to transfer your code and watch your name scroll!
+
+```template
+basic.forever(function() {})
+```

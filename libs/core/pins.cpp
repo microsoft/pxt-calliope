@@ -8,45 +8,116 @@
 #endif
 
 enum class DigitalPin {
-    P0 = MICROBIT_ID_IO_P12,   // edge connector 0
-    P1 = MICROBIT_ID_IO_P0,    // edge connector 1
-    P2 = MICROBIT_ID_IO_P1,    // edge connector 2
-    P3 = MICROBIT_ID_IO_P16,   // edge connector 3
-    C4 = MICROBIT_ID_IO_P3,    // LED matrix C1
-    C5 = MICROBIT_ID_IO_P4,    // LED matrix C2
-    C6 = MICROBIT_ID_IO_P10,   // LED matrix C3
-    C7 = MICROBIT_ID_IO_P13,   // LED matrix C4
-    C8 = MICROBIT_ID_IO_P14,   // LED matrix C5
-    C9 = MICROBIT_ID_IO_P15,   // LED matrix C6
-    C10 = MICROBIT_ID_IO_P9,   // LED matrix C7
-    C11 = MICROBIT_ID_IO_P7,   // LED matrix C8
-    C12 = MICROBIT_ID_IO_P6,   // LED matrix C9
-    C16 = MICROBIT_ID_IO_P2,   // RX
-    C17 = MICROBIT_ID_IO_P8,   // TX
-    C18 = MICROBIT_ID_IO_P20,  // SDA
-    //% block="A1 RX" blockHidden=true
-    A1_RX = MICROBIT_ID_IO_P2,   // RX // C16
-    //% block="A1 TX" blockHidden=true
-    A1_TX = MICROBIT_ID_IO_P8,   // TX // C17
-    //% block="A0 SDA" blockHidden=true
-    A0_SCL = MICROBIT_ID_IO_P19, // SCL // C19
-    //% block="A0 SDA" blockHidden=true
-    A0_SDA = MICROBIT_ID_IO_P20,  // SDA // C18
+    P0 = MICROBIT_ID_IO_P0,   // edge connector 0
+    P1 = MICROBIT_ID_IO_P1,    // edge connector 1
+    P2 = MICROBIT_ID_IO_P2,    // edge connector 2
+    P3 = MICROBIT_ID_IO_P3,   // edge connector 3
+
+    //% blockHidden=true
+    C4 = MICROBIT_ID_IO_P4,    // -> P4
+    P4 = MICROBIT_ID_IO_P4,    // LED matrix COLUMN 1
+
+    C5 = MICROBIT_ID_IO_P5,    // -> P5
+    P5 = MICROBIT_ID_IO_P5,    // LED matrix COLUMN 2
+
+    //% blockHidden=true
+    C6 = MICROBIT_ID_IO_P6,   // -> P6
+    P6 = MICROBIT_ID_IO_P6,   // LED matrix COLUMN 3
+
+    //% blockHidden=true
+    C7 = MICROBIT_ID_IO_P7,   // -> P7
+    P7 = MICROBIT_ID_IO_P7,   // LED matrix COLUMN 4
+
+    //% blockHidden=true
+    C8 = MICROBIT_ID_IO_P8,   // -> P8
+    P8 = MICROBIT_ID_IO_P8,   // LED matrix COLUMN 5
+
+    //% blockHidden=true
+    C9 = MICROBIT_ID_IO_P9,   // -> P9
+    P9 = MICROBIT_ID_IO_P9,   // LED matrix COLUMN 6
+
+    //% blockHidden=true
+    C10 = MICROBIT_ID_IO_P10,   // -> P10
+    P10 = MICROBIT_ID_IO_P10,   // LED matrix COLUMN 7
+
+    //% blockHidden=true
+    C11 = MICROBIT_ID_IO_P11,   // -> P11
+    P11 = MICROBIT_ID_IO_P11,   // LED matrix COLUMN 8
+
+    //% blockHidden=true
+    C12 = MICROBIT_ID_IO_P12,   // -> P12
+    P12 = MICROBIT_ID_IO_P12,   // LED matrix COLUMN 9
+
+    P13 = MICROBIT_ID_IO_P13,   // LED matrix ROW 1
+    P14 = MICROBIT_ID_IO_P14,   // LED matrix ROW 2
+    P15 = MICROBIT_ID_IO_P15,   // LED matrix ROW 3
+
+    //% blockHidden=true
+    C16 = MICROBIT_ID_IO_A1_RX,   // -> A1_RX
+    //% blockHidden=true
+    C17 = MICROBIT_ID_IO_A1_TX,   // -> A1_TX
+    //% blockHidden=true
+    C18 = MICROBIT_ID_IO_A0_SDA,  // -> A0_SDA
+    
+    //% block="A1 RX"
+    A1_RX = MICROBIT_ID_IO_A1_RX,   // RX
+    //% block="A1 TX"
+    A1_TX = MICROBIT_ID_IO_A1_TX,   // TX
+    //% block="A0 SCL" blockHidden=true
+    A0_SCL = MICROBIT_ID_IO_A0_SCL, // SCL
+    //% block="A0 SDA"
+    A0_SDA = MICROBIT_ID_IO_A0_SDA, // SDA
+
+    //% blockHidden=true
+    M_MODE = MICROBIT_ID_IO_M_MODE,
+
+    //% blockHidden=true
+    M_A_IN1 = MICROBIT_ID_IO_M_A_IN1,
+
+    //% blockHidden=true
+    M_B_IN1 = MICROBIT_ID_IO_M_B_IN1,
+
+    //% blockHidden=true
+    RGB = MICROBIT_ID_IO_RGB
+
 };
 
 enum class AnalogPin {
-    P1 = MICROBIT_ID_IO_P0,    // edge connector 1
-    P2 = MICROBIT_ID_IO_P1,    // edge connector 2
-    C4 = MICROBIT_ID_IO_P3,   // LED matrix C1
-    C5 = MICROBIT_ID_IO_P4,   // LED matrix C2
-    C6 = MICROBIT_ID_IO_P10,  // LED matrix C3
-    C16 = MICROBIT_ID_IO_P2,  // RX
-    C17 = MICROBIT_ID_IO_P8,  // TX
-    MIC = MICROBIT_ID_IO_P21,  // microphone
-    //% block="A1 RX" blockHidden=true
-    A1_RX = MICROBIT_ID_IO_P2,   // RX // C16
-    //% block="A1 TX" blockHidden=true
-    A1_TX = MICROBIT_ID_IO_P8,   // TX // C17
+    P0 = MICROBIT_ID_IO_P0,    // edge connector 0
+    P1 = MICROBIT_ID_IO_P1,    // edge connector 1
+    P2 = MICROBIT_ID_IO_P2,    // edge connector 2
+
+    //% blockHidden=true
+    C4 = MICROBIT_ID_IO_P4,   // LED matrix C1 // -> P4
+    P4 = MICROBIT_ID_IO_P4,   // LED matrix C1
+
+    //% blockHidden=true
+    C5 = MICROBIT_ID_IO_P5,   // LED matrix C2 // -> P5
+    P5 = MICROBIT_ID_IO_P5,   // LED matrix C2
+
+    //% blockHidden=true
+    C6 = MICROBIT_ID_IO_P6,  // LED matrix C3 // -> P6
+    P6 = MICROBIT_ID_IO_P6,  // LED matrix C3
+
+    //% blockHidden=true
+    C16 = MICROBIT_ID_IO_A1_RX,  // RX // -> A1_RX
+    //% blockHidden=true
+    C17 = MICROBIT_ID_IO_A1_TX,  // TX // -> A1_TX
+
+    //% blockHidden=true
+    // C18 = MICROBIT_ID_IO_P18,  // P18
+    // P18 = MICROBIT_ID_IO_P18,  // P18
+
+    A1_RX = MICROBIT_ID_IO_A1_RX,   // RX
+    A1_TX = MICROBIT_ID_IO_A1_TX,   // TX
+
+    //% blockHidden=true
+    MIC = MICROBIT_ID_LOGO, // microphone
+
+    //% blockHidden=true
+    M_A_IN2 = MICROBIT_ID_IO_M_A_IN2,
+    //% blockHidden=true
+    M_B_IN2 = MICROBIT_ID_IO_M_B_IN2
 };
 
 enum class PulseValue {
@@ -81,29 +152,42 @@ namespace pxt
 {
 MicroBitPin *getPin(int id) {
     switch (id) {
-        case MICROBIT_ID_IO_P0: return &uBit.io.P0;
-        case MICROBIT_ID_IO_P1: return &uBit.io.P1;
-        case MICROBIT_ID_IO_P2: return &uBit.io.P2;
-        case MICROBIT_ID_IO_P3: return &uBit.io.P3;
-        case MICROBIT_ID_IO_P4: return &uBit.io.P4;
-        case MICROBIT_ID_IO_P5: return &uBit.io.P5;
-        case MICROBIT_ID_IO_P6: return &uBit.io.P6;
-        case MICROBIT_ID_IO_P7: return &uBit.io.P7;
-        case MICROBIT_ID_IO_P8: return &uBit.io.P8;
-        case MICROBIT_ID_IO_P9: return &uBit.io.P9;
-        case MICROBIT_ID_IO_P10: return &uBit.io.P10;
-        case MICROBIT_ID_IO_P11: return &uBit.io.P11;
-        case MICROBIT_ID_IO_P12: return &uBit.io.P12;
-        case MICROBIT_ID_IO_P13: return &uBit.io.P13;
-        case MICROBIT_ID_IO_P14: return &uBit.io.P14;
-        case MICROBIT_ID_IO_P15: return &uBit.io.P15;
-        case MICROBIT_ID_IO_P16: return &uBit.io.P16;
-        case MICROBIT_ID_IO_P19: return &uBit.io.P19;
-        case MICROBIT_ID_IO_P20: return &uBit.io.P20;
-        case MICROBIT_ID_IO_P21: return &uBit.io.P21;
+        case MICROBIT_ID_IO_P0: return &uBit.io.P0; // 2, 3
+        case MICROBIT_ID_IO_P1: return &uBit.io.P1; // 2, 3
+        case MICROBIT_ID_IO_P2: return &uBit.io.P2; // 2, 3
+        case MICROBIT_ID_IO_P3: return &uBit.io.P3; // 2, 3
+        case MICROBIT_ID_IO_P4: return &uBit.io.P4; // 2, 3
+        case MICROBIT_ID_IO_P5: return &uBit.io.P5; // 2, 3
+        case MICROBIT_ID_IO_P6: return &uBit.io.P6; // 2, 3
+        case MICROBIT_ID_IO_P7: return &uBit.io.P7; // 2, 3
+        case MICROBIT_ID_IO_P8: return &uBit.io.P8; // 2, 3
+        case MICROBIT_ID_IO_P9: return &uBit.io.P9; // 2, 3
+        case MICROBIT_ID_IO_P10: return &uBit.io.P10; // 2, 3
+        case MICROBIT_ID_IO_P11: return &uBit.io.P11; // 2, 3
+        case MICROBIT_ID_IO_P12: return &uBit.io.P12; // 2, 3
+        case MICROBIT_ID_IO_P13: return &uBit.io.P13; // ?
+        case MICROBIT_ID_IO_P14: return &uBit.io.P14; // ?
+        case MICROBIT_ID_IO_P15: return &uBit.io.P15; // ?
+        // P18 // 1, ?
+        case MICROBIT_ID_IO_A0_SCL: return &uBit.io.A0SCL;
+        case MICROBIT_ID_IO_A0_SDA: return &uBit.io.A0SDA; 
+        case MICROBIT_ID_IO_A1_RX: return &uBit.io.A1RX;
+        case MICROBIT_ID_IO_A1_TX: return &uBit.io.A1TX;
+        
 #if MICROBIT_CODAL
+        // case MICROBIT_ID_IO_P18: return &uBit.io.P18; // ?
+        case MICROBIT_ID_LOGO: return &uBit.io.logo;
+        case MICROBIT_ID_IO_RGB: return &uBit.io.RGB;
+        case MICROBIT_ID_IO_M_A_IN1: return &uBit.io.M_A_IN1;
+        case MICROBIT_ID_IO_M_A_IN2: return &uBit.io.M_A_IN2;
+        case MICROBIT_ID_IO_M_B_IN1: return &uBit.io.M_B_IN1;
+        case MICROBIT_ID_IO_M_B_IN2: return &uBit.io.M_B_IN2;
+        case MICROBIT_ID_IO_M_MODE: return &uBit.io.M_MODE;
         case 1001: return &uBit.io.usbTx;
         case 1002: return &uBit.io.usbRx;
+#else
+        case MICROBIT_ID_LOGO: return &uBit.io.MICROPHONE;
+        // case MICROBIT_ID_IO_P18: return &uBit.io.A0SDA; //
 #endif
         default: return NULL;
     }
@@ -329,6 +413,7 @@ namespace pins {
     PinCompat* pitchPin2 = NULL;
     uint8_t pitchVolume = 0xff;
     bool analogTonePlaying = false;
+    bool edgeConnectorSoundDisabled = false;
 
     /**
      * Set the pin used when using analog pitch or music.
@@ -369,7 +454,7 @@ namespace pins {
 
         if (analogTonePlaying) {
             int v = pitchVolume == 0 ? 0 : 1 << (pitchVolume >> 5);
-            if (NULL != pitchPin)
+            if (NULL != pitchPin && !edgeConnectorSoundDisabled)
                 pitchPin->setAnalogValue(v);
         }
     }
@@ -391,23 +476,26 @@ namespace pins {
      * @param ms duration of the pitch in milli seconds.
      */
     //% blockId=device_analog_pitch block="analog pitch %frequency|for (ms) %ms"
-    //% help=pins/analog-pitch weight=4 async advanced=true blockGap=8
-    //% blockHidden=true
+    //% help=pins/analog-pitch async advanced=true
     //% group="Pitch"
+    //% blockHidden=true
+    //% weight=14
+    //% blockGap=8
     void analogPitch(int frequency, int ms) {
         // init pins if needed
         if (NULL == pitchPin) {
-            pitchPin = getPin((int)DigitalPin::P1);
-#ifdef SOUND_MIRROR_EXTENSION
-            pitchPin2 = &SOUND_MIRROR_EXTENSION;
-#endif           
+#if MICROBIT_CODAL
+            pitchPin = &uBit.audio.virtualOutputPin;
+#else
+            pitchPin = getPin((int)AnalogPin::P0);
+#endif
         }
         // set pitch
         analogTonePlaying = true;
+
+#if MICROBIT_CODAL
         if (NULL != pitchPin)
             pinAnalogSetPitch(pitchPin, frequency, ms);
-        if (NULL != pitchPin2)
-            pinAnalogSetPitch(pitchPin2, frequency, ms);
         // clear pitch
         if (ms > 0) {
             fiber_sleep(ms);
@@ -417,6 +505,19 @@ namespace pins {
             // causes issues with v2 DMA.
             // fiber_sleep(5);
         }
+#else
+        if (NULL != pitchPin && !edgeConnectorSoundDisabled)
+            pinAnalogSetPitch(pitchPin, frequency, ms);
+        // clear pitch
+        if (ms > 0) {
+            fiber_sleep(ms);
+            if (NULL != pitchPin && !edgeConnectorSoundDisabled)
+                pitchPin->setAnalogValue(0);
+            analogTonePlaying = false;
+            // causes issues with v2 DMA.
+            // fiber_sleep(5);
+        }
+#endif
     }
 
 
@@ -633,10 +734,24 @@ namespace pins {
     void setAudioPin(AnalogPin name) {
 #if MICROBIT_CODAL
         uBit.audio.setPin(*getPin((int)name));
-        uBit.audio.setPinEnabled(true);
+        uBit.audio.setPinEnabled(!edgeConnectorSoundDisabled);
 #else
         // v1 behavior
         pins::analogSetPitchPin(name);
+#endif
+    }
+
+    /**
+    * Sets whether or not audio will be output using a pin on the edge
+    * connector.
+    */
+    //% blockId=pin_set_audio_pin_enabled
+    //% block="set audio pin enabled $enabled"
+    //% weight=0
+    void setAudioPinEnabled(bool enabled) {
+        edgeConnectorSoundDisabled = !enabled;
+#if MICROBIT_CODAL
+        uBit.audio.setPinEnabled(enabled);
 #endif
     }
 }
