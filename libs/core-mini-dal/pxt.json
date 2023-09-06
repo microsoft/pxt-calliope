@@ -3,6 +3,7 @@
         "core": "file:../core",
         "core-mini": "file:../core-mini"
     },
+    "compileServiceVariant": "minidal",
     "disablesVariants": [
         "minicodal"
     ],

@@ -3,5 +3,8 @@
     "disablesVariants": [
         "minidal"
     ],
+    "dependencies": {
+        "core-mini-codal": "file:../core-mini-codal"
+    },
     "additionalFilePath": "../../node_modules/pxt-common-packages/libs/settings"
 }

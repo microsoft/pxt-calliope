@@ -16,6 +16,7 @@
         "minidal"
     ],
     "dependencies": {
-        "core": "file:../core"
+        "core": "file:../core",
+        "core-mini-codal": "file:../core-mini-codal"
     }
 }

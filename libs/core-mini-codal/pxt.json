@@ -4,6 +4,7 @@
         "core-mini": "file:../core-mini",
         "microphone": "file:../microphone"
     },
+    "compileServiceVariant": "minicodal",
     "disablesVariants": [
         "minidal"
     ],
