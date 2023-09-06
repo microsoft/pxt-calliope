@@ -150,7 +150,7 @@
         "githubCorePackage": "calliope-mini/microbit",
         "gittag": "master-iss",
         "serviceId": "calliope",
-        "dockerImage": "pext/yotta:update-yotta3"
+        "dockerImage": "pext/yotta:gcc5"
     },
     "variants": {
         "minidal": {
@@ -179,7 +179,7 @@
                 "githubCorePackage": "calliope-edu/microbit-v2-samples",
                 "gittag": "v0.2.13-calliope",
                 "serviceId": "mbcodal2",
-                "dockerImage": "pext/yotta:update-yotta3",
+                "dockerImage": "pext/yotta:latest",
                 "yottaConfigCompatibility": true
             }
         }
