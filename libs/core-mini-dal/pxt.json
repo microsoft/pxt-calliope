@@ -13,5 +13,42 @@
         "motors.ts",
         "parts/dcmotor.svg",
         "input.cpp"
-    ]
+    ],
+    "yotta": {
+        "optionalConfig": {
+            "microbit-dal": {
+                "bluetooth": {
+                    "open": 1,
+                    "security_level": null,
+                    "whitelist": 0
+                }
+            }
+        },
+        "userConfigs": [
+            {
+                "description": "No pairing required (default)",
+                "config": {
+                    "microbit-dal": {
+                        "bluetooth": {
+                            "open": 1,
+                            "security_level": null,
+                            "whitelist": 0
+                        }
+                    }
+                }
+            },
+            {
+                "description": "",
+                "config": {
+                    "microbit-dal": {
+                        "bluetooth": {
+                            "open": 0,
+                            "security_level": "Paring required (fixes Android 13 bug »GATT ERROR 133«, mini must be already flashed with this option)",
+                            "whitelist": 1
+                        }
+                    }
+                }
+            }
+        ]
+    }
 }
