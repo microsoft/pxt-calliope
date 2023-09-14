@@ -38,12 +38,12 @@
                 }
             },
             {
-                "description": "",
+                "description": "Paring required (fixes Android 13 bug »GATT ERROR 133«, mini must be already flashed with this option)",
                 "config": {
                     "microbit-dal": {
                         "bluetooth": {
                             "open": 0,
-                            "security_level": "Paring required (fixes Android 13 bug »GATT ERROR 133«, mini must be already flashed with this option)",
+                            "security_level": "SECURITY_MODE_ENCRYPTION_NO_MITM",
                             "whitelist": 1
                         }
                     }
