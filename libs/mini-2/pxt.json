@@ -1,7 +1,7 @@
 {
     "name": "V2",
     "version": "1.0.0",
-    "description": "The calliope mini 2 core library",
+    "description": "Calliope mini 2",
     "compileServiceVariant": "minidal",
     "disablesVariants": [
         "minicodal"
