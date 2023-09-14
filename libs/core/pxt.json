@@ -144,18 +144,6 @@
                         }
                     }
                 }
-            },
-            {
-                "description": "Bluetooth: Require Pariring (Solves an Android 13+ bug)",
-                "config": {
-                    "microbit-dal": {
-                        "bluetooth": {
-                            "open": 0,
-                            "security_level": "SECURITY_MODE_ENCRYPTION_NO_MITM",
-                            "whitelist": 1
-                        }
-                    }
-                }
             }
         ]
     }
