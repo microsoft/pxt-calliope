@@ -147,7 +147,7 @@
         "yottaTarget": "calliope-mini-classic-gcc@https://github.com/calliope-mini/target-calliope-mini-classic-gcc#v1.2.4",
         "yottaCorePackage": "microbit",
         "githubCorePackage": "calliope-mini/microbit",
-        "gittag": "master-iss",
+        "gittag": "v2.2.0-rc6-calliope1.1",
         "serviceId": "calliope",
         "dockerImage": "pext/yotta:update-yotta3"
     },
@@ -171,7 +171,7 @@
                 "codalTarget": {
                     "name": "codal-microbit-v2",
                     "url": "https://github.com/calliope-edu/codal-microbit-v2",
-                    "branch": "v0.2.57-calliope",
+                    "branch": "v0.2.57-calliope-1.2",
                     "type": "git"
                 },
                 "codalBinary": "MICROBIT",
