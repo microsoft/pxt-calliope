@@ -12,7 +12,6 @@
         "libs/core-mini-codal",
         "libs/v1",
         "libs/v2",
-        "libs/v3",
         "libs/radio",
         "libs/devices",
         "libs/bluetooth",
@@ -150,7 +149,7 @@
         "githubCorePackage": "calliope-mini/microbit",
         "gittag": "v2.2.0-rc6-calliope1.1",
         "serviceId": "calliope",
-        "dockerImage": "pext/yotta:update-yotta3"
+        "dockerImage": "pext/yotta:gcc5"
     },
     "variants": {
         "minidal": {
@@ -179,7 +178,7 @@
                 "githubCorePackage": "calliope-edu/microbit-v2-samples",
                 "gittag": "v0.2.13-calliope",
                 "serviceId": "mbcodal2",
-                "dockerImage": "pext/yotta:update-yotta3",
+                "dockerImage": "pext/yotta:latest",
                 "yottaConfigCompatibility": true
             }
         }
