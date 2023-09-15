@@ -1,6 +1,6 @@
 {
-    "name": "mini-3",
-    "description": "The calliope mini 3 core library",
+    "name": "v3",
+    "description": "Calliope mini 3",
     "core": true,
     "compileServiceVariant": "minicodal",
     "disablesVariants": [

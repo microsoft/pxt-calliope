@@ -5,5 +5,5 @@ basic.showString("mini 1")
 ```
 
 ```package
-mini-1
+v1
 ```
