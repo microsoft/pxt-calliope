@@ -309,12 +309,105 @@
             "CalliTGS3/pxt-calliope-grovePCF85063TP"
         ],
         "approvedRepoLib": {
-            "microsoft/pxt-neopixel": {
+            "calliope-edu/pxt-jacdac": {
+                "tags": [ "jacdac", "V3" ],
+                "preferred": true
+            },
+            "calliope-edu/CO2-Sensor-SCD40": {
+                "preferred": true
+            },
+            "calliope-edu/pxt-HM3301_Dust_Sensor": {
+                "preferred": true
+            },
+            "calliope-edu/pxt-TCS34725FN": {
+                "preferred": true
+            },
+            "calliope-edu/pxt-display": {
+                "preferred": true
+            },
+            "calliope-edu/pxt-grove": {
+                "preferred": true
+            },
+            "calliope-edu/pxt-rgblcd": {
+                "preferred": true
+            },
+            "calliope-edu/pxt-sunlightsensor-si1145": {
+                "preferred": true
+            },
+            "calliope-mini/pxt-SCD30": {
+                "preferred": true
+            },
+            "tinysuperlab/motionkit": {
+                "preferred": true
+            },
+            "tinysuperlab/touchkit": {
+                "preferred": true
+            },
+            "MKleinSB/pxt-KY-040": {
+                "preferred": true
+            },
+            "MKleinSB/pxt-MAX7219_8x8": {
+                "preferred": true
+            },
+            "MKleinSB/pxt-OLED-SSD1306": {
+                "preferred": true
+            },
+            "MKleinSB/pxt-OLEDpaint": {
+                "preferred": true
+            },
+            "MKleinSB/pxt-callibot": {
+                "preferred": true
+            },
+            "MKleinSB/pxt-callicolor": {
+                "preferred": true
+            },
+            "MKleinSB/pxt-callicross": {
+                "preferred": true
+            },
+            "MKleinSB/pxt-callimotor": {
+                "preferred": true
+            },
+            "MKleinSB/pxt-calliope-buttons": {
+                "preferred": true
+            },
+            "MKleinSB/pxt-CO2OLED": {
+                "preferred": true
+            },
+            "MKleinSB/pxt-dht11": {
+                "preferred": true
+            },
+            "MKleinSB/pxt-esp-thingspeak": {
+                "preferred": true
+            },
+            "MKleinSB/pxt-gatorlog-calliope": {
+                "preferred": true
+            },
+            "MKleinSB/pxt-huskylens": {
+                "preferred": true
+            },
+            "MKleinSB/pxt-kitronik-zip-tile-calliope": {
+                "preferred": true
+            },
+            "MKleinSB/pxt-mpr121": {
+                "preferred": true
+            },
+            "MKleinSB/pxt-pca9685": {
+                "preferred": true
+            },
+            "MKleinSB/pxt-seeed-temperature": {
+                "preferred": true
+            },
+            "MKleinSB/pxt-serialmp3": {
+                "preferred": true
+            },
+            "Microsoft/pxt-microturtle": {
+                "preferred": true
+            },
+            "Microsoft/pxt-neopixel":{
                 "tags": [ "Lights and Display" ],
                 "preferred": true
             },
-            "calliope-edu/pxt-jacdac": {
-                "tags": [ "jacdac", "V3" ],
+            "CalliTGS3/pxt-calliope-grovePCF85063TP": {
                 "preferred": true
             }
         },
