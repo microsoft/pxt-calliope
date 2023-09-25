@@ -140,7 +140,6 @@
             "vid": "0x1366",
             "pid": "0x1025"
         }],
-        "webUSB": true,
         "useNewFunctions": true
     },
     "compileService": {
@@ -154,7 +153,8 @@
     "variants": {
         "minidal": {
             "compile": {
-                "useUF2": false
+                "useUF2": false,
+                "webUSB": false
             },
             "compileService": {
             }
@@ -164,7 +164,8 @@
                 "flashCodeAlign": 4096,
                 "flashUsableEnd": 487424,
                 "flashEnd": 524288,
-                "useUF2": false
+                "useUF2": false,
+                "webUSB": true
             },
             "compileService": {
                 "buildEngine": "codal",
@@ -369,7 +370,7 @@
         "appLogo": "./static/icons/apple-touch-icon.png",
         "organization": "Microsoft MakeCode",
         "organizationUrl": "https://makecode.com/",
-        "organizationLogo": "./static/Microsoft-logo_rgb_c-gray-square.png",
+        "organizationLogo": "./static/Logo_Calliope_Woman.svg",
         "organizationWideLogo": "./static/Microsoft-logo_rgb_c-white.png",
         "homeScreenHero": {
             "imageUrl": "./static/hero.jpg",
@@ -544,8 +545,8 @@
         "downloadDialogTheme": {
             "webUSBDeviceNames": ["Calliope mini CMSIS-DAP", "DAPLink CMSIS-DAP", "Calliope mini", "J-Link"],
             "minimumFirmwareVersion": "0249",
-            "deviceIcon": "xicon microbit",
-            "deviceSuccessIcon": "xicon microbit-check",
+            "deviceIcon": "usb",
+            "deviceSuccessIcon": "check",
 
             "downloadMenuHelpURL" : "/device/usb",
             "downloadHelpURL" : "/device/usb",

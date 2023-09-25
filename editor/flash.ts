@@ -108,7 +108,7 @@ class DAPWrapper implements pxt.packetio.PacketIOWrapper {
         this.allocDAP();
     }
 
-    icon = "xicon microbit";
+    icon = "icon usb";
 
     private pendingSerial: Uint8Array
     private lastPendingSerial: number

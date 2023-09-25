@@ -42,7 +42,7 @@
                 }
             },
             {
-                "description": "Bluetooth: Paring required (Calliope mini 3 default. Fixes Android 13 bug »GATT ERROR 133«, mini must be already flashed with this option)",
+                "description": "Bluetooth: Paring required (Calliope mini 3 default. Fixes Android 13 bug »GATT ERROR 133«)",
                 "config": {
                     "microbit-dal": {
                         "bluetooth": {
