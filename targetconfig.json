@@ -311,6 +311,24 @@
             "CalliTGS3/pxt-calliope-grovePCF85063TP"
         ],
         "approvedRepoLib": {
+            "tinysuperlab/motionkitv2": {
+                "tags": [
+                    "Motor"
+                ],
+                "preferred": true
+            },
+            "tinysuperlab/motionkit": {
+                "tags": [
+                    "Motor"
+                ],
+                "preferred": true
+            },
+            "tinysuperlab/touchkit": {
+                "tags": [
+                    "Audio"
+                ],
+                "preferred": true
+            },
             "51bit/colorbit": {
                 "tags": [
                     "Display"
@@ -739,8 +757,7 @@
             "makecode-extensions/i2clcd1602": {},
             "microsoft/pxt-jacdac": {
                 "tags": [
-                    "JacDac",
-                    "V3"
+                    "JacDac"
                 ],
                 "preferred": true
             },
@@ -836,24 +853,6 @@
                 "tags": [
                     "Climate"
                 ]
-            },
-            "tinysuperlab/motionkitv2": {
-                "tags": [
-                    "Motor"
-                ],
-                "preferred": true
-            },
-            "tinysuperlab/motionkit": {
-                "tags": [
-                    "Motor"
-                ],
-                "preferred": true
-            },
-            "tinysuperlab/touchkit": {
-                "tags": [
-                    "Audio"
-                ],
-                "preferred": true
             },
             "calliope-net/i2c-liste": {},
             "vengit/pxt-sbrick": {}

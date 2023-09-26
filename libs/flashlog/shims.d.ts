@@ -12,8 +12,7 @@ declare namespace flashlog {
      **/
     //% help=flashlog/begin-row
     //% parts="flashlog"
-    //% blockGap=8
-    //% group="micro:bit (V2)" shim=flashlog::beginRow
+    //% blockGap=8 shim=flashlog::beginRow
     function beginRow(): int32;
 
     /**
@@ -21,8 +20,7 @@ declare namespace flashlog {
      **/
     //% help=flashlog/log-data
     //% parts="flashlog"
-    //% blockGap=8
-    //% group="micro:bit (V2)" shim=flashlog::logData
+    //% blockGap=8 shim=flashlog::logData
     function logData(key: string, value: string): int32;
 
     /**
@@ -30,8 +28,7 @@ declare namespace flashlog {
      **/
     //% help=flashlog/log-string
     //% parts="flashlog"
-    //% blockGap=8
-    //% group="micro:bit (V2)" shim=flashlog::logString
+    //% blockGap=8 shim=flashlog::logString
     function logString(value: string): int32;
 
     /**
@@ -39,8 +36,7 @@ declare namespace flashlog {
      **/
     //% help=flashlog/end-row
     //% parts="flashlog"
-    //% blockGap=8
-    //% group="micro:bit (V2)" shim=flashlog::endRow
+    //% blockGap=8 shim=flashlog::endRow
     function endRow(): int32;
 
     /**
@@ -48,8 +44,7 @@ declare namespace flashlog {
      **/
     //% help=flashlog/clear
     //% parts="flashlog"
-    //% blockGap=8
-    //% group="micro:bit (V2)" shim=flashlog::clear
+    //% blockGap=8 shim=flashlog::clear
     function clear(fullErase: boolean): void;
 
     /**
@@ -61,8 +56,7 @@ declare namespace flashlog {
      */
     //% help=flashlog/set-timestamp
     //% parts="flashlog"
-    //% blockGap=8
-    //% group="micro:bit (V2)" shim=flashlog::setTimeStamp
+    //% blockGap=8 shim=flashlog::setTimeStamp
     function setTimeStamp(format: FlashLogTimeStampFormat): void;
 
     /**
@@ -72,8 +66,7 @@ declare namespace flashlog {
      */
     //% help=flashlog/set-serial-mirroring
     //% parts="flashlog"
-    //% blockGap=8
-    //% group="micro:bit (V2)" shim=flashlog::setSerialMirroring
+    //% blockGap=8 shim=flashlog::setSerialMirroring
     function setSerialMirroring(enable: boolean): void;
 }
 

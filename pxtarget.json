@@ -9,7 +9,6 @@
         "libs/core",
         "libs/core-mini",
         "libs/core-mini-dal",
-        "libs/core-mini-codal",
         "libs/v1",
         "libs/v2",
         "libs/radio",
@@ -18,11 +17,7 @@
         "libs/servo",
         "libs/radio-broadcast",
         "libs/microphone",
-        "libs/settings",
-        "libs/flashlog",
-        "libs/datalogger",
-        "libs/color",
-        "libs/audio-recording"
+        "libs/color"
     ],
     "cloud": {
         "workspace": false,

@@ -64,7 +64,6 @@ namespace datalogger {
     //% value.shadow=math_number
     //% column.shadow=datalogger_columnfield
     //% blockId=dataloggercreatecolumnvalue
-    //% group="micro:bit (V2)"
     //% weight=80 help=datalogger/create-cv
     export function createCV(column: string, value: any): ColumnValue {
         return new ColumnValue(column, value);
@@ -72,7 +71,6 @@ namespace datalogger {
 
     //% block="$column"
     //% blockId=datalogger_columnfield
-    //% group="micro:bit (V2)"
     //% blockHidden=true shim=TD_ID
     //% column.fieldEditor="autocomplete" column.fieldOptions.decompileLiterals=true
     //% column.fieldOptions.key="dataloggercolumn"
@@ -88,7 +86,6 @@ namespace datalogger {
     //% blockId=dataloggerlogdata
     //% data.shadow=lists_create_with
     //% data.defl=dataloggercreatecolumnvalue
-    //% group="micro:bit (V2)"
     //% blockHidden=true
     //% weight=100
     export function logData(data: ColumnValue[]): void {
@@ -133,7 +130,6 @@ namespace datalogger {
     //% data10.shadow=dataloggercreatecolumnvalue
     //% inlineInputMode="variable"
     //% inlineInputModeLimit=1
-    //% group="micro:bit (V2)"
     //% weight=100 help=datalogger/log
     export function log(
         data1: datalogger.ColumnValue,
@@ -171,7 +167,6 @@ namespace datalogger {
     //% blockId=dataloggersetcolumns
     //% data.shadow=list_create_with
     //% data.defl=datalogger_columnfield
-    //% group="micro:bit (V2)"
     //% blockHidden=true
     //% weight=70
     export function setColumns(cols: string[]): void {
@@ -198,7 +193,6 @@ namespace datalogger {
     //% blockId=dataloggersetcolumntitles
     //% inlineInputMode="variable"
     //% inlineInputModeLimit=1
-    //% group="micro:bit (V2)"
     //% weight=70 help=datalogger/set-column-titles
     //% col1.shadow=datalogger_columnfield
     //% col2.shadow=datalogger_columnfield
@@ -236,7 +230,6 @@ namespace datalogger {
      */
     //% block="delete log||$deleteType"
     //% blockId=dataloggerdeletelog
-    //% group="micro:bit (V2)"
     //% weight=60 help=datalogger/delete-log
     export function deleteLog(deleteType?: DeleteType): void {
         init();
@@ -250,7 +243,6 @@ namespace datalogger {
      */
     //% block="on log full"
     //% blockId="on log full"
-    //% group="micro:bit (V2)"
     //% weight=40 help=datalogger/on-log-full
     export function onLogFull(handler: () => void): void {
         init();
@@ -264,7 +256,6 @@ namespace datalogger {
     //% block="set timestamp $format"
     //% blockId=dataloggertoggleincludetimestamp
     //% format.defl=FlashLogTimeStampFormat.None
-    //% group="micro:bit (V2)"
     //% weight=30 help=datalogger/include-timestamp
     export function includeTimestamp(format: FlashLogTimeStampFormat): void {
         init();
