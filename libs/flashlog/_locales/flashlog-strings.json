@@ -6,6 +6,5 @@
   "FlashLogTimeStampFormat.None|block": "none",
   "FlashLogTimeStampFormat.Seconds|block": "seconds",
   "flashlog|block": "flashlog",
-  "{id:category}Flashlog": "Flashlog",
-  "{id:group}micro:bit (V2)": "micro:bit (V2)"
+  "{id:category}Flashlog": "Flashlog"
 }

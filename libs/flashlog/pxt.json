@@ -16,6 +16,6 @@
         "minidal"
     ],
     "dependencies": {
-        "core": "file:../core"
+        "core": "file:../core",
     }
 }

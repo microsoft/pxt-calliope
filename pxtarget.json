@@ -9,7 +9,6 @@
         "libs/core",
         "libs/core-mini",
         "libs/core-mini-dal",
-        "libs/core-mini-codal",
         "libs/v1",
         "libs/v2",
         "libs/radio",
@@ -18,11 +17,7 @@
         "libs/servo",
         "libs/radio-broadcast",
         "libs/microphone",
-        "libs/settings",
-        "libs/flashlog",
-        "libs/datalogger",
-        "libs/color",
-        "libs/audio-recording"
+        "libs/color"
     ],
     "cloud": {
         "workspace": false,
@@ -41,6 +36,7 @@
         "isNative": false,
         "useUF2": false,
         "hasHex": true,
+        "webUSB": true,
         "deployDrives": "MINI",
         "driveName": "MINI",
         "hexMimeType": "application/x-microbit-hex",
@@ -140,7 +136,6 @@
             "vid": "0x1366",
             "pid": "0x1025"
         }],
-        "webUSB": true,
         "useNewFunctions": true
     },
     "compileService": {
@@ -154,7 +149,8 @@
     "variants": {
         "minidal": {
             "compile": {
-                "useUF2": false
+                "useUF2": false,
+                "webUSB": false
             },
             "compileService": {
             }
@@ -164,14 +160,15 @@
                 "flashCodeAlign": 4096,
                 "flashUsableEnd": 487424,
                 "flashEnd": 524288,
-                "useUF2": false
+                "useUF2": false,
+                "webUSB": true
             },
             "compileService": {
                 "buildEngine": "codal",
                 "codalTarget": {
                     "name": "codal-microbit-v2",
                     "url": "https://github.com/calliope-edu/codal-microbit-v2",
-                    "branch": "v0.2.57-calliope-1.4",
+                    "branch": "v0.2.57-calliope-1.5",
                     "type": "git"
                 },
                 "codalBinary": "MICROBIT",
@@ -369,7 +366,7 @@
         "appLogo": "./static/icons/apple-touch-icon.png",
         "organization": "Microsoft MakeCode",
         "organizationUrl": "https://makecode.com/",
-        "organizationLogo": "./static/Microsoft-logo_rgb_c-gray-square.png",
+        "organizationLogo": "./static/Logo_Calliope_Woman.svg",
         "organizationWideLogo": "./static/Microsoft-logo_rgb_c-white.png",
         "homeScreenHero": {
             "imageUrl": "./static/hero.jpg",
@@ -544,8 +541,8 @@
         "downloadDialogTheme": {
             "webUSBDeviceNames": ["Calliope mini CMSIS-DAP", "DAPLink CMSIS-DAP", "Calliope mini", "J-Link"],
             "minimumFirmwareVersion": "0249",
-            "deviceIcon": "xicon microbit",
-            "deviceSuccessIcon": "xicon microbit-check",
+            "deviceIcon": "usb",
+            "deviceSuccessIcon": "check",
 
             "downloadMenuHelpURL" : "/device/usb",
             "downloadHelpURL" : "/device/usb",

@@ -208,6 +208,7 @@
             "calliope-edu/pxt-jacdac/wifi",
             "calliope-edu/pxt-jacdac/wind-direction",
             "calliope-edu/pxt-jacdac/wind-speed",
+            "calliope-net/i2c-liste",
             "Tinkertanker/pxt-alphanumeric-ht16k33",
             "Tinkertanker/pxt-continuous-servo",
             "Tinkertanker/pxt-iot-environment-kit",
@@ -229,7 +230,7 @@
             "calliope-edu/pxt-grove",
             "calliope-edu/pxt-rgblcd",
             "calliope-edu/pxt-sunlightsensor-si1145",
-            "calliope-mini/pxt-SCD30",
+            "tinysuperlab/motionkitv2",
             "tinysuperlab/motionkit",
             "tinysuperlab/touchkit",
             "cgs-matthew-pham/pxt-hitechnic-irseeker-v2",
@@ -269,10 +270,9 @@
             "sparkfun/pxt-gator-particle",
             "sparkfun/pxt-gator-soil",
             "sparkfun/pxt-gator-temp",
-            "tinysuperlab/motionkit",
-            "tinysuperlab/touchkit",
             "vengit/pxt-sbrick",
-            "CalliTGS3/pxt-calliope-grovePCF85063TP"
+            "CalliTGS3/pxt-calliope-grovePCF85063TP",
+            "calliope-net/i2c-liste"
         ],
         "preferredRepos": [
             "calliope-edu/CO2-Sensor-SCD40",
@@ -283,6 +283,7 @@
             "calliope-edu/pxt-rgblcd",
             "calliope-edu/pxt-sunlightsensor-si1145",
             "calliope-mini/pxt-SCD30",
+            "tinysuperlab/MotionKitV2",
             "tinysuperlab/motionkit",
             "tinysuperlab/touchkit",
             "MKleinSB/pxt-KY-040",
@@ -306,17 +307,555 @@
             "MKleinSB/pxt-serialmp3",
             "Microsoft/pxt-microturtle",
             "Microsoft/pxt-neopixel",
+            "calliope-net/i2c-liste",
             "CalliTGS3/pxt-calliope-grovePCF85063TP"
         ],
         "approvedRepoLib": {
-            "microsoft/pxt-neopixel": {
-                "tags": [ "Lights and Display" ],
+            "tinysuperlab/motionkitv2": {
+                "tags": [
+                    "Motor"
+                ],
                 "preferred": true
             },
-            "calliope-edu/pxt-jacdac": {
-                "tags": [ "jacdac", "V3" ],
+            "tinysuperlab/motionkit": {
+                "tags": [
+                    "Motor"
+                ],
                 "preferred": true
-            }
+            },
+            "tinysuperlab/touchkit": {
+                "tags": [
+                    "Audio"
+                ],
+                "preferred": true
+            },
+            "51bit/colorbit": {
+                "tags": [
+                    "Display"
+                ]
+            },
+            "51bit/sfc": {},
+            "51bit/smarttools": {},
+            "51bit/dfplayermini": {},
+            "callitgs3/pxt-calliope-grovepcf85063tp": {
+                "preferred": true
+            },
+            "freenove/makecode-extension-starter-kit": {},
+            "kitronikltd/pxt-kitronik-i2c-16-servo": {
+                "tags": [
+                    "Motor"
+                ]
+            },
+            "kitronikltd/pxt-kitronik-game-controller": {},
+            "kitronikltd/pxt-kitronik-klef-piano": {
+                "tags": [
+                    "Audio"
+                ]
+            },
+            "kitronikltd/pxt-kitronik-klimate": {
+                "tags": [
+                    "Climate"
+                ]
+            },
+            "kitronikltd/pxt-kitronik-lampbit": {},
+            "kitronikltd/pxt-kitronik-robotics-board": {
+                "tags": [
+                    "Motor"
+                ]
+            },
+            "kitronikltd/pxt-kitronik-rtc": {},
+            "kitronikltd/pxt-kitronik-servo-lite": {
+                "tags": [
+                    "Motor"
+                ]
+            },
+            "kitronikltd/pxt-kitronik-stopbit": {},
+            "mkleinsb/scrolltext": {},
+            "mkleinsb/pxt-bme680": {
+                "tags": [
+                    "Climate"
+                ]
+            },
+            "mkleinsb/pxt-co2oled": {
+                "tags": [
+                    "Display",
+                    "Climate"
+                ],
+                "preferred": true
+            },
+            "mkleinsb/pxt-ir-calliope": {},
+            "mkleinsb/pxt-ky-040": {
+                "preferred": true
+            },
+            "mkleinsb/pxt-max7219_8x8": {
+                "tags": [
+                    "Display"
+                ],
+                "preferred": true
+            },
+            "mkleinsb/pxt-mcp23017": {},
+            "mkleinsb/pxt-oled-ssd1306": {
+                "tags": [
+                    "Display"
+                ],
+                "preferred": true
+            },
+            "mkleinsb/pxt-oledpaint": {
+                "tags": [
+                    "Display"
+                ],
+                "preferred": true
+            },
+            "mkleinsb/pxt-seeed-temperatursensor": {
+                "tags": [
+                    "Climate"
+                ]
+            },
+            "mkleinsb/pxt-automationbit-calliope": {},
+            "mkleinsb/pxt-bc95": {
+                "tags": [
+                    "Climate"
+                ]
+            },
+            "mkleinsb/pxt-callibot": {},
+            "mkleinsb/pxt-callicolor": {
+                "tags": [
+                    "RGB"
+                ],
+                "preferred": true
+            },
+            "mkleinsb/pxt-callicross": {
+                "preferred": true
+            },
+            "mkleinsb/pxt-callimotor": {
+                "tags": [
+                    "Motor"
+                ],
+                "preferred": true
+            },
+            "mkleinsb/pxt-calliope-buttons": {
+                "preferred": true
+            },
+            "mkleinsb/pxt-calliope-esp": {
+                "tags": [
+                    "IoT"
+                ]
+            },
+            "mkleinsb/pxt-calliope-oled96": {
+                "tags": [
+                    "Display"
+               ]
+            },
+            "mkleinsb/pxt-columbuseye": {
+                "tags": [
+                    "Climate"
+                ]
+            },
+            "mkleinsb/pxt-dht11": {
+                "preferred": true
+            },
+            "mkleinsb/pxt-envirobit": {
+                "tags": [
+                    "Climate"
+                ]
+            },
+            "mkleinsb/pxt-esp-thingspeak": {
+                "tags": [
+                    "IoT"
+                ],
+                "preferred": true
+            },
+            "mkleinsb/pxt-fischertechnik-calliope": {
+                "tags": [
+                    "Motor"
+                ]
+            },
+            "mkleinsb/pxt-foldio": {},
+            "mkleinsb/pxt-ft-fototransistor-calliope": {},
+            "mkleinsb/pxt-gatorlog-calliope": {
+                "preferred": true
+            },
+            "mkleinsb/pxt-graphs": {},
+            "mkleinsb/pxt-huskylens": {
+                "tags": [
+                    "AI"
+                ],
+                "preferred": true
+            },
+            "mkleinsb/pxt-iot-environment-kit": {
+                "tags": [
+                    "IoT",
+                    "Climate"
+                ]
+            },
+            "mkleinsb/pxt-kitronik-robotics-board-calliope": {
+                "tags": [
+                    "Motor"
+                ]
+            },
+            "mkleinsb/pxt-kitronik-zip-64": {
+                "tags": [
+                    "RGB"
+                ]
+            },
+            "mkleinsb/pxt-kitronik-zip-tile-calliope": {
+                "tags": [
+                    "RGB"
+                ],
+                "preferred": true
+            },
+            "mkleinsb/pxt-makerbit-motor-calliope": {
+                "tags": [
+                    "Motor"
+                ]
+            },
+            "mkleinsb/pxt-makerbit-touch": {},
+            "mkleinsb/pxt-makerbit-ultrasonic-calliope": {},
+            "mkleinsb/pxt-mpr121": {
+                "preferred": true
+            },
+            "mkleinsb/pxt-pca9685": {
+                "preferred": true
+            },
+            "mkleinsb/pxt-seeed-temperature": {
+                "tags": [
+                    "Climate"
+                ],
+                "preferred": true
+            },
+            "mkleinsb/pxt-serial-rb": {},
+            "mkleinsb/pxt-serialmp3": {
+                "tags": [
+                    "Audio"
+                ],
+                "preferred": true
+            },
+            "mkleinsb/pxt-thumbjoystick-calliope": {},
+            "microsoft/pxt-bluetooth-max6675": {},
+            "microsoft/pxt-bluetooth-midi": {
+                "tags": [
+                    "Audio"
+                ]
+            },
+            "microsoft/pxt-bluetooth-temperature-sensor": {
+                "tags": [
+                    "Climate"
+                ]
+            },
+            "microsoft/pxt-filesystem": {},
+            "microsoft/pxt-hacking-stem": {},
+            "microsoft/pxt-max6675": {},
+            "microsoft/pxt-microturtle": {
+                "preferred": true
+            },
+            "microsoft/pxt-midi": {},
+            "microsoft/pxt-neopixel": {
+                "tags": [
+                    "RGB"
+                ]
+            },
+            "microsoft/pxt-radio-blockchain": {},
+            "microsoft/pxt-sonar": {},
+            "microsoft/pxt-ws2812b": {
+                "tags": [
+                    "RGB"
+                ]
+            },
+            "tinkertanker/pxt-alphanumeric-ht16k33": {},
+            "tinkertanker/pxt-continuous-servo": {
+                "tags": [
+                    "Motor"
+                ]
+            },
+            "tinkertanker/pxt-iot-environment-kit": {
+                "tags": [
+                    "Climate"
+                ]
+            },
+            "tinkertanker/pxt-ir-receiver": {},
+            "tinkertanker/pxt-oled-ssd1306": {
+                "tags": [
+                    "Display"
+                ]
+            },
+            "tinkertanker/pxt-range-vl53l0x": {},
+            "tinkertanker/pxt-realtimeclock-ds1307": {},
+            "tinkertanker/pxt-rotary-encoder-ky040": {},
+            "tinkertanker/pxt-smarthome": {
+                "tags": [
+                    "IoT"
+                ]
+            },
+            "tinkertanker/pxt-tinkercademy-tinker-kit": {},
+            "alankrantas/pxt-dht11_dht22": {
+                "tags": [
+                    "Climate"
+                ]
+            },
+            "alankrantas/pxt-esp8266_thingspeak": {
+                "tags": [
+                    "IoT"
+                ]
+            },
+            "assirati/pxt-inventura": {},
+            "calliope-edu/co2-sensor-scd40": {
+                "tags": [
+                    "Climate"
+                ],
+                "preferred": true
+            },
+            "calliope-edu/pxt-hm3301_dust_sensor": {
+                "tags": [
+                    "Climate"
+                ],
+                "preferred": true
+            },
+            "calliope-edu/pxt-scd30": {
+                "tags": [
+                    "Climate"
+                ],
+                "preferred": true
+            },
+            "calliope-edu/pxt-tcs34725fn": {
+                "preferred": true
+            },
+            "calliope-edu/pxt-display": {
+                "preferred": true
+            },
+            "calliope-edu/pxt-grove": {
+                "preferred": true
+            },
+            "calliope-edu/pxt-jacdac": {},
+            "calliope-edu/pxt-jacdac/accelerometer": {},
+            "calliope-edu/pxt-jacdac/acidity": {},
+            "calliope-edu/pxt-jacdac/air-pressure": {},
+            "calliope-edu/pxt-jacdac/air-quality-index": {},
+            "calliope-edu/pxt-jacdac/arcade-gamepad": {},
+            "calliope-edu/pxt-jacdac/azure-iot-hub-health": {},
+            "calliope-edu/pxt-jacdac/button": {},
+            "calliope-edu/pxt-jacdac/buzzer": {},
+            "calliope-edu/pxt-jacdac/character-screen": {},
+            "calliope-edu/pxt-jacdac/codal-message-bus": {},
+            "calliope-edu/pxt-jacdac/color": {},
+            "calliope-edu/pxt-jacdac/compass": {},
+            "calliope-edu/pxt-jacdac/dc-current-measurement": {},
+            "calliope-edu/pxt-jacdac/dc-voltage-measurement": {},
+            "calliope-edu/pxt-jacdac/distance": {},
+            "calliope-edu/pxt-jacdac/dmx": {},
+            "calliope-edu/pxt-jacdac/dot-matrix": {},
+            "calliope-edu/pxt-jacdac/dual-motors": {},
+            "calliope-edu/pxt-jacdac/e-co2": {},
+            "calliope-edu/pxt-jacdac/flex": {},
+            "calliope-edu/pxt-jacdac/gamepad": {},
+            "calliope-edu/pxt-jacdac/gyroscope": {},
+            "calliope-edu/pxt-jacdac/heart-rate": {},
+            "calliope-edu/pxt-jacdac/hid-joystick": {},
+            "calliope-edu/pxt-jacdac/hid-keyboard": {},
+            "calliope-edu/pxt-jacdac/hid-mouse": {},
+            "calliope-edu/pxt-jacdac/humidity": {},
+            "calliope-edu/pxt-jacdac/illuminance": {},
+            "calliope-edu/pxt-jacdac/led": {},
+            "calliope-edu/pxt-jacdac/led-single": {},
+            "calliope-edu/pxt-jacdac/led-strip": {},
+            "calliope-edu/pxt-jacdac/light-bulb": {},
+            "calliope-edu/pxt-jacdac/light-level": {},
+            "calliope-edu/pxt-jacdac/magnetic-field-level": {},
+            "calliope-edu/pxt-jacdac/magnetometer": {},
+            "calliope-edu/pxt-jacdac/model-runner": {},
+            "calliope-edu/pxt-jacdac/motion": {},
+            "calliope-edu/pxt-jacdac/motor": {},
+            "calliope-edu/pxt-jacdac/multitouch": {},
+            "calliope-edu/pxt-jacdac/potentiometer": {},
+            "calliope-edu/pxt-jacdac/power": {},
+            "calliope-edu/pxt-jacdac/pulse-oximeter": {},
+            "calliope-edu/pxt-jacdac/rain-gauge": {},
+            "calliope-edu/pxt-jacdac/real-time-clock": {},
+            "calliope-edu/pxt-jacdac/reflected-light": {},
+            "calliope-edu/pxt-jacdac/relay": {},
+            "calliope-edu/pxt-jacdac/rng": {},
+            "calliope-edu/pxt-jacdac/rotary-encoder": {},
+            "calliope-edu/pxt-jacdac/sensor-aggregator": {},
+            "calliope-edu/pxt-jacdac/servo": {},
+            "calliope-edu/pxt-jacdac/seven-segment-display": {},
+            "calliope-edu/pxt-jacdac/soil-moisture": {},
+            "calliope-edu/pxt-jacdac/solenoid": {},
+            "calliope-edu/pxt-jacdac/sound-level": {},
+            "calliope-edu/pxt-jacdac/speech-synthesis": {},
+            "calliope-edu/pxt-jacdac/switch": {},
+            "calliope-edu/pxt-jacdac/tcp": {},
+            "calliope-edu/pxt-jacdac/temperature": {},
+            "calliope-edu/pxt-jacdac/traffic-light": {},
+            "calliope-edu/pxt-jacdac/tvoc": {},
+            "calliope-edu/pxt-jacdac/uv-index": {},
+            "calliope-edu/pxt-jacdac/vibration-motor": {},
+            "calliope-edu/pxt-jacdac/water-level": {},
+            "calliope-edu/pxt-jacdac/weight-scale": {},
+            "calliope-edu/pxt-jacdac/wifi": {},
+            "calliope-edu/pxt-jacdac/wind-direction": {},
+            "calliope-edu/pxt-jacdac/wind-speed": {},
+            "calliope-edu/pxt-rgblcd": {
+                "tags": [
+                    "Display"
+                ],
+                "preferred": true
+            },
+            "calliope-edu/pxt-sunlightsensor-si1145": {
+                "tags": [
+                    "Climate"
+                ],
+                "preferred": true
+            },
+            "cgs-matthew-pham/pxt-hitechnic-irseeker-v2": {},
+            "coding4coconut/pxt-lcd128x160-st7735s": {
+                "tags": [
+                    "Display"
+                ]
+            },
+            "coding4coconut/pxt-oled128x128-sh1107": {
+                "tags": [
+                    "Display"
+                ]
+            },
+            "jcubuntu/pxt-ikb1": {},
+            "jdarling/pxt-pca9685": {},
+            "joernalraun/pxt-remember-int": {},
+            "keigan-motor/pxt-keiganmotor": {
+                "tags": [
+                    "Motor"
+                ]
+            },
+            "letstalkscience/pxt-cozir": {},
+            "lwchkg/pxt-proportional-font": {},
+            "makecode-extensions/apds9930": {},
+            "makecode-extensions/at24xx": {},
+            "makecode-extensions/bh1750": {},
+            "makecode-extensions/bme280": {
+                "tags": [
+                    "Climate"
+                ]
+            },
+            "makecode-extensions/bmp180": {},
+            "makecode-extensions/bmp280": {},
+            "makecode-extensions/ds1302": {},
+            "makecode-extensions/ds1307": {},
+            "makecode-extensions/hts221": {},
+            "makecode-extensions/lis2dw12": {},
+            "makecode-extensions/lis2mdl": {},
+            "makecode-extensions/lps22": {},
+            "makecode-extensions/lsm6dso": {},
+            "makecode-extensions/ntc": {},
+            "makecode-extensions/oled12864_i2c": {
+                "tags": [
+                    "Display"
+                ]
+            },
+            "makecode-extensions/stts751": {},
+            "makecode-extensions/scrolltext": {},
+            "makecode-extensions/tm1637": {},
+            "makecode-extensions/tm1650": {},
+            "makecode-extensions/whaleysansfont": {},
+            "makecode-extensions/i2clcd1602": {},
+            "microsoft/pxt-jacdac": {
+                "tags": [
+                    "JacDac"
+                ],
+                "preferred": true
+            },
+            "microsoft/pxt-jacdac/accelerometer": {},
+            "microsoft/pxt-jacdac/acidity": {},
+            "microsoft/pxt-jacdac/air-pressure": {},
+            "microsoft/pxt-jacdac/air-quality-index": {},
+            "microsoft/pxt-jacdac/arcade-gamepad": {},
+            "microsoft/pxt-jacdac/azure-iot-hub-health": {},
+            "microsoft/pxt-jacdac/button": {},
+            "microsoft/pxt-jacdac/buzzer": {},
+            "microsoft/pxt-jacdac/character-screen": {},
+            "microsoft/pxt-jacdac/codal-message-bus": {},
+            "microsoft/pxt-jacdac/color": {},
+            "microsoft/pxt-jacdac/compass": {},
+            "microsoft/pxt-jacdac/dc-current-measurement": {},
+            "microsoft/pxt-jacdac/dc-voltage-measurement": {},
+            "microsoft/pxt-jacdac/distance": {},
+            "microsoft/pxt-jacdac/dmx": {},
+            "microsoft/pxt-jacdac/dot-matrix": {},
+            "microsoft/pxt-jacdac/dual-motors": {},
+            "microsoft/pxt-jacdac/e-co2": {},
+            "microsoft/pxt-jacdac/flex": {},
+            "microsoft/pxt-jacdac/gamepad": {},
+            "microsoft/pxt-jacdac/gyroscope": {},
+            "microsoft/pxt-jacdac/heart-rate": {},
+            "microsoft/pxt-jacdac/hid-joystick": {},
+            "microsoft/pxt-jacdac/hid-keyboard": {},
+            "microsoft/pxt-jacdac/hid-mouse": {},
+            "microsoft/pxt-jacdac/humidity": {},
+            "microsoft/pxt-jacdac/illuminance": {},
+            "microsoft/pxt-jacdac/led": {},
+            "microsoft/pxt-jacdac/led-single": {},
+            "microsoft/pxt-jacdac/led-strip": {},
+            "microsoft/pxt-jacdac/light-bulb": {},
+            "microsoft/pxt-jacdac/light-level": {},
+            "microsoft/pxt-jacdac/magnetic-field-level": {},
+            "microsoft/pxt-jacdac/magnetometer": {},
+            "microsoft/pxt-jacdac/model-runner": {},
+            "microsoft/pxt-jacdac/motion": {},
+            "microsoft/pxt-jacdac/motor": {},
+            "microsoft/pxt-jacdac/multitouch": {},
+            "microsoft/pxt-jacdac/potentiometer": {},
+            "microsoft/pxt-jacdac/power": {},
+            "microsoft/pxt-jacdac/pulse-oximeter": {},
+            "microsoft/pxt-jacdac/rain-gauge": {},
+            "microsoft/pxt-jacdac/real-time-clock": {},
+            "microsoft/pxt-jacdac/reflected-light": {},
+            "microsoft/pxt-jacdac/relay": {},
+            "microsoft/pxt-jacdac/rng": {},
+            "microsoft/pxt-jacdac/rotary-encoder": {},
+            "microsoft/pxt-jacdac/sensor-aggregator": {},
+            "microsoft/pxt-jacdac/servo": {},
+            "microsoft/pxt-jacdac/seven-segment-display": {},
+            "microsoft/pxt-jacdac/soil-moisture": {},
+            "microsoft/pxt-jacdac/solenoid": {},
+            "microsoft/pxt-jacdac/sound-level": {},
+            "microsoft/pxt-jacdac/speech-synthesis": {},
+            "microsoft/pxt-jacdac/switch": {},
+            "microsoft/pxt-jacdac/tcp": {},
+            "microsoft/pxt-jacdac/temperature": {},
+            "microsoft/pxt-jacdac/traffic-light": {},
+            "microsoft/pxt-jacdac/tvoc": {},
+            "microsoft/pxt-jacdac/uv-index": {},
+            "microsoft/pxt-jacdac/vibration-motor": {},
+            "microsoft/pxt-jacdac/water-level": {},
+            "microsoft/pxt-jacdac/weight-scale": {},
+            "microsoft/pxt-jacdac/wifi": {},
+            "microsoft/pxt-jacdac/wind-direction": {},
+            "microsoft/pxt-jacdac/wind-speed": {},
+            "monkmakes/pxt-sensor": {},
+            "mu-opensource/pxt-muvision": {},
+            "pizayanz/pxt-linebeacon": {},
+            "rebeccaclavier/pxt-bmp280": {
+                "tags": [
+                    "Climate"
+                ]
+            },
+            "sparkfun/pxt-gator-environment": {
+                "tags": [
+                    "Climate"
+                ]
+            },
+            "sparkfun/pxt-gator-light": {},
+            "sparkfun/pxt-gator-microphone": {
+                "tags": [
+                    "Audio"
+                ]
+            },
+            "sparkfun/pxt-gator-particle": {},
+            "sparkfun/pxt-gator-soil": {},
+            "sparkfun/pxt-gator-temp": {
+                "tags": [
+                    "Climate"
+                ]
+            },
+            "calliope-net/i2c-liste": {},
+            "vengit/pxt-sbrick": {}
         },
         "approvedEditorExtensionUrls": [
             "https://microsoft.github.io/jacdac-docs/tools/makecode-editor-extension"

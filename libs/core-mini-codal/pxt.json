@@ -17,42 +17,5 @@
         "soundexpressions.ts",
         "playable.ts",
         "rgbled.ts"
-    ],
-    "yotta": {
-        "optionalConfig": {
-            "microbit-dal": {
-                "bluetooth": {
-                    "open": 0,
-                    "security_level": "SECURITY_MODE_ENCRYPTION_NO_MITM",
-                    "whitelist": 1
-                }
-            }
-        },
-        "userConfigs": [
-            {
-                "description": "Bluetooth: No pairing required (Calliope mini 1 and Calliope mini 2 behaviour)",
-                "config": {
-                    "microbit-dal": {
-                        "bluetooth": {
-                            "open": 1,
-                            "security_level": null,
-                            "whitelist": 0
-                        }
-                    }
-                }
-            },
-            {
-                "description": "Bluetooth: Paring required (Calliope mini 3 default. Fixes Android 13 bug »GATT ERROR 133«, mini must be already flashed with this option)",
-                "config": {
-                    "microbit-dal": {
-                        "bluetooth": {
-                            "open": 0,
-                            "security_level": "SECURITY_MODE_ENCRYPTION_NO_MITM",
-                            "whitelist": 1
-                        }
-                    }
-                }
-            }
-        ]
-    }
+    ]
 }

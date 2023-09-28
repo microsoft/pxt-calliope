@@ -13,43 +13,52 @@ enum class DigitalPin {
     P2 = MICROBIT_ID_IO_P2,    // edge connector 2
     P3 = MICROBIT_ID_IO_P3,   // edge connector 3
 
-    //% blockHidden=true
     C4 = MICROBIT_ID_IO_P4,    // -> P4
+    //% blockHidden=true
     P4 = MICROBIT_ID_IO_P4,    // LED matrix COLUMN 1
 
     C5 = MICROBIT_ID_IO_P5,    // -> P5
+    //% blockHidden=true
     P5 = MICROBIT_ID_IO_P5,    // LED matrix COLUMN 2
 
-    //% blockHidden=true
     C6 = MICROBIT_ID_IO_P6,   // -> P6
+    //% blockHidden=true
     P6 = MICROBIT_ID_IO_P6,   // LED matrix COLUMN 3
 
-    //% blockHidden=true
     C7 = MICROBIT_ID_IO_P7,   // -> P7
+    //% blockHidden=true
     P7 = MICROBIT_ID_IO_P7,   // LED matrix COLUMN 4
 
-    //% blockHidden=true
     C8 = MICROBIT_ID_IO_P8,   // -> P8
+    //% blockHidden=true
     P8 = MICROBIT_ID_IO_P8,   // LED matrix COLUMN 5
 
-    //% blockHidden=true
     C9 = MICROBIT_ID_IO_P9,   // -> P9
+    //% blockHidden=true
     P9 = MICROBIT_ID_IO_P9,   // LED matrix COLUMN 6
 
-    //% blockHidden=true
     C10 = MICROBIT_ID_IO_P10,   // -> P10
+    //% blockHidden=true
     P10 = MICROBIT_ID_IO_P10,   // LED matrix COLUMN 7
 
-    //% blockHidden=true
+
     C11 = MICROBIT_ID_IO_P11,   // -> P11
+    //% blockHidden=true
     P11 = MICROBIT_ID_IO_P11,   // LED matrix COLUMN 8
 
-    //% blockHidden=true
     C12 = MICROBIT_ID_IO_P12,   // -> P12
+    //% blockHidden=true
     P12 = MICROBIT_ID_IO_P12,   // LED matrix COLUMN 9
 
+    C13 = MICROBIT_ID_IO_P13,   // LED matrix ROW 1
+    C14 = MICROBIT_ID_IO_P14,   // LED matrix ROW 2
+    C15 = MICROBIT_ID_IO_P15,   // LED matrix ROW 3
+
+    //% blockHidden=true
     P13 = MICROBIT_ID_IO_P13,   // LED matrix ROW 1
+    //% blockHidden=true
     P14 = MICROBIT_ID_IO_P14,   // LED matrix ROW 2
+    //% blockHidden=true
     P15 = MICROBIT_ID_IO_P15,   // LED matrix ROW 3
 
     //% blockHidden=true

@@ -11,5 +11,42 @@
         "storage.ts",
         "rgbled.cpp",
         "rgbled.ts"
-    ]
+    ],
+    "yotta": {
+        "optionalConfig": {
+            "microbit-dal": {
+                "bluetooth": {
+                    "open": 1,
+                    "security_level": null,
+                    "whitelist": 0
+                }
+            }
+        },
+        "userConfigs": [
+            {
+                "description": "Bluetooth: No pairing required (default)",
+                "config": {
+                    "microbit-dal": {
+                        "bluetooth": {
+                            "open": 1,
+                            "security_level": null,
+                            "whitelist": 0
+                        }
+                    }
+                }
+            },
+            {
+                "description": "Bluetooth: Paring required (Android 13 »GATT ERROR 133«-Bug)",
+                "config": {
+                    "microbit-dal": {
+                        "bluetooth": {
+                            "open": 0,
+                            "security_level": "SECURITY_MODE_ENCRYPTION_NO_MITM",
+                            "whitelist": 1
+                        }
+                    }
+                }
+            }
+        ]
+    }
 }

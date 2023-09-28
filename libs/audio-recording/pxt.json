@@ -11,5 +11,8 @@
         "recording.cpp",
         "shims.d.ts"
     ],
-    "public": true
+    "public": true,
+    "disablesVariants": [
+        "minidal"
+    ]
 }
