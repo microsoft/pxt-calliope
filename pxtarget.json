@@ -9,6 +9,7 @@
         "libs/core",
         "libs/core-mini",
         "libs/core-mini-dal",
+        "libs/core-mini-codal",
         "libs/v1",
         "libs/v2",
         "libs/radio",
@@ -17,7 +18,11 @@
         "libs/servo",
         "libs/radio-broadcast",
         "libs/microphone",
-        "libs/color"
+        "libs/settings",
+        "libs/flashlog",
+        "libs/datalogger",
+        "libs/color",
+        "libs/audio-recording"
     ],
     "cloud": {
         "workspace": false,
@@ -172,10 +177,10 @@
                     "type": "git"
                 },
                 "codalBinary": "MICROBIT",
-                "githubCorePackage": "calliope-edu/microbit-v2-samples",
-                "gittag": "v0.2.13-calliope",
+                "githubCorePackage": "lancaster-university/microbit-v2-samples",
+                "gittag": "v0.2.13",
                 "serviceId": "mbcodal2",
-                "dockerImage": "pext/yotta:latest",
+                "dockerImage": "pext/yotta:update-yotta3",
                 "yottaConfigCompatibility": true
             }
         }
