@@ -215,7 +215,7 @@ declare namespace basic {
 
 
 
-    //% color=##C94600 weight=99 icon="\uf192"
+    //% color=#C94600 weight=99 icon="\uf192"
 declare namespace input {
 
     /**
