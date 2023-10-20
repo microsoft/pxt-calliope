@@ -12,6 +12,7 @@
         "libs/core-mini-codal",
         "libs/v1",
         "libs/v2",
+        "libs/v3",
         "libs/radio",
         "libs/devices",
         "libs/bluetooth",

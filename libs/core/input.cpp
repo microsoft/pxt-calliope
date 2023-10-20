@@ -167,7 +167,7 @@ enum class MesDpadButtonInfo {
     _4Up = MES_DPAD_BUTTON_4_UP,
 };
 
-//% color=##C94600 weight=99 icon="\uf192"
+//% color=#C94600 weight=99 icon="\uf192"
 namespace input {
 
 
