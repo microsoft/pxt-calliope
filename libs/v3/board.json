@@ -3,16 +3,16 @@
   "visual": "calliope",
   "gpioPinBlocks": [
     [
-        "EDGE_P0"
+        "TOUCH_P0"
     ],
     [
-        "EDGE_P1"
+        "TOUCH_P1"
     ],
     [
-        "EDGE_P2"
+        "TOUCH_P2"
     ],
     [
-        "EDGE_P3"
+        "TOUCH_P3"
     ],
     [
         "C_P4",
@@ -32,10 +32,10 @@
     ]
 ],
 "gpioPinMap": {
-    "P0": "EDGE_P0",
-    "P1": "EDGE_P1",
-    "P2": "EDGE_P2",
-    "P3": "EDGE_P3",
+    "P0": "TOUCH_P0",
+    "P1": "TOUCH_P1",
+    "P2": "TOUCH_P2",
+    "P3": "TOUCH_P3",
     "C4": "C_P4",
     "C5": "C_P5",
     "C6": "C_P6",
@@ -74,10 +74,10 @@
     "C6"
 ],
 "groundPins": [
-    "EDGE_GND"
+    "TOUCH_GND"
 ],
 "threeVoltPins": [
-    "EDGE_VCC"
+    "TOUCH_VCC"
 ],
 "attachPowerOnRight": true,
 "onboardComponents": [
@@ -97,8 +97,8 @@
     "P1": "croc",
     "P2": "croc",
     "P3": "croc",
-    "EDGE_GND": "croc",
-    "EDGE_VCC": "croc"
+    "TOUCH_GND": "croc",
+    "TOUCH_VCC": "croc"
 },
 "marginWhenBreadboarding": [
     0,
