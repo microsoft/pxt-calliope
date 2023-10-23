@@ -120,7 +120,13 @@ namespace pxsim {
 
         initAsync(msg: SimulatorRunMessage): Promise<void> {
             super.initAsync(msg);
-
+            // console.log('SIM MESSAGE',msg)
+            if(msg.dependencies.v3 != undefined) {
+                // console.log('V3 SIMULATOR')
+                this.hardwareVersion = 3
+            } else {
+                this.hardwareVersion = 1
+            }
             const boardDef = msg.boardDefinition;
             const cmpsList = msg.parts;
             const cmpDefs = msg.partDefinitions || {};
@@ -132,14 +138,14 @@ namespace pxsim {
                 "builtinspeaker": true,
                 "v2": true
             };
-            if (msg.builtinParts) {
-                const v2PartsUsed = msg.builtinParts.filter(k => v2Parts[k])
-                if (v2PartsUsed.length) {
-                    console.log(`detected v2 feature`, v2PartsUsed);
-                    cmpsList.push(...v2PartsUsed);
-                    this.hardwareVersion = 2;
-                }
-            }
+            // if (msg.builtinParts) {
+            //     const v2PartsUsed = msg.builtinParts.filter(k => v2Parts[k])
+            //     if (v2PartsUsed.length) {
+            //         console.log(`detected v2 feature`, v2PartsUsed);
+            //         cmpsList.push(...v2PartsUsed);
+            //         this.hardwareVersion = 2;
+            //     }
+            // }
 
             const opts: visuals.BoardHostOpts = {
                 state: this,
@@ -167,9 +173,9 @@ namespace pxsim {
                 setParentMuteState("disabled");
             }
 
-            if (msg.theme === "mbcodal") {
-                this.ensureHardwareVersion(2);
-            }
+            // if (msg.theme === "mbcodal") {
+            //     this.ensureHardwareVersion(2);
+            // }
             return Promise.resolve();
         }
 
