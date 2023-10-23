@@ -287,8 +287,8 @@
                 "SPKR": "SPKR",
                 "BTN_A": "BTN_A",
                 "BTN_B": "BTN_B",
-                "MOTOR1": "M_OUT1",
-                "MOTOR2": "M_OUT2"
+                "MOTOR1": "M0_OUT",
+                "MOTOR2": "M1_OUT"
             },
             "spiPins": {
                 "MOSI": "C_P15",

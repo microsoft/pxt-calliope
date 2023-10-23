@@ -432,7 +432,7 @@
         </g>
     </g>
     <g id="Motor_Pins">
-        <g id="M_GND3">
+        <g id="M_GND">
             <circle class="st11" cx="304.8" cy="389.3" r="5.2"/>
             <circle class="st17" cx="304.8" cy="389.3" r="2.2"/>
         </g>
@@ -440,19 +440,19 @@
             <circle class="st11" cx="288.4" cy="391.7" r="5.2"/>
             <circle class="st17" cx="288.4" cy="391.7" r="2.2"/>
         </g>
-        <g id="M_GND2">
+        <g id="M1_GND">
             <circle class="st11" cx="272.1" cy="389.3" r="5.2"/>
             <circle class="st17" cx="272.1" cy="389.3" r="2.2"/>
         </g>
-        <g id="M_OUT2">
+        <g id="M1_OUT">
             <circle class="st11" cx="255.8" cy="391.7" r="5.2"/>
             <circle class="st17" cx="255.8" cy="391.7" r="2.2"/>
         </g>
-        <g id="M_OUT1">
+        <g id="M0_OUT">
             <circle class="st11" cx="239.4" cy="389.3" r="5.2"/>
             <circle class="st17" cx="239.4" cy="389.3" r="2.2"/>
         </g>
-        <g id="M_GND1">
+        <g id="M0_GND">
             <circle class="st11" cx="223.1" cy="391.7" r="5.2"/>
             <circle class="st17" cx="223.1" cy="391.7" r="2.2"/>
         </g>
