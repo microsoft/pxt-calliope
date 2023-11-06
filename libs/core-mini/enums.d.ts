@@ -12,10 +12,12 @@
 
 
     declare const enum Motor {
-    A = 0,
-    B = 1,
-    //% block="A & B"
-    AB = 2,
+    //% block="M0"
+    M0 = 0,
+    //% block="M1"
+    M1 = 1,
+    //% block="M0 & M1"
+    M0_M1 = 2,
     }
 declare namespace motors {
 }

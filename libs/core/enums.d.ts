@@ -493,12 +493,12 @@ declare namespace input {
     //% blockHidden=true
     P15 = 115,  // MICROBIT_ID_IO_P15
 
-    //% blockHidden=true
     C16 = 116,  // MICROBIT_ID_IO_A1_RX
-    //% blockHidden=true
     C17 = 117,  // MICROBIT_ID_IO_A1_TX
+
     //% blockHidden=true
-    C18 = 120,  // MICROBIT_ID_IO_A0_SDA
+    P18 = 118,  // MICROBIT_ID_IO_P18
+    C18 = 118,  // MICROBIT_ID_IO_P18
 
     //% block="A1 RX"
     A1_RX = 116,  // MICROBIT_ID_IO_A1_RX
@@ -506,17 +506,17 @@ declare namespace input {
     A1_TX = 117,  // MICROBIT_ID_IO_A1_TX
     //% block="A0 SCL" blockHidden=true
     A0_SCL = 119,  // MICROBIT_ID_IO_A0_SCL
-    //% block="A0 SDA"
+    //% block="A0 SDA" blockHidden=true
     A0_SDA = 120,  // MICROBIT_ID_IO_A0_SDA
 
     //% blockHidden=true
     M_MODE = 156,  // MICROBIT_ID_IO_M_MODE
 
     //% blockHidden=true
-    M_A_IN1 = 152,  // MICROBIT_ID_IO_M_A_IN1
+    M0_DIR = 152,  // MICROBIT_ID_IO_M_A_IN1
 
     //% blockHidden=true
-    M_B_IN1 = 154,  // MICROBIT_ID_IO_M_B_IN1
+    M1_DIR = 154,  // MICROBIT_ID_IO_M_B_IN1
 
     //% blockHidden=true
     RGB = 151,  // MICROBIT_ID_IO_RGB
@@ -529,37 +529,36 @@ declare namespace input {
     P1 = 101,  // MICROBIT_ID_IO_P1
     P2 = 102,  // MICROBIT_ID_IO_P2
 
-    //% blockHidden=true
     C4 = 104,  // MICROBIT_ID_IO_P4
+    //% blockHidden=true
     P4 = 104,  // MICROBIT_ID_IO_P4
 
-    //% blockHidden=true
     C5 = 105,  // MICROBIT_ID_IO_P5
+    //% blockHidden=true
     P5 = 105,  // MICROBIT_ID_IO_P5
 
-    //% blockHidden=true
+
     C6 = 106,  // MICROBIT_ID_IO_P6
+    //% blockHidden=true
     P6 = 106,  // MICROBIT_ID_IO_P6
 
-    //% blockHidden=true
     C16 = 116,  // MICROBIT_ID_IO_A1_RX
     //% blockHidden=true
     C17 = 117,  // MICROBIT_ID_IO_A1_TX
 
-    //% blockHidden=true
-    // C18 = MICROBIT_ID_IO_P18,  // P18
+    C18 = 118,  // MICROBIT_ID_IO_P18
     // P18 = MICROBIT_ID_IO_P18,  // P18
 
     A1_RX = 116,  // MICROBIT_ID_IO_A1_RX
-    A1_TX = 117,  // MICROBIT_ID_IO_A1_TX
+    // A1_TX = MICROBIT_ID_IO_A1_TX,   // TX
 
     //% blockHidden=true
     MIC = 121,  // MICROBIT_ID_LOGO
 
     //% blockHidden=true
-    M_A_IN2 = 153,  // MICROBIT_ID_IO_M_A_IN2
+    M0_SPEED = 153,  // MICROBIT_ID_IO_M_A_IN2
     //% blockHidden=true
-    M_B_IN2 = 155,  // MICROBIT_ID_IO_M_B_IN2
+    M1_SPEED = 155,  // MICROBIT_ID_IO_M_B_IN2
     }
 
 
@@ -598,19 +597,32 @@ declare namespace input {
     P1 = 101,  // MICROBIT_ID_IO_P1
     P2 = 102,  // MICROBIT_ID_IO_P2
     P3 = 103,  // MICROBIT_ID_IO_P3
-    P8 = 108,  // MICROBIT_ID_IO_P8
-    P12 = 112,  // MICROBIT_ID_IO_P12
-    P13 = 113,  // MICROBIT_ID_IO_P13
-    P14 = 114,  // MICROBIT_ID_IO_P14
-    P15 = 115,  // MICROBIT_ID_IO_P15
-    P16 = 116,  // MICROBIT_ID_IO_A1_RX
-    //% blockHidden=true
+
+    C8 = 108,  // MICROBIT_ID_IO_P8
+    C12 = 112,  // MICROBIT_ID_IO_P12
+    C13 = 113,  // MICROBIT_ID_IO_P13
+    C14 = 114,  // MICROBIT_ID_IO_P14
+    C15 = 115,  // MICROBIT_ID_IO_P15
     C16 = 116,  // MICROBIT_ID_IO_A1_RX
-    P17 = 117,  // MICROBIT_ID_IO_A1_TX
-    //% blockHidden=true
     C17 = 117,  // MICROBIT_ID_IO_A1_TX
+
     USB_TX = 1001,
     USB_RX = 1002,
+
+    //% blockHidden=true
+    P8 = 108,  // MICROBIT_ID_IO_P8
+    //% blockHidden=true
+    P12 = 112,  // MICROBIT_ID_IO_P12
+    //% blockHidden=true
+    P13 = 113,  // MICROBIT_ID_IO_P13
+    //% blockHidden=true
+    P14 = 114,  // MICROBIT_ID_IO_P14
+    //% blockHidden=true
+    P15 = 115,  // MICROBIT_ID_IO_P15
+    //% blockHidden=true
+    P16 = 116,  // MICROBIT_ID_IO_A1_RX
+    //% blockHidden=true
+    P17 = 117,  // MICROBIT_ID_IO_A1_TX
     }
 
 

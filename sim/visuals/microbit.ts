@@ -2337,15 +2337,15 @@ namespace pxsim.visuals {
         }
 
         private buildDom() {
-            console.log('SIM DATA: ',this)
-            console.log('BOARD: ',this.props.runtime.board)
-            console.log('HARDWARE VERSION: ',this.props.runtime.board.hardwareVersion)
-             
+            // console.log('SIM DATA: ',this)
+            // console.log('BOARD: ',this.board)
+            // console.log('HARDWARE VERSION: ',this.props.runtime.board.hardwareVersion)
+            
             let SVG_CODE = BOARD_SVG_HEAD+BOARD_MINI2_BODY+BOARD_SVG_BOTTOM
-            if(this.props.runtime.board && this.props.runtime.board.hardwareVersion == 3) {
-                console.log('BOARD VERSION 3');
-                SVG_CODE = BOARD_SVG_HEAD+BOARD_MINI3_BODY+BOARD_SVG_BOTTOM
-            }
+            // if(this.board && this.board.hasOwnProperty("hardwareVersion") && this.board.hardwareVersion == 3) {
+            //     console.log('BOARD VERSION 3');
+            //     SVG_CODE = BOARD_SVG_HEAD+BOARD_MINI3_BODY+BOARD_SVG_BOTTOM
+            // }
 			this.element = new DOMParser().parseFromString(SVG_CODE, "image/svg+xml").querySelector("svg") as SVGSVGElement;
             svg.hydrate(this.element, {
                 "version": "1.0",

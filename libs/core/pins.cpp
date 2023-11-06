@@ -61,12 +61,12 @@ enum class DigitalPin {
     //% blockHidden=true
     P15 = MICROBIT_ID_IO_P15,   // LED matrix ROW 3
 
-    //% blockHidden=true
     C16 = MICROBIT_ID_IO_A1_RX,   // -> A1_RX
-    //% blockHidden=true
     C17 = MICROBIT_ID_IO_A1_TX,   // -> A1_TX
+
     //% blockHidden=true
-    C18 = MICROBIT_ID_IO_A0_SDA,  // -> A0_SDA
+    P18 = MICROBIT_ID_IO_P18,
+    C18 = MICROBIT_ID_IO_P18,
     
     //% block="A1 RX"
     A1_RX = MICROBIT_ID_IO_A1_RX,   // RX
@@ -74,17 +74,17 @@ enum class DigitalPin {
     A1_TX = MICROBIT_ID_IO_A1_TX,   // TX
     //% block="A0 SCL" blockHidden=true
     A0_SCL = MICROBIT_ID_IO_A0_SCL, // SCL
-    //% block="A0 SDA"
+    //% block="A0 SDA" blockHidden=true
     A0_SDA = MICROBIT_ID_IO_A0_SDA, // SDA
 
     //% blockHidden=true
     M_MODE = MICROBIT_ID_IO_M_MODE,
 
     //% blockHidden=true
-    M_A_IN1 = MICROBIT_ID_IO_M_A_IN1,
+    M0_DIR = MICROBIT_ID_IO_M_A_IN1,
 
     //% blockHidden=true
-    M_B_IN1 = MICROBIT_ID_IO_M_B_IN1,
+    M1_DIR = MICROBIT_ID_IO_M_B_IN1,
 
     //% blockHidden=true
     RGB = MICROBIT_ID_IO_RGB
@@ -96,37 +96,36 @@ enum class AnalogPin {
     P1 = MICROBIT_ID_IO_P1,    // edge connector 1
     P2 = MICROBIT_ID_IO_P2,    // edge connector 2
 
-    //% blockHidden=true
     C4 = MICROBIT_ID_IO_P4,   // LED matrix C1 // -> P4
+    //% blockHidden=true
     P4 = MICROBIT_ID_IO_P4,   // LED matrix C1
 
-    //% blockHidden=true
     C5 = MICROBIT_ID_IO_P5,   // LED matrix C2 // -> P5
+    //% blockHidden=true
     P5 = MICROBIT_ID_IO_P5,   // LED matrix C2
 
-    //% blockHidden=true
+    
     C6 = MICROBIT_ID_IO_P6,  // LED matrix C3 // -> P6
+    //% blockHidden=true
     P6 = MICROBIT_ID_IO_P6,  // LED matrix C3
 
-    //% blockHidden=true
     C16 = MICROBIT_ID_IO_A1_RX,  // RX // -> A1_RX
     //% blockHidden=true
     C17 = MICROBIT_ID_IO_A1_TX,  // TX // -> A1_TX
 
-    //% blockHidden=true
-    // C18 = MICROBIT_ID_IO_P18,  // P18
+    C18 = MICROBIT_ID_IO_P18,  // P18
     // P18 = MICROBIT_ID_IO_P18,  // P18
 
     A1_RX = MICROBIT_ID_IO_A1_RX,   // RX
-    A1_TX = MICROBIT_ID_IO_A1_TX,   // TX
+    // A1_TX = MICROBIT_ID_IO_A1_TX,   // TX
 
     //% blockHidden=true
     MIC = MICROBIT_ID_LOGO, // microphone
 
     //% blockHidden=true
-    M_A_IN2 = MICROBIT_ID_IO_M_A_IN2,
+    M0_SPEED = MICROBIT_ID_IO_M_A_IN2,
     //% blockHidden=true
-    M_B_IN2 = MICROBIT_ID_IO_M_B_IN2
+    M1_SPEED = MICROBIT_ID_IO_M_B_IN2
 };
 
 enum class PulseValue {
@@ -368,6 +367,8 @@ namespace pins {
 
     // TODO FIX THIS IN THE DAL!
     inline void fixMotorIssue(AnalogPin name) {
+#if MICROBIT_CODAL
+#else
         NRF_TIMER2->SHORTS = TIMER_SHORTS_COMPARE3_CLEAR_Msk;
         NRF_TIMER2->INTENCLR = TIMER_INTENCLR_COMPARE3_Msk;
         NRF_TIMER2->PRESCALER = 4;
@@ -375,6 +376,7 @@ namespace pins {
         NRF_TIMER2->TASKS_START = 1;
         NRF_TIMER2->EVENTS_COMPARE[3] = 0;
         PINOP(getDigitalValue());
+#endif
     }
 
     /**

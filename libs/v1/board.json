@@ -1,6 +1,8 @@
 {
+  "id": "v1",
+  "boardName": "Calliope mini 1",
   "driveDisplayName": "MINI",
-  "visual": "calliope",
+  "visual": "mini1",
   "gpioPinBlocks": [
     [
         "TOUCH_P0"

@@ -13,6 +13,7 @@
     "icon": "./static/devices/mini3.png",
     "files": [
         "README.md",
-        "board.json"
+        "board.json",
+        "board.svg"
     ]
 }

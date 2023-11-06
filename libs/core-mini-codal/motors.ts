@@ -13,7 +13,7 @@ namespace motors {
     //% power.defl=100
     //% hidden=1 deprecated=1
     export function motorPower(power: number) {
-        dualMotorPower(Motor.A, power)
+        dualMotorPower(Motor.M0, power)
     }
 
     /**
@@ -24,7 +24,7 @@ namespace motors {
     //% hidden=1 deprecated=1
     export function motorCommand(command: MotorCommand) {
         if(command == MotorCommand.Break) {
-            brakeMotor(Motor.AB)
+            brakeMotor(Motor.M0_M1)
         }
     }
 
@@ -37,11 +37,11 @@ namespace motors {
 
         pins.digitalWritePin(DigitalPin.M_MODE, 1);
 
-        if (motor === Motor.A || motor === Motor.AB) {
-            pins.analogWritePin(AnalogPin.M_A_IN2, 0);
+        if (motor === Motor.M0 || motor === Motor.M0_M1) {
+            pins.analogWritePin(AnalogPin.M0_SPEED, 0);
         }
-        if (motor === Motor.B || motor === Motor.AB) {
-            pins.analogWritePin(AnalogPin.M_B_IN2, 0);
+        if (motor === Motor.M1 || motor === Motor.M0_M1) {
+            pins.analogWritePin(AnalogPin.M1_SPEED, 0);
         }
     }
 
@@ -58,14 +58,14 @@ namespace motors {
 
         const power = Math.clamp(-1023, 1023, Math.map(duty_percent, -100, 100, -1023, 1023));
         
-        if (motor === Motor.A || motor === Motor.AB) {
-            pins.digitalWritePin(DigitalPin.M_A_IN1, ((power < 0) ? 0 : 1))
-            pins.analogWritePin(AnalogPin.M_A_IN2, Math.abs(power))
+        if (motor === Motor.M0 || motor === Motor.M0_M1) {
+            pins.digitalWritePin(DigitalPin.M0_DIR, ((power < 0) ? 0 : 1))
+            pins.analogWritePin(AnalogPin.M0_SPEED, Math.abs(power))
         }
     
-        if (motor === Motor.B || motor === Motor.AB) {
-            pins.digitalWritePin(DigitalPin.M_B_IN1, ((power < 0) ? 0 : 1))
-            pins.analogWritePin(AnalogPin.M_B_IN2, Math.abs(power))
+        if (motor === Motor.M1 || motor === Motor.M0_M1) {
+            pins.digitalWritePin(DigitalPin.M1_DIR, ((power < 0) ? 0 : 1))
+            pins.analogWritePin(AnalogPin.M1_SPEED, Math.abs(power))
         }
     }
 
