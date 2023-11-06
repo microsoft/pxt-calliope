@@ -23,6 +23,8 @@ namespace pxsim {
         recordingState: RecordingState;
         lightState: pxt.Map<CommonNeoPixelState>;
         rgbLedState: number;
+        rgbLedLeftState: number;
+        rgbLedRightState: number;
         speakerState: SpeakerState;
         fileSystem: FileSystemState;
         logoTouch: Button;
@@ -122,9 +124,10 @@ namespace pxsim {
             super.initAsync(msg);
             // console.log('SIM MESSAGE',msg)
             if(msg.dependencies.v3 != undefined) {
-                // console.log('V3 SIMULATOR')
+                console.log('V3 SIMULATOR')
                 this.hardwareVersion = 3
             } else {
+                console.log('V1 SIMULATOR')
                 this.hardwareVersion = 1
             }
             const boardDef = msg.boardDefinition;

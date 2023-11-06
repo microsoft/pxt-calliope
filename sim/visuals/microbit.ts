@@ -1,4 +1,5 @@
 namespace pxsim.visuals {
+
     const MB_STYLE = `
         .simEventBtn {
             font-size: 1.4rem;
@@ -108,10 +109,6 @@ namespace pxsim.visuals {
         .sim-thermometer {
             stroke:#aaa;
             stroke-width: 2px;
-        }
-
-        #rgbledcircle:hover {
-            r:8px;
         }
 
         .inverted {
@@ -237,8 +234,9 @@ namespace pxsim.visuals {
           }
     `;
 
+	// const BOARD_SVG = pxsim.svg;
+
     const BOARD_SVG_HEAD = `<?xml version="1.0" encoding="utf-8"?>
-    <!-- Generator: Adobe Illustrator 27.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
     <svg version="1.1" id="calliopemini" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
          y="0px" viewBox="0 0 530 630" style="enable-background:new 0 0 530 630;" xml:space="preserve">
     <style type="text/css">
@@ -533,8 +531,7 @@ namespace pxsim.visuals {
 		<path d="M79.9,207.9c-1.3,1.3-3.5,1.3-4.8,0s-1.3-3.5,0-4.8s3.5-1.3,4.8,0C81.2,204.4,81.2,206.5,79.9,207.9z"/>
 		<path d="M59.1,228.6c-1.3,1.3-3.5,1.3-4.8,0s-1.3-3.5,0-4.8s3.5-1.3,4.8,0C60.5,225.1,60.5,227.3,59.1,228.6z"/>
 		<path d="M79.9,249.3c-1.3,1.3-3.5,1.3-4.8,0s-1.3-3.5,0-4.8s3.5-1.3,4.8,0C81.2,245.9,81.2,248,79.9,249.3z"/>
-		<path id="BTN_A" class="st26" d="M85.9,234.6c-4.6,4.6-12.1,4.6-16.8,0c-4.6-4.6-4.6-12.1,0-16.8c4.6-4.6,12.1-4.6,16.8,0
-			C90.5,222.5,90.5,230,85.9,234.6z"/>
+		
 		<path id="BTN_A_BOX" class="st17" d="M105.1,225l-26.4-26.4c-0.6-0.6-1.7-0.6-2.4,0l-0.7,0.7l-3.3,3.3L54,220.9l-3.3,3.4L50,225
 			c-0.7,0.7-0.7,1.7,0,2.4l26.3,26.3c0.7,0.7,1.7,0.7,2.4,0l0.7-0.7l3.4-3.3l18.2-18.2l3.4-3.3l0.7-0.7
 			C105.7,226.7,105.7,225.7,105.1,225z M75.1,203.1c1.3-1.3,3.5-1.3,4.8,0s1.3,3.5,0,4.8s-3.5,1.3-4.8,0
@@ -543,8 +540,10 @@ namespace pxsim.visuals {
 			C81.2,245.9,81.2,248,79.9,249.3z M85.9,234.6c-4.6,4.6-12.1,4.6-16.8,0c-4.6-4.6-4.6-12.1,0-16.8c4.6-4.6,12.1-4.6,16.8,0
 			C90.5,222.5,90.5,230,85.9,234.6z M100.6,228.6c-1.3,1.3-3.5,1.3-4.8,0s-1.3-3.5,0-4.8s3.5-1.3,4.8,0
 			C102,225.1,102,227.3,100.6,228.6z"/>
+		<path id="BTN_A" class="st26" d="M85.9,234.6c-4.6,4.6-12.1,4.6-16.8,0c-4.6-4.6-4.6-12.1,0-16.8c4.6-4.6,12.1-4.6,16.8,0
+			C90.5,222.5,90.5,230,85.9,234.6z"/>
 	</g>
-	<g id="RGB_LED2">
+	<g id="RGB_LED">
 		<rect id="rgbled" x="252.9" y="300.9" class="st2" width="25.6" height="25.6"/>
 		<circle id="rgbledcircle" class="st14" cx="265.7" cy="313.7" r="9.9"/>
 	</g>
@@ -1264,13 +1263,13 @@ namespace pxsim.visuals {
 		</g>
 	</g>
 	<g id="interaktiv">
-		<g id="RGB_LED3">
-			<rect id="rgbled3" x="282.7" y="300.9" class="st2" width="25.6" height="25.6"/>
-			<circle id="rgbledcircle3" class="st14" cx="295.5" cy="313.7" r="9.9"/>
+		<g id="RGB_LED_RIGHT">
+			<rect id="rgbledright" x="282.7" y="300.9" class="st2" width="25.6" height="25.6"/>
+			<circle id="rgbledrightcircle" class="st14" cx="295.5" cy="313.7" r="9.9"/>
 		</g>
-		<g id="RGB_LED1">
-			<rect id="rgbled1" x="223.1" y="300.9" class="st2" width="25.6" height="25.6"/>
-			<circle id="rgbledcircle1" class="st14" cx="235.9" cy="313.7" r="9.9"/>
+		<g id="RGB_LED_LEFT">
+			<rect id="rgbledleft" x="223.1" y="300.9" class="st2" width="25.6" height="25.6"/>
+			<circle id="rgbledleftcircle" class="st14" cx="235.9" cy="313.7" r="9.9"/>
 		</g>
 		<g id="JacDac">
 					<path class="st8" d="M195,449.4c0.3-0.7,0.5-1.4,0.3-2.2c-0.3-1.9-2-3.2-3.8-3.1c-0.2,0-0.3,0-0.5,0c-2,0.4-3.4,2.3-3,4.3
@@ -1398,8 +1397,7 @@ namespace pxsim.visuals {
 
 
     const pinNames = [
-        
-        "TOUCH_P0", "TOUCH_P1", "TOUCH_P2", "TOUCH_P3", "TOUCH_GND", "TOUCH_VCC",
+        "TOUCH_P0", "TOUCH_P1", "TOUCH_P2", "TOUCH_P3", "TOUCH_GND", "TOUCH_VCC", "TOUCH_LOGO",
         "BTN_A", "BTN_B",
         "C_GND1", "C_GND2", "C_GND3", "C_GND4", "C_VCC1", "C_VCC2",
         "C_P0", "C_P2", "C_P4", "C_P6", "C_P8", "C_P10", "C_P12", "C_P14", "C_P16", "C_P18",
@@ -1409,7 +1407,7 @@ namespace pxsim.visuals {
         "G_A1_RX", "G_A1_TX", "G_A1_VCC", "G_A1_GND"
     ];
     const pinTitles = [
-        "P0", "P1, ANALOG IN", "P2, ANALOG IN", "P3", "GND", "+3v3",
+        "P0", "P1, ANALOG IN", "P2, ANALOG IN", "P3", "GND", "+3v3", "Logo",
         "Button A", "Button B",
         "GND", "GND", "GND", "GND", "+3v3", "+3v3",
         "C0", "C2", "C4", "C6", "C8", "C10", "C12", "C14", "C16", "C18",
@@ -1465,8 +1463,16 @@ namespace pxsim.visuals {
         return themes[Math.floor(Math.random() * themes.length)];
     }
 
+	class MiniBoard extends pxsim.BaseBoard {
+		hardwareVersion?: number = 3;
+	}
+
+	class MiniRuntime extends pxsim.Runtime {
+		board: MiniBoard;
+	}
+
     export interface IBoardProps {
-        runtime?: pxsim.Runtime;
+        runtime?: MiniRuntime;
         theme?: IBoardTheme;
         wireframe?: boolean;
         disableTilt?: boolean;
@@ -1513,6 +1519,8 @@ namespace pxsim.visuals {
         public board: pxsim.DalBoard;
         private domHardwareVersion = 1;
         private rgbLed: SVGElement;
+		private rgbLedLeft: SVGElement;
+		private rgbLedRight: SVGElement;
         private pinNmToCoord: Map<Coord> = {
 			"EXT_PWR": [
 				92.30997467041016,
@@ -1718,9 +1726,6 @@ namespace pxsim.visuals {
 		};
 
         constructor(public props: IBoardProps) {
-
-            // console.log('THIS PROPS',this.props)
-            // console.log('PROPS',props)
             
             this.buildDom();
             if (props && props.wireframe)
@@ -1847,20 +1852,41 @@ namespace pxsim.visuals {
         }
 
         private updateRgbLed() {
-            let state = this.board;
-            if (state.rgbLedState) {
-                if (!this.rgbLed)
-                    this.rgbLed = this.element.getElementById("rgbledcircle") as SVGCircleElement;
-                const c = state.rgbLedState;
+			function updateRgbLedVisual(c: number, el: SVGElement) {
                 const b = c & 0xFF;
                 const g = (c >> 8) & 0xFF;
                 const r = (c >> 16) & 0xFF;
                 const w = (c >> 24) & 0xFF;
                 const ch = `rgba(${r}, ${g}, ${b}, 1)`;
-                svg.fill(this.rgbLed, ch);
+                svg.fill(el, ch);
+			}
+
+            let state = this.board;
+            if (state.rgbLedState) {
+                if (!this.rgbLed)
+                    this.rgbLed = this.element.getElementById("rgbledcircle") as SVGCircleElement;
+				updateRgbLedVisual(state.rgbLedState, this.rgbLed)  
             } else if (this.rgbLed) {
                 svg.fill(this.rgbLed, 'white');
             }
+
+			if(this.domHardwareVersion == 3) {
+				if (state.rgbLedLeftState) {
+					if (!this.rgbLedLeft)
+						this.rgbLedLeft = this.element.getElementById("rgbledleftcircle") as SVGCircleElement;
+					updateRgbLedVisual(state.rgbLedLeftState, this.rgbLedLeft)  
+				} else if (this.rgbLedLeft) {
+					svg.fill(this.rgbLedLeft, 'white');
+				}
+
+				if (state.rgbLedRightState) {
+					if (!this.rgbLedRight)
+						this.rgbLedRight = this.element.getElementById("rgbledrightcircle") as SVGCircleElement;
+					updateRgbLedVisual(state.rgbLedRightState, this.rgbLedRight)  
+				} else if (this.rgbLedRight) {
+					svg.fill(this.rgbLedRight, 'white');
+				}
+			}
         }
 
 		private updateSpeaker() {
@@ -2336,16 +2362,13 @@ namespace pxsim.visuals {
             this.element.style.perspective = "30em";
         }
 
-        private buildDom() {
-            // console.log('SIM DATA: ',this)
-            // console.log('BOARD: ',this.board)
-            // console.log('HARDWARE VERSION: ',this.props.runtime.board.hardwareVersion)
-            
+        private buildDom() {            
             let SVG_CODE = BOARD_SVG_HEAD+BOARD_MINI2_BODY+BOARD_SVG_BOTTOM
-            // if(this.board && this.board.hasOwnProperty("hardwareVersion") && this.board.hardwareVersion == 3) {
-            //     console.log('BOARD VERSION 3');
-            //     SVG_CODE = BOARD_SVG_HEAD+BOARD_MINI3_BODY+BOARD_SVG_BOTTOM
-            // }
+            if(this.props.runtime.board && this.props.runtime.board.hasOwnProperty("hardwareVersion") && this.props.runtime.board.hardwareVersion == 3) {
+                console.log('BOARD VERSION 3');
+				this.domHardwareVersion = 3;
+                SVG_CODE = BOARD_SVG_HEAD+BOARD_MINI3_BODY+BOARD_SVG_BOTTOM
+            }
 			this.element = new DOMParser().parseFromString(SVG_CODE, "image/svg+xml").querySelector("svg") as SVGSVGElement;
             svg.hydrate(this.element, {
                 "version": "1.0",

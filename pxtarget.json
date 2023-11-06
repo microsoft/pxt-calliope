@@ -231,7 +231,7 @@
                 "permanent": true
             }
         },
-        "dynamicBoardDefinition": true,
+        "dynamicBoardDefinition": false,
         "boardDefinition": {
             "visual": "calliope",
             "gpioPinBlocks": [
@@ -323,7 +323,9 @@
                 "compass",
                 "speaker",
                 "microphone",
-                "rgbled"
+                "rgbled",
+                "rgbledLeft",
+                "rgbledRight"
             ],
             "pinStyles": {
                 "P0": "croc",

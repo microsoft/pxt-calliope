@@ -717,13 +717,13 @@
 		</g>
 	</g>
 	<g id="interaktiv">
-		<g id="RGB_LED3">
-			<rect id="rgbled3" x="282.7" y="300.9" class="st2" width="25.6" height="25.6"/>
-			<circle id="rgbledcircle3" class="st14" cx="295.5" cy="313.7" r="9.9"/>
+		<g id="RGB_LED_RIGHT">
+			<rect id="rgbledright" x="282.7" y="300.9" class="st2" width="25.6" height="25.6"/>
+			<circle id="rgbledrightcircle" class="st14" cx="295.5" cy="313.7" r="9.9"/>
 		</g>
-		<g id="RGB_LED1">
-			<rect id="rgbled1" x="223.1" y="300.9" class="st2" width="25.6" height="25.6"/>
-			<circle id="rgbledcircle1" class="st14" cx="235.9" cy="313.7" r="9.9"/>
+		<g id="RGB_LED_LEFT">
+			<rect id="rgbledleft" x="223.1" y="300.9" class="st2" width="25.6" height="25.6"/>
+			<circle id="rgbledleftcircle" class="st14" cx="235.9" cy="313.7" r="9.9"/>
 		</g>
 		<g id="JacDac">
 					<path class="st8" d="M195,449.4c0.3-0.7,0.5-1.4,0.3-2.2c-0.3-1.9-2-3.2-3.8-3.1c-0.2,0-0.3,0-0.5,0c-2,0.4-3.4,2.3-3,4.3
@@ -1117,7 +1117,7 @@
 			C90.5,222.5,90.5,230,85.9,234.6z M100.6,228.6c-1.3,1.3-3.5,1.3-4.8,0s-1.3-3.5,0-4.8s3.5-1.3,4.8,0
 			C102,225.1,102,227.3,100.6,228.6z"/>
 	</g>
-	<g id="RGB_LED2">
+	<g id="RGB_LED">
 		<rect id="rgbled" x="252.9" y="300.9" class="st2" width="25.6" height="25.6"/>
 		<circle id="rgbledcircle" class="st14" cx="265.7" cy="313.7" r="9.9"/>
 	</g>
