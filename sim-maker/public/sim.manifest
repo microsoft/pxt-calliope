@@ -1,9 +1,0 @@
-CACHE MANIFEST
-
-CACHE:
-/cdn/pxtsim.js
-/sim/common-sim.js
-/sim/sim.js
-
-NETWORK:
-*

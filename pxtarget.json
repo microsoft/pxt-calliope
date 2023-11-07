@@ -231,7 +231,7 @@
                 "permanent": true
             }
         },
-        "dynamicBoardDefinition": false,
+        "dynamicBoardDefinition": true,
         "boardDefinition": {
             "visual": "calliope",
             "gpioPinBlocks": [
