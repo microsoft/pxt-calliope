@@ -10,10 +10,12 @@ enum MotorCommand {
 };
 
 enum Motor {
-    A,
-    B,
-    //% block="A & B"
-    AB
+    //% block="M0"
+    M0,
+    //% block="M1"
+    M1,
+    //% block="M0 & M1"
+    M0_M1
 };
 
 //% color=#008272 weight=30 icon="\uf1b9"
@@ -56,15 +58,15 @@ namespace motors {
 #if MICROBIT_CODAL
 #else
         switch(motor) {
-            case Motor::A: 
+            case Motor::M0: 
                 if (duty_percent <= 0) uBit.soundmotor.motorAOff();
                 else uBit.soundmotor.motorAOn(duty_percent);
                 break;
-            case Motor::B: 
+            case Motor::M1: 
                 if (duty_percent <= 0) uBit.soundmotor.motorBOff();
                 else uBit.soundmotor.motorBOn(duty_percent);
                 break;
-            case Motor::AB: 
+            case Motor::M0_M1: 
                 if (duty_percent <= 0) {
                     uBit.soundmotor.motorAOff();
                     uBit.soundmotor.motorBOff();

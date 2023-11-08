@@ -1,5 +1,9 @@
 namespace pxsim.basic {
     export function setLedColor(c: number) {
+        board().rgbLedLeftState = c;
+        board().rgbLedState = c;
+        board().rgbLedRightState = c;
+        runtime.queueDisplayUpdate();
     }
 
     export function setLedColors(c1: number, c2: number, c3: number) {
@@ -11,7 +15,9 @@ namespace pxsim.basic {
     }
 
     export function setLedColorsCodal(c1: number, c2: number, c3: number) {
-        board().rgbLedState = c1;
+        board().rgbLedLeftState = c1;
+        board().rgbLedState = c2;
+        board().rgbLedRightState = c3;
         runtime.queueDisplayUpdate()
     }
 

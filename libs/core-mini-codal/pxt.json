@@ -1,4 +1,6 @@
 {
+    "name": "core-mini-codal",
+    "description": "The mini codal core library",
     "dependencies": {
         "core": "file:../core",
         "core-mini": "file:../core-mini",
@@ -7,6 +9,7 @@
     "disablesVariants": [
         "minidal"
     ],
+    "hidden": true,
     "files": [
         "shims.d.ts",
         "enums.d.ts",
@@ -16,6 +19,8 @@
         "motors.ts",
         "soundexpressions.ts",
         "playable.ts",
-        "rgbled.ts"
+        "rgbled.ts",
+        "logo.cpp",
+        "touchmode.cpp"
     ]
 }

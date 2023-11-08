@@ -1022,7 +1022,6 @@ declare namespace pins {
     //% name.fieldEditor="gridpicker" name.fieldOptions.columns=4
     //% name.fieldOptions.tooltips="false" name.fieldOptions.width="250"
     //% weight=1
-    //% blockHidden=true
     //% group="Pitch" shim=pins::setAudioPin
     function setAudioPin(name: AnalogPin): void;
 

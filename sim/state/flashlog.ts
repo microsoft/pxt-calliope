@@ -26,7 +26,7 @@ namespace pxsim.flashlog {
             lastRunId = b.runOptions.id;
             erase();
         }
-        b.ensureHardwareVersion(2);
+        // b.ensureHardwareVersion(2);
     }
 
     function commitRow(data: string, type: "headers" | "row" | "plaintext") {

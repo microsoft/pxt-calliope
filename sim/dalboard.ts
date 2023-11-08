@@ -23,6 +23,8 @@ namespace pxsim {
         recordingState: RecordingState;
         lightState: pxt.Map<CommonNeoPixelState>;
         rgbLedState: number;
+        rgbLedLeftState: number;
+        rgbLedRightState: number;
         speakerState: SpeakerState;
         fileSystem: FileSystemState;
         logoTouch: Button;
@@ -57,6 +59,7 @@ namespace pxsim {
                     DAL.MICROBIT_ID_IO_P1,
                     DAL.MICROBIT_ID_IO_P2,
                     DAL.MICROBIT_ID_IO_P3,
+                    DAL.MICROBIT_ID_LOGO,
                     DAL.MICROBIT_ID_IO_P4,
                     DAL.MICROBIT_ID_IO_P5,
                     DAL.MICROBIT_ID_IO_P6,
@@ -73,8 +76,8 @@ namespace pxsim {
                     0,
                     0,
                     DAL.MICROBIT_ID_IO_A0_SCL,
-                    DAL.MICROBIT_ID_IO_A0_SDA,
-                    DAL.MICROBIT_ID_LOGO
+                    DAL.MICROBIT_ID_IO_A0_SDA
+                    
                 ],
                 servos: {
                     "P0": DAL.MICROBIT_ID_IO_P0,
@@ -96,6 +99,7 @@ namespace pxsim {
             this.builtinParts["compass"] = this.compassState = new CompassState();
             this.builtinParts["speaker"] = this.speakerState = new SpeakerState();
             this.builtinParts["microservo"] = this.edgeConnectorState;
+            this.builtinParts["logotouch"] = this.logoTouch = new Button(DAL.MICROBIT_ID_LOGO);
 
             this.builtinVisuals["buttonpair"] = () => new visuals.ButtonPairView();
             this.builtinVisuals["ledmatrix"] = () => new visuals.LedMatrixView();
@@ -120,26 +124,33 @@ namespace pxsim {
 
         initAsync(msg: SimulatorRunMessage): Promise<void> {
             super.initAsync(msg);
-
+            // console.log('SIM MESSAGE',msg)
+            if(msg.dependencies.v3 != undefined) {
+                console.log('V3 SIMULATOR')
+                this.hardwareVersion = 3
+            } else {
+                console.log('V1 SIMULATOR')
+                this.hardwareVersion = 1
+            }
             const boardDef = msg.boardDefinition;
             const cmpsList = msg.parts;
             const cmpDefs = msg.partDefinitions || {};
             const fnArgs = msg.fnArgs;
 
-            const v2Parts: pxt.Map<boolean> = {
-                "microphone": true,
-                "logotouch": true,
-                "builtinspeaker": true,
-                "v2": true
-            };
-            if (msg.builtinParts) {
-                const v2PartsUsed = msg.builtinParts.filter(k => v2Parts[k])
-                if (v2PartsUsed.length) {
-                    console.log(`detected v2 feature`, v2PartsUsed);
-                    cmpsList.push(...v2PartsUsed);
-                    this.hardwareVersion = 2;
-                }
-            }
+            // const v2Parts: pxt.Map<boolean> = {
+            //     "microphone": true,
+            //     "logotouch": true,
+            //     "builtinspeaker": true,
+            //     "v2": true
+            // };
+            // if (msg.builtinParts) {
+            //     const v2PartsUsed = msg.builtinParts.filter(k => v2Parts[k])
+            //     if (v2PartsUsed.length) {
+            //         console.log(`detected v2 feature`, v2PartsUsed);
+            //         cmpsList.push(...v2PartsUsed);
+            //         this.hardwareVersion = 2;
+            //     }
+            // }
 
             const opts: visuals.BoardHostOpts = {
                 state: this,
@@ -167,9 +178,9 @@ namespace pxsim {
                 setParentMuteState("disabled");
             }
 
-            if (msg.theme === "mbcodal") {
-                this.ensureHardwareVersion(2);
-            }
+            // if (msg.theme === "mbcodal") {
+            //     this.ensureHardwareVersion(2);
+            // }
             return Promise.resolve();
         }
 

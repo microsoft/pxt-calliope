@@ -2,6 +2,7 @@
     "name": "core",
     "description": "The microbit core library",
     "additionalFilePath": "../../node_modules/pxt-common-packages/libs/base",
+    "hidden": true,
     "files": [
         "README.md",
         "platform.h",
@@ -71,7 +72,6 @@
         "parts/headphone.svg"
     ],
     "testFiles": [],
-    "public": true,
     "dependencies": {},
     "dalDTS": {
         "compileServiceVariant": "minicodal",

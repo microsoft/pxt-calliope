@@ -13,8 +13,7 @@
     },
     "icon": "./static/devices/mini1.png",
     "files": [
-        "README.md",
-        "board.json"
+        "README.md"
     ],
     "yotta": {
         "config": {

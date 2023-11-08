@@ -1,14 +1,15 @@
 {
+    "name": "core-mini",
+    "description": "The mini core library",
     "dependencies": {
         "core": "file:../core"
     },
+    "hidden": true,
     "files": [
         "shims.d.ts",
         "enums.d.ts",
         "compass.ts",
         "motors.cpp",
-        "storage.cpp",
-        "storage.ts",
         "rgbled.cpp",
         "rgbled.ts"
     ]
