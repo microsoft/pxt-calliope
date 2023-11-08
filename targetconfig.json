@@ -325,7 +325,7 @@
             "calliope-edu/pxt-ki-in-schulen": {
                 "tags": [
                     "AI"
-                ],
+                ]
             },
             "51bit/colorbit": {
                 "tags": [
@@ -527,10 +527,30 @@
                 "preferred": true
             },
             "mkleinsb/pxt-thumbjoystick-calliope": {},
-            "MKleinSB/pxt-grove-ultrasonic-jacdac": {"tags": [ "Jacdac" ], "preferred": true},
-            "MKleinSB/pxt-grove-soilmoisture-jacdac": {"tags": [ "Jacdac" ], "preferred": true},
-            "MKleinSB/pxt-grove-lcd/jacdac": {"tags": [ "Jacdac" ], "preferred": true},
-            "MKleinSB/CO2-Sensor-SCD40/jacdac": {"tags": [ "Jacdac" ], "preferred": true},
+            "MKleinSB/pxt-grove-ultrasonic-jacdac": {
+                "tags": [
+                    "Jacdac"
+                ],
+                "preferred": true
+            },
+            "MKleinSB/pxt-grove-soilmoisture-jacdac": {
+                "tags": [
+                    "Jacdac"
+                ],
+                "preferred": true
+            },
+            "MKleinSB/pxt-grove-lcd/jacdac": {
+                "tags": [
+                    "Jacdac"
+                ],
+                "preferred": true
+            },
+            "MKleinSB/CO2-Sensor-SCD40/jacdac": {
+                "tags": [
+                    "Jacdac"
+                ],
+                "preferred": true
+            },
             "microsoft/pxt-bluetooth-max6675": {},
             "microsoft/pxt-bluetooth-midi": {
                 "tags": [
