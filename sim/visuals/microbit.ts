@@ -2677,7 +2677,7 @@ namespace pxsim.visuals {
                 let pressedTime: number;
                 pointerEvents.down.forEach(evid => btn.addEventListener(evid, ev => {
                     let state = this.board;
-                    console.log(`down ${state.edgeConnectorState.pins[i].id}`)
+                    // console.log(`down ${state.edgeConnectorState.pins[i].id}`)
                     state.edgeConnectorState.pins[i].touched = true;
                     this.updatePin(state.edgeConnectorState.pins[i], index);
                     this.board.bus.queue(state.edgeConnectorState.pins[i].id, DAL.MICROBIT_BUTTON_EVT_DOWN);
@@ -2690,7 +2690,7 @@ namespace pxsim.visuals {
                 // })
                 btn.addEventListener(pointerEvents.up, ev => {
                     let state = this.board;
-                    console.log(`up ${state.edgeConnectorState.pins[i].id}, index ${index}`)
+                    // console.log(`up ${state.edgeConnectorState.pins[i].id}, index ${index}`)
                     state.edgeConnectorState.pins[i].touched = false;
                     this.updatePin(state.edgeConnectorState.pins[i], index);
                     this.board.bus.queue(state.edgeConnectorState.pins[i].id, DAL.MICROBIT_BUTTON_EVT_UP);
