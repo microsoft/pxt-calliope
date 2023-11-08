@@ -527,25 +527,25 @@
                 "preferred": true
             },
             "mkleinsb/pxt-thumbjoystick-calliope": {},
-            "MKleinSB/pxt-grove-ultrasonic-jacdac": {
+            "mkleinsb/pxt-grove-ultrasonic-jacdac": {
                 "tags": [
                     "Jacdac"
                 ],
                 "preferred": true
             },
-            "MKleinSB/pxt-grove-soilmoisture-jacdac": {
+            "mkleinsb/pxt-grove-soilmoisture-jacdac": {
                 "tags": [
                     "Jacdac"
                 ],
                 "preferred": true
             },
-            "MKleinSB/pxt-grove-lcd/jacdac": {
+            "mkleinsb/pxt-grove-lcd/jacdac": {
                 "tags": [
                     "Jacdac"
                 ],
                 "preferred": true
             },
-            "MKleinSB/CO2-Sensor-SCD40/jacdac": {
+            "mkleinsb/co2-sensor-scd40/jacdac": {
                 "tags": [
                     "Jacdac"
                 ],
