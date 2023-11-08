@@ -1397,7 +1397,7 @@ namespace pxsim.visuals {
 
 
     const pinNames = [
-        "TOUCH_P0", "TOUCH_P1", "TOUCH_P2", "TOUCH_P3", "TOUCH_GND", "TOUCH_VCC", "TOUCH_LOGO",
+        "TOUCH_P0", "TOUCH_P1", "TOUCH_P2", "TOUCH_P3", "TOUCH_LOGO", "TOUCH_GND", "TOUCH_VCC",
         "BTN_A", "BTN_B",
         "C_GND1", "C_GND2", "C_GND3", "C_GND4", "C_VCC1", "C_VCC2",
         "C_P0", "C_P2", "C_P4", "C_P6", "C_P8", "C_P10", "C_P12", "C_P14", "C_P16", "C_P18",
@@ -1407,14 +1407,14 @@ namespace pxsim.visuals {
         "G_A1_RX", "G_A1_TX", "G_A1_VCC", "G_A1_GND"
     ];
     const pinTitles = [
-        "P0", "P1, ANALOG IN", "P2, ANALOG IN", "P3", "GND", "+3v3", "Logo",
+        "P0", "P1", "P2", "P3", "Logo", "GND", "+3v3",
         "Button A", "Button B",
         "GND", "GND", "GND", "GND", "+3v3", "+3v3",
-        "C0", "C2", "C4", "C6", "C8", "C10", "C12", "C14", "C16", "C18",
-        "C1", "C3", "C5", "C7", "C9", "C11", "C13", "C15", "C17", "C19",
-        "GND", "GND", "GND", "MOTOR B", "MOTOR A", "MOTOR VM",
-        "GND", "+3v3", "C18, I2C - SDA", "C19, I2C - SCL",
-        "C16, Serial - RX", "C17, Serial - TX", "+3v3", "GND"
+        "P0", "P2", "C4", "C6", "C8", "C10", "C12", "C14", "C16", "C18",
+        "P1", "P3", "C5", "C7", "C9", "C11", "C13", "C15", "C17", "C19",
+        "Motor 0 -", "Motor 1 -", "GND", "MOTOR 0 +", "MOTOR 1 +", "MOTOR VM",
+        "GND", "+3v3", "C18, A0 SDA", "C19, A0 SCL",
+        "C16, A1 RX", "C17, A1 TX", "+3v3", "GND"
     ];
     const MB_WIDTH = 530;
     const MB_HEIGHT = 630;
@@ -2671,13 +2671,13 @@ namespace pxsim.visuals {
         }
 
         private attachPinsTouchEvents() {
-            this.pins.slice(0, 4).forEach((btn, i) => {
+            this.pins.slice(0, 5).forEach((btn, i) => {
                 var index = i;
                 let state = this.board;
                 let pressedTime: number;
                 pointerEvents.down.forEach(evid => btn.addEventListener(evid, ev => {
                     let state = this.board;
-                    // console.log(`down ${state.edgeConnectorState.pins[i].id}`)
+                    console.log(`down ${state.edgeConnectorState.pins[i].id}`)
                     state.edgeConnectorState.pins[i].touched = true;
                     this.updatePin(state.edgeConnectorState.pins[i], index);
                     this.board.bus.queue(state.edgeConnectorState.pins[i].id, DAL.MICROBIT_BUTTON_EVT_DOWN);
@@ -2690,7 +2690,7 @@ namespace pxsim.visuals {
                 // })
                 btn.addEventListener(pointerEvents.up, ev => {
                     let state = this.board;
-                    // console.log(`up ${state.edgeConnectorState.pins[i].id}, index ${index}`)
+                    console.log(`up ${state.edgeConnectorState.pins[i].id}, index ${index}`)
                     state.edgeConnectorState.pins[i].touched = false;
                     this.updatePin(state.edgeConnectorState.pins[i], index);
                     this.board.bus.queue(state.edgeConnectorState.pins[i].id, DAL.MICROBIT_BUTTON_EVT_UP);
