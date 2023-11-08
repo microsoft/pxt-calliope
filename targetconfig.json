@@ -239,8 +239,7 @@
             "MKleinSB/pxt-serialmp3",
             "Microsoft/pxt-microturtle",
             "Microsoft/pxt-neopixel",
-            "calliope-net/i2c-liste",
-            "CalliTGS3/pxt-calliope-grovePCF85063TP"
+            "calliope-net/i2c-liste"
         ],
         "approvedRepoLib": {
             "tinysuperlab/motionkitv2": {
@@ -269,9 +268,7 @@
             "51bit/sfc": {},
             "51bit/smarttools": {},
             "51bit/dfplayermini": {},
-            "callitgs3/pxt-calliope-grovepcf85063tp": {
-                "preferred": true
-            },
+            "callitgs3/pxt-calliope-grovepcf85063tp": {},
             "freenove/makecode-extension-starter-kit": {},
             "kitronikltd/pxt-kitronik-i2c-16-servo": {
                 "tags": [

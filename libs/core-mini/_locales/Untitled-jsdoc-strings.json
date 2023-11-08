@@ -20,20 +20,5 @@
   "motors.dualMotorPowerDal": "Controls two motors attached to the board. Switches to dual-motor mode!",
   "motors.motorCommandDal": "Send break, coast or sleep commands to the motor. Has no effect in dual-motor mode.",
   "motors.motorPowerDal": "Turns on the motor at a certain percent of power. Switches to single motor mode!",
-  "motors.motorPowerDal|param|power": "%percent of power sent to the motor. Negative power goes backward. eg: 50",
-  "storage": "Provides access to persistent storage functionality.\n\nProvides access to persistent storage functionality.",
-  "storage.getNumber": "Reads a key value pair from the non volatile storage as a number",
-  "storage.getNumber|param|key": "the key for accesing the value",
-  "storage.getValueInt": "Reads a key value pair from the non volatile storage",
-  "storage.getValueInt|param|key": "the key for accesing the value",
-  "storage.putNumber": "Saves a key value pair in the non volatile storage",
-  "storage.putNumber|param|key": "the key for accesing the value",
-  "storage.putNumber|param|value": "value to store",
-  "storage.putValueInt": "Saves a key value pair in the non volatile storage",
-  "storage.putValueInt|param|key": "the key for accesing the value",
-  "storage.putValueInt|param|value": "value to store",
-  "storage.remove": "Removes a key value pair from the non volatile storage",
-  "storage.removeNumber": "Deletes the key from the non volatile storage",
-  "storage.removeNumber|param|key": "the key for accesing the value",
-  "storage.remove|param|key": "the key for accesing the value"
+  "motors.motorPowerDal|param|power": "%percent of power sent to the motor. Negative power goes backward. eg: 50"
 }

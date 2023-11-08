@@ -4,6 +4,10 @@
  * Provides access to persistent storage functionality.
  */
 namespace storage {
+
+    // Define a global variable to keep track of the time of the last write
+    unsigned long lastWriteTime = 0;
+
     /**
      * Saves a key value pair in the non volatile storage
      * @param key the key for accesing the value
@@ -17,7 +21,18 @@ namespace storage {
     //% blockHidden=true
     void putValueInt(String key, int value) {
         ManagedString managedKey = MSTR(key);
-        uBit.storage.put(managedKey, (uint8_t *)&value, sizeof(int));     
+
+        unsigned long currentTime = uBit.systemTime(); // Get the current time
+
+        // Check if the time elapsed since the last write is within 1 second
+        if (currentTime - lastWriteTime < 5000) {
+            uBit.sleep(3000); // Introduce a 1000-millisecond delay
+        }
+
+        uBit.storage.put(managedKey, (uint8_t *)&value, sizeof(int));
+
+        // Update the time of the last write
+        lastWriteTime = uBit.systemTime(); 
     }
 
     /**

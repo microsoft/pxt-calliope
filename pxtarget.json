@@ -4,7 +4,7 @@
     "name": "makecode.calliope.cc",
     "title": "Microsoft MakeCode for Calliope mini",
     "description": "A Blocks / JavaScript code editor for the Calliope mini powered by Microsoft MakeCode.",
-    "corepkg": "core",
+    "corepkg": "v1",
     "bundleddirs": [
         "libs/core",
         "libs/core-mini",
@@ -23,7 +23,8 @@
         "libs/flashlog",
         "libs/datalogger",
         "libs/color",
-        "libs/audio-recording"
+        "libs/audio-recording",
+        "libs/storage"
     ],
     "cloud": {
         "workspace": false,

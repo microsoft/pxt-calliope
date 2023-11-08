@@ -1,0 +1,14 @@
+{
+    "name": "Storage",
+    "description": "Store data",
+    "dependencies": {
+        "core": "file:../core"
+    },
+    "public": true,
+    "files": [
+        "shims.d.ts",
+        "enums.d.ts",
+        "storage.cpp",
+        "storage.ts"
+    ]
+}

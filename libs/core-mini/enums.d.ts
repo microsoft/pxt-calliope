@@ -21,8 +21,6 @@
     }
 declare namespace motors {
 }
-declare namespace storage {
-}
 declare namespace basic {
 }
 
