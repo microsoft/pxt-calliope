@@ -8,6 +8,7 @@
     "disablesVariants": [
         "minidal"
     ],
+    "icon": "./static/packages/datalogger/icon.png",
     "dependencies": {
         "core": "file:../core",
         "flashlog": "file:../flashlog"

@@ -1194,123 +1194,123 @@ namespace pxsim.visuals {
 		<g id="Steckleiste">
 			<g id="Aussen">
 				<g id="VMplus">
-					<path class="st9" d="M382.9,394.6v8.6h8.6v-8.6H382.9z"/>
+					<path class="st9" d="M382.9,394.6v8.6h8.6v-8.6H382.9z M390.1,401.8h-5.9V396h5.9V401.8z"/>
 					<rect x="379.1" y="391.4" class="st13" width="15" height="15"/>
 				</g>
 				<g id="GND3">
-					<path class="st9" d="M382.9,377.4v8.6h8.6v-8.6H382.9z"/>
+					<path class="st9" d="M382.9,377.4v8.6h8.6v-8.6H382.9z M390.1,384.6h-5.9v-5.9h5.9V384.6z"/>
 					<rect x="379.1" y="374.2" class="st13" width="15" height="15"/>
 				</g>
 				<g id="M0minus">
-					<path class="st9" d="M365.6,394.6v8.6h8.6v-8.6H365.6z"/>
+					<path class="st9" d="M365.6,394.6v8.6h8.6v-8.6H365.6z M372.9,401.8H367V396h5.9V401.8z"/>
 					<rect x="361.9" y="391.4" class="st13" width="15" height="15"/>
 				</g>
 				<g id="M1minus">
-					<path class="st9" d="M365.6,377.4v8.6h8.6v-8.6H365.6z"/>
+					<path class="st9" d="M365.6,377.4v8.6h8.6v-8.6H365.6z M372.9,384.6H367v-5.9h5.9V384.6z"/>
 					<rect x="361.9" y="374.2" class="st13" width="15" height="15"/>
 				</g>
 				<g id="M0plus">
-					<path class="st9" d="M348.4,394.6v8.6h8.6v-8.6H348.4z"/>
+					<path class="st9" d="M348.4,394.6v8.6h8.6v-8.6H348.4z M355.7,401.8h-5.9V396h5.9V401.8z"/>
 					<rect x="345.1" y="391.4" class="st13" width="15" height="15"/>
 				</g>
 				<g id="M1plus">
-					<path class="st9" d="M348.4,377.4v8.6h8.6v-8.6H348.4z"/>
+					<path class="st9" d="M348.4,377.4v8.6h8.6v-8.6H348.4z M355.7,384.6h-5.9v-5.9h5.9V384.6z"/>
 					<rect x="345.1" y="374.2" class="st13" width="15" height="15"/>
 				</g>
 				<g id="C_P20">
-					<path class="st9" d="M331.2,394.6v8.6h8.6v-8.6H331.2z"/>
+					<path class="st9" d="M331.2,394.6v8.6h8.6v-8.6H331.2z M338.4,401.8h-5.9V396h5.9V401.8z"/>
 					<rect x="327.9" y="391.4" class="st13" width="15" height="15"/>
 				</g>
 				<g id="GND2">
-					<path class="st9" d="M331.2,377.4v8.6h8.6v-8.6H331.2z"/>
+					<path class="st9" d="M331.2,377.4v8.6h8.6v-8.6H331.2z M338.4,384.6h-5.9v-5.9h5.9V384.6z"/>
 					<rect x="327.9" y="374.2" class="st13" width="15" height="15"/>
 				</g>
 				<g id="C_P19">
-					<path class="st9" d="M314,377.4v8.6h8.6v-8.6H314z"/>
+					<path class="st9" d="M314,377.4v8.6h8.6v-8.6H314z M321.2,384.6h-5.9v-5.9h5.9V384.6z"/>
 					<rect x="310.9" y="374.2" class="st13" width="15" height="15"/>
 				</g>
 				<g id="C_P18">
-					<path class="st9" d="M314,394.6v8.6h8.6v-8.6H314z"/>
+					<path class="st9" d="M314,394.6v8.6h8.6v-8.6H314z M321.2,401.8h-5.9V396h5.9V401.8z"/>
 					<rect x="310.9" y="391.4" class="st13" width="15" height="15"/>
 				</g>
 				<g id="C_P17">
-					<path class="st9" d="M296.8,377.4v8.6h8.6v-8.6H296.8z"/>
+					<path class="st9" d="M296.8,377.4v8.6h8.6v-8.6H296.8z M304,384.6h-5.9v-5.9h5.9V384.6z"/>
 					<rect x="293.7" y="374.2" class="st13" width="15" height="15"/>
 				</g>
 				<g id="C_P16">
-					<path class="st9" d="M296.8,394.6v8.6h8.6v-8.6H296.8z"/>
+					<path class="st9" d="M296.8,394.6v8.6h8.6v-8.6H296.8z M304,401.8h-5.9V396h5.9V401.8z"/>
 					<rect x="293.7" y="391.4" class="st13" width="15" height="15"/>
 				</g>
 				<g id="C_P15">
-					<path class="st9" d="M279.6,377.4v8.6h8.6v-8.6H279.6z"/>
+					<path class="st9" d="M279.6,377.4v8.6h8.6v-8.6H279.6z M286.8,384.6H281v-5.9h5.9v5.9H286.8z"/>
 					<rect x="276.2" y="374.2" class="st13" width="15" height="15"/>
 				</g>
 				<g id="C_P14">
-					<path class="st9" d="M279.6,394.6v8.6h8.6v-8.6H279.6z"/>
+					<path class="st9" d="M279.6,394.6v8.6h8.6v-8.6H279.6z M286.8,401.8H281V396h5.9v5.8H286.8z"/>
 					<rect x="276.2" y="391.4" class="st13" width="15" height="15"/>
 				</g>
 				<g id="C_P13">
-					<path class="st9" d="M262.4,377.4v8.6h8.6v-8.6H262.4z"/>
+					<path class="st9" d="M262.4,377.4v8.6h8.6v-8.6H262.4z M269.6,384.6h-5.9v-5.9h5.9V384.6z"/>
 					<rect x="259" y="374.2" class="st13" width="15" height="15"/>
 				</g>
 				<g id="C_P12">
-					<path class="st9" d="M262.4,394.6v8.6h8.6v-8.6H262.4z"/>
+					<path class="st9" d="M262.4,394.6v8.6h8.6v-8.6H262.4z M269.6,401.8h-5.9V396h5.9V401.8z"/>
 					<rect x="259" y="391.4" class="st13" width="15" height="15"/>
 				</g>
 				<g id="C_P11">
-					<path class="st9" d="M245.2,377.4v8.6h8.6v-8.6H245.2z"/>
+					<path class="st9" d="M245.2,377.4v8.6h8.6v-8.6H245.2z M252.4,384.6h-5.9v-5.9h5.9V384.6z"/>
 					<rect x="241.9" y="374.2" class="st13" width="15" height="15"/>
 				</g>
 				<g id="C_P10">
-					<path class="st9" d="M245.2,394.6v8.6h8.6v-8.6H245.2z"/>
+					<path class="st9" d="M245.2,394.6v8.6h8.6v-8.6H245.2z M252.4,401.8h-5.9V396h5.9V401.8z"/>
 					<rect x="241.9" y="391.4" class="st13" width="15" height="15"/>
 				</g>
 				<g id="C_P9">
-					<path class="st9" d="M228,377.4v8.6h8.6v-8.6H228z"/>
+					<path class="st9" d="M228,377.4v8.6h8.6v-8.6H228z M235.2,384.6h-5.9v-5.9h5.9V384.6z"/>
 					<rect x="224.8" y="374.2" class="st13" width="15" height="15"/>
 				</g>
 				<g id="C_P8">
-					<path class="st9" d="M228,394.6v8.6h8.6v-8.6H228z"/>
+					<path class="st9" d="M228,394.6v8.6h8.6v-8.6H228z M235.2,401.8h-5.9V396h5.9V401.8z"/>
 					<rect x="224.8" y="391.4" class="st13" width="15" height="15"/>
 				</g>
 				<g id="C_P7">
-					<path class="st9" d="M210.8,377.4v8.6h8.6v-8.6H210.8z"/>
+					<path class="st9" d="M210.8,377.4v8.6h8.6v-8.6H210.8z M218,384.6h-5.9v-5.9h5.9V384.6z"/>
 					<rect x="207.6" y="374.2" class="st13" width="15" height="15"/>
 				</g>
 				<g id="C_P6">
-					<path class="st9" d="M210.8,394.6v8.6h8.6v-8.6H210.8z"/>
+					<path class="st9" d="M210.8,394.6v8.6h8.6v-8.6H210.8z M218,401.8h-5.9V396h5.9V401.8z"/>
 					<rect x="207.6" y="391.4" class="st13" width="15" height="15"/>
 				</g>
 				<g id="C_P5">
-					<path class="st9" d="M193.5,377.4v8.6h8.6v-8.6H193.5z"/>
+					<path class="st9" d="M193.5,377.4v8.6h8.6v-8.6H193.5z M200.8,384.6h-5.9v-5.9h5.9V384.6z"/>
 					<rect x="190.1" y="374.2" class="st13" width="15" height="15"/>
 				</g>
 				<g id="C_P4">
-					<path class="st9" d="M193.5,394.6v8.6h8.6v-8.6H193.5z"/>
+					<path class="st9" d="M193.5,394.6v8.6h8.6v-8.6H193.5z M200.8,401.8h-5.9V396h5.9V401.8z"/>
 					<rect x="190.1" y="391.4" class="st13" width="15" height="15"/>
 				</g>
 				<g id="C_P3">
-					<path class="st9" d="M176.3,377.4v8.6h8.6v-8.6H176.3z"/>
+					<path class="st9" d="M176.3,377.4v8.6h8.6v-8.6H176.3z M183.6,384.6h-5.9v-5.9h5.9V384.6z"/>
 					<rect x="172.9" y="374.2" class="st13" width="15" height="15"/>
 				</g>
 				<g id="C_P2">
-					<path class="st9" d="M176.3,394.6v8.6h8.6v-8.6H176.3z"/>
+					<path class="st9" d="M176.3,394.6v8.6h8.6v-8.6H176.3z M183.6,401.8h-5.9V396h5.9V401.8z"/>
 					<rect x="172.9" y="391.4" class="st13" width="15" height="15"/>
 				</g>
 				<g id="C_P1">
-					<path class="st9" d="M159.1,377.4v8.6h8.6v-8.6H159.1z"/>
+					<path class="st9" d="M159.1,377.4v8.6h8.6v-8.6H159.1z M166.3,384.6h-5.9v-5.9h5.9V384.6z"/>
 					<rect x="155.8" y="374.2" class="st13" width="15" height="15"/>
 				</g>
 				<g id="C_P0">
-					<path class="st9" d="M159.1,394.6v8.6h8.6v-8.6H159.1z"/>
+					<path class="st9" d="M159.1,394.6v8.6h8.6v-8.6H159.1z M166.3,401.8h-5.9V396h5.9V401.8z"/>
 					<rect x="155.8" y="391.4" class="st13" width="15" height="15"/>
 				</g>
 				<g id="VCC">
-					<path class="st9" d="M141.9,377.4v8.6h8.6v-8.6H141.9z"/>
+					<path class="st9" d="M141.9,377.4v8.6h8.6v-8.6H141.9z M149.1,384.6h-5.9v-5.9h5.9V384.6z"/>
 					<rect x="138.7" y="374.2" class="st13" width="15" height="15"/>
 				</g>
 				<g id="GND1">
-					<path class="st9" d="M141.9,394.6v8.6h8.6v-8.6H141.9z"/>
+					<path class="st9" d="M141.9,394.6v8.6h8.6v-8.6H141.9z M149.1,401.8h-5.9V396h5.9V401.8z"/>
 					<rect x="138.7" y="391.4" class="st13" width="15" height="15"/>
 				</g>
 			</g>

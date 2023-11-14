@@ -1,16 +1,5 @@
 # Projects
 
-* [First Steps](/calliope/firststeps)
-  * [Get Ready](/calliope/firststeps/firstSteps)
-  * [The 5x5 LED matrix](/calliope/firststeps/5x5LED)
-  * [Radio](/calliope/firststeps/Radio)
-  * [Loops](/calliope/firststeps/Loops)
-  * [Mathematics](/calliope/firststeps/Mathematics)
-  * [Inputs](/calliope/firststeps/Inputs)
-  * [Sensors](/calliope/firststeps/Sensors)
-  * [Output](/calliope/firststeps/Output)
-  * [Decisions](/calliope/firststeps/Decisions)
-  * [Variables](/calliope/firststeps/Variables)
 * [Tutorials](/calliope/tutorials)
   * [Flashing Heart](/projects/flashing-heart)
   * [Name Tag](/projects/name-tag)

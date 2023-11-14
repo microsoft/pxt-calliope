@@ -23,8 +23,7 @@
         "libs/flashlog",
         "libs/datalogger",
         "libs/color",
-        "libs/audio-recording",
-        "libs/storage"
+        "libs/audio-recording"
     ],
     "cloud": {
         "workspace": false,
@@ -157,7 +156,7 @@
         "minidal": {
             "compile": {
                 "useUF2": false,
-                "webUSB": false
+                "webUSB": true
             },
             "compileService": {
             }
