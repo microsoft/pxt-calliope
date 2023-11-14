@@ -1,6 +1,6 @@
 #include "pxt.h"
 
-//% color=#C94600 weight=99 icon="\uf192"
+//% color=#c90072 weight=99 icon="\uf192"
 namespace input {
 
   /**
