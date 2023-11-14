@@ -15,4 +15,5 @@
   * [Shop](https://shop.calliope.cc)
   * [Projects](https://calliope.cc/en/projekte)
   * [Teaching materials](https://calliope.cc/schulen/schulmaterial)
+  * [Tools](https://calliope.cc/programmieren/tools)
   * [Forum](https://forum.calliope.cc)

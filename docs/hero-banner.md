@@ -6,16 +6,16 @@ Here are some cool activities to get you started with your @boardname@!
 
 ### ~ codecard
 * name: CalliopEO
-* description: CALLIOPEO – Taking the Calliope mini to the ISS.
-* imageUrl: /calliope/02_Hero_CalliopEO.png
+* description: CALLIOPEO – The Calliope mini on the ISS.
+* imageUrl: /static/calliope/hero/02_Hero_CalliopEO.png
 * url: https://calliope.cc/calliopeo
 * buttonLabel: Explore!
 * cardType: link
 ---
 * name: The 5x5 LED matrix
-* description: KIDS LAB – play, learn and hack!
-* imageUrl: /calliope/03_Hero_KidsLab.png
-* url: https://calliope.cc/programmieren/kidslab
+* description: Code Your School – der Schulwettbewerb
+* imageUrl: /static/calliope/hero/hero_codeyourschool.jpg
+* url: https://calliope.cc/schulen/aktionen/code-your-school
 * buttonLabel: Explore!
 * cardType: link
 ### ~

@@ -5,7 +5,7 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
-    "microbit-dal": "Amerlander/microbit-dal#v2.1.1"
+    "microbit-dal": "calliope-mini/microbit-dal#v2.2.0-rc6-calliope.rc4"
   },
   "bin": "./source"
 }

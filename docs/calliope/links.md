@@ -34,6 +34,15 @@ Here are some cool tutorials to get you started with your @boardname@!
   "buttonLabel": "View",
   "labelClass": "green small ribbon"
 }, {
+  "name": "Tools",
+  "url":"https://calliope.cc/programmieren/tools",
+  "description": "",
+  "imageUrl": "/calliope/links/thumbnail_screenshots.gif",
+  "largeImageUrl": "",
+  "label": "",
+  "buttonLabel": "View",
+  "labelClass": "green small ribbon"
+}, {
   "name": "Forum",
   "url":"https://forum.calliope.cc",
   "description": "Be a part of our comunity",
@@ -45,3 +54,4 @@ Here are some cool tutorials to get you started with your @boardname@!
 }
 ]
 ```
+
