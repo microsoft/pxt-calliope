@@ -3,7 +3,7 @@
  */
 //% block="Data Logger"
 //% icon="\uf0ce"
-//% color="#378273"
+//% color="#f7c425"
 namespace datalogger {
     export enum DeleteType {
         //% block="fast"

@@ -210,7 +210,8 @@
             "sparkfun/pxt-gator-temp",
             "vengit/pxt-sbrick",
             "CalliTGS3/pxt-calliope-grovePCF85063TP",
-            "calliope-net/i2c-liste"
+            "calliope-net/i2c-liste",
+            "amerlander/pxt-storage"
         ],
         "preferredRepos": [
             "calliope-edu/CO2-Sensor-SCD40",
@@ -251,7 +252,8 @@
             "calliope-edu/pxt-ki-in-schulen",
             "Microsoft/pxt-microturtle",
             "Microsoft/pxt-neopixel",
-            "calliope-net/i2c-liste"
+            "calliope-net/i2c-liste",
+            "amerlander/pxt-storage"
         ],
         "approvedRepoLib": {
             "calliope-edu/co2-sensor-scd40": {
@@ -763,7 +765,8 @@
                 ]
             },
             "calliope-net/i2c-liste": {},
-            "vengit/pxt-sbrick": {}
+            "vengit/pxt-sbrick": {},
+            "amerlander/pxt-storage": {"preferred": true}
         },
         "approvedEditorExtensionUrls": [
             "https://microsoft.github.io/jacdac-docs/tools/makecode-editor-extension"
@@ -772,7 +775,6 @@
         ]
     },
     "galleries": {
-        "First Steps": "calliope/firststeps",
         "Tutorials": "calliope/tutorials",
         "Calliope Links": "calliope/links"
     },
