@@ -32,11 +32,7 @@ namespace motors {
     //% weight=80
     //% duty_percent.defl=100
     export function dualMotorPower(motor: Motor, duty_percent: number) {
-
-        const power = Math.clamp(-1023, 1023, Math.map(duty_percent, -100, 100, -1023, 1023));
-
         motors.dualMotorPowerDal(motor, power)
-
     }
 
 }
