@@ -1344,7 +1344,7 @@ namespace pxsim.visuals {
         "Button A", "Button B",
         "GND", "GND", "GND", "+3v3",
         "P0", "P2", "C4", "C6", "C8", "C10", "C12", "C14", "C16 (A1 RX)", "C18", "C20 (A0 SDA)",
-        "P1", "P3", "C5", "C7", "C9", "C11", "C13", "C15", "C17 (A1 TX)", "C19",
+        "P1", "P3", "C5", "C7", "C9", "C11", "C13", "C15", "C17 (A1 TX)", "C19 (A0 SCL)",
         "Motor 0 -", "Motor 1 -", "MOTOR 0 +", "MOTOR 1 +", "MOTOR VM+",
         "GND", "+3v3", "C20 (A0 SDA)", "C19 (A0 SCL)",
         "C16 (A1 RX)", "C17 (A1 TX)", "+3v3", "GND"

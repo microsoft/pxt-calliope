@@ -19,6 +19,8 @@ enum class TouchTarget {
     P1 = MICROBIT_ID_IO_P1,
     //% block="P2"
     P2 = MICROBIT_ID_IO_P2,
+    //% block="P3"
+    P3 = MICROBIT_ID_IO_P3,
     //% block="logo"
     LOGO = MICROBIT_ID_LOGO
 };

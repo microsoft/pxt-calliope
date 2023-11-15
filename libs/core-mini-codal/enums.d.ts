@@ -32,6 +32,8 @@
     P1 = 101,  // MICROBIT_ID_IO_P1
     //% block="P2"
     P2 = 102,  // MICROBIT_ID_IO_P2
+    //% block="P3"
+    P3 = 103,  // MICROBIT_ID_IO_P3
     //% block="logo"
     LOGO = 121,  // MICROBIT_ID_LOGO
     }

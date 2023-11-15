@@ -60,7 +60,7 @@ declare namespace music {
 declare namespace input {
 
     /**
-     * Do something when the logo is touched and released again.
+     * Do something when the logo is touched and released again. Calliope mini 3 block.
      * @param body the code to run when the logo is pressed
      */
     //% weight=83 blockGap=32
@@ -71,7 +71,7 @@ declare namespace input {
     function onLogoEvent(action: TouchButtonEvent, body: () => void): void;
 
     /**
-     * Get the logo state (pressed or not).
+     * Get the logo state (pressed or not). Calliope mini 3 block.
      */
     //% weight=58
     //% blockId="input_logo_is_pressed" block="logo is pressed"
