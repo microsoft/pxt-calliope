@@ -32,7 +32,7 @@ namespace motors {
     //% weight=80
     //% duty_percent.defl=100
     export function dualMotorPower(motor: Motor, duty_percent: number) {
-        motors.dualMotorPowerDal(motor, power)
+        motors.dualMotorPowerDal(motor, duty_percent)
     }
 
 }
