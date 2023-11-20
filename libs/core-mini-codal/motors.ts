@@ -24,24 +24,7 @@ namespace motors {
     //% hidden=1 deprecated=1
     export function motorCommand(command: MotorCommand) {
         if(command == MotorCommand.Break) {
-            brakeMotor(Motor.M0_M1)
-        }
-    }
-
-    /**
-    * Controls one or two motors attached to the board.
-    */
-    //% blockId=block_break_motor block="motor %motor break"
-    //% weight=80
-    export function brakeMotor(motor: Motor) {
-
-        pins.digitalWritePin(DigitalPin.M_MODE, 1);
-
-        if (motor === Motor.M0 || motor === Motor.M0_M1) {
-            pins.analogWritePin(AnalogPin.M0_SPEED, 0);
-        }
-        if (motor === Motor.M1 || motor === Motor.M0_M1) {
-            pins.analogWritePin(AnalogPin.M1_SPEED, 0);
+            dualMotorPower(Motor.M0_M1, 0)
         }
     }
 

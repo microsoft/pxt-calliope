@@ -15,6 +15,7 @@
         "microphone.ts",
         "motors.ts",
         "parts/dcmotor.svg",
-        "input.cpp"
+        "input.cpp",
+        "rgbled.ts"
     ]
 }

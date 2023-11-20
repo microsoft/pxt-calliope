@@ -22,7 +22,9 @@ namespace pxsim.basic {
     }
 
     export function turnRgbLedOff() {
+        board().rgbLedLeftState = 0;
         board().rgbLedState = 0;
+        board().rgbLedRightState = 0;
         runtime.queueDisplayUpdate()
     }
 }

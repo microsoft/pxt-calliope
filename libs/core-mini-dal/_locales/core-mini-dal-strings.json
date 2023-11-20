@@ -1,4 +1,6 @@
 {
+  "basic.setLedColors|block": "set LED to %color1=colorNumberPicker %color2=colorNumberPicker %color3=colorNumberPicker",
+  "basic|block": "basic",
   "input.assumeCalibrationCompass|block": "assume calibration compass",
   "input.clearCalibrationCompass|block": "clear calibration compass",
   "input.isCalibratedCompass|block": "is compass calibrated",
@@ -8,8 +10,10 @@
   "motors.motorCommand|block": "motor %command",
   "motors.motorPower|block": "motor on at %percent \\%",
   "motors|block": "motors",
+  "{id:category}Basic": "Basic",
   "{id:category}Input": "Input",
   "{id:category}Motors": "Motors",
   "{id:group}Configuration": "Configuration",
+  "{id:group}RGB LED": "RGB LED",
   "{id:group}System": "System"
 }
