@@ -26,7 +26,7 @@
   "WaveShape.Sine|block": "sine",
   "WaveShape.Square|block": "square",
   "WaveShape.Triangle|block": "triangle",
-  "basic.setLedColors|block": "set LED to %color1=colorNumberPicker %color2=colorNumberPicker %color3=colorNumberPicker",
+  "basic.setLedColors|block": "set LED to %color1=colorNumberPicker %color2=colorNumberPicker %color3=colorNumberPicker || brightness %brightness",
   "basic|block": "basic",
   "input.logoIsPressed|block": "logo is pressed",
   "input.onLogoEvent|block": "on logo $action",

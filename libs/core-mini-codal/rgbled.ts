@@ -12,7 +12,7 @@ namespace basic {
      */
     //% help=basic/set-led-colors
     //% blockId=device_set_led_colors
-    //% block="set LED to %color1=colorNumberPicker %color2=colorNumberPicker %color3=colorNumberPicker"
+    //% block="set LED to %color1=colorNumberPicker %color2=colorNumberPicker %color3=colorNumberPicker || brightness %brightness"
     //% color1.defl=0xff0000
     //% color2.defl=0xff0000
     //% color3.defl=0xff0000
