@@ -66,17 +66,17 @@ namespace basic {
     void setLedColorsCodal(int color1, int color2, int color3, int brightness = 20) {
 #if MICROBIT_CODAL
         // Extract RGB components from the color values
-        int r1 = ((color1 >> 16) & 0xFF) / 100 * brightness;
-        int g1 = ((color1 >> 8) & 0xFF) / 100 * brightness;
-        int b1 = (color1 & 0xFF) / 100 * brightness;
+        int r1 = ((color1 >> 16) & 0xFF) * brightness / 100;
+        int g1 = ((color1 >> 8) & 0xFF) * brightness / 100;
+        int b1 = (color1 & 0xFF) * brightness / 100;
 
-        int r2 = ((color2 >> 16) & 0xFF) / 100 * brightness;
-        int g2 = ((color2 >> 8) & 0xFF) / 100 * brightness;
-        int b2 = (color2 & 0xFF) / 100 * brightness;
+        int r2 = ((color2 >> 16) & 0xFF) * brightness / 100;
+        int g2 = ((color2 >> 8) & 0xFF) * brightness / 100;
+        int b2 = (color2 & 0xFF) * brightness / 100;
 
-        int r3 = ((color3 >> 16) & 0xFF) / 100 * brightness;
-        int g3 = ((color3 >> 8) & 0xFF) / 100 * brightness;
-        int b3 = (color3 & 0xFF) / 100 * brightness;
+        int r3 = ((color3 >> 16) & 0xFF) * brightness / 100;
+        int g3 = ((color3 >> 8) & 0xFF) * brightness / 100;
+        int b3 = (color3 & 0xFF) * brightness / 100;
 
         memset(rgbBuffer, 0, sizeof(rgbBuffer)); // Clear the buffer
         rgbBuffer[0] = g1;
