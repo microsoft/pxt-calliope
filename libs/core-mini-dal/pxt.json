@@ -2,8 +2,7 @@
     "name": "core-mini-dal",
     "description": "The mini dal core library",
     "dependencies": {
-        "core": "file:../core",
-        "core-mini": "file:../core-mini"
+        "core": "file:../core"
     },
     "disablesVariants": [
         "minicodal"

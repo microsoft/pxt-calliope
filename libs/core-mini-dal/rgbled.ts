@@ -21,7 +21,7 @@ namespace basic {
     //% weight=10
     //% group="RGB LED"
     //% inlineInputMode=inline
-    //% hidden=1
+    //% hidden=1 deprecated=1
     export function  setLedColors(color1: number, color2: number, color3: number, brightness: number = 20) {
         setLedColorDal(color1);
     }
