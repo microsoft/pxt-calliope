@@ -1,5 +1,35 @@
 
 export function patchBlocks(pkgTargetVersion: string, dom: Element) {
+
+    // is this a old script?
+    if (pxt.semver.majorCmp(pkgTargetVersion || "0.0.0", "5.0.0") >= 0) return;
+
+    // Motor Names mapping
+    pxt.U.toArray(dom.querySelectorAll('field[name="motor"]'))
+    .forEach(node => {
+        const motorValue = node.textContent.trim();
+        switch (motorValue) {
+            case 'Motor.A':
+                node.textContent = 'Motor.M0';
+                break;
+            case 'Motor.B':
+                node.textContent = 'Motor.M1';
+                break;
+            case 'Motor.AB':
+                node.textContent = 'Motor.M0_M1';
+                break;
+            // Add additional cases if needed for other motor values
+        }
+    });
+
+     // Sound level mapping
+     pxt.U.toArray(dom.querySelectorAll('block[type=device_get_sound_level]'))
+         .forEach(node => {
+             node.setAttribute('type', 'soundLevel');
+         });
+
+
+
     // is this a old script?
     if (pxt.semver.majorCmp(pkgTargetVersion || "0.0.0", "4.0.20") >= 0) return;
     // button and pin pressed/released blocks
@@ -148,9 +178,6 @@ arrowImageNodes.forEach(node => {
     arrowNode.textContent  = "IconNames.Arrow" + arrowNode.textContent.split('.')[1];
 });
 
-    // is this a very old script?
-    if (pxt.semver.majorCmp(pkgTargetVersion || "0.0.0", "1.0.0") >= 0) return;
-
     // LEDs
 /**
  *       <block type="device_show_leds">
@@ -196,6 +223,7 @@ arrowImageNodes.forEach(node => {
 
 
     if (pxt.semver.majorCmp(pkgTargetVersion || "0.0.0", "5.0.12") <= 0) {
+
         // Eighth note misspelling
         /*
         <block type="basic_show_icon">

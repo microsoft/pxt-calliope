@@ -3,7 +3,6 @@
   "basic|block": "basic",
   "input.assumeCalibrationCompass|block": "assume calibration compass",
   "input.clearCalibrationCompass|block": "clear calibration compass",
-  "input.loudness|block": "Loudness",
   "input|block": "input",
   "motors.dualMotorPower|block": "motor %motor|at %percent \\%",
   "motors.motorCommand|block": "motor %command",

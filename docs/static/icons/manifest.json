@@ -1,5 +1,5 @@
 {
-	"name": "makecode.microbit.org",
+	"name": "makecode.calliope.cc",
 	"icons": [
 		{
 			"src": "\/android-chrome-36x36.png",
@@ -19,11 +19,6 @@
 		{
 			"src": "\/android-chrome-96x96.png",
 			"sizes": "96x96",
-			"type": "image\/png"
-		},
-		{
-			"src": "\/android-chrome-144x144.png",
-			"sizes": "144x144",
 			"type": "image\/png"
 		},
 		{

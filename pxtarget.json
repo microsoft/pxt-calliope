@@ -133,6 +133,17 @@
                         "input\\s*\\.\\s*onButtonEvent\\s*\\(\\s*(.*?),\\s*ButtonEvent\\s*.\\s*(.*?),": "input.onButtonEvent($1, input.buttonEventValue(ButtonEvent.$2),"
                     }
                 }
+            ],
+            "0.0.0 - 5.0.0": [
+                {
+                    "type": "api",
+                    "map": {
+                        "input\\s*\\.\\s*loudness\\s*\\(": "input.soundLevel(",
+                        "Motor\\s*\\.\\s*AB": "Motor.M0_M1",
+                        "Motor\\s*\\.\\s*A": "Motor.M0",
+                        "Motor\\s*\\.\\s*B": "Motor.M1"
+                    }
+                }
             ]
         },
         "hidSelectors": [{
