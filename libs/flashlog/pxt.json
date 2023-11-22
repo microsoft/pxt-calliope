@@ -13,7 +13,8 @@
     "searchOnly": true,
     "public": true,
     "disablesVariants": [
-        "minidal"
+        "minidal",
+        "minidalusb"
     ],
     "dependencies": {
         "core": "file:../core"

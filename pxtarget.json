@@ -7,7 +7,6 @@
     "corepkg": "v1",
     "bundleddirs": [
         "libs/core",
-        "libs/core-mini",
         "libs/core-mini-dal",
         "libs/core-mini-codal",
         "libs/v1",
@@ -157,6 +156,14 @@
             "compile": {
                 "useUF2": false,
                 "webUSB": false
+            },
+            "compileService": {
+            }
+        },
+        "minidalusb": {
+            "compile": {
+                "useUF2": false,
+                "webUSB": true
             },
             "compileService": {
             }

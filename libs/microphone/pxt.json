@@ -6,7 +6,8 @@
         "core": "file:../core"
     },
     "disablesVariants": [
-        "minidal"
+        "minidal",
+        "minidalusb"
     ],
     "icon": "./static/packages/microphone/icon.png"
 }
