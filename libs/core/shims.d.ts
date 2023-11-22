@@ -409,7 +409,8 @@ declare namespace input {
     //% help=input/calibrate-compass advanced=true
     //% blockId="input_compass_is_calibrated" block="is compass calibrated"
     //% weight=19
-    //% group="System" shim=input::isCalibratedCompass
+    //% group="System"
+    //% deprecated=true shim=input::isCalibratedCompass
     function isCalibratedCompass(): boolean;
 }
 

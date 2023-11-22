@@ -446,6 +446,7 @@ namespace input {
     //% blockId="input_compass_is_calibrated" block="is compass calibrated"
     //% weight=19
     //% group="System"
+    //% deprecated=true
     bool isCalibratedCompass() {
         return (uBit.compass.isCalibrated() == 1);
     }
