@@ -42,7 +42,7 @@ namespace devices {
     }
 
     /**
-     * Register code to run when the micro:bit receives a command from the paired gamepad.
+     * Register code to run when the Calliope mini receives a command from the paired gamepad.
      * @param name button name
      * @param body code to run when button is pressed
      */

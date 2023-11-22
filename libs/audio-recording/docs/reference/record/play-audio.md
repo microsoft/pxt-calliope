@@ -16,7 +16,7 @@ Any audio recorded in the audio buffer is played on the speaker or at the sound 
 
 ## Example
 
-Use the micro:bit as a sound recorder. Record sound when button `A` is pressed and play sound when button `B` is pressed.
+Use the Calliope mini as a sound recorder. Record sound when button `A` is pressed and play sound when button `B` is pressed.
 
 ```blocks
 input.onButtonPressed(Button.A, function () {

@@ -127,7 +127,7 @@ declare interface Image {
 
 
     /**
-     * Provides access to basic micro:bit functionality.
+     * Provides access to basic Calliope mini functionality.
      */
 
 declare namespace basic {
@@ -232,7 +232,7 @@ declare namespace input {
     function onButtonEvent(button: Button, eventType: int32, body: () => void): void;
 
     /**
-     * Do something when when a gesture is done (like shaking the micro:bit).
+     * Do something when when a gesture is done (like shaking the Calliope mini).
      * @param gesture the type of gesture to track, eg: Gesture.Shake
      * @param body code to run when gesture is raised
      */
@@ -438,7 +438,7 @@ declare namespace control {
     function waitForEvent(src: int32, value: int32): void;
 
     /**
-     * Resets the BBC micro:bit.
+     * Resets the Calliope mini.
      */
     //% weight=30 async help=control/reset blockGap=8
     //% blockId="control_reset" block="reset" shim=control::reset

@@ -1,5 +1,5 @@
 /**
- * Provides access to basic micro:bit functionality.
+ * Provides access to basic Calliope mini functionality.
  */
 //% color=#54C9C9 weight=100 icon="\uf00a"
 //% groups=['LED matrix', 'Control', 'RGB LED', 'others']

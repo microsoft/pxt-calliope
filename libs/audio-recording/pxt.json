@@ -13,7 +13,8 @@
     ],
     "public": true,
     "disablesVariants": [
-        "minidal"
+        "minidal",
+        "minidalusb"
     ],
     "icon": "./static/packages/microphone/icon.png"
 }

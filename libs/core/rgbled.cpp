@@ -8,7 +8,7 @@ namespace basic {
         // Define an array to hold RGB LED data
     uint8_t rgbBuffer[9] = {0};
 
-    // Call this function once to initialize the micro:bit board
+    // Call this function once to initialize the Calliope mini board
     // void initializeMicroBit() {
     //     uBit.init();
     // }
