@@ -1,6 +1,6 @@
 {
   "ColorHues": "Well known color hues",
-  "Colors": "Well known colors",
+  "Colors": "Well known colors\n\nWell known colors",
   "color": "Color manipulation",
   "color.ColorBuffer": "A buffer of colors",
   "color.ColorBuffer.write": "Writes the content of the src color buffer starting at the start dstOffset in the current buffer",

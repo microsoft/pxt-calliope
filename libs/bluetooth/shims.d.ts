@@ -84,7 +84,7 @@ declare namespace bluetooth {
     function onUartDataReceived(delimiters: string, body: () => void): void;
 
     /**
-     * Register code to run when the micro:bit is connected to over Bluetooth
+     * Register code to run when the Calliope mini is connected to over Bluetooth
      * @param body Code to run when a Bluetooth connection is established
      */
     //% help=bluetooth/on-bluetooth-connected weight=20
@@ -93,7 +93,7 @@ declare namespace bluetooth {
     function onBluetoothConnected(body: () => void): void;
 
     /**
-     * Register code to run when a bluetooth connection to the micro:bit is lost
+     * Register code to run when a bluetooth connection to the Calliope mini is lost
      * @param body Code to run when a Bluetooth connection is lost
      */
     //% help=bluetooth/on-bluetooth-disconnected weight=19

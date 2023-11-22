@@ -2,9 +2,10 @@
     "name": "v1",
     "version": "1.0.0",
     "description": "Calliope mini 1",
-    "compileServiceVariant": "minidal",
+    "compileServiceVariant": "minidalusb",
     "disablesVariants": [
-        "minicodal"
+        "minicodal",
+        "minidal"
     ],
     "core": true,
     "dependencies": {

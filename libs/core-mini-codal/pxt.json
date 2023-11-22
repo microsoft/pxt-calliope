@@ -3,7 +3,6 @@
     "description": "The mini codal core library",
     "dependencies": {
         "core": "file:../core",
-        "core-mini": "file:../core-mini",
         "microphone": "file:../microphone"
     },
     "disablesVariants": [

@@ -187,7 +187,7 @@ namespace input {
     }
 
     /**
-     * Do something when when a gesture is done (like shaking the micro:bit).
+     * Do something when when a gesture is done (like shaking the Calliope mini).
      * @param gesture the type of gesture to track, eg: Gesture.Shake
      * @param body code to run when gesture is raised
      */
@@ -438,4 +438,17 @@ namespace input {
     void setAccelerometerRange(AcceleratorRange range) {
         uBit.accelerometer.setRange((int)range);
     }
+
+    /**
+    * Returns 'true' when the compass is calibrated. Otherwise returns 'false'.
+    */
+    //% help=input/calibrate-compass advanced=true
+    //% blockId="input_compass_is_calibrated" block="is compass calibrated"
+    //% weight=19
+    //% group="System"
+    //% deprecated=true
+    bool isCalibratedCompass() {
+        return (uBit.compass.isCalibrated() == 1);
+    }
+    
 }

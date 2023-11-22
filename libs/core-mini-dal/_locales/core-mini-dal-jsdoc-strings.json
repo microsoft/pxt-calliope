@@ -1,5 +1,5 @@
 {
-  "basic": "Provides access to basic micro:bit functionality.\n\nProvides access to basic micro:bit functionality.\n\nProvides access to basic calliope mini functionality.\n\r\nProvides access to basic calliope mini functionality.",
+  "basic": "Provides access to basic Calliope mini functionality.\n\nProvides access to basic calliope mini functionality.\n\nProvides access to basic Calliope mini functionality.\n\r\nProvides access to basic calliope mini functionality.",
   "basic.setLedColors": "Sets the color on the built-in RGB LED. Set to 0 to turn off.",
   "basic.setLedColors|param|brightness": "The LED brightness in percent.",
   "basic.setLedColors|param|color1": "The color of the first LED in RGB format (e.g., 0xFF0000 for red).",
@@ -8,8 +8,6 @@
   "input": "Events and data from sensors",
   "input.assumeCalibrationCompass": "Obsolete, compass calibration is automatic.",
   "input.clearCalibrationCompass": "Obsolete, compass calibration is automatic.",
-  "input.isCalibratedCompass": "Returns 'true' when the compass is calibrated. Otherwise returns 'false'.",
-  "input.loudness": "gets the level of loudness from 0 (silent) to 255 (loud)",
   "motors": "Blocks to control the onboard motors",
   "motors.dualMotorPower": "Controls two motors attached to the board. Switches to dual-motor mode!",
   "motors.motorCommand": "Send break, coast or sleep commands to the motor. Has no effect in dual-motor mode.",

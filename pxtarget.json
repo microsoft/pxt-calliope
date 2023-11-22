@@ -7,7 +7,6 @@
     "corepkg": "v1",
     "bundleddirs": [
         "libs/core",
-        "libs/core-mini",
         "libs/core-mini-dal",
         "libs/core-mini-codal",
         "libs/v1",
@@ -134,6 +133,17 @@
                         "input\\s*\\.\\s*onButtonEvent\\s*\\(\\s*(.*?),\\s*ButtonEvent\\s*.\\s*(.*?),": "input.onButtonEvent($1, input.buttonEventValue(ButtonEvent.$2),"
                     }
                 }
+            ],
+            "0.0.0 - 5.0.0": [
+                {
+                    "type": "api",
+                    "map": {
+                        "input\\s*\\.\\s*loudness\\s*\\(": "input.soundLevel(",
+                        "Motor\\s*\\.\\s*AB": "Motor.M0_M1",
+                        "Motor\\s*\\.\\s*A": "Motor.M0",
+                        "Motor\\s*\\.\\s*B": "Motor.M1"
+                    }
+                }
             ]
         },
         "hidSelectors": [{
@@ -157,6 +167,14 @@
             "compile": {
                 "useUF2": false,
                 "webUSB": false
+            },
+            "compileService": {
+            }
+        },
+        "minidalusb": {
+            "compile": {
+                "useUF2": false,
+                "webUSB": true
             },
             "compileService": {
             }

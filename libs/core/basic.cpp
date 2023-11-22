@@ -2,7 +2,7 @@
 
 
 /**
- * Provides access to basic micro:bit functionality.
+ * Provides access to basic Calliope mini functionality.
  */
 namespace basic {
 

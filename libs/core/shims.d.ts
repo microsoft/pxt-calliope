@@ -127,7 +127,7 @@ declare interface Image {
 
 
     /**
-     * Provides access to basic micro:bit functionality.
+     * Provides access to basic Calliope mini functionality.
      */
 
 declare namespace basic {
@@ -232,7 +232,7 @@ declare namespace input {
     function onButtonEvent(button: Button, eventType: int32, body: () => void): void;
 
     /**
-     * Do something when when a gesture is done (like shaking the micro:bit).
+     * Do something when when a gesture is done (like shaking the Calliope mini).
      * @param gesture the type of gesture to track, eg: Gesture.Shake
      * @param body code to run when gesture is raised
      */
@@ -402,6 +402,16 @@ declare namespace input {
     //% advanced=true
     //% group="Configuration" shim=input::setAccelerometerRange
     function setAccelerometerRange(range: AcceleratorRange): void;
+
+    /**
+     * Returns 'true' when the compass is calibrated. Otherwise returns 'false'.
+     */
+    //% help=input/calibrate-compass advanced=true
+    //% blockId="input_compass_is_calibrated" block="is compass calibrated"
+    //% weight=19
+    //% group="System"
+    //% deprecated=true shim=input::isCalibratedCompass
+    function isCalibratedCompass(): boolean;
 }
 
 
@@ -438,7 +448,7 @@ declare namespace control {
     function waitForEvent(src: int32, value: int32): void;
 
     /**
-     * Resets the BBC micro:bit.
+     * Resets the Calliope mini.
      */
     //% weight=30 async help=control/reset blockGap=8
     //% blockId="control_reset" block="reset" shim=control::reset
@@ -701,7 +711,7 @@ declare namespace input {
      * Reads the loudness through the microphone from 0 (silent) to 255 (loud)
      */
     //% help=input/sound-level
-    //% blockId=device_get_sound_level block="sound level"
+    //% blockId=soundLevel block="sound level"
     //% parts="microphone"
     //% weight=34 blockGap=8
     //% group="Sound" shim=input::soundLevel
@@ -746,7 +756,7 @@ declare namespace pins {
 
     /**
      * Read the connector value as analog, that is, as a value comprised between 0 and 1023.
-     * @param name pin to write to, eg: AnalogPin.P1
+     * @param name pin to write to, eg: AnalogPin.P0
      */
     //% help=pins/analog-read-pin weight=25
     //% blockId=device_get_analog_pin block="analog read|pin %name" blockGap="8"
@@ -757,7 +767,7 @@ declare namespace pins {
 
     /**
      * Set the connector value as analog. Value must be comprised between 0 and 1023.
-     * @param name pin name to write to, eg: AnalogPin.P1
+     * @param name pin name to write to, eg: AnalogPin.P0
      * @param value value to write to the pin between ``0`` and ``1023``. eg:1023,0
      */
     //% help=pins/analog-write-pin weight=24
@@ -771,7 +781,7 @@ declare namespace pins {
     /**
      * Configure the pulse-width modulation (PWM) period of the analog output in microseconds.
      * If this pin is not configured as an analog output (using `analog write pin`), the operation has no effect.
-     * @param name analog pin to set period to, eg: AnalogPin.P1
+     * @param name analog pin to set period to, eg: AnalogPin.P0
      * @param micros period in micro seconds. eg:20000
      */
     //% help=pins/analog-set-period weight=23 blockGap=8
@@ -818,7 +828,7 @@ declare namespace pins {
 
     /**
      * Write a value to the servo, controlling the shaft accordingly. On a standard servo, this will set the angle of the shaft (in degrees), moving the shaft to that orientation. On a continuous rotation servo, this will set the speed of the servo (with ``0`` being full-speed in one direction, ``180`` being full speed in the other, and a value near ``90`` being no movement).
-     * @param name pin to write to, eg: AnalogPin.P1
+     * @param name pin to write to, eg: AnalogPin.P0
      * @param value angle or rotation speed, eg:180,90,0
      */
     //% help=pins/servo-write-pin weight=20
@@ -929,7 +939,7 @@ declare namespace pins {
     /**
      * Set the matrix width for Neopixel strip (already assigned to a pin).
      * Should be used in conjunction with `set matrix width` from Neopixel package.
-     * @param name pin of Neopixel strip, eg: DigitalPin.P1
+     * @param name pin of Neopixel strip, eg: DigitalPin.P0
      * @param value width of matrix (at least ``2``)
      */
     //% help=pins/neopixel-matrix-width weight=3 advanced=true
@@ -1278,6 +1288,86 @@ declare namespace light {
     //% advanced=true
     //% shim=light::setMode
     function setMode(pin: int32, mode: int32): void;
+}
+
+
+
+    //% color=#008272 weight=30 icon="\uf1b9"
+declare namespace motors {
+
+    /**
+     * Turns on the motor at a certain percent of power. Switches to single motor mode!
+     * @param power %percent of power sent to the motor. Negative power goes backward. eg: 50
+     */
+    //% blockId=motor_power_dal shim=motors::motorPowerDal
+    function motorPowerDal(power: int32): void;
+
+    /**
+     * Send break, coast or sleep commands to the motor. Has no effect in dual-motor mode.
+     */
+    //% blockId=motor_command_dal
+    //% hidden=1 shim=motors::motorCommandDal
+    function motorCommandDal(command: MotorCommand): void;
+
+    /**
+     * Controls two motors attached to the board. Switches to dual-motor mode!
+     */
+    //% blockId=dual_motor_power_dal
+    //% hidden=1 shim=motors::dualMotorPowerDal
+    function dualMotorPowerDal(motor: Motor, duty_percent: int32): void;
+}
+
+
+    /**
+     * Provides access to basic calliope mini functionality.
+     */
+
+declare namespace basic {
+
+    /**
+     * Sets the color on the built-in RGB LED. Set to 0 to turn off.
+     */
+    //% blockId=device_turn_rgb_led_off block="turn built-in LED off"
+    //% help=basic/turn-rgb-led-off
+    //% weight=10
+    //% group="RGB LED"
+    //% advanced=true shim=basic::turnRgbLedOff
+    function turnRgbLedOff(): void;
+
+    /**
+     * Sets the color on the built-in RGB LED. Set to 0 to turn off.
+     * @param color1 The color of the first LED in RGB format (e.g., 0xFF0000 for red).
+     */
+    //% blockId=device_set_led_colors-dal
+    //% hidden=1 shim=basic::setLedColorDal
+    function setLedColorDal(color: int32): void;
+
+    /**
+     * Sets the color on the built-in RGB LED. Set to 0 to turn off.
+     * @param color1 The color of the first LED in RGB format (e.g., 0xFF0000 for red).
+     * @param color2 The second LED color.
+     * @param color3 The third LED color.
+     * @param brightness The LED brightness in percent.
+     */
+    //% blockId=device_set_led_colors-codal
+    //% hidden=1 brightness.defl=20 shim=basic::setLedColorsCodal
+    function setLedColorsCodal(color1: int32, color2: int32, color3: int32, brightness?: int32): void;
+
+    /**
+     * Sets the color on the built-in RGB LED. Set to 0 to turn off.
+     * @param color The color of the LED in RGB format (e.g., 0xFF0000 for red).
+     */
+    //% help=basic/set-led-color
+    //% blockId=device_set_led_color
+    //% block="set LED to %color=colorNumberPicker"
+    //% expandableArgumentMode="toggle"
+    //%
+    //%
+    //%
+    //%
+    //% weight=10
+    //% group="RGB LED" color.defl=0xff0000 shim=basic::setLedColor
+    function setLedColor(color?: int32): void;
 }
 declare namespace music {
 

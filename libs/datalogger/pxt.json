@@ -6,7 +6,8 @@
     ],
     "public": true,
     "disablesVariants": [
-        "minidal"
+        "minidal",
+        "minidalusb"
     ],
     "icon": "./static/packages/datalogger/icon.png",
     "dependencies": {

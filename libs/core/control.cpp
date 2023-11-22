@@ -263,7 +263,7 @@ namespace control {
     }
 
     /**
-     * Resets the BBC micro:bit.
+     * Resets the Calliope mini.
      */
     //% weight=30 async help=control/reset blockGap=8
     //% blockId="control_reset" block="reset"

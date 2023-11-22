@@ -4,11 +4,11 @@ The Datalogger extension logs user data to the flash storage on the @boardname@.
 
 ### ~ reminder
 
-#### Works with micro:bit V2
+#### Works with Calliope mini 3
 
-![works with micro:bit V2 only image](/static/v2/v2-only.png)
+![works with Calliope mini 3 only image](/static/v2/v2-only.png)
 
-Using these blocks requires the [micro:bit V2](/device/v2) hardware. If you use any blocks that attempt access flash memory on a micro:bit v1 board, you will see the **927** error code on the screen.
+Using these blocks requires the [Calliope mini 3](/device/v2) hardware. If you use any blocks that attempt access flash memory on a Calliope mini 1 or 2 board, you will see the **927** error code on the screen.
 
 ### ~
 

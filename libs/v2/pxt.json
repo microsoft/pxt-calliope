@@ -4,7 +4,8 @@
     "description": "Calliope mini 2",
     "compileServiceVariant": "minidal",
     "disablesVariants": [
-        "minicodal"
+        "minicodal",
+        "minidalusb"
     ],
     "core": true,
     "dependencies": {
