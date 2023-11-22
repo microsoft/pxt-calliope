@@ -366,6 +366,7 @@
   "input.buttonIsPressed|block": "button|%NAME|is pressed",
   "input.calibrateCompass|block": "calibrate compass",
   "input.compassHeading|block": "compass heading (°)",
+  "input.isCalibratedCompass|block": "is compass calibrated",
   "input.isGesture|block": "is %gesture gesture",
   "input.lightLevel|block": "light level",
   "input.magneticForce|block": "magnetic force (µT)|%NAME",

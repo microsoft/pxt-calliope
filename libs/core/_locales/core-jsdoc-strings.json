@@ -444,6 +444,7 @@
   "input.buttonIsPressed|param|button": "the button to query the request, eg: Button.A",
   "input.calibrateCompass": "Obsolete, compass calibration is automatic.",
   "input.compassHeading": "Get the current compass heading in degrees.",
+  "input.isCalibratedCompass": "Returns 'true' when the compass is calibrated. Otherwise returns 'false'.",
   "input.isGesture": "Tests if a gesture is currently detected.",
   "input.isGesture|param|gesture": "the type of gesture to detect, eg: Gesture.Shake",
   "input.lightLevel": "Reads the light level applied to the LED screen in a range from ``0`` (dark) to ``255`` bright.",

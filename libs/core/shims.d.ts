@@ -402,6 +402,15 @@ declare namespace input {
     //% advanced=true
     //% group="Configuration" shim=input::setAccelerometerRange
     function setAccelerometerRange(range: AcceleratorRange): void;
+
+    /**
+     * Returns 'true' when the compass is calibrated. Otherwise returns 'false'.
+     */
+    //% help=input/calibrate-compass advanced=true
+    //% blockId="input_compass_is_calibrated" block="is compass calibrated"
+    //% weight=19
+    //% group="System" shim=input::isCalibratedCompass
+    function isCalibratedCompass(): boolean;
 }
 
 

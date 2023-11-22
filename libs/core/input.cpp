@@ -438,4 +438,16 @@ namespace input {
     void setAccelerometerRange(AcceleratorRange range) {
         uBit.accelerometer.setRange((int)range);
     }
+
+    /**
+    * Returns 'true' when the compass is calibrated. Otherwise returns 'false'.
+    */
+    //% help=input/calibrate-compass advanced=true
+    //% blockId="input_compass_is_calibrated" block="is compass calibrated"
+    //% weight=19
+    //% group="System"
+    bool isCalibratedCompass() {
+        return (uBit.compass.isCalibrated() == 1);
+    }
+    
 }
