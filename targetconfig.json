@@ -211,7 +211,8 @@
             "vengit/pxt-sbrick",
             "CalliTGS3/pxt-calliope-grovePCF85063TP",
             "calliope-net/i2c-liste",
-            "calliope-edu/pxt-storage"
+            "calliope-edu/pxt-storage",
+            "calliope-edu/pxt-power"
         ],
         "preferredRepos": [
             "calliope-edu/CO2-Sensor-SCD40",
@@ -253,7 +254,8 @@
             "Microsoft/pxt-microturtle",
             "Microsoft/pxt-neopixel",
             "calliope-net/i2c-liste",
-            "calliope-edu/pxt-storage"
+            "calliope-edu/pxt-storage",
+            "calliope-edu/pxt-power"
         ],
         "approvedRepoLib": {
             "calliope-edu/co2-sensor-scd40": {
@@ -766,7 +768,8 @@
             },
             "calliope-net/i2c-liste": {},
             "vengit/pxt-sbrick": {},
-            "calliope-edu/pxt-storage": {"preferred": true}
+            "calliope-edu/pxt-storage": {"preferred": true},
+            "calliope-edu/pxt-power": {"preferred": true}
         },
         "approvedEditorExtensionUrls": [
             "https://microsoft.github.io/jacdac-docs/tools/makecode-editor-extension"
