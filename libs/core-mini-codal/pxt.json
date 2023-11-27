@@ -21,5 +21,16 @@
         "rgbled.ts",
         "logo.cpp",
         "touchmode.cpp"
-    ]
+    ],
+    "yotta": {
+        "optionalConfig": {
+            "microbit-dal": {
+                "bluetooth": {
+                    "open": 0,
+                    "security_level": "SECURITY_MODE_ENCRYPTION_NO_MITM",
+                    "whitelist": 1
+                }
+            }
+        }
+    }
 }
