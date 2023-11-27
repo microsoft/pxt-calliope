@@ -165,6 +165,7 @@
             "calliope-edu/pxt-display",
             "calliope-edu/pxt-grove",
             "calliope-edu/pxt-rgblcd",
+            "calliope-edu/pxt-power",
             "calliope-edu/pxt-sunlightsensor-si1151",
             "calliope-edu/pxt-sunlightsensor-si1145",
             "calliope-edu/pxt-ki-in-schulen",
@@ -211,8 +212,7 @@
             "vengit/pxt-sbrick",
             "CalliTGS3/pxt-calliope-grovePCF85063TP",
             "calliope-net/i2c-liste",
-            "calliope-edu/pxt-storage",
-            "calliope-edu/pxt-power"
+            "calliope-edu/pxt-storage"
         ],
         "preferredRepos": [
             "calliope-edu/CO2-Sensor-SCD40",
@@ -221,6 +221,7 @@
             "calliope-edu/pxt-display",
             "calliope-edu/pxt-grove",
             "calliope-edu/pxt-rgblcd",
+            "calliope-edu/pxt-power",
             "calliope-edu/pxt-sunlightsensor-si1151",            
             "calliope-edu/pxt-sunlightsensor-si1145",
             "calliope-mini/pxt-SCD30",
@@ -254,8 +255,7 @@
             "Microsoft/pxt-microturtle",
             "Microsoft/pxt-neopixel",
             "calliope-net/i2c-liste",
-            "calliope-edu/pxt-storage",
-            "calliope-edu/pxt-power"
+            "calliope-edu/pxt-storage"
         ],
         "approvedRepoLib": {
             "calliope-edu/co2-sensor-scd40": {
@@ -303,6 +303,7 @@
                 ],
                 "preferred": true
             },
+            "calliope-edu/pxt-power": {"preferred": true},
             "tinysuperlab/motionkitv2": {
                 "tags": [
                     "Motor"
@@ -768,8 +769,7 @@
             },
             "calliope-net/i2c-liste": {},
             "vengit/pxt-sbrick": {},
-            "calliope-edu/pxt-storage": {"preferred": true},
-            "calliope-edu/pxt-power": {"preferred": true}
+            "calliope-edu/pxt-storage": {"preferred": true}
         },
         "approvedEditorExtensionUrls": [
             "https://microsoft.github.io/jacdac-docs/tools/makecode-editor-extension"

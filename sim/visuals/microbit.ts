@@ -1847,7 +1847,7 @@ namespace pxsim.visuals {
             if (state.accelerometerState.useShake && !this.shakeButton) {
                 let shake = this.mkBtn(240, MB_HEIGHT - 75, 'Schütteln');
                 this.shakeButton = shake.inner;
-                let board = this.element.getElementById("calliope_mini")
+                let board = this.element.getElementById("calliopemini")
                 // console.log(board)
                 // svg.fill(this.shakeButton, this.props.theme.virtualButtonUp)
                 svg.buttonEvents(shake.outer,
