@@ -268,7 +268,7 @@ namespace pxsim.visuals {
         .st25{fill:#3AA5C6;}
         .st26{opacity:0.7;fill:#48525F;enable-background:new;}
         .st27{fill:none;}
-</style>`;
+</style><g id="calliope_mini">`;
 
     const BOARD_SVG_BOTTOM = `<g id="all">
 	<g id="Batterie">
@@ -621,6 +621,7 @@ namespace pxsim.visuals {
 		<rect id="LED_3_4" x="288.7" y="247.8" class="st27" width="5.1" height="12.9"/>
 		<rect id="LED_4_4" x="314.6" y="247.8" class="st27" width="5.1" height="12.9"/>
 	</g>
+</g>
 </g>
 </svg>`;
 
@@ -1847,7 +1848,7 @@ namespace pxsim.visuals {
             if (state.accelerometerState.useShake && !this.shakeButton) {
                 let shake = this.mkBtn(240, MB_HEIGHT - 75, 'Schütteln');
                 this.shakeButton = shake.inner;
-                let board = this.element.getElementById("calliopemini")
+                let board = this.element.getElementById("calliope_mini")
                 // console.log(board)
                 // svg.fill(this.shakeButton, this.props.theme.virtualButtonUp)
                 svg.buttonEvents(shake.outer,
