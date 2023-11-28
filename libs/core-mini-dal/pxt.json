@@ -15,5 +15,16 @@
         "parts/dcmotor.svg",
         "input.cpp",
         "rgbled.ts"
-    ]
+    ],
+    "yotta": {
+        "optionalConfig": {
+            "microbit-dal": {
+                "bluetooth": {
+                    "open": 1,
+                    "security_level": null,
+                    "whitelist": 0
+                }
+            }
+        }
+    }
 }

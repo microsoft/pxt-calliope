@@ -165,6 +165,7 @@
             "calliope-edu/pxt-display",
             "calliope-edu/pxt-grove",
             "calliope-edu/pxt-rgblcd",
+            "calliope-edu/pxt-power",
             "calliope-edu/pxt-sunlightsensor-si1151",
             "calliope-edu/pxt-sunlightsensor-si1145",
             "calliope-edu/pxt-ki-in-schulen",
@@ -220,6 +221,7 @@
             "calliope-edu/pxt-display",
             "calliope-edu/pxt-grove",
             "calliope-edu/pxt-rgblcd",
+            "calliope-edu/pxt-power",
             "calliope-edu/pxt-sunlightsensor-si1151",            
             "calliope-edu/pxt-sunlightsensor-si1145",
             "calliope-mini/pxt-SCD30",
@@ -301,6 +303,7 @@
                 ],
                 "preferred": true
             },
+            "calliope-edu/pxt-power": {"preferred": true},
             "tinysuperlab/motionkitv2": {
                 "tags": [
                     "Motor"
