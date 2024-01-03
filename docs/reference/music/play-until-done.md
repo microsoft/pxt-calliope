@@ -10,7 +10,7 @@ A sound expression is a preformatted set of tones that create a certain sound. T
 
 ### ~ reminder
 
-![works with Calliope mini V2 only image](/static/v2/v2-only.png)
+![works with Calliope mini V3 only image](/static/v2/v2-only.png)
 
 This block requires the [Calliope mini](/device/v2) hardware. If you use this block with a previous Calliope mini board, you will see the **927** error code on the screen.
 
