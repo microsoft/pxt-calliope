@@ -4,7 +4,7 @@ A collection of courses and tutorials built for the @boardname@.
 
 ## Intro to Computer Science
 
-MakeCode's course for learning Computer Science with the micro:bit. This is a 14 week computer science course for middle school grades 6-8.
+MakeCode's course for learning Computer Science with the Calliope mini. This is a 14 week computer science course for middle school grades 6-8.
 
 ```codecard
 [{
@@ -31,18 +31,18 @@ Courses contributed by educators to teach computing, science, and technology in 
   "url":"/courses/ucp-science",
   "imageUrl": "/static/courses/ucp-science.jpg"
 }, {
-  "name": "Cyber Arcade: Programming and Making with micro:bit",
+  "name": "Cyber Arcade: Programming and Making with Calliope mini",
   "description": "A fun and creative introduction to computer science and hands-on making for makers in elementary (ages 9–12) and middle (ages 12–14) grade levels with little to no experience in programming and 3D design.",
   "url":"https://makered.org/resources/cyber-arcade-programming-and-making-with-microbit/",
   "imageUrl": "/static/courses/maker-ed-cyber-arcade.png"
 }, {
-  "name": "Learn All About micro:bit",
+  "name": "Learn All About Calliope mini",
   "description": "Projects and integration notes for a student-led workshop from the Beacon Hill School",
   "url": "https://goo.gl/XTPYpP",
   "imageUrl": "/static/courses/beaconhill.jpg"
 }, {
   "name": "Coding and Innovation",
-  "description": "An 8 week \"Coding and Innovation using micro:bits\" computer science course.",
+  "description": "An 8 week \"Coding and Innovation using Calliope mini\" computer science course.",
   "url": "https://sites.google.com/view/utahcodingproject/microbits/coding-innovation",
   "imageUrl": "/static/courses/coding-innovation.jpg"
 }]
@@ -55,16 +55,16 @@ Tutorials, lessons, and mini-courses about programming and computing.
 ```codecard
 [{
   "name": "First Steps",
-  "description": "Learn how to get the micro:bit working, program its features and create your first projects.",
+  "description": "Learn how to get the Calliope mini working, program its features and create your first projects.",
   "url": "https://microbit.org/get-started/first-steps/introduction/",
   "imageUrl": "/static/courses/first-steps.png"
 }, {
   "name": "Make it: code it",
-  "description": "Quick projects to suit all ages, searchable by computing topic, level, coding language and micro:bit feature.",
+  "description": "Quick projects to suit all ages, searchable by computing topic, level, coding language and Calliope mini feature.",
   "url": "https://microbit.org/projects/make-it-code-it/",
   "imageUrl": "/static/courses/make-it-code-it.png"
 }, {
-  "name": "Networking with the micro:bit",
+  "name": "Networking with the Calliope mini",
   "description": "A series of activities to teach the basics of computer networks.",
   "url": "https://microbit.nominetresearch.uk/",
   "imageUrl": "/static/courses/networking-book.png"  
@@ -98,7 +98,7 @@ Fun project courses - make and experiment while learning about science and progr
   "imageUrl": "/static/courses/blocks-to-javascript.png"
 }, {
   "name": "SparkFun Inventor's Kit",
-  "description": "Your map for navigating the waters of beginning embedded electronics, robotics and citizen science using the micro:bit.",
+  "description": "Your map for navigating the waters of beginning embedded electronics, robotics and citizen science using the Calliope mini.",
   "url": "https://learn.sparkfun.com/tutorials/sparkfun-inventors-kit-for-microbit-experiment-guide/introduction-to-the-sparkfun-inventors-kit-for-microbit",
   "imageUrl": "/static/courses/sparkfun-inventors-kit.png"
 }, {
@@ -107,18 +107,18 @@ Fun project courses - make and experiment while learning about science and progr
   "url": "https://www.kitronik.co.uk/blog/inventors-kit-experiment-1-help",
   "imageUrl": "/static/courses/kitronik-inventor-kit.png"
 }, {
-  "name": "micro:bit of Things",
-  "description": "A hands-on course about the micro:bit and what you can do with it.",
+  "name": "Calliope mini of Things",
+  "description": "A hands-on course about the Calliope mini and what you can do with it.",
   "url":"https://sites.google.com/view/microbitofthings",
   "imageUrl": "/static/courses/microbit-of-things.jpg"
 }, {
   "name": "ARM University - micro:course",
-  "description": "Introduce learners to the world of making and programming through a series of real-world challenges that feature the micro:bit.",
+  "description": "Introduce learners to the world of making and programming through a series of real-world challenges that feature the Calliope mini.",
   "url": "https://github.com/arm-university/micro-course",
   "imageUrl": "/static/courses/armu-micro-course.png"
 }, {
   "name": "A-Z Robotics",
-  "description": "Absolute beginner's guide to learning coding, electronics and robotics on the micro:bit",
+  "description": "Absolute beginner's guide to learning coding, electronics and robotics on the Calliope mini",
   "url":"https://tinkerspark.teachable.com/",
   "imageUrl": "/static/courses/tinkerspark.jpg"
 }]

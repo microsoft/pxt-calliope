@@ -4,7 +4,7 @@
 
 ![Cartoon of the Rock Paper Scissors game](/static/mb/projects/a4-motion-v2.png)
 
-Build a "Rock Paper Scissors" game with ADDED BONUS SOUNDS using the **micro:bit V2** buzzer!
+Build a "Rock Paper Scissors" game with ADDED BONUS SOUNDS using the **Calliope mini** buzzer!
 
 ## Step 1 @fullscreen
 
@@ -193,7 +193,7 @@ Click on the **SHAKE** button in the simulator and check to see that each image 
 
 ## Step 12 @fullscreen
 
-If you have a @boardname@ V2, click on ``|Download|`` and follow the instructions to get the code
+If you have a @boardname@, click on ``|Download|`` and follow the instructions to get the code
 onto your @boardname@. 
 
 Your game is ready! Gather your friends and play Rock Paper Scissors!

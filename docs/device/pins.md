@@ -1,12 +1,12 @@
-# micro:bit pins
+# Calliope mini pins
 
-The micro:bit pins 
+The Calliope mini pins 
 
 ![](/static/mb/device/pins-0.png)
 
-The micro:bit has 25 external connections on the edge connector of the board, which we refer to as ‘pins’.  The edge connector is the grey area on the right side of the figure above.
+The Calliope mini has 25 external connections on the edge connector of the board, which we refer to as ‘pins’.  The edge connector is the grey area on the right side of the figure above.
 
-There are five large pins, that are also connected to holes in the board labelled: 0, 1, 2, 3V, and GND. And along the same edge, there are 20 small pins that you can use when plugging the micro:bit into an edge connector.
+There are five large pins, that are also connected to holes in the board labelled: 0, 1, 2, 3V, and GND. And along the same edge, there are 20 small pins that you can use when plugging the Calliope mini into an edge connector.
 
 ## Large pins
 
@@ -27,22 +27,22 @@ For details on the power, current and voltage limitations of the board, see [Pow
 
 ## ~
 
-*power input*: If the micro:bit is powered by USB or a battery, then you can use the 3V pin as a *power output* to power peripherals with.
+*power input*: If the Calliope mini is powered by USB or a battery, then you can use the 3V pin as a *power output* to power peripherals with.
 
-* **3V**: *3 volt power output* or *power input*.  (1) *power output*: If the micro:bit is powered by USB or a battery, then you can use the 3V pin as a power output to power peripherals with; (2) *power input*: If the micro:bit is not being powered by USB or battery, you can use the 3V pin as a power input to power the micro:bit
+* **3V**: *3 volt power output* or *power input*.  (1) *power output*: If the Calliope mini is powered by USB or a battery, then you can use the 3V pin as a power output to power peripherals with; (2) *power input*: If the Calliope mini is not being powered by USB or battery, you can use the 3V pin as a power input to power the Calliope mini
 * **GND**: attaches to ground in order to complete a circuit (required when using the 3V pin)
 
 If you hold the ‘GND’ pin with one hand, you can program the microbit to detect yourself touching the 0,1 or 2 pins with your other hand, giving you three more buttons to experiment with (you just used your body to complete an electrical circuit).
 
 ## Small pins
 
-There are 20 small pins numbered sequentially from 3-22 (these pins are not labeled on the micro:bit, however, they are labelled in the picture above).
+There are 20 small pins numbered sequentially from 3-22 (these pins are not labeled on the Calliope mini, however, they are labelled in the picture above).
 
-Unlike the three large pins that are dedicated to being used for external connections, some of the small pins are shared with other components on the micro:bit board. For example, pin 3 is shared with some of the LEDs on the screen of the micro:bit, so if you are using the screen to scroll messages, you can’t use this pin as well.
+Unlike the three large pins that are dedicated to being used for external connections, some of the small pins are shared with other components on the Calliope mini board. For example, pin 3 is shared with some of the LEDs on the screen of the Calliope mini, so if you are using the screen to scroll messages, you can’t use this pin as well.
 
 * **pin 3**: GPIO shared with LED Col 1 of the LED screen; can be used for ADC and digital I/O when the LED screen is turned off.
 * **pin 4**: GPIO shared with LED Col 2 of the LED screen; can be used for ADC and digital I/O when the LED screen is turned off.
-* **pin 5**: GPIO shared with Button A. This lets you trigger or detect a button "A" click externally. This pin has a pull-up resistor, which means that by default it is at voltage of 3V. To replace button A on the micro:bit with an external button, connect one end of the external button to pin 5 and the other end to GND. When the button is pressed, the voltage on pin 5 is pulled down to 0, which generates a button click event.
+* **pin 5**: GPIO shared with Button A. This lets you trigger or detect a button "A" click externally. This pin has a pull-up resistor, which means that by default it is at voltage of 3V. To replace button A on the Calliope mini with an external button, connect one end of the external button to pin 5 and the other end to GND. When the button is pressed, the voltage on pin 5 is pulled down to 0, which generates a button click event.
 * **pin 6**: GPIO shared with LED Col 9 of the LED screen;  can be used for digital I/O when the LED screen is turned off.
 * **pin 7**: GPIO shared with LED Col 8 of the LED screen; can be used for digital I/O when the LED screen is turned off.
 * **pin 8**: Dedicated GPIO, for sending and sensing digital signals.

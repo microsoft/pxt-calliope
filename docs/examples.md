@@ -30,7 +30,7 @@ Here are some fun programs for your @boardname@!
 ```codecard
 [{
   "name": "Egg & Spoon Race",
-  "description": "Balance a micro:bit like an egg and spoon race",
+  "description": "Balance a Calliope mini like an egg and spoon race",
   "url": "/examples/egg-and-spoon",
   "cardType": "example"
 },{

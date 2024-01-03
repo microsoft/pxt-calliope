@@ -1,6 +1,6 @@
 # Editor Tour
 * title: Editor tour
-* description: This tour shows the user around the micro:bit editor, pointing out the toolbox, workspace, simulator, share button, and download button.
+* description: This tour shows the user around the Calliope mini editor, pointing out the toolbox, workspace, simulator, share button, and download button.
 
 ## Welcome
 * title: Welcome!
@@ -8,9 +8,9 @@
 * highlight: nothing
 * location: center
 
-## Micro:bit Simulator
-* title: Micro:bit Simulator
-* description: See what your code looks like running on a micro:bit!
+## Calliope mini Simulator
+* title: Calliope mini Simulator
+* description: See what your code looks like running on a Calliope mini!
 * highlight: simulator
 * location: right
 
@@ -46,7 +46,7 @@
 
 ## Download
 * title: Download
-* description: Download your program onto the micro:bit.
+* description: Download your program onto the Calliope mini.
 * highlight: download
 * location: above
 

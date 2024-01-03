@@ -1,35 +1,35 @@
 # Uploading from Microsoft Edge on Windows
 
-How to compile, transfer, and run a program on your micro:bit on **Microsoft Edge**.
+How to compile, transfer, and run a program on your Calliope mini on **Microsoft Edge**.
 
 While you're writing and testing your programs, you'll mostly be [running them
 in the simulator](/device/simulator), but once you've finished your program you
-can **compile** it and run it on your micro:bit.
+can **compile** it and run it on your Calliope mini.
 
 The basic steps are:
 
 1. Connect your @boardname@ to your computer via USB
 2. Click **Download** to download the `.hex` file
-3. Click the **Save As** button in the bottom bar and save the `.hex` file into the MICROBIT drive
+3. Click the **Save As** button in the bottom bar and save the `.hex` file into the MINI drive
 
 ## Requirements
 
-You need the following things to transfer and run a script on your micro:bit:
+You need the following things to transfer and run a script on your Calliope mini:
 
-* A-Male to Micro USB cable to connect your computer to your micro:bit. This is
+* A-Male to Micro USB cable to connect your computer to your Calliope mini. This is
     the same cable that is commonly used to connect a smart phone to a computer.
 * A PC running Windows 7 or later, or a Mac running OS X 10.6 or later
 
-## Step 1: Connect your micro:bit to your computer
+## Step 1: Connect your Calliope mini to your computer
 
-First, connect the micro:bit:
+First, connect the Calliope mini:
 
-1. Connect the small end of the USB cable to the micro USB port on your micro:bit.
+1. Connect the small end of the USB cable to the micro USB port on your Calliope mini.
 
 2. Connect the other end of the USB cable to a USB port on your computer.
 
-Your computer should recognise your micro:bit as a new drive. On computers
-running Windows, `MICROBIT` appears as a drive under Devices and drives. On a Mac
+Your computer should recognise your Calliope mini as a new drive. On computers
+running Windows, `MINI` appears as a drive under Devices and drives. On a Mac
 it appears as a new drive under Devices.
 
 ![](/static/mb/device/usb-windows-device.jpg)
@@ -49,21 +49,21 @@ with the file.
 
 ![Save download file dialog](/static/mb/device/usb/save-as-edge.gif)
 
-5. Save the ``.hex`` file into the **MICROBIT** drive
+5. Save the ``.hex`` file into the **MINI** drive
 
-![Save hex file to MICROBIT drive](/static/mb/device/usb/save-as-windows.png)
+![Save hex file to MINI drive](/static/mb/device/usb/save-as-windows.png)
 
-## Step 3: Transfer the file to your micro:bit
+## Step 3: Transfer the file to your Calliope mini
 
-* The LED on the back of your micro:bit flashes during the transfer (which 
+* The LED on the back of your Calliope mini flashes during the transfer (which 
     should only take a few seconds).
 * Once transferred, the code will run automatically on your @boardname@. To rerun
    your program, press the reset button on the back of your @boardname@. The reset 
-   button automatically runs the newest file on the micro:bit.
+   button automatically runs the newest file on the Calliope mini.
 
-By copying the script onto the `MICROBIT` drive, you have programmed it into the
-flash memory on the micro:bit, which means even after you unplug the micro:bit,
-your program will still run if the micro:bit is powered by battery.
+By copying the script onto the `MINI` drive, you have programmed it into the
+flash memory on the Calliope mini, which means even after you unplug the Calliope mini,
+your program will still run if the Calliope mini is powered by battery.
 
 ## ~hint
 

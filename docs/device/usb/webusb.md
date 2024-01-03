@@ -23,11 +23,11 @@ Here are the steps on the supported browsers:
 * click the triple dot icon on the **Download** button and click **Pair device**
 * click on the **Pair device** button and select **Calliope mini** or **DAPLink CMSIS-DAP** from the list.
 
-If you don't see any devices in the list and @boardname@ has the right firmware (**0249** or above), you can create a [support ticket](https://support.microbit.org/support/tickets/new) to notify the Micro:bit Foundation of the problem. Skip the rest of these steps.
+If you don't see any devices in the list and @boardname@ has the right firmware (**0249** or above), you can create a [support ticket](https://support.microbit.org/support/tickets/new) to notify the Calliope mini Foundation of the problem. Skip the rest of these steps.
 
 ![Device list for WebUSB pairing](/static/mb/device/usb/no-pair.jpg)
 
-* When your @boardname@ is connected, you'll see the **Connected to micro:bit** message window. Click on **Done** and you're ready to go!
+* When your @boardname@ is connected, you'll see the **Connected to Calliope mini** message window. Click on **Done** and you're ready to go!
 
 ![Connected message window](/static/mb/device/usb/connected.jpg)
 

@@ -40,14 +40,14 @@ The editor work in [most modern browsers](/browsers), work [offline](/offline) o
 
 ## [Compile and Flash: Your Program!](/device/usb)
 
-When you have your code ready, you connect your Calliope mini to a computer via a USB cable, so it appears as a mounted drive (named MINI). If you are using the Calliope mini REV2 you also see another drive (FLASH) that handels up to 25 additional programs.  
+When you have your code ready, you connect your Calliope mini to a computer via a USB cable, so it appears as a mounted drive (named MINI). If you are using the Calliope mini REV2 you also see another drive (FLASH).
 
 Compilation to ARM thumb machine code from [Blocks](/blocks) or [JavaScript](/javascript) happens in the browser. You save the ARM binary 
-program to a file, which you then copy to the micro:bit drive, which flashes the micro:bit device with the new program.
+program to a file, which you then copy to the Calliope mini drive, which flashes the Calliope mini device with the new program.
 
 ## Simulator: Test Your Code
 
-You can run your code using the micro:bit simulator, all within the confines of a web browser. 
+You can run your code using the Calliope mini simulator, all within the confines of a web browser. 
 The simulator has support for the LED screen, buttons, as well as compass, accelerometer, and digital I/O pins.
 
 ```sim
@@ -80,11 +80,11 @@ We have tons of [projects](/projects), [examples](/examples) and [courses](/cour
 
 ## C++ Runtime
 
-The [C++ micro:bit runtime](http://lancaster-university.github.io/microbit-docs/), created at [Lancaster University](http://www.lancaster.ac.uk/), provides access to the hardware functions of the micro:bit, 
+The [C++ Calliope mini runtime](http://lancaster-university.github.io/microbit-docs/), created at [Lancaster University](http://www.lancaster.ac.uk/), provides access to the hardware functions of the Calliope mini, 
 as well as a set of helper functions (such as displaying a number/image/string on the LED screen). 
 
-The [micro:bit library](/reference) mirrors the functions of the C++ library. 
-When code is compiled to ARM machine code, the calls to JavaScript micro:bit functions are replaced with calls to the corresponding C++ functions.
+The [Calliope mini library](/reference) mirrors the functions of the C++ library. 
+When code is compiled to ARM machine code, the calls to JavaScript Calliope mini functions are replaced with calls to the corresponding C++ functions.
 
 ## [Command Line Tools](/cli)
 

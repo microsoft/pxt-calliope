@@ -1,6 +1,6 @@
 # set Audio Pin
 
-Set the [pin](/device/pins) (P0, P1, P2) that is used to play music and generate tones.
+Set the [pin](/device/pins) (P0, P1, P2, P3) that is used to play music and generate tones.
 
 ```sig
 pins.setAudioPin(AnalogPin.P0)
@@ -8,15 +8,15 @@ pins.setAudioPin(AnalogPin.P0)
 
 ### ~ hint
 
-#### micro:bit V2 speaker
+#### Calliope mini speaker
 
-With the [micro:bit V2](/device/v2) hardware, the built-in speaker will play (mirror) the same tones and music sent to the audio pin.
+With the [Calliope mini V3](/device/v2) hardware, the built-in speaker will play (mirror) the same tones and music sent to the audio pin.
 
 ### ~
 
 ## Parameters
 
-* **name**: the pin to set for audio output: `P0`, `P1`, or `P2`.
+* **name**: the pin to set for audio output: `P0`, `P1`, `P2`, or `P3`.
 
 ## Example
 

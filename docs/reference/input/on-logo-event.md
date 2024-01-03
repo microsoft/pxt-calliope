@@ -8,9 +8,9 @@ input.onLogoEvent(TouchButtonEvent.Pressed, function () {})
 
 ### ~ reminder
 
-![works with micro:bit V2 only image](/static/v2/v2-only.png)
+![works with Calliope mini V3 only image](/static/v2/v2-only.png)
 
-This block requires the [micro:bit V2](/device/v2) hardware. If you use this block with a micro:bit v1 board, you will see the **927** error code on the screen.
+This block requires the [Calliope mini V3](/device/v2) hardware. If you use this block with a previous Calliope mini board, you will see the **927** error code on the screen.
 
 ### ~
 
@@ -32,7 +32,7 @@ input.onLogoEvent(TouchButtonEvent.Pressed, function () {
 
 ## See also
 
-[micro:bit V2](/device/v2),
+[Calliope mini V2](/device/v2),
 [logo is pressed](/reference/input/logo-is-pressed),
 [on pin pressed](/reference/input/on-logo-released),
 [touch set mode](/referene/inpu/touch-set-mode)

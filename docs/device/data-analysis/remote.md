@@ -2,7 +2,7 @@
 
 If you have more than one @boardname@ you can setup one of them to receive data sent by radio from other @boardname@s. Remote @boardname@s can take measurements and send them to a board that's connected by USB to a computer. The @boardname@ connected to the computer is the data recorder and writes the received data to the serial port.
 
-![Remote micro:bit sending](/static/mb/device/data-analysis/radio-zap.jpg)
+![Remote Calliope mini sending](/static/mb/device/data-analysis/radio-zap.jpg)
 
 ## Receiver @boardname@
 
