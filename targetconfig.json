@@ -254,6 +254,7 @@
             "calliope-edu/pxt-ki-in-schulen",
             "Microsoft/pxt-microturtle",
             "Microsoft/pxt-neopixel",
+            "calliope-edu/pxt-faces"
             "calliope-net/i2c-liste",
             "calliope-edu/pxt-storage"
         ],
@@ -336,6 +337,12 @@
                 "tags": [
                     "Display"
                 ]
+            },
+            "calliope-edu/pxt-faces": {
+                "tags": [
+                    "Display"
+                ],
+                "preferred": true
             },
             "51bit/sfc": {},
             "51bit/smarttools": {},
