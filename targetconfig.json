@@ -212,7 +212,8 @@
             "vengit/pxt-sbrick",
             "CalliTGS3/pxt-calliope-grovePCF85063TP",
             "calliope-net/i2c-liste",
-            "calliope-edu/pxt-storage"
+            "calliope-edu/pxt-storage",
+            "Wappsto/pxt-wappsto"
         ],
         "preferredRepos": [
             "calliope-edu/CO2-Sensor-SCD40",
@@ -256,7 +257,8 @@
             "Microsoft/pxt-neopixel",
             "calliope-edu/pxt-faces"
             "calliope-net/i2c-liste",
-            "calliope-edu/pxt-storage"
+            "calliope-edu/pxt-storage",
+            "Wappsto/pxt-wappsto"
         ],
         "approvedRepoLib": {
             "calliope-edu/co2-sensor-scd40": {
@@ -331,6 +333,11 @@
             "calliope-edu/pxt-ki-in-schulen": {
                 "tags": [
                     "AI"
+                ]
+            },
+             "Wappsto/pxt-wappsto": {
+                "tags": [
+                    "IoT"
                 ]
             },
             "51bit/colorbit": {
