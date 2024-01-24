@@ -2291,7 +2291,7 @@ namespace pxsim.visuals {
         }
 
         private updateTilt() {
-            return;
+            // return;
             if (this.props.disableTilt) return;
             let state = this.board;
             if (!state || !state.accelerometerState.accelerometer.isActive) return;
