@@ -1,34 +1,59 @@
-# Mini Chat
+# Micro Chat
 
-## Introduction @unplugged
+## {Introduction @unplugged}
 
 ![Two @boardname@ connected via radio](/calliope/tutorials/06_mini_chat_animation.gif)
 
-Use the **radio** to send and receive messages with other @boardname@.
+Use the Calliope mini 📻 radio to send and receive 💬 messages between Calliope minis!
 
-## Sending a message @fullscreen
+## {Step 1}
 
-Use ``||input:on button pressed||`` to send a text message over radio with ``||radio:send string||``.
-Every @boardname@ nearby will receive this message.
+From the ``||radio:Radio||`` Toolbox category, drag a ``||radio:radio set group||`` block into the ``||basic:on start||`` block. This will act as the channel over which we'll send messages. Only Calliope minis who are in the same group will be able to send and receive messages between them.
 
 ```blocks
-input.onButtonEvent(Button.A, input.buttonEventValue(ButtonEvent.Down), () => {
-    radio.sendString("Yo");
-});
+radio.setGroup(1)
 ```
 
-## Receiving a message @fullscreen
+## {Step 2}
 
-Add a ``||radio:on received string||`` block to run when a message is received. 
+From the ``||input:Input||`` Toolbox category, drag an ``||input:on button A pressed||`` block onto the Workspace.
+
+```blocks
+input.onButtonPressed(Button.A, function() {})
+```
+
+## {Step 3}
+
+From the ``||radio:Radio||`` category, drag a ``||radio:radio send string||`` block into the ``||input:on button A pressed||`` block and type a message. When we press button A on our Calliope mini, we'll send this message to every Calliope mini nearby in group 1.
+
+```blocks
+input.onButtonPressed(Button.A, function() {
+    radio.sendString("Micro Chat!")
+})
+```
+
+## {Step 4}
+
+From the ``||radio:Radio||`` category, drag an ``||radio:on radio received string||`` block onto the Workspace. 
 
 ```blocks
 radio.onReceivedString(function (receivedString) {
 })
 ```
 
-## Displaying text @fullscreen
+## {Step 5}
 
-Add a ``||basic:show string||`` to display the string on the screen. Pull the ``||variables:receivedString||`` out of ``||radio:on received string||`` and put it into ``||basic:show string||``.
+From the ``||basic:Basic||`` category, get a ``||basic:show string||`` block and drop it in the ``||radio:on radio received string||`` block. 
+
+```blocks
+radio.onReceivedString(function (receivedString) {
+    basic.showString("Hello!");
+})
+```
+
+## {Step 6}
+
+Pull the ``||variables:receivedString||`` variable block out of the ``||radio:on received string||`` block and put it into the ``||basic:show string||`` block replacing "Hello!"
 
 ```blocks
 radio.onReceivedString(function (receivedString) {
@@ -36,31 +61,30 @@ radio.onReceivedString(function (receivedString) {
 })
 ```
 
-## Testing in the simulator @fullscreen
+## {Step 7}
 
-Press button **A** on the simulator, you will notice that a second @boardname@ appears (if your screen is too small, the simulator might decide not to show it). Try pressing **A** again and notice that the "Yo" message gets displayed on the other @boardname@.
+Let's test our code! In the Calliope mini on-screen simulator, press button **A**. You should see a second @boardname@ appear. Now try pressing **A** again. Do you see your message appear on the second Calliope mini?  ⭐ Great job! ⭐ 
 
 ```blocks
-input.onButtonEvent(Button.A, input.buttonEventValue(ButtonEvent.Down), () => {
-    radio.sendString("Yo");
-});
+input.onButtonPressed(Button.A, function() {
+    radio.sendString("Micro Chat!");
+})
 radio.onReceivedString(function (receivedString) {
     basic.showString(receivedString);
 })
 ```
 
-## Try it for real @fullscreen
+## {Step 8}
 
-If you two @boardname@s, download the program to each one. Press button **A** on one and see if the other gets a message.
+If you have a @boardname@ device, connect it to your computer and click the ``|Download|`` button. Follow the instructions to transfer your code onto the @boardname@.  If you have two Calliope minis, download the program to each one. Press button **A** on one and see if the other gets the message!
 
-## Groups @fullscreen
+## {Step 9}
 
-Use the ``||radio:set group||`` block to assign a **group** number to your program. You will only receive messages from @boardname@s within the same group. Use this to avoid receiving messages from every @boardname@ that is transmitting.
+Go further - try using different buttons to send a mix of messages 📝, or send secret 🔒 messages to different radio groups!
 
-```blocks
-radio.setGroup(123)
+```template
+//
 ```
-
 
 ```package
 radio
