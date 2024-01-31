@@ -86,7 +86,7 @@ if ((pins.digitalReadPin(DigitalPin.P0) > 0) && pins.digitalReadPin(DigitalPin.P
 
 You can program your board to have multiple logic gates that operate on the two inputs. Just combine the three logic gate scripts from above into one ``||loops:forever||`` loop. If you have an expansion connector for your @boardname@, you could program multiple outputs for your logic system. You could also use one extra input pin as an observer pin to test the outputs of your combined logic. The different outputs feedback to the observer pin so it will see what their logic levels are. Here's a schematic for a multiple gate system.
 
-![micro:bit NOT, AND, OR gate PLD](/static/courses/logic-lab/pld/not-and-or-pld.png)
+![Calliope mini NOT, AND, OR gate PLD](/static/courses/logic-lab/pld/not-and-or-pld.png)
 
 The combined logic for our multiple gate PLD is programmed like this:
 

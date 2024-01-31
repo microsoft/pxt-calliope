@@ -45,4 +45,4 @@ input.onPinTouchEvent(TouchPin.P0, input.buttonEventValue(ButtonEvent.Down), () 
 
 ## See also
 
-[micro:bit pins](/device/pins)
+[Calliope mini pins](/device/pins)

@@ -20,7 +20,7 @@ Text is formed by simply using string data. The text data is not recorded in the
 ```block
 serial.writeString("Hello ");
 serial.writeString("from ")
-serial.writeString("micro:bit")
+serial.writeString("Calliope mini")
 ```
 
 This text, though, won't appear in the editor console until it becomes a complete line. If you follow the string writes with a line in your code, then the line will show up:
@@ -28,7 +28,7 @@ This text, though, won't appear in the editor console until it becomes a complet
 ```block
 serial.writeString("Hello ")
 serial.writeString("from ")
-serial.writeString("micro:bit")
+serial.writeString("Calliope mini")
 serial.writeLine("")
 ```
 
@@ -37,14 +37,14 @@ Text output is used mostly for messages since number formats have meaning when u
 The blank ``||serial:serial write line||`` adds the special line ending characters and turns the previous strings into a complete line of text. The whole line could simply be written out with just one function:
 
 ```block
-serial.writeLine("Hello from micro:bit")
+serial.writeLine("Hello from Calliope mini")
 ```
 
 When you're writing only text, it appears only in the console view and not in the chart window. This example writes four messages of text:
 
 ```block
 for (let i = 0; i < 4; i++) {
-    serial.writeLine("Hello from micro:bit " + i)
+    serial.writeLine("Hello from Calliope mini " + i)
 }
 ```
 

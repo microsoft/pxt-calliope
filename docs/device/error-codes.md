@@ -19,7 +19,7 @@ basic.forever(function() {
 
 ## Board system errors
 
-The @boardname@ system errors range between **01** - **99**. For a full list of these codes, what they mean and what you can do to resolve them, visit the [micro:bit guide to error codes](https://support.microbit.org/en/support/solutions/articles/19000016969).
+The @boardname@ system errors range between **01** - **99**. For a full list of these codes, what they mean and what you can do to resolve them, visit the [Calliope mini guide to error codes](https://support.microbit.org/en/support/solutions/articles/19000016969).
 
 * **10** (`MICROBIT_I2C_LOCKUP`): the @boardname@'s I2C bus is not working
 * **20** (`MICROBIT_OOM`): there is no free memory on the @boardname@
@@ -27,8 +27,8 @@ The @boardname@ system errors range between **01** - **99**. For a full list of 
 * **40** (`MICROBIT_NULL_DEREFERENCE `): there was a NULL dereference, the @boardname@ tried to manage a invalid object pointer
 * **42** (`MICROBIT_SYSTEM_ERROR`): there's an error condition in the @boardname@ system software
 * **43** (`MICROBIT_NO_RADIO`): the @boardname@ can't enable the radio
-* **50** (`MICROBIT_HARDWARE_UNAVAILABLE_ACC`): an error occurred with the micro:bit's accelerometer component
-* **51** (`MICROBIT_HARDWARE_UNAVAILABLE_MAG`): an error occurred with the micro:bit's magnetometer component
+* **50** (`MICROBIT_HARDWARE_UNAVAILABLE_ACC`): an error occurred with the Calliope mini accelerometer component
+* **51** (`MICROBIT_HARDWARE_UNAVAILABLE_MAG`): an error occurred with the Calliope mini magnetometer component
 * **90** (`MICROBIT_HARDWARE_CONFIGURATION_ERROR`): actual board hardware doesn't match the configuration description
 * **98** (`MICROBIT_ASSERTION_FAILED`): assertion failed, the condition in an [assert](/reference/control/assert) was false
 

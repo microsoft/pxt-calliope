@@ -8,9 +8,9 @@ input.logoIsPressed()
 
 ## ~ reminder
 
-![works with micro:bit V2 only image](/static/v2/v2-only.png)
+![works with Calliope mini V3 only image](/static/v2/v2-only.png)
 
-This block requires the [micro:bit V2](/device/v2) hardware. If you use this block with a micro:bit v1 board, you will see the **927** error code on the screen.
+This block requires the [Calliope mini V3](/device/v2) hardware. If you use this block with a previous Calliope mini board, you will see the **927** error code on the screen.
 
 ## ~
 
@@ -36,7 +36,7 @@ basic.forever(function () {
 
 ## See also
 
-[micro:bit V2](/device/v2),
+[Calliope mini V2](/device/v2),
 [on logo event](/reference/input/on-logo-event),
 [pin is pressed](/referene/inpu/pin-is-pressed),
 [touch set mode](/referene/inpu/touch-set-mode)

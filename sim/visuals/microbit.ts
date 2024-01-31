@@ -1929,18 +1929,18 @@ namespace pxsim.visuals {
             }
         }
 
-
         private updatePin(pin: Pin, index: number) {
             if (!pin) return;
             let text = this.pinTexts[pin.id];
             let v = "";
+            
             if (pin.mode & PinFlags.Analog) {
                 v = Math.floor(100 - (pin.value || 0) / 1023 * 100) + "%";
                 if (text) text.textContent = (pin.period ? "~" : "") + (pin.value || 0) + "";
             }
             else if (pin.mode & PinFlags.Digital) {
-                v = pin.value > 0 ? "0%" : "100%";
-                if (text) text.textContent = pin.value > 0 ? "1" : "0";
+                v = pin.value > 511 ? "0%" : "100%";
+                if (text) text.textContent = pin.value > 511 ? "1" : "0";
             }
             else if (pin.mode & PinFlags.Touch) {
                 v = pin.touched ? "0%" : "100%";
@@ -2083,7 +2083,7 @@ namespace pxsim.visuals {
                     (ev) => {
                         let cur = svg.cursorPoint(pt, this.element, ev);
                         let t = Math.max(0, Math.min(1, (cur.y - ty) / 160)) * tmax
-                        console.log(tmax - t);
+                        // console.log(tmax - t);
                         state.microphoneState.setLevel( Math.floor(tmax - t));
                         // state.microphoneState.setLevel(Math.floor(tmin + t * (tmax - tmin)));
                         this.updateMicrophone();
@@ -2291,7 +2291,7 @@ namespace pxsim.visuals {
         }
 
         private updateTilt() {
-            return;
+            // return;
             if (this.props.disableTilt) return;
             let state = this.board;
             if (!state || !state.accelerometerState.accelerometer.isActive) return;
@@ -2385,10 +2385,10 @@ namespace pxsim.visuals {
              this.headText = <SVGTextElement>svg.child(this.g, "text", { x: 500, y: 165, class: "sim-text inverted big centered" })
 
             // https://www.microbit.co.uk/device/pins
-            // P0, P1, P2
+            // P0, P1, P2, P3
             this.pins = pinNames.map(n => {
 				let p = this.element.getElementById(n) as SVGElement;
-				if(!p) console.log("missing "+n);
+				// if(!p) console.log("missing "+n);
 				U.addClass(p, "sim-pin");
                 // console.log(p);
 				return p;
@@ -2558,7 +2558,7 @@ namespace pxsim.visuals {
                 if (!this.board.edgeConnectorState.pins[index]) return;
                 let pt = this.element.createSVGPoint();
                 let xpos = (index === 0 || index === 3) ? 300 : 520;
-                let vMax = (index === 0 || index === 3) ? 1 : 1023;
+                let vMax = 1023;
                 svg.buttonEvents(pin,
                     // move
                     ev => {

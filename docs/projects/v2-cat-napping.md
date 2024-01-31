@@ -8,7 +8,7 @@ Lychee the cat loves the sun and wants to know if your home has a good sunbathin
 
 ## Setting logging to false on start
 
-First, we want to make sure we know when our micro:bit is collecting data. To do this, let's create a [__*boolean*__](#boolean "something that is only true or false") [__*variable*__](#variable "a holder for information that may change") and use it to track when the @boardname@ is logging data. We'll start with the logging variable set to false.
+First, we want to make sure we know when our Calliope mini is collecting data. To do this, let's create a [__*boolean*__](#boolean "something that is only true or false") [__*variable*__](#variable "a holder for information that may change") and use it to track when the @boardname@ is logging data. We'll start with the logging variable set to false.
 
 ► In the ``||variables:Variables||`` category, click on ``Make a Variable...`` and make a variable named ``logging``.  
 ► From the ``||variables:Variables||`` category, grab the ``||variables:set [logging] to [0]||`` block and snap it into the empty ``||basic:on start||`` container.  
@@ -174,14 +174,14 @@ loops.everyInterval(60000, function () {
 
 ## Time to log data! @unplugged
 
-You did it! If you have a @boardname@ V2 (the one with the **shiny gold** logo at the top), download this code and try it out!
+You did it! If you have a @boardname@ (the one with the **shiny gold** logo at the top), download this code and try it out!
 
 ► Find a sun spot in your house and press the ``A`` button to start logging data - your display should show an icon and play a sound to indicate that you are logging data.  
 ► After some time (we recommend at least an hour), press the ``A`` button again to stop logging data - your display should clear to indicate that you are not logging data.
 
 ## Reviewing your data @unplugged
 
-Now that you have logged some data, plug your @boardname@ into a laptop or desktop computer. The @boardname@ will appear like a USB drive called MICROBIT. Look in there and you'll see a file called MY_DATA:
+Now that you have logged some data, plug your @boardname@ into a laptop or desktop computer. The @boardname@ will appear like a USB drive called MINI. Look in there and you'll see a file called MY_DATA:
 
 ![MY_DATA file highlighted in file folder](/static/mb/projects/cat-napping/11_mydata.png)
 

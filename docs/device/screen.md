@@ -10,7 +10,7 @@
         `);
 ```
 
-The micro:bit LED screen has 25 red LED lights arranged in a 5X5 grid (5 LEDs across by 5 LEDs down).
+The Calliope mini LED screen has 25 red LED lights arranged in a 5X5 grid (5 LEDs across by 5 LEDs down).
 In the screen above, we created a checkerboard pattern using the LEDs.
 
 ## Which LED?
@@ -19,7 +19,7 @@ You use `(x ,y)` coordinates to specify a particular LED in the grid;
 where `x` is the horizontal position (0,1,2,3,4) and `y` is the vertical position 
 (0, 1, 2, 3, 4). 
 
-To figure out the ``x``, ``y`` coordinates, position your micro:bit horizontally, like a credit card (see picture above).
+To figure out the ``x``, ``y`` coordinates, position your Calliope mini horizontally, like a credit card (see picture above).
 
 Here are the x, y coordinates for the LEDs in the 5X5 grid:
 
@@ -73,7 +73,7 @@ Instead of turning individual LEDs on or off, as above, you can display an [imag
 
 ## The display buffer
 
-The micro:bit runtime keeps a representation of the state of all 25 LEDS in memory. This state is known as the "display buffer" and controls which LEDs are on and which are off. The plot, unplot, and point functions access the display buffer directly. On the other hand, the functions that show an image, number, or string overwrite the buffer completely. To illustrate this, first try running this code sequence
+The Calliope mini runtime keeps a representation of the state of all 25 LEDS in memory. This state is known as the "display buffer" and controls which LEDs are on and which are off. The plot, unplot, and point functions access the display buffer directly. On the other hand, the functions that show an image, number, or string overwrite the buffer completely. To illustrate this, first try running this code sequence
 
 ```blocks
 basic.showString("d")

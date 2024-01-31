@@ -14,9 +14,9 @@ to detect, `loud` or `quiet`, and then the sound level for that type.
 
 ### ~ reminder
 
-![works with micro:bit V2 only image](/static/v2/v2-only.png)
+![works with Calliope mini only image](/static/v2/v2-only.png)
 
-This block requires the [micro:bit V2](/device/v2) hardware. If you use this block with a micro:bit v1 board, you will see the **927** error code on the screen.
+This block requires the [Calliope mini](/device/v2) hardware. If you use this block with a previous Calliope mini board, you will see the **927** error code on the screen.
 
 ### ~
 

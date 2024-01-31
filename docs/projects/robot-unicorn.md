@@ -23,7 +23,7 @@ Here's what you'll need. The links telling where to get parts are just examples 
 - Some wire strippers and some electrical tape.
 - Some double sided sticky tape, some sellotape and/or some decent glue. Those double sided sticky pads work really well for fixing the servos to the cardboard chassis.
 
-![micro:bits and Unicorn Horn](/static/mb/projects/robot-unicorn/microbitsunicorn.jpg)
+![Calliope mini and Unicorn Horn](/static/mb/projects/robot-unicorn/microbitsunicorn.jpg)
 
 ### Instructions
 

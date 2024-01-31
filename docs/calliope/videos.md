@@ -22,7 +22,7 @@
     },
     {
         "name": "Light Sensor",
-        "description": "Your micro:bit can see the light, how does it do that?",
+        "description": "Your Calliope mini can see the light, how does it do that?",
         "youTubeId": "TKhCr-dQMBY",
         "imageUrl": "/static/mb/behindhardware/light-sensor.jpg"
     },

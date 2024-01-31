@@ -1,6 +1,6 @@
 # Firmware
 
-Occasionally, changes and improvements to the system software (firmware) on the @boardname@ are needed. Updates to the firmware are made by the [micro:bit Education Foundation](http://microbit.org/about).
+Occasionally, changes and improvements to the system software (firmware) on the @boardname@ are needed. Updates to the firmware are made by the [Calliope mini Education Foundation](http://microbit.org/about).
 
 ## Do I need an update?
 
