@@ -639,7 +639,6 @@
                     "IoT"
                 ]
             },
-        "approvedRepoLib": {
             "MKleinSB/pxt-calliope-jacdac": {
                 "tags": [
                     "Jacdac"
