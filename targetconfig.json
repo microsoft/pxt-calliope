@@ -214,6 +214,7 @@
             "calliope-net/i2c-liste",
             "calliope-edu/pxt-storage",
             "MKleinSB/pxt-calliope-jacdac",
+            "calliope-edu/warte-bis",
             "wappsto/pxt-wappsto"
         ],
         "preferredRepos": [
@@ -260,6 +261,7 @@
             "calliope-net/i2c-liste",
             "calliope-edu/pxt-storage",
             "MKleinSB/pxt-calliope-jacdac",
+            "calliope-edu/warte-bis",
             "wappsto/pxt-wappsto"
         ],
         "approvedRepoLib": {
@@ -309,6 +311,12 @@
                 "preferred": true
             },
             "calliope-edu/pxt-power": {"preferred": true},
+             "microsoft/pxt-jacdac": {
+                "tags": [
+                    "Jacdac"
+                ],
+                "preferred": true
+            },
             "tinysuperlab/motionkitv2": {
                 "tags": [
                     "Motor"
@@ -326,12 +334,6 @@
                     "Audio"
                 ]
             },
-            "microsoft/pxt-jacdac": {
-                "tags": [
-                    "Jacdac"
-                ],
-                "preferred": true
-            },
             "calliope-edu/pxt-ki-in-schulen": {
                 "tags": [
                     "AI"
@@ -346,6 +348,9 @@
                 "tags": [
                     "Display"
                 ]
+            },
+            "calliope-edu/warte-bis": {
+                "preferred": true
             },
             "calliope-edu/pxt-faces": {
                 "tags": [
