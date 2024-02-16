@@ -250,17 +250,12 @@
             "mkleinsb/pxt-pca9685",
             "mkleinsb/pxt-seeed-temperature",
             "mkleinsb/pxt-serialmp3",
-            "mkleinsb/pxt-grove-ultrasonic-jacdac",
-            "mkleinsb/pxt-grove-soilmoisture-jacdac",
-            "mkleinsb/pxt-grove-lcd/jacdac",
-            "mkleinsb/co2-sensor-scd40/jacdac",
             "calliope-edu/pxt-ki-in-schulen",
             "microsoft/pxt-microturtle",
             "microsoft/pxt-neopixel",
             "calliope-edu/pxt-faces",
             "calliope-net/i2c-liste",
             "calliope-edu/pxt-storage",
-            "MKleinSB/pxt-calliope-jacdac",
             "calliope-edu/warte-bis",
             "wappsto/pxt-wappsto"
         ],
@@ -556,26 +551,22 @@
             "mkleinsb/pxt-grove-ultrasonic-jacdac": {
                 "tags": [
                     "Jacdac"
-                ],
-                "preferred": true
+                ]
             },
             "mkleinsb/pxt-grove-soilmoisture-jacdac": {
                 "tags": [
                     "Jacdac"
-                ],
-                "preferred": true
+                ]
             },
             "mkleinsb/pxt-grove-lcd/jacdac": {
                 "tags": [
                     "Jacdac"
-                ],
-                "preferred": true
+                ]
             },
             "mkleinsb/co2-sensor-scd40/jacdac": {
                 "tags": [
                     "Jacdac"
-                ],
-                "preferred": true
+                ]
             },
             "microsoft/pxt-bluetooth-max6675": {},
             "microsoft/pxt-bluetooth-midi": {
