@@ -215,6 +215,7 @@
             "calliope-edu/pxt-storage",
             "MKleinSB/pxt-calliope-jacdac",
             "calliope-edu/warte-bis",
+            "joernalraun/mkcd-ml-machine",
             "wappsto/pxt-wappsto"
         ],
         "preferredRepos": [
@@ -330,6 +331,11 @@
                 ]
             },
             "calliope-edu/pxt-ki-in-schulen": {
+                "tags": [
+                    "AI"
+                ]
+            },
+            "joernalraun/mkcd-ml-machine": {
                 "tags": [
                     "AI"
                 ]
