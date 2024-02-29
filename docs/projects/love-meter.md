@@ -4,7 +4,7 @@
 
 Make a love meter, how sweet! The @boardname@ is feeling the love, then sometimes not so much!
 
-![Love meter banner message](/calliope/tutorials/05_love_meter_animation.gif)
+![Love meter banner message](/static/calliope/tutorials/05_love_meter_animation.gif)
 
 ## Step 1
 
@@ -42,7 +42,3 @@ input.onPinTouchEvent(TouchPin.P0, input.buttonEventValue(ButtonEvent.Down), () 
 ## Step 5
 
 Click ``|Download|`` to transfer your code in your @boardname@. Hold the **GND** pin with one hand and press pin **0** with the other hand to trigger this code.
-
-```template
-input.onPinPressed(TouchPin.P0, function() {})
-```

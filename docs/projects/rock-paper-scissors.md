@@ -2,7 +2,7 @@
 
 ## {Introduction @unplugged}
 
-![Animation of the Rock Paper Scissors game](/calliope/tutorials/07_stone_paper_scissors_animation.gif)
+![Animation of the Rock Paper Scissors game](/static/calliope/tutorials/07_stone_paper_scissors_animation.gif)
 
 Turn your Calliope mini into a **Rock Paper Scissors** game that you can play with your friends!
 

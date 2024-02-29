@@ -40,12 +40,6 @@ Here are some cool tutorials to get you started with your @boardname@!
   "imageUrl":"/static/calliope/tutorials/05_love_meter.gif",
   "cardType": "tutorial"
 }, {
-  "name": "Mini Chat",
-  "url":"/projects/mini-chat",
-  "description": "Build your own social network made of minis.",
-  "imageUrl": "/static/calliope/tutorials/06_mini_chat.gif",
-  "cardType": "tutorial"
-}, {
   "name": "Rock Paper Scissors",
   "url":"/projects/rock-paper-scissors",
   "description": "Make the Rock-Paper-Scissors game on your @boardname@ and challenge your friends.",
@@ -56,18 +50,6 @@ Here are some cool tutorials to get you started with your @boardname@!
   "url":"/projects/coin-flipper",
   "description": "Guess the coin toss and see if you're lucky.",
   "imageUrl": "/static/calliope/tutorials/08_coin_flipper.gif",
-  "cardType": "tutorial"
-}, {
-  "name": "Snap the dot",
-  "url": "/projects/snap-the-dot",
-  "description": "Use the game blocks to create a skill game",
-  "imageUrl": "/static/calliope/tutorials/09_snap_the_dot.gif",
-  "cardType": "tutorial"
-}, {
-  "name": "Multi Dice",
-  "url": "/projects/multi-dice",
-  "description": "Compete with multiple dices",
-  "imageUrl": "/static/calliope/tutorials/10_multi_dice.gif",
   "cardType": "tutorial"
 }
 ]
