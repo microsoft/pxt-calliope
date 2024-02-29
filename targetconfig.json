@@ -644,7 +644,8 @@
             "mkleinsb/pxt-calliope-jacdac": {
                 "tags": [
                     "Jacdac"
-                ],
+                ]
+            },
             "assirati/pxt-inventura": {},
             "cgs-matthew-pham/pxt-hitechnic-irseeker-v2": {},
             "coding4coconut/pxt-lcd128x160-st7735s": {
