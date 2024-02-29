@@ -33,6 +33,6 @@ namespace servos {
     export const C15 = new servos.PinServo(pins.C15);
     //% block="servo C16 (A1 RX)" fixedInstance whenUsed
     export const C16 = new servos.PinServo(pins.C16);
-    //% block="servo C17 (A! TX)" fixedInstance whenUsed
+    //% block="servo C17 (A1 TX)" fixedInstance whenUsed
     export const C17 = new servos.PinServo(pins.C17);
 }
