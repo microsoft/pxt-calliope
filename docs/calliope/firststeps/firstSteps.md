@@ -14,7 +14,7 @@ For example drag and drop some blocks and try your program on the Simulator with
 
 Click the Download button in the editor. This will download a 'hex' file, which is a compact format of your program that your mini can read. Once the file has been downloaded, just copy it to your Calliope mini just like copying a file to a USB stick.
 
-![Connecting Image](/calliope/firststeps/connecting.jpg)
+![Connecting Image](/static/calliope/firststeps/connecting.jpg)
 
 
 ## Introduction @unplugged
@@ -32,7 +32,7 @@ Be careful to insure that the ridge on the plug is facing upwards.
 
 If the plug slides easily into the socket then you are attaching it correctly. Otherwise, turn the plug round and re-insert it into the socket. Slide it to "on“ and your Calliope mini is powered by the batteries.
 
-![Powering Image](/calliope/firststeps/powerItUp.png)
+![Powering Image](/static/calliope/firststeps/powerItUp.png)
 
 
 ## Introduction @unplugged

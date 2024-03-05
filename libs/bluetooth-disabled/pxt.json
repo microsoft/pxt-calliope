@@ -1,17 +1,11 @@
 {
-    "name": "bluetooth",
-    "description": "Adds blocks for Bluetooth",
+    "name": "bluetooth-disabled",
+    "description": "Disables Bluetooth. Require AB+Reset to start bluetooth.",
     "dependencies": {
         "core": "file:../core"
     },
     "files": [
-        "README.md",
-        "enums.d.ts",
-        "shims.d.ts",
-        "bluetooth.ts",
-        "bluetooth.cpp",
-        "BLEHF2Service.h",
-        "BLEHF2Service.cpp"
+        "README.md"
     ],
     "public": true,
     "weight": 10,
@@ -21,7 +15,7 @@
         "config": {
             "microbit-dal": {
                 "bluetooth": {
-                    "enabled": 1
+                    "enabled": 0
                 }
             }
         }

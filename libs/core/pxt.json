@@ -128,52 +128,6 @@
                 "debug": 0,
                 "heap_debug": 0
             }
-        },
-        "userConfigs": [
-            {
-                "description": "Only load Bluetooth while Paring-Mode is activated (holding A+B and briefly the Reset button)",
-                "config": {
-                    "microbit-dal": {
-                        "bluetooth": {
-                            "enabled": 0
-                        }
-                    }
-                }
-            },
-            {
-                "description": "Disable partial flashing (increases available RAM)",
-                "config": {
-                    "microbit-dal": {
-                        "bluetooth": {
-                            "partial_flashing": 0
-                        }
-                    }
-                }
-            },
-            {
-                "description": "Bluetooth: No pairing required",
-                "config": {
-                    "microbit-dal": {
-                        "bluetooth": {
-                            "open": 1,
-                            "security_level": null,
-                            "whitelist": 0
-                        }
-                    }
-                }
-            },
-            {
-                "description": "Bluetooth: Pairing required",
-                "config": {
-                    "microbit-dal": {
-                        "bluetooth": {
-                            "open": 0,
-                            "security_level": "SECURITY_MODE_ENCRYPTION_NO_MITM",
-                            "whitelist": 1
-                        }
-                    }
-                }
-            }
-        ]
+        }
     }
 }

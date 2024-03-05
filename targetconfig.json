@@ -213,6 +213,9 @@
             "callitgs3/pxt-calliope-grovepcf85063tp",
             "calliope-net/i2c-liste",
             "calliope-edu/pxt-storage",
+            "MKleinSB/pxt-calliope-jacdac",
+            "calliope-edu/warte-bis",
+            "joernalraun/mkcd-ml-machine",
             "wappsto/pxt-wappsto"
         ],
         "preferredRepos": [
@@ -248,16 +251,13 @@
             "mkleinsb/pxt-pca9685",
             "mkleinsb/pxt-seeed-temperature",
             "mkleinsb/pxt-serialmp3",
-            "mkleinsb/pxt-grove-ultrasonic-jacdac",
-            "mkleinsb/pxt-grove-soilmoisture-jacdac",
-            "mkleinsb/pxt-grove-lcd/jacdac",
-            "mkleinsb/co2-sensor-scd40/jacdac",
             "calliope-edu/pxt-ki-in-schulen",
             "microsoft/pxt-microturtle",
             "microsoft/pxt-neopixel",
             "calliope-edu/pxt-faces",
             "calliope-net/i2c-liste",
             "calliope-edu/pxt-storage",
+            "calliope-edu/warte-bis",
             "wappsto/pxt-wappsto"
         ],
         "approvedRepoLib": {
@@ -307,6 +307,12 @@
                 "preferred": true
             },
             "calliope-edu/pxt-power": {"preferred": true},
+             "microsoft/pxt-jacdac": {
+                "tags": [
+                    "Jacdac"
+                ],
+                "preferred": true
+            },
             "tinysuperlab/motionkitv2": {
                 "tags": [
                     "Motor"
@@ -324,13 +330,12 @@
                     "Audio"
                 ]
             },
-            "microsoft/pxt-jacdac": {
-                "tags": [
-                    "Jacdac"
-                ],
-                "preferred": true
-            },
             "calliope-edu/pxt-ki-in-schulen": {
+                "tags": [
+                    "AI"
+                ]
+            },
+            "joernalraun/mkcd-ml-machine": {
                 "tags": [
                     "AI"
                 ]
@@ -344,6 +349,9 @@
                 "tags": [
                     "Display"
                 ]
+            },
+            "calliope-edu/warte-bis": {
+                "preferred": true
             },
             "calliope-edu/pxt-faces": {
                 "tags": [
@@ -549,26 +557,22 @@
             "mkleinsb/pxt-grove-ultrasonic-jacdac": {
                 "tags": [
                     "Jacdac"
-                ],
-                "preferred": true
+                ]
             },
             "mkleinsb/pxt-grove-soilmoisture-jacdac": {
                 "tags": [
                     "Jacdac"
-                ],
-                "preferred": true
+                ]
             },
             "mkleinsb/pxt-grove-lcd/jacdac": {
                 "tags": [
                     "Jacdac"
-                ],
-                "preferred": true
+                ]
             },
             "mkleinsb/co2-sensor-scd40/jacdac": {
                 "tags": [
                     "Jacdac"
-                ],
-                "preferred": true
+                ]
             },
             "microsoft/pxt-bluetooth-max6675": {},
             "microsoft/pxt-bluetooth-midi": {
@@ -635,6 +639,11 @@
             "alankrantas/pxt-esp8266_thingspeak": {
                 "tags": [
                     "IoT"
+                ]
+            },
+            "mkleinsb/pxt-calliope-jacdac": {
+                "tags": [
+                    "Jacdac"
                 ]
             },
             "assirati/pxt-inventura": {},

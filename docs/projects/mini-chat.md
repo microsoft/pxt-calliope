@@ -2,7 +2,7 @@
 
 ## {Introduction @unplugged}
 
-![Two @boardname@ connected via radio](/calliope/tutorials/06_mini_chat_animation.gif)
+![Two @boardname@ connected via radio](/static/calliope/tutorials/06_mini_chat_animation.gif)
 
 Use the Calliope mini 📻 radio to send and receive 💬 messages between Calliope minis!
 

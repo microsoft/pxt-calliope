@@ -2,7 +2,7 @@
 
 ## {Introduction @unplugged}
 
-![Multiple @boardname@ throwing a dice](/calliope/tutorials/10_multi_dice_animation.gif)
+![Multiple @boardname@ throwing a dice](/static/calliope/tutorials/10_multi_dice_animation.gif)
 
 Build a multi-player dice game using the **radio**. The **radio** blocks let you send wireless messages between a @boardname@ and another @boardname@.
 

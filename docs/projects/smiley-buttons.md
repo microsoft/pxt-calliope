@@ -5,7 +5,7 @@
 Code the buttons on the @boardname@ to show that it's happy or sad.
 (Want to learn how the buttons works? [Watch this video](https://youtu.be/t_Qujjd_38o)).
 
-![Pressing the A and B buttons](/calliope/tutorials/03_smiley_button_animation.gif)
+![Pressing the A and B buttons](/static/calliope/tutorials/03_smiley_button_animation.gif)
 
 ## Step 1 @fullscreen
 
@@ -80,5 +80,5 @@ If you have a @boardname@, connect it to USB and click ``|Download|`` to transfe
 Nice! Now go and show it off to your friends!
 
 ```template
-input.onButtonPressed(Button.A, function() {})
+//
 ```

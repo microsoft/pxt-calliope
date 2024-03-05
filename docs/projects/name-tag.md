@@ -4,7 +4,7 @@
 
 Tell everyone who you are. Show you name on the LEDs.
 
-![Name scrolling on the LEDs](/calliope/tutorials/02_nametag_animation.gif)
+![Name scrolling on the LEDs](/static/calliope/tutorials/02_nametag_animation.gif)
 
 ## Step 1
 
@@ -20,7 +20,7 @@ basic.forever(() => {
 
 Look at the simulator and make sure it shows your name on the screen.
 
-![Name scrolling on the LEDs](/calliope/tutorials/02_nametag_animation.gif)
+![Name scrolling on the LEDs](/static/calliope/tutorials/02_nametag_animation.gif)
 
 
 Place more ``||basic:show string||`` blocks to create your own story.
