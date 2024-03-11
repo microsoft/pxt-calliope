@@ -1,0 +1,32 @@
+{
+    "name": "bluetooth-no-pairing",
+    "description": "Bluetooth settings for iOS and Calliope mini 1 and 2.",
+    "dependencies": {
+        "core": "file:../core"
+    },
+    "files": [
+        "README.md"
+    ],
+    "public": true,
+    "searchOnly": true,
+    "weight": 100,
+    "icon": "./static/packages/bluetooth/icon.png",
+    "yotta": {
+        "config": {
+            "microbit-dal": {
+                "bluetooth": {
+                    "open": 1,
+                    "security_level": null,
+                    "whitelist": 0
+                }
+            }
+        },
+        "userConfigs": [
+            {
+                "description": "Bluetooth: No pairing required | Calliope mini 1 and 2 (iOS)",
+                "config": {
+                }
+            }
+        ]
+    }
+}

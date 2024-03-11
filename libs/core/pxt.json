@@ -128,6 +128,19 @@
                 "debug": 0,
                 "heap_debug": 0
             }
-        }
-    }
+        },
+        "userConfigs": [
+            {
+                "description": "Only load Bluetooth while pairing mode is activated (holding A+B and briefly the Reset button)",
+                "config": {
+                    "microbit-dal": {
+                        "bluetooth": {
+                            "enabled": 0
+                        }
+                    }
+                }
+            }
+        ]
+    },
+    "partial": true
 }

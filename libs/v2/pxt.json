@@ -22,6 +22,13 @@
                 "sram_end": "0x20008000",
                 "RAM_SIZE": "\"32K\""
             }
-        }
+        },
+        "userConfigs": [
+            {
+                "description": "Calliope mini 2",
+                "config": {
+                }
+            }
+        ]
     }
 }

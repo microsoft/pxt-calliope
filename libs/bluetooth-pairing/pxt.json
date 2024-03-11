@@ -1,6 +1,6 @@
 {
-    "name": "bluetooth-android-settings",
-    "description": "Bluetooth settings for Android and Calliope mini 1 and 2.",
+    "name": "bluetooth-pairing",
+    "description": "Bluetooth settings for Calliope mini 3 or android + Calliope mini 1 and 2.",
     "dependencies": {
         "core": "file:../core"
     },
@@ -20,6 +20,13 @@
                     "whitelist": 1
                 }
             }
-        }
+        },
+        "userConfigs": [
+            {
+                "description": "Bluetooth: Pairing required | Calliope mini 3 (iOS) | all Calliope mini Versions (Android)",
+                "config": {
+                }
+            }
+        ]
     }
 }

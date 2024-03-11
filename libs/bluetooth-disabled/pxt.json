@@ -18,6 +18,13 @@
                     "enabled": 0
                 }
             }
+        },
+        "optionalConfig": {
+            "microbit-dal": {
+                "bluetooth": {
+                    "enabled": 0
+                }
+            }
         }
     }
 }
