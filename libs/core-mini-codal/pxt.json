@@ -3,7 +3,8 @@
     "description": "The mini codal core library",
     "dependencies": {
         "core": "file:../core",
-        "microphone": "file:../microphone"
+        "microphone": "file:../microphone",
+        "bluetooth-pairing": "file:../bluetooth-pairing"
     },
     "disablesVariants": [
         "minidal"
@@ -23,14 +24,12 @@
         "touchmode.cpp"
     ],
     "yotta": {
-        "optionalConfig": {
-            "microbit-dal": {
-                "bluetooth": {
-                    "open": 0,
-                    "security_level": "SECURITY_MODE_ENCRYPTION_NO_MITM",
-                    "whitelist": 1
+        "userConfigs": [
+            {
+                "description": "Calliope mini 3",
+                "config": {
                 }
             }
-        }
+        ]
     }
 }

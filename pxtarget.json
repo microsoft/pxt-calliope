@@ -15,7 +15,8 @@
         "libs/radio",
         "libs/devices",
         "libs/bluetooth",
-        "libs/bluetooth-android",
+        "libs/bluetooth-no-pairing",
+        "libs/bluetooth-pairing",
         "libs/bluetooth-disabled",
         "libs/servo",
         "libs/radio-broadcast",
@@ -23,7 +24,8 @@
         "libs/settings",
         "libs/flashlog",
         "libs/datalogger",
-        "libs/audio-recording"
+        "libs/audio-recording",
+        "libs/localization-strings-stable"
     ],
     "cloud": {
         "workspace": false,
