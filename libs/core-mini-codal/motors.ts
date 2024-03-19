@@ -42,12 +42,12 @@ namespace motors {
         const power = Math.clamp(-1023, 1023, Math.map(duty_percent, -100, 100, -1023, 1023));
         
         if (motor === Motor.M0 || motor === Motor.M0_M1) {
-            pins.digitalWritePin(DigitalPin.M0_DIR, ((power < 0) ? 0 : 1))
+            pins.digitalWritePin(DigitalPin.M0_DIR, ((power < 0) ? 1 : 0))
             pins.analogWritePin(AnalogPin.M0_SPEED, Math.abs(power))
         }
     
         if (motor === Motor.M1 || motor === Motor.M0_M1) {
-            pins.digitalWritePin(DigitalPin.M1_DIR, ((power < 0) ? 0 : 1))
+            pins.digitalWritePin(DigitalPin.M1_DIR, ((power < 0) ? 1 : 0))
             pins.analogWritePin(AnalogPin.M1_SPEED, Math.abs(power))
         }
     }
