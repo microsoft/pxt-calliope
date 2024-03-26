@@ -4,7 +4,7 @@
     "dependencies": {
         "core": "file:../core",
         "microphone": "file:../microphone",
-        "bluetooth-pairing": "file:../bluetooth-pairing"
+        "One-Time-Pairing": "file:../One-Time-Pairing"
     },
     "disablesVariants": [
         "minidal"
@@ -26,7 +26,7 @@
     "yotta": {
         "userConfigs": [
             {
-                "description": "Calliope mini 3",
+                "description": "Project compatible with Calliope mini 3",
                 "config": {
                 }
             }

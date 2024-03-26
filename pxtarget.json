@@ -15,17 +15,14 @@
         "libs/radio",
         "libs/devices",
         "libs/bluetooth",
-        "libs/bluetooth-no-pairing",
-        "libs/bluetooth-pairing",
-        "libs/bluetooth-disabled",
+        "libs/One-Time-Pairing",
         "libs/servo",
         "libs/radio-broadcast",
         "libs/microphone",
         "libs/settings",
         "libs/flashlog",
         "libs/datalogger",
-        "libs/audio-recording",
-        "libs/localization-strings-stable"
+        "libs/audio-recording"
     ],
     "cloud": {
         "workspace": false,
