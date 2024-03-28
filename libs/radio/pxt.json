@@ -12,6 +12,7 @@
         "radio.ts",
         "targetoverrides.ts"
     ],
+    "searchOnly": true,
     "public": true,
     "additionalFilePath": "../../node_modules/pxt-common-packages/libs/radio",
     "icon": "./static/packages/radio/icon.png",
