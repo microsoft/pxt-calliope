@@ -1,0 +1,34 @@
+{
+    "name": "Funk",
+    "description": "Stellt die Funk-Blöcke bereit",
+    "dependencies": {
+        "core": "file:../core"
+    },
+    "files": [
+        "README.md",
+        "shims.d.ts",
+        "enums.d.ts",
+        "radio.cpp",
+        "radio.ts",
+        "targetoverrides.ts"
+    ],
+    "public": true,
+    "additionalFilePath": "../../node_modules/pxt-common-packages/libs/radio",
+    "icon": "./static/packages/radio/icon.png",
+    "yotta": {
+        "config": {
+            "microbit-dal": {
+                "bluetooth": {
+                    "enabled": 0
+                }
+            }
+        },
+        "optionalConfig": {
+            "microbit-dal": {
+                "bluetooth": {
+                    "enabled": 0
+                }
+            }
+        }
+    }
+}
