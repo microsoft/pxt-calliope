@@ -1,6 +1,6 @@
 {
-    "name": "bluetooth-no-pairing",
-    "description": "Bluetooth settings for iOS and Calliope mini 1 and 2.",
+    "name": "One-Time-Pairing",
+    "description": "Settings for Android and iOS for Calliope mini 3",
     "dependencies": {
         "core": "file:../core"
     },
