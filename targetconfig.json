@@ -64,6 +64,8 @@
             "mkleinsb/pxt-grove-soilmoisture-jacdac",
             "mkleinsb/pxt-grove-lcd/jacdac",
             "mkleinsb/co2-sensor-scd40/jacdac",
+            "mkleinsb/pxt-callicolor-jacdac",
+            "mkleinsb/pxt-calliserv-jacdac",
             "microsoft/pxt-bluetooth-max6675",
             "microsoft/pxt-bluetooth-midi",
             "microsoft/pxt-bluetooth-temperature-sensor",
@@ -570,6 +572,16 @@
                 ]
             },
             "mkleinsb/co2-sensor-scd40/jacdac": {
+                "tags": [
+                    "Jacdac"
+                ]
+            },
+            "mkleinsb/pxt-callicolor-jacdac": {
+                "tags": [
+                    "Jacdac"
+                ]
+            },
+            "mkleinsb/pxt-calliserv-jacdac": {
                 "tags": [
                     "Jacdac"
                 ]

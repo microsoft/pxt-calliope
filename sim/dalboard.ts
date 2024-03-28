@@ -125,7 +125,9 @@ namespace pxsim {
         initAsync(msg: SimulatorRunMessage): Promise<void> {
             super.initAsync(msg);
             // console.log('SIM MESSAGE',msg)
-            if(msg.dependencies.v3 != undefined) {
+            if( msg.dependencies == undefined // exten list is undefined, only simulator without editor like https://makecode.calliope.cc/---run?id=_8i5WTJ5ciMdE
+                || msg.dependencies.v3 != undefined // v3 extension is available
+            ) {
                 console.log('V3 SIMULATOR')
                 this.hardwareVersion = 3
             } else {

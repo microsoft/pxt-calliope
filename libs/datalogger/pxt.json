@@ -4,6 +4,7 @@
     "files": [
         "datalogger.ts"
     ],
+    "weight": 99,
     "public": true,
     "disablesVariants": [
         "minidal",

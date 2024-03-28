@@ -1,16 +1,21 @@
 {
-    "name": "bluetooth-disabled",
-    "description": "Disables Bluetooth. Require AB+Reset to start bluetooth.",
+    "name": "Funk",
+    "description": "Stellt die Funk-Blöcke bereit",
     "dependencies": {
         "core": "file:../core"
     },
     "files": [
-        "README.md"
+        "README.md",
+        "shims.d.ts",
+        "enums.d.ts",
+        "radio.cpp",
+        "radio.ts",
+        "targetoverrides.ts"
     ],
+    "weight": 97,
     "public": true,
-    "weight": 10,
-    "searchOnly": true,
-    "icon": "./static/packages/bluetooth/icon.png",
+    "additionalFilePath": "../../node_modules/pxt-common-packages/libs/radio",
+    "icon": "./static/packages/radio/icon.png",
     "yotta": {
         "config": {
             "microbit-dal": {

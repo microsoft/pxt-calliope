@@ -9,5 +9,6 @@
         "minidal",
         "minidalusb"
     ],
+    "weight": 98,
     "icon": "./static/packages/microphone/icon.png"
 }
