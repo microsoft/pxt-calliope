@@ -1,6 +1,6 @@
 {
-    "name": "bluetooth-no-pairing",
-    "description": "Bluetooth settings for iOS and Calliope mini 1 and 2.",
+    "name": "One-Time-Pairing",
+    "description": "Settings for Android and iOS for Calliope mini 3",
     "dependencies": {
         "core": "file:../core"
     },
@@ -10,7 +10,7 @@
     "public": true,
     "searchOnly": true,
     "weight": 100,
-    "icon": "./static/packages/bluetooth/icon.png",
+    "icon": "./static/packages/One-Time-Pairing/icon.png",
     "yotta": {
         "config": {
             "microbit-dal": {
@@ -23,7 +23,7 @@
         },
         "userConfigs": [
             {
-                "description": "Bluetooth: No pairing required | Calliope mini 1 and 2 (iOS)",
+                "description": "One-time pairing enables programmes to be transferred via Bluetooth",
                 "config": {
                 }
             }

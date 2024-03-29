@@ -131,7 +131,7 @@
         },
         "userConfigs": [
             {
-                "description": "Only load Bluetooth while pairing mode is activated (holding A+B and briefly the Reset button)",
+                "description": "Paring mode always required to transfer programs via Bluetooth",
                 "config": {
                     "microbit-dal": {
                         "bluetooth": {

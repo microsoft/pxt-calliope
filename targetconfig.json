@@ -64,6 +64,8 @@
             "mkleinsb/pxt-grove-soilmoisture-jacdac",
             "mkleinsb/pxt-grove-lcd/jacdac",
             "mkleinsb/co2-sensor-scd40/jacdac",
+            "mkleinsb/pxt-callicolor-jacdac",
+            "mkleinsb/pxt-calliserv-jacdac",
             "microsoft/pxt-bluetooth-max6675",
             "microsoft/pxt-bluetooth-midi",
             "microsoft/pxt-bluetooth-temperature-sensor",
@@ -251,6 +253,7 @@
             "mkleinsb/pxt-pca9685",
             "mkleinsb/pxt-seeed-temperature",
             "mkleinsb/pxt-serialmp3",
+            "mkleinsb/pxt-motor-jacdac",
             "calliope-edu/pxt-ki-in-schulen",
             "microsoft/pxt-microturtle",
             "microsoft/pxt-neopixel",
@@ -574,6 +577,21 @@
                     "Jacdac"
                 ]
             },
+            "mkleinsb/pxt-callicolor-jacdac": {
+                "tags": [
+                    "Jacdac"
+                ]
+            },
+            "mkleinsb/pxt-calliserv-jacdac": {
+                "tags": [
+                    "Jacdac"
+                ]
+            },
+            "mkleinsb/pxt-motor-jacdac": {
+                "tags": [
+                    "Jacdac"
+                ]
+            },
             "microsoft/pxt-bluetooth-max6675": {},
             "microsoft/pxt-bluetooth-midi": {
                 "tags": [
@@ -800,6 +818,29 @@
         "extensionsToolboxDisallowDelete": [
         ]
     },
+    "hardwareOptions": [
+        {
+            "name": "mini 1",
+            "description": "Calliope mini 1",
+            "imageUrl": "/static/devices/mini1.png",
+            "url": "https://docs.calliope.cc/tech/hardware/boardversionen/?v=1",
+            "variant": "v1"
+        },
+        {
+            "name": "mini 2",
+            "description": "Calliope mini 2",
+            "imageUrl": "/static/devices/mini2.png",
+            "url": "https://docs.calliope.cc/tech/hardware/boardversionen/?v=2",
+            "variant": "v2"
+        },
+        {
+            "name": "mini 3",
+            "description": "Calliope mini 3",
+            "imageUrl": "/static/devices/mini3.png",
+            "url": "https://docs.calliope.cc/tech/hardware/boardversionen/?v=3",
+            "variant": "v3"
+        }
+    ],
     "galleries": {
         "Tutorials": "calliope/tutorials",
         "Calliope Links": "calliope/links"

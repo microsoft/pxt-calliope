@@ -13,19 +13,17 @@
         "libs/v2",
         "libs/v3",
         "libs/radio",
+        "libs/funk",
         "libs/devices",
         "libs/bluetooth",
-        "libs/bluetooth-no-pairing",
-        "libs/bluetooth-pairing",
-        "libs/bluetooth-disabled",
+        "libs/one-time-pairing",
         "libs/servo",
         "libs/radio-broadcast",
         "libs/microphone",
         "libs/settings",
         "libs/flashlog",
         "libs/datalogger",
-        "libs/audio-recording",
-        "libs/localization-strings-stable"
+        "libs/audio-recording"
     ],
     "cloud": {
         "workspace": false,
