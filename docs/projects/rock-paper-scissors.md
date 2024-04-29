@@ -200,9 +200,10 @@ If you have a @boardname@ device, connect it to your computer and click the ``|D
 
 ## {Step 15}
 
-Go further - Try adding 🎵 Music 🎵 blocks to your Rock Paper Scissors game for different sound effects. Note that some Music blocks may require a Calliope mini v2 device to play.
+Go further - Try adding 🎵 Music 🎵 blocks to your Rock Paper Scissors game for different sound effects. Note that some Music blocks may require a Calliope mini 3 device to play.
 
 ```blocks
+
 let hand = 0
 input.onGesture(Gesture.Shake, function () {
     hand = randint(1, 3)
@@ -217,6 +218,7 @@ input.onGesture(Gesture.Shake, function () {
         music.play(music.createSoundExpression(WaveShape.Square, 1600, 1, 255, 0, 300, SoundExpressionEffect.None, InterpolationCurve.Curve), music.PlaybackMode.UntilDone)
     }
 })
+
 ```
 
 ```blockconfig.global

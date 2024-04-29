@@ -258,6 +258,7 @@
             "microsoft/pxt-microturtle",
             "microsoft/pxt-neopixel",
             "calliope-edu/pxt-faces",
+            "joernalraun/robot",
             "calliope-net/i2c-liste",
             "calliope-edu/pxt-storage",
             "calliope-edu/warte-bis",
@@ -362,6 +363,7 @@
                 ],
                 "preferred": true
             },
+            "joernalraun/robot": {},
             "51bit/sfc": {},
             "51bit/smarttools": {},
             "51bit/dfplayermini": {},
