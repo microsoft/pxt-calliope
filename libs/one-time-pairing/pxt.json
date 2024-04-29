@@ -10,7 +10,7 @@
     "public": true,
     "searchOnly": true,
     "weight": 100,
-    "icon": "./static/packages/One-Time-Pairing/icon.png",
+    "icon": "./static/packages/one-time-pairing/icon.png",
     "yotta": {
         "config": {
             "microbit-dal": {
