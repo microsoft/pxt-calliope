@@ -1,5 +1,0 @@
-{
-  "input": "Events and data from sensors",
-  "input.onSound": "Registers an event that runs when a sound is detected",
-  "input.setSoundThreshold": "Sets the threshold for a sound type."
-}
