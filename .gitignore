@@ -19,6 +19,7 @@ electron-out
 hexcache
 build
 crowdinstats.csv
+libs/*/_locales
 
 *.user
 *.sw?
