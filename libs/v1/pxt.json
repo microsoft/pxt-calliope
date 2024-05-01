@@ -10,7 +10,8 @@
     "core": true,
     "dependencies": {
         "core": "file:../core",
-        "core-mini-dal": "file:../core-mini-dal"
+        "core-mini-dal": "file:../core-mini-dal",
+        "bluetooth-disabled": "file:../bluetooth-disabled"
     },
     "icon": "./static/devices/mini1.png",
     "files": [
