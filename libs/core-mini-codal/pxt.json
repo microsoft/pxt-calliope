@@ -4,7 +4,7 @@
     "dependencies": {
         "core": "file:../core",
         "microphone": "file:../microphone",
-        "One-Time-Pairing": "file:../one-time-pairing"
+        "one-time-pairing": "file:../one-time-pairing"
     },
     "disablesVariants": [
         "minidal"

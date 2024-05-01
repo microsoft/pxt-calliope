@@ -1,5 +1,5 @@
 {
-    "name": "One-Time-Pairing",
+    "name": "one-time-pairing",
     "description": "Settings for Android and iOS for Calliope mini 3",
     "dependencies": {
         "core": "file:../core"

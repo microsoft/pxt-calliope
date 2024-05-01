@@ -1,5 +1,5 @@
 {
-    "name": "Funk",
+    "name": "funk",
     "description": "Stellt die Funk-Blöcke bereit",
     "dependencies": {
         "core": "file:../core"
