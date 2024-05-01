@@ -16,7 +16,6 @@
         "libs/funk",
         "libs/devices",
         "libs/bluetooth",
-        "libs/bluetooth-disabled",
         "libs/one-time-pairing",
         "libs/servo",
         "libs/radio-broadcast",
