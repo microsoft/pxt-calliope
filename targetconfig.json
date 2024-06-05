@@ -843,6 +843,7 @@
     ],
     "galleries": {
         "Tutorials": "calliope/tutorials",
+        "Workbook": "calliope/arbeitsheft",
         "Calliope Links": "calliope/links"
     },
     "electronManifest": {
