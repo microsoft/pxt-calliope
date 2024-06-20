@@ -20,6 +20,7 @@ hexcache
 build
 crowdinstats.csv
 libs/*/_locales/*.json
+.pxt/
 
 *.user
 *.sw?

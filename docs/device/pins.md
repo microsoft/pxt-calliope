@@ -2,7 +2,7 @@
 
 The Calliope mini pins 
 
-![](/static/mb/device/pins-0.png)
+![micro:bit v1 pins](/static/mb/device/pins-v1-v2.png)
 
 The Calliope mini has 25 external connections on the edge connector of the board, which we refer to as ‘pins’.  The edge connector is the grey area on the right side of the figure above.
 
@@ -10,11 +10,9 @@ There are five large pins, that are also connected to holes in the board labelle
 
 ## Large pins
 
-You can easily attach crocodile clips or 4mm banana plugs to the five large pins.
+The first three, labelled **0**, **1** and **2** are flexible and can be used for many different things - which means they are often called "general purpose input and output" (shortened to GPIO). These three pins also have the ability to read analog voltages using something called an analog-to-digital converter (ADC). They all have the same function:
 
-The first three, labelled 0, 1 and 2 are flexible and can be used for many different things - which means they are often called ‘general purpose input and output’ (shortened to GPIO). These three pins also have the ability to read analogue voltages using something called an analogue-to-digital converter (ADC). They all have the same function:
-
-* **0**: GPIO (general purpose digital input and output) with analogue to digital convertor (ADC).
+* **0**: GPIO (general purpose digital input and output) with analog-to-digital convertor (ADC).
 * **1**: GPIO with ADC
 * **2**: GPIO with ADC
 
@@ -32,7 +30,7 @@ For details on the power, current and voltage limitations of the board, see [Pow
 * **3V**: *3 volt power output* or *power input*.  (1) *power output*: If the Calliope mini is powered by USB or a battery, then you can use the 3V pin as a power output to power peripherals with; (2) *power input*: If the Calliope mini is not being powered by USB or battery, you can use the 3V pin as a power input to power the Calliope mini
 * **GND**: attaches to ground in order to complete a circuit (required when using the 3V pin)
 
-If you hold the ‘GND’ pin with one hand, you can program the microbit to detect yourself touching the 0,1 or 2 pins with your other hand, giving you three more buttons to experiment with (you just used your body to complete an electrical circuit).
+If you hold the **GND** pin with one hand, you can program the microbit to detect yourself touching the **0**, **1** or **2** pins with your other hand, giving you three more buttons to experiment with (you just used your body to complete an electrical circuit to make "resistive touch" buttons).
 
 ## Small pins
 

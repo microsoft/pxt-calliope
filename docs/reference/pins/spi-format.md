@@ -10,7 +10,9 @@ The data sent over a SPI connection has a number of _bits_ to represent each val
 
 ### ~ hint
 
-**Simulator**: This function needs real hardware to work with. It's not supported in the simulator.
+#### Simulator
+
+This function needs real hardware to work with. It's not supported in the simulator.
 
 ### ~
 
@@ -30,7 +32,7 @@ The default number of bits is `8` and the default mode value is `3`.
 Set the pins and format for the SPI connection.
 
 ```blocks
-pins.spiPins(DigitalPin.C15, DigitalPin.C14, DigitalPin.C13);
+pins.spiPins(DigitalPin.P15, DigitalPin.P14, DigitalPin.P13);
 pins.spiFormat(8, 3);
 ```
 

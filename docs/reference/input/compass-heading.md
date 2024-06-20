@@ -25,7 +25,9 @@ let degrees = input.compassHeading()
 
 ## ~hint 
 
-When you run a program that uses this function in a browser, click and drag
+#### Compass simulation
+
+When you run a program that in the simulator, click and drag
 the compass needle on the screen to change the compass heading.
 
 ## ~

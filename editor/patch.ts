@@ -223,7 +223,6 @@ arrowImageNodes.forEach(node => {
 
 
     if (pxt.semver.majorCmp(pkgTargetVersion || "0.0.0", "5.0.12") <= 0) {
-
         // Eighth note misspelling
         /*
         <block type="basic_show_icon">
@@ -277,7 +276,7 @@ arrowImageNodes.forEach(node => {
                 let n = lednode.getAttribute("name");
                 let col = parseInt(n[3]);
                 let row = parseInt(n[4]);
-                leds[row][col] = lednode.textContent  == "TRUE" ? "#" : ".";
+                leds[row][col] = lednode.innerHTML == "TRUE" ? "#" : ".";
                 // remove node
                 node.removeChild(lednode);
             });
@@ -288,8 +287,6 @@ arrowImageNodes.forEach(node => {
         f.appendChild(node.ownerDocument.createTextNode(s));
         node.insertBefore(f, null);
     });
-
-
 
     // radio
     /*
@@ -330,7 +327,7 @@ converts to
         node.appendChild(f);
     }
 
-    pxt.U.toArray(dom.querySelectorAll("variable")).forEach(node => varids[node.textContent] = node.getAttribute("id"));
+    pxt.U.toArray(dom.querySelectorAll("variable")).forEach(node => varids[node.innerHTML] = node.getAttribute("id"));
     pxt.U.toArray(dom.querySelectorAll("block[type=radio_on_packet]"))
         .forEach(node => {
             const mutation = node.querySelector("mutation");

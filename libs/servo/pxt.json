@@ -1,9 +1,8 @@
 {
     "name": "servo",
     "description": "A micro-servo library",
-    "dependencies": {
-        "core": "file:../core"
-    },
+    "icon": "./static/packages/servo/icon.png",
+    "additionalFilePath": "../../node_modules/pxt-common-packages/libs/servo",
     "files": [
         "README.md",
         "servo.ts",
@@ -11,6 +10,7 @@
         "targetoverrides.ts"
     ],
     "public": true,
-    "additionalFilePath": "../../node_modules/pxt-common-packages/libs/servo",
-    "icon": "./static/packages/servo/icon.png"
+    "dependencies": {
+        "core": "file:../core"
+    }
 }

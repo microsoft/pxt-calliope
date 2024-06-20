@@ -259,7 +259,7 @@ namespace serial {
       uBit.serial.setTxBufferSize(size);
     }
 
-     /** Send DMESG debug buffer over serial. */
+    /** Send DMESG debug buffer over serial. */
     //%
     void writeDmesg() {
         pxt::dumpDmesg();

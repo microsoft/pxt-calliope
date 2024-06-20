@@ -1,4 +1,4 @@
-# Magnetic Force
+# magnetic Force
 
 Find the amount of magnetic force (the strength of a magnet) in one of the three directions.
 
@@ -6,9 +6,9 @@ Find the amount of magnetic force (the strength of a magnet) in one of the three
 input.magneticForce(Dimension.X);
 ```
 
-## ~hint
+The @boardname@ measures magnetic force in **microteslas**.
 
-The @boardname@ measures magnetic force with **microteslas**.
+### ~hint
 
 You are asked to [calibrate](https://support.microbit.org/support/solutions/articles/19000008874-calibrating-the-micro-bit-compass) the compass the first time run a program
 that uses the compass.
@@ -39,4 +39,5 @@ basic.forever(function() {
 
 ## See also
 
-[compass heading](/reference/input/compass-heading)
+[compass heading](/reference/input/compass-heading),
+[calibrate compass](/reference/input/calibrate-compass)

@@ -5,7 +5,6 @@
  * Provides access to basic Calliope mini functionality.
  */
 namespace basic {
-
     /**
      * Draws an image on the LED screen.
      * @param leds the pattern of LED to turn on/off.

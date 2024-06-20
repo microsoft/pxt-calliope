@@ -6,7 +6,7 @@ While you're writing and testing your programs, you'll mostly be [running them
 in the simulator](/device/simulator), but once you've finished your program you
 can **compile** it and run it on your Calliope mini.
 
-The basic steps are:
+## Transfer using a WebUSB connection
 
 1. Connect your @boardname@ to your computer via USB
 2. Click **Download** to download the `.hex` file
@@ -34,7 +34,7 @@ it appears as a new drive under Devices.
 
 ![](/static/mb/device/usb-windows-device.jpg)
 
-## Step 2: Download your program
+### Step 2: Download your program
 
 1. Open your project on @homeurl@
 2. Click **Download**

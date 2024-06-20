@@ -1,7 +1,6 @@
 # Ring Tone
 
-Play a musical tone through pin `P0` with the pitch as high or low as you say.
-The tone will keep playing until you tell it not to.
+Play a musical tone on the speaker or at a sound pin of the @boardname@ with the pitch as high or low as you say. The tone will keep playing until you tell it not to.
 
 ```sig
 music.ringTone(440)

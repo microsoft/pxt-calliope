@@ -4,14 +4,6 @@
     "dependencies": {
         "core": "file:../core"
     },
-    "files": [
-        "README.md",
-        "shims.d.ts",
-        "enums.d.ts",
-        "radio.cpp",
-        "radio.ts",
-        "targetoverrides.ts"
-    ],
     "searchOnly": true,
     "public": true,
     "additionalFilePath": "../../node_modules/pxt-common-packages/libs/radio",

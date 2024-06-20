@@ -16,7 +16,7 @@ You need the following things to transfer and run a script on your Calliope mini
 
 * A-Male to Micro USB cable to connect your computer to your Calliope mini. This is
     the same cable that is commonly used to connect a smart phone to a computer.
-* A PC running Windows 7 or later, or a Mac running OS X 10.6 or later
+* A Mac running OS X 10.9 or later.
 
 ## Step 1: Connect your Calliope mini to your computer
 

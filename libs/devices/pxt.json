@@ -1,10 +1,6 @@
 {
     "name": "devices",
     "description": "BETA -  Camera, remote control and other Bluetooth services. App required.",
-    "dependencies": {
-        "core": "file:../core",
-        "bluetooth": "file:../bluetooth"
-    },
     "files": [
         "README.md",
         "enums.d.ts",
@@ -12,8 +8,13 @@
         "devices.cpp",
         "devices.ts"
     ],
-    "public": true,
     "icon": "./static/packages/devices/icon.png",
     "hidden": true,
+    "public": true,
+    "dependencies": {
+        "core": "file:../core",
+        "bluetooth": "file:../bluetooth"
+    },
+    "icon": "./static/packages/devices/icon.png",
     "installedVersion": "ljipgq"
 }

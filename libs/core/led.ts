@@ -27,7 +27,6 @@ namespace led {
      **/
     export let barGraphToConsole = true
 
-
     /**
      * Displays a vertical bar graph based on the `value` and `high` value.
      * If `high` is 0, the chart gets adjusted automatically.

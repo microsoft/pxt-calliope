@@ -1,4 +1,4 @@
-# Uploading from Chrome for Windows
+# Transferring from Chrome for Windows
 
 ## ~ hint
 
@@ -11,6 +11,12 @@ you can use **WebUSB** to download with one-click.
 While you're writing and testing your programs, you'll mostly be [running them
 in the simulator](/device/simulator), but once you've finished your program you
 can **compile** it and run it on your Calliope mini.
+
+## Transfer using a WebUSB connection
+
+With Chrome (version 79 and newer), you can transfer your program to the @boardname@ with a single click. If your browser supports WebUSB, you can use the **one-click download** feature to send your programs to the @boardname@. See the [WebUSB](/device/usb/webusb) page to learn how to pair your @boardname@ with a computer and transfer your programs with a single click.
+
+## Downloading your program as file
 
 The basic steps are:
 

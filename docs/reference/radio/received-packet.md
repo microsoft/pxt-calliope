@@ -22,6 +22,14 @@ In addition to a [number](types/number), [string](/types/string), or name-value 
 >* ``serial number``: the value is the serial number of the board sending the packet.
 >* ``time``: the value is the system time, in microseconds, of the sender at the time when the packet was sent.
 
+### ~ hint
+
+#### Signal strength and board version
+
+Measurement of the received signal strength is dependent on what version of @boardname@ you have. The @boardname@ boards prior to v3 can typically measure a signal strength up to `-42` dBm. Now, v2 boards will measure a signal strength up to `-28` dBm (typical).
+
+### ~
+
 ## Example
 
 This program uses the signal strength from received packets to graph the
