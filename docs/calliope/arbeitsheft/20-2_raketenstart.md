@@ -1,5 +1,57 @@
 # 20 2_Rocket launch
 
+```ghost
+basic.showNumber(3)
+basic.pause(100)
+basic.showNumber(2)
+basic.pause(100)
+basic.showNumber(1)
+basic.pause(100)
+basic.showNumber(0)
+basic.pause(100)
+basic.showLeds(`
+ . . # . .
+ . # # # .
+ . # # # .
+ . . # . .
+ . # . # .
+ `)
+basic.showLeds(`
+ . # # # .
+ . # # # .
+ . . # . .
+ . # . # .
+ . . . . .
+ `)
+basic.showLeds(`
+ . # # # .
+ . . # . .
+ . # . # .
+ . . . . .
+ . . . . .
+ `)
+basic.showLeds(`
+ . . # . .
+ . # . # .
+ . . . . .
+ . . . . .
+ . . . . .
+ `)
+basic.showLeds(`
+ . # . # .
+ . . . . .
+ . . . . .
+ . . . . .
+ . . . . .
+ `)
+basic.showLeds(`
+ . . . . .
+ . . . . .
+ . . . . .
+ . . . . .
+ . . . . .
+ `)
+```
 
 ## Task @showdialog
 Use a variable to determine the speed of your animation and adjust it conveniently instead of changing the speed again and again in every pause block.

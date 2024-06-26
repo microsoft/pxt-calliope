@@ -1,5 +1,23 @@
  # 54_Air quality
 
+```ghost
+let temperatur = 0
+function Temperatur_messen () {
+    temperatur = SCD40.get_temperature(SCD40.SCD40_T_UNIT.C)
+    if (temperatur > 30) {
+        music.playTone(262, music.beat(BeatFraction.Whole))
+    } else if (temperatur < 18) {
+        music.playTone(262, music.beat(BeatFraction.Whole))
+    } else {
+        music.rest(music.beat(BeatFraction.Whole))
+    }
+}
+basic.forever(function () {
+    Temperatur_messen()
+    basic.pause(60000)
+})
+```
+
 ## Task @showdialog
 The air that surrounds you plays a major role in your well-being.
 Program a display that informs you when it gets too hot, the humidity is too high or too low

@@ -1,5 +1,30 @@
 # 45 1 Plant station
 
+```ghost
+input.onButtonEvent(Button.A, input.buttonEventClick(), function () {
+    if (input.lightLevel() > 50) {
+        basic.showIcon(IconNames.Yes)
+    } else {
+        basic.showLeds(`
+            # . # . #
+            . # # # .
+            # # # # #
+            . # # # .
+            # . # . #
+            `)
+    }
+})
+input.onButtonEvent(Button.B, input.buttonEventClick(), function () {
+    basic.showNumber(input.temperature())
+})
+basic.forever(function () {
+if (grove.measureMoistureAnalog(AnalogPin.C16) < 300) {
+      basic.setLedColor(0x00ff00)
+  } else {
+      basic.setLedColor(0xff0000)
+  }
+})
+```
 
 ## Plant station @showdialogue
 Programme a plant station that helps you to provide the plants in the classroom with the best possible care. Plants need **water**, **sunlight** and the right

@@ -1,5 +1,54 @@
 # 18.4-5 Rocket launch
 
+```ghost
+basic.showNumber(3, 500)
+basic.showNumber(2, 500)
+basic.showNumber(1, 500)
+basic.showNumber(0, 500)
+basic.showLeds(`
+. . # . .
+. # # # .
+. # # # .
+. . # . .
+. # . # .
+`)
+basic.showLeds(`
+. # # # .
+. # # # .
+. . # . .
+. # . # .
+. . . . .
+`)
+basic.showLeds(`
+. # # # .
+. . # . .
+. # . # .
+. . . . .
+. . . . .
+`)
+basic.showLeds(`
+. . # . .
+. # . # .
+. . . . .
+. . . . .
+. . . . .
+`)
+basic.showLeds(`
+. # . # .
+. . . . .
+. . . . .
+. . . . .
+. . . . .
+`)
+basic.showLeds(`
+. . . . .
+. . . . .
+. . . . .
+. . . . .
+. . . . .
+`)
+```
+
 ## Task @showdialog
 Launch a rocket on the LED matrix. You have to think in single frames like a professional animator.
 

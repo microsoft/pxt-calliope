@@ -1,5 +1,10 @@
 # 33 4 Light
 
+```ghost
+input.onButtonEvent(Button.B, input.buttonEventClick(), function () {
+basic.showNumber(Licht)
+})
+```
 
 ## Task @showdialog
 Write a program that saves the measured light value in a variable when the LED matrix is switched off and then display the saved value on the LED matrix.

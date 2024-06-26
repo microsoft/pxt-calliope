@@ -1,5 +1,11 @@
 # 24 3_4 Buttons
 
+```ghost
+input.onButtonEvent(Button.A, input.buttonEventClick(), function () {
+ basic.showIcon(IconNames.Happy)
+ basic.setLedColor(0x00ff00)
+})
+```
 
 ## Tasks @showdialog
 Make a **smiley** appear when **button A** is pressed and a **sad smiley** when **button B** is pressed. Add a matching color to both symbols.
