@@ -228,5 +228,5 @@ basic.forever(function () {
 ```
 
 ```package
-radio
+funk
 ```

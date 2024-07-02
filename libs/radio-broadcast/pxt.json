@@ -3,7 +3,7 @@
     "description": "Adds new blocks for message communication in the radio category",
     "dependencies": {
         "core": "file:../core",
-        "radio": "file:../radio"
+        "funk": "file:../funk"
     },
     "files": [
         "radio-broadcast.ts"
