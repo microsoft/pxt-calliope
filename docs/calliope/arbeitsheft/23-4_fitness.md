@@ -1,5 +1,16 @@
 # 23 4_Fitness
 
+```ghost
+let Tempo = 1000
+basic.setLedColor(0xff0000)
+basic.pause(tempo)
+for (let index = 0; index < 2; index++) {
+ basic.setLedColor(0x007fff)
+ basic.pause(tempo)
+ basic.turnRgbLedOff()
+ basic.pause(100)
+}
+```
 
 ## Task @showdialog
 Create a fitness program! Define 5 colors and assign a fitness exercise to each color - for example, squats, stretch jumps, jumping jacks, etc.

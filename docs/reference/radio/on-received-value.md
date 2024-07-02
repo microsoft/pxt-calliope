@@ -54,5 +54,5 @@ The radio set group might need to be set, synchronized , before the radio events
 [set group](/reference/radio/set-group)
 
 ```package
-radio
+funk
 ```

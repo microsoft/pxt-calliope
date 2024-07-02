@@ -1,5 +1,37 @@
 # 38 1b Thermometer
 
+```ghost
+basic.forever(function () {
+  if (input.temperature() > 30) {
+      basic.showLeds(`
+          # # # # #
+          # # # # #
+          # # # # #
+          # # # # #
+          # # # # #
+          `)
+      basic.setLedColor(0xff0000)
+  } else if (input.temperature() < 20) {
+      basic.showLeds(`
+          . . . . .
+          . . . . .
+          . . . . .
+          . . . . .
+          . . . . .
+          `)
+      basic.setLedColor(0x007fff)
+  } else {
+      basic.showLeds(`
+          # . # . #
+          . # . # .
+          # . # . #
+          . # . # .
+          # . # . #
+          `)
+      basic.setLedColor(0x00ff00)
+  }
+})
+```
 
 ## Task @showdialog
 Write a program for a thermometer that outputs a heat-free signal when a temperature of 30°C is exceeded.🍦 

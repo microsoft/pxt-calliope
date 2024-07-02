@@ -82,7 +82,6 @@
                 {
                     "type": "missingPackage",
                     "map": {
-                        "radio\\s*\\.": "radio",
                         "bluetooth\\s*\\.": "bluetooth",
                         "devices\\s*\\.": "devices"
                     }
@@ -149,6 +148,14 @@
                         "Motor\\s*\\.\\s*AB": "Motor.M0_M1",
                         "Motor\\s*\\.\\s*A": "Motor.M0",
                         "Motor\\s*\\.\\s*B": "Motor.M1"
+                    }
+                }
+            ],
+            "0.0.0 - 7.0.0": [
+                {
+                    "type": "missingPackage",
+                    "map": {
+                        "radio\\s*\\.": "funk"
                     }
                 }
             ]

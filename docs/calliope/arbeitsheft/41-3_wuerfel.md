@@ -1,5 +1,11 @@
 # 41 3 Dice
 
+```ghost
+input.onGesture(Gesture.Shake, function () {
+basic.showNumber(randint(1, 6))
+})
+```
+
 ## Task @showdialog
 Turn the Calliope mini into a dice.
 When the Calliope mini is shaken, a random number appears on the LED matrix.

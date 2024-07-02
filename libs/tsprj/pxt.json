@@ -3,7 +3,7 @@
     "description": "",
     "dependencies": {
         "core": "file:../core",
-        "radio": "file:../radio"
+        "funk": "file:../funk"
     },
     "files": [
         "main.ts",

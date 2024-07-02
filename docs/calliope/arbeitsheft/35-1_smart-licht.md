@@ -1,5 +1,21 @@
 # 35 1 Smart-Light
 
+```ghost
+basic.forever(function () {
+if (input.lightLevel() > 20) {
+    basic.showLeds(`
+        # # # # #
+        # # # # #
+        # # # # #
+        # # # # #
+        # # # # #
+        `)
+    basic.pause(5000)
+} else {
+  basic.clearScreen()
+}
+})
+```
 
 ## Task @showdialog
 Write a program for a lamp that is switched on by clapping your hands and switched off again automatically after 5 seconds 👏.

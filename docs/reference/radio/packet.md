@@ -54,5 +54,5 @@ This section documents the data layout of the packet if you need to interpret th
 [on data packet received](/reference/radio/on-data-packet-received),
 
 ```package
-radio
+funk
 ```
