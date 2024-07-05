@@ -1,5 +1,21 @@
 # 21 4 RGB-LED
 
+```ghost
+let Tempo = 100
+basic.setLedColor(0xff0000)
+basic.pause(Tempo)
+basic.setLedColor(0xff8000)
+basic.pause(Tempo)
+basic.setLedColor(0xffff00)
+basic.pause(Tempo)
+basic.setLedColor(0x00ff00)
+basic.pause(Tempo)
+basic.setLedColor(0x00ffff)
+basic.pause(Tempo)
+basic.setLedColor(0x007fff)
+basic.pause(Tempo)
+basic.setLedColor(0xb09eff)
+```
 
 ## Task @showdialog
 Program a rainbow. Use the following colors:

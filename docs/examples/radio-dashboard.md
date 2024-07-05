@@ -86,5 +86,5 @@ game.addScore(1)
 ```
 
 ```package
-radio
+funk
 ```

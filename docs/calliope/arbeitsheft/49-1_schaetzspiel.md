@@ -1,5 +1,23 @@
 # 49 1 Estimation game
 
+```ghost
+let Entfernung = 0
+input.onButtonEvent(Button.A, input.buttonEventValue(ButtonEvent.Click), function () {
+    Entfernung = Math.round(grove.measureInCentimeters(DigitalPin.C16))
+})
+input.onButtonEvent(Button.B, input.buttonEventValue(ButtonEvent.Click), function () {
+    basic.showNumber(Entfernung)
+})
+basic.forever(function () {
+    basic.showLeds(`
+        . # # . .
+        . . . # .
+        . . # . .
+        . . . . .
+        . . # . .
+        `)
+})
+```
 
 ## Estimation  game @showdialog
 Programme an estimation game that measures the distance between two objects. The

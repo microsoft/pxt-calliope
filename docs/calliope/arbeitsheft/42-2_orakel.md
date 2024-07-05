@@ -1,5 +1,19 @@
 # 42 2 Oracle
 
+```ghost
+let Zufall = 0
+input.onGesture(Gesture.Shake, function () {
+Zufall = randint(0, 2)
+if (Zufall == 1) {
+   basic.showString("Ja")
+}
+if (Zufall == 2) {
+   basic.showString("Nein")
+}
+if (Zufall == 3) {
+   basic.showString("Vielleicht")
+}
+```
 
 ## Task @showdialog
 Will we win the next field hockey tournament, is Flynn in love with me or do I get to play on the computer tonight? <br>

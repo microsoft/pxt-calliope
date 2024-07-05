@@ -87,5 +87,5 @@ Go further - try using different buttons to send a mix of messages 📝, or send
 ```
 
 ```package
-radio
+funk
 ```

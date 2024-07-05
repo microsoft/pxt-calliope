@@ -58,5 +58,5 @@ A radio that can both transmit and receive is called a _transceiver_.
 [number formats](/types/buffer/number-format)
 
 ```package
-radio
+funk
 ```

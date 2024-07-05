@@ -1,5 +1,26 @@
 # 50 2 people counter
 
+```ghost
+input.onButtonEvent(Button.A, input.buttonEventClick(), function () {
+    basic.showNumber(Personenzähler)
+})
+input.onButtonEvent(Button.AB, input.buttonEventClick(), function () {
+    Personenzähler = 0
+})
+let Personenzähler = 0
+Personenzähler = 0
+let komplett = 20
+basic.forever(function () {
+    if (grove.measureInCentimeters(DigitalPin.C16) < 10) {
+        Personenzähler += 1
+    }
+    if (Personenzähler < komplett) {
+        basic.setLedColor(0xff0000)
+    } else {
+        basic.setLedColor(0x00ff00)
+    }
+})
+```
 
 ## Task @showdialog
 Is the class complete?

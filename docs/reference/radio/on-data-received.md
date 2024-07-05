@@ -41,5 +41,5 @@ radio.onDataReceived(() => {
 [send number](/reference/radio/send-number), [set group](/reference/radio/set-group)
 
 ```package
-radio
+funk
 ```
