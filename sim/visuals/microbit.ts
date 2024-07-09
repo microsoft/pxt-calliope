@@ -2643,6 +2643,7 @@ namespace pxsim.visuals {
 
                 const pinState = this.board.edgeConnectorState.pins[index]
 
+                // the pin at index 4 is the logo, which doesn't support the dragging behavior
                 if (!pinState || index === 4) continue;
                 this.pinDragSurfaces[pinState.id] = eventSurface;
 
