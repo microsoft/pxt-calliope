@@ -359,11 +359,11 @@
             },
             "microsoft/pxt-radio-blockchain": {},
             "microsoft/pxt-sonar": {},
-            "microsoft/pxt-ws2812b": {
-                "tags": [
-                    "RGB"
-                ]
-            },
+            "microsoft/pxt-ws2812b": { "tags": [ "RGB" ] },
+            "microsoft/pxt-apa102": {},
+            "microsoft/pxt-radio-firefly": {},
+            "microsoft/pxt-ml": {},
+            "microsoft/pxt-arcadeshield": { "tags": [ "RGB" ] },
             "tinkertanker/pxt-alphanumeric-ht16k33": {},
             "tinkertanker/pxt-continuous-servo": {
                 "tags": [
@@ -530,6 +530,10 @@
                 "tags": [
                     "Climate"
                 ]
+            },
+            "chevyng/pxt-ucl-junkrobot": { "tags": [ "Roboter" ] },
+            "sparkfun/pxt-gamer-bit": {
+                "tags": [ "Gaming" ]
             },
             "sparkfun/pxt-gator-environment": {
                 "tags": [

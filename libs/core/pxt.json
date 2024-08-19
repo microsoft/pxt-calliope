@@ -79,6 +79,7 @@
     "public": true,
     "dependencies": {},
     "dalDTS": {
+        "corePackage": ".",
         "compileServiceVariant": "minicodal",
         "includeDirs": [
             "libraries/codal-core/inc",

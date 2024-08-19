@@ -384,8 +384,7 @@ namespace pins {
     */
     //% help=pins/on-pulsed weight=22 blockGap=16 advanced=true
     //% blockId=pins_on_pulsed block="on|pin %pin|pulsed %pulse"
-    //% pin.fieldEditor="gridpicker" pin.fieldOptions.columns=4
-    //% pin.fieldOptions.tooltips="false" pin.fieldOptions.width="250"
+    //% pin.shadow=digital_pin
     //% group="Pulse"
     void onPulsed(DigitalPin name, PulseValue pulse, Action body) {
         MicroBitPin* pin = getPin((int)name);
@@ -415,8 +414,7 @@ namespace pins {
     //% blockId="pins_pulse_in" block="pulse in (µs)|pin %name|pulsed %value"
     //% weight=20 advanced=true
     //% help=pins/pulse-in
-    //% name.fieldEditor="gridpicker" name.fieldOptions.columns=4
-    //% name.fieldOptions.tooltips="false" name.fieldOptions.width="250"
+    //% name.shadow=digital_pin
     //% group="Pulse"
     int pulseIn(DigitalPin name, PulseValue value, int maxDuration = 2000000) {
         MicroBitPin* pin = getPin((int)name);
@@ -474,10 +472,9 @@ namespace pins {
     //% blockId=device_set_servo_pin block="servo write|pin %name|to %value" blockGap=8
     //% parts=microservo trackArgs=0
     //% value.min=0 value.max=180
-    //% name.fieldEditor="gridpicker" name.fieldOptions.columns=4
-    //% name.fieldOptions.tooltips="false" name.fieldOptions.width="250"
+    //% name.shadow=analog_pin
     //% group="Servo"
-    void servoWritePin(AnalogPin name, int value) {
+    void servoWritePin(int name, int value) {
         PINOP(setServoValue(value));
     }
 
@@ -497,8 +494,7 @@ namespace pins {
      */
     //% help=pins/servo-set-pulse weight=19
     //% blockId=device_set_servo_pulse block="servo set pulse|pin %value|to (µs) %micros"
-    //% value.fieldEditor="gridpicker" value.fieldOptions.columns=4
-    //% value.fieldOptions.tooltips="false" value.fieldOptions.width="250"
+    //% value.shadow=analog_pin
     //% group="Servo"
     void servoSetPulse(AnalogPin name, int micros) {
         fixMotorIssue(name);
@@ -843,7 +839,7 @@ namespace pins {
     */
     //% blockId=pin_set_audio_pin_enabled
     //% block="set audio pin enabled $enabled"
-    //% weight=0
+    //% weight=0 help=pins/set-audio-pin-enabled
     void setAudioPinEnabled(bool enabled) {
         edgeConnectorSoundDisabled = !enabled;
 #if MICROBIT_CODAL

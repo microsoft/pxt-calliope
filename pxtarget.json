@@ -23,6 +23,7 @@
         "libs/settings",
         "libs/flashlog",
         "libs/datalogger",
+        "libs/fonts",
         "libs/audio-recording"
     ],
     "cloud": {
@@ -226,7 +227,7 @@
                 "codalTarget": {
                     "name": "codal-microbit-v2",
                     "url": "https://github.com/calliope-edu/codal-microbit-v2",
-                    "branch": "v0.2.63-calliope-rc1",
+                    "branch": "v0.2.67-calliope-rc1",
                     "type": "git"
                 },
                 "codalBinary": "MICROBIT",
@@ -687,6 +688,12 @@
         "skillsMap=1": {
             "appTheme": {
                 "hideReplaceMyCode": false
+            }
+        },
+        "teachertool=1": {
+            "appTheme": {
+                "hideMenuBar": true,
+                "workspaceSearch": true
             }
         }
     },
