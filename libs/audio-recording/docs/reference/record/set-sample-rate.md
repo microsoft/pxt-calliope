@@ -25,10 +25,10 @@ Record audio at `22000` samples per second but play it back at `11000` samples p
 ```blocks
 record.setSampleRate(22000, record.AudioSampleRateScope.Recording)
 record.setSampleRate(11000, record.AudioSampleRateScope.Playback)
-input.onButtonPressed(Button.A, function () {
+input.onButtonEvent(Button.A, input.buttonEventValue(ButtonEvent.Down), function () {
     record.startRecording(record.BlockingState.Blocking)
 })
-input.onButtonPressed(Button.B, function () {
+input.onButtonEvent(Button.B, input.buttonEventValue(ButtonEvent.Down), function () {
     record.playAudio(record.BlockingState.Blocking)
 })
 ```

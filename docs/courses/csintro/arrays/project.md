@@ -34,13 +34,13 @@ basic.forever(() => {
         }
     }
 })
-input.onButtonPressed(Button.A, () => {
+input.onButtonEvent(Button.A, input.buttonEventValue(ButtonEvent.Down), () => {
     if (list.length < 10) {
         list.push(currentNote)
         basic.showNumber(10 - list.length)
     }
 })
-input.onButtonPressed(Button.B, () => {
+input.onButtonEvent(Button.B, input.buttonEventValue(ButtonEvent.Down), () => {
     list = []
     basic.clearScreen()
 })
@@ -54,13 +54,13 @@ Here is an example of how to create an array with musical notes.  Button A plays
 ```blocks
 let list: number[] = []
 let value = 0
-input.onButtonPressed(Button.A, () => {
+input.onButtonEvent(Button.A, input.buttonEventValue(ButtonEvent.Down), () => {
     for (let value of list) {
         music.playTone(value, music.beat(BeatFraction.Whole))
     }
     basic.pause(1000)
 })
-input.onButtonPressed(Button.B, () => {
+input.onButtonEvent(Button.B, input.buttonEventValue(ButtonEvent.Down), () => {
     for (let value of list) {
         music.playTone(value * 2, music.beat(BeatFraction.Whole))
     }
@@ -73,7 +73,7 @@ Remember that a 'for element value of list' loop makes a temporary copy of the v
 
 ```blocks
 let list: number[] = []
-input.onButtonPressed(Button.AB, () => {
+input.onButtonEvent(Button.AB, input.buttonEventValue(ButtonEvent.Down), () => {
     for (let index = 0; index <= list.length - 1; index++) {
         list[index] = list[index] * 2
     }

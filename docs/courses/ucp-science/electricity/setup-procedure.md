@@ -55,7 +55,7 @@ basic.showString("BATTERY TESTER");
 2. The micro:bit will then pause for 2 seconds.
 
 ```blocks
-input.onButtonPressed(Button.A, () => {
+input.onButtonEvent(Button.A, input.buttonEventValue(ButtonEvent.Down), () => {
     basic.showNumber(pins.analogReadPin(AnalogPin.P0))
     basic.pause(2000)
 })
@@ -68,7 +68,7 @@ input.onButtonPressed(Button.A, () => {
 3. If 3 volts gives a reading of about 1023 then 1 volt should read around 340 (340 = 1024 / 3). Using this ratio and multiplying the number by 1000 should convert the number to millivolts (micro:bits only do integer math so the voltage is multiplied by 1000 before doing the division by 340).
 
 ```block
-input.onButtonPressed(Button.B, () => {
+input.onButtonEvent(Button.B, input.buttonEventValue(ButtonEvent.Down), () => {
    let reading = pins.analogReadPin(AnalogPin.P0)
    let voltage = reading * 1000 / 340
    basic.showNumber(voltage)
@@ -82,7 +82,7 @@ input.onButtonPressed(Button.B, () => {
 
 ```typescript
 // Convert analog reading to millivolts
-input.onButtonPressed(Button.B, () => {
+input.onButtonEvent(Button.B, input.buttonEventValue(ButtonEvent.Down), () => {
    let reading = pins.analogReadPin(AnalogPin.P0)
    let voltage = reading * 1000 / 340
    basic.showNumber(voltage)

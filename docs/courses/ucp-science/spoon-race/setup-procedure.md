@@ -68,10 +68,10 @@ Now that we are collecting accelerometer data, we need a way to start and stop d
 * In one of the ``||input:on button pressed||`` blocks, click on the drop-down menu to change to button B.
 
 ```blocks
-input.onButtonPressed(Button.A, function () {
+input.onButtonEvent(Button.A, input.buttonEventValue(ButtonEvent.Down), function () {
 
 })
-input.onButtonPressed(Button.B, function () {
+input.onButtonEvent(Button.B, input.buttonEventValue(ButtonEvent.Down), function () {
 
 })
 ```
@@ -84,10 +84,10 @@ input.onButtonPressed(Button.B, function () {
 
 ```blocks
 let IsLogging = false
-input.onButtonPressed(Button.A, function () {
+input.onButtonEvent(Button.A, input.buttonEventValue(ButtonEvent.Down), function () {
     IsLogging = true
 })
-input.onButtonPressed(Button.B, function () {
+input.onButtonEvent(Button.B, input.buttonEventValue(ButtonEvent.Down), function () {
     IsLogging = false
 })
 ```
@@ -118,7 +118,7 @@ Note that the default behavior of the data logger is to append data to the data 
 
 ```blocks
 let IsLogging = false
-input.onButtonPressed(Button.A, function () {
+input.onButtonEvent(Button.A, input.buttonEventValue(ButtonEvent.Down), function () {
     datalogger.deleteLog()
     IsLogging = true
 })
@@ -128,11 +128,11 @@ Your complete code should look something like this:
 
 ```blocks
 let IsLogging = false
-input.onButtonPressed(Button.A, function () {
+input.onButtonEvent(Button.A, input.buttonEventValue(ButtonEvent.Down), function () {
     datalogger.deleteLog()
     IsLogging = true
 })
-input.onButtonPressed(Button.B, function () {
+input.onButtonEvent(Button.B, input.buttonEventValue(ButtonEvent.Down), function () {
     IsLogging = false
 })
 loops.everyInterval(1000, function () {

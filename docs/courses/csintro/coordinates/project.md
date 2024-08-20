@@ -153,12 +153,12 @@ basic.forever(() => {
        ball.set(LedSpriteProperty.X, randint(0, 5))
    }
 })
-input.onButtonPressed(Button.A, () => {
+input.onButtonEvent(Button.A, input.buttonEventValue(ButtonEvent.Down), () => {
    if (dodger.get(LedSpriteProperty.X) > 0) {
        dodger.change(LedSpriteProperty.X, -1)
    }
 })
-input.onButtonPressed(Button.B, () => {
+input.onButtonEvent(Button.B, input.buttonEventValue(ButtonEvent.Down), () => {
    if (dodger.get(LedSpriteProperty.X) < 4) {
        dodger.change(LedSpriteProperty.X, 1)
    }
@@ -185,12 +185,12 @@ basic.forever(() => {
        ball.set(LedSpriteProperty.X, randint(0, 5))
    }
 })
-input.onButtonPressed(Button.A, () => {
+input.onButtonEvent(Button.A, input.buttonEventValue(ButtonEvent.Down), () => {
    if (dodger.get(LedSpriteProperty.X) > 0) {
        dodger.change(LedSpriteProperty.X, -1)
    }
 })
-input.onButtonPressed(Button.B, () => {
+input.onButtonEvent(Button.B, input.buttonEventValue(ButtonEvent.Down), () => {
    if (dodger.get(LedSpriteProperty.X) < 4) {
        dodger.change(LedSpriteProperty.X, 1)
    }

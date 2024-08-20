@@ -98,9 +98,9 @@ Now to make our program a bit more interesting by adding two more event handlers
 >![Make on button B](/static/courses/csintro/algorithms/on-button-b.png)
 
 ```blocks
-input.onButtonPressed(Button.A, () => {
+input.onButtonEvent(Button.A, input.buttonEventValue(ButtonEvent.Down), () => {
 })
-input.onButtonPressed(Button.B, () => {
+input.onButtonEvent(Button.B, input.buttonEventValue(ButtonEvent.Down), () => {
 })
 ```
 
@@ -110,7 +110,7 @@ Now we can use our LED lights to display different images depending on what butt
 * Place one ‘show leds’ block into the ‘on button A pressed’ event handler and the second ‘show leds’ block into the ‘on button B pressed’ event handler.
 	
 ```blocks
-input.onButtonPressed(Button.A, () => {
+input.onButtonEvent(Button.A, input.buttonEventValue(ButtonEvent.Down), () => {
     basic.showLeds(`. . . . .
     . . . . .
     . . . . .
@@ -118,7 +118,7 @@ input.onButtonPressed(Button.A, () => {
     . . . . .
     `)
 })
-input.onButtonPressed(Button.B, () => {
+input.onButtonEvent(Button.B, input.buttonEventValue(ButtonEvent.Down), () => {
     basic.showLeds(`
     . . . . .
     . . . . .
@@ -132,7 +132,7 @@ input.onButtonPressed(Button.B, () => {
 * Click on the individual little boxes in the ‘show leds’ block that is in the ‘on button B pressed’ event handler to create the image of a sad face.
 
 ```blocks
-input.onButtonPressed(Button.A, () => {
+input.onButtonEvent(Button.A, input.buttonEventValue(ButtonEvent.Down), () => {
    basic.showLeds(`
        . . . . .
        . # . # .
@@ -141,7 +141,7 @@ input.onButtonPressed(Button.A, () => {
        . # # # .
        `)
 })
-input.onButtonPressed(Button.B, () => {
+input.onButtonEvent(Button.B, input.buttonEventValue(ButtonEvent.Down), () => {
    basic.showLeds(`
        . . . . .
        . # . # .
@@ -226,7 +226,7 @@ Here is the complete program:
 
 ```blocks
 // Display a happy face when button A is pressed.
-input.onButtonPressed(Button.A, () => {
+input.onButtonEvent(Button.A, input.buttonEventValue(ButtonEvent.Down), () => {
    basic.showLeds(`
        . . . . .
        . # . # .
@@ -236,7 +236,7 @@ input.onButtonPressed(Button.A, () => {
        `)
 })
 // Display a sad face when button B is pressed.
-input.onButtonPressed(Button.B, () => {
+input.onButtonEvent(Button.B, input.buttonEventValue(ButtonEvent.Down), () => {
    basic.showLeds(`
        . . . . .
        . # . # .

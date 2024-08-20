@@ -85,7 +85,7 @@ You should now see the sprite appear in the top left of the micro:bit simulator.
 let sprite: game.LedSprite = null
 sprite = game.createSprite(0, 0)
 
-input.onButtonPressed(Button.A, () => {
+input.onButtonEvent(Button.A, input.buttonEventValue(ButtonEvent.Down), () => {
    for (let i = 0; i < 4; i++) {
        sprite.move(4)
        sprite.turn(Direction.Right, 90)
@@ -120,7 +120,7 @@ Your final program should look like this:
 
 ```blocks
 let sprite: game.LedSprite = null
-input.onButtonPressed(Button.A, () => {
+input.onButtonEvent(Button.A, input.buttonEventValue(ButtonEvent.Down), () => {
    for (let i = 0; i < 4; i++) {
        sprite.move(4)
        sprite.turn(Direction.Right, 90)

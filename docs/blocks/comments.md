@@ -23,7 +23,7 @@ basic.showString("Hello!")
 basic.showIcon(IconNames.Happy)
 basic.pause(1000)
 basic.clearScreen()
-input.onButtonPressed(Button.A, function () {
+input.onButtonEvent(Button.A, input.buttonEventValue(ButtonEvent.Down), function () {
     basic.showIcon(IconNames.Yes)
 })
 ```
@@ -44,7 +44,7 @@ Once a comment is added to a block, a comment icon will show in the upper-left c
 
 ```blocks
 // Signal that the greeting was seen
-input.onButtonPressed(Button.A, function () {
+input.onButtonEvent(Button.A, input.buttonEventValue(ButtonEvent.Down), function () {
     basic.showIcon(IconNames.Yes)
 })
 basic.showString("Hello!")
@@ -57,7 +57,7 @@ In the Blocks editor, the comment is displayed when you click on the comment ico
 
 ```typescript
 // Signal that the greeting was seen
-input.onButtonPressed(Button.A, function () {
+input.onButtonEvent(Button.A, input.buttonEventValue(ButtonEvent.Down), function () {
     basic.showIcon(IconNames.Yes)
 })
 basic.showString("Hello!")

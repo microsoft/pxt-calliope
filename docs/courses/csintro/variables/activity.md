@@ -61,13 +61,13 @@ let PlayerAWins = 0
 let PlayerBWins = 0
 let PlayersTie = 0
 
-input.onButtonPressed(Button.A, () => {
+input.onButtonEvent(Button.A, input.buttonEventValue(ButtonEvent.Down), () => {
    PlayerAWins += 1
 })
-input.onButtonPressed(Button.B, () => {
+input.onButtonEvent(Button.B, input.buttonEventValue(ButtonEvent.Down), () => {
    PlayerBWins += 1
 })
-input.onButtonPressed(Button.AB, () => {
+input.onButtonEvent(Button.AB, input.buttonEventValue(ButtonEvent.Down), () => {
    PlayersTie += 1
 })
 ```
@@ -89,7 +89,7 @@ let PlayerAWins = 0
 let PlayerBWins = 0
 let PlayersTie = 0
 
-input.onButtonPressed(Button.A, () => {
+input.onButtonEvent(Button.A, input.buttonEventValue(ButtonEvent.Down), () => {
    PlayerAWins += 1
    basic.showLeds(`
        . # # # .
@@ -100,7 +100,7 @@ input.onButtonPressed(Button.A, () => {
        `)
    basic.clearScreen()
 })
-input.onButtonPressed(Button.B, () => {
+input.onButtonEvent(Button.B, input.buttonEventValue(ButtonEvent.Down), () => {
    PlayerBWins += 1
    basic.showLeds(`
        . # # . .
@@ -111,7 +111,7 @@ input.onButtonPressed(Button.B, () => {
        `)
    basic.clearScreen()
 })
-input.onButtonPressed(Button.AB, () => {
+input.onButtonEvent(Button.AB, input.buttonEventValue(ButtonEvent.Down), () => {
    PlayersTie += 1
    basic.showLeds(`
        . # # # .
@@ -137,7 +137,7 @@ Here is the complete program.
 let PlayersTie = 0
 let PlayerBWins = 0
 let PlayerAWins = 0
-input.onButtonPressed(Button.A, () => {
+input.onButtonEvent(Button.A, input.buttonEventValue(ButtonEvent.Down), () => {
    PlayerAWins += 1
    basic.showLeds(`
        . # # # .
@@ -148,7 +148,7 @@ input.onButtonPressed(Button.A, () => {
        `)
    basic.clearScreen()
 })
-input.onButtonPressed(Button.B, () => {
+input.onButtonEvent(Button.B, input.buttonEventValue(ButtonEvent.Down), () => {
    PlayerBWins += 1
    basic.showLeds(`
        . # # . .
@@ -159,7 +159,7 @@ input.onButtonPressed(Button.B, () => {
        `)
    basic.clearScreen()
 })
-input.onButtonPressed(Button.AB, () => {
+input.onButtonEvent(Button.AB, input.buttonEventValue(ButtonEvent.Down), () => {
    PlayersTie += 1
    basic.showLeds(`
        . # # # .

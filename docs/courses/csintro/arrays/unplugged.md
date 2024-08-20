@@ -60,12 +60,12 @@ let list: number[] = []
 let counter = 0
 let column = 0
 let index = 0
-input.onButtonPressed(Button.AB, () => {
+input.onButtonEvent(Button.AB, input.buttonEventValue(ButtonEvent.Down), () => {
     for (let index = 0; index <= 4; index++) {
         list[index] = randint(0, 5) + 1
     }
 })
-input.onButtonPressed(Button.B, () => {
+input.onButtonEvent(Button.B, input.buttonEventValue(ButtonEvent.Down), () => {
     basic.clearScreen()
     for (let column = 0; column <= 4; column++) {
         row = 0
@@ -75,7 +75,7 @@ input.onButtonPressed(Button.B, () => {
         }
     }
 })
-input.onButtonPressed(Button.A, () => {
+input.onButtonEvent(Button.A, input.buttonEventValue(ButtonEvent.Down), () => {
     while (counter > 0) {
         counter = 0
         for (let index = 0; index <= 3; index++) {
@@ -130,7 +130,7 @@ let row = 0
 let list: number[] = []
 let item = 0
 let column = 0
-input.onButtonPressed(Button.B, () => {
+input.onButtonEvent(Button.B, input.buttonEventValue(ButtonEvent.Down), () => {
     basic.clearScreen()
     for (let column = 0; column <= 4; column++) {
         row = 0
@@ -140,12 +140,12 @@ input.onButtonPressed(Button.B, () => {
         }
     }
 })
-input.onButtonPressed(Button.AB, () => {
+input.onButtonEvent(Button.AB, input.buttonEventValue(ButtonEvent.Down), () => {
     for (let index = 0; index <= 4; index++) {
         list[index] = randint(0, 5) + 1
     }
 })
-input.onButtonPressed(Button.A, () => {
+input.onButtonEvent(Button.A, input.buttonEventValue(ButtonEvent.Down), () => {
     item = 1
     for (let i = 0; i <= 3; i++) {
         min = i
@@ -201,7 +201,7 @@ let j = 0
 let row = 0
 let element = 0
 let list: number[] = []
-input.onButtonPressed(Button.A, () => {
+input.onButtonEvent(Button.A, input.buttonEventValue(ButtonEvent.Down), () => {
     for (let i = 0; i <= 4; i++) {
         element = list[i]
         j = i
@@ -221,12 +221,12 @@ input.onButtonPressed(Button.A, () => {
         }
     }
 })
-input.onButtonPressed(Button.AB, () => {
+input.onButtonEvent(Button.AB, input.buttonEventValue(ButtonEvent.Down), () => {
     for (let index = 0; index <= 4; index++) {
         list[index] = randint(0, 5) + 1
     }
 })
-input.onButtonPressed(Button.B, () => {
+input.onButtonEvent(Button.B, input.buttonEventValue(ButtonEvent.Down), () => {
     basic.clearScreen()
     for (let column = 0; column <= 4; column++) {
         row = 0

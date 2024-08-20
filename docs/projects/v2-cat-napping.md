@@ -30,7 +30,7 @@ Let's give Lychee some control over when she wants to start and stop logging dat
 
 ```blocks
 let logging = false
-input.onButtonPressed(Button.A, function () {
+input.onButtonEvent(Button.A, input.buttonEventValue(ButtonEvent.Down), function () {
     logging = !(logging)
 })
 ```
@@ -44,7 +44,7 @@ It would help to know when the @boardname@ is logging data and when it isn't. Fo
 
 ```blocks
 let logging = false
-input.onButtonPressed(Button.A, function () {
+input.onButtonEvent(Button.A, input.buttonEventValue(ButtonEvent.Down), function () {
     logging = !(logging)
     if (logging) {
     } else {
@@ -60,7 +60,7 @@ input.onButtonPressed(Button.A, function () {
 
 ```blocks
 let logging = false
-input.onButtonPressed(Button.A, function () {
+input.onButtonEvent(Button.A, input.buttonEventValue(ButtonEvent.Down), function () {
     logging = !(logging)
     if (logging) {
         basic.showIcon(IconNames.Target)
@@ -78,7 +78,7 @@ Let's now add an auditory indicator that your @boardname@ is logging data!
 
 ```blocks
 let logging = false
-input.onButtonPressed(Button.A, function () {
+input.onButtonEvent(Button.A, input.buttonEventValue(ButtonEvent.Down), function () {
     logging = !(logging)
     if (logging) {
         basic.showIcon(IconNames.Target)
@@ -94,7 +94,7 @@ input.onButtonPressed(Button.A, function () {
 
 ```blocks
 let logging = false
-input.onButtonPressed(Button.A, function () {
+input.onButtonEvent(Button.A, input.buttonEventValue(ButtonEvent.Down), function () {
     logging = !(logging)
     if (logging) {
         basic.showIcon(IconNames.Target)

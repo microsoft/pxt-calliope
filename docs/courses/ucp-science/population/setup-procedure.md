@@ -49,7 +49,7 @@ The variables are declared in the ``||basic:on start||`` event and they are assi
 let trait1 = 0
 
 // Add 1 to trait1
-input.onButtonPressed(Button.A, () => {
+input.onButtonEvent(Button.A, input.buttonEventValue(ButtonEvent.Down), () => {
     trait1 += 1
     basic.showNumber(trait1)
 })
@@ -63,7 +63,7 @@ input.onButtonPressed(Button.A, () => {
 let trait2 = 0
 
 // Add 1 to trait2
-input.onButtonPressed(Button.B, () => {
+input.onButtonEvent(Button.B, input.buttonEventValue(ButtonEvent.Down), () => {
     trait2 += 1
     basic.showNumber(trait2)
 })
@@ -83,7 +83,7 @@ let trait2 = 0
 let total = 0
 // Display counted traits and total total up the
 // traits for a total
-input.onButtonPressed(Button.AB, () => {
+input.onButtonEvent(Button.AB, input.buttonEventValue(ButtonEvent.Down), () => {
     total += trait1 + trait2
     basic.showString("TRAIT 1")
     basic.showNumber(trait1)

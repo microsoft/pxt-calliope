@@ -21,7 +21,7 @@ https://youtu.be/VmD-dcZZQFc
 #### Sunscreen code
 
 ```blocks
-input.onButtonPressed(Button.B, () => {
+input.onButtonEvent(Button.B, input.buttonEventValue(ButtonEvent.Down), () => {
     if (128 > input.lightLevel() && 0 < input.lightLevel() && input.temperature() > 22) {
         basic.showLeds(`
             . # . # .
@@ -103,7 +103,7 @@ basic.showLeds(`
             `)
     }
 })
-input.onButtonPressed(Button.A, () => {
+input.onButtonEvent(Button.A, input.buttonEventValue(ButtonEvent.Down), () => {
     if (input.temperature() < 22 && input.temperature() > 6) {
         basic.showLeds(`
             . . . . .

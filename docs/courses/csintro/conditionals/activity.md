@@ -61,7 +61,7 @@ input.onGesture(Gesture.Shake, () => {
             `)
     }
 })
-input.onButtonPressed(Button.A, () => {
+input.onButtonEvent(Button.A, input.buttonEventValue(ButtonEvent.Down), () => {
     game.addScore(1)
     basic.pause(100)
     basic.showString("Wins:")

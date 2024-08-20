@@ -10,7 +10,7 @@ Watch the tutorial on the [MakeCode YouTube channel](https://youtu.be/xLEy1B_gWK
 Add an event to run code when ``||input:button A is pressed||``.
 
 ```blocks
-input.onButtonPressed(Button.A, function () {
+input.onButtonEvent(Button.A, input.buttonEventValue(ButtonEvent.Down), function () {
 })
 ```
 
@@ -23,7 +23,7 @@ The value of ``||variables:timer||`` represents the number of seconds left befor
 
 ```blocks
 let timer = 0
-input.onButtonPressed(Button.A, function () {
+input.onButtonEvent(Button.A, input.buttonEventValue(ButtonEvent.Down), function () {
     // @highlight
     timer = randint(5, 15)
 })
@@ -35,7 +35,7 @@ Add code to ``||basic:show||`` that the game started.
 
 ```blocks
 let timer = 0
-input.onButtonPressed(Button.A, function () {
+input.onButtonEvent(Button.A, input.buttonEventValue(ButtonEvent.Down), function () {
     timer = randint(5, 15)
     // @highlight
     basic.showIcon(IconNames.Chessboard)
@@ -49,7 +49,7 @@ Put in a loop to repeat code ``||loops:while||``  ``||variables:timer||`` ``||lo
 
 ```blocks
 let timer = 0
-input.onButtonPressed(Button.A, function () {
+input.onButtonEvent(Button.A, input.buttonEventValue(ButtonEvent.Down), function () {
     timer = randint(5, 15)
     basic.showIcon(IconNames.Chessboard)
     // @highlight
@@ -64,7 +64,7 @@ Inside the ``||loops:while||`` loop, add code to ``||variables:decrease||`` the 
 
 ```blocks
 let timer = 0
-input.onButtonPressed(Button.A, function () {
+input.onButtonEvent(Button.A, input.buttonEventValue(ButtonEvent.Down), function () {
     timer = randint(5, 15)
     basic.showIcon(IconNames.Chessboard)
     while (timer > 0) {
@@ -82,7 +82,7 @@ input.onButtonPressed(Button.A, function () {
 
 ```blocks
 let timer = 0
-input.onButtonPressed(Button.A, function () {
+input.onButtonEvent(Button.A, input.buttonEventValue(ButtonEvent.Down), function () {
     timer = randint(5, 15)
     basic.showIcon(IconNames.Chessboard)
     while (timer > 0) {

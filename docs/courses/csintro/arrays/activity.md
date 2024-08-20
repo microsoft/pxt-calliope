@@ -247,7 +247,7 @@ Here is the complete program.
 
 ```blocks
 let list: number[] = []
-input.onButtonPressed(Button.A, () => {
+input.onButtonEvent(Button.A, input.buttonEventValue(ButtonEvent.Down), () => {
     for (let i = 0; i <= list.length - 1; i++) {
         for (let j = 0; j <= list[i] - 1; j++) {
             led.plot(randint(0, 4), randint(0, 4))
@@ -273,7 +273,7 @@ The following code is useful for printing out the values of the elements in your
 ```blocks
 let list = [5, 2, 1, 3, 4]
 
-input.onButtonPressed(Button.B, () => {
+input.onButtonEvent(Button.B, input.buttonEventValue(ButtonEvent.Down), () => {
    for (let value of list) {
        basic.showNumber(value)
    }
@@ -288,7 +288,7 @@ If you run the code below, then print out the array again, you will see that it 
 ```blocks
 let list = [5, 2, 1, 3, 4]
 
-input.onButtonPressed(Button.A, () => {
+input.onButtonEvent(Button.A, input.buttonEventValue(ButtonEvent.Down), () => {
    for (let value of list) {
        value += 1
    }

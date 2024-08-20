@@ -25,10 +25,10 @@ The audio status is related to what operation is happening to the audio [buffer]
 Use buttons `A` and `B` to record and play audio. If no audio is recorded, skip the playback when button `B` is pressed.
 
 ```blocks
-input.onButtonPressed(Button.A, function () {
+input.onButtonEvent(Button.A, input.buttonEventValue(ButtonEvent.Down), function () {
     record.startRecording(record.BlockingState.Blocking)
 })
-input.onButtonPressed(Button.B, function () {
+input.onButtonEvent(Button.B, input.buttonEventValue(ButtonEvent.Down), function () {
     if (!(record.audioStatus(record.AudioStatus.BufferEmpty))) {
         record.playAudio(record.BlockingState.Blocking)
     }

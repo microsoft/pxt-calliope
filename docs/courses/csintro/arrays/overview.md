@@ -27,7 +27,7 @@ You can get items out of the array by specifying its index like this:
 ```blocks
 let list = [4, 2, 5, 1, 3]
 
-input.onButtonPressed(Button.A, () => {
+input.onButtonEvent(Button.A, input.buttonEventValue(ButtonEvent.Down), () => {
     basic.showNumber(list[0])
 })
 ``` 

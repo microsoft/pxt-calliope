@@ -29,10 +29,10 @@ radio.setGroup(1)
 * In the 'on button B pressed' block, change the default empty string value of the 'radio send string' block to the string "Polo"
 
 ```blocks
-input.onButtonPressed(Button.A, () => {
+input.onButtonEvent(Button.A, input.buttonEventValue(ButtonEvent.Down), () => {
     radio.sendString("Marco")
 })
-input.onButtonPressed(Button.B, () => {
+input.onButtonEvent(Button.B, input.buttonEventValue(ButtonEvent.Down), () => {
     radio.sendString("Polo")
 })
 ```
@@ -43,13 +43,13 @@ input.onButtonPressed(Button.B, () => {
 Here is the complete Marco Polo program:
 
 ```blocks
-input.onButtonPressed(Button.A, () => {
+input.onButtonEvent(Button.A, input.buttonEventValue(ButtonEvent.Down), () => {
     radio.sendString("Marco")
 })
 radio.onReceivedString(function (receivedString) {
     basic.showString(receivedString)
 })
-input.onButtonPressed(Button.B, () => {
+input.onButtonEvent(Button.B, input.buttonEventValue(ButtonEvent.Down), () => {
     radio.sendString("Polo")
 })
 radio.setGroup(1)
@@ -64,14 +64,14 @@ radio.setGroup(1)
 Complete Marco Polo program with mods:
 
 ```blocks
-input.onButtonPressed(Button.A, () => {
+input.onButtonEvent(Button.A, input.buttonEventValue(ButtonEvent.Down), () => {
     radio.sendString("Marco")
     music.playTone(131, music.beat(BeatFraction.Whole))
 })
 radio.onReceivedString(function (receivedString) {
     basic.showString(receivedString)
 })
-input.onButtonPressed(Button.B, () => {
+input.onButtonEvent(Button.B, input.buttonEventValue(ButtonEvent.Down), () => {
     radio.sendString("Polo")
     music.playTone(262, music.beat(BeatFraction.Whole))
 })
@@ -110,13 +110,13 @@ basic.showString("Morse Code")
 * In the 'on button A+B pressed' block, change the default number value of the 'radio send number' block to the value 2.
 
 ```blocks
-input.onButtonPressed(Button.A, () => {
+input.onButtonEvent(Button.A, input.buttonEventValue(ButtonEvent.Down), () => {
     radio.sendNumber(0)
 })
-input.onButtonPressed(Button.B, () => {
+input.onButtonEvent(Button.B, input.buttonEventValue(ButtonEvent.Down), () => {
     radio.sendNumber(1)
 })
-input.onButtonPressed(Button.AB, () => {
+input.onButtonEvent(Button.AB, input.buttonEventValue(ButtonEvent.Down), () => {
     radio.sendNumber(2)
 })
 ```
@@ -232,13 +232,13 @@ radio.onReceivedNumber(function (receivedNumber) {
         basic.clearScreen()
     }
 })
-input.onButtonPressed(Button.A, () => {
+input.onButtonEvent(Button.A, input.buttonEventValue(ButtonEvent.Down), () => {
     radio.sendNumber(0)
 })
-input.onButtonPressed(Button.B, () => {
+input.onButtonEvent(Button.B, input.buttonEventValue(ButtonEvent.Down), () => {
     radio.sendNumber(1)
 })
-input.onButtonPressed(Button.AB, () => {
+input.onButtonEvent(Button.AB, input.buttonEventValue(ButtonEvent.Down), () => {
     radio.sendNumber(2)
 })
 radio.setGroup(1)
@@ -272,13 +272,13 @@ Now our program runs as we designed it to run and is more efficient, too!
 Final Morse Code Program:
 
 ```blocks
-input.onButtonPressed(Button.A, () => {
+input.onButtonEvent(Button.A, input.buttonEventValue(ButtonEvent.Down), () => {
     radio.sendNumber(0)
 })
-input.onButtonPressed(Button.B, () => {
+input.onButtonEvent(Button.B, input.buttonEventValue(ButtonEvent.Down), () => {
     radio.sendNumber(1)
 })
-input.onButtonPressed(Button.AB, () => {
+input.onButtonEvent(Button.AB, input.buttonEventValue(ButtonEvent.Down), () => {
     radio.sendNumber(2)
 })
 radio.onReceivedNumber(function (receivedNumber) {

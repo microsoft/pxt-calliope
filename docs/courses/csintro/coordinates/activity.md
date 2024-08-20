@@ -101,7 +101,7 @@ Steps:
 * From the Math Toolbox drawer, drop a 'pick random' block into the y value
 
 ```blocks
-input.onButtonPressed(Button.A, () => {
+input.onButtonEvent(Button.A, input.buttonEventValue(ButtonEvent.Down), () => {
    basic.clearScreen()
    for (let index = 0; index <= 4; index++) {
        led.plot(index, randint(0, 5))
@@ -122,13 +122,13 @@ Check the on/off state of an LED
 Here is the complete program:
 
 ```blocks
-input.onButtonPressed(Button.A, () => {
+input.onButtonEvent(Button.A, input.buttonEventValue(ButtonEvent.Down), () => {
    basic.clearScreen()
    for (let index = 0; index <= 4; index++) {
        led.plot(index, randint(0, 5))
    }
 })
-input.onButtonPressed(Button.B, () => {
+input.onButtonEvent(Button.B, input.buttonEventValue(ButtonEvent.Down), () => {
    if (led.point(0, 0)) {
        basic.showIcon(IconNames.Yes)
    } else {
@@ -170,10 +170,10 @@ basic.showIcon(IconNames.Heart)
 * Change the default value of 0 on the right side of each math expression to 25
 
 ```blocks
-input.onButtonPressed(Button.A, () => {
+input.onButtonEvent(Button.A, input.buttonEventValue(ButtonEvent.Down), () => {
    led.setBrightness(led.brightness() - 25)
 })
-input.onButtonPressed(Button.B, () => {
+input.onButtonEvent(Button.B, input.buttonEventValue(ButtonEvent.Down), () => {
    led.setBrightness(led.brightness() + 25)
 })
 ```
@@ -186,13 +186,13 @@ Since we cannot see if our program is working in the simulator, let’s add a ch
 Here is the complete program:
 
 ```blocks
-input.onButtonPressed(Button.A, () => {
+input.onButtonEvent(Button.A, input.buttonEventValue(ButtonEvent.Down), () => {
    led.setBrightness(led.brightness() - 25)
 })
-input.onButtonPressed(Button.B, () => {
+input.onButtonEvent(Button.B, input.buttonEventValue(ButtonEvent.Down), () => {
    led.setBrightness(led.brightness() + 25)
 })
-input.onButtonPressed(Button.AB, () => {
+input.onButtonEvent(Button.AB, input.buttonEventValue(ButtonEvent.Down), () => {
    basic.clearScreen()
    basic.showNumber(led.brightness())
    basic.showIcon(IconNames.Heart)

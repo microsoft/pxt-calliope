@@ -85,13 +85,13 @@ When Buttons A+B are pressed:
 * Leave one block with button 'A’. Use the drop-down menus in the other 2 blocks to choose button ‘B’, and button ‘A+B’
 
 ```block
-input.onButtonPressed(Button.A, () => {
+input.onButtonEvent(Button.A, input.buttonEventValue(ButtonEvent.Down), () => {
     
 })
-input.onButtonPressed(Button.B, () => {
+input.onButtonEvent(Button.B, input.buttonEventValue(ButtonEvent.Down), () => {
     
 })
-input.onButtonPressed(Button.AB, () => {
+input.onButtonEvent(Button.AB, input.buttonEventValue(ButtonEvent.Down), () => {
     
 })
 ```
@@ -113,7 +113,7 @@ Let’s work on what to do when button A is pressed.
 	
 ```block
 let binary = ""
-input.onButtonPressed(Button.A, () => {
+input.onButtonEvent(Button.A, input.buttonEventValue(ButtonEvent.Down), () => {
     binary = binary + "1"
     basic.showString(binary)
 })
@@ -129,7 +129,7 @@ input.onButtonPressed(Button.A, () => {
 ```block
 let binary = ""
 let decimal = 0
-input.onButtonPressed(Button.A, () => {
+input.onButtonEvent(Button.A, input.buttonEventValue(ButtonEvent.Down), () => {
     binary = binary + "1"
     basic.showString(binary)
     decimal = decimal * 2 + 1
@@ -144,17 +144,17 @@ Here is the completed program.
 ```blocks
 let binary = ""
 let decimal = 0
-input.onButtonPressed(Button.A, () => {
+input.onButtonEvent(Button.A, input.buttonEventValue(ButtonEvent.Down), () => {
     binary = binary + "1"
     basic.showString(binary)
     decimal = decimal * 2 + 1
 })
-input.onButtonPressed(Button.B, () => {
+input.onButtonEvent(Button.B, input.buttonEventValue(ButtonEvent.Down), () => {
     binary = binary + "0"
     basic.showString(binary)
     decimal = decimal * 2
 })
-input.onButtonPressed(Button.AB, () => {
+input.onButtonEvent(Button.AB, input.buttonEventValue(ButtonEvent.Down), () => {
     basic.showNumber(decimal)
 })
 decimal = 0

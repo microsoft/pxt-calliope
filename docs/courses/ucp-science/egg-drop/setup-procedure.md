@@ -49,7 +49,7 @@ Now let’s add some code to reset our experiment.
 * From the ``||input:Input||`` Toolbox drawer, drag an ``||input:on button pressed||`` block to the workspace.
 
 ```blocks
-input.onButtonPressed(Button.A, function () {
+input.onButtonEvent(Button.A, input.buttonEventValue(ButtonEvent.Down), function () {
 
 })
 ```
@@ -66,7 +66,7 @@ basic.showLeds(`
 # . . . #
 `)
 })
-input.onButtonPressed(Button.A, function () {
+input.onButtonEvent(Button.A, input.buttonEventValue(ButtonEvent.Down), function () {
 basic.clearScreen()
 })
 ```

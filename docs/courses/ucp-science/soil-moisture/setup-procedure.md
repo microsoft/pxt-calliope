@@ -52,7 +52,7 @@ basic.showString("SOIL MOISTURE TESTER")
 // The analog read will return a value of the voltage
 // between the 3v pin and the P0. Values will range
 // from 0-1024.
-input.onButtonPressed(Button.A, () => {
+input.onButtonEvent(Button.A, input.buttonEventValue(ButtonEvent.Down), () => {
    basic.showNumber(pins.analogReadPin(AnalogPin.P0))
 })
 ```

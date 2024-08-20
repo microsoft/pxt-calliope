@@ -128,7 +128,7 @@ The condition in the **for** loop statement doesn't have to use the loop's index
 
 ```blocks
 let showNumbers = true
-input.onButtonPressed(Button.A, function () {
+input.onButtonEvent(Button.A, input.buttonEventValue(ButtonEvent.Down), function () {
     showNumbers = false
 })
 for (let index = 0; index <= 4; index++) {
@@ -141,7 +141,7 @@ The button press will change ``showNumbers`` to `true` but it doesn't do anythin
 
 ```typescript
 let showNumbers = true
-input.onButtonPressed(Button.A, function () {
+input.onButtonEvent(Button.A, input.buttonEventValue(ButtonEvent.Down), function () {
     showNumbers = false
 })
 for (let index = 0; showNumbers; index++) {

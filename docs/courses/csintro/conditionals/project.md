@@ -50,11 +50,11 @@ In this example, pieces start out at full strength and lose points based on rand
 ```blocks
 let p2 = 0
 let p1 = 0
-input.onButtonPressed(Button.A, () => {
+input.onButtonEvent(Button.A, input.buttonEventValue(ButtonEvent.Down), () => {
     p1 += 1
     basic.showNumber(p1)
 })
-input.onButtonPressed(Button.B, () => {
+input.onButtonEvent(Button.B, input.buttonEventValue(ButtonEvent.Down), () => {
     p2 += 1
     basic.showNumber(p2)
 })
@@ -123,7 +123,7 @@ Game pieces
 let yes_or_no = 0
 let current_roll = 0
 let previous_roll = 0
-input.onButtonPressed(Button.AB, () => {
+input.onButtonEvent(Button.AB, input.buttonEventValue(ButtonEvent.Down), () => {
     previous_roll = 0
     if (4 <= previous_roll) {
         yes_or_no = randint(0, 8)
@@ -145,11 +145,11 @@ input.onGesture(Gesture.Shake, () => {
     basic.pause(5000)
     basic.clearScreen()
 })
-input.onButtonPressed(Button.B, () => {
+input.onButtonEvent(Button.B, input.buttonEventValue(ButtonEvent.Down), () => {
     previous_roll += 1
     basic.showNumber(previous_roll)
 })
-input.onButtonPressed(Button.A, () => {
+input.onButtonEvent(Button.A, input.buttonEventValue(ButtonEvent.Down), () => {
     previous_roll += -1
     basic.showNumber(previous_roll)
 })

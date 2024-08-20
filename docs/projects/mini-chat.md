@@ -19,7 +19,7 @@ radio.setGroup(1)
 From the ``||input:Input||`` Toolbox category, drag an ``||input:on button A pressed||`` block onto the Workspace.
 
 ```blocks
-input.onButtonPressed(Button.A, function() {})
+input.onButtonEvent(Button.A, input.buttonEventValue(ButtonEvent.Down), function() {})
 ```
 
 ## {Step 3}
@@ -27,7 +27,7 @@ input.onButtonPressed(Button.A, function() {})
 From the ``||radio:Radio||`` category, drag a ``||radio:radio send string||`` block into the ``||input:on button A pressed||`` block and type a message. When we press button A on our Calliope mini, we'll send this message to every Calliope mini nearby in group 1.
 
 ```blocks
-input.onButtonPressed(Button.A, function() {
+input.onButtonEvent(Button.A, input.buttonEventValue(ButtonEvent.Down), function() {
     radio.sendString("Micro Chat!")
 })
 ```
@@ -66,7 +66,7 @@ radio.onReceivedString(function (receivedString) {
 Let's test our code! In the Calliope mini on-screen simulator, press button **A**. You should see a second @boardname@ appear. Now try pressing **A** again. Do you see your message appear on the second Calliope mini?  ⭐ Great job! ⭐ 
 
 ```blocks
-input.onButtonPressed(Button.A, function() {
+input.onButtonEvent(Button.A, input.buttonEventValue(ButtonEvent.Down), function() {
     radio.sendString("Micro Chat!");
 })
 radio.onReceivedString(function (receivedString) {

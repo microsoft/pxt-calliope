@@ -144,7 +144,7 @@ let PlayerBScore = 0
 let PlayerAScore = 0
 let CoinBHeads = false
 let CoinAHeads = false
-input.onButtonPressed(Button.A, () => {
+input.onButtonEvent(Button.A, input.buttonEventValue(ButtonEvent.Down), () => {
     basic.showString("A:" + PlayerAScore)
     basic.pause(100)
     basic.showString("B:" + PlayerAScore)

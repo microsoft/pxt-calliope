@@ -15,7 +15,7 @@ So you are pretty familiar with the blocks editor and still getting used to Java
 * Create a simple program in the code editor.
 
 ```blocks
-input.onButtonPressed(Button.A, function () {
+input.onButtonEvent(Button.A, input.buttonEventValue(ButtonEvent.Down), function () {
     basic.showLeds(`
         . . . . .
         . . . . .
@@ -29,7 +29,7 @@ input.onButtonPressed(Button.A, function () {
 * Click on the **{} JavaScript** button in the top menu to convert the blocks to JavaScript. Voila!
 
 ```typescript
-input.onButtonPressed(Button.A, function () {
+input.onButtonEvent(Button.A, input.buttonEventValue(ButtonEvent.Down), function () {
     basic.showLeds(`
         . . . . .
         . . . . .
@@ -47,7 +47,7 @@ Do you want to go back to editing with blocks again? MakeCode can convert your J
 * Replace a few dots `.` with hash marks `#`.
 
 ```typescript
-input.onButtonPressed(Button.A, function () {
+input.onButtonEvent(Button.A, input.buttonEventValue(ButtonEvent.Down), function () {
     basic.showLeds(`
         . . . . .
         . . # . .
@@ -67,7 +67,7 @@ Well, you changed your JavaScript code and nothing works anymore. You see gobs o
 * Click on the **Blocks** button in the top to convert the JavaScript back to blocks.
 
 ```blocks
-input.onButtonPressed(Button.A, function () {
+input.onButtonEvent(Button.A, input.buttonEventValue(ButtonEvent.Down), function () {
     basic.showLeds(`
         . . . . .
         . . # . .
@@ -85,7 +85,7 @@ If you start to write more complex JavaScript (it's great that you are!), MakeCo
 * Go back to **JavaScript** and add a second frame to create animation. This is something you can do in JavaScript but not in blocks.
 
 ```typescript
-input.onButtonPressed(Button.A, function () {
+input.onButtonEvent(Button.A, input.buttonEventValue(ButtonEvent.Down), function () {
     basic.showLeds(`
         . . . . .    . . . . .
         . . # . .    . # # # .
@@ -99,7 +99,7 @@ input.onButtonPressed(Button.A, function () {
 * Go to the **Blocks** editor and you will see a big **grey** block in the button handler. This is because you are creating code too complex for the blocks. Take it as a compliment!
 
 ```blocks-ignore
-input.onButtonPressed(Button.A, function () {
+input.onButtonEvent(Button.A, input.buttonEventValue(ButtonEvent.Down), function () {
     basic.showLeds(`
         . . . . .    . . . . .
         . . # . .    . # # # .
