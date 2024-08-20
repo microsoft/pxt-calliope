@@ -22,6 +22,7 @@
         "libs/settings",
         "libs/flashlog",
         "libs/datalogger",
+        "libs/fonts",
         "libs/audio-recording"
     ],
     "cloud": {
@@ -683,5 +684,5 @@
         }
     },
     "ignoreDocsErrors": true,
-    "uploadDocs": false
+    "uploadDocs": true
 }

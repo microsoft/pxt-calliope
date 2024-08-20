@@ -440,9 +440,13 @@ declare namespace input {
 
 
     declare const enum DigitalPin {
+    //% blockIdentity="pins.digitalPin"
     P0 = 100,  // MICROBIT_ID_IO_P0
+    //% blockIdentity="pins.digitalPin"
     P1 = 101,  // MICROBIT_ID_IO_P1
+    //% blockIdentity="pins.digitalPin"
     P2 = 102,  // MICROBIT_ID_IO_P2
+    //% blockIdentity="pins.digitalPin"
     P3 = 103,  // MICROBIT_ID_IO_P3
 
     C4 = 104,  // MICROBIT_ID_IO_P4
@@ -537,8 +541,11 @@ declare namespace input {
 
 
     declare const enum AnalogPin {
+    //% blockIdentity="pins.analogPin"
     P0 = 100,  // MICROBIT_ID_IO_P0
+    //% blockIdentity="pins.analogPin"
     P1 = 101,  // MICROBIT_ID_IO_P1
+    //% blockIdentity="pins.analogPin"
     P2 = 102,  // MICROBIT_ID_IO_P2
     //% block="P3 (write only)"
     P3 = 103,  // MICROBIT_ID_IO_P3
