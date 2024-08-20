@@ -1678,6 +1678,15 @@ namespace pxsim.visuals {
 			]
 		};
 
+            // 30 and 90 are not precise, just numbers that fit nicely with usage
+            if (distance > 30 && distance < 90) {
+                const state = this.board;
+                state.compassState.heading = Math.floor(Math.atan2(cur.y - logoCenterY, cur.x - logoCenterX) * 180 / Math.PI) + 90;
+                if (state.compassState.heading < 0) state.compassState.heading += 360;
+                this.updateHeading();
+            }
+        }
+
         constructor(public props: IBoardProps) {
 
             this.buildDom();
@@ -1723,6 +1732,10 @@ namespace pxsim.visuals {
 				const r = p.getBoundingClientRect();
                 this.pinNmToCoord[nm] = [r.left + r.width / 2, r.top + r.height / 2];
             });
+        }
+
+        public removeEventListeners() {
+            document.body.removeEventListener(pointerEvents.down[0], this.moveHeadingOnClick);
         }
 
         private updateTheme() {

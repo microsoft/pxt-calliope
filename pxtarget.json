@@ -389,7 +389,7 @@
             "graphBackground": "#d9d9d9",
             "lineColors": [
                 "#6633cc",
-                "#3891A6",
+                "#2C7485",
                 "#3454D1",
                 "#EF767A",
                 "#F46197",
@@ -544,6 +544,7 @@
             "sv-SE",
             "tr",
             "uk",
+            "vi",
             "zh-CN",
             "zh-TW"
         ],
@@ -551,7 +552,8 @@
             "editor.background": "#ecf0f1"
         },
         "monacoFieldEditors": [
-            "soundeffect-editor"
+            "soundeffect-editor",
+            "image-editor"
         ],
         "browserDbPrefixes": {
             "1": "v1",
@@ -559,7 +561,8 @@
             "3": "v3",
             "4": "v4",
             "5": "v5",
-            "6": "v6"
+            "6": "v6",
+            "7": "v7"
         },
         "editorVersionPaths": {
             "0": "v0"
@@ -614,7 +617,10 @@
         "hideReplaceMyCode": true,
         "matchWebUSBDeviceInSim": true,
         "condenseProfile": true,
-        "cloudProfileIcon": "/static/profile/microbit-cloud.png"
+        "cloudProfileIcon": "/static/profile/microbit-cloud.png",
+        "timeMachine": true,
+        "timeMachineDiffInterval": 600000,
+        "timeMachineSnapshotInterval": 1800000
     },
     "queryVariants": {
         "hidemenu": {
@@ -668,8 +674,14 @@
             "appTheme": {
                 "hideReplaceMyCode": false
             }
+        },
+        "teachertool=1": {
+            "appTheme": {
+                "hideMenuBar": true,
+                "workspaceSearch": true
+            }
         }
     },
     "ignoreDocsErrors": true,
-    "uploadDocs": true
+    "uploadDocs": false
 }
