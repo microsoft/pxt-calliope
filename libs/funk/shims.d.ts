@@ -52,7 +52,7 @@ declare namespace radio {
     function onDataReceived(body: () => void): void;
 
     /**
-     * Sets the group id for radio communications. A Calliope mini can only listen to one group ID at any time.
+     * Sets the group id for radio communications. A micro:bit can only listen to one group ID at any time.
      * @param id the group id between ``0`` and ``255``, eg: 1
      */
     //% help=radio/set-group
