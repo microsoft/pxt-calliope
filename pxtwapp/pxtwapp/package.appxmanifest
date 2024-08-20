@@ -3,8 +3,8 @@
   <Identity Name="MicrobitEducationalFounda.196216C47839B" Version="1.1.0.0" Publisher="CN=DA0852B7-E38D-4F10-9429-7A96575322FD" />
   <mp:PhoneIdentity PhoneProductId="5ddd542e-5ab4-48bc-b116-0782dc08ab97" PhonePublisherId="00000000-0000-0000-0000-000000000000" />
   <Properties>
-    <DisplayName>MakeCode for micro:bit</DisplayName>
-    <PublisherDisplayName>Micro:bit Educational Foundation</PublisherDisplayName>
+    <DisplayName>MakeCode forCalliope mini</DisplayName>
+    <PublisherDisplayName>Calliope gGmbH</PublisherDisplayName>
     <Logo>images\storelogo.png</Logo>
   </Properties>
   <Dependencies>
@@ -21,7 +21,7 @@
         <uap:Rule Match="https://makecode.microbit.com/beta" Type="include" WindowsRuntimeAccess="all" />
         <uap:Rule Match="https://trg-microbit.userpxt.io/beta---simulator" Type="include" WindowsRuntimeAccess="none" />
       </uap:ApplicationContentUriRules>
-      <uap:VisualElements DisplayName="MakeCode for micro:bit" Description="Microsoft MakeCode for microbit" BackgroundColor="#3454d1" Square150x150Logo="images\Square150x150Logo.png" Square44x44Logo="images\Square44x44Logo.png">
+      <uap:VisualElements DisplayName="MakeCode for Calliope mini" Description="Microsoft MakeCode for Calliope mini" BackgroundColor="#3454d1" Square150x150Logo="images\Square150x150Logo.png" Square44x44Logo="images\Square44x44Logo.png">
         <uap:DefaultTile Wide310x150Logo="images\Wide310x150Logo.png" Square71x71Logo="images\SmallTile.png">
         </uap:DefaultTile>
         <uap:SplashScreen Image="images\SplashScreen.png" BackgroundColor="#3454d1" />

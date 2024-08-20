@@ -10,9 +10,9 @@ You can enable the @boardname@ to output audio to a pin on the edge connector.
 
 ### ~ hint
 
-#### micro:bit V2 speaker
+#### Calliope mini speaker
 
-With the [micro:bit V2](/device/v2) hardware, the built-in speaker will play (mirror) the same tones and music sent to the audio pin.
+With the [Calliope mini](/device/v2) hardware, the built-in speaker will play (mirror) the same tones and music sent to the audio pin.
 
 ### ~
 

@@ -1,7 +1,7 @@
 {
   "Math.randomBoolean": "Génère une valeur « true » ou « false » au hasard, comme si vous lanciez une pièce de monnaie.",
   "String.fromCharCode": "Construit une chaîne à partir du code ASCII d'un caractère donné.",
-  "basic": "Permet d’accéder aux fonctionnalités de base de la micro:bit.",
+  "basic": "Permet d’accéder aux fonctionnalités de base de la Calliope mini.",
   "basic.clearScreen": "Éteindre toutes les LEDs",
   "basic.forever": "Répète le code indéfiniment en tâche de fond. A chaque itération, permet aux autres codes de s’exécuter.",
   "basic.pause": "Pause pendant la durée indiquée en millisecondes",
@@ -20,7 +20,7 @@
   "basic.showString|param|interval": "à quelle vitesse se déplacent les caractères ; par ex. : 150, 100, 200, -100",
   "basic.showString|param|text": "le texte à faire défiler sur l’écran, par exemple : « Bonjour ! »",
   "control.inBackground": "Planifie le code qui s’exécute en arrière-plan.",
-  "control.reset": "Réinitialise le micro:bit de BBC.",
+  "control.reset": "Réinitialise le Calliope mini.",
   "control.waitMicros|param|micros": "nombre de microsecondes à attendre. par ex. : 4",
   "game": "Un moteur de jeu avec une unique LED",
   "game.addLife|param|lives": "TODO",

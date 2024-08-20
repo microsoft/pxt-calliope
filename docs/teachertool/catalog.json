@@ -105,8 +105,8 @@
         {
             "id": "7C2F70AB-2A00-4E35-8227-E5756957D7B3",
             "use": "on_shake_gesture",
-            "template": "Runs code when the micro:bit is shaken",
-            "description": "When the user shakes the micro:bit, the code inside this block will run.",
+            "template": "Runs code when the Calliope mini is shaken",
+            "description": "When the user shakes the Calliope mini, the code inside this block will run.",
             "hideInCatalog": true,
             "docPath": "/teachertool"
         },

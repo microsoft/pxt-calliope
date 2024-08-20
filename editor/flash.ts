@@ -826,7 +826,7 @@ class DAPWrapper implements pxt.packetio.PacketIOWrapper {
             if (connectionId != this.connectionId) return;
             const info = await this.readBytes(xchg, 16)
             if (info[12 + 2] != 0xff) {
-                log("jacdac: invalid memory; try power-cycling the micro:bit")
+                log("jacdac: invalid memory; try power-cycling the Calliope mini")
                 pxt.tickEvent("hid.flash.jacdac.error.invalidmemory");
                 console.debug({ info, xchg })
                 return

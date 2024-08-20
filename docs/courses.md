@@ -2,14 +2,14 @@
 
 A collection of courses and tutorials built for the @boardname@.
 
-## First lessons with MakeCode and the micro:bit
+## First lessons with MakeCode and the Calliope mini
 
-A sequence of six beginner lessons, ideal for getting started with the micro:bit. Students will learn core computing concepts by making and coding engaging projects.
+A sequence of six beginner lessons, ideal for getting started with the Calliope mini. Students will learn core computing concepts by making and coding engaging projects.
 
 ```codecard
 [{
   "name": "First Lessons",
-  "description": "A sequence of lessons from the Micro:bit Educational Foundation that provide a pathway through six projects, ideal for getting started with the micro:bit",
+  "description": "A sequence of lessons from the Calliope mini Educational Foundation that provide a pathway through six projects, ideal for getting started with the Calliope mini",
   "url":"https://microbit.org/teach/lessons/first-lessons-with-makecode-and-the-microbit",
   "imageUrl": "/static/courses/first-lessons.png"
 }]
@@ -63,22 +63,22 @@ Courses contributed by educators to teach computing, science, and technology in 
 
 ## Mr. Morrison Lessons
 
-Lessons aimed at P4-7 (Yr 3-6, aged 7-12) but could be adapted for use with older or younger learners. Regardless of age, if your learners have not used micro:bits before the best place to start is the 'Starter Lessons' followed by the 'Beyond Basics' Lessons.
+Lessons aimed at P4-7 (Yr 3-6, aged 7-12) but could be adapted for use with older or younger learners. Regardless of age, if your learners have not used Calliope minis before the best place to start is the 'Starter Lessons' followed by the 'Beyond Basics' Lessons.
 
 ```codecard
 [{
-  "name": "micro:bit Starter Lessons",
+  "name": "Calliope mini Starter Lessons",
   "description": "Learn to create code, make programs to read inputs and write to outputs.",
   "url": "https://mrmorrison.co.uk/microbit/starter/",
   "imageUrl": "/static/courses/mr-morrison/starter-lessons.png"
 }, {
-  "name": "micro:bit Beyond Basics",
+  "name": "Calliope mini Beyond Basics",
   "description": "Take a step past the basics and learn to use logic with inputs and outputs.",
   "url": "https://mrmorrison.co.uk/microbit/beyondbasics/",
   "imageUrl": "/static/courses/mr-morrison/beyond-basics.png"
 }, {
-  "name": "micro:bit Data and Sustainability",
-  "description": "Learn to record and analyse data using the micro:bit, then learn to design and build a smart sustainable home.",
+  "name": "Calliope mini Data and Sustainability",
+  "description": "Learn to record and analyse data using the Calliope mini, then learn to design and build a smart sustainable home.",
   "url": "https://mrmorrison.co.uk/microbit/datasustainability/",
   "imageUrl": "/static/courses/mr-morrison/data-sustainability.png"
 }]

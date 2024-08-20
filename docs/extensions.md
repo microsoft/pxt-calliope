@@ -38,7 +38,7 @@ For a list of extensions within categories, browse the [Extension Gallery](/exte
 
 ## Removing an extension from a project
 
-To remove an extension from a project, click on the Language toggle to move the project into **JavaScript** or **Python** view. Then expand the **Explorer** view under the micro:bit simulator. Click on the **Delete** button next to the extension you would like to remove.
+To remove an extension from a project, click on the Language toggle to move the project into **JavaScript** or **Python** view. Then expand the **Explorer** view under the Calliope mini simulator. Click on the **Delete** button next to the extension you would like to remove.
 
 ![File Explorer](/static/extensions/file-explorer.png)
 
