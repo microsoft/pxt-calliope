@@ -21,10 +21,10 @@ When audio is recorded, the audio buffer will contain enough samples that, when 
 Use the Calliope mini as a sound recorder. Record sound when button `A` is pressed and play sound when button `B` is pressed.
 
 ```blocks
-input.onButtonPressed(Button.A, function () {
+input.onButtonEvent(Button.A, input.buttonEventClick(), function () {
     record.startRecording(record.BlockingState.Blocking)
 })
-input.onButtonPressed(Button.B, function () {
+input.onButtonEvent(Button.B, input.buttonEventClick(), function () {
     record.playAudio(record.BlockingState.Blocking)
 })
 ```

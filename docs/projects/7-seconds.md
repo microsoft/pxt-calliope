@@ -13,8 +13,8 @@ This game is inspired from the [flipping panckakes game](https://www.elecfreaks.
 The player starts the timer by pressing button **A**. We'll run the code run code when ``||input:button A is pressed||``.
 
 ```blocks
-input.onButtonPressed(Button.A, function () {
-	
+input.onButtonEvent(Button.A, input.buttonEventClick(), function () {
+
 })
 ```
 
@@ -25,7 +25,7 @@ Add code to store the ``||input:running time||`` in a ``||variables:start||`` va
 
 ```blocks
 let start = 0
-input.onButtonPressed(Button.A, function () {
+input.onButtonEvent(Button.A, input.buttonEventClick(), function () {
     // @highlight
     start = input.runningTime()
 })
@@ -37,7 +37,7 @@ Show something on the screen so that the user knows that the timer has started..
 
 ```blocks
 let start = 0
-input.onButtonPressed(Button.A, function () {
+input.onButtonEvent(Button.A, input.buttonEventClick(), function () {
     start = input.runningTime()
     // @highlight
     basic.showIcon(IconNames.Chessboard)
@@ -49,7 +49,7 @@ input.onButtonPressed(Button.A, function () {
 The player stops the timer by pressing button **B**. Add the code to run code when ``||input:button B is pressed||``.
 
 ```blocks
-input.onButtonPressed(Button.B, function () {
+input.onButtonEvent(Button.B, input.buttonEventClick(), function () {
 	
 })
 ```
@@ -61,7 +61,7 @@ Compute the elapsed time as ``||input:running time||`` ``||math:minus||`` ``||va
 ```blocks
 let start = 0
 let elapsed = 0
-input.onButtonPressed(Button.B, function () {
+input.onButtonEvent(Button.B, input.buttonEventClick(), function () {
     // @highlight
     elapsed = input.runningTime() - start
 })
@@ -75,7 +75,7 @@ Compute the ``||variables:score||`` of the game as the ``||math:absolute value||
 let start = 0
 let elapsed = 0
 let score = 0
-input.onButtonPressed(Button.B, function () {
+input.onButtonEvent(Button.B, input.buttonEventClick(), function () {
     elapsed = input.runningTime() - start
     // @highlight
     score = Math.abs(elapsed - 7000)
@@ -90,7 +90,7 @@ Display the score on the screen and your game is ready!
 let start = 0
 let elapsed = 0
 let score = 0
-input.onButtonPressed(Button.B, function () {
+input.onButtonEvent(Button.B, input.buttonEventClick(), function () {
     elapsed = input.runningTime() - start
     score = Math.abs(elapsed - 7000)
     // @highlight
@@ -99,5 +99,5 @@ input.onButtonPressed(Button.B, function () {
 ```
 
 ```template
-input.onButtonPressed(Button.A, function () {})
+input.onButtonEvent(Button.A, input.buttonEventClick(), function () {})
 ```

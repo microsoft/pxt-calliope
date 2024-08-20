@@ -32,7 +32,7 @@ loops.everyInterval(500, function () {
 Create an experiment to record a person's moods and relate them to current environmental factors. Set 3 button options for moods of "happy", "sad", and "angry". When the user signals their mood by pressing a button, read the current temperature, light level, and sound level to establish a relationship between those factors and mood.
 
 ```blocks
-input.onButtonPressed(Button.A, function () {
+input.onButtonEvent(Button.A, input.buttonEventClick(), function () {
     logMood("happy")
 })
 function logMood (mood: string) {
@@ -42,10 +42,10 @@ function logMood (mood: string) {
     columns[3] = datalogger.createCV("temperature", input.temperature())
     datalogger.logData(columns)
 }
-input.onButtonPressed(Button.AB, function () {
+input.onButtonEvent(Button.AB, input.buttonEventClick(), function () {
     logMood("angry")
 })
-input.onButtonPressed(Button.B, function () {
+input.onButtonEvent(Button.B, input.buttonEventClick(), function () {
     logMood("sad")
 })
 let columns: datalogger.ColumnValue[] = []

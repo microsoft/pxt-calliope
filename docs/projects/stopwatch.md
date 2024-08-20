@@ -11,7 +11,7 @@ This project turns the @boardname@ into a simple stopwatch. Pressing **A** start
 Use an event to run code when ``||input:button A is pressed||``.
 
 ```blocks
-input.onButtonPressed(Button.A, function () {
+input.onButtonEvent(Button.A, input.buttonEventClick(), function () {
 })
 ```
 
@@ -22,7 +22,7 @@ in a variable ``||variables:start||``. This is the start time.
 
 ```blocks
 let start = 0
-input.onButtonPressed(Button.A, function () {
+input.onButtonEvent(Button.A, input.buttonEventClick(), function () {
     start = input.runningTime()
 })
 ```
@@ -32,7 +32,7 @@ input.onButtonPressed(Button.A, function () {
 Add an event to run code when ``||input:button B is pressed||``.
 
 ```blocks
-input.onButtonPressed(Button.B, function () {
+input.onButtonEvent(Button.B, input.buttonEventClick(), function () {
 })
 ```
 
@@ -43,7 +43,7 @@ and ``||variables:value||`` time. This is the elapsed millisecond since pressing
 
 ```blocks
 let start = 0;
-input.onButtonPressed(Button.B, function () {
+input.onButtonEvent(Button.B, input.buttonEventClick(), function () {
     let elapsed = input.runningTime() - start;
 })
 ```
@@ -55,7 +55,7 @@ Use ``||Math:integer division||`` to divide ``||variables:elapsed||`` by ``1000`
 
 ```blocks
 let start = 0;
-input.onButtonPressed(Button.B, function () {
+input.onButtonEvent(Button.B, input.buttonEventClick(), function () {
     let elapsed = input.runningTime() - start;
     basic.showNumber(Math.idiv(elapsed, 1000))
 })
@@ -70,5 +70,5 @@ Try your program in the simulator. Press **A** to start the stopwatch and press 
 If you have a @boardname@ connected, click ``|Download|`` to transfer your code!
 
 ```template
-input.onButtonPressed(Button.A, function () {})
+input.onButtonEvent(Button.A, input.buttonEventClick(), function () {})
 ```

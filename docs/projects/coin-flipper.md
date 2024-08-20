@@ -74,5 +74,5 @@ If you have a @boardname@, connect it to USB and click ``|Download|`` to transfe
 Press button **A** for a flip. Test your luck and guess ``heads`` or ``tails`` before the toss is over!
 
 ```template
-input.onButtonPressed(Button.A, function() {})
+input.onButtonEvent(Button.A, input.buttonEventClick(), function() {})
 ```
