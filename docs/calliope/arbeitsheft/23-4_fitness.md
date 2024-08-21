@@ -1,7 +1,7 @@
 # 23 4_Fitness
 
 ```ghost
-let Tempo = 1000
+let tempo = 1000
 basic.setLedColor(0xff0000)
 basic.pause(tempo)
 for (let index = 0; index < 2; index++) {
@@ -37,8 +37,8 @@ Complete your program.
 ## Use variables @showdialog
 Use a variable to define the speed of your animation and adjust it easily.
 
-## Create variable Tempo
-Create a ``||variables.variable||`` and name it "Tempo".
+## Create variable tempo
+Create a ``||variables.variable||`` and name it "tempo".
 
 ```
 ```
