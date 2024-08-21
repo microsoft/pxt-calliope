@@ -10,207 +10,251 @@
 #endif
 
 enum class DigitalPin {
+    //% blockIdentity="pins.digitalPin"
     P0 = MICROBIT_ID_IO_P0,   // edge connector 0
+    //% blockIdentity="pins.digitalPin"
     P1 = MICROBIT_ID_IO_P1,    // edge connector 1
+    //% blockIdentity="pins.digitalPin"
     P2 = MICROBIT_ID_IO_P2,    // edge connector 2
+    //% blockIdentity="pins.digitalPin"
     P3 = MICROBIT_ID_IO_P3,   // edge connector 3
-
+    //% blockIdentity="pins.digitalPin"
     C4 = MICROBIT_ID_IO_P4,    // -> P4
+    //% blockIdentity="pins.digitalPin"
     //% blockHidden=true
     P4 = MICROBIT_ID_IO_P4,    // LED matrix COLUMN 1
-
+    //% blockIdentity="pins.digitalPin"
     C5 = MICROBIT_ID_IO_P5,    // -> P5
+    //% blockIdentity="pins.digitalPin"
     //% blockHidden=true
     P5 = MICROBIT_ID_IO_P5,    // LED matrix COLUMN 2
-
+    //% blockIdentity="pins.digitalPin"
     C6 = MICROBIT_ID_IO_P6,   // -> P6
+    //% blockIdentity="pins.digitalPin"
     //% blockHidden=true
     P6 = MICROBIT_ID_IO_P6,   // LED matrix COLUMN 3
-
+    //% blockIdentity="pins.digitalPin"
     C7 = MICROBIT_ID_IO_P7,   // -> P7
+    //% blockIdentity="pins.digitalPin"
     //% blockHidden=true
     P7 = MICROBIT_ID_IO_P7,   // LED matrix COLUMN 4
-
+    //% blockIdentity="pins.digitalPin"
     C8 = MICROBIT_ID_IO_P8,   // -> P8
+    //% blockIdentity="pins.digitalPin"
     //% blockHidden=true
     P8 = MICROBIT_ID_IO_P8,   // LED matrix COLUMN 5
-
+    //% blockIdentity="pins.digitalPin"
     C9 = MICROBIT_ID_IO_P9,   // -> P9
+    //% blockIdentity="pins.digitalPin"
     //% blockHidden=true
     P9 = MICROBIT_ID_IO_P9,   // LED matrix COLUMN 6
-
+    //% blockIdentity="pins.digitalPin"
     C10 = MICROBIT_ID_IO_P10,   // -> P10
+    //% blockIdentity="pins.digitalPin"
     //% blockHidden=true
     P10 = MICROBIT_ID_IO_P10,   // LED matrix COLUMN 7
-
+    //% blockIdentity="pins.digitalPin"
     C11 = MICROBIT_ID_IO_P11,   // -> P11
+    //% blockIdentity="pins.digitalPin"
     //% blockHidden=true
     P11 = MICROBIT_ID_IO_P11,   // LED matrix COLUMN 8
-
+    //% blockIdentity="pins.digitalPin"
     C12 = MICROBIT_ID_IO_P12,   // -> P12
+    //% blockIdentity="pins.digitalPin"
     //% blockHidden=true
     P12 = MICROBIT_ID_IO_P12,   // LED matrix COLUMN 9
-
+    //% blockIdentity="pins.digitalPin"
     C13 = MICROBIT_ID_IO_P13,   // LED matrix ROW 1
+    //% blockIdentity="pins.digitalPin"
     //% blockHidden=true
     P13 = MICROBIT_ID_IO_P13,   // LED matrix ROW 1
-
+    //% blockIdentity="pins.digitalPin"
     C14 = MICROBIT_ID_IO_P14,   // LED matrix ROW 2
+    //% blockIdentity="pins.digitalPin"
     //% blockHidden=true
     P14 = MICROBIT_ID_IO_P14,   // LED matrix ROW 2
-
+    //% blockIdentity="pins.digitalPin"
     C15 = MICROBIT_ID_IO_P15,   // LED matrix ROW 3
+    //% blockIdentity="pins.digitalPin"
     //% blockHidden=true
     P15 = MICROBIT_ID_IO_P15,   // LED matrix ROW 3
-
+    //% blockIdentity="pins.digitalPin"
     //% block="C16 (A1 RX)"
     C16 = MICROBIT_ID_IO_A1_RX,   // -> A1_RX
+    //% blockIdentity="pins.digitalPin"
     //% blockHidden=true
     P16 = MICROBIT_ID_IO_A1_RX,   // -> A1_RX
+    //% blockIdentity="pins.digitalPin"
     //% block="A1 RX" blockHidden=true
     A1_RX = MICROBIT_ID_IO_A1_RX, // SCL
-
+    //% blockIdentity="pins.digitalPin"
     //% block="C17 (A1 TX)"
     C17 = MICROBIT_ID_IO_A1_TX,   // -> A1_TX
+    //% blockIdentity="pins.digitalPin"
     //% blockHidden=true
     P17 = MICROBIT_ID_IO_A1_TX,   // -> A1_TX
+    //% blockIdentity="pins.digitalPin"
     //% block="A1 TX" blockHidden=true
     A1_TX = MICROBIT_ID_IO_A1_TX, // SDA
-
+    //% blockIdentity="pins.digitalPin"
     C18 = MICROBIT_ID_IO_P18,
+    //% blockIdentity="pins.digitalPin"
     //% blockHidden=true
     P18 = MICROBIT_ID_IO_P18,
-    
+    //% blockIdentity="pins.digitalPin"
     //% block="C19 (A0 SCL)" blockHidden=true
     A0_SCL = MICROBIT_ID_IO_A0_SCL, // SCL
+    //% blockIdentity="pins.digitalPin"
     //% block="C20 (A0 SDA)" blockHidden=true
     A0_SDA = MICROBIT_ID_IO_A0_SDA, // SDA
-
+    //% blockIdentity="pins.digitalPin"
     //% blockHidden=true
     M_MODE = MICROBIT_ID_IO_M_MODE,
-
+    //% blockIdentity="pins.digitalPin"
     //% blockHidden=true
     M0_DIR = MICROBIT_ID_IO_M_A_IN1,
-
+    //% blockIdentity="pins.digitalPin"
     //% blockHidden=true
     M1_DIR = MICROBIT_ID_IO_M_B_IN1,
-
+    //% blockIdentity="pins.digitalPin"
     //% blockHidden=true
     M0_SPEED = MICROBIT_ID_IO_M_A_IN2,
-
+    //% blockIdentity="pins.digitalPin"
     //% blockHidden=true
     M1_SPEED = MICROBIT_ID_IO_M_B_IN2,
-
+    //% blockIdentity="pins.digitalPin"
     RGB = MICROBIT_ID_IO_RGB
 
 };
 
 enum class AnalogPin {
+    //% blockIdentity="pins.analogPin"
     P0 = MICROBIT_ID_IO_P0,   // edge connector 0
+    //% blockIdentity="pins.analogPin"
     P1 = MICROBIT_ID_IO_P1,    // edge connector 1
+    //% blockIdentity="pins.analogPin"
     P2 = MICROBIT_ID_IO_P2,    // edge connector 2
+    //% blockIdentity="pins.analogPin"
     //% block="P3 (write only)"
     P3 = MICROBIT_ID_IO_P3,   // edge connector 3
-
+    //% blockIdentity="pins.analogPin"
     C4 = MICROBIT_ID_IO_P4,    // -> P4
+    //% blockIdentity="pins.analogPin"
     //% blockHidden=true
     P4 = MICROBIT_ID_IO_P4,    // LED matrix COLUMN 1
-
+    //% blockIdentity="pins.analogPin"
     //% block="C5 (write only)"
     C5 = MICROBIT_ID_IO_P5,    // -> P5
+    //% blockIdentity="pins.analogPin"
     //% blockHidden=true
     P5 = MICROBIT_ID_IO_P5,    // BUTTON A
-
+    //% blockIdentity="pins.analogPin"
     //% block="C6 (write only)"
     C6 = MICROBIT_ID_IO_P6,   // -> P6
+    //% blockIdentity="pins.analogPin"
     //% blockHidden=true
     P6 = MICROBIT_ID_IO_P6,   // LED matrix COLUMN 4
-
+    //% blockIdentity="pins.analogPin"
     //% block="C7 (write only)"
     C7 = MICROBIT_ID_IO_P7,   // -> P7
+    //% blockIdentity="pins.analogPin"
     //% blockHidden=true
     P7 = MICROBIT_ID_IO_P7,   // LED matrix COLUMN 2
-
+    //% blockIdentity="pins.analogPin"
     //% block="C8 (write only)"
     C8 = MICROBIT_ID_IO_P8,   // -> P8
+    //% blockIdentity="pins.analogPin"
     //% blockHidden=true
     P8 = MICROBIT_ID_IO_P8,
-
+    //% blockIdentity="pins.analogPin"
     //% block="C9 (write only)"
     C9 = MICROBIT_ID_IO_P9,   // -> P9
+    //% blockIdentity="pins.analogPin"
     //% blockHidden=true
     P9 = MICROBIT_ID_IO_P9,
-
+    //% blockIdentity="pins.analogPin"
     C10 = MICROBIT_ID_IO_P10,   // -> P10
+    //% blockIdentity="pins.analogPin"
     //% blockHidden=true
     P10 = MICROBIT_ID_IO_P10,   // LED matrix COLUMN 5
-
+    //% blockIdentity="pins.analogPin"
     //% block="C11 (write only)"
     C11 = MICROBIT_ID_IO_P11,   // -> P11
+    //% blockIdentity="pins.analogPin"
     //% blockHidden=true
     P11 = MICROBIT_ID_IO_P11,   // BUTTON B
-
+    //% blockIdentity="pins.analogPin"
     //% block="C12 (write only)"
     C12 = MICROBIT_ID_IO_P12,   // -> P12
+    //% blockIdentity="pins.analogPin"
     //% blockHidden=true
     P12 = MICROBIT_ID_IO_P12,   // JACDAC
-
+    //% blockIdentity="pins.analogPin"
     //% block="C13 (write only)"
     C13 = MICROBIT_ID_IO_P13,   // -> P13
+    //% blockIdentity="pins.analogPin"
     //% blockHidden=true
     P13 = MICROBIT_ID_IO_P13,   // SPI CLCK
-
+    //% blockIdentity="pins.analogPin"
     //% block="C14 (write only)"
     C14 = MICROBIT_ID_IO_P14,   // -> P14
+    //% blockIdentity="pins.analogPin"
     //% blockHidden=true
     P14 = MICROBIT_ID_IO_P14,   // SPI MISO
-
+    //% blockIdentity="pins.analogPin"
     //% block="C15 (write only)"
     C15 = MICROBIT_ID_IO_P15,   // -> P15
+    //% blockIdentity="pins.analogPin"
     //% blockHidden=true
     P15 = MICROBIT_ID_IO_P15,   // SPI MOSI
-
+    //% blockIdentity="pins.analogPin"
     //% block="C16 (A1 RX)"
     C16 = MICROBIT_ID_IO_A1_RX,   // -> A1_RX
+    //% blockIdentity="pins.analogPin"
     //% blockHidden=true
     P16 = MICROBIT_ID_IO_A1_RX,   // -> A1_RX
+    //% blockIdentity="pins.analogPin"
     //% block="A1 RX" blockHidden=true
     A1_RX = MICROBIT_ID_IO_A1_RX, // SCL
-
+    //% blockIdentity="pins.analogPin"
     //% block="C17 (A1 TX, write only)"
     C17 = MICROBIT_ID_IO_A1_TX,   // -> A1_TX
+    //% blockIdentity="pins.analogPin"
     //% blockHidden=true
     P17 = MICROBIT_ID_IO_A1_TX,   // -> A1_TX
+    //% blockIdentity="pins.analogPin"
     //% block="A1 TX" blockHidden=true
     A1_TX = MICROBIT_ID_IO_A1_TX, // SDA
-
+    //% blockIdentity="pins.analogPin"
     C18 = MICROBIT_ID_IO_P18, // -> P18
+    //% blockIdentity="pins.analogPin"
     //% blockHidden=true
     P18 = MICROBIT_ID_IO_P18, // LED matrix COL 3
-    
+    //% blockIdentity="pins.analogPin"
     //% block="C19 (A0 SCL)" blockHidden=true
     A0_SCL = MICROBIT_ID_IO_A0_SCL, // SCL
+    //% blockIdentity="pins.analogPin"
     //% block="C20 (A0 SDA)" blockHidden=true
     A0_SDA = MICROBIT_ID_IO_A0_SDA, // SDA
-
+    //% blockIdentity="pins.analogPin"
     //% //% block="Motor Mode (write only)" blockHidden=true
     M_MODE = MICROBIT_ID_IO_M_MODE,
-
+    //% blockIdentity="pins.analogPin"
     //% //% block="M0 Direction (write only)"blockHidden=true
     M0_DIR = MICROBIT_ID_IO_M_A_IN1,
-
+    //% blockIdentity="pins.analogPin"
     //% //% block="M1 Direction (write only)" blockHidden=true
     M1_DIR = MICROBIT_ID_IO_M_B_IN1,
-
+    //% blockIdentity="pins.analogPin"
     //% //% block="M0 Speed (write only)" blockHidden=true
     M0_SPEED = MICROBIT_ID_IO_M_A_IN2,
-
+    //% blockIdentity="pins.analogPin"
     //% //% block="M1 Speed (write only)" blockHidden=true
     M1_SPEED = MICROBIT_ID_IO_M_B_IN2,
-
+    //% blockIdentity="pins.analogPin"
     //% //% block="RGB (write only)" blockHidden=true
     RGB = MICROBIT_ID_IO_RGB,
-
+    //% blockIdentity="pins.analogPin"
     //% blockHidden=true
     MIC = MICROBIT_ID_LOGO // microphone
 };
