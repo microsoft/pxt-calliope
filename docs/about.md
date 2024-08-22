@@ -76,7 +76,7 @@ input.onButtonEvent(Button.B, input.buttonEventValue(ButtonEvent.Down), () => {
 
 ## Learn!
 
-We have tons of [projects](/projects), [examples](/examples) and [courses](/courses) to get your started!
+We have tons of [projects](/projects) and [examples](/examples) to get your started!
 
 ## C++ Runtime
 
