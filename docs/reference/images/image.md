@@ -34,9 +34,6 @@ To create an image that you can later modify, see the [create image](/reference/
 
 4. Make an image on the **create image** block by clicking on the squares.
 
-You should see code similar to this:
-
-![](/static/mb/blocks/image-0.png)
 
 ## Image functions
 

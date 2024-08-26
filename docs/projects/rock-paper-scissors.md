@@ -191,7 +191,6 @@ input.onGesture(Gesture.Shake, function() {
 
 Let's test your code! Press the white **SHAKE** button on the Calliope mini on-screen simulator, or move your cursor quickly back and forth over the simulator. Do you see the icons for rock, paper and scissors randomly appear?  ⭐ Great job! ⭐
 
-![Shaking a @boardname@ simulator](/static/mb/projects/rock-paper-scissors/rpssim3.gif)
 
 ## {Step 14}
 

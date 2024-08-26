@@ -2,40 +2,40 @@
     "cards": [
         {
             "cardType": "checklist-resource",
-            "cardTitle": "Micro Chat",
-            "imageUrl": "/static/mb/projects/a9-radio.png",
-            "checklistUrl": "/teachertool/checklists/micro-chat.json"
+            "cardTitle": "Mini Chat",
+            "imageUrl": "/static/calliope/tutorials/06_mini_chat.gif",
+            "checklistUrl": "/teachertool/checklists/mini-chat.json"
         }
     ],
     "cards.hidden": [
         {
             "cardType": "checklist-resource",
             "cardTitle": "Flashing Heart",
-            "imageUrl": "/static/mb/projects/a1-display.png",
+            "imageUrl": "/static/calliope/tutorials/01_flashing_heart.gif",
             "checklistUrl": "/teachertool/checklists/flashing-heart.json"
         },
         {
             "cardType": "checklist-resource",
             "cardTitle": "Name Tag",
-            "imageUrl": "/static/mb/projects/name-tag.png",
+            "imageUrl": "/static/calliope/tutorials/02_nametag.gif",
             "checklistUrl": "/teachertool/checklists/name-tag.json"
         },
         {
             "cardType": "checklist-resource",
             "cardTitle": "Smiley Buttons",
-            "imageUrl": "/static/mb/projects/a2-buttons.png",
+            "imageUrl": "/static/calliope/tutorials/03_smiley_button.gif",
             "checklistUrl": "/teachertool/checklists/smiley-buttons.json"
         },
         {
             "cardType": "checklist-resource",
             "cardTitle": "Dice",
-            "imageUrl": "/static/mb/projects/dice.png",
+            "imageUrl": "/static/calliope/tutorials/04_dice.gif",
             "checklistUrl": "/teachertool/checklists/dice.json"
         },
         {
             "cardType": "checklist-resource",
             "cardTitle": "Love Meter",
-            "imageUrl": "/static/mb/projects/a3-pins.png",
+            "imageUrl": "/static/calliope/tutorials/05_love_meter.gif",
             "checklistUrl": "/teachertool/checklists/love-meter.json"
         }
     ]
