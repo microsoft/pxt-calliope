@@ -9,6 +9,57 @@ enum PinEvent {
     Fall = DAL.MICROBIT_PIN_EVT_FALL,  // DEVICE_PIN_EVT_FALL
 }
 
+enum AnalogReadWritePin {
+    //% blockIdentity="pins._analogReadWritePinShadow"
+    P0 = AnalogPin.P0,
+
+    //% blockIdentity="pins._analogReadWritePinShadow"
+    P1 = AnalogPin.P1,
+
+    //% blockIdentity="pins._analogReadWritePinShadow"
+    P2 = AnalogPin.P2,
+
+    //% blockIdentity="pins._analogReadWritePinShadow"
+    C4 = AnalogPin.C4,
+    //% blockIdentity="pins._analogReadWritePinShadow"
+    //% blockHidden=true
+    P4 = AnalogPin.C4,
+
+    //% blockIdentity="pins._analogReadWritePinShadow"
+    C10 = AnalogPin.C10,
+    //% blockIdentity="pins._analogReadWritePinShadow"
+    //% blockHidden=true
+    P10 = AnalogPin.C10,
+
+    //% blockIdentity="pins._analogReadWritePinShadow"
+    //% block="C16 (A1 RX)"
+    C16 = AnalogPin.C16,   // -> A1_RX
+    //% blockIdentity="pins._analogReadWritePinShadow"
+    //% blockHidden=true
+    P16 = AnalogPin.C16,   // -> A1_RX
+    //% blockIdentity="pins._analogReadWritePinShadow"
+    //% block="A1 RX" blockHidden=true
+    A1_RX = AnalogPin.C16, // SCL
+
+    //% blockIdentity="pins._analogReadWritePinShadow"
+    C18 = AnalogPin.C18, // -> P18
+    //% blockIdentity="pins._analogReadWritePinShadow"
+    //% blockHidden=true
+    P18 = AnalogPin.C18, // LED matrix COL 3
+
+    //% blockIdentity="pins._analogReadWritePinShadow"
+    //% block="C19 (A0 SCL)" blockHidden=true
+    A0_SCL = AnalogPin.A0_SCL, // SCL
+
+    //% blockIdentity="pins._analogReadWritePinShadow"
+    //% block="C20 (A0 SDA)" blockHidden=true
+    A0_SDA = AnalogPin.A0_SDA, // SDA
+
+    //% blockIdentity="pins._analogReadWritePinShadow"
+    //% blockHidden=true
+    MIC = AnalogPin.MIC // microphone
+}
+
 //% noRefCounting fixedInstances
 interface DigitalInOutPin {
     digitalRead(): boolean;
