@@ -1,12 +1,12 @@
 # 49 1 Estimation game
 
 ```ghost
-let Entfernung = 0
+let distance = 0
 input.onButtonEvent(Button.A, input.buttonEventValue(ButtonEvent.Click), function () {
-    Entfernung = Math.round(grove.measureInCentimeters(DigitalPin.C16))
+    distance = Math.round(grove.measureInCentimeters(DigitalPin.C16))
 })
 input.onButtonEvent(Button.B, input.buttonEventValue(ButtonEvent.Click), function () {
-    basic.showNumber(Entfernung)
+    basic.showNumber(distance)
 })
 basic.forever(function () {
     basic.showLeds(`
@@ -32,7 +32,7 @@ Press button A to measure the distance and save it in a variable. Press button B
 Insert the block ``||input.on button A is clicked||`` twice and change the button to ``B`` for one block. Tip: You can duplicate the block by right-clicking.
 
 ## Define variable
-To save the distance when the button is pressed and retrieve it later, create a ``||variable.variable||`` and name it *Distance*. 
+To save the distance when the button is pressed and retrieve it later, create a ``||variable.variable||`` and name it *distance*. 
 
 
 ```

@@ -12,8 +12,8 @@ A data log entry is written to the data log as an array of one or more "column-v
 
 ## Parameters
 
-* **colunm**: a [string](types/string) name that idenifies the data value.
-* **value**: a data value of _any_ type that is logged with the `colunm` name.
+* **column**: a [string](types/string) name that identifies the data value.
+* **value**: a data value of _any_ type that is logged with the `column` name.
 
 ## Example
 
@@ -29,10 +29,10 @@ loops.everyInterval(500, function () {
 
 ### Mood experiment
 
-Create an experiment to record a person's moods and relate them to current enviromental factors. Set 3 button options for moods of "happy", "sad", and "angry". When the user signals their mood by pressing a button, read the current temperature, light level, and sound level to establish a relationship between those factors and mood.
+Create an experiment to record a person's moods and relate them to current environmental factors. Set 3 button options for moods of "happy", "sad", and "angry". When the user signals their mood by pressing a button, read the current temperature, light level, and sound level to establish a relationship between those factors and mood.
 
 ```blocks
-input.onButtonPressed(Button.A, function () {
+input.onButtonEvent(Button.A, input.buttonEventClick(), function () {
     logMood("happy")
 })
 function logMood (mood: string) {
@@ -42,10 +42,10 @@ function logMood (mood: string) {
     columns[3] = datalogger.createCV("temperature", input.temperature())
     datalogger.logData(columns)
 }
-input.onButtonPressed(Button.AB, function () {
+input.onButtonEvent(Button.AB, input.buttonEventClick(), function () {
     logMood("angry")
 })
-input.onButtonPressed(Button.B, function () {
+input.onButtonEvent(Button.B, input.buttonEventClick(), function () {
     logMood("sad")
 })
 let columns: datalogger.ColumnValue[] = []

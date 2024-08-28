@@ -254,7 +254,7 @@ class DAPWrapper implements pxt.packetio.PacketIOWrapper {
         if (this.usesCODAL === undefined)
             console.warn('try to access codal information before it is computed')
         if (!this.usesCODAL) {
-            return ["logotouch", "builtinspeaker", "microphone", "flashlog"]
+            return ["logotouch", "flashlog"]
         }
         return [];
     }
@@ -313,15 +313,15 @@ class DAPWrapper implements pxt.packetio.PacketIOWrapper {
 
         await this.io.reconnectAsync()
 
+        await this.clearCommandsAsync()
+
         // halt before reading from dap
         // to avoid interference from data logger
         await this.cortexM.halt()
 
-        // before calling into dapjs, we use our dapCmdNums() a few times, which which will make sure the responses
-        // to commends from previous sessions (if any) are flushed
-        const info = await this.dapCmdNums(0x00, 0x04) // info
-        const daplinkVersion = stringResponse(info)
-        log(`daplink version: ${daplinkVersion}`)
+        const info = await this.getDaplinkVersionAsync(); // info
+        const daplinkVersion = stringResponse(info);
+        log(`daplink version: ${daplinkVersion}`);
 
         const r = await this.dapCmdNums(0x80)
         this.usesCODAL = r[2] == 57 && r[3] == 57 && r[5] >= 51;
@@ -348,6 +348,20 @@ class DAPWrapper implements pxt.packetio.PacketIOWrapper {
         this.io.onConnectionChanged()
         // start jacdac, serial async
         this.startReadSerial(connectionId)
+    }
+
+    private async clearCommandsAsync() {
+        // before calling into dapjs, push through a few commands to make sure the responses
+        // to commands from previous sessions (if any) are flushed. Count of 5 is arbitrary.
+        for (let i = 0; i < 5; i++) {
+            try {
+                await this.getDaplinkVersionAsync();
+            } catch (e) {}
+        }
+    }
+
+    private async getDaplinkVersionAsync() {
+        return await this.dapCmdNums(0x00, 0x04);
     }
 
     private async checkStateAsync(resume?: boolean): Promise<void> {
@@ -393,6 +407,7 @@ class DAPWrapper implements pxt.packetio.PacketIOWrapper {
             await this.io.reconnectAsync();
         }
 
+        await this.clearCommandsAsync()
         await this.stopReadersAsync();
         await this.cortexM.init();
         await this.cortexM.reset(true);
@@ -826,7 +841,7 @@ class DAPWrapper implements pxt.packetio.PacketIOWrapper {
             if (connectionId != this.connectionId) return;
             const info = await this.readBytes(xchg, 16)
             if (info[12 + 2] != 0xff) {
-                log("jacdac: invalid memory; try power-cycling the micro:bit")
+                log("jacdac: invalid memory; try power-cycling the Calliope mini")
                 pxt.tickEvent("hid.flash.jacdac.error.invalidmemory");
                 console.debug({ info, xchg })
                 return

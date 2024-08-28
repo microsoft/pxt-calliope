@@ -1,0 +1,18 @@
+{
+    "cards": [
+        {
+            "cardType": "checklist-resource",
+            "cardTitle": "Rock Paper Scissors",
+            "imageUrl": "/static/calliope/tutorials/07_stone_paper_scissors.gif",
+            "checklistUrl": "/teachertool/checklists/rock-paper-scissors.json"
+        }
+    ],
+    "cards.hidden": [
+        {
+            "cardType": "checklist-resource",
+            "cardTitle": "Coin Flipper",
+            "imageUrl": "/static/calliope/tutorials/08_coin_flipper.gif",
+            "checklistUrl": "/teachertool/checklists/coin-flipper.json"
+        }
+    ]
+}

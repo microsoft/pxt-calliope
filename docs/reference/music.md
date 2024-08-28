@@ -29,3 +29,6 @@ music.volume()
 [create sound effect](/reference/music/create-sound-effect),
 [built-in sound effect](/reference/music/builtin-sound-effect)
 
+```package
+v3
+```

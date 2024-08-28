@@ -6,8 +6,6 @@
 
 * [Projects](/projects)
 * [Examples](/examples)
-* [Courses](/courses)
-* [Lessons](/lessons)
 
 ## @boardname@ reference
 

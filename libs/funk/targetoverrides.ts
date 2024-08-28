@@ -108,7 +108,7 @@ namespace radio {
     }
 
     /**
-     * Returns the serial number of the sender micro:bit from the last packet taken
+     * Returns the serial number of the sender Calliope mini from the last packet taken
      * from the radio queue (via ``receiveNumber``, ``receiveString``, etc) or 0 if
      * that packet did not send a serial number.
      */
@@ -138,7 +138,7 @@ namespace radio {
     }
 
     /**
-     * Returns the system time of the sender micro:bit at the moment when it sent the
+     * Returns the system time of the sender Calliope mini at the moment when it sent the
      * last packet taken from the radio queue (via ``receiveNumber``,
      * ``receiveString``, etc).
      */

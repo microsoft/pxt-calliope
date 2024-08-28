@@ -1,8 +1,9 @@
+
 <xml xmlns="https://developers.google.com/blockly/xml">
     <variables>
         <variable id="I3xB5Q]ehg#-~(sq{[|E">item</variable>
     </variables>
-    <block type="device_forever" x="21" y="128">
+    <block type="device_forever" x="0" y="0">
         <statement name="HANDLER">
             <block type="device_play_note">
                 <value name="note">
@@ -58,7 +59,7 @@
                                                             <shadow type="math_number">
                                                                 <field name="NUM">0</field>
                                                             </shadow>
-                                                            <block type="device_tempo" />
+                                                            <block type="device_tempo"/>
                                                         </value>
                                                         <next>
                                                             <block type="device_change_tempo">

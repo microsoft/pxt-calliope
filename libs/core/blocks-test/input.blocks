@@ -1,12 +1,13 @@
+
 <xml xmlns="https://developers.google.com/blockly/xml">
     <variables>
         <variable id="wUkGVHoc@p^mter~Rc7h">item</variable>
         <variable id=")f$ml.CVl6|1^?sPWl:;">sdfsadf</variable>
     </variables>
-    <block type="device_button_selected_event" x="0" y="0">
+    <block type="device_button_selected_event" x="10" y="35">
         <field name="NAME">Button.AB</field>
         <value name="eventType">
-            <shadow type="control_button_event_value"></shadow>
+            <shadow type="control_button_event_click"/>
         </value>
         <statement name="HANDLER">
             <block type="variables_set">
@@ -48,7 +49,7 @@
                                             <shadow type="math_number">
                                                 <field name="NUM">0</field>
                                             </shadow>
-                                            <block type="device_get_light_level" />
+                                            <block type="device_get_light_level"/>
                                         </value>
                                         <next>
                                             <block type="variables_set">
@@ -57,7 +58,7 @@
                                                     <shadow type="math_number">
                                                         <field name="NUM">0</field>
                                                     </shadow>
-                                                    <block type="device_heading" />
+                                                    <block type="device_heading"/>
                                                 </value>
                                                 <next>
                                                     <block type="variables_set">
@@ -66,7 +67,7 @@
                                                             <shadow type="math_number">
                                                                 <field name="NUM">0</field>
                                                             </shadow>
-                                                            <block type="device_temperature" />
+                                                            <block type="device_temperature"/>
                                                         </value>
                                                         <next>
                                                             <block type="variables_set">
@@ -97,7 +98,7 @@
                                                                                     <shadow type="math_number">
                                                                                         <field name="NUM">0</field>
                                                                                     </shadow>
-                                                                                    <block type="device_get_running_time" />
+                                                                                    <block type="device_get_running_time"/>
                                                                                 </value>
                                                                                 <next>
                                                                                     <block type="device_set_accelerometer_range">
@@ -126,16 +127,19 @@
     <block type="device_gesture_event" x="555" y="30">
         <field name="NAME">Gesture.SixG</field>
     </block>
-    <block type="device_pin_custom_event" x="556" y="156">
+    <block type="device_pin_custom_event" x="564" y="173">
         <field name="name">TouchPin.P0</field>
         <value name="eventType">
-            <shadow type="control_button_event_value"></shadow>
+            <shadow type="control_button_event_down"/>
+            <block type="control_button_event_value">
+                <field name="id">ButtonEvent.Click</field>
+            </block>
         </value>
     </block>
-    <block type="device_pin_custom_event" x="560" y="274">
+    <block type="device_pin_custom_event" x="562" y="312">
         <field name="name">TouchPin.P0</field>
         <value name="eventType">
-            <shadow type="control_button_event_value"></shadow>
+            <shadow type="control_button_event_down"/>
         </value>
     </block>
 </xml>
