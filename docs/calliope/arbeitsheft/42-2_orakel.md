@@ -1,17 +1,18 @@
 # 42 2 Oracle
 
 ```ghost
-let Zufall = 0
+let zufall = 0
 input.onGesture(Gesture.Shake, function () {
-Zufall = randint(0, 2)
-if (Zufall == 1) {
-   basic.showString("Ja")
-}
-if (Zufall == 2) {
-   basic.showString("Nein")
-}
-if (Zufall == 3) {
-   basic.showString("Vielleicht")
+   zufall = randint(0, 2)
+   if (zufall == 1) {
+      basic.showString("Ja")
+   }
+   if (zufall == 2) {
+      basic.showString("Nein")
+   }
+   if (zufall == 3) {
+      basic.showString("Vielleicht")
+   }
 }
 ```
 
