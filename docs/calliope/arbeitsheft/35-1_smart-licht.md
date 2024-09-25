@@ -2,7 +2,7 @@
 
 ```ghost
 basic.forever(function () {
-if (input.lightLevel() > 20) {
+if (input.soundLevel() > 20) {
     basic.showLeds(`
         # # # # #
         # # # # #
@@ -28,7 +28,7 @@ The clapping is recognized via a permanent query of the measured volume values.
 
 ## Create condition
 Define a threshold value, e.g. `20` for the volume of your clap!
-Replace the "true" block in the query with a ``||logic.compare (=)||`` block to compare the measured ``||input.light level||`` with the threshold value.
+Replace the "true" block in the query with a ``||logic.compare (=)||`` block to compare the measured ``||input.sound level||`` with the threshold value.
 
 
 
