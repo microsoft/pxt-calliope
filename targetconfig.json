@@ -90,6 +90,21 @@
                     "Display"
                 ]
             },
+            "calliope-edu/pxt-bosonkit_mini3": {
+                "tags": [
+                    "Climate",
+                    "Motor"
+                ],
+                "preferred": true
+            },
+            "calliope-edu/pxt-blehid": {
+                "preferred": true
+            },
+            "MKleinSB/pxt-grove-relay-jacdac": {
+                "tags": [
+                    "Jacdac"
+                ]
+            }, 
             "calliope-edu/warte-bis": {
                 "preferred": true
             },
