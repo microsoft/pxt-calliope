@@ -12,13 +12,12 @@ namespace music {
      * Gets the melody array of a built-in melody.
      * @param melody the melody name
      */
-    //% weight=60 help=music/builtin-melody
+    //% weight=60 help=music/built-in-playable-melody
     //% blockId=device_builtin_melody_playable block="melody $melody"
     //% toolboxParent=music_playable_play_default_bkg
     //% toolboxParentArgument=toPlay
     //% duplicateShadowOnDrag
     //% group="Melody Advanced"
-    //% advanced=true
     export function builtInPlayableMelody(melody: Melodies): StringArrayPlayable {
         return new StringArrayPlayable(getMelody(melody), undefined);
     }
@@ -28,7 +27,7 @@ namespace music {
      */
     //% blockId=melody_on_event block="music on %value"
     //% help=music/on-event weight=59 blockGap=32
-    //% group="State"
+    //% group="Melody Advanced"
     export function onEvent(value: MusicEvent, handler: () => void) {
         control.onEvent(MICROBIT_MELODY_ID, value, handler);
     }

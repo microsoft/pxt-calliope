@@ -696,10 +696,15 @@ declare namespace input {
     //% blockIdentity="pins._analogPin"
     //% block="C19 (A0 SCL)" blockHidden=true
     A0_SCL = 119,  // MICROBIT_ID_IO_A0_SCL
+    //% blockHidden=true
+    P19 = 119,  // MICROBIT_ID_IO_A0_SCL
 
     //% blockIdentity="pins._analogPin"
     //% block="C20 (A0 SDA)" blockHidden=true
     A0_SDA = 120,  // MICROBIT_ID_IO_A0_SDA
+    //% blockHidden=true
+    P20 = 120,  // MICROBIT_ID_IO_A0_SDA
+
 
     //% blockIdentity="pins._analogPin"
     //% //% block="Motor Mode" blockHidden=true

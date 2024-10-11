@@ -100,7 +100,7 @@
             "calliope-edu/pxt-blehid": {
                 "preferred": true
             },
-            "MKleinSB/pxt-grove-relay-jacdac": {
+            "mkleinsb/pxt-grove-relay-jacdac": {
                 "tags": [
                     "Jacdac"
                 ]
@@ -375,6 +375,9 @@
                     "RGB"
                 ]
             },
+            "microsoft/pxt-apa102": {},
+            "microsoft/pxt-radio-firefly": {},
+            "microsoft/pxt-ml": {},
             "tinkertanker/pxt-alphanumeric-ht16k33": {},
             "tinkertanker/pxt-continuous-servo": {
                 "tags": [

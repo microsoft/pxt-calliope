@@ -788,11 +788,12 @@ declare namespace pins {
      */
     //% help=pins/on-pulsed weight=22 blockGap=16 advanced=true
     //% blockId=pins_on_pulsed block="on|pin %pin|pulsed %pulse"
-    //% pin.shadow=digital_pin_shadow
+    //% pin.fieldEditor="gridpicker" pin.fieldOptions.columns=4
+    //% pin.fieldOptions.tooltips="false" pin.fieldOptions.width="250"
     //% group="Pulse"
     //% weight=25
     //% blockGap=8 shim=pins::onPulsed
-    function onPulsed(name: int32, pulse: PulseValue, body: () => void): void;
+    function onPulsed(name: DigitalPin, pulse: PulseValue, body: () => void): void;
 
     /**
      * Get the duration of the last pulse in microseconds. This function should be called from a ``onPulsed`` handler.
@@ -962,7 +963,7 @@ declare namespace pins {
      */
     //% help=pins/spi-write weight=5 advanced=true
     //% blockId=spi_write block="spi write %value"
-    //% group="spi" shim=pins::spiWrite
+    //% group="SPI" shim=pins::spiWrite
     function spiWrite(value: int32): int32;
 
     /**
@@ -971,7 +972,7 @@ declare namespace pins {
      * @param response Data received from the SPI slave (can be null)
      */
     //% help=pins/spi-transfer argsNullable
-    //% group="spi" shim=pins::spiTransfer
+    //% group="SPI" shim=pins::spiTransfer
     function spiTransfer(command: Buffer, response: Buffer): void;
 
     /**
@@ -980,7 +981,7 @@ declare namespace pins {
      */
     //% help=pins/spi-frequency weight=4 advanced=true
     //% blockId=spi_frequency block="spi frequency %frequency"
-    //% group="spi" shim=pins::spiFrequency
+    //% group="SPI" shim=pins::spiFrequency
     function spiFrequency(frequency: int32): void;
 
     /**
@@ -990,7 +991,7 @@ declare namespace pins {
      */
     //% help=pins/spi-format weight=3 advanced=true
     //% blockId=spi_format block="spi format|bits %bits|mode %mode"
-    //% group="spi" shim=pins::spiFormat
+    //% group="SPI" shim=pins::spiFormat
     function spiFormat(bits: int32, mode: int32): void;
 
     /**
