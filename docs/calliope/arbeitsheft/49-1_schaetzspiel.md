@@ -19,6 +19,10 @@ basic.forever(function () {
 })
 ```
 
+```package
+grove=github:calliope-edu/pxt-grove
+```
+
 ## Estimation  game @showdialog
 Programme an estimation game that measures the distance between two objects. The
 Calliope mini measures the distance - in secret. You estimate the distance and the Calliope mini solves and displays the measured distance. 
@@ -58,9 +62,7 @@ Finally, let a ‘?’ appear permanently on the LED matrix. Draw a ? with the b
 ## Done! 👏
 Click on ``|Download|``, test your programme on the Calliope mini and try to estimate the distance correctly!
 
-```package
-grove=github:calliope-edu/pxt-grove
-```
+
 
 
 

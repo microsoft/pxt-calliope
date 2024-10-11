@@ -22,6 +22,11 @@ basic.forever(function () {
 })
 ```
 
+```package
+grove=github:calliope-edu/pxt-grove
+```
+
+
 ## Task @showdialog
 Is the class complete?
 Use the ultrasonic sensor to check whether all the children are back in the classroom. Program a people counter to count the number of people entering the classroom.
@@ -66,7 +71,3 @@ Tip: Use the variable ``||variables.peoplecounter|||``
 
 ## That's it! ✨
 Click on ``|Download|`` to transfer your program to your Calliope mini and test the people counter.
-
-```package
-grove=github:calliope-edu/pxt-grove
-```
