@@ -42,7 +42,7 @@ declare namespace music {
      */
     //% blockId=music_sound_is_playing block="sound is playing"
     //% group="State"
-    //% help=music/volume
+    //% help=music/is-sound-playing
     //% weight=0 shim=music::isSoundPlaying
     function isSoundPlaying(): boolean;
 

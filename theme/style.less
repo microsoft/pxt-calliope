@@ -83,6 +83,36 @@
         }
     }
 }
+
+.time-machine-header {
+    background-color: @blue;
+}
+
+.time-machine-preview {
+    // Loading div that appears while projects are importing
+    & > div {
+        background: #e8e8e8
+    }
+}
+
+#root:not(.hc) .tutorial-menu {
+    .ui.circular.label.selected {
+        background-color: @purple !important;
+        color: #e8e8e8 !important;
+        border: 1px solid #e8e8e8 !important;
+
+        &:focus, &:hover {
+            background-color: darken(@purple, 20%) !important;
+        }
+    }
+}
+
+.menubar {
+    .ui.menu .brand .ui.logo {
+        height: 1.1rem;
+    }
+}
+
 // Safari Only for iPad and iPhone second rule
 @supports (-webkit-touch-callout: none) {
     #mainmenu .right.menu {

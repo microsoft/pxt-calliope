@@ -1,9 +1,9 @@
 /**
- * Control currents in Pins for analog/digital signals, servos, i2c, ...
+ * Control currents in Pins for analog/digital signals, servos, I²C, ...
  */
 //% color=#A80000 weight=30 icon="\uf140"
 //% advanced=true
-//% groups=['Analog', 'Digital', 'Servos', 'Pulse', 'Pitch', 'i2c', 'spi']
+//% groups=['Analog', 'Digital', 'Servos', 'Pitch', 'I²C', 'SPI', 'Pulse']
 
 namespace pins {
     /**
@@ -20,6 +20,7 @@ namespace pins {
     //% weight=17
     //% blockGap=8
     //% advanced=true
+    //% decompilerShadowAlias=digital_pin_shadow
     export function _digitalPin(pin: DigitalPin): number {
         return pin;
     }
@@ -34,8 +35,11 @@ namespace pins {
     //% pin.fieldEditor=pinpicker
     //% pin.fieldOptions.columns=4
     //% pin.fieldOptions.tooltips="false"
+    //% group="Pins"
+    //% weight=16
     //% blockGap=8
     //% advanced=true
+    //% decompilerShadowAlias=analog_pin_shadow
     export function _analogPin(pin: AnalogPin): number {
         return pin;
     }
@@ -101,22 +105,22 @@ namespace pins {
     }
 
     /**
-     * Read one number from 7-bit I2C address.
+     * Read one number from 7-bit I²C address.
      */
     //% help=pins/i2c-read-number blockGap=8 advanced=true
-    //% blockId=pins_i2c_readnumber block="i2c read number|at address %address|of format %format|repeated %repeat" weight=7
-    //% group="i2c"
+    //% blockId=pins_i2c_readnumber block="I²C read number|at address %address|of format %format|repeated %repeat" weight=7
+    //% group="I²C"
     export function i2cReadNumber(address: number, format: NumberFormat, repeated?: boolean): number {
         let buf = pins.i2cReadBuffer(address, pins.sizeOf(format), repeated)
         return buf.getNumber(format, 0)
     }
 
     /**
-     * Write one number to a 7-bit I2C address.
+     * Write one number to a 7-bit I²C address.
      */
     //% help=pins/i2c-write-number blockGap=8 advanced=true
-    //% blockId=i2c_writenumber block="i2c write number|at address %address|with value %value|of format %format|repeated %repeat" weight=6
-    //% group="i2c"
+    //% blockId=i2c_writenumber block="I²C write number|at address %address|with value %value|of format %format|repeated %repeat" weight=6
+    //% group="I²C"
     export function i2cWriteNumber(address: number, value: number, format: NumberFormat, repeated?: boolean): void {
         let buf = createBuffer(pins.sizeOf(format))
         buf.setNumber(format, 0, value)

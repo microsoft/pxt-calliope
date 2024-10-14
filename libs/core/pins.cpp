@@ -265,10 +265,15 @@ enum class AnalogPin {
     //% blockIdentity="pins._analogPin"
     //% block="C19 (A0 SCL)" blockHidden=true
     A0_SCL = MICROBIT_ID_IO_A0_SCL, // SCL
+    //% blockHidden=true
+    P19 = MICROBIT_ID_IO_A0_SCL,
 
     //% blockIdentity="pins._analogPin"
     //% block="C20 (A0 SDA)" blockHidden=true
     A0_SDA = MICROBIT_ID_IO_A0_SDA, // SDA
+    //% blockHidden=true
+    P20 = MICROBIT_ID_IO_A0_SDA, // SDA
+
 
     //% blockIdentity="pins._analogPin"
     //% //% block="Motor Mode" blockHidden=true
@@ -464,11 +469,12 @@ namespace pins {
     */
     //% help=pins/on-pulsed weight=22 blockGap=16 advanced=true
     //% blockId=pins_on_pulsed block="on|pin %pin|pulsed %pulse"
-    //% pin.shadow=digital_pin_shadow
+    //% pin.fieldEditor="gridpicker" pin.fieldOptions.columns=4
+    //% pin.fieldOptions.tooltips="false" pin.fieldOptions.width="250"
     //% group="Pulse"
     //% weight=25
     //% blockGap=8
-    void onPulsed(int name, PulseValue pulse, Action body) {
+    void onPulsed(DigitalPin name, PulseValue pulse, Action body) {
         MicroBitPin* pin = getPin((int)name);
         if (!pin) return;
 
@@ -806,7 +812,7 @@ namespace pins {
     */
     //% help=pins/spi-write weight=5 advanced=true
     //% blockId=spi_write block="spi write %value"
-    //% group="spi"
+    //% group="SPI"
     int spiWrite(int value) {
         auto p = allocSPI();
         return p->write(value);
@@ -818,7 +824,7 @@ namespace pins {
     * @param response Data received from the SPI slave (can be null)
     */
     //% help=pins/spi-transfer argsNullable
-    //% group="spi"
+    //% group="SPI"
     void spiTransfer(Buffer command, Buffer response) {
         if (!command && !response)
             target_panic(PANIC_INVALID_ARGUMENT);
@@ -843,7 +849,7 @@ namespace pins {
     */
     //% help=pins/spi-frequency weight=4 advanced=true
     //% blockId=spi_frequency block="spi frequency %frequency"
-    //% group="spi"
+    //% group="SPI"
     void spiFrequency(int frequency) {
         auto p = allocSPI();
         p->frequency(frequency);
@@ -856,7 +862,7 @@ namespace pins {
     */
     //% help=pins/spi-format weight=3 advanced=true
     //% blockId=spi_format block="spi format|bits %bits|mode %mode"
-    //% group="spi"
+    //% group="SPI"
     void spiFormat(int bits, int mode) {
         auto p = allocSPI();
         p->format(bits, mode);

@@ -13,7 +13,7 @@ input.onGesture(Gesture.Shake, function () {
    if (zufall == 3) {
       basic.showString("Vielleicht")
    }
-}
+});
 ```
 
 ## Task @showdialog
