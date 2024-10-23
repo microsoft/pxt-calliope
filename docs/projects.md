@@ -10,13 +10,13 @@
     {
         "name": "Workbook",
         "url": "/calliope/arbeitsheft",
-        "imageUrl": "/static/calliope/arbeitsheft/EN/18-4_led-matrix.png",
+        "imageUrl": "/static/calliope/arbeitsheft/calliope_arbeitsheft_makecode.png",
         "largeImageUrl": "/static/calliope/arbeitsheft/EN/18-4_led-matrix.png"
     },
     {
         "name": "Calliope Links",
         "url": "/calliope/links",
-        "imageUrl": "/static/calliope/links/thumbnail_shop.gif"
+        "imageUrl": "/static/calliope/links/EN/calliope_pr_makecode.png"
     }
 ]
 ```

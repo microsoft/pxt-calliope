@@ -7,9 +7,18 @@ Here are some cool tutorials to get you started with your @boardname@!
 ```codecard
 [
   {
+  "name": "Workbook",
+  "url":"https://calliope.cc/en/school/workbook",
+  "description": "Get to know and control the Calliope mini with small exercises and projects.",
+  "imageUrl": "/static/calliope/arbeitsheft/calliope_arbeitsheft_makecode.png",
+  "largeImageUrl": "",
+  "label": "",
+  "buttonLabel": "View workbook",
+  "labelClass": "green small ribbon"
+},{
   "name": "p. 18 ex. 4",
   "url":"/calliope/arbeitsheft/18-4_led-matrix",
-  "description": "",
+  "description": "Click on ‘View instructions’ on the right to start.",
   "imageUrl": "/static/calliope/arbeitsheft/EN/18-4_led-matrix.png",
   "largeImageUrl": "/static/calliope/arbeitsheft/EN/18-4_led-matrix.png",
   "cardType": "tutorial",
@@ -18,7 +27,7 @@ Here are some cool tutorials to get you started with your @boardname@!
 },{
   "name": "p. 20 ex. 2",
   "url":"/calliope/arbeitsheft/20-2_raketenstart",
-  "description": "",
+  "description": "Click on ‘View instructions’ on the right to start.",
   "imageUrl": "/static/calliope/arbeitsheft/EN/20-2_raketenstart.png",
   "largeImageUrl": "/static/calliope/arbeitsheft/EN/20-2_raketenstart.png",
   "cardType": "tutorial",
@@ -27,7 +36,7 @@ Here are some cool tutorials to get you started with your @boardname@!
 },{
   "name": "p. 21 ex. 4",
   "url":"/calliope/arbeitsheft/21-4_rgb-led",
-  "description": "",
+  "description": "Click on ‘View instructions’ on the right to start.",
   "imageUrl": "/static/calliope/arbeitsheft/EN/21-4_rgb-led.png",
   "largeImageUrl": "/static/calliope/arbeitsheft/EN/rgb-led.png",
   "cardType": "tutorial",
@@ -36,7 +45,7 @@ Here are some cool tutorials to get you started with your @boardname@!
 },{
   "name": "p. 23 ex. 4",
   "url":"/calliope/arbeitsheft/23-4_fitness",
-  "description": "",
+  "description": "Click on ‘View instructions’ on the right to start.",
   "imageUrl": "/static/calliope/arbeitsheft/EN/23-4_fitness.png",
   "largeImageUrl": "/static/calliope/arbeitsheft/EN/fitness.png",
   "cardType": "tutorial",
@@ -45,7 +54,7 @@ Here are some cool tutorials to get you started with your @boardname@!
 },{
   "name": "p. 24 ex. 3",
   "url":"/calliope/arbeitsheft/24-3_knoepfe",
-  "description": "",
+  "description": "Click on ‘View instructions’ on the right to start.",
   "imageUrl": "/static/calliope/arbeitsheft/EN/24-3_knoepfe.png",
   "largeImageUrl": "/static/calliope/arbeitsheft/EN/24-3_knoepfe.png",
   "cardType": "tutorial",
@@ -54,7 +63,7 @@ Here are some cool tutorials to get you started with your @boardname@!
 },{
   "name": "p. 27 ex. 1",
   "url":"/calliope/arbeitsheft/27-1_klavier",
-  "description": "",
+  "description": "Click on ‘View instructions’ on the right to start.",
   "imageUrl": "/static/calliope/arbeitsheft/EN/27-1_klavier.png",
   "largeImageUrl": "/static/calliope/arbeitsheft/EN/27-1_klavier.png",
   "cardType": "tutorial",
@@ -63,7 +72,7 @@ Here are some cool tutorials to get you started with your @boardname@!
 },{
   "name": "p. 33 ex. 4",
   "url":"/calliope/arbeitsheft/33-4_licht",
-  "description": "",
+  "description": "Click on ‘View instructions’ on the right to start.",
   "imageUrl": "/static/calliope/arbeitsheft/EN/33-4_licht.png",
   "largeImageUrl": "/static/calliope/arbeitsheft/EN/33-4_licht.png",
   "cardType": "tutorial",
@@ -72,7 +81,7 @@ Here are some cool tutorials to get you started with your @boardname@!
 },{
   "name": "p. 35 ex. 1",
   "url":"/calliope/arbeitsheft/35-1_smart-licht",
-  "description": "",
+  "description": "Click on ‘View instructions’ on the right to start.",
   "imageUrl": "/static/calliope/arbeitsheft/EN/35-1_smart-licht.png",
   "largeImageUrl": "/static/calliope/arbeitsheft/EN/35-1_smart-licht.png",
   "cardType": "tutorial",
@@ -81,7 +90,7 @@ Here are some cool tutorials to get you started with your @boardname@!
 },{
   "name": "p. 38 ex. 1",
   "url":"/calliope/arbeitsheft/38-1b_thermometer",
-  "description": "",
+  "description": "Click on ‘View instructions’ on the right to start.",
   "imageUrl": "/static/calliope/arbeitsheft/EN/38-1b_thermometer.png",
   "largeImageUrl": "/static/calliope/arbeitsheft/EN/38-1b_thermometer.png",
   "cardType": "tutorial",
@@ -90,7 +99,7 @@ Here are some cool tutorials to get you started with your @boardname@!
 },{
   "name": "p. 41 ex. 3",
   "url":"/calliope/arbeitsheft/41-3_wuerfel",
-  "description": "",
+  "description": "Click on ‘View instructions’ on the right to start.",
   "imageUrl": "/static/calliope/arbeitsheft/EN/41-3_wuerfel.png",
   "largeImageUrl": "/static/calliope/arbeitsheft/EN/41-3_wuerfel.png",
   "cardType": "tutorial",
@@ -99,7 +108,7 @@ Here are some cool tutorials to get you started with your @boardname@!
 },{
   "name": "p. 42 ex. 2",
   "url":"/calliope/arbeitsheft/42-2_orakel",
-  "description": "",
+  "description": "Click on ‘View instructions’ on the right to start.",
   "imageUrl": "/static/calliope/arbeitsheft/EN/42-2_orakel.png",
   "largeImageUrl": "/static/calliope/arbeitsheft/EN/42-2_orakel.png",
   "cardType": "tutorial",
@@ -108,7 +117,7 @@ Here are some cool tutorials to get you started with your @boardname@!
 },{
   "name": "p. 45 ex. 1",
   "url":"/calliope/arbeitsheft/45-1_pflanzenstation",
-  "description": "",
+  "description": "Click on ‘View instructions’ on the right to start.",
   "imageUrl": "/static/calliope/arbeitsheft/EN/45-1_pflanzenstation.png",
   "largeImageUrl": "/static/calliope/arbeitsheft/EN/45-1_pflanzenstation.png",
   "cardType": "tutorial",
@@ -117,7 +126,7 @@ Here are some cool tutorials to get you started with your @boardname@!
 },{
   "name": "p. 49 ex. 1",
   "url":"/calliope/arbeitsheft/49-1_schaetzspiel",
-  "description": "",
+  "description": "Click on ‘View instructions’ on the right to start.",
   "imageUrl": "/static/calliope/arbeitsheft/EN/49-1_schaetzspiel.png",
   "largeImageUrl": "/static/calliope/arbeitsheft/EN/49-1_schaetzspiel.png",
   "cardType": "tutorial",
@@ -126,7 +135,7 @@ Here are some cool tutorials to get you started with your @boardname@!
 },{
   "name": "p. 50 ex. 2",
   "url":"/calliope/arbeitsheft/50-2_personenzaehler",
-  "description": "",
+  "description": "Click on ‘View instructions’ on the right to start.",
   "imageUrl": "/static/calliope/arbeitsheft/EN/50-2_personenzaehler.png",
   "largeImageUrl": "/static/calliope/arbeitsheft/EN/50-2_personenzaehler.png",
   "cardType": "tutorial",
@@ -135,7 +144,7 @@ Here are some cool tutorials to get you started with your @boardname@!
 },{
   "name": "p. 54 ex. 1",
   "url":"/calliope/arbeitsheft/54-1_luftqualitaet",
-  "description": "",
+  "description": "Click on ‘View instructions’ on the right to start.",
   "imageUrl": "/static/calliope/arbeitsheft/EN/54-1_luftqualitaet.png",
   "largeImageUrl": "/static/calliope/arbeitsheft/EN/54-1_luftqualitaet.png",
   "cardType": "tutorial",
