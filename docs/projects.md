@@ -14,6 +14,11 @@
         "largeImageUrl": "/static/calliope/arbeitsheft/EN/18-4_led-matrix.png"
     },
     {
+        "name": "Jacdac",
+        "url": "/calliope/jacdac",
+        "imageUrl": "/static/calliope/jacdac/jacdac-vorschau.png"
+    },
+    {
         "name": "Calliope Links",
         "url": "/calliope/links",
         "imageUrl": "/static/calliope/links/EN/calliope_pr_makecode.png"
@@ -25,5 +30,6 @@
 
 [Tutorials](/calliope/tutorials),
 [Workbook](/calliope/arbeitsheft),
+[Jacdac](/calliope/jacdac),
 [Calliope Links](/calliope/links)
 

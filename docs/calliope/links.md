@@ -44,7 +44,7 @@ Here are some cool tutorials to get you started with your @boardname@!
   "labelClass": "green small ribbon"
 }, {
   "name": "Teaching materials",
-  "url":"https://calliope.cc/schulen/schulmaterial",
+  "url":"https://calliope.cc/en/school/didactic-material",
   "description": "",
   "imageUrl": "/static/calliope/links/thumbnail_didactic_material.gif",
   "largeImageUrl": "",
