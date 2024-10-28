@@ -1316,16 +1316,6 @@ declare namespace basic {
 
     /**
      * Sets the color on the built-in RGB LED. Set to 0 to turn off.
-     */
-    //% blockId=device_turn_rgb_led_off block="turn built-in LED off"
-    //% help=basic/turn-rgb-led-off
-    //% weight=10
-    //% group="RGB LED"
-    //% advanced=true shim=basic::turnRgbLedOff
-    function turnRgbLedOff(): void;
-
-    /**
-     * Sets the color on the built-in RGB LED. Set to 0 to turn off.
      * @param color1 The color of the first LED in RGB format (e.g., 0xFF0000 for red).
      */
     //% blockId=device_set_led_colors-dal
@@ -1342,6 +1332,16 @@ declare namespace basic {
     //% blockId=device_set_led_colors-codal
     //% hidden=1 brightness.defl=20 shim=basic::setLedColorsCodal
     function setLedColorsCodal(color1: int32, color2: int32, color3: int32, brightness?: int32): void;
+
+    /**
+     * Sets the color on the built-in RGB LED. Set to 0 to turn off.
+     */
+    //% blockId=device_turn_rgb_led_off block="turn built-in LED off"
+    //% help=basic/turn-rgb-led-off
+    //% weight=10
+    //% group="RGB LED"
+    //% advanced=true shim=basic::turnRgbLedOff
+    function turnRgbLedOff(): void;
 
     /**
      * Sets the color on the built-in RGB LED. Set to 0 to turn off.

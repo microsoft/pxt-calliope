@@ -5,7 +5,7 @@
  */
 namespace basic {
 
-        // Define an array to hold RGB LED data
+    // Define an array to hold RGB LED data
     uint8_t rgbBuffer[9] = {0};
 
     // Call this function once to initialize the Calliope mini board
@@ -13,22 +13,6 @@ namespace basic {
     //     uBit.init();
     // }
 
-    /**
-     * Sets the color on the built-in RGB LED. Set to 0 to turn off.
-     */
-    //% blockId=device_turn_rgb_led_off block="turn built-in LED off"
-    //% help=basic/turn-rgb-led-off
-    //% weight=10
-    //% group="RGB LED"
-    //% advanced=true
-    void turnRgbLedOff() {
-#if MICROBIT_CODAL
-        memset(rgbBuffer, 0, sizeof(rgbBuffer)); // Clear the buffer
-        neopixel_send_buffer(uBit.io.RGB, rgbBuffer, sizeof(rgbBuffer));
-#else
-        uBit.rgb.off();
-#endif
-    }
 
     /**
      * Sets the color on the built-in RGB LED. Set to 0 to turn off.
@@ -41,7 +25,7 @@ namespace basic {
         return;
 #else
         if (!color) {
-            turnRgbLedOff();
+            uBit.rgb.off();
             return;
         }
         // Extract RGB components from the color value
@@ -93,6 +77,24 @@ namespace basic {
         setLedColorDal(color1);
 #endif
     }
+
+
+    /**
+     * Sets the color on the built-in RGB LED. Set to 0 to turn off.
+     */
+    //% blockId=device_turn_rgb_led_off block="turn built-in LED off"
+    //% help=basic/turn-rgb-led-off
+    //% weight=10
+    //% group="RGB LED"
+    //% advanced=true
+    void turnRgbLedOff() {
+#if MICROBIT_CODAL
+        setLedColorsCodal(0,0,0);
+#else
+        setLedColorDal(0);
+#endif
+    }
+
 
     /**
      * Sets the color on the built-in RGB LED. Set to 0 to turn off.
