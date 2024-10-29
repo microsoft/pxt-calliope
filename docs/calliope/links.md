@@ -7,6 +7,24 @@ Here are some cool tutorials to get you started with your @boardname@!
 ```codecard
 [
 {
+  "name": "Primary School",
+  "url":"https://calliope.cc/en/school/primary-school",
+  "description": "Teaching in primary schools with the Calliope mini.",
+  "imageUrl": "/static/calliope/links/EN/calliope_pr_makecode.png",
+  "largeImageUrl": "",
+  "label": "",
+  "buttonLabel": "More Information",
+  "labelClass": "green small ribbon"
+},{
+  "name": "Secondary School",
+  "url":"https://calliope.cc/en/school/secondary-school",
+  "description": "Teaching in secondary schools with the Calliope.",
+  "imageUrl": "/static/calliope/links/EN/calliope_sec_makecode.png",
+  "largeImageUrl": "",
+  "label": "",
+  "buttonLabel": "More Information",
+  "labelClass": "green small ribbon"
+},{
   "name": "Shop",
   "url":"https://shop.calliope.cc",
   "description": "You can get the mini at the official calliope store.",
@@ -26,7 +44,7 @@ Here are some cool tutorials to get you started with your @boardname@!
   "labelClass": "green small ribbon"
 }, {
   "name": "Teaching materials",
-  "url":"https://calliope.cc/schulen/schulmaterial",
+  "url":"https://calliope.cc/en/school/didactic-material",
   "description": "",
   "imageUrl": "/static/calliope/links/thumbnail_didactic_material.gif",
   "largeImageUrl": "",
@@ -34,9 +52,9 @@ Here are some cool tutorials to get you started with your @boardname@!
   "buttonLabel": "View",
   "labelClass": "green small ribbon"
 }, {
-  "name": "Tools",
-  "url":"https://calliope.cc/programmieren/tools",
-  "description": "",
+  "name": "MakeCode Tools",
+  "url":"https://calliope.cc/en/coding/editors/makecode#tools",
+  "description": "MultiEditor, Tutorial-Tool, Screenshot-Tool",
   "imageUrl": "/static/calliope/links/thumbnail_screenshots.gif",
   "largeImageUrl": "",
   "label": "",
