@@ -565,7 +565,7 @@
             },
             "calliope-net/i2c-liste": {},
             "vengit/pxt-sbrick": {},
-            "calliope-edu/pxt-storage": {"preferred": true}
+            "calliope-edu/pxt-storage": {"preferred": true},
             "coolguy-official/pxt-coolguy": {},
             "bouw-je-bep/bouw-je-bep": { "tags": [ "Robotics" ] },
             "birdbraintechnologies/pxt-finch": { "tags": [ "Robotics" ] },
