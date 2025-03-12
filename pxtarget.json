@@ -209,7 +209,7 @@
                 "codalTarget": {
                     "name": "codal-microbit-v2",
                     "url": "https://github.com/calliope-edu/codal-microbit-v2",
-                    "branch": "v0.2.69",
+                    "branch": "v0.2.69-calliope-rc1",
                     "type": "git"
                 },
                 "codalBinary": "MICROBIT",
