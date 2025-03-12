@@ -5,6 +5,7 @@
         "font12.jres"
     ],
     "public": true,
+    "hidden": true,
     "disablesVariants": [
         "mbdal"
     ],
