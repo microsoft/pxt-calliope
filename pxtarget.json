@@ -21,10 +21,6 @@
         "libs/microphone",
         "libs/settings",
         "libs/flashlog",
-        "libs/datalogger",
-        "libs/bitmap",
-        "libs/fonts",
-        "libs/color",
         "libs/audio-recording"
     ],
     "cloud": {
