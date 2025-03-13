@@ -642,7 +642,7 @@ export function _bufferToMelody(melody: Buffer) {
             current = notes.charAt(note);
             if (current === "#") current = notes.charAt(note - 1) + current
 
-            octave = Math.idiv((melody[i] - 23), 12)
+            octave = Math.idiv((melody[i] - 24), 12)
         }
 
         const duration = melody[i + 1];

@@ -21,7 +21,6 @@
         "libs/microphone",
         "libs/settings",
         "libs/flashlog",
-        "libs/datalogger",
         "libs/audio-recording"
     ],
     "cloud": {
@@ -206,7 +205,7 @@
                 "codalTarget": {
                     "name": "codal-microbit-v2",
                     "url": "https://github.com/calliope-edu/codal-microbit-v2",
-                    "branch": "v0.2.68-calliope-rc1",
+                    "branch": "v0.2.69-calliope-rc2",
                     "type": "git"
                 },
                 "codalBinary": "MICROBIT",
@@ -269,6 +268,7 @@
                 "permanent": true
             }
         },
+        "testSimulatorExtensions": {},
         "dynamicBoardDefinition": true,
         "boardDefinition": {
             "visual": "calliope",
@@ -450,10 +450,16 @@
             "identity",
             "blocksErrorList"
         ],
-        "bluetoothUartFilters": [{
+        "supportedExperiences": [
+            "code-eval"
+        ],
+        "bluetoothUartFilters": [
+            {
             "namePrefix": "Calliope mini"
-        }],
-        "docMenu": [{
+            }
+        ],
+        "docMenu": [
+            {
                 "name": "Support",
                 "path": "https://calliope.cc/en/impressum"
             },

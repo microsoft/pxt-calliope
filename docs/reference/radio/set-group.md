@@ -50,5 +50,5 @@ radio.setGroup(128)
 [send string](/reference/radio/send-string)
 
 ```package
-radio
+funk
 ```

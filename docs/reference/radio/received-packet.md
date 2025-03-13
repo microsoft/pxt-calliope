@@ -45,5 +45,5 @@ radio.onReceivedNumber(function (receivedNumber) {
 [set transmit serial number](/reference/radio/set-transmit-serial-number)
 
 ```package
-radio
+funk
 ```

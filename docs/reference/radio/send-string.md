@@ -47,5 +47,5 @@ A radio that can both transmit and receive is called a _transceiver_.
 [on received string](/reference/radio/on-received-string)
 
 ```package
-radio
+funk
 ```

@@ -51,5 +51,5 @@ Sample output to serial when ``A`` button pressed:
 [on data packet received](/reference/radio/on-data-packet-received)
 
 ```package
-radio
+funk
 ```

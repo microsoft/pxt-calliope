@@ -43,5 +43,5 @@ radio.setTransmitPower(7)
 [send string](/reference/radio/send-string)
 
 ```package
-radio
+funk
 ```

@@ -59,5 +59,5 @@ basic.forever(() => {
 [on data received](/reference/radio/on-data-received), [received packet](/reference/received-packet)
 
 ```package
-radio
+funk
 ```

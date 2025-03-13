@@ -73,5 +73,5 @@ Sample output to serial when ``A`` button pressed:
 [set transmit serial number](/reference/radio/set-transmit-serial-number)
 
 ```package
-radio
+funk
 ```

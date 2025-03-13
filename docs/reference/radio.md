@@ -22,7 +22,7 @@ radio.raiseEvent(0, 0);
 ```
 
 ```package
-radio
+funk
 ```
 
 ## See Also

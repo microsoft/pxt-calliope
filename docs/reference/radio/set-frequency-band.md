@@ -30,5 +30,5 @@ radio.setFrequencyBand(50)
 [send string](/reference/radio/send-string)
 
 ```package
-radio
+funk
 ```
