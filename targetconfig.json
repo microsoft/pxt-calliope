@@ -570,7 +570,6 @@
             "bouw-je-bep/bouw-je-bep": { "tags": [ "Robotics" ] },
             "birdbraintechnologies/pxt-finch": { "tags": [ "Robotics" ] },
             "ibuilds/pxt-ptkidsbit": { "tags": [ "Science" ] },
-            "wappsto/pxt-wappsto": { "tags": [ "Networking" ] },
             "ks-bulme/pxt-mikrobot": { "tags": [ "Robotics" ] },
             "cytrontechnologies/pxt-rekabit": { "tags": [ "Science" ] },
             "bsiever/microbit-dstemp": { "tags": [ "Science" ] },
