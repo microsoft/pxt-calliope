@@ -99,5 +99,5 @@ Create, edit and distribute your own blocks and JavaScript using [extensions](/e
 The code for the Calliope mini is [open source](/open-source) on GitHub. Contributors are welcome!
 
 ```package
-radio
+funk
 ```

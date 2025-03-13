@@ -157,5 +157,5 @@ It's sent in this format to the serial port:
 [write received packet to serial](/reference/radio/write-received-packet-to-serial)
 
 ```package
-radio
+funk
 ```

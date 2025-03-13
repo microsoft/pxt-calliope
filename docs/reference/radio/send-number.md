@@ -51,5 +51,5 @@ basic.forever(() => {
 [on received number](/reference/radio/on-received-number)
 
 ```package
-radio
+funk
 ```

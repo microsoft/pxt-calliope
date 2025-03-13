@@ -50,5 +50,5 @@ radio.onReceivedValue(function (name, value) {
 [on received value](/reference/radio/on-received-value)
 
 ```package
-radio
+funk
 ```

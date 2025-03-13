@@ -26,5 +26,5 @@ radio.setTransmitSerialNumber(true);
 [send string](/reference/radio/send-string)
 
 ```package
-radio
+funk
 ```

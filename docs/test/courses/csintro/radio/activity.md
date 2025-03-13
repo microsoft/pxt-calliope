@@ -350,5 +350,5 @@ Solution link: [Morse Code With Mod](https://makecode.microbit.org/_fWpDXK1hFFC9
 4. To make code more efficient and to reduce the number of lines of code needed.
 
 ```package
-radio
+funk
 ```
