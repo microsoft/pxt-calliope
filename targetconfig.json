@@ -679,6 +679,12 @@
                     "devUrl": "http://localhost:3000"
                 }
             }
+            "Zukunftswerkstatt-Buchholz/robot-control": {
+                "tags": [
+                    "Motor"
+                ],
+                "preferred": true
+            },
         },
         "approvedEditorExtensionUrls": [
             "https://microsoft.github.io/jacdac-docs/tools/makecode-editor-extension"
