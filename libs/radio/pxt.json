@@ -1,0 +1,11 @@
+{
+    "name": "radio",
+    "description": "Legacy wrapper for Radio",
+    "dependencies": {
+        "core": "file:../funk"
+    },
+    "files": [
+    ],
+    "public": true,
+    "searchOnly": true
+}

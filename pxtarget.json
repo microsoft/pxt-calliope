@@ -21,6 +21,9 @@
         "libs/microphone",
         "libs/settings",
         "libs/flashlog",
+        "libs/bitmap",
+        "libs/fonts",
+        "libs/radio",
         "libs/audio-recording"
     ],
     "cloud": {
@@ -39,6 +42,22 @@
                 "icon": "/static/providers/github-mark.png",
                 "identity": false,
                 "order": 3
+            },
+            "microsoft": {
+                "id": "microsoft",
+                "name": "Microsoft",
+                "icon": "/static/providers/microsoft-logo.svg",
+                "identity": true,
+                "redirect": true,
+                "order": 1
+            },
+            "google": {
+                "id": "google",
+                "name": "Google",
+                "icon": "/static/providers/google-logo.svg",
+                "identity": true,
+                "redirect": true,
+                "order": 2
             }
         }
     },
@@ -646,35 +665,6 @@
         "usb": {
             "compile": {
                 "webUSB": true
-            }
-        },
-        "identity=1": {
-            "cloud": {
-                "cloudProviders": {
-                    "github": {
-                        "id": "github",
-                        "name": "GitHub",
-                        "icon": "/static/providers/github-mark.png",
-                        "identity": false,
-                        "order": 3
-                    },
-                    "microsoft": {
-                        "id": "microsoft",
-                        "name": "Microsoft",
-                        "icon": "/static/providers/microsoft-logo.svg",
-                        "identity": true,
-                        "redirect": true,
-                        "order": 1
-                    },
-                    "google": {
-                        "id": "google",
-                        "name": "Google",
-                        "icon": "/static/providers/google-logo.svg",
-                        "identity": true,
-                        "redirect": true,
-                        "order": 2
-                    }
-                }
             }
         },
         "skillsMap=1": {
