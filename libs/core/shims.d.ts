@@ -1070,7 +1070,7 @@ declare namespace serial {
      * Send a piece of text through the serial connection.
      */
     //% help=serial/write-string
-    //% weight=87 blockGap=8
+    //% weight=88 blockGap=8
     //% blockId=serial_writestring block="serial|write string %text"
     //% text.shadowOptions.toString=true shim=serial::writeString
     function writeString(text: string): void;

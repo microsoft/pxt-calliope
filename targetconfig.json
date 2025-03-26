@@ -638,7 +638,7 @@
             "joy-it/pxt-rb-joypi-advanced": { "tags": [ "Science" ] },
             "bsiever/pxt-sen55": { "tags": [ "Science" ] },
             "climate-action-kits/pxt-fwd-edu": {},
-            "elecfreaks/pxt-cutebot-pro": { "tags": [ "Robotics" ], "preferred": true },
+            "elecfreaks/pxt-cutebot-pro": { "tags": [ "Robotics" ] },
             "microbit-foundation/makecode-tutorials": { "tutorial" : true },
             "grandpabond/pxt-meter": { "tags": [ "Software" ] },
             "microsoft/microbit-robot": { "tags": [ "Robotics" ] },

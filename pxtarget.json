@@ -24,6 +24,7 @@
         "libs/bitmap",
         "libs/fonts",
         "libs/radio",
+        "libs/datalogger",
         "libs/audio-recording"
     ],
     "cloud": {
