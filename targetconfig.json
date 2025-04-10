@@ -356,7 +356,6 @@
                 ]
             },
             "microsoft/pxt-filesystem": {},
-            "microsoft/pxt-hacking-stem": {},
             "microsoft/pxt-max6675": {},
             "microsoft/pxt-microturtle": {
                 "preferred": true
