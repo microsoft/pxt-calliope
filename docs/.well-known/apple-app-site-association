@@ -1,0 +1,11 @@
+{
+  "applinks": {
+      "details": [{
+        "appIDs": ["cc.calliope.ios.flash", "cc.calliope.ios.flash-debug"],
+        "components": [{
+            "/": "/*",
+            "comment": "We match any path on the (sub)domain, as all paths are valid MakeCode Ids"
+        }]
+    }]
+  }
+}

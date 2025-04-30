@@ -40,7 +40,7 @@ namespace serial {
      * Print a line of text to the serial port
      * @param value to send over serial
      */
-    //% weight=90
+    //% weight=89
     //% help=serial/write-line blockGap=8
     //% blockId=serial_writeline block="serial|write line %text"
     //% text.shadowOptions.toString=true
@@ -75,7 +75,7 @@ namespace serial {
      * Print a numeric value to the serial port
      */
     //% help=serial/write-number
-    //% weight=89 blockGap=8
+    //% weight=87 blockGap=8
     //% blockId=serial_writenumber block="serial|write number %value"
     export function writeNumber(value: number): void {
         writeString(value.toString());
@@ -101,7 +101,7 @@ namespace serial {
      * @param name name of the value stream, eg: x
      * @param value to write
      */
-    //% weight=88 blockGap=8
+    //% weight=90 blockGap=8
     //% help=serial/write-value
     //% blockId=serial_writevalue block="serial|write value %name|= %value"
     export function writeValue(name: string, value: number): void {
