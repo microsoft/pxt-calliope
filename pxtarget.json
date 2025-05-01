@@ -533,6 +533,8 @@
             "functions": "#005A9E",
             "arrays": "#E65722"
         },
+        "defaultColorTheme": "calliope-default",
+        "highContrastColorTheme": "pxt-high-contrast",
         "blocksCollapsing": true,
         "highContrast": true,
         "greenScreen": true,

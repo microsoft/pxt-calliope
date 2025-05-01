@@ -1,0 +1,41 @@
+.gallerysegment .ui.card.link.cloudprojectscard {
+    /* Differentiate from New Project button */
+    background-color: var(--pxt-colors-teal-background) !important;
+    color: var(--pxt-colors-teal-foreground) !important;
+}
+
+.filemenu {
+    /* File menu in calliope does not use primary color */
+    background-color: #1B1C1DFF !important;
+    color: #FFFFFF !important;
+}
+
+#simulator .editor-sidebar .filemenu .item.active,
+#simulator .editor-sidebar .filemenu .item:hover {
+    /* Adjust active file menu item to account for darker background (above) */
+    background-color: rgba(255, 255, 255, 0.2) !important;
+    outline: 1px solid hsla(0, 0%, 100%, .5);
+}
+
+
+#blocksEditor > div.loading,
+#maineditor,
+svg.blocklySvg,
+.monaco-editor,
+.monaco-editor .margin,
+.monaco-editor .monaco-editor-background {
+    /*
+    Calliope workspace uses white background for the blockly workspace, which is different from the homescreen background
+    To account for this, use target2 on the blocksEditor instead of target1
+    */
+    background: var(--pxt-target-background2) !important;
+    color: var(--pxt-target-foreground2) !important;
+}
+
+.blocklyToolbox, .monacoToolboxDiv {
+    /*
+    Since Calliope uses the same background color for the toolbox and the workspace,
+    we add an extra shadow to create a clear border between the two.
+    */
+    box-shadow: 4px 0px 2px -4px rgba(0,0,0,0.12), 4px 0px 2px -4px rgba(0,0,0,0.24);
+}
