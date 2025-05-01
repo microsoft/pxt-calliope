@@ -16,3 +16,26 @@
     background-color: rgba(255, 255, 255, 0.2) !important;
     outline: 1px solid hsla(0, 0%, 100%, .5);
 }
+
+
+#blocksEditor > div.loading,
+#maineditor,
+svg.blocklySvg,
+.monaco-editor,
+.monaco-editor .margin,
+.monaco-editor .monaco-editor-background {
+    /*
+    Calliope workspace uses white background for the blockly workspace, which is different from the homescreen background
+    To account for this, use target2 on the blocksEditor instead of target1
+    */
+    background: var(--pxt-target-background2) !important;
+    color: var(--pxt-target-foreground2) !important;
+}
+
+.blocklyToolbox, .monacoToolboxDiv {
+    /*
+    Since Calliope uses the same background color for the toolbox and the workspace,
+    we add an extra shadow to create a clear border between the two.
+    */
+    box-shadow: 4px 0px 2px -4px rgba(0,0,0,0.12), 4px 0px 2px -4px rgba(0,0,0,0.24);
+}

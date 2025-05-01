@@ -20,14 +20,9 @@ span.blocklyTreeLabel {
     font-weight: 200;
 }
 
-.blocklyToolboxDiv, .monacoToolboxDiv {
-    background-color: white !important;
-    box-shadow: 4px 0px 2px -4px rgba(0,0,0,0.12), 4px 0px 2px -4px rgba(0,0,0,0.24);
-}
-
 /* Mobile */
 @media only screen and (max-width: @largestMobileScreen) {
-    .blocklyToolboxDiv, .monacoToolboxDiv {
+    .blocklyToolbox, .monacoToolboxDiv {
         border-left: 0 !important;
     }
     div.blocklyTreeRoot {
@@ -37,7 +32,7 @@ span.blocklyTreeLabel {
 
 /* Tablet */
 @media only screen and (min-width: @tabletBreakpoint) and (max-width: @largestTabletScreen) {
-    .blocklyToolboxDiv, .monacoToolboxDiv {
+    .blocklyToolbox, .monacoToolboxDiv {
         border-left: 0 !important;
     }
     div.blocklyTreeRoot {
