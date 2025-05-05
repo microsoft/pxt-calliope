@@ -678,13 +678,12 @@
                     "sha": "0825d56f78528c57af100a96abdfe2162f59945a",
                     "devUrl": "http://localhost:3000"
                 }
-            }
-            "Zukunftswerkstatt-Buchholz/robot-control": {
+            },
+            "zukunftswerkstatt-buchholz/robot-control": {
                 "tags": [
                     "Motor"
-                ],
-                "preferred": true
-            },
+                ]
+            }
         },
         "approvedEditorExtensionUrls": [
             "https://microsoft.github.io/jacdac-docs/tools/makecode-editor-extension"
