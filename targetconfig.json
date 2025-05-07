@@ -287,6 +287,16 @@
                     "Motor"
                 ]
             },
+            "zukunftswerkstatt-buchholz/robot-control": {
+                "tags": [
+                    "Motor"
+                ]
+            },
+            "joy-it/Joy-Car": {
+                "tags": [
+                    "Motor"
+                ]
+            },
             "mkleinsb/pxt-makerbit-touch": {},
             "mkleinsb/pxt-makerbit-ultrasonic-calliope": {},
             "mkleinsb/pxt-mpr121": {
