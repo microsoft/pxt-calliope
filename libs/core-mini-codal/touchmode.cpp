@@ -38,6 +38,7 @@ namespace pins {
     //% blockId=device_touch_set_type block="set %name to touch mode %mode"
     //% group="Touch"
     //% help=pins/touch-set-mode
+    //% deprecated=1
     void touchSetMode(TouchTarget name, TouchTargetMode mode) {
     #if MICROBIT_CODAL
         const auto pin = name == TouchTarget::LOGO 
