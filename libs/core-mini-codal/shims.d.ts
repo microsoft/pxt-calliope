@@ -93,7 +93,8 @@ declare namespace pins {
     //% weight=60
     //% blockId=device_touch_set_type block="set %name to touch mode %mode"
     //% group="Touch"
-    //% help=pins/touch-set-mode shim=pins::touchSetMode
+    //% help=pins/touch-set-mode
+    //% deprecated=1 shim=pins::touchSetMode
     function touchSetMode(name: TouchTarget, mode: TouchTargetMode): void;
 }
 
