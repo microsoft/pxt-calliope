@@ -1,6 +1,19 @@
 {
     "packages": {
         "approvedRepoLib": {
+            "calliope-edu/pxt-bosonkit_classic": {
+                "tags": [
+                    "Climate",
+                    "Motor"
+                ]
+            },
+            "calliope-edu/pxt-bosonkit_mini3": {
+                "tags": [
+                    "Climate",
+                    "Motor"
+                ],
+                "preferred": true
+            },
             "calliope-edu/co2-sensor-scd40": {
                 "tags": [
                     "Climate"
@@ -65,6 +78,13 @@
                 ],
                 "preferred": true
             },
+            "calliope-edu/lofirobot": {
+                "tags": [
+                    "AI",
+                    "Motor",
+                    "IoT"
+                ]
+            },
             "tinysuperlab/touchkit": {
                 "tags": [
                     "Audio"
@@ -90,13 +110,6 @@
                     "Display"
                 ]
             },
-            "calliope-edu/pxt-bosonkit_mini3": {
-                "tags": [
-                    "Climate",
-                    "Motor"
-                ],
-                "preferred": true
-            },
             "calliope-edu/pxt-blehid": {
                 "preferred": true
             },
@@ -104,7 +117,7 @@
                 "tags": [
                     "Jacdac"
                 ]
-            }, 
+            },
             "calliope-edu/warte-bis": {
                 "preferred": true
             },
@@ -639,7 +652,6 @@
             "joy-it/pxt-ads1115": { "tags": [ "Science" ] },
             "bsiever/microbit-pxt-rotate": { "tags": [ "Software" ] },
             "sparkfun/pxt-gator-uv": { "tags": [ "Science" ] },
-            "dfrobot/pxt-dfrobot_bosonkit": { "tags": [ "Science" ] },
             "resolute-support/pxt-apprentice_car": { "tags": [ "Robotics" ] },
             "makeandlearn/pxt-didacbot": { "tags": [ "Robotics" ] },
             "cytrontechnologies/pxt-rekabit-rbt-project-kit": { "tags": [ "Science" ] },
