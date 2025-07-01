@@ -14,16 +14,10 @@
     Add your custom CSS here
 *******************************/
 
-/* Roboto font */
-@RobotoMonoFont: data-uri("../docs/static/fonts/roboto-mono-v7-latin-regular.woff");
+/* Roboto font - Updated with extended character support */
 
-/* roboto-mono-regular - latin */
-@font-face {
-    font-family: 'Roboto Mono';
-    font-style: normal;
-    font-weight: 400;
-    src: @RobotoMonoFont format('woff');
-  }
+/* Import extended font definitions */
+@import url('../docs/static/fonts/fonts.css');
 .ui.button.download-button {
     &:extend(.ui.purple.button all);
 }

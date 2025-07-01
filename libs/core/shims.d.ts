@@ -782,44 +782,6 @@ declare namespace pins {
     function analogSetPeriod(name: int32, micros: int32): void;
 
     /**
-     * Configure the pin as a digital input and generate an event when the pin is pulsed either high or low.
-     * @param name digital pin to register to, eg: DigitalPin.P0
-     * @param pulse the value of the pulse, eg: PulseValue.High
-     */
-    //% help=pins/on-pulsed weight=22 blockGap=16 advanced=true
-    //% blockId=pins_on_pulsed block="on|pin %pin|pulsed %pulse"
-    //% pin.fieldEditor="gridpicker" pin.fieldOptions.columns=4
-    //% pin.fieldOptions.tooltips="false" pin.fieldOptions.width="250"
-    //% group="Pulse"
-    //% weight=25
-    //% blockGap=8 shim=pins::onPulsed
-    function onPulsed(name: DigitalPin, pulse: PulseValue, body: () => void): void;
-
-    /**
-     * Get the duration of the last pulse in microseconds. This function should be called from a ``onPulsed`` handler.
-     */
-    //% help=pins/pulse-duration advanced=true
-    //% blockId=pins_pulse_duration block="pulse duration (µs)"
-    //% weight=21 blockGap=8
-    //% group="Pulse" shim=pins::pulseDuration
-    function pulseDuration(): int32;
-
-    /**
-     * Return the duration of a pulse at a pin in microseconds.
-     * @param name the pin which measures the pulse, eg: DigitalPin.P0
-     * @param value the value of the pulse, eg: PulseValue.High
-     * @param maximum duration in microseconds
-     */
-    //% blockId="pins_pulse_in" block="pulse in (µs)|pin %name|pulsed %value"
-    //% weight=20 advanced=true
-    //% help=pins/pulse-in
-    //% name.shadow=digital_pin_shadow
-    //% group="Pulse"
-    //% weight=23
-    //% blockGap=8 maxDuration.defl=2000000 shim=pins::pulseIn
-    function pulseIn(name: int32, value: PulseValue, maxDuration?: int32): int32;
-
-    /**
      * Write a value to the servo, controlling the shaft accordingly. On a standard servo, this will set the angle of the shaft (in degrees), moving the shaft to that orientation. On a continuous rotation servo, this will set the speed of the servo (with ``0`` being full-speed in one direction, ``180`` being full speed in the other, and a value near ``90`` being no movement).
      * @param name pin to write to, eg: AnalogPin.P0
      * @param value angle or rotation speed, eg:180,90,0
@@ -947,14 +909,14 @@ declare namespace pins {
      * Read `size` bytes from a 7-bit I2C `address`.
      */
     //%
-    //% group="i2c" repeat.defl=0 shim=pins::i2cReadBuffer
+    //% group="I²C" repeat.defl=0 shim=pins::i2cReadBuffer
     function i2cReadBuffer(address: int32, size: int32, repeat?: boolean): Buffer;
 
     /**
      * Write bytes to a 7-bit I2C `address`.
      */
     //%
-    //% group="i2c" repeat.defl=0 shim=pins::i2cWriteBuffer
+    //% group="I²C" repeat.defl=0 shim=pins::i2cWriteBuffer
     function i2cWriteBuffer(address: int32, buf: Buffer, repeat?: boolean): int32;
 
     /**
@@ -1007,6 +969,44 @@ declare namespace pins {
     //% blockGap=8
     //% weight=51 shim=pins::spiPins
     function spiPins(mosi: int32, miso: int32, sck: int32): void;
+
+    /**
+     * Configure the pin as a digital input and generate an event when the pin is pulsed either high or low.
+     * @param name digital pin to register to, eg: DigitalPin.P0
+     * @param pulse the value of the pulse, eg: PulseValue.High
+     */
+    //% help=pins/on-pulsed weight=22 blockGap=16 advanced=true
+    //% blockId=pins_on_pulsed block="on|pin %pin|pulsed %pulse"
+    //% pin.fieldEditor="gridpicker" pin.fieldOptions.columns=4
+    //% pin.fieldOptions.tooltips="false" pin.fieldOptions.width="250"
+    //% group="Pulse"
+    //% weight=25
+    //% blockGap=8 shim=pins::onPulsed
+    function onPulsed(name: DigitalPin, pulse: PulseValue, body: () => void): void;
+
+    /**
+     * Get the duration of the last pulse in microseconds. This function should be called from a ``onPulsed`` handler.
+     */
+    //% help=pins/pulse-duration advanced=true
+    //% blockId=pins_pulse_duration block="pulse duration (µs)"
+    //% weight=21 blockGap=8
+    //% group="Pulse" shim=pins::pulseDuration
+    function pulseDuration(): int32;
+
+    /**
+     * Return the duration of a pulse at a pin in microseconds.
+     * @param name the pin which measures the pulse, eg: DigitalPin.P0
+     * @param value the value of the pulse, eg: PulseValue.High
+     * @param maximum duration in microseconds
+     */
+    //% blockId="pins_pulse_in" block="pulse in (µs)|pin %name|pulsed %value"
+    //% weight=20 advanced=true
+    //% help=pins/pulse-in
+    //% name.shadow=digital_pin_shadow
+    //% group="Pulse"
+    //% weight=23
+    //% blockGap=8 maxDuration.defl=2000000 shim=pins::pulseIn
+    function pulseIn(name: int32, value: PulseValue, maxDuration?: int32): int32;
 
     /**
      * Mounts a push button on the given pin
