@@ -1,6 +1,12 @@
 {
     "packages": {
         "approvedRepoLib": {
+            "calliope-edu/neopixel-ble": {
+                "tags": [
+                    "RGB"
+                ],
+                "preferred": true
+            },
             "calliope-edu/pxt-bosonkit_classic": {
                 "tags": [
                     "Climate",
