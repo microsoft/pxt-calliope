@@ -14,16 +14,9 @@
     Add your custom CSS here
 *******************************/
 
-/* Roboto font */
-@RobotoMonoFont: data-uri("../docs/static/fonts/roboto-mono-v7-latin-regular.woff");
+/* Import font definitions */
+@import 'fonts';
 
-/* roboto-mono-regular - latin */
-@font-face {
-    font-family: 'Roboto Mono';
-    font-style: normal;
-    font-weight: 400;
-    src: @RobotoMonoFont format('woff');
-  }
 .ui.button.download-button {
     &:extend(.ui.purple.button all);
 }

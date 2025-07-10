@@ -4,10 +4,10 @@
 
 @importGoogleFonts: false;
 
-@fontName  : 'Roboto Mono';
+@fontName  : 'Roboto Mono', 'Noto Sans Mono', 'SFMono-Regular', 'Consolas', 'Liberation Mono', 'Menlo', monospace;
 
-@headerFont  : 'Roboto Mono';
-@pageFont  : 'Roboto Mono';
+@headerFont  : 'Roboto Mono', 'Noto Sans Mono', 'SFMono-Regular', 'Consolas', 'Liberation Mono', 'Menlo', monospace;
+@pageFont  : 'Roboto Mono', 'Noto Sans Mono', 'SFMono-Regular', 'Consolas', 'Liberation Mono', 'Menlo', monospace;
 
 @primaryColor: #3CB5B5;
 @secondaryColor: #43C9C9;

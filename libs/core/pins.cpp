@@ -384,6 +384,7 @@ MicroBitPin *getPin(int id) {
 
 } // pxt
 
+
 namespace pins {
     #define PINOP(op) \
       MicroBitPin *pin = getPin((int)name); \
@@ -462,96 +463,6 @@ namespace pins {
         PINOP(setAnalogPeriodUs(micros));
     }
 
-    /**
-    * Configure the pin as a digital input and generate an event when the pin is pulsed either high or low.
-    * @param name digital pin to register to, eg: DigitalPin.P0
-    * @param pulse the value of the pulse, eg: PulseValue.High
-    */
-    //% help=pins/on-pulsed weight=22 blockGap=16 advanced=true
-    //% blockId=pins_on_pulsed block="on|pin %pin|pulsed %pulse"
-    //% pin.fieldEditor="gridpicker" pin.fieldOptions.columns=4
-    //% pin.fieldOptions.tooltips="false" pin.fieldOptions.width="250"
-    //% group="Pulse"
-    //% weight=25
-    //% blockGap=8
-    void onPulsed(DigitalPin name, PulseValue pulse, Action body) {
-        MicroBitPin* pin = getPin((int)name);
-        if (!pin) return;
-
-        pin->eventOn(MICROBIT_PIN_EVENT_ON_PULSE);
-        registerWithDal((int)name, (int)pulse, body);
-    }
-
-    /**
-    * Get the duration of the last pulse in microseconds. This function should be called from a ``onPulsed`` handler.
-    */
-    //% help=pins/pulse-duration advanced=true
-    //% blockId=pins_pulse_duration block="pulse duration (µs)"
-    //% weight=21 blockGap=8
-    //% group="Pulse"
-    int pulseDuration() {
-        return pxt::lastEvent.timestamp;
-    }
-
-    /**
-    * Return the duration of a pulse at a pin in microseconds.
-    * @param name the pin which measures the pulse, eg: DigitalPin.P0
-    * @param value the value of the pulse, eg: PulseValue.High
-    * @param maximum duration in microseconds
-    */
-    //% blockId="pins_pulse_in" block="pulse in (µs)|pin %name|pulsed %value"
-    //% weight=20 advanced=true
-    //% help=pins/pulse-in
-    //% name.shadow=digital_pin_shadow
-    //% group="Pulse"
-    //% weight=23
-    //% blockGap=8
-    int pulseIn(int name, PulseValue value, int maxDuration = 2000000) {
-        MicroBitPin* pin = getPin((int)name);
-        if (!pin) return 0;
-
-#if MICROBIT_CODAL
-        // set polarity
-        pin->setPolarity(PulseValue::High == value ? 1 : 0);
-        // record pulse
-        int period = pin->getPulseUs(maxDuration);
-        // timeout
-        if (DEVICE_CANCELLED == period)
-            return 0;
-        // success!
-        return period;
-#else
-        int pulse = value == PulseValue::High ? 1 : 0;
-        uint64_t tick =  system_timer_current_time_us();
-        uint64_t maxd = (uint64_t)maxDuration;
-        while(pin->getDigitalValue() != pulse) {
-            if(system_timer_current_time_us() - tick > maxd)
-                return 0;
-        }
-
-        uint64_t start =  system_timer_current_time_us();
-        while(pin->getDigitalValue() == pulse) {
-            if(system_timer_current_time_us() - tick > maxd)
-                return 0;
-        }
-        uint64_t end =  system_timer_current_time_us();
-        return end - start;
-#endif
-    }
-
-    // TODO FIX THIS IN THE DAL!
-    inline void fixMotorIssue(AnalogPin name) {
-#if MICROBIT_CODAL
-#else
-        NRF_TIMER2->SHORTS = TIMER_SHORTS_COMPARE3_CLEAR_Msk;
-        NRF_TIMER2->INTENCLR = TIMER_INTENCLR_COMPARE3_Msk;
-        NRF_TIMER2->PRESCALER = 4;
-        NRF_TIMER2->CC[3] = 20000;
-        NRF_TIMER2->TASKS_START = 1;
-        NRF_TIMER2->EVENTS_COMPARE[3] = 0;
-        PINOP(getDigitalValue());
-#endif
-    }
 
     /**
      * Write a value to the servo, controlling the shaft accordingly. On a standard servo, this will set the angle of the shaft (in degrees), moving the shaft to that orientation. On a continuous rotation servo, this will set the speed of the servo (with ``0`` being full-speed in one direction, ``180`` being full speed in the other, and a value near ``90`` being no movement).
@@ -781,7 +692,7 @@ namespace pins {
      * Read `size` bytes from a 7-bit I2C `address`.
      */
     //%
-    //% group="i2c"
+    //% group="I²C"
     Buffer i2cReadBuffer(int address, int size, bool repeat = false)
     {
       Buffer buf = createBuffer(size);
@@ -793,7 +704,7 @@ namespace pins {
      * Write bytes to a 7-bit I2C `address`.
      */
     //%
-    //% group="i2c"
+    //% group="I²C"
     int i2cWriteBuffer(int address, Buffer buf, bool repeat = false)
     {
       return uBit.i2c.write(address << 1, (BUFFER_TYPE)buf->data, buf->length, repeat);
@@ -893,6 +804,100 @@ namespace pins {
         }
         spi = new SPI(PIN_ARG(mosi), PIN_ARG(miso), PIN_ARG(sck));
     }
+
+
+    /**
+    * Configure the pin as a digital input and generate an event when the pin is pulsed either high or low.
+    * @param name digital pin to register to, eg: DigitalPin.P0
+    * @param pulse the value of the pulse, eg: PulseValue.High
+    */
+    //% help=pins/on-pulsed weight=22 blockGap=16 advanced=true
+    //% blockId=pins_on_pulsed block="on|pin %pin|pulsed %pulse"
+    //% pin.fieldEditor="gridpicker" pin.fieldOptions.columns=4
+    //% pin.fieldOptions.tooltips="false" pin.fieldOptions.width="250"
+    //% group="Pulse"
+    //% weight=25
+    //% blockGap=8
+    void onPulsed(DigitalPin name, PulseValue pulse, Action body) {
+        MicroBitPin* pin = getPin((int)name);
+        if (!pin) return;
+
+        pin->eventOn(MICROBIT_PIN_EVENT_ON_PULSE);
+        registerWithDal((int)name, (int)pulse, body);
+    }
+
+    /**
+    * Get the duration of the last pulse in microseconds. This function should be called from a ``onPulsed`` handler.
+    */
+    //% help=pins/pulse-duration advanced=true
+    //% blockId=pins_pulse_duration block="pulse duration (µs)"
+    //% weight=21 blockGap=8
+    //% group="Pulse"
+    int pulseDuration() {
+        return pxt::lastEvent.timestamp;
+    }
+
+    /**
+    * Return the duration of a pulse at a pin in microseconds.
+    * @param name the pin which measures the pulse, eg: DigitalPin.P0
+    * @param value the value of the pulse, eg: PulseValue.High
+    * @param maximum duration in microseconds
+    */
+    //% blockId="pins_pulse_in" block="pulse in (µs)|pin %name|pulsed %value"
+    //% weight=20 advanced=true
+    //% help=pins/pulse-in
+    //% name.shadow=digital_pin_shadow
+    //% group="Pulse"
+    //% weight=23
+    //% blockGap=8
+    int pulseIn(int name, PulseValue value, int maxDuration = 2000000) {
+        MicroBitPin* pin = getPin((int)name);
+        if (!pin) return 0;
+
+#if MICROBIT_CODAL
+        // set polarity
+        pin->setPolarity(PulseValue::High == value ? 1 : 0);
+        // record pulse
+        int period = pin->getPulseUs(maxDuration);
+        // timeout
+        if (DEVICE_CANCELLED == period)
+            return 0;
+        // success!
+        return period;
+#else
+        int pulse = value == PulseValue::High ? 1 : 0;
+        uint64_t tick =  system_timer_current_time_us();
+        uint64_t maxd = (uint64_t)maxDuration;
+        while(pin->getDigitalValue() != pulse) {
+            if(system_timer_current_time_us() - tick > maxd)
+                return 0;
+        }
+
+        uint64_t start =  system_timer_current_time_us();
+        while(pin->getDigitalValue() == pulse) {
+            if(system_timer_current_time_us() - tick > maxd)
+                return 0;
+        }
+        uint64_t end =  system_timer_current_time_us();
+        return end - start;
+#endif
+    }
+
+    // TODO FIX THIS IN THE DAL!
+    inline void fixMotorIssue(AnalogPin name) {
+#if MICROBIT_CODAL
+#else
+        NRF_TIMER2->SHORTS = TIMER_SHORTS_COMPARE3_CLEAR_Msk;
+        NRF_TIMER2->INTENCLR = TIMER_INTENCLR_COMPARE3_Msk;
+        NRF_TIMER2->PRESCALER = 4;
+        NRF_TIMER2->CC[3] = 20000;
+        NRF_TIMER2->TASKS_START = 1;
+        NRF_TIMER2->EVENTS_COMPARE[3] = 0;
+        PINOP(getDigitalValue());
+#endif
+    }
+
+
 
     /**
     * Mounts a push button on the given pin
