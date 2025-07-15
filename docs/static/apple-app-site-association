@@ -1,0 +1,11 @@
+{
+  "applinks": {
+      "details": [{
+        "appIDs": ["GKA87N33H4.cc.calliope.ios.flash", "GKA87N33H4.cc.calliope.ios.flash-debug"],
+        "components": [{
+            "/": "/*",
+            "comment": "We match any path on the (sub)domain, as all paths are valid MakeCode IDs"
+        }]
+    }]
+  }
+}
