@@ -201,7 +201,7 @@
             "compile": {
                 "flashCodeAlign": 4096,
                 "flashUsableEnd": 471040,
-                "flashEnd": 524288
+                "flashEnd": 524288,
                 "useUF2": false,
                 "webUSB": true
             },
@@ -210,7 +210,7 @@
                 "codalTarget": {
                     "name": "codal-microbit-v2",
                     "url": "https://github.com/calliope-edu/codal-microbit-v2",
-                    "branch": "v0.3.0",
+                    "branch": "v0.3.2-calliope-2",
                     "type": "git"
                 },
                 "codalBinary": "MICROBIT",
