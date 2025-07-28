@@ -105,8 +105,14 @@ enum class DigitalPin {
     //% block="C19 (A0 SCL)" blockHidden=true
     A0_SCL = MICROBIT_ID_IO_A0_SCL, // SCL
     //% blockIdentity="pins._digitalPin"
+    //% blockHidden=true
+    P19 = MICROBIT_ID_IO_A0_SCL,
+    //% blockIdentity="pins._digitalPin"
     //% block="C20 (A0 SDA)" blockHidden=true
     A0_SDA = MICROBIT_ID_IO_A0_SDA, // SDA
+    //% blockIdentity="pins._digitalPin"
+    //% blockHidden=true
+    P20 = MICROBIT_ID_IO_A0_SDA,
     //% blockIdentity="pins._digitalPin"
     //% blockHidden=true
     M_MODE = MICROBIT_ID_IO_M_MODE,
@@ -124,7 +130,6 @@ enum class DigitalPin {
     M1_SPEED = MICROBIT_ID_IO_M_B_IN2,
     //% blockIdentity="pins._digitalPin"
     RGB = MICROBIT_ID_IO_RGB
-
 };
 
 enum class AnalogPin {
