@@ -196,9 +196,11 @@ namespace pxsim.visuals {
         .sim-pin.focused,
         .sim-thermometer:focus,
         .sim-shake:focus,
-        .sim-light-level-button:focus {
-            stroke: #4D90FE;
-            stroke-width: 5px !important;
+        .sim-thermometer:focus {
+            outline: 5px solid white;
+            stroke: black;
+            stroke-width: 10px;
+            paint-order: stroke;
         }
         .no-drag, .sim-text, .sim-text-pin {
             user-drag: none;
@@ -1453,16 +1455,20 @@ namespace pxsim.visuals {
         private leds: SVGElement[];
         private microphoneLed: SVGElement;
         private systemLed: SVGCircleElement;
-        private antenna: SVGPolylineElement;
+        private antenna: SVGElement;
+        private antennaInitialized = false;
         private rssi: SVGTextElement;
         private lightLevelButton: SVGCircleElement;
         private lightLevelGradient: SVGLinearGradientElement;
+        private lightLevelInitialized = false;
         private lightLevelText: SVGTextElement;
         private thermometerGradient: SVGLinearGradientElement;
         private thermometer: SVGRectElement;
+        private thermometerInitialized = false;
         private thermometerText: SVGTextElement;
         private soundLevelGradient: SVGLinearGradientElement;
         private soundLevel: SVGRectElement;
+        private soundLevelInitialized = false;
         private soundLevelText: SVGTextElement;
         private soundLevelIcon: SVGTextElement;
         private shakeButton: SVGElement;
@@ -1736,6 +1742,8 @@ namespace pxsim.visuals {
             svg.fill(this.buttonsOuter[2], theme.virtualButtonOuter);
             svg.fill(this.buttons[2], theme.virtualButtonUp);
             if (this.shakeButton) svg.fill(this.shakeButton, theme.virtualButtonUp);
+
+            svg.fill(this.shakeButton, theme.virtualButtonUp);
 
             this.pinGradients.forEach(lg => svg.setGradientColors(lg, theme.pin, theme.pinActive));
             svg.setGradientColors(this.lightLevelGradient, theme.lightLevelOn, theme.lightLevelOff);
@@ -2016,6 +2024,7 @@ namespace pxsim.visuals {
                     (ev) => {
                         let charCode = (typeof ev.which == "number") ? ev.which : ev.keyCode
                         if (charCode === 40 || charCode === 37) { // Down/Left arrow
+                            ev.preventDefault();
                             state.thermometerState.temperature--;
                             if(state.thermometerState.temperature < tmin) state.thermometerState.temperature = tmin;
                             this.updateTemperature();
@@ -2050,7 +2059,9 @@ namespace pxsim.visuals {
 
             const tmin = 0 // state.microphoneState.min;
             const tmax = 255 //state.microphoneState.max;
-            if (!this.soundLevel) {
+            if (!this.soundLevelInitialized) {
+                this.soundLevelInitialized = true;
+                this.soundLevel.style.visibility = "visible";
                 const level = state.microphoneState.getLevel();
                 let gid = "gradient-soundlevel";
                 this.soundLevelGradient = svg.linearGradient(this.defs, gid);
@@ -2106,6 +2117,7 @@ namespace pxsim.visuals {
                     (ev) => {
                         let charCode = (typeof ev.which == "number") ? ev.which : ev.keyCode
                         if (charCode === 40 || charCode === 37) { // Down/Left arrow
+                            ev.preventDefault();
                             state.microphoneState.setLevel(state.microphoneState.getLevel() - 1);
                             if(state.microphoneState.getLevel() < tmin) state.microphoneState.setLevel(tmin);
                             this.updateMicrophone();
@@ -2193,6 +2205,10 @@ namespace pxsim.visuals {
                 svg.rotateElement(this.head, xc, yc, valMax - state.compassState.heading - 90);
                 this.headText.textContent = txt;
             }
+
+            // make sim head focusable when there is a compass
+            this.headParts.setAttribute("class", "sim-button-outer sim-button-group")
+            accessibility.makeFocusable(this.headParts);
         }
 
         private lastFlashTime: number = 0;
@@ -2218,7 +2234,7 @@ namespace pxsim.visuals {
             let now = Date.now();
             if (now - this.lastAntennaFlash > 200) {
                 this.lastAntennaFlash = now;
-                svg.animate(this.antenna, 'sim-flash-stroke')
+                svg.animate(this.antenna.children[1] as SVGElement, 'sim-flash-stroke')
             }
         }
 
@@ -2406,12 +2422,20 @@ namespace pxsim.visuals {
 
             this.pins.forEach((p, i) => svg.hydrate(p, { title: pinTitles[i] }));
 
+            this.pins = pinDrawOrder.reduce((pins, pinName) => {
+                const simPinIndex = pinNames.indexOf(pinName);
+                const newPin = drawList[simPinIndex]();
+                svg.hydrate(newPin, { title: pinTitles[simPinIndex] });
+                pins[simPinIndex] = newPin;
+                return pins;
+            }, new Array(pinDrawOrder.length));
+
             this.pinGradients = this.pins.map((pin, i) => {
                 let gid = "gradient-pin-" + i
                 let lg = svg.linearGradient(this.defs, gid)
                 pin.setAttribute("fill", `url(#${gid})`);
                 return lg;
-            })
+            });
 
             // this.pinTexts = [
             //         [-20,   340],
@@ -2814,12 +2838,28 @@ namespace pxsim.visuals {
                 else
                     this.board.bus.queue(bpState.abBtn.id, DAL.MICROBIT_BUTTON_EVT_CLICK);
                 pressedTime = undefined;
-            })
-            accessibility.enableKeyboardInteraction(this.buttonsOuter[2], undefined, () => {
-                this.board.bus.queue(bpState.abBtn.id, DAL.MICROBIT_BUTTON_EVT_DOWN);
-                this.board.bus.queue(bpState.abBtn.id, DAL.MICROBIT_BUTTON_EVT_UP);
-                this.board.bus.queue(bpState.abBtn.id, DAL.MICROBIT_BUTTON_EVT_CLICK);
             });
+
+            accessibility.enableKeyboardInteraction(this.buttonsOuter[2],
+                () => { // keydown
+                    bpState.aBtn.pressed = true;
+                    bpState.bBtn.pressed = true;
+                    bpState.abBtn.pressed = true;
+                    this.updateButtonPairs();
+                    this.board.bus.queue(bpState.abBtn.id, DAL.MICROBIT_BUTTON_EVT_DOWN);
+                }, () => { // keyup
+                    bpState.aBtn.pressed = false;
+                    bpState.bBtn.pressed = false;
+                    bpState.abBtn.pressed = false;
+                    this.updateButtonPairs();
+                    this.board.bus.queue(bpState.abBtn.id, DAL.MICROBIT_BUTTON_EVT_UP);
+                    this.board.bus.queue(bpState.abBtn.id, DAL.MICROBIT_BUTTON_EVT_CLICK);
+            }
+            );
+        }
+
+        private attachKeyboardEvents() {
+            accessibility.postKeyboardEvent();
         }
     }
 }
