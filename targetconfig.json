@@ -65,7 +65,7 @@
                 ],
                 "preferred": true
             },
-            "calliope-edu/pxt-power": {"preferred": true},
+            "calliope-edu/pxt-power": {"preferred": true, "tags": [ "Software" ]},
              "microsoft/pxt-jacdac": {
                 "tags": [
                     "Jacdac"
@@ -125,7 +125,8 @@
                 ]
             },
             "calliope-edu/warte-bis": {
-                "preferred": true
+                "preferred": true,
+                "tags": [ "Software" ]
             },
             "calliope-edu/pxt-faces": {
                 "tags": [
@@ -150,21 +151,12 @@
                 ]
             },
             "kitronikltd/pxt-kitronik-klimate": {
-                "tags": [
-                    "Climate"
-                ]
             },
             "kitronikltd/pxt-kitronik-lampbit": {},
             "kitronikltd/pxt-kitronik-robotics-board": {
-                "tags": [
-                    "Motor"
-                ]
             },
             "kitronikltd/pxt-kitronik-rtc": {},
             "kitronikltd/pxt-kitronik-servo-lite": {
-                "tags": [
-                    "Motor"
-                ]
             },
             "kitronikltd/pxt-kitronik-stopbit": {},
             "mkleinsb/scrolltext": {},
@@ -252,9 +244,6 @@
                 "preferred": true
             },
             "mkleinsb/pxt-envirobit": {
-                "tags": [
-                    "Climate"
-                ]
             },
             "mkleinsb/pxt-esp-thingspeak": {
                 "tags": [
@@ -291,14 +280,8 @@
                 ]
             },
             "mkleinsb/pxt-kitronik-zip-64": {
-                "tags": [
-                    "RGB"
-                ]
             },
             "mkleinsb/pxt-kitronik-zip-tile-calliope": {
-                "tags": [
-                    "RGB"
-                ],
                 "preferred": true
             },
             "mkleinsb/pxt-makerbit-motor-calliope": {
@@ -438,9 +421,6 @@
                 ]
             },
             "alankrantas/pxt-esp8266_thingspeak": {
-                "tags": [
-                    "IoT"
-                ]
             },
             "mkleinsb/pxt-calliope-jacdac": {
                 "tags": [
@@ -463,9 +443,6 @@
             "jdarling/pxt-pca9685": {},
             "joernalraun/pxt-remember-int": {},
             "keigan-motor/pxt-keiganmotor": {
-                "tags": [
-                    "Motor"
-                ]
             },
             "letstalkscience/pxt-cozir": {},
             "lwchkg/pxt-proportional-font": {},
@@ -595,98 +572,94 @@
             "vengit/pxt-sbrick": {},
             "calliope-edu/pxt-storage": {"preferred": true},
             "coolguy-official/pxt-coolguy": {},
-            "bouw-je-bep/bouw-je-bep": { "tags": [ "Robotics" ] },
-            "birdbraintechnologies/pxt-finch": { "tags": [ "Robotics" ] },
-            "ibuilds/pxt-ptkidsbit": { "tags": [ "Science" ] },
-            "ks-bulme/pxt-mikrobot": { "tags": [ "Robotics" ] },
-            "cytrontechnologies/pxt-rekabit": { "tags": [ "Science" ] },
+            "bouw-je-bep/bouw-je-bep": {},
+            "birdbraintechnologies/pxt-finch": {},
+            "ibuilds/pxt-ptkidsbit": {},
+            "ks-bulme/pxt-mikrobot": {},
+            "cytrontechnologies/pxt-rekabit": {},
             "bsiever/microbit-dstemp": { "tags": [ "Science" ] },
             "bsiever/microbit-dstemp-2wire": { "tags": [ "Science" ] },
             "microsoft/pxt-data-streamer": {},
-            "ibuilds/pxt-ptkidsbit-robot": { "tags": [ "Robotics" ] },
+            "ibuilds/pxt-ptkidsbit-robot": {},
             "4tronix/eggbit": {},
             "joy-it/sen-mpu6050": { "tags": [ "Science" ] },
-            "gomakekit/hoverbit_v2": { "tags": [ "Robotics" ] },
+            "gomakekit/hoverbit_v2": {},
             "matrix-robotics/pxt-matrixmicro": {},
             "joy-it/pxt-rb-tft1.8": { "tags": [ "Lights and Display" ] },
             "cytrontechnologies/pxt-esp8266": { "tags": [ "Networking" ] },
             "elecfreaks/pxt-dronebit": {},
             "elecfreaks/pxt-planetx-ai": { "tags": [ "Science" ] },
             "joy-it/pxt-sen-color": { "tags": [ "Science" ] },
-            "stemhub/pxt-stemhubbit": { "tags": [ "Robotics" ] },
-            "kitronikltd/pxt-kitronik-lab-bit": { "tags": [ "Science" ] },
-            "kitronikltd/pxt-kitronik-128x64display": { "tags": [ "Lights and Display" ] },
+            "stemhub/pxt-stemhubbit": {},
+            "kitronikltd/pxt-kitronik-lab-bit": {},
+            "kitronikltd/pxt-kitronik-128x64display": {},
             "monkmakes/monkmakes-7-segment": { "tags": [ "Lights and Display" ] },
             "stemhub/pxt-stemhubcity": { "tags": [ "Science" ] },
             "kittenbot/pxt-powerbrick": { "tags": [ "Science" ] },
-            "microbit-foundation/pxt-microbit-v2-power": { "tags": [ "Software" ] },
-            "kittenbot/pxt-joyfrog": { "tags": [ "Gaming" ] },
             "kittenbot/pxt-sugar": { "tags": [ "Science" ] },
             "kittenbot/pxt-koi": { "tags": [ "Science" ] },
             "kittenbot/pxt-koi2": { "tags": [ "Science" ] },
-            "kidspark/pxt-sparkbit": { "tags": [ "Robotics" ] },
-            "bpi-steam/pxt-triodecar": { "tags": [ "Robotics" ] },
-            "kitronikltd/pxt-kitronik-air-quality": { "tags": [ "Science" ] },
+            "kidspark/pxt-sparkbit": {},
+            "bpi-steam/pxt-triodecar": {},
+            "kitronikltd/pxt-kitronik-air-quality": {},
             "kitronikltd/pxt-kitronik-air-quality-v2-only": {},
-            "artec-kk/pxt-artecrobo-kit": { "tags": [ "Robotics" ] },
-            "teacherpinky/wait-until-blocks": { "tags": [ "Software" ] },
+            "artec-kk/pxt-artecrobo-kit": {},
             "kittenbot/pxt-kittenwifi": { "tags": [ "Networking" ] },
             "sgbotic/pxt-sgbotic-ultimate-sr04-rgb": { "tags": [ "Science" ] },
-            "cytrontechnologies/pxt-zoombit": { "tags": [ "Robotics" ] },
+            "cytrontechnologies/pxt-zoombit": {},
             "kodely-io/dot": { "tags": [ "Software" ] },
             "climate-action-kits/pxt-climate-action-kit-energy": {},
-            "kitronikltd/pxt-kitronik-simple-servo": { "tags": [ "Robotics" ] },
+            "kitronikltd/pxt-kitronik-simple-servo": {},
             "hackidsedu/pxt-hackbit": { "tags": [ "Science" ] },
             "aorczyk/lego-pf-transmitter": {},
-            "kittenbot/pxt-minilfr": { "tags": [ "Robotics" ] },
+            "kittenbot/pxt-minilfr": {},
             "ibuilds/pxt-ptkidsbit-iot": { "tags": [ "Science" ] },
             "kelieleung/pxt-iclassiot": { "tags": [ "Networking" ] },
             "aorczyk/lego-pf-receiver": {},
             "smarthon/pxt-smartcity": { "tags": [ "Science" ] },
             "aorczyk/soroban": { "tags": [ "Software" ] },
             "aorczyk/pf-recorder": {},
-            "4tronix/theta": { "tags": [ "Robotics" ] },
+            "4tronix/theta": {},
             "bsiever/microbit-pxt-blehid": {},
             "dfrobot/pxt-dfrobot_environment_science": {},
             "ekkai/aicococam": {},
             "elecfreaks/pxt-xgo": {},
             "joy-it/pxt-rfid-mfrc522": { "tags": [ "Science" ] },
             "dfrobot/pxt-dfrobot_iot_cloud_kit": { "tags": [ "Networking" ] },
-            "plenprojectcompany/pxt-plenbit_full": { "tags": [ "Robotics" ] },
-            "bsiever/microbit-pxt-clicks": { "tags": [ "Software" ] },
+            "plenprojectcompany/pxt-plenbit_full": {},
             "bsiever/pxt-morse": { "tags": [ "Software" ] },
             "joy-it/pxt-ads1115": { "tags": [ "Science" ] },
             "bsiever/microbit-pxt-rotate": { "tags": [ "Software" ] },
             "sparkfun/pxt-gator-uv": { "tags": [ "Science" ] },
-            "resolute-support/pxt-apprentice_car": { "tags": [ "Robotics" ] },
-            "makeandlearn/pxt-didacbot": { "tags": [ "Robotics" ] },
-            "cytrontechnologies/pxt-rekabit-rbt-project-kit": { "tags": [ "Science" ] },
-            "cytrontechnologies/pxt-motionbit": { "tags": [ "Robotics" ] },
+            "resolute-support/pxt-apprentice_car": {},
+            "makeandlearn/pxt-didacbot": {},
+            "cytrontechnologies/pxt-rekabit-rbt-project-kit": {},
+            "cytrontechnologies/pxt-motionbit": {},
             "joy-it/pxt-rb-joypi-advanced": { "tags": [ "Science" ] },
             "bsiever/pxt-sen55": { "tags": [ "Science" ] },
             "climate-action-kits/pxt-fwd-edu": {},
-            "elecfreaks/pxt-cutebot-pro": { "tags": [ "Robotics" ] },
+            "elecfreaks/pxt-cutebot-pro": {},
             "microbit-foundation/makecode-tutorials": { "tutorial" : true },
             "grandpabond/pxt-meter": { "tags": [ "Software" ] },
-            "microsoft/microbit-robot": { "tags": [ "Robotics" ] },
-            "4tronix/mars-rover": { "tags": [ "Robotics" ] },
+            "microsoft/microbit-robot": {},
+            "4tronix/mars-rover": {},
             "monkmakes/plant-monitor-makecode": { "tags": [ "Science" ] },
             "grandpabond/pxt-flexfx": { "tags": [ "Software" ] },
-            "grandpabond/pxt-faces": { "tags": [ "Software" ] },
+            "grandpabond/pxt-faces": {},
             "joylabz/code-a-key-extension": {},
-            "eb8ga/pxt-roversa-2": { "tags": [ "Robotics" ] },
-            "roborisen/gcube": { "tags": [ "Robotics" ] },
-            "kittenbot/pxt-tabbyrobot": { "tags": [ "Robotics" ] },
+            "eb8ga/pxt-roversa-2": {},
+            "roborisen/gcube": {},
+            "kittenbot/pxt-tabbyrobot": {},
             "pythom1234/pxt-oled": { "tags": [ "Lights and Display" ] },
-            "softsmyth/lectrify-b4k": { "tags": [ "Robotics" ] },
+            "softsmyth/lectrify-b4k": {},
             "davidnsousa/sonification": { "tags": [ "Software" ] },
             "shahart/heb-microbit": { "tags": [ "Software" ] },
-            "kitronikltd/pxt-kitronik-craft-and-code": { "tags": [ "Robotics" ] },
-            "cytrontechnologies/pxt-sumobit": { "tags": [ "Robotics" ] },
+            "kitronikltd/pxt-kitronik-craft-and-code": {},
+            "cytrontechnologies/pxt-sumobit": {},
             "hovavo/pxt-states": { "tags": [ "Software" ] },
-            "parallaxinc/cyberbot_makecode": { "tags": [ "Robotics" ] },
-            "siyeenove/pxt_mcar": { "tags": [ "Robotics" ] },
-            "elecfreaks/xgo-rider": { "tags": [ "Robotics" ] },
+            "parallaxinc/cyberbot_makecode": {},
+            "siyeenove/pxt_mcar": {},
+            "elecfreaks/xgo-rider": {},
             "microsoft/pxt-simx-sample": {
                 "simx": {
                     "sha": "7301f5900879b85127482d79bab48f03c25690a8",
