@@ -70,8 +70,16 @@
                 "tags": [
                     "Jacdac"
                 ],
-                "preferred": true
+                "upgrades": [ "move:jacdac/pxt-jacdac" ],
+                "hidden": true
             },
+            "jacdac/pxt-jacdac": {
+                "preferred": true,
+                "simx": {
+                    "sha": "0cd760f1d1575b8dcd8ec8abcbb780fc10ec6937",
+                    "devUrl": "https://jacdac.github.io/jacdac-docs/tools/makecode-sim/"
+                }
+            }
             "tinysuperlab/motionkitv2": {
                 "tags": [
                     "Motor"
@@ -475,73 +483,6 @@
             "makecode-extensions/tm1650": {},
             "makecode-extensions/whaleysansfont": {},
             "makecode-extensions/i2clcd1602": {},
-            "microsoft/pxt-jacdac/accelerometer": {},
-            "microsoft/pxt-jacdac/acidity": {},
-            "microsoft/pxt-jacdac/air-pressure": {},
-            "microsoft/pxt-jacdac/air-quality-index": {},
-            "microsoft/pxt-jacdac/arcade-gamepad": {},
-            "microsoft/pxt-jacdac/azure-iot-hub-health": {},
-            "microsoft/pxt-jacdac/button": {},
-            "microsoft/pxt-jacdac/buzzer": {},
-            "microsoft/pxt-jacdac/character-screen": {},
-            "microsoft/pxt-jacdac/codal-message-bus": {},
-            "microsoft/pxt-jacdac/color": {},
-            "microsoft/pxt-jacdac/compass": {},
-            "microsoft/pxt-jacdac/dc-current-measurement": {},
-            "microsoft/pxt-jacdac/dc-voltage-measurement": {},
-            "microsoft/pxt-jacdac/distance": {},
-            "microsoft/pxt-jacdac/dmx": {},
-            "microsoft/pxt-jacdac/dot-matrix": {},
-            "microsoft/pxt-jacdac/dual-motors": {},
-            "microsoft/pxt-jacdac/e-co2": {},
-            "microsoft/pxt-jacdac/flex": {},
-            "microsoft/pxt-jacdac/gamepad": {},
-            "microsoft/pxt-jacdac/gyroscope": {},
-            "microsoft/pxt-jacdac/heart-rate": {},
-            "microsoft/pxt-jacdac/hid-joystick": {},
-            "microsoft/pxt-jacdac/hid-keyboard": {},
-            "microsoft/pxt-jacdac/hid-mouse": {},
-            "microsoft/pxt-jacdac/humidity": {},
-            "microsoft/pxt-jacdac/illuminance": {},
-            "microsoft/pxt-jacdac/led": {},
-            "microsoft/pxt-jacdac/led-single": {},
-            "microsoft/pxt-jacdac/led-strip": {},
-            "microsoft/pxt-jacdac/light-bulb": {},
-            "microsoft/pxt-jacdac/light-level": {},
-            "microsoft/pxt-jacdac/magnetic-field-level": {},
-            "microsoft/pxt-jacdac/magnetometer": {},
-            "microsoft/pxt-jacdac/model-runner": {},
-            "microsoft/pxt-jacdac/motion": {},
-            "microsoft/pxt-jacdac/motor": {},
-            "microsoft/pxt-jacdac/multitouch": {},
-            "microsoft/pxt-jacdac/potentiometer": {},
-            "microsoft/pxt-jacdac/power": {},
-            "microsoft/pxt-jacdac/pulse-oximeter": {},
-            "microsoft/pxt-jacdac/rain-gauge": {},
-            "microsoft/pxt-jacdac/real-time-clock": {},
-            "microsoft/pxt-jacdac/reflected-light": {},
-            "microsoft/pxt-jacdac/relay": {},
-            "microsoft/pxt-jacdac/rng": {},
-            "microsoft/pxt-jacdac/rotary-encoder": {},
-            "microsoft/pxt-jacdac/sensor-aggregator": {},
-            "microsoft/pxt-jacdac/servo": {},
-            "microsoft/pxt-jacdac/seven-segment-display": {},
-            "microsoft/pxt-jacdac/soil-moisture": {},
-            "microsoft/pxt-jacdac/solenoid": {},
-            "microsoft/pxt-jacdac/sound-level": {},
-            "microsoft/pxt-jacdac/speech-synthesis": {},
-            "microsoft/pxt-jacdac/switch": {},
-            "microsoft/pxt-jacdac/tcp": {},
-            "microsoft/pxt-jacdac/temperature": {},
-            "microsoft/pxt-jacdac/traffic-light": {},
-            "microsoft/pxt-jacdac/tvoc": {},
-            "microsoft/pxt-jacdac/uv-index": {},
-            "microsoft/pxt-jacdac/vibration-motor": {},
-            "microsoft/pxt-jacdac/water-level": {},
-            "microsoft/pxt-jacdac/weight-scale": {},
-            "microsoft/pxt-jacdac/wifi": {},
-            "microsoft/pxt-jacdac/wind-direction": {},
-            "microsoft/pxt-jacdac/wind-speed": {},
             "monkmakes/pxt-sensor": {},
             "mu-opensource/pxt-muvision": {},
             "pizayanz/pxt-linebeacon": {},
@@ -682,7 +623,6 @@
             "zukunftswerkstatt-buchholz/robot-control": { "tags": [ "Motor" ] }
         },
         "approvedEditorExtensionUrls": [
-            "https://microsoft.github.io/jacdac-docs/tools/makecode-editor-extension"
         ],
         "extensionsToolboxDisallowDelete": [
         ]
