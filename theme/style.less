@@ -17,29 +17,46 @@
 /* Import font definitions */
 @import 'fonts';
 
+@font-face  {
+    font-family: 'Roboto';
+    src: @RobotoFont format("woff");
+}
+
+:root, .pxt-theme-root {
+    --pxt-page-font: @pageFont;
+}
+
 .ui.button.download-button {
-    &:extend(.ui.purple.button all);
+    background-color: var(--pxt-primary-background);
+    color: var(--pxt-primary-foreground);
 }
 
 .ui.button.download-button:hover {
     background-color: #30a7a7;
     color: white;
+.ui.button.hw-button {
+    background-color: var(--pxt-primary-accent) !important;
+    color: var(--pxt-primary-foreground) !important;
 }
 
 .docs.inlinebutton.ui.button.download-button:hover {
-    &:extend(.ui.purple.button all);
+    background-color: var(--pxt-primary-background);
+    color: var(--pxt-primary-foreground);
 }
 
-.ui.button.play-button.play-button-full {
-    &:extend(.ui.inverted.button all);
+#editortools .ui.button.editortools-btn, .simtoolbar .ui.button.icon {
+    background-color: var(--pxt-secondary-background);
+    color: var(--pxt-secondary-foreground);
+
+    &:hover {
+        filter: none;
+        background-color: var(--pxt-secondary-background-hover);
+        color: var(--pxt-secondary-foreground-hover);
+    }
 }
 
-.ui.button.getting-started-btn {
-    &:extend(.ui.orange.button all);
-}
-
-.ui.button.editortools-btn {
-    &:extend(.ui.blue.button all);
+#simulator .ui.button.play-button .icon.play {
+    color: var(--pxt-secondary-foreground) !important;
 }
 
 .ui.button.exit-tutorial-btn {
