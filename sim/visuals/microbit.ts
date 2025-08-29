@@ -1,3 +1,62 @@
+const translations: Record<string, Record<string, string>> = {
+    en: {
+        shake: "Shake"
+    },
+    de: {
+        shake: "Schütteln"
+    },
+}
+
+// Language value provided by parent editor via postMessage
+let pxtLangFromParent: string | undefined = undefined
+
+// Listen for language messages from parent (MakeCode editor). Parent should
+// post { type: 'pxt-set-language', lang: 'de' } to the simulator frame.
+if (typeof window !== "undefined" && typeof window.addEventListener === "function") {
+    window.addEventListener("message", (ev: MessageEvent) => {
+        try {
+            const d = ev.data
+            if (d && typeof d === "object" && (d as any).type === "pxt-set-language" && typeof (d as any).lang === "string") {
+                pxtLangFromParent = (d as any).lang
+                try {
+                    const cookieVal = encodeURIComponent(pxtLangFromParent)
+                    const expires = new Date(Date.now() + 365 * 24 * 60 * 60 * 1000).toUTCString()
+                    document.cookie = `PXT_LANG=${cookieVal}; Path=/; Expires=${expires}; SameSite=Lax`
+                } catch (e) {
+                    // ignore cookie write errors
+                }
+            }
+        } catch (e) {
+            // ignore malformed messages
+        }
+    })
+}
+
+function translateLang(key:string): string {
+    // Simple priority:
+    // 1) language sent by parent via postMessage (pxtLangFromParent)
+    // 2) PXT_LANG cookie
+    // 3) navigator.language
+    // 4) default to 'en'
+    let lang = typeof pxtLangFromParent === "string" && pxtLangFromParent ? pxtLangFromParent : undefined
+
+    try {
+        if (!lang && typeof document !== "undefined" && document.cookie) {
+            const m = document.cookie.match(/(?:^|; )PXT_LANG=([^;]+)/)
+            if (m && m[1]) lang = decodeURIComponent(m[1])
+        }
+    } catch (e) {
+        // ignore cookie errors
+    }
+
+    if (!lang) {
+        lang = (typeof navigator !== "undefined" && navigator.language) ? navigator.language : "en"
+    }
+
+    lang = (lang || "en").slice(0, 2)
+    return translations[lang]?.[key] || translations.en[key]
+}
+
 namespace pxsim.visuals {
 
     const MB_STYLE = `
@@ -193,12 +252,12 @@ namespace pxsim.visuals {
             outline: none;
         }
         *:focus .sim-button-outer,
-        .sim-pin.focused,
-        .sim-thermometer:focus,
         .sim-shake:focus,
-        .sim-light-level-button:focus {
-            stroke: #4D90FE;
-            stroke-width: 5px !important;
+        .sim-thermometer:focus {
+            outline: 5px solid white;
+            stroke: black;
+            stroke-width: 10px;
+            paint-order: stroke;
         }
         .no-drag, .sim-text, .sim-text-pin {
             user-drag: none;
@@ -1346,6 +1405,7 @@ namespace pxsim.visuals {
         "G_A0_GND", "G_A0_VCC", "G_A0_SDA", "G_A0_SCL",
         "G_A1_RX", "G_A1_TX", "G_A1_VCC", "G_A1_GND"
     ];
+    // const pinDrawOrder = pinNames;
     const pinTitles_v3 = [
         "P0", "P1", "P2", "P3", "Logo", "GND", "+3v3",
         "Button A", "Button B",
@@ -1375,6 +1435,7 @@ namespace pxsim.visuals {
         pin?: string;
         pinTouched?: string;
         pinActive?: string;
+        highContrast?: boolean;
         ledOn?: string;
         ledOff?: string;
         buttonOuter?: string;
@@ -1410,8 +1471,17 @@ namespace pxsim.visuals {
         }
     });
 
-    export function randomTheme(): IBoardTheme {
-        return themes[Math.floor(Math.random() * themes.length)];
+    export function randomTheme(highContrast?: boolean): IBoardTheme {
+        let theme = themes[Math.floor(Math.random() * themes.length)];
+        if (highContrast) {
+            theme = JSON.parse(JSON.stringify(theme)) as IBoardTheme;
+            theme.highContrast = true;
+            theme.ledOff = "#000000";
+            theme.ledOn = "#FF0000";
+            theme.pin = "#D4AF37";
+            theme.accent = "#FFD43A";
+        }
+        return theme;
     }
 
 	class MiniBoard extends pxsim.BaseBoard {
@@ -1453,20 +1523,30 @@ namespace pxsim.visuals {
         private leds: SVGElement[];
         private microphoneLed: SVGElement;
         private systemLed: SVGCircleElement;
-        private antenna: SVGPolylineElement;
+        private antenna: SVGElement;
+        private antennaInitialized = false;
         private rssi: SVGTextElement;
         private lightLevelButton: SVGCircleElement;
         private lightLevelGradient: SVGLinearGradientElement;
+        private lightLevelInitialized = false;
         private lightLevelText: SVGTextElement;
         private thermometerGradient: SVGLinearGradientElement;
         private thermometer: SVGRectElement;
+        private thermometerInitialized = false;
         private thermometerText: SVGTextElement;
         private soundLevelGradient: SVGLinearGradientElement;
         private soundLevel: SVGRectElement;
+        private soundLevelInitialized = false;
         private soundLevelText: SVGTextElement;
         private soundLevelIcon: SVGTextElement;
         private shakeButton: SVGElement;
+        private shakeInitialized = false;
         // private shakeText: SVGTextElement;
+        // private accTextX: SVGTextElement;
+        // private accTextY: SVGTextElement;
+        // private accTextZ: SVGTextElement;
+        // private v2Circle: SVGCircleElement
+        // private v2Text: SVGTextElement;
         public board: pxsim.DalBoard;
         private domHardwareVersion = 1;
         private rgbLed: SVGElement;
@@ -1854,7 +1934,7 @@ namespace pxsim.visuals {
         private updateGestures() {
             let state = this.board;
             if (state.accelerometerState.useShake && !this.shakeButton) {
-                let shake = this.mkBtn(240, MB_HEIGHT - 75, 'Schütteln');
+                let shake = this.mkBtn(240, MB_HEIGHT - 75, translateLang("shake"));
                 this.shakeButton = shake.inner;
                 let board = this.element.getElementById("calliope_mini")
                 // console.log(board)
@@ -2016,12 +2096,17 @@ namespace pxsim.visuals {
                     (ev) => {
                         let charCode = (typeof ev.which == "number") ? ev.which : ev.keyCode
                         if (charCode === 40 || charCode === 37) { // Down/Left arrow
+                            ev.preventDefault();
                             state.thermometerState.temperature--;
-                            if(state.thermometerState.temperature < tmin) state.thermometerState.temperature = tmin;
+                            if(state.thermometerState.temperature < tmin) {
+                                state.thermometerState.temperature = tmax;
+                            }
                             this.updateTemperature();
                         } else if (charCode === 38 || charCode === 39) { // Up/Right arrow
                             state.thermometerState.temperature++
-                            if(state.thermometerState.temperature > tmax) state.thermometerState.temperature = tmax;
+                            if(state.thermometerState.temperature > tmax) {
+                                state.thermometerState.temperature = tmin;
+                            }
                             this.updateTemperature();
                         }
                     })
@@ -2050,7 +2135,8 @@ namespace pxsim.visuals {
 
             const tmin = 0 // state.microphoneState.min;
             const tmax = 255 //state.microphoneState.max;
-            if (!this.soundLevel) {
+            if (!this.soundLevelInitialized) {
+                this.soundLevelInitialized = true;
                 const level = state.microphoneState.getLevel();
                 let gid = "gradient-soundlevel";
                 this.soundLevelGradient = svg.linearGradient(this.defs, gid);
@@ -2065,6 +2151,9 @@ namespace pxsim.visuals {
                     ry: 5,
                     fill: `url(#${gid})`
                 });
+                // ensure the element is visible
+                if (this.soundLevel && (this.soundLevel as any).style)
+                    (this.soundLevel as any).style.visibility = "visible";
                 this.soundLevelText = svg.child(this.g, "text", {
                     class: 'sim-text big inverted centered',
                     x: 505,
@@ -2106,12 +2195,18 @@ namespace pxsim.visuals {
                     (ev) => {
                         let charCode = (typeof ev.which == "number") ? ev.which : ev.keyCode
                         if (charCode === 40 || charCode === 37) { // Down/Left arrow
+                            ev.preventDefault();
                             state.microphoneState.setLevel(state.microphoneState.getLevel() - 1);
-                            if(state.microphoneState.getLevel() < tmin) state.microphoneState.setLevel(tmin);
+                            if(state.microphoneState.getLevel() < tmin) {
+                                state.microphoneState.setLevel(tmax);
+                            }
                             this.updateMicrophone();
                         } else if (charCode === 38 || charCode === 39) { // Up/Right arrow
+                            ev.preventDefault();
                             state.microphoneState.setLevel(state.microphoneState.getLevel() + 1);
-                            if(state.microphoneState.getLevel() > tmax) state.microphoneState.setLevel(tmax);
+                            if(state.microphoneState.getLevel() > tmax) {
+                                state.microphoneState.setLevel(tmin);
+                            }
                             this.updateMicrophone();
                         }
                     })
@@ -2152,7 +2247,8 @@ namespace pxsim.visuals {
                 // p.setAttribute("d", "m269.9,50.134647l0,0l-39.5,0l0,0c-14.1,0.1 -24.6,10.7 -24.6,24.8c0,13.9 10.4,24.4 24.3,24.7l0,0l39.6,0c14.2,0 40.36034,-22.97069 40.36034,-24.85394c0,-1.88326 -26.06034,-24.54606 -40.16034,-24.64606m-0.2,39l0,0l-39.3,0c-7.7,-0.1 -14,-6.4 -14,-14.2c0,-7.8 6.4,-14.2 14.2,-14.2l39.1,0c7.8,0 14.2,6.4 14.2,14.2c0,7.9 -6.4,14.2 -14.2,14.2l0,0l0,0z");
                 this.updateTheme();
                 let pt = this.element.createSVGPoint();
-                svg.buttonEvents(this.head,
+                svg.buttonEvents(
+                    this.head,
                     // move
                     (ev: MouseEvent) => {
                         let cur = svg.cursorPoint(pt, this.element, ev);
@@ -2165,18 +2261,23 @@ namespace pxsim.visuals {
                     // stop
                     ev => { },
                     // keydown
-                    ev => {
+                    (ev) => {
                         let charCode = (typeof ev.which == "number") ? ev.which : ev.keyCode
                         if (charCode === 40 || charCode === 37) { // Down/Left arrow
+                            ev.preventDefault();
                             state.compassState.heading--;
-                            if(state.compassState.heading < valMin) state.compassState.heading += valMax;
+                            if (state.compassState.heading < valMin) state.compassState.heading += valMax;
+                            if (state.compassState.heading >= valMax) state.compassState.heading %= valMax;
                             this.updateHeading();
                         } else if (charCode === 38 || charCode === 39) { // Up/Right arrow
+                            ev.preventDefault();
                             state.compassState.heading++;
-                            if(state.compassState.heading >= valMax) state.compassState.heading -= valMax;;
+                            if (state.compassState.heading < valMin) state.compassState.heading += valMax;
+                            if (state.compassState.heading >= valMax) state.compassState.heading %= valMax;
                             this.updateHeading();
                         }
-                    });
+                    }
+                );
                 this.headInitialized = true;
             }
 
@@ -2193,6 +2294,10 @@ namespace pxsim.visuals {
                 svg.rotateElement(this.head, xc, yc, valMax - state.compassState.heading - 90);
                 this.headText.textContent = txt;
             }
+
+            // make sim head focusable when there is a compass
+            this.headParts.setAttribute("class", "sim-button-outer sim-button-group")
+            accessibility.makeFocusable(this.headParts);
         }
 
         private lastFlashTime: number = 0;
@@ -2218,7 +2323,7 @@ namespace pxsim.visuals {
             let now = Date.now();
             if (now - this.lastAntennaFlash > 200) {
                 this.lastAntennaFlash = now;
-                svg.animate(this.antenna, 'sim-flash-stroke')
+                svg.animate(this.antenna.children[1] as SVGElement, 'sim-flash-stroke')
             }
         }
 
@@ -2269,12 +2374,18 @@ namespace pxsim.visuals {
                     ev => {
                         let charCode = (typeof ev.which == "number") ? ev.which : ev.keyCode
                         if (charCode === 40 || charCode === 37) { // Down/Left arrow
-                            state.lightSensorState.lightLevel--;
-                            if(state.lightSensorState.lightLevel < valMin) state.lightSensorState.lightLevel = valMin;
+                            ev.preventDefault();
+                            this.board.lightSensorState.lightLevel--;
+                            if (this.board.lightSensorState.lightLevel < valMin) {
+                                this.board.lightSensorState.lightLevel = valMax;
+                            }
                             this.applyLightLevel();
                         } else if (charCode === 38 || charCode === 39) { // Up/Right arrow
-                            state.lightSensorState.lightLevel++
-                            if(state.lightSensorState.lightLevel > valMax) state.lightSensorState.lightLevel = valMax;
+                            ev.preventDefault();
+                            this.board.lightSensorState.lightLevel++;
+                            if (this.board.lightSensorState.lightLevel > valMax) {
+                                this.board.lightSensorState.lightLevel = valMin;
+                            }
                             this.applyLightLevel();
                         }
                     })
@@ -2406,12 +2517,20 @@ namespace pxsim.visuals {
 
             this.pins.forEach((p, i) => svg.hydrate(p, { title: pinTitles[i] }));
 
+            // this.pins = pinDrawOrder.reduce((pins, pinName) => {
+            //     const simPinIndex = pinNames.indexOf(pinName);
+            //     const newPin = drawList[simPinIndex]();
+            //     svg.hydrate(newPin, { title: pinTitles[simPinIndex] });
+            //     pins[simPinIndex] = newPin;
+            //     return pins;
+            // }, new Array(pinDrawOrder.length));
+
             this.pinGradients = this.pins.map((pin, i) => {
                 let gid = "gradient-pin-" + i
                 let lg = svg.linearGradient(this.defs, gid)
                 pin.setAttribute("fill", `url(#${gid})`);
                 return lg;
-            })
+            });
 
             // this.pinTexts = [
             //         [-20,   340],
@@ -2497,6 +2616,7 @@ namespace pxsim.visuals {
                 this.attachPinsTouchEvents();
                 this.attachABEvents();
                 this.attachAPlusBEvents();
+                this.attachKeyboardEvents();
             });
         }
 
@@ -2683,12 +2803,14 @@ namespace pxsim.visuals {
                         let charCode = (typeof ev.which == "number") ? ev.which : ev.keyCode
 
                         if (charCode === 40 || charCode === 37) { // Down/Left arrow
+                            ev.preventDefault();
                             pinState.value -= 10;
                             if (pinState.value < 0) {
                                 pinState.value = 1023;
                             }
                             this.updatePin(pinState, index);
                         } else if (charCode === 38 || charCode === 39) { // Up/Right arrow
+                            ev.preventDefault();
                             pinState.value += 10;
                             if (pinState.value > 1023) {
                                 pinState.value = 0;
@@ -2781,11 +2903,7 @@ namespace pxsim.visuals {
                 bpState.aBtn.pressed = true;
                 bpState.bBtn.pressed = true;
                 bpState.abBtn.pressed = true;
-                svg.fill(this.buttons[0], this.props.theme.buttonDown);
-                svg.fill(this.buttons[1], this.props.theme.buttonDown);
-                svg.fill(this.buttons[2], this.props.theme.buttonDown);
-                this.board.bus.queue(stateButtons[0].id, DAL.MICROBIT_BUTTON_EVT_DOWN);
-                this.board.bus.queue(stateButtons[1].id, DAL.MICROBIT_BUTTON_EVT_DOWN);
+                this.updateButtonPairs();
                 this.board.bus.queue(bpState.abBtn.id, DAL.MICROBIT_BUTTON_EVT_DOWN);
                 pressedTime = runtime.runningTime()
             }));
@@ -2793,17 +2911,13 @@ namespace pxsim.visuals {
                 bpState.aBtn.pressed = false;
                 bpState.bBtn.pressed = false;
                 bpState.abBtn.pressed = false;
-                svg.fill(this.buttons[0], this.props.theme.buttonUps[0]);
-                svg.fill(this.buttons[1], this.props.theme.buttonUps[1]);
-                svg.fill(this.buttons[2], this.props.theme.virtualButtonUp);
+                this.updateButtonPairs();
             })
             this.buttonsOuter[2].addEventListener(pointerEvents.up, ev => {
                 bpState.aBtn.pressed = false;
                 bpState.bBtn.pressed = false;
                 bpState.abBtn.pressed = false;
-                svg.fill(this.buttons[0], this.props.theme.buttonUps[0]);
-                svg.fill(this.buttons[1], this.props.theme.buttonUps[1]);
-                svg.fill(this.buttons[2], this.props.theme.virtualButtonUp);
+                this.updateButtonPairs();
 
                 this.board.bus.queue(stateButtons[0].id, DAL.MICROBIT_BUTTON_EVT_UP);
                 this.board.bus.queue(stateButtons[1].id, DAL.MICROBIT_BUTTON_EVT_UP);
@@ -2814,12 +2928,28 @@ namespace pxsim.visuals {
                 else
                     this.board.bus.queue(bpState.abBtn.id, DAL.MICROBIT_BUTTON_EVT_CLICK);
                 pressedTime = undefined;
-            })
-            accessibility.enableKeyboardInteraction(this.buttonsOuter[2], undefined, () => {
-                this.board.bus.queue(bpState.abBtn.id, DAL.MICROBIT_BUTTON_EVT_DOWN);
-                this.board.bus.queue(bpState.abBtn.id, DAL.MICROBIT_BUTTON_EVT_UP);
-                this.board.bus.queue(bpState.abBtn.id, DAL.MICROBIT_BUTTON_EVT_CLICK);
             });
+
+            accessibility.enableKeyboardInteraction(this.buttonsOuter[2],
+                () => { // keydown
+                    bpState.aBtn.pressed = true;
+                    bpState.bBtn.pressed = true;
+                    bpState.abBtn.pressed = true;
+                    this.updateButtonPairs();
+                    this.board.bus.queue(bpState.abBtn.id, DAL.MICROBIT_BUTTON_EVT_DOWN);
+                }, () => { // keyup
+                    bpState.aBtn.pressed = false;
+                    bpState.bBtn.pressed = false;
+                    bpState.abBtn.pressed = false;
+                    this.updateButtonPairs();
+                    this.board.bus.queue(bpState.abBtn.id, DAL.MICROBIT_BUTTON_EVT_UP);
+                    this.board.bus.queue(bpState.abBtn.id, DAL.MICROBIT_BUTTON_EVT_CLICK);
+            }
+            );
+        }
+
+        private attachKeyboardEvents() {
+            accessibility.postKeyboardEvent();
         }
     }
 }
