@@ -1,3 +1,62 @@
+const translations: Record<string, Record<string, string>> = {
+    en: {
+        shake: "Shake"
+    },
+    de: {
+        shake: "Schütteln"
+    },
+}
+
+// Language value provided by parent editor via postMessage
+let pxtLangFromParent: string | undefined = undefined
+
+// Listen for language messages from parent (MakeCode editor). Parent should
+// post { type: 'pxt-set-language', lang: 'de' } to the simulator frame.
+if (typeof window !== "undefined" && typeof window.addEventListener === "function") {
+    window.addEventListener("message", (ev: MessageEvent) => {
+        try {
+            const d = ev.data
+            if (d && typeof d === "object" && (d as any).type === "pxt-set-language" && typeof (d as any).lang === "string") {
+                pxtLangFromParent = (d as any).lang
+                try {
+                    const cookieVal = encodeURIComponent(pxtLangFromParent)
+                    const expires = new Date(Date.now() + 365 * 24 * 60 * 60 * 1000).toUTCString()
+                    document.cookie = `PXT_LANG=${cookieVal}; Path=/; Expires=${expires}; SameSite=Lax`
+                } catch (e) {
+                    // ignore cookie write errors
+                }
+            }
+        } catch (e) {
+            // ignore malformed messages
+        }
+    })
+}
+
+function translateLang(key:string): string {
+    // Simple priority:
+    // 1) language sent by parent via postMessage (pxtLangFromParent)
+    // 2) PXT_LANG cookie
+    // 3) navigator.language
+    // 4) default to 'en'
+    let lang = typeof pxtLangFromParent === "string" && pxtLangFromParent ? pxtLangFromParent : undefined
+
+    try {
+        if (!lang && typeof document !== "undefined" && document.cookie) {
+            const m = document.cookie.match(/(?:^|; )PXT_LANG=([^;]+)/)
+            if (m && m[1]) lang = decodeURIComponent(m[1])
+        }
+    } catch (e) {
+        // ignore cookie errors
+    }
+
+    if (!lang) {
+        lang = (typeof navigator !== "undefined" && navigator.language) ? navigator.language : "en"
+    }
+
+    lang = (lang || "en").slice(0, 2)
+    return translations[lang]?.[key] || translations.en[key]
+}
+
 namespace pxsim.visuals {
 
     const MB_STYLE = `
@@ -59,9 +118,8 @@ namespace pxsim.visuals {
             stroke:#D4AF37;
             stroke-width:2px;
         }
-
-        .sim-pin-touch.touched {
-            stroke:darkorange !important;
+        .sim-pin-touch.touched:hover {
+            stroke:darkorange;
         }
         .sim-led-back:hover {
             stroke:#fff;
@@ -201,22 +259,7 @@ namespace pxsim.visuals {
             stroke-width: 10px;
             paint-order: stroke;
         }
-        .sim-button-outer.sim-button-group:focus > .sim-button {
-            outline: 5px solid white;
-            stroke: black;
-            stroke-width: 5px;
-            paint-order: stroke;
-        }
-        .sim-light-level-button:focus,
-        .sim-antenna-outer:focus > .sim-antenna {
-            outline: 5px solid white;
-        }
-        .sim-pin:focus { 
-            stroke: white;
-            stroke-width: 5px !important;
-        }
-        .no-drag, .sim-text, .sim-text-small,
-        .sim-text-pin {
+        .no-drag, .sim-text, .sim-text-pin {
             user-drag: none;
             user-select: none;
             -moz-user-select: none;
@@ -1891,7 +1934,7 @@ namespace pxsim.visuals {
         private updateGestures() {
             let state = this.board;
             if (state.accelerometerState.useShake && !this.shakeButton) {
-                let shake = this.mkBtn(240, MB_HEIGHT - 75, 'Schütteln');
+                let shake = this.mkBtn(240, MB_HEIGHT - 75, translateLang("shake"));
                 this.shakeButton = shake.inner;
                 let board = this.element.getElementById("calliope_mini")
                 // console.log(board)
@@ -2094,7 +2137,6 @@ namespace pxsim.visuals {
             const tmax = 255 //state.microphoneState.max;
             if (!this.soundLevelInitialized) {
                 this.soundLevelInitialized = true;
-                this.soundLevel.style.visibility = "visible";
                 const level = state.microphoneState.getLevel();
                 let gid = "gradient-soundlevel";
                 this.soundLevelGradient = svg.linearGradient(this.defs, gid);
@@ -2109,6 +2151,9 @@ namespace pxsim.visuals {
                     ry: 5,
                     fill: `url(#${gid})`
                 });
+                // ensure the element is visible
+                if (this.soundLevel && (this.soundLevel as any).style)
+                    (this.soundLevel as any).style.visibility = "visible";
                 this.soundLevelText = svg.child(this.g, "text", {
                     class: 'sim-text big inverted centered',
                     x: 505,
@@ -2445,82 +2490,7 @@ namespace pxsim.visuals {
                 }
             }
 
-            // Order of construction affects tab ordering
-        //     this.buildLightLevelElement();
-        //     this.buildAntennaElement();
-        //     this.buildHeadElement();
-        //     this.buildThermometerElement();
-        //     this.buildSoundLevel();
-        //     this.buildShakeElement();
-        //     this.buildButtonElements();
-        //     this.buildPinElements();
-        // }
 
-        // private buildAntennaElement() {
-        //     this.antenna = svg.child(this.g, "g", { class: "sim-antenna-outer" });
-
-        //     const ayt = 10;
-        //     const ayb = 40;
-        //     const antennaWidth = ANTENNA_WAVE_PERIOD_X * ANTENNA_WAVE_COUNT;
-        //     const borderOffset = 3;
-
-        //     svg.child(this.antenna, "rect", {
-        //         x: ANTENNA_X - borderOffset,
-        //         y: ayt - borderOffset,
-        //         width: antennaWidth + 2 * borderOffset,
-        //         height: ayb - ayt + 2 * borderOffset,
-        //         fill: "transparent",
-        //         rx: 2
-        //     });
-
-        //     let ax = ANTENNA_X;
-        //     const dax = ANTENNA_WAVE_PERIOD_X;
-        //     svg.child(this.antenna, "polyline", { class: "sim-antenna", points: `${ax},${ayb} ${ax},${ayt} ${ax += dax},${ayt} ${ax},${ayb} ${ax += dax},${ayb} ${ax},${ayt} ${ax += dax},${ayt} ${ax},${ayb} ${ax += dax},${ayb} ${ax},${ayt} ${ax += dax},${ayt}` });
-        //     this.antenna.style.visibility = "hidden";
-        // }
-
-        // private buildSoundLevel() {
-        //     let gid = "gradient-soundlevel";
-        //     this.soundLevelGradient = svg.linearGradient(this.defs, gid);
-        //     this.soundLevel = <SVGRectElement>svg.child(this.g, "rect", {
-        //         class: "sim-thermometer no-drag",
-        //         x: 360,
-        //         y: 110,
-        //         width: 20,
-        //         height: 160,
-        //         rx: 5, ry: 5,
-        //         fill: `url(#${gid})`
-        //     });
-        //     this.soundLevel.style.visibility = "hidden";
-        // }
-
-        // private buildThermometerElement() {
-        //     let gid = "gradient-thermometer";
-        //     this.thermometerGradient = svg.linearGradient(this.defs, gid);
-        //     this.thermometer = <SVGRectElement>svg.child(this.g, "rect", {
-        //         class: "sim-thermometer no-drag",
-        //         x: 120,
-        //         y: 110,
-        //         width: 20,
-        //         height: 160,
-        //         rx: 5, ry: 5,
-        //         fill: `url(#${gid})`
-        //     });
-        //     this.thermometer.style.visibility = "hidden";
-        // }
-
-        // private buildLightLevelElement() {
-        //     let gid = "gradient-light-level";
-        //     this.lightLevelGradient = svg.linearGradient(this.defs, gid);
-        //     this.lightLevelButton = svg.child(this.g, "circle", {
-        //         cx: `50px`, cy: `${LIGHT_LEVEL_BUTTON_POSITION_Y}px`, r: `${LIGHT_LEVEL_BUTTON_RADIUS}px`,
-        //         class: 'sim-light-level-button no-drag',
-        //         fill: `url(#${gid})`
-        //     }) as SVGCircleElement;
-        //     this.lightLevelButton.style.visibility = "hidden";
-        // }
-
-        // private buildHeadElement() {
              // head
             //  this.headg = <SVGGElement>svg.child(this.g, "g", { style: "transform: translate(100px, 0px);" });
              this.head = <SVGGElement>svg.child(this.g, "g", { class: "sim-head" });
@@ -2575,19 +2545,6 @@ namespace pxsim.visuals {
                 [DigitalPin.P2]: <SVGTextElement>svg.child(this.g, "text", { class: "sim-text-pin big centered", x: 395, y: 540 }),
                 [DigitalPin.P3]: <SVGTextElement>svg.child(this.g, "text", { class: "sim-text-pin big centered", x: 540, y: 325 })
             }
-
-        // private buildShakeElement() {
-        //     this.shakeButton = svg.child(this.g, "circle", {
-        //         cx: 404,
-        //         cy: 115,
-        //         r: 12,
-        //         class: "sim-shake",
-        //     }) as SVGCircleElement;
-        //     this.shakeButton.style.visibility = "hidden";
-        // }
-
-        // private buildButtonElements() {
-        //     this.buttonsOuter = []; this.buttons = [];
 
             // BTN A, B
             const btnids = ["BTN_A", "BTN_B"];
@@ -2652,13 +2609,15 @@ namespace pxsim.visuals {
         }
 
         private attachEvents() {
-            this.attachIFrameEvents();
-            this.attachAccelerometerEvents();
-            // this.attachPinsIOEvents();
-            this.attachPinsTouchEvents();
-            this.attachABEvents();
-            this.attachAPlusBEvents();
-            this.attachKeyboardEvents();
+            // wait until we're actually in the dom
+            setTimeout(() => {
+                this.attachIFrameEvents();
+                this.attachAccelerometerEvents();
+                this.attachPinsTouchEvents();
+                this.attachABEvents();
+                this.attachAPlusBEvents();
+                this.attachKeyboardEvents();
+            });
         }
 
         private attachIFrameEvents() {
