@@ -1,61 +1,3 @@
-const translations: Record<string, Record<string, string>> = {
-    en: {
-        shake: "Shake"
-    },
-    de: {
-        shake: "Schütteln"
-    },
-}
-
-// Language value provided by parent editor via postMessage
-let pxtLangFromParent: string | undefined = undefined
-
-// Listen for language messages from parent (MakeCode editor). Parent should
-// post { type: 'pxt-set-language', lang: 'de' } to the simulator frame.
-if (typeof window !== "undefined" && typeof window.addEventListener === "function") {
-    window.addEventListener("message", (ev: MessageEvent) => {
-        try {
-            const d = ev.data
-            if (d && typeof d === "object" && (d as any).type === "pxt-set-language" && typeof (d as any).lang === "string") {
-                pxtLangFromParent = (d as any).lang
-                try {
-                    const cookieVal = encodeURIComponent(pxtLangFromParent)
-                    const expires = new Date(Date.now() + 365 * 24 * 60 * 60 * 1000).toUTCString()
-                    document.cookie = `PXT_LANG=${cookieVal}; Path=/; Expires=${expires}; SameSite=Lax`
-                } catch (e) {
-                    // ignore cookie write errors
-                }
-            }
-        } catch (e) {
-            // ignore malformed messages
-        }
-    })
-}
-
-function translateLang(key:string): string {
-    // Simple priority:
-    // 1) language sent by parent via postMessage (pxtLangFromParent)
-    // 2) PXT_LANG cookie
-    // 3) navigator.language
-    // 4) default to 'en'
-    let lang = typeof pxtLangFromParent === "string" && pxtLangFromParent ? pxtLangFromParent : undefined
-
-    try {
-        if (!lang && typeof document !== "undefined" && document.cookie) {
-            const m = document.cookie.match(/(?:^|; )PXT_LANG=([^;]+)/)
-            if (m && m[1]) lang = decodeURIComponent(m[1])
-        }
-    } catch (e) {
-        // ignore cookie errors
-    }
-
-    if (!lang) {
-        lang = (typeof navigator !== "undefined" && navigator.language) ? navigator.language : "en"
-    }
-
-    lang = (lang || "en").slice(0, 2)
-    return translations[lang]?.[key] || translations.en[key]
-}
 
 namespace pxsim.visuals {
 
@@ -1934,10 +1876,10 @@ namespace pxsim.visuals {
         private updateGestures() {
             let state = this.board;
             if (state.accelerometerState.useShake && !this.shakeButton) {
-                let shake = this.mkBtn(240, MB_HEIGHT - 75, translateLang("shake"));
+                // Use simulator-localized string (sim-specific UI label)
+                let shake = this.mkBtn(240, MB_HEIGHT - 75, pxsim.localization.lf("shake"));
                 this.shakeButton = shake.inner;
                 let board = this.element.getElementById("calliope_mini")
-                // console.log(board)
                 // svg.fill(this.shakeButton, this.props.theme.virtualButtonUp)
                 svg.buttonEvents(shake.outer,
                     ev => { },
