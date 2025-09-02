@@ -46,6 +46,7 @@ declare const enum DAL {
     DEVICE_ID_VIRTUAL_SPEAKER_PIN = 43,
     DEVICE_ID_LOG = 44,
     DEVICE_ID_IO_P0 = 100,
+    DEVICE_ID_MESSAGE_BUS_IGNORED = 1020,
     DEVICE_ID_MESSAGE_BUS_LISTENER = 1021,
     DEVICE_ID_NOTIFY_ONE = 1022,
     DEVICE_ID_NOTIFY = 1023,
@@ -572,8 +573,9 @@ declare const enum DAL {
     DATASTREAM_FORMAT_24BIT_SIGNED = 6,
     DATASTREAM_FORMAT_32BIT_UNSIGNED = 7,
     DATASTREAM_FORMAT_32BIT_SIGNED = 8,
-    // /libraries/codal-core/inc/streams/FIFOStream.h
-    FIFO_MAXIMUM_BUFFERS = 256,
+    DATASTREAM_DONT_CARE = 0,
+    DATASTREAM_NOT_WANTED = 1,
+    DATASTREAM_WANTED = 2,
     // /libraries/codal-core/inc/streams/LevelDetector.h
     LEVEL_THRESHOLD_LOW = 1,
     LEVEL_THRESHOLD_HIGH = 2,
@@ -586,6 +588,8 @@ declare const enum DAL {
     LEVEL_DETECTOR_SPL_HIGH_THRESHOLD_PASSED = 2,
     LEVEL_DETECTOR_SPL_LOW_THRESHOLD_PASSED = 4,
     LEVEL_DETECTOR_SPL_CLAP = 8,
+    LEVEL_DETECTOR_SPL_DATA_REQUESTED = 16,
+    LEVEL_DETECTOR_SPL_DATA_VALID = 32,
     LEVEL_DETECTOR_SPL_DEFAULT_WINDOW_SIZE = 128,
     LEVEL_DETECTOR_SPL_NORMALIZE = 1,
     LEVEL_DETECTOR_SPL_MIN_BUFFERS = 2,
@@ -597,13 +601,20 @@ declare const enum DAL {
     LEVEL_DETECTOR_SPL_CLAP_MAX_LOUD_BLOCKS = 13,
     LEVEL_DETECTOR_SPL_CLAP_MIN_LOUD_BLOCKS = 2,
     LEVEL_DETECTOR_SPL_CLAP_MIN_QUIET_BLOCKS = 20,
+    LEVEL_DETECTOR_SPL_TIMEOUT = 50,
+    LEVEL_DETECTOR_SPL_OUTLIER_REJECTION = 2,
+    LEVEL_DETECTOR_SPL_NOISE_FLOOR = 40,
     // /libraries/codal-core/inc/streams/MemorySource.h
     MEMORY_SOURCE_DEFAULT_MAX_BUFFER = 256,
-    // /libraries/codal-core/inc/streams/StreamFlowTrigger.h
-    TRIGGER_PULL = 1,
-    TRIGGER_REQUEST = 2,
+    // /libraries/codal-core/inc/streams/SerialStreamer.h
+    SERIAL_STREAM_MODE_BINARY = 1,
+    SERIAL_STREAM_MODE_DECIMAL = 2,
+    SERIAL_STREAM_MODE_HEX = 4,
+    // /libraries/codal-core/inc/streams/StreamAnalyzer.h
+    CONFIG_STREAM_ANALYZER_DEFAULT_QUANTIZATION = 32,
     // /libraries/codal-core/inc/streams/StreamRecording.h
-    CODAL_DEFAULT_STREAM_RECORDING_MAX_LENGTH = 50000,
+    CODAL_DEFAULT_STREAM_RECORDING_MAX_LENGTH = 51200,
+    CODAL_STREAM_RECORDING_BUFFER_SIZE = 256,
     REC_STATE_STOPPED = 0,
     REC_STATE_PLAYING = 1,
     REC_STATE_RECORDING = 2,
@@ -647,6 +658,8 @@ declare const enum DAL {
     CODAL_FS_DEFAULT_CACHE_SZE = 4,
     // /libraries/codal-microbit-v2/inc/MicroBitAudio.h
     MICROBIT_AUDIO_STATUS_DEEPSLEEP = 1,
+    CONFIG_AUDIO_INPUT_CHANNELS = 4,
+    CONFIG_AUDIO_DEFAULT_MICROPHONE_SAMPLERATE = 11000,
     // /libraries/codal-microbit-v2/inc/MicroBitBLEServices.h
     MICROBIT_BLE_SERVICES_MAX = 20,
     MICROBIT_BLE_SERVICES_OBSERVER_PRIO = 2,
@@ -1110,6 +1123,7 @@ declare const enum DAL {
     DEVICE_ID_MICROPHONE = 3001,
     // /libraries/codal-microbit-v2/model/MicroBitIO.h
     MICROBIT_PIN_BUTTON_RESET = -1,
+    MICROBIT_PINS_TOTAL = 41,
     ID_PIN_P0 = 100,
     ID_PIN_P1 = 101,
     ID_PIN_P2 = 102,
@@ -1677,7 +1691,6 @@ declare const enum DAL {
     PERF_NOW_MASK = 4294967295,
     PERF_NOW_SCALE = 1,
     PXT_STRING_SKIP_INCR = 16,
-    FLASH_TOP = 0,
     // /pxtapp/pxtcore.h
     NON_GC_HEAP_RESERVATION = 1024,
     GC_BLOCK_SIZE = 256,
