@@ -537,6 +537,9 @@
             "monkmakes/monkmakes-7-segment": { "tags": [ "Lights and Display" ] },
             "stemhub/pxt-stemhubcity": { "tags": [ "Science" ] },
             "kittenbot/pxt-powerbrick": { "tags": [ "Science" ] },
+            "microbit-foundation/pxt-microbit-v2-power": { "tags": [ "Software" ] },
+            "microbit-foundation/pxt-sound-level-db": { "tags": [ "Software" ] },
+            "kittenbot/pxt-joyfrog": { "tags": [ "Gaming" ] },
             "kittenbot/pxt-sugar": { "tags": [ "Science" ] },
             "kittenbot/pxt-koi": { "tags": [ "Science" ] },
             "kittenbot/pxt-koi2": { "tags": [ "Science" ] },
@@ -598,21 +601,31 @@
             "kitronikltd/pxt-kitronik-craft-and-code": {},
             "cytrontechnologies/pxt-sumobit": {},
             "hovavo/pxt-states": { "tags": [ "Software" ] },
-            "parallaxinc/cyberbot_makecode": {},
-            "siyeenove/pxt_mcar": {},
-            "elecfreaks/xgo-rider": {},
+            "parallaxinc/cyberbot_makecode": { "tags": [ "Robotics" ] },
+            "siyeenove/pxt_mcar": { "tags": [ "Robotics" ] },
+            "elecfreaks/xgo-rider": { "tags": [ "Robotics" ] },
+            "dfrobot/pxt-dfrobot_creative-robotics-kit": { "tags": [ "Robotics" ] },
+            "ines-hpmm/pxt-luma-matrix": { "tags": [ "Lights and Display" ] },
+            "team-bp/pxt-bplab": { "tags": [ "Science" ] },
+            "jimd80/pxt-coderdojo-controller": { "tags": [ "Gaming" ] },
+            "smarthon/pxt-iot-bit": { "tags": [ "Networking" ] },
+            "forward-education/pxt-solder-3b3l": { "tags": [ "Science" ] },
+            "forward-education/pxt-solar": { "tags": [ "Science" ] },
+            "forward-education/pxt-hydroponics": { "tags": [ "Science" ] },
+            "elecfreaks/pxt-petal": { "tags": [ "Science" ] },
             "microsoft/pxt-simx-sample": {
                 "simx": {
                     "sha": "7301f5900879b85127482d79bab48f03c25690a8",
                     "devUrl": "http://localhost:5173"
                 }
             },
-            "microbit-foundation/pxt-microbit-ml": { 
+            "microbit-foundation/pxt-microbit-ml": {
                 "simx": {
                     "sha": "ba99fd9588e87eb994345d04b596adc51d2d8116",
                     "devUrl": "http://localhost:5173",
                     "aspectRatio": 3.45
-                }
+                },
+                "hidden": true
             },
             "microbit-apps/display-shield": {
                 "simx": {
@@ -620,7 +633,12 @@
                     "devUrl": "http://localhost:3000"
                 }
             },
-            "zukunftswerkstatt-buchholz/robot-control": { "tags": [ "Motor" ] }
+            "jacdac/pxt-jacdac": {
+                "simx": {
+                    "sha": "c286f6312ba29f9acc9a153d7b852f37f31e62e3",
+                    "devUrl": "https://jacdac.github.io/jacdac-docs/tools/makecode-sim/"
+                }
+            }
         },
         "approvedEditorExtensionUrls": [
         ],
@@ -657,6 +675,8 @@
         "Calliope Links": "calliope/links"
     },
     "teachertool": {
+        "showSharePageEvalButton": true,
+        "defaultChecklistUrl": "teachertool/checklists/general-code-quality.json",
         "carousels": [
             {
                 "title": "Checklists for Tutorials",

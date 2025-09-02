@@ -13,6 +13,7 @@
         "libs/v2",
         "libs/v3",
         "libs/funk",
+        "libs/audio-samples",
         "libs/devices",
         "libs/bluetooth",
         "libs/one-time-pairing",
@@ -199,7 +200,7 @@
         "minicodal": {
             "compile": {
                 "flashCodeAlign": 4096,
-                "flashUsableEnd": 487424,
+                "flashUsableEnd": 471040,
                 "flashEnd": 524288,
                 "useUF2": false,
                 "webUSB": true
@@ -209,7 +210,7 @@
                 "codalTarget": {
                     "name": "codal-microbit-v2",
                     "url": "https://github.com/calliope-edu/codal-microbit-v2",
-                    "branch": "v0.2.69-calliope-rc3-jacdac-fix",
+                    "branch": "v0.3.2-calliope-2",
                     "type": "git"
                 },
                 "codalBinary": "MICROBIT",
@@ -438,6 +439,12 @@
         "workspaceSearch": true,
         "allowPackageExtensions": true,
         "addNewTypeScriptFile": true,
+        "enabledFeatures": {
+            "blocksErrorList": {},
+            "aiErrorHelp": {
+                "includeRegions": ["CA", "GB", "BR"]
+            }
+        },
         "experiments": [
             "accessibleBlocks",
             "debugExtensionCode",
@@ -446,7 +453,7 @@
             "simScreenshot",
             "simGif",
             "identity",
-            "blocksErrorList"
+            "forceEnableAiErrorHelp"
         ],
         "supportedExperiences": [
             "code-eval"
@@ -531,6 +538,7 @@
             "es-ES",
             "fi",
             "fr",
+            "gn",
             "he",
             "hu",
             "is",
@@ -568,7 +576,8 @@
             "4": "v4",
             "5": "v5",
             "6": "v6",
-            "7": "v7"
+            "7": "v7",
+            "8": "v8"
         },
         "editorVersionPaths": {
             "0": "v0"
@@ -619,7 +628,11 @@
         "tours": {
             "editor": "/tours/editor-tour"
         },
-        "tutorialSimSidebarLayout": true,
+        "tutorialSimSidebarLangs": [
+            "blocks",
+            "javascript",
+            "python"
+        ],
         "preferWebUSBDownload": true,
         "hideReplaceMyCode": true,
         "matchWebUSBDeviceInSim": true,
@@ -633,6 +646,11 @@
         "hidemenu": {
             "appTheme": {
                 "hideMenuBar": true
+            }
+        },
+        "hidelanguage": {
+            "appTheme": {
+                "selectLanguage": false
             }
         },
         "androidapp": {
