@@ -79,7 +79,7 @@
                     "sha": "0cd760f1d1575b8dcd8ec8abcbb780fc10ec6937",
                     "devUrl": "https://jacdac.github.io/jacdac-docs/tools/makecode-sim/"
                 }
-            }
+            },
             "tinysuperlab/motionkitv2": {
                 "tags": [
                     "Motor"
@@ -631,12 +631,6 @@
                 "simx": {
                     "sha": "0825d56f78528c57af100a96abdfe2162f59945a",
                     "devUrl": "http://localhost:3000"
-                }
-            },
-            "jacdac/pxt-jacdac": {
-                "simx": {
-                    "sha": "c286f6312ba29f9acc9a153d7b852f37f31e62e3",
-                    "devUrl": "https://jacdac.github.io/jacdac-docs/tools/makecode-sim/"
                 }
             }
         },
