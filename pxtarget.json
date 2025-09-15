@@ -60,14 +60,6 @@
                 "identity": true,
                 "redirect": true,
                 "order": 2
-            },
-            "clever": {
-                "id": "clever",
-                "name": "Clever",
-                "icon": "/static/providers/clever-logo.png",
-                "identity": true,
-                "redirect": true,
-                "order": 3
             }
         }
     },
