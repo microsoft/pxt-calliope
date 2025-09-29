@@ -2,9 +2,17 @@ namespace pxsim.input {
     function accForGesture(gesture: number) {
         let b = board().accelerometerState;
         b.accelerometer.activate();
+        // Track that this particular gesture is being used by the program so the UI
+        // can expose the corresponding control. Keep legacy useShake boolean for
+        // backward compatibility.
+        if (!b.usedGestures) b.usedGestures = {};
+        if (!b.usedGestures[gesture]) {
+            b.usedGestures[gesture] = true;
+            runtime.queueDisplayUpdate();
+        }
         if (gesture == 11 && !b.useShake) { // SHAKE
             b.useShake = true;
-            runtime.queueDisplayUpdate();
+            // runtime.queueDisplayUpdate() already called above for usedGestures
         }
         return b;
     }
@@ -133,7 +141,7 @@ namespace pxsim {
         private id: number;
         public isActive = false;
         public sampleRange = 2;
-        public flags: AccelerometerFlag = 0;
+    public flags: AccelerometerFlag = <any>0;
 
         constructor(public runtime: Runtime) {
             this.id = DAL.MICROBIT_ID_ACCELEROMETER;
@@ -434,6 +442,8 @@ namespace pxsim {
     export class AccelerometerState {
         accelerometer: Accelerometer;
         useShake = false;
+        // map of gesture id -> true when the program registers onGesture for it
+        usedGestures?: { [gesture: number]: boolean };
 
         constructor(runtime: Runtime) {
             this.accelerometer = new Accelerometer(runtime);
