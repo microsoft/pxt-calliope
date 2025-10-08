@@ -76,7 +76,14 @@
             "jacdac/pxt-jacdac": {
                 "preferred": true,
                 "simx": {
-                    "sha": "9a567f397293aa27a06eab91910838f62a100753",
+                    "sha": "80d8581b59c501e4cdfaf8ec84e00682264dd9f6",
+                    "devUrl": "https://jacdac.github.io/jacdac-docs/tools/makecode-sim/"
+                }
+            },
+            "jacdac/pxt-jacdac-test": {
+                "hidden": true,
+                "simx": {
+                    "sha": "3c60854f6e658971521ead73ceb6c0a9676ffb36",
                     "devUrl": "https://jacdac.github.io/jacdac-docs/tools/makecode-sim/"
                 }
             },
