@@ -3,7 +3,8 @@ namespace pxsim.visuals {
         return new visuals.MicrobitBoardSvg({
             runtime: runtime,
             theme: visuals.randomTheme(),
-            wireframe: opts.wireframe
+            wireframe: opts.wireframe,
+            disableTilt: false
         });
     }
 }
