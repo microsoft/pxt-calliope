@@ -457,18 +457,12 @@
         "addNewTypeScriptFile": true,
         "enabledFeatures": {
             "blocksErrorList": {},
-            "aiErrorHelp": {
-                "includeRegions": ["CA", "GB", "BR"]
-            }
+            "aiErrorHelp": {}
         },
         "experiments": [
-            "accessibleBlocks",
             "debugExtensionCode",
             "bluetoothUartConsole",
             "bluetoothPartialFlashing",
-            "simScreenshot",
-            "simGif",
-            "identity",
             "forceEnableAiErrorHelp"
         ],
         "supportedExperiences": [
