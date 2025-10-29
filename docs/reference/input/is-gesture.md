@@ -8,7 +8,7 @@ input.isGesture(Gesture.Shake)
 
 ## Parameters
 
-* ``gesture`` means the way you hold or move the @boardname@. This can be `shake`, `logo up`, `logo down`, `screen up`, `screen down`, `tilt left`, `tilt right`, `free fall`, `3g`, or `6g`.
+* ``gesture`` means the way you hold or move the @boardname@. This can be `shake`, `tilt forward`, `tilt backward`, `screen up`, `screen down`, `tilt left`, `tilt right`, `free fall`, `3g`, or `6g`.
 
 ## Example: random number
 

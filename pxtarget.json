@@ -428,7 +428,7 @@
         "organization": "Microsoft MakeCode",
         "organizationUrl": "https://makecode.com/",
         "organizationLogo": "./static/Logo_Calliope_Woman.svg",
-        "organizationWideLogo": "./static/Microsoft-logo_rgb_c-white.png",
+        "organizationWideLogo": "./static/Microsoft-logo_rgb_c-gray-square.png",
         "homeScreenHero": {
             "imageUrl": "./static/calliope/hero/hero.jpg",
             "name": "Flashing Heart",
