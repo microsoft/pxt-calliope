@@ -73,6 +73,14 @@ namespace pxsim.visuals {
             width: 100%;
         }
 
+        .sim-gesture-menu {
+            pointer-events: auto;
+        }
+        
+        .sim-gesture-menu foreignObject {
+            pointer-events: auto;
+        }
+        
         .sim-gesture-menu .simEventBtn.simGestureBtn {
             // border-radius: 0;
         }
@@ -143,17 +151,20 @@ namespace pxsim.visuals {
             background: transparent;
             width: 100%;
             height: 100%;
+            pointer-events: auto;
         }
         
         .sim-gesture-dropdown {
+            /* Safari foreignObject positioning fix */
+            position: fixed;
             backdrop-filter: blur(10px);
             -webkit-backdrop-filter: blur(10px);
             border-radius: 16px;
             padding: 16px;
             background: rgba(255, 255, 255, 0.2);
             border: 1px solid rgba(200, 200, 200, 0.1);
-            /* iOS Safari - avoid transform, transition, position, opacity issues in foreignObject */
             -webkit-font-smoothing: antialiased;
+            pointer-events: auto;
         }
 
         .sim-gesture-dropdown *,
@@ -161,7 +172,14 @@ namespace pxsim.visuals {
         .sim-gesture-dropdown *:before {
             user-select: none !important;
             -webkit-user-select: none !important;
-            touch-action: none !important;
+        }
+        
+        .sim-gesture-dropdown-grid {
+            pointer-events: auto;
+        }
+        
+        .sim-gesture-dropdown-item {
+            touch-action: manipulation !important;
         }
         
         .sim-gesture-dropdown-toggle {
@@ -2116,7 +2134,7 @@ namespace pxsim.visuals {
         // This centralizes the small remove/add pattern and forces a reflow so animations restart
         // without using setTimeout everywhere.
         private playGestureAnimation(key: string) {
-            console.log("play gesture", key);
+            // console.log("play gesture", key);
             try {
                 if (!this.element) return;
                 // Apply animation to the root SVG element so all children (including LED matrix) transform
@@ -2511,22 +2529,8 @@ namespace pxsim.visuals {
                     }
 
                     if (right) {
-                        // Add touch event handlers for iOS/iPad to prevent issues
-                        right.addEventListener('touchstart', (ev) => {
-                            ev.preventDefault();
-                            ev.stopPropagation();
-                        }, { passive: false });
-                        
-                        right.addEventListener('touchend', (ev) => {
-                            ev.preventDefault();
-                            ev.stopPropagation();
-                            // Manually trigger the click logic
-                            right.click();
-                        }, { passive: false });
-                        
-                        right.addEventListener('click', (ev) => {
-                            // prevent bubbling to any outer handlers
-                            try { ev.stopPropagation(); ev.preventDefault(); } catch (e) { }
+                        // Simplified toggle logic - directly in touchend/click
+                        const toggleMenu = () => {
                             const visibleNow = menu.style.visibility == 'visible';
                             if (visibleNow) {
                                 menu.style.visibility = 'hidden';
@@ -2552,43 +2556,57 @@ namespace pxsim.visuals {
                                 // only attach a new handler if one isn't already installed
                                 if (!this.gestureControl.menuCloseHandler) {
                                     const handler = (ev: PointerEvent | TouchEvent) => {
-                                    try {
-                                        const target = ev.target as Node | null;
-                                        let clickedInside = false;
-                                        if (target) {
-                                            try {
-                                                if (menu && menu.contains && menu.contains(target)) clickedInside = true;
-                                                else if (this.gestureControl && this.gestureControl.outer && (this.gestureControl.outer as Node).contains && (this.gestureControl.outer as Node).contains(target)) clickedInside = true;
-                                                else {
-                                                    const elAsAny = target as any;
-                                                    if (elAsAny && elAsAny.closest && elAsAny.closest('.sim-gesture-menu')) clickedInside = true;
-                                                }
-                                            } catch (e) { }
-                                        }
-                                        if (!clickedInside) {
-                                            menu.style.visibility = 'hidden';
-                                            // restore pin surfaces when closing menu from outside click
-                                            try {
-                                                for (const k in this.pinDragSurfaces) {
-                                                    try { (this.pinDragSurfaces as any)[k].style.pointerEvents = 'auto'; } catch (e) { }
-                                                }
-                                            } catch (e) { }
-                                            if (this.gestureControl.menuCloseHandler) {
-                                                document.removeEventListener('pointerdown', this.gestureControl.menuCloseHandler);
-                                                document.removeEventListener('touchstart', this.gestureControl.menuCloseHandler);
-                                                this.gestureControl.menuCloseHandler = undefined;
+                                        try {
+                                            const target = ev.target as Node | null;
+                                            let clickedInside = false;
+                                            if (target) {
+                                                try {
+                                                    if (menu && menu.contains && menu.contains(target)) clickedInside = true;
+                                                    else if (this.gestureControl && this.gestureControl.outer && (this.gestureControl.outer as Node).contains && (this.gestureControl.outer as Node).contains(target)) clickedInside = true;
+                                                    else {
+                                                        const elAsAny = target as any;
+                                                        if (elAsAny && elAsAny.closest && elAsAny.closest('.sim-gesture-menu')) clickedInside = true;
+                                                    }
+                                                } catch (e) { }
                                             }
-                                        }
-                                    } catch (e) { }
+                                            if (!clickedInside) {
+                                                menu.style.visibility = 'hidden';
+                                                // restore pin surfaces when closing menu from outside click
+                                                try {
+                                                    for (const k in this.pinDragSurfaces) {
+                                                        try { (this.pinDragSurfaces as any)[k].style.pointerEvents = 'auto'; } catch (e) { }
+                                                    }
+                                                } catch (e) { }
+                                                if (this.gestureControl.menuCloseHandler) {
+                                                    document.removeEventListener('pointerdown', this.gestureControl.menuCloseHandler);
+                                                    document.removeEventListener('touchstart', this.gestureControl.menuCloseHandler);
+                                                    this.gestureControl.menuCloseHandler = undefined;
+                                                }
+                                            }
+                                        } catch (e) { }
                                     };
                                     // add the document handler asynchronously so it doesn't catch the same click that opened the menu
                                     this.gestureControl.menuCloseHandler = handler;
                                     setTimeout(() => {
                                         document.addEventListener('pointerdown', handler);
                                         document.addEventListener('touchstart', handler);
-                                    }, 100); // Increased timeout for iOS/iPad to prevent immediate close
+                                    }, 100);
                                 }
                             }
+                        };
+                        
+                        // iOS: use touchend directly
+                        right.addEventListener('touchend', (ev) => {
+                            ev.preventDefault();
+                            ev.stopPropagation();
+                            toggleMenu();
+                        }, { passive: false });
+                        
+                        // Desktop: use click
+                        right.addEventListener('click', (ev) => {
+                            ev.stopPropagation();
+                            ev.preventDefault();
+                            toggleMenu();
                         });
                     }
                 };
@@ -2663,11 +2681,9 @@ namespace pxsim.visuals {
                 try {
                     const items = dropdownFO.querySelectorAll('.sim-gesture-dropdown-item');
                     items.forEach((item: HTMLButtonElement) => {
-                        item.addEventListener('click', (ev) => {
-                            ev.stopPropagation();
+                        const handleGesture = () => {
                             const gestureId = parseInt(item.getAttribute('data-gesture-id') || '0');
                             const gestureKey = item.getAttribute('data-gesture-key') || '';
-                            
                             try { this.gestureControl.lastKey = gestureKey; } catch (e) { }
                             if (gestureKey) this.playGestureAnimation(gestureKey);
                             this.board.bus.queue(DAL.MICROBIT_ID_GESTURE, gestureId);
@@ -2686,9 +2702,25 @@ namespace pxsim.visuals {
                                 document.removeEventListener('touchstart', this.gestureControl.menuCloseHandler);
                                 this.gestureControl.menuCloseHandler = undefined;
                             }
+                        };
+                        
+                        // iOS: use touchend
+                        item.addEventListener('touchend', (ev) => {
+                            ev.preventDefault();
+                            ev.stopPropagation();
+                            handleGesture();
+                        }, { passive: false });
+                        
+                        // Desktop: use click
+                        item.addEventListener('click', (ev) => {
+                            ev.stopPropagation();
+                            ev.preventDefault();
+                            handleGesture();
                         });
                     });
-                } catch (e) { }
+                } catch (e) {
+                    console.error('Error attaching gesture item handlers:', e);
+                }
 
                 // Remove old implementation below - replaced with HTML dropdown above
                 
@@ -3170,13 +3202,13 @@ namespace pxsim.visuals {
 
         private buildDom() {
             // restore persisted disableTilt setting from localStorage if present
-            try {
-                const val = localStorage.getItem('pxt:disableTilt');
-                if (val !== null) {
-                    if (!this.props) this.props = {} as any;
-                    this.props.disableTilt = val === '1';
-                }
-            } catch (e) { }
+            // try {
+            //     const val = localStorage.getItem('pxt:disableTilt');
+            //     if (val !== null) {
+            //         if (!this.props) this.props = {} as any;
+            //         this.props.disableTilt = val === '1';
+            //     }
+            // } catch (e) { }
             let SVG_CODE = BOARD_SVG_HEAD+BOARD_MINI2_BODY+BOARD_SVG_BOTTOM
 			pinTitles = pinTitles_v2
             if(this.props.runtime.board && this.props.runtime.board.hasOwnProperty("hardwareVersion") && this.props.runtime.board.hardwareVersion == 3) {
