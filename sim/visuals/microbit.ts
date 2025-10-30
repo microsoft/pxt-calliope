@@ -165,6 +165,8 @@ namespace pxsim.visuals {
             border: 1px solid rgba(200, 200, 200, 0.1);
             -webkit-font-smoothing: antialiased;
             pointer-events: auto;
+            /* Safari doesn't scale foreignObject with SVG, so we need transform-origin for manual scaling */
+            transform-origin: 0 0;
         }
 
         .sim-gesture-dropdown *,
@@ -2547,6 +2549,29 @@ namespace pxsim.visuals {
                                 }
                             } else {
                                 menu.style.visibility = 'visible';
+                                
+                                // Safari fix: recalculate and apply scale every time menu opens
+                                try {
+                                    const isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
+                                    if (isSafari && this.element) {
+                                        // Get the actual rendered size of the SVG
+                                        const svgRect = this.element.getBoundingClientRect();
+                                        const svgScale = svgRect.width / MB_WIDTH; // actual width / viewBox width
+                                        
+                                        // Apply scale to the dropdown content
+                                        const dropdownDiv = menu.querySelector('.sim-gesture-dropdown') as HTMLElement;
+                                        if (dropdownDiv) {
+                                            if (svgScale < 1) {
+                                                dropdownDiv.style.transform = `scale(${svgScale})`;
+                                                console.log('Safari scaling applied on open:', svgScale);
+                                            } else {
+                                                dropdownDiv.style.transform = '';
+                                            }
+                                        }
+                                    }
+                                } catch (e) {
+                                    console.error('Error applying Safari scale fix on open:', e);
+                                }
                                 // disable pin event surfaces while menu is open so underlying pins don't intercept clicks
                                 try {
                                     for (const k in this.pinDragSurfaces) {
