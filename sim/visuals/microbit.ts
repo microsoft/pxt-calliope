@@ -56,6 +56,13 @@ namespace pxsim.visuals {
             color: white;
             background: rgb(201, 0, 114); // #42c9c9;
             font-family: 'Roboto Mono', monospace;
+            /* iOS Safari fixes - avoid position, transform, transition in foreignObject */
+            -webkit-tap-highlight-color: transparent;
+            -webkit-user-select: none;
+            user-select: none;
+            -webkit-touch-callout: none;
+            touch-action: manipulation;
+            pointer-events: auto;
         }
         /* smaller icon-style gesture buttons */
         .simEventBtn.simGestureBtn {
@@ -110,13 +117,24 @@ namespace pxsim.visuals {
             pointer-events: auto;
             -webkit-appearance: none;
         }
+        /* iOS Safari foreignObject fixes */
+        foreignObject {
+            pointer-events: auto;
+            overflow: visible;
+        }
+        foreignObject > body {
+            pointer-events: auto;
+            overflow: visible;
+            background: transparent;
+        }
         button {
             user-select: none;
+            -webkit-user-select: none;
+            -webkit-tap-highlight-color: transparent;
         }
-        /* button hover */
+        /* button hover - avoid transform in foreignObject for iOS Safari */
         .simEventBtn:hover {
-            filter: brightness(0.9);
-            transform: translateY(-1px);
+            background: rgba(201, 0, 114, 0.8);
         }
         /* Gesture dropdown menu - now fully HTML-based for better styling */
         .sim-gesture-dropdown-container {
@@ -133,9 +151,17 @@ namespace pxsim.visuals {
             border-radius: 16px;
             padding: 16px;
             background: rgba(255, 255, 255, 0.2);
-            // box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
             border: 1px solid rgba(200, 200, 200, 0.1);
-            will-change: backdrop-filter;
+            /* iOS Safari - avoid transform, transition, position, opacity issues in foreignObject */
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .sim-gesture-dropdown *,
+        .sim-gesture-dropdown *:after,
+        .sim-gesture-dropdown *:before {
+            user-select: none !important;
+            -webkit-user-select: none !important;
+            touch-action: none !important;
         }
         
         .sim-gesture-dropdown-toggle {
@@ -143,6 +169,16 @@ namespace pxsim.visuals {
             align-items: center;
             justify-content: center;
             gap: 12px;
+            padding: 12px;
+            color: #fff;
+            font-family: 'Roboto Mono', monospace;
+            font-size: 16px;
+            user-select: none;
+            -webkit-user-select: none;
+            cursor: pointer;
+            -webkit-tap-highlight-color: transparent;
+            touch-action: manipulation;
+        }
             padding: 12px;
             color: #fff;
             font-family: 'Roboto Mono', monospace;
@@ -173,17 +209,21 @@ namespace pxsim.visuals {
             align-items: center;
             justify-content: center;
             min-height: 80px;
-            transition: all 0.2s ease;
             box-shadow: 0 2px 8px rgba(201, 0, 114, 0.3);
+            /* iOS Safari fixes - avoid transition and transform in foreignObject */
+            -webkit-tap-highlight-color: transparent;
+            touch-action: manipulation;
+            -webkit-user-select: none;
+            user-select: none;
         }
         
         .sim-gesture-dropdown-item:hover {
-            transform: translateY(-2px);
             box-shadow: 0 4px 12px rgba(201, 0, 114, 0.5);
         }
         
         .sim-gesture-dropdown-item:active {
-            transform: translateY(0);
+            background: rgba(170, 0, 95, 1);
+            box-shadow: 0 1px 4px rgba(201, 0, 114, 0.4);
         }
         
         .sim-gesture-dropdown-item img {
@@ -224,8 +264,6 @@ namespace pxsim.visuals {
         .sim-gesture-menu .simEventBtn:hover {
             filter: brightness(0.85);
         }
-        //     opacity: .7;
-        // }
         button:active {
             background: #e6007d;
         }
@@ -2449,9 +2487,21 @@ namespace pxsim.visuals {
                     const right = fo.querySelector('.simGestureRight') as HTMLElement;
 
                     if (left) {
+                        // Add touch event handlers for iOS/iPad
+                        left.addEventListener('touchstart', (ev) => {
+                            ev.preventDefault();
+                            ev.stopPropagation();
+                        }, { passive: false });
+                        
+                        left.addEventListener('touchend', (ev) => {
+                            ev.preventDefault();
+                            ev.stopPropagation();
+                            left.click();
+                        }, { passive: false });
+                        
                         left.addEventListener('click', (ev) => {
                             // prevent bubbling to any outer handlers
-                            try { ev.stopPropagation(); } catch (e) { }
+                            try { ev.stopPropagation(); ev.preventDefault(); } catch (e) { }
                             const key = this.gestureControl && this.gestureControl.lastKey ? this.gestureControl.lastKey : lastKey;
                             const g = visible.find(x => x.key == key) || visible[0];
                             try { this.gestureControl.lastKey = key; } catch (e) { }
@@ -2461,9 +2511,22 @@ namespace pxsim.visuals {
                     }
 
                     if (right) {
+                        // Add touch event handlers for iOS/iPad to prevent issues
+                        right.addEventListener('touchstart', (ev) => {
+                            ev.preventDefault();
+                            ev.stopPropagation();
+                        }, { passive: false });
+                        
+                        right.addEventListener('touchend', (ev) => {
+                            ev.preventDefault();
+                            ev.stopPropagation();
+                            // Manually trigger the click logic
+                            right.click();
+                        }, { passive: false });
+                        
                         right.addEventListener('click', (ev) => {
                             // prevent bubbling to any outer handlers
-                            try { ev.stopPropagation(); } catch (e) { }
+                            try { ev.stopPropagation(); ev.preventDefault(); } catch (e) { }
                             const visibleNow = menu.style.visibility == 'visible';
                             if (visibleNow) {
                                 menu.style.visibility = 'hidden';
@@ -2475,6 +2538,7 @@ namespace pxsim.visuals {
                                 } catch (e) { }
                                 if (this.gestureControl.menuCloseHandler) {
                                     document.removeEventListener('pointerdown', this.gestureControl.menuCloseHandler);
+                                    document.removeEventListener('touchstart', this.gestureControl.menuCloseHandler);
                                     this.gestureControl.menuCloseHandler = undefined;
                                 }
                             } else {
@@ -2487,7 +2551,7 @@ namespace pxsim.visuals {
                                 } catch (e) { }
                                 // only attach a new handler if one isn't already installed
                                 if (!this.gestureControl.menuCloseHandler) {
-                                    const handler = (ev: PointerEvent) => {
+                                    const handler = (ev: PointerEvent | TouchEvent) => {
                                     try {
                                         const target = ev.target as Node | null;
                                         let clickedInside = false;
@@ -2511,6 +2575,7 @@ namespace pxsim.visuals {
                                             } catch (e) { }
                                             if (this.gestureControl.menuCloseHandler) {
                                                 document.removeEventListener('pointerdown', this.gestureControl.menuCloseHandler);
+                                                document.removeEventListener('touchstart', this.gestureControl.menuCloseHandler);
                                                 this.gestureControl.menuCloseHandler = undefined;
                                             }
                                         }
@@ -2518,7 +2583,10 @@ namespace pxsim.visuals {
                                     };
                                     // add the document handler asynchronously so it doesn't catch the same click that opened the menu
                                     this.gestureControl.menuCloseHandler = handler;
-                                    setTimeout(() => document.addEventListener('pointerdown', handler), 0);
+                                    setTimeout(() => {
+                                        document.addEventListener('pointerdown', handler);
+                                        document.addEventListener('touchstart', handler);
+                                    }, 100); // Increased timeout for iOS/iPad to prevent immediate close
                                 }
                             }
                         });
@@ -2615,6 +2683,7 @@ namespace pxsim.visuals {
                             
                             if (this.gestureControl.menuCloseHandler) {
                                 document.removeEventListener('pointerdown', this.gestureControl.menuCloseHandler);
+                                document.removeEventListener('touchstart', this.gestureControl.menuCloseHandler);
                                 this.gestureControl.menuCloseHandler = undefined;
                             }
                         });
