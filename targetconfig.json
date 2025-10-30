@@ -302,6 +302,11 @@
                     "Motor"
                 ]
             },
+            "zukunftswerkstatt-buchholz/motorsteuerung": {
+                "tags": [
+                    "Motor"
+                ]
+            },
             "joy-it/joy-car": {
                 "tags": [
                     "Motor"
