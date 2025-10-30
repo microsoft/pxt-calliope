@@ -56,6 +56,13 @@ namespace pxsim.visuals {
             color: white;
             background: rgb(201, 0, 114); // #42c9c9;
             font-family: 'Roboto Mono', monospace;
+            /* iOS Safari fixes - avoid position, transform, transition in foreignObject */
+            -webkit-tap-highlight-color: transparent;
+            -webkit-user-select: none;
+            user-select: none;
+            -webkit-touch-callout: none;
+            touch-action: manipulation;
+            pointer-events: auto;
         }
         /* smaller icon-style gesture buttons */
         .simEventBtn.simGestureBtn {
@@ -66,6 +73,14 @@ namespace pxsim.visuals {
             width: 100%;
         }
 
+        .sim-gesture-menu {
+            pointer-events: auto;
+        }
+        
+        .sim-gesture-menu foreignObject {
+            pointer-events: auto;
+        }
+        
         .sim-gesture-menu .simEventBtn.simGestureBtn {
             // border-radius: 0;
         }
@@ -110,14 +125,150 @@ namespace pxsim.visuals {
             pointer-events: auto;
             -webkit-appearance: none;
         }
+        /* iOS Safari foreignObject fixes */
+        foreignObject {
+            pointer-events: auto;
+            overflow: visible;
+        }
+        foreignObject > body {
+            pointer-events: auto;
+            overflow: visible;
+            background: transparent;
+        }
         button {
             user-select: none;
+            -webkit-user-select: none;
+            -webkit-tap-highlight-color: transparent;
         }
-        /* button hover */
+        /* button hover - avoid transform in foreignObject for iOS Safari */
         .simEventBtn:hover {
-            filter: brightness(0.9);
-            transform: translateY(-1px);
+            background: rgba(201, 0, 114, 0.8);
         }
+        /* Gesture dropdown menu - now fully HTML-based for better styling */
+        .sim-gesture-dropdown-container {
+            margin: 0;
+            padding: 0;
+            background: transparent;
+            width: 100%;
+            height: 100%;
+            pointer-events: auto;
+        }
+        
+        .sim-gesture-dropdown {
+            /* Safari foreignObject positioning fix */
+            position: fixed;
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-radius: 16px;
+            padding: 16px;
+            background: rgba(255, 255, 255, 0.2);
+            border: 1px solid rgba(200, 200, 200, 0.1);
+            -webkit-font-smoothing: antialiased;
+            pointer-events: auto;
+            /* Safari doesn't scale foreignObject with SVG, so we need transform-origin for manual scaling */
+            transform-origin: 0 0;
+        }
+
+        .sim-gesture-dropdown *,
+        .sim-gesture-dropdown *:after,
+        .sim-gesture-dropdown *:before {
+            user-select: none !important;
+            -webkit-user-select: none !important;
+        }
+        
+        .sim-gesture-dropdown-grid {
+            pointer-events: auto;
+        }
+        
+        .sim-gesture-dropdown-item {
+            touch-action: manipulation !important;
+        }
+        
+        .sim-gesture-dropdown-toggle {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            padding: 12px;
+            color: #fff;
+            font-family: 'Roboto Mono', monospace;
+            font-size: 16px;
+            user-select: none;
+            -webkit-user-select: none;
+            cursor: pointer;
+            -webkit-tap-highlight-color: transparent;
+            touch-action: manipulation;
+        }
+            padding: 12px;
+            color: #fff;
+            font-family: 'Roboto Mono', monospace;
+            font-size: 16px;
+            user-select: none;
+            cursor: pointer;
+        }
+        
+        .sim-gesture-dropdown-toggle input[type="checkbox"] {
+            width: 24px;
+            height: 24px;
+            cursor: pointer;
+        }
+        
+        .sim-gesture-dropdown-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 8px;
+        }
+        
+        .sim-gesture-dropdown-item {
+            background: linear-gradient(135deg, rgb(201, 0, 114), rgb(170, 0, 95));
+            border: none;
+            border-radius: 12px;
+            padding: 12px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 80px;
+            box-shadow: 0 2px 8px rgba(201, 0, 114, 0.3);
+            /* iOS Safari fixes - avoid transition and transform in foreignObject */
+            -webkit-tap-highlight-color: transparent;
+            touch-action: manipulation;
+            -webkit-user-select: none;
+            user-select: none;
+        }
+        
+        .sim-gesture-dropdown-item:hover {
+            box-shadow: 0 4px 12px rgba(201, 0, 114, 0.5);
+        }
+        
+        .sim-gesture-dropdown-item:active {
+            background: rgba(170, 0, 95, 1);
+            box-shadow: 0 1px 4px rgba(201, 0, 114, 0.4);
+        }
+        
+        .sim-gesture-dropdown-item img {
+            width: 64px;
+            height: 64px;
+            display: block;
+        }
+        
+        /* Flex container for buttons at bottom */
+        .sim-buttons-flex-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 12px;
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            background: transparent;
+        }
+        
+        .sim-buttons-flex-container > * {
+            flex: 0 0 auto; /* Don't grow, don't shrink, auto basis */
+        }
+
         /* background rectangle for the gesture menu (the group itself can't have a background) */
         .sim-gesture-menu-bg {
             fill: rgba(0, 0, 0, 0.6);
@@ -133,8 +284,6 @@ namespace pxsim.visuals {
         .sim-gesture-menu .simEventBtn:hover {
             filter: brightness(0.85);
         }
-        //     opacity: .7;
-        // }
         button:active {
             background: #e6007d;
         }
@@ -324,96 +473,175 @@ namespace pxsim.visuals {
             -ms-user-select: none;
         }
 
+        /* Ensure 3D transforms work on the SVG and all children */
+        svg.shake_animation,
+        svg.tiltleft_animation,
+        svg.tiltright_animation,
+        svg.tiltforward_animation,
+        svg.tiltbackwards_animation,
+        svg.frontsideup_animation,
+        svg.backsideup_animation,
+        svg.freefall_animation,
+        svg.impact3g_animation,
+        svg.impact6g_animation,
+        svg.impact8g_animation {
+            transform-style: preserve-3d;
+        }
+
+        svg.shake_animation > *,
+        svg.tiltleft_animation > *,
+        svg.tiltright_animation > *,
+        svg.tiltforward_animation > *,
+        svg.tiltbackwards_animation > *,
+        svg.frontsideup_animation > *,
+        svg.backsideup_animation > *,
+        svg.freefall_animation > *,
+        svg.impact3g_animation > *,
+        svg.impact6g_animation > *,
+        svg.impact8g_animation > * {
+            transform-style: preserve-3d;
+        }
+
         .shake_animation {
-            animation: shake 0.42s cubic-bezier(.36,.07,.19,.97) both;
-            transform: translate3d(0, 0, 0);
+            animation: shake 0.6s cubic-bezier(.36,.07,.19,.97) both;
             backface-visibility: hidden;
         }
 
         @keyframes shake {
-            10%, 90% {
-              transform: translate3d(-1px, 0, 0);
-            }
+            0%, 100% { transform: translateX(0) rotate(0deg); }
+            10% { transform: translateX(-3px) rotate(-1deg); }
+            20% { transform: translateX(3px) rotate(1deg); }
+            30% { transform: translateX(-3px) rotate(-1deg); }
+            40% { transform: translateX(3px) rotate(1deg); }
+            50% { transform: translateX(-3px) rotate(-1deg); }
+            60% { transform: translateX(3px) rotate(1deg); }
+            70% { transform: translateX(-2px) rotate(-0.5deg); }
+            80% { transform: translateX(2px) rotate(0.5deg); }
+            90% { transform: translateX(-1px) rotate(-0.25deg); }
+        }
 
-            20%, 80% {
-              transform: translate3d(2px, 0, 0);
-            }
+        /* Tilt Left - left edge moves away, right edge comes forward */
+        .tiltleft_animation {
+            animation: tilt-left 0.7s ease-in-out both;
+            transform-origin: 50% 50%;
+            backface-visibility: hidden;
+        }
 
-            30%, 50%, 70% {
-              transform: translate3d(-4px, 0, 0);
-            }
+        @keyframes tilt-left {
+            0%, 100% { transform: perspective(600px) rotateY(0deg) rotateX(0deg); }
+            50% { transform: perspective(600px) rotateY(-30deg) rotateX(2deg); }
+        }
 
-            40%, 60% {
-              transform: translate3d(4px, 0, 0);
-            }
-          }
-
-        /* Generic gesture animations */
-        .tiltleft_animation,
+        /* Tilt Right - right edge moves away, left edge comes forward */
         .tiltright_animation {
-            animation: tilt-rotate 0.5s ease both;
+            animation: tilt-right 0.7s ease-in-out both;
             transform-origin: 50% 50%;
-            transform: translate3d(0,0,0);
             backface-visibility: hidden;
         }
 
-        @keyframes tilt-rotate {
-            0% { transform: rotate(0deg); }
-            25% { transform: rotate(-8deg); }
-            50% { transform: rotate(6deg); }
-            75% { transform: rotate(-4deg); }
-            100% { transform: rotate(0deg); }
+        @keyframes tilt-right {
+            0%, 100% { transform: perspective(600px) rotateY(0deg) rotateX(0deg); }
+            50% { transform: perspective(600px) rotateY(30deg) rotateX(2deg); }
         }
 
-        .tiltforward_animation,
+        /* Tilt Forward - top edge moves away, bottom edge comes forward */
+        .tiltforward_animation {
+            animation: tilt-forward 0.7s ease-in-out both;
+            transform-origin: 50% 50%;
+            backface-visibility: hidden;
+        }
+
+        @keyframes tilt-forward {
+            0%, 100% { transform: perspective(600px) rotateX(0deg) rotateY(0deg); }
+            50% { transform: perspective(600px) rotateX(30deg) rotateY(0deg); }
+        }
+
+        /* Tilt Backwards - bottom edge moves away, top edge comes forward */
         .tiltbackwards_animation {
-            animation: tilt-nod 0.5s ease both;
+            animation: tilt-backwards 0.7s ease-in-out both;
             transform-origin: 50% 50%;
-            transform: translate3d(0,0,0);
             backface-visibility: hidden;
         }
 
-        /* front/back face up animations (map to the tilt-rotate preset) */
-        .frontsideup_animation,
+        @keyframes tilt-backwards {
+            0%, 100% { transform: perspective(600px) rotateX(0deg) rotateY(0deg); }
+            50% { transform: perspective(600px) rotateX(-30deg) rotateY(0deg); }
+        }
+
+        /* Screen Down - rotate to show front */
         .backsideup_animation {
-            animation: tilt-rotate 0.5s ease both;
+            animation: screen-down 1s ease-in-out both;
             transform-origin: 50% 50%;
-            transform: translate3d(0,0,0);
             backface-visibility: hidden;
         }
 
-        @keyframes tilt-nod {
-            0% { transform: translateY(0) rotateX(0deg); }
-            30% { transform: translateY(-6px) rotateX(8deg); }
-            60% { transform: translateY(4px) rotateX(-6deg); }
-            100% { transform: translateY(0) rotateX(0deg); }
+        @keyframes screen-down {
+            0%, 100% { transform: perspective(600px) rotateX(0deg); }
+            50% { transform: perspective(600px) rotateX(-75deg); }
+        }
+
+        /* Screen Up - rotate to show back */
+        .frontsideup_animation {
+            animation: screen-up 1s ease-in-out both;
+            transform-origin: 50% 50%;
+            backface-visibility: hidden;
+        }
+
+        @keyframes screen-up {
+            0%, 100% { transform: perspective(600px) rotateX(0deg); }
+            50% { transform: perspective(600px) rotateX(75deg); }
         }
 
         .freefall_animation {
-            animation: freefall 0.6s cubic-bezier(.22,.9,.35,1) both;
-            transform: translate3d(0,0,0);
+            animation: freefall 1.2s cubic-bezier(.22,.9,.35,1) both;
             backface-visibility: hidden;
         }
 
         @keyframes freefall {
-            0% { transform: translateY(0) scale(1); opacity: 1; }
-            40% { transform: translateY(18px) scale(0.98); opacity: 0.85; }
-            100% { transform: translateY(0) scale(1); opacity: 1; }
+            0%, 100% { transform: translateY(0) scale(1); opacity: 1; }
+            50% { transform: translateY(40px) scale(0.93); opacity: 0.65; }
         }
 
-        .impact3g_animation,
-        .impact6g_animation,
-        .impact8g_animation {
-            animation: impact-bump 0.36s cubic-bezier(.36,.07,.19,.97) both;
-            transform: translate3d(0,0,0);
+        .impact3g_animation {
+            animation: impact-3g 0.6s cubic-bezier(.36,.07,.19,.97) both;
             backface-visibility: hidden;
         }
 
-        @keyframes impact-bump {
-            0% { transform: scale(1); }
-            30% { transform: scale(0.94); }
-            60% { transform: scale(1.03); }
-            100% { transform: scale(1); }
+        @keyframes impact-3g {
+            0%, 100% { transform: scale(1); }
+            25% { transform: scale(1.08); }
+            50% { transform: scale(0.92); }
+            75% { transform: scale(1.06); }
+        }
+
+        .impact6g_animation {
+            animation: impact-6g 0.8s cubic-bezier(.36,.07,.19,.97) both;
+            backface-visibility: hidden;
+        }
+
+        @keyframes impact-6g {
+            0%, 100% { transform: scale(1); }
+            15% { transform: scale(1.15); }
+            30% { transform: scale(0.85); }
+            45% { transform: scale(1.15); }
+            60% { transform: scale(0.88); }
+            75% { transform: scale(1.08); }
+        }
+
+        .impact8g_animation {
+            animation: impact-8g 1s cubic-bezier(.36,.07,.19,.97) both;
+            backface-visibility: hidden;
+        }
+
+        @keyframes impact-8g {
+            0%, 100% { transform: scale(1) rotate(0deg); }
+            12% { transform: scale(1.2) rotate(2deg); }
+            24% { transform: scale(0.8) rotate(-2deg); }
+            36% { transform: scale(1.2) rotate(2deg); }
+            48% { transform: scale(0.82) rotate(-2deg); }
+            60% { transform: scale(1.15) rotate(1deg); }
+            72% { transform: scale(0.88) rotate(-1deg); }
+            84% { transform: scale(1.08) rotate(0.5deg); }
         }
 
         .button-rect {
@@ -1908,11 +2136,11 @@ namespace pxsim.visuals {
         // This centralizes the small remove/add pattern and forces a reflow so animations restart
         // without using setTimeout everywhere.
         private playGestureAnimation(key: string) {
-            console.log("play gesture", key);
+            // console.log("play gesture", key);
             try {
                 if (!this.element) return;
-                const boardEl = this.element.getElementById('calliope_mini') as Element | null;
-                if (!boardEl) return;
+                // Apply animation to the root SVG element so all children (including LED matrix) transform
+                const boardEl = this.element as Element;
                 const cls = (key ? key : 'shake') + '_animation';
                 try {
                     // remove any existing animation classes (anything ending with '_animation')
@@ -2136,12 +2364,47 @@ namespace pxsim.visuals {
 
             // place the gesture control next to the A+B button outer if present
             // find A+B outer bbox (this.buttonsOuter[2] expected)
+            
+            // Check if A+B button is visible
+            const isABVisible = this.buttonsOuter && this.buttonsOuter.length > 2 && 
+                               (this.buttonsOuter[2] as any).style.visibility !== "hidden";
+            
+            // Calculate centered positioning
+            const buttonWidth = 160; // fixed button width for consistency
+            const buttonGap = 12;
             let abX = 100, abY = MB_HEIGHT - 90;
+            
+            if (isABVisible) {
+                // Both buttons visible - center them together
+                const totalWidth = buttonWidth + buttonGap + buttonWidth;
+                const startX = (MB_WIDTH - totalWidth) / 2;
+                
+                // Position A+B button
+                try {
+                    const abEl = this.buttonsOuter[2] as SVGGraphicsElement;
+                    const bb = abEl.getBBox();
+                    // Move A+B button to the left position
+                    const currentX = bb.x;
+                    const targetX = startX;
+                    const offsetX = targetX - currentX;
+                    abEl.setAttribute('transform', `translate(${offsetX}, 0)`);
+                    
+                    // Gesture button goes to the right
+                    abX = startX + buttonWidth + buttonGap;
+                } catch (e) {
+                    // Fallback to default positioning
+                    abX = 100;
+                }
+            } else {
+                // Only gesture button visible - center it alone
+                abX = (MB_WIDTH - buttonWidth) / 2;
+            }
+            
             try {
                 if (this.buttonsOuter && this.buttonsOuter.length > 2) {
                     const abEl = this.buttonsOuter[2] as SVGGraphicsElement;
                     const bb = abEl.getBBox();
-                    abX = bb.x + bb.width + 8; // place to the right with a small gap
+                    // abX is already calculated above
                     // abY = bb.y;
                 }
             } catch (e) { }
@@ -2150,7 +2413,7 @@ namespace pxsim.visuals {
             // extraHtml can contain a caret or other adornment to be appended inside the button
             // create a control button using foreignObject (same style as A+B)
             // If `split` is true, a two-part control is created: left action + right dropdown
-            const makeControlBtn = (left: number, top: number, key: string, id: number, extraHtml: string = "", split: boolean = false, leftKey?: string, rightKey?: string, width: number | string = 160) => {
+            const makeControlBtn = (left: number, top: number, key: string, id: number, extraHtml: string = "", split: boolean = false, leftKey?: string, rightKey?: string, width: number | string = buttonWidth) => {
                 const aria = pxsim.localization.lf(key);
                 const icon = iconFor(key);
 
@@ -2232,7 +2495,7 @@ namespace pxsim.visuals {
                 const lastKey = this.gestureControl && this.gestureControl.lastKey ? this.gestureControl.lastKey : visible[0].key;
                 const caretHtml = `<span class="sim-gesture-caret" aria-hidden="true">▾</span>`;
                 // create a split control: left shows active gesture; right toggles dropdown
-                const main = makeControlBtn(left, top, lastKey + '_multi', -1, caretHtml, true, lastKey, lastKey + '_drop', 160);
+                const main = makeControlBtn(left, top, lastKey + '_multi', -1, caretHtml, true, lastKey, lastKey + '_drop', buttonWidth);
                 try { this.buttonGroup.replaceChild(main, this.gestureControl.outer); } catch (e) { this.buttonGroup.appendChild(main); }
                 this.gestureControl.outer = main;
 
@@ -2244,9 +2507,21 @@ namespace pxsim.visuals {
                     const right = fo.querySelector('.simGestureRight') as HTMLElement;
 
                     if (left) {
+                        // Add touch event handlers for iOS/iPad
+                        left.addEventListener('touchstart', (ev) => {
+                            ev.preventDefault();
+                            ev.stopPropagation();
+                        }, { passive: false });
+                        
+                        left.addEventListener('touchend', (ev) => {
+                            ev.preventDefault();
+                            ev.stopPropagation();
+                            left.click();
+                        }, { passive: false });
+                        
                         left.addEventListener('click', (ev) => {
                             // prevent bubbling to any outer handlers
-                            try { ev.stopPropagation(); } catch (e) { }
+                            try { ev.stopPropagation(); ev.preventDefault(); } catch (e) { }
                             const key = this.gestureControl && this.gestureControl.lastKey ? this.gestureControl.lastKey : lastKey;
                             const g = visible.find(x => x.key == key) || visible[0];
                             try { this.gestureControl.lastKey = key; } catch (e) { }
@@ -2256,9 +2531,8 @@ namespace pxsim.visuals {
                     }
 
                     if (right) {
-                        right.addEventListener('click', (ev) => {
-                            // prevent bubbling to any outer handlers
-                            try { ev.stopPropagation(); } catch (e) { }
+                        // Simplified toggle logic - directly in touchend/click
+                        const toggleMenu = () => {
                             const visibleNow = menu.style.visibility == 'visible';
                             if (visibleNow) {
                                 menu.style.visibility = 'hidden';
@@ -2270,10 +2544,34 @@ namespace pxsim.visuals {
                                 } catch (e) { }
                                 if (this.gestureControl.menuCloseHandler) {
                                     document.removeEventListener('pointerdown', this.gestureControl.menuCloseHandler);
+                                    document.removeEventListener('touchstart', this.gestureControl.menuCloseHandler);
                                     this.gestureControl.menuCloseHandler = undefined;
                                 }
                             } else {
                                 menu.style.visibility = 'visible';
+                                
+                                // Safari fix: recalculate and apply scale every time menu opens
+                                try {
+                                    const isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
+                                    if (isSafari && this.element) {
+                                        // Get the actual rendered size of the SVG
+                                        const svgRect = this.element.getBoundingClientRect();
+                                        const svgScale = svgRect.width / MB_WIDTH; // actual width / viewBox width
+                                        
+                                        // Apply scale to the dropdown content
+                                        const dropdownDiv = menu.querySelector('.sim-gesture-dropdown') as HTMLElement;
+                                        if (dropdownDiv) {
+                                            if (svgScale < 1) {
+                                                dropdownDiv.style.transform = `scale(${svgScale})`;
+                                                console.log('Safari scaling applied on open:', svgScale);
+                                            } else {
+                                                dropdownDiv.style.transform = '';
+                                            }
+                                        }
+                                    }
+                                } catch (e) {
+                                    console.error('Error applying Safari scale fix on open:', e);
+                                }
                                 // disable pin event surfaces while menu is open so underlying pins don't intercept clicks
                                 try {
                                     for (const k in this.pinDragSurfaces) {
@@ -2282,40 +2580,58 @@ namespace pxsim.visuals {
                                 } catch (e) { }
                                 // only attach a new handler if one isn't already installed
                                 if (!this.gestureControl.menuCloseHandler) {
-                                    const handler = (ev: PointerEvent) => {
-                                    try {
-                                        const target = ev.target as Node | null;
-                                        let clickedInside = false;
-                                        if (target) {
-                                            try {
-                                                if (menu && menu.contains && menu.contains(target)) clickedInside = true;
-                                                else if (this.gestureControl && this.gestureControl.outer && (this.gestureControl.outer as Node).contains && (this.gestureControl.outer as Node).contains(target)) clickedInside = true;
-                                                else {
-                                                    const elAsAny = target as any;
-                                                    if (elAsAny && elAsAny.closest && elAsAny.closest('.sim-gesture-menu')) clickedInside = true;
-                                                }
-                                            } catch (e) { }
-                                        }
-                                        if (!clickedInside) {
-                                            menu.style.visibility = 'hidden';
-                                            // restore pin surfaces when closing menu from outside click
-                                            try {
-                                                for (const k in this.pinDragSurfaces) {
-                                                    try { (this.pinDragSurfaces as any)[k].style.pointerEvents = 'auto'; } catch (e) { }
-                                                }
-                                            } catch (e) { }
-                                            if (this.gestureControl.menuCloseHandler) {
-                                                document.removeEventListener('pointerdown', this.gestureControl.menuCloseHandler);
-                                                this.gestureControl.menuCloseHandler = undefined;
+                                    const handler = (ev: PointerEvent | TouchEvent) => {
+                                        try {
+                                            const target = ev.target as Node | null;
+                                            let clickedInside = false;
+                                            if (target) {
+                                                try {
+                                                    if (menu && menu.contains && menu.contains(target)) clickedInside = true;
+                                                    else if (this.gestureControl && this.gestureControl.outer && (this.gestureControl.outer as Node).contains && (this.gestureControl.outer as Node).contains(target)) clickedInside = true;
+                                                    else {
+                                                        const elAsAny = target as any;
+                                                        if (elAsAny && elAsAny.closest && elAsAny.closest('.sim-gesture-menu')) clickedInside = true;
+                                                    }
+                                                } catch (e) { }
                                             }
-                                        }
-                                    } catch (e) { }
+                                            if (!clickedInside) {
+                                                menu.style.visibility = 'hidden';
+                                                // restore pin surfaces when closing menu from outside click
+                                                try {
+                                                    for (const k in this.pinDragSurfaces) {
+                                                        try { (this.pinDragSurfaces as any)[k].style.pointerEvents = 'auto'; } catch (e) { }
+                                                    }
+                                                } catch (e) { }
+                                                if (this.gestureControl.menuCloseHandler) {
+                                                    document.removeEventListener('pointerdown', this.gestureControl.menuCloseHandler);
+                                                    document.removeEventListener('touchstart', this.gestureControl.menuCloseHandler);
+                                                    this.gestureControl.menuCloseHandler = undefined;
+                                                }
+                                            }
+                                        } catch (e) { }
                                     };
                                     // add the document handler asynchronously so it doesn't catch the same click that opened the menu
                                     this.gestureControl.menuCloseHandler = handler;
-                                    setTimeout(() => document.addEventListener('pointerdown', handler), 0);
+                                    setTimeout(() => {
+                                        document.addEventListener('pointerdown', handler);
+                                        document.addEventListener('touchstart', handler);
+                                    }, 100);
                                 }
                             }
+                        };
+                        
+                        // iOS: use touchend directly
+                        right.addEventListener('touchend', (ev) => {
+                            ev.preventDefault();
+                            ev.stopPropagation();
+                            toggleMenu();
+                        }, { passive: false });
+                        
+                        // Desktop: use click
+                        right.addEventListener('click', (ev) => {
+                            ev.stopPropagation();
+                            ev.preventDefault();
+                            toggleMenu();
                         });
                     }
                 };
@@ -2338,130 +2654,101 @@ namespace pxsim.visuals {
                     this.gestureControl.menu = menu;
                     menuWasNew = true;
                 }
-                const itemHeight = 86; // visually similar to the control height
-                const gap = 3;
+                
+                const itemHeight = 86;
+                const gap = 8;
                 const btnWidth = 120;
-                const columns = 3; // always 3 columns as requested
+                const columns = 3;
                 const rows = Math.ceil(visible.length / columns);
-                // compute total grid width and offset so the grid is centered under the main control
                 const totalGridWidth = columns * btnWidth + (columns - 1) * gap;
                 const totalGridHeight = rows * itemHeight + (rows - 1) * gap;
-                const mainControlWidth = 160;
-                const menuOffsetX = left + Math.round((mainControlWidth - totalGridWidth) / 2);
-                // menuOffsetY is the top position of the top row (menu sits above the control)
-                const menuOffsetY = top - rows * (itemHeight + gap);
+                const padding = 16;
+                
+                // Total menu dimensions
+                const menuWidth = totalGridWidth + padding * 2;
+                const menuHeight = totalGridHeight + padding * 2;
+                
+                const mainControlWidth = buttonWidth;
+                const menuOffsetX = left + Math.round((mainControlWidth - menuWidth) / 2);
+                const menuOffsetY = top - menuHeight - 8;
 
-                // create or update a background rect inside the menu group so we can have a popup background
-                // add a small padding around the grid
-                const bgPadding = 8;
-                // toggle/footer area (we add a checkbox below the grid)
-                const toggleHeight = 72; // doubled for easier selection
-                const toggleGap = 6;
-                const bgX = menuOffsetX - bgPadding;
-                // include toggle area above the grid (closer to the main control)
-                const bgY = menuOffsetY - bgPadding - (toggleHeight + toggleGap);
-                const bgW = totalGridWidth + bgPadding * 2;
-                const bgH = totalGridHeight + (toggleHeight + toggleGap) + bgPadding * 2;
-                let bgRect = menu.querySelector('.sim-gesture-menu-bg') as SVGRectElement;
-                if (!bgRect) {
-                    bgRect = svg.child(menu, 'rect', { class: 'sim-gesture-menu-bg' }) as SVGRectElement;
-                    // rounded corners
-                    bgRect.setAttribute('rx', '10');
-                    bgRect.setAttribute('ry', '10');
-                    // subtle shadow via filter could be added later; for now use translucent fill
-                }
-                bgRect.setAttribute('x', bgX + '');
-                bgRect.setAttribute('y', bgY + '');
-                bgRect.setAttribute('width', bgW + '');
-                bgRect.setAttribute('height', bgH + '');
-
-                // Build the toggle checkbox that toggles disableTilt. Place it in the
-                // area directly below the grid (closer to the main control).
-                const toggleWidth = totalGridWidth - 12;
-                const toggleLeft = menuOffsetX + Math.round((totalGridWidth - toggleWidth) / 2);
-                const toggleTop = menuOffsetY - (toggleHeight + toggleGap);
-                // remove any existing toggle FO (we will recreate to ensure listeners are fresh)
-                const existingToggle = menu.querySelector('.sim-gesture-toggle-fo');
-                if (existingToggle) existingToggle.remove();
-                const toggleFO = svg.child(menu, 'foreignObject', { x: `${toggleLeft}`, y: `${toggleTop}`, width: `${toggleWidth}`, height: `${toggleHeight}` }) as unknown as HTMLElement;
-                // inner HTML: checkbox + label
-                const checked = this.props && this.props.disableTilt ? 'checked' : '';
-                toggleFO.innerHTML = `<body xmlns="http://www.w3.org/1999/xhtml" style="margin:0;padding:0;background:transparent;display:flex;align-items:center;justify-content:center;">
-                    <label style="display:inline-flex;align-items:center;gap:12px;color:#fff;font-family:Roboto, monospace;font-size:18px;user-select:none;">
-                        <input type="checkbox" class="sim-gesture-toggle" ${checked} style="width:30px;height:30px;transform:scale(1.2)" />
-                        <span style="font-size:28px;">Disable tilt</span>
-                    </label>
-                </body>`;
-                // guard: ensure pointer events on content
-                try {
-                    const cb = toggleFO.querySelector('input.sim-gesture-toggle') as HTMLInputElement;
-                    if (cb) {
-                        cb.addEventListener('pointerdown', (ev) => { ev.stopPropagation(); });
-                        cb.addEventListener('click', (ev) => {
-                            try {
-                                ev.stopPropagation();
-                                const isChecked = (ev.target as HTMLInputElement).checked;
-                                if (!this.props) this.props = {} as any;
-                                this.props.disableTilt = !!isChecked;
-                                try { localStorage.setItem('pxt:disableTilt', this.props.disableTilt ? '1' : '0'); } catch (e) { }
-                                // If disabling tilt, reset any transforms to neutral so the board doesn't remain tilted
-                                try {
-                                    if (this.props.disableTilt && this.element) {
-                                        this.element.style.transform = '';
-                                    }
-                                } catch (e) { }
-                                // immediately update tilt behavior / view
-                                try { this.updateTilt(); } catch (e) { }
-                                try { this.updateState(); } catch (e) { }
-                            } catch (e) { }
-                        });
-                    }
-                } catch (e) { }
-
+                // Create a single foreignObject for the entire dropdown
+                const dropdownFO = svg.child(menu, 'foreignObject', {
+                    x: `${menuOffsetX}`,
+                    y: `${menuOffsetY}`,
+                    width: `${menuWidth}`,
+                    height: `${menuHeight}`
+                }) as any;
+                
+                // Build HTML content for dropdown
+                let gridItemsHTML = '';
                 visible.forEach((g, idx) => {
-                    // row-major ordering: fill left-to-right then next row (top-to-bottom)
-                    const rowFromTop = Math.floor(idx / columns);
-                    // invert so row=0 is the bottom row (closest to the main button)
-                    const row = rows - 1 - rowFromTop;
-                    const col = idx % columns;
+                    const icon = iconFor(g.key);
+                    const aria = pxsim.localization.lf(g.key);
+                    gridItemsHTML += `
+                        <button class="sim-gesture-dropdown-item" data-gesture-id="${g.id}" data-gesture-key="${g.key}" aria-label="${aria}">
+                            ${icon ? `<img src="${icon}" alt="${aria}" />` : aria}
+                        </button>
+                    `;
+                });
+                
+                dropdownFO.innerHTML = `
+                    <body xmlns="http://www.w3.org/1999/xhtml" class="sim-gesture-dropdown-container">
+                        <div class="sim-gesture-dropdown">
+                            <div class="sim-gesture-dropdown-grid">
+                                ${gridItemsHTML}
+                            </div>
+                        </div>
+                    </body>
+                `;
+                
+                // Attach event handlers to gesture items
+                try {
+                    const items = dropdownFO.querySelectorAll('.sim-gesture-dropdown-item');
+                    items.forEach((item: HTMLButtonElement) => {
+                        const handleGesture = () => {
+                            const gestureId = parseInt(item.getAttribute('data-gesture-id') || '0');
+                            const gestureKey = item.getAttribute('data-gesture-key') || '';
+                            try { this.gestureControl.lastKey = gestureKey; } catch (e) { }
+                            if (gestureKey) this.playGestureAnimation(gestureKey);
+                            this.board.bus.queue(DAL.MICROBIT_ID_GESTURE, gestureId);
+                            menu.style.visibility = 'hidden';
+                            
+                            // Update split main control to reflect lastKey
+                            try {
+                                const newMain = makeControlBtn(left, top, (this.gestureControl.lastKey || visible[0].key) + '_multi', -1, caretHtml, true, (this.gestureControl.lastKey || visible[0].key), (this.gestureControl.lastKey || visible[0].key) + '_drop', buttonWidth);
+                                try { this.buttonGroup.replaceChild(newMain, this.gestureControl.outer); } catch (e) { }
+                                this.gestureControl.outer = newMain;
+                                try { attachSplitHandlers(this.gestureControl.outer); } catch (e) { }
+                            } catch (e) { }
+                            
+                            if (this.gestureControl.menuCloseHandler) {
+                                document.removeEventListener('pointerdown', this.gestureControl.menuCloseHandler);
+                                document.removeEventListener('touchstart', this.gestureControl.menuCloseHandler);
+                                this.gestureControl.menuCloseHandler = undefined;
+                            }
+                        };
+                        
+                        // iOS: use touchend
+                        item.addEventListener('touchend', (ev) => {
+                            ev.preventDefault();
+                            ev.stopPropagation();
+                            handleGesture();
+                        }, { passive: false });
+                        
+                        // Desktop: use click
+                        item.addEventListener('click', (ev) => {
+                            ev.stopPropagation();
+                            ev.preventDefault();
+                            handleGesture();
+                        });
+                    });
+                } catch (e) {
+                    console.error('Error attaching gesture item handlers:', e);
+                }
 
-                    // determine how many items are in this row (last/top row may be partial)
-                    let itemsInRow = columns;
-                    if (rowFromTop === rows - 1) {
-                        // last row (from top) may have fewer items
-                        itemsInRow = visible.length - (rows - 1) * columns;
-                    }
-
-                    // center partial rows within the full 3-column grid by adding a per-row offset
-                    const rowOffset = Math.round((columns - itemsInRow) * (btnWidth + gap) / 2);
-
-                    // compute left/top so rows stack upwards from the main button
-                    const itemLeft = menuOffsetX + rowOffset + col * (btnWidth + gap); // column spacing + centering offset
-                    const itemTop = top - (row + 1) * (itemHeight + gap);
-                    const item = makeControlBtn(itemLeft, itemTop, g.key, g.id, "", false, undefined, undefined, 120);
-                    menu.appendChild(item);
-                    svg.buttonEvents(item, ev => {}, ev => {
-                        // set last used gesture to this key
-                        try { this.gestureControl.lastKey = g.key; }
-                        catch (e) { }
-                        if (g && g.key) this.playGestureAnimation(g.key);
-                        this.board.bus.queue(DAL.MICROBIT_ID_GESTURE, g.id);
-                        menu.style.visibility = 'hidden';
-                        // update split main control to reflect lastKey
-                        try {
-                            const newMain = makeControlBtn(left, top, (this.gestureControl.lastKey || visible[0].key) + '_multi', -1, caretHtml, true, (this.gestureControl.lastKey || visible[0].key), (this.gestureControl.lastKey || visible[0].key) + '_drop', 160);
-                            try { this.buttonGroup.replaceChild(newMain, this.gestureControl.outer); } catch (e) { }
-                            this.gestureControl.outer = newMain;
-                            // re-attach left/right handlers to the rebuilt main control
-                            try { attachSplitHandlers(this.gestureControl.outer); } catch (e) { }
-                        } catch (e) { }
-                        // remove outside click handler if present
-                        if (this.gestureControl.menuCloseHandler) {
-                            document.removeEventListener('pointerdown', this.gestureControl.menuCloseHandler);
-                            this.gestureControl.menuCloseHandler = undefined;
-                        }
-                    }, ev => {});
-                })
+                // Remove old implementation below - replaced with HTML dropdown above
+                
                 // hide menu by default only if it was just created; if we're reusing
                 // an existing menu preserve its visibility so it stays open across renders.
                 if (menuWasNew) menu.style.visibility = 'hidden';
@@ -2940,13 +3227,13 @@ namespace pxsim.visuals {
 
         private buildDom() {
             // restore persisted disableTilt setting from localStorage if present
-            try {
-                const val = localStorage.getItem('pxt:disableTilt');
-                if (val !== null) {
-                    if (!this.props) this.props = {} as any;
-                    this.props.disableTilt = val === '1';
-                }
-            } catch (e) { }
+            // try {
+            //     const val = localStorage.getItem('pxt:disableTilt');
+            //     if (val !== null) {
+            //         if (!this.props) this.props = {} as any;
+            //         this.props.disableTilt = val === '1';
+            //     }
+            // } catch (e) { }
             let SVG_CODE = BOARD_SVG_HEAD+BOARD_MINI2_BODY+BOARD_SVG_BOTTOM
 			pinTitles = pinTitles_v2
             if(this.props.runtime.board && this.props.runtime.board.hasOwnProperty("hardwareVersion") && this.props.runtime.board.hardwareVersion == 3) {

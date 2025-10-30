@@ -80,6 +80,10 @@
                 "upgrades": [ "move:jacdac/pxt-jacdac" ],
                 "hidden": true
             },
+            "calliope-edu/climate-action-kit": {
+                "preferred": true, 
+                "tags": [ "Climate" ]
+            },
             "tinysuperlab/motionkitv2": {
                 "tags": [
                     "Motor"
