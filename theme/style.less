@@ -17,9 +17,8 @@
 /* Import font definitions */
 @import 'fonts';
 
-@font-face  {
+@font-face {
     font-family: 'Roboto';
-    // src: @RobotoFont format("woff");
 }
 
 :root, .pxt-theme-root {
@@ -195,4 +194,41 @@
 
 .dimmed.dimmable .ui.dimmer {
     backdrop-filter: blur(7px);
+}
+
+#editortoggle {
+    padding-right: 3rem;
+}
+
+#mainmenu .user-dropdown-menuitem.logged-in-dropdown {
+    padding: .5em;
+}
+
+/* Make the Sign In button more subtle and less prominent when logged out */
+#mainmenu .user-dropdown-menuitem.sign-in-dropdown {
+    padding: .5em;
+    opacity: 0.6;
+
+    .signin-button {
+        background-color: transparent !important;
+        height: auto;
+        color: hsla(0, 0%, 100%, .9) !important;
+        border: none;
+        
+        .icon {
+            font-size: 1.5em;
+        }
+        
+        .text {
+            display: none !important;
+        }
+    }
+    
+    &:hover {
+        opacity: 1;
+
+        .icon {
+            transform: scale(1.2);
+        }
+    }
 }
