@@ -701,6 +701,18 @@ declare namespace led {
     //% parts="ledmatrix" shim=led::screenshot
     function screenshot(): Image;
 }
+declare namespace input {
+
+    /**
+     * Reads the loudness through the microphone from 0 (silent) to 255 (loud)
+     */
+    //% help=input/sound-level
+    //% blockId=soundLevel block="sound level"
+    //% parts="microphone"
+    //% weight=34 blockGap=8
+    //% group="Sound" shim=input::soundLevel
+    function soundLevel(): int32;
+}
 declare namespace music {
 
     /**
