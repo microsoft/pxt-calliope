@@ -3,7 +3,7 @@
 Read and write data over a serial connection.
 
 ```cards
-serial.writeLine("");
+serial.writeLine("Hello");
 serial.writeNumber(0);
 serial.writeValue("x", 0);
 serial.writeString("");
