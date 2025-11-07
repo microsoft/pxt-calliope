@@ -2141,33 +2141,44 @@ namespace pxsim.visuals {
                 if (!this.element) return;
                 // Apply animation to the root SVG element so all children (including LED matrix) transform
                 const boardEl = this.element as Element;
-                if (!boardEl || !boardEl.classList) return;
+                // Extra safety check: ensure classList exists before using it
+                if (!boardEl || !boardEl.classList) {
+                    // console.log("playGestureAnimation: boardEl or classList not ready");
+                    return;
+                }
                 const cls = (key ? key : 'shake') + '_animation';
                 try {
                     // remove any existing animation classes (anything ending with '_animation')
-                    const existing = Array.from((boardEl as Element).classList).filter(c => c && c.indexOf('_animation') === c.length - '_animation'.length);
-                    existing.forEach(c => { try { (boardEl as Element).classList.remove(c); } catch (e) { } });
+                    // Add null check before accessing classList
+                    if (boardEl.classList) {
+                        const existing = Array.from(boardEl.classList).filter(c => c && c.indexOf('_animation') === c.length - '_animation'.length);
+                        existing.forEach(c => { try { if (boardEl.classList) boardEl.classList.remove(c); } catch (e) { } });
+                    }
                 } catch (e) { }
                 // force reflow / layout so the animation can restart
                 try { boardEl.getBoundingClientRect(); } catch (e) { }
                 try {
-                    boardEl.classList.add(cls);
+                    if (boardEl.classList) boardEl.classList.add(cls);
                     // Ensure the animation class is removed once the animation completes,
                     // otherwise CSS animation (with fill-mode: both) will keep overriding
                     // the inline transform used by updateTilt().
                     const onDone = (ev?: any) => {
                         try {
-                            (boardEl as Element).removeEventListener('animationend', onDone as any);
-                            (boardEl as Element).removeEventListener('animationcancel', onDone as any);
-                            (boardEl as Element).removeEventListener('webkitAnimationEnd', onDone as any);
+                            if (boardEl) {
+                                boardEl.removeEventListener('animationend', onDone as any);
+                                boardEl.removeEventListener('animationcancel', onDone as any);
+                                boardEl.removeEventListener('webkitAnimationEnd', onDone as any);
+                            }
                         } catch (e) { }
-                        try { (boardEl as Element).classList.remove(cls); } catch (e) { }
+                        try { if (boardEl && boardEl.classList) boardEl.classList.remove(cls); } catch (e) { }
                         // Re-apply current tilt transform after animation ends
                         try { this.updateTilt(); } catch (e) { }
                     };
-                    (boardEl as Element).addEventListener('animationend', onDone as any, { once: true } as any);
-                    (boardEl as Element).addEventListener('animationcancel', onDone as any, { once: true } as any);
-                    (boardEl as Element).addEventListener('webkitAnimationEnd', onDone as any, { once: true } as any);
+                    if (boardEl) {
+                        boardEl.addEventListener('animationend', onDone as any, { once: true } as any);
+                        boardEl.addEventListener('animationcancel', onDone as any, { once: true } as any);
+                        boardEl.addEventListener('webkitAnimationEnd', onDone as any, { once: true } as any);
+                    }
                     // Fallback: ensure cleanup even if animationend isn't fired for some reason
                     setTimeout(onDone, 1500);
                 } catch (e) { }
@@ -3132,6 +3143,7 @@ namespace pxsim.visuals {
 
         private lastAntennaFlash: number = 0;
         public flashAntenna() {
+            if (!this.g) return; // g element not ready yet
             if (!this.antenna) {
                 let ax = 480;
                 let dax = 18;
@@ -3142,7 +3154,14 @@ namespace pxsim.visuals {
             let now = Date.now();
             if (now - this.lastAntennaFlash > 200) {
                 this.lastAntennaFlash = now;
-                svg.animate(this.antenna.children[1] as SVGElement, 'sim-flash-stroke')
+                // Safety check: ensure antenna has children and the child element exists
+                if (this.antenna && this.antenna.children && this.antenna.children.length > 1 && this.antenna.children[1]) {
+                    const antennaElement = this.antenna.children[1] as SVGElement;
+                    // Additional check to ensure element has classList
+                    if (antennaElement && antennaElement.classList) {
+                        svg.animate(antennaElement, 'sim-flash-stroke')
+                    }
+                }
             }
         }
 
