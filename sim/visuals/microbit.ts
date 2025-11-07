@@ -1892,10 +1892,10 @@ namespace pxsim.visuals {
         private soundLevelText: SVGTextElement;
         private soundLevelIcon: SVGTextElement;
         private shakeButton: SVGElement;
-    private gestureButtons: { [key: number]: { outer: SVGElement, inner: SVGElement, key: string } } = {};
-    // gestureControl stores outer group, optional menu, last selected gesture key and a menu-close handler
-    private gestureControl: { outer: SVGGElement, menu?: SVGGElement, lastKey?: string, menuCloseHandler?: (ev: any) => void } = undefined;
-    // Note: gesture icons are provided by the compile-time GESTURE_JRES constant above.
+        private gestureButtons: { [key: number]: { outer: SVGElement, inner: SVGElement, key: string } } = {};
+        // gestureControl stores outer group, optional menu, last selected gesture key and a menu-close handler
+        private gestureControl: { outer: SVGGElement, menu?: SVGGElement, lastKey?: string, menuCloseHandler?: (ev: any) => void } = undefined;
+        // Note: gesture icons are provided by the compile-time GESTURE_JRES constant above.
         private shakeInitialized = false;
         // private shakeText: SVGTextElement;
         // private accTextX: SVGTextElement;
@@ -2141,6 +2141,7 @@ namespace pxsim.visuals {
                 if (!this.element) return;
                 // Apply animation to the root SVG element so all children (including LED matrix) transform
                 const boardEl = this.element as Element;
+                if (!boardEl || !boardEl.classList) return;
                 const cls = (key ? key : 'shake') + '_animation';
                 try {
                     // remove any existing animation classes (anything ending with '_animation')
@@ -2371,7 +2372,7 @@ namespace pxsim.visuals {
             const used = state.accelerometerState.usedGestures || {};
             const visible = gestures.filter(g => used[g.id]);
 
-            const boardEl = this.element.getElementById("calliope_mini");
+            // const boardEl = this.element.getElementById("calliope_mini");
 
             // When there are no visible gestures, remove/hide the gesture control
             if (visible.length == 0) {
