@@ -42,6 +42,7 @@
         "game.ts",
         "led.cpp",
         "led.ts",
+        "microphone.cpp",
         "music.cpp",
         "music.ts",
         "melodies.ts",

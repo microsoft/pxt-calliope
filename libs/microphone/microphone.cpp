@@ -52,6 +52,7 @@ void onSound(DetectedSound sound, Action handler) {
 #endif
 }
 
+// SoundLevel is moved to core/microphone.cpp
 
 int soundLevelCodal() {
     init();
