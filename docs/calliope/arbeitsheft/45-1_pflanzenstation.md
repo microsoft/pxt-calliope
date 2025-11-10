@@ -18,7 +18,7 @@ input.onButtonEvent(Button.B, input.buttonEventClick(), function () {
     basic.showNumber(input.temperature())
 })
 basic.forever(function () {
-if (grove.measureMoistureAnalog(AnalogPin.C16) < 300) {
+if (AnalogPin.C16, MoistureMode.Original, MoistureOutput.Number) < 300) {
       basic.setLedColor(0x00ff00)
   } else {
       basic.setLedColor(0xff0000)
