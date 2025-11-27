@@ -226,7 +226,7 @@
                 "codalTarget": {
                     "name": "codal-microbit-v2",
                     "url": "https://github.com/calliope-edu/codal-microbit-v2",
-                    "branch": "v0.3.2-calliope-2",
+                    "branch": "v0.3.2_ble_fix",
                     "type": "git"
                 },
                 "codalBinary": "MICROBIT",
@@ -647,7 +647,7 @@
         "hideReplaceMyCode": true,
         "matchWebUSBDeviceInSim": true,
         "condenseProfile": true,
-        "cloudProfileIcon": "/static/profile/microbit-cloud.png",
+        "cloudProfileIcon": "/static/profile/calliope-cloud.png",
         "timeMachine": true,
         "timeMachineDiffInterval": 600000,
         "timeMachineSnapshotInterval": 1800000
