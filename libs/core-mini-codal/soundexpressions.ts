@@ -504,7 +504,6 @@ namespace music {
     //% block="$soundExpression"
     //% blockGap=8
     //% group="Melody Advanced"
-    //% advanced=true
     //% toolboxParent=music_playable_play
     //% toolboxParentArgument=toPlay
     //% duplicateShadowOnDrag

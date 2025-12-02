@@ -23,6 +23,8 @@ namespace music {
     void __stopSoundExpressions() {
 #if MICROBIT_CODAL
         uBit.audio.soundExpressions.stop();
+#else
+        return;
 #endif
     }
 }

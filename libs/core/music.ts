@@ -331,29 +331,29 @@ namespace music {
         return getMelody(melody);
     }
 
-    // /**
-    //  * Gets the melody array of a built-in melody.
-    //  * @param melody the melody name
-    //  */
-    // //% weight=60 help=music/built-in-playable-melody
-    // //% blockId=device_builtin_melody_playable block="melody $melody"
-    // //% toolboxParent=music_playable_play_default_bkg
-    // //% toolboxParentArgument=toPlay
-    // //% duplicateShadowOnDrag
-    // //% group="Melody Advanced"
-    // export function builtInPlayableMelody(melody: Melodies): StringArrayPlayable {
-    //     return new StringArrayPlayable(getMelody(melody), undefined);
-    // }
+    /**
+     * Gets the melody array of a built-in melody.
+     * @param melody the melody name
+     */
+    //% weight=60 help=music/built-in-playable-melody
+    //% blockId=device_builtin_melody_playable block="melody $melody"
+    //% toolboxParent=music_playable_play_default_bkg
+    //% toolboxParentArgument=toPlay
+    //% duplicateShadowOnDrag
+    //% group="Melody Advanced"
+    export function builtInPlayableMelody(melody: Melodies): StringArrayPlayable {
+        return new StringArrayPlayable(getMelody(melody), undefined);
+    }
 
-    // /**
-    //  * Registers code to run on various melody events
-    //  */
-    // //% blockId=melody_on_event block="music on %value"
-    // //% help=music/on-event weight=59 blockGap=32
-    // //% group="Melody Advanced"
-    // export function onEvent(value: MusicEvent, handler: () => void) {
-    //     control.onEvent(MICROBIT_MELODY_ID, value, handler);
-    // }
+    /**
+     * Registers code to run on various melody events
+     */
+    //% blockId=melody_on_event block="music on %value"
+    //% help=music/on-event weight=59 blockGap=32
+    //% group="Melody Advanced"
+    export function onEvent(value: MusicEvent, handler: () => void) {
+        control.onEvent(MICROBIT_MELODY_ID, value, handler);
+    }
 
     /**
      * Use startMelody instead
@@ -521,8 +521,8 @@ namespace music {
     export function stopAllSounds() {
         rest(0);
         stopMelody(MelodyStopOptions.All);
-        // music.__stopSoundExpressions();
-        // _stopPlayables();
+        music.__stopSoundExpressions();
+        _stopPlayables();
         if (stopSoundHandlers) {
             for (const handler of stopSoundHandlers) {
                 handler()
@@ -535,7 +535,7 @@ namespace music {
      * Sets a custom playTone function for playing melodies
      */
     //% help=music/set-play-tone
-    //% group="Tone"
+    //% group="Melody Advanced"
     export function setPlayTone(f: (frequency: number, duration: number) => void) {
         _playTone = f;
     }
