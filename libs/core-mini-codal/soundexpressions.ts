@@ -464,7 +464,7 @@ namespace music {
     //% duplicateWithToolboxParent=music_playable_play
     //% duplicateWithToolboxParentArgument=toPlay
     //% duplicateShadowOnDrag
-    //% group="Melody"
+    //% group="Sound Effects"
     export function createSoundExpression(waveShape: WaveShape, startFrequency: number, endFrequency: number, startVolume: number, endVolume: number, duration: number, effect: SoundExpressionEffect, interpolation: InterpolationCurve): SoundExpression {
         return new SoundExpression(createSoundEffect(waveShape, startFrequency, endFrequency, startVolume, endVolume, duration, effect, interpolation));
     }
@@ -487,7 +487,7 @@ namespace music {
     //% blockId=soundExpression_builtinSoundEffect
     //% block="$soundExpression"
     //% blockGap=8
-    //% group="Melody"
+    //% group="Sound Effects"
     //% toolboxParent=soundExpression_playSoundEffect
     //% toolboxParentArgument=sound
     //% weight=98 help=music/builtin-sound-effect
@@ -503,7 +503,7 @@ namespace music {
     //% blockId=soundExpression_builtinPlayableSoundEffect
     //% block="$soundExpression"
     //% blockGap=8
-    //% group="Melody Advanced"
+    //% group="Sound Effects"
     //% toolboxParent=music_playable_play
     //% toolboxParentArgument=toPlay
     //% duplicateShadowOnDrag

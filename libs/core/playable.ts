@@ -98,6 +98,7 @@ namespace music {
     //% playbackMode.defl=music.PlaybackMode.InBackground
     //% group="Melody"
     //% help="music/play"
+    //% blockHidden
     export function _playDefaultBackground(toPlay: Playable, playbackMode: PlaybackMode) {
         return play(toPlay, playbackMode);
     }
