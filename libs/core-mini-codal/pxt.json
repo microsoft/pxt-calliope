@@ -18,7 +18,6 @@
         "music.ts",
         "motors.ts",
         "soundexpressions.ts",
-        "playable.ts",
         "rgbled.ts",
         "logo.cpp",
         "touchmode.cpp"
