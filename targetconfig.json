@@ -20,7 +20,7 @@
                 ],
                 "preferred": true
             },
-            "microbit-apps/display-shield": {
+            "calliope-edu/display-shield": {
                 "tags": [ "Lights and Display" ],
                 "simx": {
                     "sha": "0825d56f78528c57af100a96abdfe2162f59945a",
@@ -171,6 +171,22 @@
             "kitronikltd/pxt-kitronik-servo-lite": {
             },
             "kitronikltd/pxt-kitronik-stopbit": {},
+            "bolzmannstsoe/max7219_8x8_stsoe": {
+                "tags": [
+                    "Display"
+                ],
+                "preferred": true
+            },
+            "bolzmannstsoe/max7219_7seg_stsoe": {
+                "tags": [
+                    "Display"
+                ]
+            },
+            "bolzmannstsoe/tm1637_stsoe": {
+                "tags": [
+                    "Display"
+                ]
+            },
             "mkleinsb/scrolltext": {},
             "mkleinsb/pxt-bme680": {
                 "tags": [
@@ -186,12 +202,6 @@
             },
             "mkleinsb/pxt-ir-calliope": {},
             "mkleinsb/pxt-ky-040": {
-                "preferred": true
-            },
-            "mkleinsb/pxt-max7219_8x8": {
-                "tags": [
-                    "Display"
-                ],
                 "preferred": true
             },
             "mkleinsb/pxt-mcp23017": {},
@@ -483,7 +493,6 @@
             },
             "makecode-extensions/stts751": {},
             "makecode-extensions/scrolltext": {},
-            "makecode-extensions/tm1637": {},
             "makecode-extensions/tm1650": {},
             "makecode-extensions/whaleysansfont": {},
             "makecode-extensions/i2clcd1602": {},
