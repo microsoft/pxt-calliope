@@ -101,7 +101,8 @@
                 "simx": {
                     "sha": "a7e70e6fd2872fa0a6d7c6f62fb129fd399803b9",
                     "devUrl": "http://localhost:3000"
-                }
+                },
+                "preferred": true
             },
             "calliope-edu/lofirobot": {
                 "tags": [
