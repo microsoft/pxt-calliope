@@ -20,13 +20,6 @@
                 ],
                 "preferred": true
             },
-            "calliope-edu/display-shield": {
-                "tags": [ "Lights and Display" ],
-                "simx": {
-                    "sha": "0825d56f78528c57af100a96abdfe2162f59945a",
-                    "devUrl": "http://localhost:3000"
-                }
-            },
             "calliope-edu/co2-sensor-scd40": {
                 "tags": [
                     "Climate"
@@ -94,6 +87,21 @@
                 "tags": [
                     "Motor"
                 ],
+                "preferred": true
+            },
+            "microbit-apps/display-shield": {
+                "hidden": true,
+                "simx": {
+                    "sha": "0825d56f78528c57af100a96abdfe2162f59945a",
+                    "devUrl": "http://localhost:3000"
+                }
+            },
+            "calliope-edu/display-shield": {
+                "tags": [ "Lights and Display" ],
+                "simx": {
+                    "sha": "a7e70e6fd2872fa0a6d7c6f62fb129fd399803b9",
+                    "devUrl": "http://localhost:3000"
+                },
                 "preferred": true
             },
             "calliope-edu/lofirobot": {
