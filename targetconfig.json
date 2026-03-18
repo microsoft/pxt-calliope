@@ -97,7 +97,7 @@
                 }
             },
             "calliope-edu/display-shield": {
-                "tags": [ "Lights and Display" ],
+                "tags": [ "Display" ],
                 "simx": {
                     "sha": "055a2804f767879ca3c6f2a86c17451034d86e29",
                     "devUrl": "http://localhost:3000"
@@ -547,7 +547,7 @@
             "joy-it/sen-mpu6050": { "tags": [ "Science" ] },
             "gomakekit/hoverbit_v2": {},
             "matrix-robotics/pxt-matrixmicro": {},
-            "joy-it/pxt-rb-tft1.8": { "tags": [ "Lights and Display" ] },
+            "joy-it/pxt-rb-tft1.8": { "tags": [ "Display" ] },
             "cytrontechnologies/pxt-esp8266": { "tags": [ "Networking" ] },
             "elecfreaks/pxt-dronebit": {},
             "elecfreaks/pxt-planetx-ai": { "tags": [ "Science" ] },
@@ -555,7 +555,7 @@
             "stemhub/pxt-stemhubbit": {},
             "kitronikltd/pxt-kitronik-lab-bit": {},
             "kitronikltd/pxt-kitronik-128x64display": {},
-            "monkmakes/monkmakes-7-segment": { "tags": [ "Lights and Display" ] },
+            "monkmakes/monkmakes-7-segment": { "tags": [ "Display" ] },
             "stemhub/pxt-stemhubcity": { "tags": [ "Science" ] },
             "kittenbot/pxt-powerbrick": { "tags": [ "Science" ] },
             "calliope-edu/pxt-db": { "tags": [ "Audio", "Software" ] },
@@ -613,7 +613,7 @@
             "eb8ga/pxt-roversa-2": {},
             "roborisen/gcube": {},
             "kittenbot/pxt-tabbyrobot": {},
-            "pythom1234/pxt-oled": { "tags": [ "Lights and Display" ] },
+            "pythom1234/pxt-oled": { "tags": [ "Display" ] },
             "softsmyth/lectrify-b4k": {},
             "davidnsousa/sonification": { "tags": [ "Software" ] },
             "shahart/heb-microbit": { "tags": [ "Software" ] },
