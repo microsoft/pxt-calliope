@@ -99,7 +99,7 @@
             "calliope-edu/display-shield": {
                 "tags": [ "Lights and Display" ],
                 "simx": {
-                    "sha": "a7e70e6fd2872fa0a6d7c6f62fb129fd399803b9",
+                    "sha": "055a2804f767879ca3c6f2a86c17451034d86e29",
                     "devUrl": "http://localhost:3000"
                 },
                 "preferred": true
