@@ -66,7 +66,14 @@
                 "preferred": true
             },
             "calliope-edu/pxt-power": {"preferred": true, "tags": [ "Software" ]},
-             "microsoft/pxt-jacdac": {
+            "calliope-edu/lofirobot": {
+                "tags": [
+                    "AI",
+                    "Motor",
+                    "IoT"
+                ]
+            },
+            "microsoft/pxt-jacdac": {
                 "tags": [
                     "Jacdac"
                 ],
@@ -103,13 +110,6 @@
                     "devUrl": "http://localhost:3000"
                 },
                 "preferred": true
-            },
-            "calliope-edu/lofirobot": {
-                "tags": [
-                    "AI",
-                    "Motor",
-                    "IoT"
-                ]
             },
             "tinysuperlab/touchkit": {
                 "tags": [
@@ -182,8 +182,7 @@
             "bolzmannstsoe/max7219_8x8_stsoe": {
                 "tags": [
                     "Display"
-                ],
-                "preferred": true
+                ]
             },
             "bolzmannstsoe/max7219_7seg_stsoe": {
                 "tags": [
