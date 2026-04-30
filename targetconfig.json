@@ -71,7 +71,8 @@
                     "AI",
                     "Motor",
                     "IoT"
-                ]
+                ],
+                "preferred": true
             },
             "microsoft/pxt-jacdac": {
                 "tags": [
@@ -103,7 +104,7 @@
                     "devUrl": "http://localhost:3000"
                 }
             },
-            "calliope-edu/display-shield": {
+            "calliope-edu/gamekit": {
                 "tags": [ "Display" ],
                 "simx": {
                     "sha": "055a2804f767879ca3c6f2a86c17451034d86e29",
