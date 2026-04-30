@@ -1,27 +1,26 @@
-# Compass Heading
+# compass Heading
 
 Find which direction on a compass the @boardname@ is facing.
 
 The @boardname@ measures the **compass heading** from `0` to `359`
-degrees with its **magnetometer** chip. Different numbers mean north,
-east, south, and west.
+degrees with its **magnetometer** chip. Different numbers mean North,
+East, South, and West.
 
 ```sig
-input.compassHeading();
+input.compassHeading()
 ```
 
 ## Returns
 
 * a [number](/types/number) from `0` to `359` degrees, which means the compass heading. If the compass isn't ready, it returns `-1003`.
 
-## Example
+## Compass points
 
-This program finds the compass heading and stores it in the
-`degrees` variable.
+In history, a compass was a device that pointed in the direction of the magnetic North Pole. A needle or or a spot on a moving dial was magnetically attracted to the pole. Using a circular card or diagram arranged with direction indications you could align the indicator with the mark that meant "North" and see which direction the heading you wanted was in.
 
-```blocks
-let degrees = input.compassHeading()
-```
+![Modern plastic compass](/static/device/compass/plastic-compass.jpg)</br>
+**Magnetic compass**<br>
+_by Evan Amos, Public Domain_
 
 ## ~hint 
 
@@ -30,11 +29,24 @@ the compass needle on the screen to change the compass heading.
 
 ## ~
 
-## Example: compass
+## Examples
 
-This program finds the compass heading and then shows a letter
-that means whether the @boardname@ is facing north (N), south (S),
-east (E), or west (W).
+### Digital compass
+
+Display the current compass heading in degrees `0` - `359`.
+
+```blocks
+basic.forever(function () {
+    basic.showNumber(input.compassHeading())
+    basic.pause(1000)
+})
+```
+
+### Analog compass
+
+Find the compass heading and then show an arrow
+that means whether the @boardname@ is facing north (🠉), south (🠋),
+east (🠊), or west (🠈).
 
 ```blocks
 let degrees = 0

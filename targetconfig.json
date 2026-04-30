@@ -101,7 +101,7 @@
                 "hidden": true,
                 "simx": {
                     "sha": "0825d56f78528c57af100a96abdfe2162f59945a",
-                    "devUrl": "http://localhost:3000"
+                    "devUrl": "http://microbit-apps.github.io/display-shield/"
                 }
             },
             "calliope-edu/gamekit": {
@@ -716,6 +716,6 @@
         ]
     },
     "electronManifest": {
-        "latest": "v8.0.14"
+        "latest": "v8.0.19"
     }
 }
