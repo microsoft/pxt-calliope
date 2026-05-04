@@ -107,7 +107,7 @@
             "calliope-edu/gamekit": {
                 "tags": [ "Display" ],
                 "simx": {
-                    "sha": "055a2804f767879ca3c6f2a86c17451034d86e29",
+                    "sha": "ce55a0ed80c33bf48e9ae3db6a763c6f12c61fef",
                     "devUrl": "http://localhost:3000"
                 },
                 "preferred": true
