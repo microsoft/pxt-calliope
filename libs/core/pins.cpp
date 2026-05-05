@@ -359,17 +359,16 @@ MicroBitPin *getPin(int id) {
         case MICROBIT_ID_IO_P10: return &uBit.io.P10; // 2, 3
         case MICROBIT_ID_IO_P11: return &uBit.io.P11; // 2, 3
         case MICROBIT_ID_IO_P12: return &uBit.io.P12; // 2, 3
-        case MICROBIT_ID_IO_P13: return &uBit.io.P13; // ?
-        case MICROBIT_ID_IO_P14: return &uBit.io.P14; // ?
-        case MICROBIT_ID_IO_P15: return &uBit.io.P15; // ?
-        // P18 // 1, ?
+        case MICROBIT_ID_IO_P13: return &uBit.io.P13;
+        case MICROBIT_ID_IO_P14: return &uBit.io.P14;
+        case MICROBIT_ID_IO_P15: return &uBit.io.P15;
         case MICROBIT_ID_IO_A0_SCL: return &uBit.io.A0SCL;
         case MICROBIT_ID_IO_A0_SDA: return &uBit.io.A0SDA; 
         case MICROBIT_ID_IO_A1_RX: return &uBit.io.A1RX;
         case MICROBIT_ID_IO_A1_TX: return &uBit.io.A1TX;
         
 #if MICROBIT_CODAL
-        // case MICROBIT_ID_IO_P18: return &uBit.io.P18; // ?
+        case MICROBIT_ID_IO_P18: return &uBit.io.P18;
         case MICROBIT_ID_LOGO: return &uBit.io.logo;
         case MICROBIT_ID_IO_RGB: return &uBit.io.RGB;
         case MICROBIT_ID_IO_M_A_IN1: return &uBit.io.M_A_IN1;
