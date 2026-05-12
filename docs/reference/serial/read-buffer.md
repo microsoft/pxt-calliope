@@ -31,8 +31,8 @@ Read character data from the serial port one row at a time. Write the rows to an
 ```typescript
 serial.setRxBufferSize(10)
 for (let i = 0; i < 24; i++) {
-    let rowData = serial.readBuffer(10);
-    pins.i2cWriteBuffer(65, rowData, false);
+    let rowData = serial.readBuffer(10)
+    pins.i2cWriteBuffer(65, rowData, false)
 }
 ```
 
