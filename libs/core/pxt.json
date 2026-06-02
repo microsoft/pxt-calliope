@@ -117,12 +117,14 @@
                     "enabled": 1,
                     "pairing_mode": 1,
                     "partial_flashing": 1,
+                    "private_addressing": 0,
+                    "whitelist": 0,
+                    "advertising_timeout": 0,
+                    "tx_power": 6,
                     "dfu_service": 1,
                     "event_service": 0,
                     "device_info_service": 1,
-                    "private_addressing": 0,
-                    "advertising_timeout": 0,
-                    "tx_power": 6
+                    "security_level": "SECURITY_MODE_ENCRYPTION_OPEN_LINK"
                 },
                 "stack_size": 1280,
                 "gatt_table_size": "0x600",
