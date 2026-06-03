@@ -189,7 +189,7 @@
         "useNewFunctions": true
     },
     "compileService": {
-        "yottaTarget": "calliope-mini-classic-gcc@https://github.com/calliope-mini/target-calliope-mini-classic-gcc#master",
+        "yottaTarget": "calliope-mini-classic-gcc@https://github.com/calliope-mini/target-calliope-mini-classic-gcc#open_link",
         "yottaCorePackage": "microbit",
         "githubCorePackage": "calliope-mini/microbit",
         "gittag": "v2.2.0-rc6-calliope.rc5",
