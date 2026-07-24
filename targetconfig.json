@@ -567,6 +567,7 @@
             "kitronikltd/pxt-kitronik-air-quality": {},
             "kitronikltd/pxt-kitronik-air-quality-v2-only": {},
             "artec-kk/pxt-artecrobo-kit": {},
+            "artec-kk/pxt-artecrobo-kit-for-calliope": {},
             "kittenbot/pxt-kittenwifi": { "tags": [ "Networking" ] },
             "sgbotic/pxt-sgbotic-ultimate-sr04-rgb": { "tags": [ "Science" ] },
             "cytrontechnologies/pxt-zoombit": {},
