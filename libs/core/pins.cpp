@@ -412,6 +412,7 @@ namespace pins {
      */
     //% help=pins/digital-read-pin weight=30
     //% blockId=device_get_digital_pin block="digital read|pin %name" blockGap=8
+    //% name.label="value"
     //% name.shadow=digital_pin_shadow
     int digitalReadPin(int name) {
         PINREAD(getDigitalValue());
@@ -424,6 +425,7 @@ namespace pins {
       */
     //% help=pins/digital-write-pin weight=29
     //% blockId=device_set_digital_pin block="digital write|pin %name|to %value"
+    //% name.label="pin" value.label="value"
     //% value.min=0 value.max=1
     //% name.shadow=digital_pin_shadow
     void digitalWritePin(int name, int value) {
@@ -436,6 +438,7 @@ namespace pins {
      */
     //% help=pins/analog-read-pin weight=25
     //% blockId=device_get_analog_pin block="analog read|pin %name" blockGap="8"
+    //% name.label="value"
     //% name.shadow=analog_read_write_pin_shadow
     int analogReadPin(int name) {
         PINREAD(getAnalogValue());
@@ -448,6 +451,7 @@ namespace pins {
      */
     //% help=pins/analog-write-pin weight=24
     //% blockId=device_set_analog_pin block="analog write|pin %name|to %value" blockGap=8
+    //% name.label="pin" value.label="value"
     //% value.min=0 value.max=1023
     //% name.shadow=analog_pin_shadow
     void analogWritePin(int name, int value) {
@@ -462,6 +466,7 @@ namespace pins {
      */
     //% help=pins/analog-set-period weight=23 blockGap=8
     //% blockId=device_set_analog_period block="analog set period|pin %pin|to (µs)%micros"
+    //% name.label="pin" micros.label="microseconds"
     //% pin.shadow=analog_pin_shadow
     void analogSetPeriod(int name, int micros) {
         PINOP(setAnalogPeriodUs(micros));
@@ -475,6 +480,7 @@ namespace pins {
      */
     //% help=pins/servo-write-pin weight=20
     //% blockId=device_set_servo_pin block="servo write|pin %name|to %value" blockGap=8
+    //% name.label="pin" value.label="angle"
     //% parts=microservo trackArgs=0
     //% value.min=0 value.max=180
     //% name.shadow=analog_pin_shadow
@@ -498,6 +504,7 @@ namespace pins {
      */
     //% help=pins/servo-set-pulse weight=19
     //% blockId=device_set_servo_pulse block="servo set pulse|pin %value|to (µs) %micros"
+    //% name.label="pin" micros.label="microseconds"
     //% value.shadow=analog_pin_shadow
     //% group="Servo"
     void servoSetPulse(int name, int micros) {
@@ -516,6 +523,7 @@ namespace pins {
      * @param name pin to modulate pitch from
      */
     //% blockId=device_analog_set_pitch_pin block="analog set pitch pin %name"
+    //% name.label="value"
     //% help=pins/analog-set-pitch-pin advanced=true
     //% name.shadow=analog_pin_shadow
     //% group="Pins"
@@ -541,6 +549,7 @@ namespace pins {
     * @param volume the intensity of the sound from 0..255
     */
     //% blockId=device_analog_set_pitch_volume block="analog set pitch volume $volume"
+    //% volume.label="value"
     //% help=pins/analog-set-pitch-volume weight=3 advanced=true
     //% volume.min=0 volume.max=255
     //% blockHidden=true
@@ -572,6 +581,7 @@ namespace pins {
      * @param ms duration of the pitch in milliseconds.
      */
     //% blockId=device_analog_pitch block="analog pitch %frequency|for (ms) %ms"
+    //% frequency.label="frequency" ms.label="duration"
     //% help=pins/analog-pitch async advanced=true
     //% group="Pitch"
     //% blockHidden=true
@@ -624,6 +634,7 @@ namespace pins {
     */
     //% help=pins/set-pull weight=3 advanced=true
     //% blockId=device_set_pull block="set pull|pin %pin|to %pull"
+    //% name.label="pin"
     //% pin.shadow=digital_pin_shadow
     //% group="Pins"
     //% weight=15
@@ -652,6 +663,7 @@ namespace pins {
     */
     //% help=pins/set-events weight=4 advanced=true
     //% blockId=device_set_pin_events block="set pin %pin|to emit %type|events"
+    //% name.label="pin"
     //% pin.shadow=digital_pin_shadow
     //% group="Pins"
     //% weight=13
@@ -679,6 +691,7 @@ namespace pins {
      */
     //% help=pins/neopixel-matrix-width advanced=true
     //% blockId=pin_neopixel_matrix_width block="neopixel matrix width|pin %pin %width"
+    //% pin.label="pin" width.label="width"
     //% pin.shadow=digital_pin_shadow
     //% width.defl=5 width.min=2
     //% group="Pins"
@@ -727,6 +740,7 @@ namespace pins {
     */
     //% help=pins/spi-write weight=5 advanced=true
     //% blockId=spi_write block="spi write %value"
+    //% value.label="value"
     //% group="SPI"
     int spiWrite(int value) {
         auto p = allocSPI();
@@ -764,6 +778,7 @@ namespace pins {
     */
     //% help=pins/spi-frequency weight=4 advanced=true
     //% blockId=spi_frequency block="spi frequency %frequency"
+    //% frequency.label="value"
     //% group="SPI"
     void spiFrequency(int frequency) {
         auto p = allocSPI();
@@ -777,6 +792,7 @@ namespace pins {
     */
     //% help=pins/spi-format weight=3 advanced=true
     //% blockId=spi_format block="spi format|bits %bits|mode %mode"
+    //% bits.label="bits" mode.label="mode"
     //% group="SPI"
     void spiFormat(int bits, int mode) {
         auto p = allocSPI();
@@ -795,6 +811,7 @@ namespace pins {
     */
     //% help=pins/spi-pins weight=2 advanced=true
     //% blockId=spi_pins block="spi set pins|MOSI %mosi|MISO %miso|SCK %sck"
+    //% mosi.label="MOSI pin" miso.label="MISO pin" sck.label="SCK pin"
     //% mosi.shadow=digital_pin_shadow
     //% miso.shadow=digital_pin_shadow
     //% sck.shadow=digital_pin_shadow
@@ -916,6 +933,7 @@ namespace pins {
     * @param name pin to modulate pitch from
     */
     //% blockId=pin_set_audio_pin block="set audio pin $name"
+    //% name.label="value"
     //% help=pins/set-audio-pin
     //% name.shadow=digital_pin_shadow
     //% weight=1
@@ -936,6 +954,7 @@ namespace pins {
     */
     //% blockId=pin_set_audio_pin_enabled
     //% block="set audio pin enabled $enabled"
+    //% enabled.label="value"
     //% weight=0 help=pins/set-audio-pin-enabled
     void setAudioPinEnabled(bool enabled) {
         edgeConnectorSoundDisabled = !enabled;

@@ -30,6 +30,7 @@ namespace basic {
     //% help=basic/show-string
     //% weight=100 blockGap=16
     //% block="show|string %text || in an interval of %interval ms"
+    //% text.label="value"
     //% async
     //% blockId=device_print_message
     //% parts="ledmatrix"
@@ -104,6 +105,7 @@ namespace basic {
      */
     //% help=basic/pause weight=50
     //% async block="pause (ms) %pause" blockGap=16
+    //% ms.label="value"
     //% blockId=device_pause icon="\uf110"
     //% pause.shadow=timePicker
     //% group="Control"

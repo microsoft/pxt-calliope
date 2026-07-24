@@ -13,6 +13,7 @@ namespace basic {
     //% weight=95
     //% blockId=device_show_number
     //% block="show|number %number || in an interval of %interval ms" blockGap=8
+    //% value.label="value"
     //% async
     //% parts="ledmatrix"
     //% expandableArgumentMode="toggle"

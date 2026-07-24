@@ -105,7 +105,7 @@ void clear(bool fullErase) {
 *
 * @param format The format of timestamp to use.
 */
-//% help=flashlog/set-timestamp
+//% help=flashlog/set-time-stamp
 //% parts="flashlog"
 //% blockGap=8
 void setTimeStamp(FlashLogTimeStampFormat format) {

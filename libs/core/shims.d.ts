@@ -41,6 +41,7 @@ declare interface Image {
      */
     //% help=images/show-image weight=80 blockNamespace=images
     //% blockId=device_show_image_offset block="show image %sprite(myImage)|at offset %offset ||and interval (ms) %interval"
+    //% sprite.label="image" xOffset.label="offset" interval.label="interval"
     //%
     //% blockGap=8 parts="ledmatrix" async interval.defl=400 shim=ImageMethods::showImage
     showImage(xOffset: int32, interval?: int32): void;
@@ -61,6 +62,7 @@ declare interface Image {
     //% help=images/scroll-image weight=79 async blockNamespace=images
     //% blockId=device_scroll_image
     //% block="scroll image %sprite(myImage)|with offset %frameoffset|and interval (ms) %delay"
+    //% id.label="image" frameOffset.label="offset" interval.label="interval"
     //% blockGap=8 parts="ledmatrix" shim=ImageMethods::scrollImage
     scrollImage(frameOffset: int32, interval: int32): void;
 
@@ -154,6 +156,7 @@ declare namespace basic {
     //% help=basic/show-string
     //% weight=100 blockGap=16
     //% block="show|string %text || in an interval of %interval ms"
+    //% text.label="value"
     //% async
     //% blockId=device_print_message
     //% parts="ledmatrix"
@@ -207,6 +210,7 @@ declare namespace basic {
      */
     //% help=basic/pause weight=50
     //% async block="pause (ms) %pause" blockGap=16
+    //% ms.label="value"
     //% blockId=device_pause icon="\uf110"
     //% pause.shadow=timePicker
     //% group="Control" shim=basic::pause
@@ -444,7 +448,8 @@ declare namespace control {
      * Blocks the calling thread until the specified event is raised.
      */
     //% help=control/wait-for-event async
-    //% blockId=control_wait_for_event block="wait for event|from %src|with value %value" shim=control::waitForEvent
+    //% blockId=control_wait_for_event block="wait for event|from %src|with value %value"
+    //% src.label="source" value.label="value" shim=control::waitForEvent
     function waitForEvent(src: int32, value: int32): void;
 
     /**
@@ -460,6 +465,7 @@ declare namespace control {
      */
     //% help=control/wait-micros weight=29 async
     //% blockId="control_wait_us" block="wait (µs)%micros"
+    //% micros.label="microseconds"
     //% micros.min=0 micros.max=6000 shim=control::waitMicros
     function waitMicros(micros: int32): void;
 
@@ -470,6 +476,7 @@ declare namespace control {
      * @param mode optional definition of how the event should be processed after construction (default is CREATE_AND_FIRE).
      */
     //% weight=21 blockGap=12 blockId="control_raise_event" block="raise event|from source %src=control_event_source_id|with value %value=control_event_value_id" blockExternalInputs=1
+    //% src.label="source" value.label="value"
     //% help=control/raise-event
     //% mode.defl=1 shim=control::raiseEvent
     function raiseEvent(src: int32, value: int32, mode?: EventCreationMode): void;
@@ -478,6 +485,7 @@ declare namespace control {
      * Registers an event handler.
      */
     //% weight=20 blockGap=8 blockId="control_on_event" block="on event|from %src=control_event_source_id|with value %value=control_event_value_id"
+    //% src.label="source" value.label="value"
     //% help=control/on-event
     //% blockExternalInputs=1 flags.defl=0 shim=control::onEvent
     function onEvent(src: int32, value: int32, handler: () => void, flags?: int32): void;
@@ -599,6 +607,7 @@ declare namespace led {
      */
     //% help=led/plot weight=78
     //% blockId=device_plot block="plot|x %x|y %y" blockGap=8
+    //% x.label="x" y.label="y"
     //% parts="ledmatrix"
     //% x.min=0 x.max=4 y.min=0 y.max=4
     //% x.fieldOptions.precision=1 y.fieldOptions.precision=1 shim=led::plot
@@ -612,6 +621,7 @@ declare namespace led {
      */
     //% help=led/plot-brightness weight=78
     //% blockId=device_plot_brightness block="plot|x %x|y %y|brightness %brightness" blockGap=8
+    //% x.label="x" y.label="y" brightness.label="brightness"
     //% parts="ledmatrix"
     //% x.min=0 x.max=4 y.min=0 y.max=4 brightness.min=0 brightness.max=255
     //% x.fieldOptions.precision=1 y.fieldOptions.precision=1
@@ -625,6 +635,7 @@ declare namespace led {
      */
     //% help=led/unplot weight=77
     //% blockId=device_unplot block="unplot|x %x|y %y" blockGap=8
+    //% x.label="x" y.label="y"
     //% parts="ledmatrix"
     //% x.min=0 x.max=4 y.min=0 y.max=4
     //% x.fieldOptions.precision=1 y.fieldOptions.precision=1 shim=led::unplot
@@ -637,6 +648,7 @@ declare namespace led {
      */
     //% help=led/point-brightness weight=76
     //% blockId=device_point_brightness block="point|x %x|y %y brightness"
+    //% x.label="x" y.label="y"
     //% parts="ledmatrix"
     //% x.min=0 x.max=4 y.min=0 y.max=4
     //% x.fieldOptions.precision=1 y.fieldOptions.precision=1
@@ -658,6 +670,7 @@ declare namespace led {
      */
     //% help=led/set-brightness weight=59
     //% blockId=device_set_brightness block="set brightness %value"
+    //% value.label="value"
     //% parts="ledmatrix"
     //% advanced=true
     //% value.min=0 value.max=255 shim=led::setBrightness
@@ -691,6 +704,7 @@ declare namespace led {
      * Turns on or off the display
      */
     //% help=led/enable blockId=device_led_enable block="led enable %on"
+    //% on.label="value"
     //% advanced=true parts="ledmatrix" shim=led::enable
     function enable(on: boolean): void;
 
@@ -732,6 +746,7 @@ declare namespace pins {
      */
     //% help=pins/digital-read-pin weight=30
     //% blockId=device_get_digital_pin block="digital read|pin %name" blockGap=8
+    //% name.label="value"
     //% name.shadow=digital_pin_shadow shim=pins::digitalReadPin
     function digitalReadPin(name: int32): int32;
 
@@ -742,6 +757,7 @@ declare namespace pins {
      */
     //% help=pins/digital-write-pin weight=29
     //% blockId=device_set_digital_pin block="digital write|pin %name|to %value"
+    //% name.label="pin" value.label="value"
     //% value.min=0 value.max=1
     //% name.shadow=digital_pin_shadow shim=pins::digitalWritePin
     function digitalWritePin(name: int32, value: int32): void;
@@ -752,6 +768,7 @@ declare namespace pins {
      */
     //% help=pins/analog-read-pin weight=25
     //% blockId=device_get_analog_pin block="analog read|pin %name" blockGap="8"
+    //% name.label="value"
     //% name.shadow=analog_read_write_pin_shadow shim=pins::analogReadPin
     function analogReadPin(name: int32): int32;
 
@@ -762,6 +779,7 @@ declare namespace pins {
      */
     //% help=pins/analog-write-pin weight=24
     //% blockId=device_set_analog_pin block="analog write|pin %name|to %value" blockGap=8
+    //% name.label="pin" value.label="value"
     //% value.min=0 value.max=1023
     //% name.shadow=analog_pin_shadow shim=pins::analogWritePin
     function analogWritePin(name: int32, value: int32): void;
@@ -774,6 +792,7 @@ declare namespace pins {
      */
     //% help=pins/analog-set-period weight=23 blockGap=8
     //% blockId=device_set_analog_period block="analog set period|pin %pin|to (µs)%micros"
+    //% name.label="pin" micros.label="microseconds"
     //% pin.shadow=analog_pin_shadow shim=pins::analogSetPeriod
     function analogSetPeriod(name: int32, micros: int32): void;
 
@@ -784,6 +803,7 @@ declare namespace pins {
      */
     //% help=pins/servo-write-pin weight=20
     //% blockId=device_set_servo_pin block="servo write|pin %name|to %value" blockGap=8
+    //% name.label="pin" value.label="angle"
     //% parts=microservo trackArgs=0
     //% value.min=0 value.max=180
     //% name.shadow=analog_pin_shadow
@@ -803,6 +823,7 @@ declare namespace pins {
      */
     //% help=pins/servo-set-pulse weight=19
     //% blockId=device_set_servo_pulse block="servo set pulse|pin %value|to (µs) %micros"
+    //% name.label="pin" micros.label="microseconds"
     //% value.shadow=analog_pin_shadow
     //% group="Servo" shim=pins::servoSetPulse
     function servoSetPulse(name: int32, micros: int32): void;
@@ -812,6 +833,7 @@ declare namespace pins {
      * @param name pin to modulate pitch from
      */
     //% blockId=device_analog_set_pitch_pin block="analog set pitch pin %name"
+    //% name.label="value"
     //% help=pins/analog-set-pitch-pin advanced=true
     //% name.shadow=analog_pin_shadow
     //% group="Pins"
@@ -824,6 +846,7 @@ declare namespace pins {
      * @param volume the intensity of the sound from 0..255
      */
     //% blockId=device_analog_set_pitch_volume block="analog set pitch volume $volume"
+    //% volume.label="value"
     //% help=pins/analog-set-pitch-volume weight=3 advanced=true
     //% volume.min=0 volume.max=255
     //% blockHidden=true
@@ -845,6 +868,7 @@ declare namespace pins {
      * @param ms duration of the pitch in milliseconds.
      */
     //% blockId=device_analog_pitch block="analog pitch %frequency|for (ms) %ms"
+    //% frequency.label="frequency" ms.label="duration"
     //% help=pins/analog-pitch async advanced=true
     //% group="Pitch"
     //% blockHidden=true
@@ -859,6 +883,7 @@ declare namespace pins {
      */
     //% help=pins/set-pull weight=3 advanced=true
     //% blockId=device_set_pull block="set pull|pin %pin|to %pull"
+    //% name.label="pin"
     //% pin.shadow=digital_pin_shadow
     //% group="Pins"
     //% weight=15
@@ -873,6 +898,7 @@ declare namespace pins {
      */
     //% help=pins/set-events weight=4 advanced=true
     //% blockId=device_set_pin_events block="set pin %pin|to emit %type|events"
+    //% name.label="pin"
     //% pin.shadow=digital_pin_shadow
     //% group="Pins"
     //% weight=13
@@ -894,6 +920,7 @@ declare namespace pins {
      */
     //% help=pins/neopixel-matrix-width advanced=true
     //% blockId=pin_neopixel_matrix_width block="neopixel matrix width|pin %pin %width"
+    //% pin.label="pin" width.label="width"
     //% pin.shadow=digital_pin_shadow
     //% width.min=2
     //% group="Pins"
@@ -921,6 +948,7 @@ declare namespace pins {
      */
     //% help=pins/spi-write weight=5 advanced=true
     //% blockId=spi_write block="spi write %value"
+    //% value.label="value"
     //% group="SPI" shim=pins::spiWrite
     function spiWrite(value: int32): int32;
 
@@ -939,6 +967,7 @@ declare namespace pins {
      */
     //% help=pins/spi-frequency weight=4 advanced=true
     //% blockId=spi_frequency block="spi frequency %frequency"
+    //% frequency.label="value"
     //% group="SPI" shim=pins::spiFrequency
     function spiFrequency(frequency: int32): void;
 
@@ -949,6 +978,7 @@ declare namespace pins {
      */
     //% help=pins/spi-format weight=3 advanced=true
     //% blockId=spi_format block="spi format|bits %bits|mode %mode"
+    //% bits.label="bits" mode.label="mode"
     //% group="SPI" shim=pins::spiFormat
     function spiFormat(bits: int32, mode: int32): void;
 
@@ -958,6 +988,7 @@ declare namespace pins {
      */
     //% help=pins/spi-pins weight=2 advanced=true
     //% blockId=spi_pins block="spi set pins|MOSI %mosi|MISO %miso|SCK %sck"
+    //% mosi.label="MOSI pin" miso.label="MISO pin" sck.label="SCK pin"
     //% mosi.shadow=digital_pin_shadow
     //% miso.shadow=digital_pin_shadow
     //% sck.shadow=digital_pin_shadow
@@ -1015,6 +1046,7 @@ declare namespace pins {
      * @param name pin to modulate pitch from
      */
     //% blockId=pin_set_audio_pin block="set audio pin $name"
+    //% name.label="value"
     //% help=pins/set-audio-pin
     //% name.shadow=digital_pin_shadow
     //% weight=1
@@ -1027,6 +1059,7 @@ declare namespace pins {
      */
     //% blockId=pin_set_audio_pin_enabled
     //% block="set audio pin enabled $enabled"
+    //% enabled.label="value"
     //% weight=0 help=pins/set-audio-pin-enabled shim=pins::setAudioPinEnabled
     function setAudioPinEnabled(enabled: boolean): void;
 }
@@ -1043,6 +1076,7 @@ declare namespace serial {
      */
     //% help=serial/read-until
     //% blockId=serial_read_until block="serial|read until %delimiter=serial_delimiter_conv"
+    //% delimiter.label="delimiter"
     //% weight=19 shim=serial::readUntil
     function readUntil(delimiter: string): string;
 
@@ -1059,7 +1093,8 @@ declare namespace serial {
      * @param delimiters the characters to match received characters against.
      */
     //% help=serial/on-data-received
-    //% weight=18 blockId=serial_on_data_received block="serial|on data received %delimiters=serial_delimiter_conv" shim=serial::onDataReceived
+    //% weight=18 blockId=serial_on_data_received block="serial|on data received %delimiters=serial_delimiter_conv"
+    //% delimiters.label="delimiter" shim=serial::onDataReceived
     function onDataReceived(delimiters: string, body: () => void): void;
 
     /**
@@ -1068,6 +1103,7 @@ declare namespace serial {
     //% help=serial/write-string
     //% weight=88 blockGap=8
     //% blockId=serial_writestring block="serial|write string %text"
+    //% text.label="value"
     //% text.shadowOptions.toString=true shim=serial::writeString
     function writeString(text: string): void;
 
@@ -1075,6 +1111,7 @@ declare namespace serial {
      * Send a buffer through serial connection
      */
     //% blockId=serial_writebuffer block="serial|write buffer %buffer=serial_readbuffer"
+    //% buffer.label="value"
     //% help=serial/write-buffer advanced=true weight=6 shim=serial::writeBuffer
     function writeBuffer(buffer: Buffer): void;
 
@@ -1084,6 +1121,7 @@ declare namespace serial {
      * @param length default buffer length
      */
     //% blockId=serial_readbuffer block="serial|read buffer %length"
+    //% length.label="value"
     //% help=serial/read-buffer advanced=true weight=5 shim=serial::readBuffer
     function readBuffer(length: int32): Buffer;
 
@@ -1127,6 +1165,7 @@ declare namespace serial {
      */
     //% help=serial/set-rx-buffer-size
     //% blockId=serialSetRxBufferSize block="serial set rx buffer size to $size"
+    //% size.label="value"
     //% advanced=true shim=serial::setRxBufferSize
     function setRxBufferSize(size: uint8): void;
 
@@ -1136,6 +1175,7 @@ declare namespace serial {
      */
     //% help=serial/set-tx-buffer-size
     //% blockId=serialSetTxBufferSize block="serial set tx buffer size to $size"
+    //% size.label="value"
     //% advanced=true shim=serial::setTxBufferSize
     function setTxBufferSize(size: uint8): void;
 

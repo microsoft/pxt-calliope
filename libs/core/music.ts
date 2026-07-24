@@ -113,12 +113,16 @@ enum BeatFraction {
     //% block=1
     Whole = 1,
     //% block="1/2"
+    //% ariaLabel="one half"
     Half = 2,
     //% block="1/4"
+    //% ariaLabel="one quarter"
     Quarter = 4,
     //% block="1/8"
+    //% ariaLabel="one eighth"
     Eighth = 8,
     //% block="1/16"
+    //% ariaLabel="one sixteenth"
     Sixteenth = 16,
     //% block="2"
     Double = 32,
@@ -197,6 +201,7 @@ namespace music {
     //% help=music/play-tone weight=90
     //% blockId=device_play_note block="play|tone %note=device_note|for %duration=device_beat" blockGap=8
     //% parts="speaker"
+    //% frequency.label="note" ms.label="duration"
     //% useEnumVal=1
     //% group="Tone"
     //% deprecated=1
@@ -213,6 +218,7 @@ namespace music {
     //% help=music/ring-tone weight=80
     //% blockId=device_ring block="ring tone (Hz)|%note=device_note" blockGap=8
     //% parts="speaker"
+    //% frequency.label="note"
     //% useEnumVal=1
     //% group="Tone"
     export function ringTone(frequency: number): void {
@@ -227,6 +233,7 @@ namespace music {
     //% blockId=device_rest block="rest for |%duration=device_beat"
     //% parts="speaker"
     //% group="Silence"
+    //% ms.label="value"
     export function rest(ms: number): void {
         playTone(0, ms);
     }
@@ -290,6 +297,7 @@ namespace music {
      */
     //% help=music/change-tempo-by weight=39
     //% blockId=device_change_tempo block="change tempo by (bpm)|%value" blockGap=8
+    //% bpm.label="value"
     //% group="Tempo"
     //% weight=100
     export function changeTempoBy(bpm: number): void {
@@ -304,6 +312,7 @@ namespace music {
      */
     //% help=music/set-tempo weight=38
     //% blockId=device_set_tempo block="set tempo to (bpm)|%value"
+    //% bpm.label="value"
     //% bpm.min=40 bpm.max=500
     //% group="Tempo"
     //% weight=99
@@ -374,6 +383,7 @@ namespace music {
     //% help=music/begin-melody weight=60 blockGap=16
     //% blockId=device_start_melody block="start melody %melody=device_builtin_melody| repeating %options"
     //% parts="speaker"
+    //% melodyArray.label="melody"
     //% group="Melody Advanced"
     //% deprecated=1
     export function startMelody(melodyArray: string[], options: MelodyOptions = 1) {
@@ -386,6 +396,7 @@ namespace music {
      * @param tempo number in beats per minute (bpm), dictating how long each note will play for
      */
     //% block="play melody $melody at tempo $tempo|(bpm)" blockId=playMelody
+    //% melody.label="melody" tempo.label="tempo"
     //% weight=85 blockGap=8 help=music/play-melody
     //% melody.shadow="melody_editor"
     //% tempo.min=40 tempo.max=500
@@ -744,7 +755,7 @@ namespace music {
                 this.currentNote = REST;
             }
             else {
-                this.currentNote = noteNumber % 12;
+                this.currentNote = (noteNumber % 12) + 1;
                 this.currentOctave = Math.idiv((noteNumber - 24), 12);
             }
             this.position += 2;
