@@ -227,6 +227,7 @@ namespace basic {
     //% weight=50 blockGap=8
     //% blockId=basic_show_arrow
     //% block="show arrow %i=device_arrow"
+    //% direction.label="direction"
     //% parts="ledmatrix"
     //% advanced=true
     //% help=basic/show-arrow

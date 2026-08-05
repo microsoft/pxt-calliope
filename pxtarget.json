@@ -241,6 +241,10 @@
     "runtime": {
         "mathBlocks": true,
         "loopsBlocks": true,
+        "pauseUntilBlock": {
+            "category": "loops",
+            "weight": 25
+        },
         "logicBlocks": true,
         "variablesBlocks": true,
         "textBlocks": true,
@@ -651,7 +655,10 @@
         "cloudProfileIcon": "/static/profile/calliope-cloud.png",
         "timeMachine": true,
         "timeMachineDiffInterval": 600000,
-        "timeMachineSnapshotInterval": 1800000
+        "timeMachineSnapshotInterval": 1800000,
+        "shareHomepageContent": true,
+        "songEditor": true,
+        "blocklyKeyboardControlsByDefault": true
     },
     "queryVariants": {
         "hidemenu": {

@@ -54,7 +54,7 @@ declare namespace flashlog {
      *
      * @param format The format of timestamp to use.
      */
-    //% help=flashlog/set-timestamp
+    //% help=flashlog/set-time-stamp
     //% parts="flashlog"
     //% blockGap=8 shim=flashlog::setTimeStamp
     function setTimeStamp(format: FlashLogTimeStampFormat): void;
