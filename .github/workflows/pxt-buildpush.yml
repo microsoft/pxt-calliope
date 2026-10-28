@@ -34,13 +34,13 @@ jobs:
     needs: tag-bump-commit
     if: always() && fromJSON(needs.tag-bump-commit.outputs.did_tag || 'false') == false
     steps:
-      - uses: actions/checkout@main
+      - uses: actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a # main
         with:
           fetch-depth: 0
           fetch-tags: true
 
       - name: Use Node.js
-        uses: actions/setup-node@main
+        uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # main
         with:
           node-version: 20.x
 
@@ -68,13 +68,13 @@ jobs:
     needs: tag-bump-commit
     if: always() && fromJSON(needs.tag-bump-commit.outputs.did_tag || 'false') == true
     steps:
-      - uses: actions/checkout@main
+      - uses: actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a # main
         with:
           fetch-depth: 0
           fetch-tags: true
 
       - name: Use Node.js
-        uses: actions/setup-node@main
+        uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # main
         with:
           node-version: 20.x
 
@@ -100,7 +100,7 @@ jobs:
           PXT_SKIP_GIT_COMMIT: true
 
       - name: Clone release repo
-        uses: actions/checkout@main
+        uses: actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a # main
         with:
           repository: ${{ secrets.BUILT_REPO_NAME }}
           path: tmp/releases/release
