@@ -35,3 +35,6 @@ package-lock.json
 .DS_Store
 # Local HTTPS cert (mkcert-generated)
 .pxt-https-cert/
+
+# Obeya settings are kept per machine, not in the repository
+.obeya/settings.json
