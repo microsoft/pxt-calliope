@@ -3,9 +3,11 @@
 
 import { FieldGestures } from "./field_gestures";
 import { FieldPinPicker } from "./field_pinPicker";
+import { initIotFeedOptions } from "./iotFeedOptions";
 
 pxt.editor.initFieldExtensionsAsync = function (opts: pxt.editor.FieldExtensionOptions): Promise<pxt.editor.FieldExtensionResult> {
     pxt.debug('loading pxt-microbit field editors...')
+    initIotFeedOptions();
     const res: pxt.editor.FieldExtensionResult = {
         fieldEditors: [
             {

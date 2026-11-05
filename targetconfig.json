@@ -47,6 +47,14 @@
             "calliope-edu/pxt-grove": {
                 "preferred": true
             },
+            "calliope-edu/pxt-calliope-iot": {
+                "simx": {
+                    "repo": "calliope-edu/pxt-iot-sim",
+                    "sha": "b698fc6968916598fdf308ef9f850d0ee99f7672",
+                    "devUrl": "http://localhost:3400",
+                    "aspectRatio": 0.78
+                }
+            },
             "calliope-edu/pxt-sunlightsensor-si1151": {
                 "tags": [
                     "Climate"
