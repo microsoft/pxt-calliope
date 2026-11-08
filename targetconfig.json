@@ -50,7 +50,7 @@
             "calliope-edu/pxt-calliope-iot": {
                 "simx": {
                     "repo": "calliope-edu/pxt-iot-sim",
-                    "sha": "b698fc6968916598fdf308ef9f850d0ee99f7672",
+                    "sha": "e40a4a47db2bbe5584f8a5bc4920ea798abe14dd",
                     "devUrl": "http://localhost:3400",
                     "aspectRatio": 0.78
                 }
