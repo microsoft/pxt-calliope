@@ -4,117 +4,107 @@
 
 @importGoogleFonts: false;
 
-@fontName  : 'Roboto Mono', 'Noto Sans Mono', 'SFMono-Regular', 'Consolas', 'Liberation Mono', 'Menlo', monospace;
+/* Roboto Mono everywhere, matching original pxt-calliope. @pageFont also feeds
+   the generated text.blocklyText rule in built/web/blockly.css, so this is what
+   actually sets the block font (a lower-specificity .blocklyText override in
+   blockly.less loses against it and must not be relied on). */
+@fontName          : 'Roboto Mono', 'Noto Sans Mono', 'SFMono-Regular', 'Consolas', 'Liberation Mono', 'Menlo', monospace;
+@headerFont        : 'Roboto Mono', 'Noto Sans Mono', 'SFMono-Regular', 'Consolas', 'Liberation Mono', 'Menlo', monospace;
+@pageFont          : 'Roboto Mono', 'Noto Sans Mono', 'SFMono-Regular', 'Consolas', 'Liberation Mono', 'Menlo', monospace;
 
-@headerFont  : 'Roboto Mono', 'Noto Sans Mono', 'SFMono-Regular', 'Consolas', 'Liberation Mono', 'Menlo', monospace;
-@pageFont  : 'Roboto Mono', 'Noto Sans Mono', 'SFMono-Regular', 'Consolas', 'Liberation Mono', 'Menlo', monospace;
+@primaryColor: @purple;
 
-@primaryColor: #3CB5B5;
-@secondaryColor: #43C9C9;
+@teal: #2C7485;
+@blue: #3454D1;
+@red: #E41B21;
+@pink: #F46197;
+@yellow: #FDE74C;
+@grey: #95a5a6;
+@green: #107C10;
 
-@red:#E81123;
-@orange:#DF4600;
-@yellow:#F4C918;
-@green:#3FC863;
-@teal:#008272;
-@blue:#54C9C9;
-@violet:#C90072;
-@purple:#8169E6;
-@pink:#E2008C;
-@brown:#6B5B4C;
-@grey:#42495F;
+/* Microbit.org colors */
+@orange: #ff8b27;
+@purple: #6633cc;
 
-@pageBackground: #FDFDFA;
+@pageBackground: #fff;
 
 /*******************************
          PXT Overrides
 *******************************/
 
-@blocklyToolboxColor: #F6F4E6;
-
-@blocklyFlyoutColor: #42495F;
-
 /*-------------------
    Menu
---------------------
+--------------------*/
 
 @mainMenuInvertedBackground: @blue;
-@mainMenuTutorialBackground: @orange;
+@mainMenuTutorialBackground: @purple;
 
 @mainMenuBlocksJsToggleColor: @primaryColor;
 
 @tutorialSelectedMenuColor: @blue;
-*/
 
 /*-------------------
    Layout
---------------------
+--------------------*/
 
 @sideBarWidth: 22rem;
 @simulatorWidth: 27rem;
 @simulatorWidthSmall: 20rem;
-*/
 
 /*-------------------
    Background
---------------------
+--------------------*/
 
 @simulatorBackground: #FDFDFF;
 @editorToolsBackground: @simulatorBackground;
 @blocklySvgColor: #ecf0f1;
-@cloudCardBackground: lighten(@blue, 9);
-*/
+@cloudCardBackground: lighten(@blue, 7);
 
 /*-------------------
    Side Docs
---------------------
+--------------------*/
 
 @sidedocsButtonsTop: (@mainMenuHeight + 1rem);
 @sidedocsButtonsRight: 4.25rem;
-*/
 
 /*-------------------
    Editor
---------------------
+--------------------*/
 
 @blocklyToolboxColor: rgba(0, 0, 0, 0.05);
 @trashIconColor: @primaryColor;
-*/
 
 
 /*-------------------
    Flyout
---------------------
+--------------------*/
 
 @flyoutLabelColor: white;
 @blocklyFlyoutColor: #4b4949;
 @blocklyFlyoutColorOpacity: 1.0;
 @monacoFlyoutColor: @blocklyFlyoutColor;
 @blocklyFlyoutButtonColor: @secondaryColor;
-*/
 
 /*-------------------
    Serial
---------------------
+--------------------*/
 
 @serialTextColor: black;
 @serialGraphBackground: #d9d9d9;
-*/
 
 /*---------------------------
    Tutorial
-----------------------------
+----------------------------*/
 @tutorialCodeValidationCorrectBackground: #cd0365;
 @sidebarPrimaryColor: @primaryColor;
 @sidebarSecondaryColor: @white;
 @sidbarActiveTabIconColor: @primaryColor;
 @tutorialBarBackgroundColor: #ecf0f1;
 @tutorialSimframeMargin: 0.3rem;
-*/
 
 /*---------------------------
    Cloud Status
-----------------------------
+----------------------------*/
 @cloudStatusColor: @blue;
 
 /*---------------------------

@@ -1,0 +1,11 @@
+{
+  "FlashLogTimeStampFormat.Days|block": "days",
+  "FlashLogTimeStampFormat.Hours|block": "hours",
+  "FlashLogTimeStampFormat.Milliseconds|block": "milliseconds",
+  "FlashLogTimeStampFormat.Minutes|block": "minutes",
+  "FlashLogTimeStampFormat.None|block": "none",
+  "FlashLogTimeStampFormat.Seconds|block": "seconds",
+  "flashlog|block": "flashlog",
+  "{id:category}Flashlog": "Flashlog",
+  "{id:group}Calliope mini V3": "Calliope mini V3"
+}

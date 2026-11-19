@@ -7,9 +7,19 @@ declare namespace input {
     //% help=input/on-sound
     //% blockId=input_on_sound block="on %sound sound"
     //% parts="microphone"
-    //% weight=33 blockGap=12
-    //% group="Sound" shim=input::onSound
+    //% weight=88 blockGap=12
+    //% group="Events" shim=input::onSound
     function onSound(sound: DetectedSound, handler: () => void): void;
+
+    /**
+     * Reads the loudness through the microphone from 0 (silent) to 255 (loud)
+     */
+    //% help=input/sound-level
+    //% blockId=device_get_sound_level block="sound level"
+    //% parts="microphone"
+    //% weight=34 blockGap=8
+    //% group="Sensors" shim=input::soundLevel
+    function soundLevel(): int32;
 
     /**
      * Sets the threshold for a sound type.
@@ -19,8 +29,9 @@ declare namespace input {
     //% threshold.label="threshold"
     //% parts="microphone"
     //% threshold.min=0 threshold.max=255
-    //% weight=32 blockGap=8
-    //% group="Sound" threshold.defl=128 shim=input::setSoundThreshold
+    //% weight=14 blockGap=8
+    //% advanced=true
+    //% group="Configuration" threshold.defl=128 shim=input::setSoundThreshold
     function setSoundThreshold(sound: SoundThreshold, threshold?: int32): void;
 }
 

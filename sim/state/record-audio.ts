@@ -95,7 +95,7 @@ namespace pxsim.record {
             clearTimeout(state.recordTimeoutID);
         }
 
-        if (navigator.mediaDevices?.getUserMedia) {
+        if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
             try {
                 state.stream = await navigator.mediaDevices.getUserMedia({ video: false, audio: true });
                 state.recorder = new MediaRecorder(state.stream, { audioBitsPerSecond: state.inputBitRate });

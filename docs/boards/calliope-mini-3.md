@@ -4,6 +4,3 @@
 basic.showString("calliope mini 2")
 ```
 
-```package
-v3
-```

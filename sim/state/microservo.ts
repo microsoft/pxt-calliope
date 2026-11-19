@@ -63,6 +63,13 @@ namespace pxsim.visuals {
         }
         updateState(): void {
             const p = this.state.getPin(this.pin);
+            if (!p) {
+                // pin name missing from the servos map (e.g. an alias not listed
+                // in dalboard.ts) — degrade to a static servo instead of crashing
+                // BoardHost.addAll and freezing the whole simulator.
+                console.warn(`sim: servo on unknown pin (${this.pin})`);
+                return;
+            }
             const continuous = !!p.servoContinuous;
             const servoAngle = p.servoAngle;
             if (continuous) {

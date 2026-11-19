@@ -23,10 +23,10 @@ Use buttons `A` and `B` to record and play audio. Set the microphone gain to `lo
 
 ```blocks
 record.setMicGain(record.AudioLevels.Low)
-input.onButtonEvent(Button.A, input.buttonEventClick(), function () {
+input.onButtonPressed(Button.A, function () {
     record.startRecording(record.BlockingState.Blocking)
 })
-input.onButtonEvent(Button.B, input.buttonEventClick(), function () {
+input.onButtonPressed(Button.B, function () {
     record.playAudio(record.BlockingState.Blocking)
 })
 ```

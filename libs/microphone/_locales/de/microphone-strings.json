@@ -1,0 +1,11 @@
+{
+  "DetectedSound.Loud|block": "lautes",
+  "DetectedSound.Quiet|block": "leises",
+  "SoundThreshold.Loud|block": "laut",
+  "SoundThreshold.Quiet|block": "leise",
+  "input.onSound|block": "wenn %sound Geräusch",
+  "input.setSoundThreshold|block": "setze Schwellwert für %sound auf %value",
+  "input.soundLevel|block": "Lautstärke",
+  "input|block": "Eingabe",
+  "{id:category}Input": "Eingabe"
+}

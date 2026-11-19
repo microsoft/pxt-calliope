@@ -32,6 +32,7 @@ namespace flashlog {
 //% help=flashlog/begin-row
 //% parts="flashlog"
 //% blockGap=8
+//% group="Calliope mini V3"
 int beginRow() {
 #if MICROBIT_CODAL
     return uBit.log.beginRow();
@@ -46,6 +47,7 @@ int beginRow() {
 //% help=flashlog/log-data
 //% parts="flashlog"
 //% blockGap=8
+//% group="Calliope mini V3"
 int logData(String key, String value) {
     if (NULL == key || NULL == value)
         return DEVICE_INVALID_PARAMETER;
@@ -62,6 +64,7 @@ int logData(String key, String value) {
 //% help=flashlog/log-string
 //% parts="flashlog"
 //% blockGap=8
+//% group="Calliope mini V3"
 int logString(String value) {
     if (NULL == value)
         return DEVICE_INVALID_PARAMETER;
@@ -78,6 +81,7 @@ int logString(String value) {
 //% help=flashlog/end-row
 //% parts="flashlog"
 //% blockGap=8
+//% group="Calliope mini V3"
 int endRow() {
 #if MICROBIT_CODAL
     return uBit.log.endRow();
@@ -92,6 +96,7 @@ int endRow() {
 //% help=flashlog/clear
 //% parts="flashlog"
 //% blockGap=8
+//% group="Calliope mini V3"
 void clear(bool fullErase) {
 #if MICROBIT_CODAL
     uBit.log.clear(fullErase);
@@ -108,6 +113,7 @@ void clear(bool fullErase) {
 //% help=flashlog/set-time-stamp
 //% parts="flashlog"
 //% blockGap=8
+//% group="Calliope mini V3"
 void setTimeStamp(FlashLogTimeStampFormat format) {
 #if MICROBIT_CODAL
     return uBit.log.setTimeStamp((codal::TimeStampFormat)format);
@@ -122,6 +128,7 @@ void setTimeStamp(FlashLogTimeStampFormat format) {
 //% help=flashlog/set-serial-mirroring
 //% parts="flashlog"
 //% blockGap=8
+//% group="Calliope mini V3"
 void setSerialMirroring(bool enable) {
 #if MICROBIT_CODAL
     return uBit.log.setSerialMirroring(enable);

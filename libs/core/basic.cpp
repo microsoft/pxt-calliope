@@ -5,7 +5,6 @@
  * Provides access to basic Calliope mini functionality.
  */
 namespace basic {
-
     /**
      * Draws an image on the LED screen.
      * @param leds the pattern of LED to turn on/off.
@@ -24,13 +23,12 @@ namespace basic {
 
     /**
      * Display text on the display, one character at a time. If the string fits on the screen (i.e. is one letter), does not scroll.
-     * @param text the text to scroll on the screen, eg: "hi!"
-     * @param interval how fast to shift characters; eg: 50, 100, 150, 200
+     * @param text the text to scroll on the screen, eg: "Hi!"
+     * @param interval how fast to shift characters; eg: 150, 100, 200, -100
      */
     //% help=basic/show-string
     //% weight=100 blockGap=16
     //% block="show|string %text || in an interval of %interval ms"
-    //% text.label="value"
     //% async
     //% blockId=device_print_message
     //% parts="ledmatrix"
@@ -112,5 +110,4 @@ namespace basic {
     void pause(int ms) {
       fiber_sleep(ms);
     }
-
 }

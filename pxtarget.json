@@ -4,28 +4,23 @@
     "name": "makecode.calliope.cc",
     "title": "Microsoft MakeCode for Calliope mini",
     "description": "A Blocks / JavaScript code editor for the Calliope mini powered by Microsoft MakeCode.",
-    "corepkg": "v1",
+    "corepkg": "core",
     "bundleddirs": [
         "libs/core",
-        "libs/core-mini-dal",
-        "libs/core-mini-codal",
-        "libs/v1",
-        "libs/v2",
-        "libs/v3",
-        "libs/funk",
         "libs/audio-samples",
+        "libs/funk",
+        "libs/radio",
         "libs/devices",
         "libs/bluetooth",
-        "libs/one-time-pairing",
         "libs/servo",
         "libs/radio-broadcast",
         "libs/microphone",
         "libs/settings",
         "libs/flashlog",
+        "libs/datalogger",
         "libs/bitmap",
         "libs/fonts",
-        "libs/radio",
-        "libs/datalogger",
+        "libs/color",
         "libs/audio-recording"
     ],
     "cloud": {
@@ -36,6 +31,9 @@
         "publishing": true,
         "importing": true,
         "showBadges": false,
+        "preferredPackages": [
+            "Microsoft/pxt-neopixel"
+        ],
         "githubPackages": true,
         "cloudProviders": {
             "github": {
@@ -65,7 +63,6 @@
     },
     "compile": {
         "isNative": false,
-        "useUF2": false,
         "hasHex": true,
         "webUSB": true,
         "deployDrives": "MINI",
@@ -84,12 +81,13 @@
             "sendBufferAsm": "light::sendWS2812Buffer"
         },
         "patches": {
-            "0.0.0 - 1.0.0": [{
+            "0.0.0 - 1.0.0": [
+                {
                     "type": "package",
                     "map": {
                         "microbit": "core",
                         "microbit-bluetooth": "bluetooth",
-                        "microbit-radio": "funk",
+                        "microbit-radio": "radio",
                         "microbit-devices": "devices",
                         "microbit-led": "",
                         "microbit-music": "",
@@ -101,6 +99,7 @@
                 {
                     "type": "missingPackage",
                     "map": {
+                        "radio\\s*\\.": "radio",
                         "bluetooth\\s*\\.": "bluetooth",
                         "devices\\s*\\.": "devices"
                     }
@@ -180,53 +179,47 @@
                 }
             ]
         },
-        "hidSelectors": [{
-            "usagePage": "0xFF00",
-            "usageId": "0x0001",
-            "vid": "0x1366",
-            "pid": "0x1025"
-        }],
+        "hidSelectors": [
+            {
+                "usagePage": "0xFF00",
+                "usageId": "0x0001",
+                "vid": "0x0d28",
+                "pid": "0x0204"
+            }
+        ],
+        "webUSB": true,
         "useNewFunctions": true
     },
     "compileService": {
-        "yottaTarget": "calliope-mini-classic-gcc@https://github.com/calliope-mini/target-calliope-mini-classic-gcc#v1.2.4",
+        "yottaTarget": "bbc-microbit-classic-gcc@https://github.com/lancaster-university/yotta-target-bbc-microbit-classic-gcc",
         "yottaCorePackage": "microbit",
         "githubCorePackage": "calliope-mini/microbit",
-        "gittag": "v2.2.0-rc6-calliope.rc5",
-        "serviceId": "calliope",
+        "gittag": "v2.2.0-rc6-calliope-3",
+        "serviceId": "microbit",
         "dockerImage": "pext/yotta:gcc5"
     },
+    "multiVariants": [
+        "mbdal",
+        "mbcodal"
+    ],
+    "alwaysMultiVariant" : true,
     "variants": {
-        "minidal": {
-            "compile": {
-                "useUF2": false,
-                "webUSB": false
-            },
-            "compileService": {
-            }
+        "mbdal": {
+            "compile": {},
+            "compileService": {}
         },
-        "minidalusb": {
-            "compile": {
-                "useUF2": false,
-                "webUSB": true
-            },
-            "compileService": {
-            }
-        },
-        "minicodal": {
+        "mbcodal": {
             "compile": {
                 "flashCodeAlign": 4096,
                 "flashUsableEnd": 471040,
-                "flashEnd": 524288,
-                "useUF2": false,
-                "webUSB": true
+                "flashEnd": 524288
             },
             "compileService": {
                 "buildEngine": "codal",
                 "codalTarget": {
                     "name": "codal-microbit-v2",
                     "url": "https://github.com/calliope-edu/codal-microbit-v2",
-                    "branch": "v0.3.5-calliope-2",
+                    "branch": "v0.3.5-calliope-4",
                     "type": "git"
                 },
                 "codalBinary": "MICROBIT",
@@ -254,7 +247,8 @@
         "continueBlock": true,
         "functionsOptions": {
             "useNewFunctions": true,
-            "extraFunctionEditorTypes": [{
+            "extraFunctionEditorTypes": [
+                {
                     "typeName": "game.LedSprite",
                     "label": "LedSprite",
                     "icon": "send",
@@ -277,8 +271,8 @@
         "autoRun": true,
         "streams": false,
         "aspectRatio": 0.94,
-        "parts": false,
-        "partsAspectRatio": 0.7,
+        "parts": true,
+        "partsAspectRatio": 0.94,
         "messageSimulators": {
             "robot": {
                 "url": "https://microsoft.github.io/microbit-robot/?parentOrigin=$PARENT_ORIGIN$",
@@ -288,86 +282,103 @@
             }
         },
         "testSimulatorExtensions": {},
-        "dynamicBoardDefinition": true,
         "boardDefinition": {
-            "visual": "calliope",
+            "visual": "microbit",
             "gpioPinBlocks": [
                 [
-                    "TOUCH_P0"
+                    "P0"
                 ],
                 [
-                    "TOUCH_P1"
+                    "P1"
                 ],
                 [
-                    "TOUCH_P2"
+                    "P2"
                 ],
                 [
-                    "TOUCH_P3"
+                    "P3"
                 ],
                 [
-                    "C_P4",
-                    "C_P5",
-                    "C_P6",
-                    "C_P7"
+                    "P4",
+                    "P5",
+                    "P6",
+                    "P7"
                 ],
                 [
-                    "C_P8",
-                    "C_P9",
-                    "C_P10",
-                    "C_P11",
-                    "C_P12"
+                    "P8",
+                    "P9",
+                    "P10",
+                    "P11",
+                    "P12"
                 ],
                 [
-                    "C_P16"
+                    "P16"
                 ]
             ],
             "gpioPinMap": {
-                "P0": "TOUCH_P0",
-                "P1": "TOUCH_P1",
-                "P2": "TOUCH_P2",
-                "P3": "TOUCH_P3",
-                "C4": "C_P4",
-                "C5": "C_P5",
-                "C6": "C_P6",
-                "C7": "C_P7",
-                "C8": "C_P8",
-                "C9": "C_P9",
-                "C10": "C_P10",
-                "C11": "C_P11",
-                "C12": "C_P12",
-                "C13": "C_P13",
-                "C14": "C_P14",
-                "C15": "C_P15",
-                "C19": "C_P19",
-                "C20": "C_P20",
-                "EXT_PWR": "EXT_PWR",
-                "SPKR": "SPKR",
-                "BTN_A": "BTN_A",
-                "BTN_B": "BTN_B",
-                "MOTOR1": "M0_OUT",
-                "MOTOR2": "M1_OUT"
+                "P0": "P0",
+                "P1": "P1",
+                "P2": "P2",
+                "P3": "P3",
+                "P4": "P4",
+                "P5": "P5",
+                "P6": "P6",
+                "P7": "P7",
+                "P8": "P8",
+                "P9": "P9",
+                "P10": "P10",
+                "P11": "P11",
+                "P12": "P12",
+                "P13": "P13",
+                "P14": "P14",
+                "P15": "P15",
+                "P16": "P16",
+                "P17": "P17",
+                "P18": "P18",
+                "P19": "P19",
+                "P20": "P20",
+                "C4": "P4",
+                "C5": "P5",
+                "C6": "P6",
+                "C7": "P7",
+                "C8": "P8",
+                "C9": "P9",
+                "C10": "P10",
+                "C11": "P11",
+                "C12": "P12",
+                "C13": "P13",
+                "C14": "P14",
+                "C15": "P15",
+                "C16": "P16",
+                "C17": "P17",
+                "C18": "P18",
+                "C19": "P19",
+                "C20": "P20",
+                "A1_RX": "P16",
+                "A1_TX": "P17",
+                "A0_SCL": "P19",
+                "A0_SDA": "P20"
             },
             "spiPins": {
-                "MOSI": "C_P15",
-                "MISO": "C_P14",
-                "SCK": "C_P13"
+                "MOSI": "P15",
+                "MISO": "P14",
+                "SCK": "P13"
             },
             "i2cPins": {
-                "SDA": "C_P20",
-                "SCL": "C_P19"
+                "SDA": "P20",
+                "SCL": "P19"
             },
             "analogInPins": [
+                "P0",
                 "P1",
                 "P2",
-                "C4",
-                "C5",
-                "C6"
+                "P3",
+                "P10"
             ],
             "groundPins": [
-                "TOUCH_GND"
+                "GND"
             ],
             "threeVoltPins": [
-                "TOUCH_VCC"
+                "+3v3"
             ],
             "attachPowerOnRight": true,
             "onboardComponents": [
@@ -378,30 +389,26 @@
                 "bluetooth",
                 "thermometer",
                 "compass",
-                "speaker",
+
+                "builtinspeaker",
                 "microphone",
-                "rgbled",
-                "rgbledLeft",
-                "rgbledRight"
+                "logotouch",
+                "flashlog",
+                "motor",
+
+                "v2"
             ],
-            "pinStyles": {
-                "P0": "croc",
-                "P1": "croc",
-                "P2": "croc",
-                "P3": "croc",
-                "TOUCH_GND": "croc",
-                "TOUCH_VCC": "croc"
-            },
+            "pinStyles": {},
             "marginWhenBreadboarding": [
                 0,
-                0,
+                50,
                 80,
-                0
+                50
             ]
         }
     },
     "serial": {
-        "nameFilter": "^(Calliope mini|mbed Serial Port|DAPLink CMSIS-DAP)",
+        "nameFilter": "^(mbed Serial Port|DAPLink CMSIS-DAP)",
         "log": true,
         "useEditor": true,
         "editorTheme": {
@@ -415,8 +422,8 @@
                 "#107C10"
             ]
         },
-        "vendorId": "0x1366",
-        "productId": "0x1025",
+        "vendorId": "0x0d28",
+        "productId": "0x0204",
         "rawHID": true
     },
     "appTheme": {
@@ -449,12 +456,12 @@
         "githubUrl": "https://github.com/Microsoft/pxt-calliope",
         "boardName": "Calliope mini",
         "driveDisplayName": "MINI",
-        "chooseBoardOnNewProject": true,
         "appStoreID": "1309545545",
         "crowdinProject": "makecode",
         "extendEditor": true,
         "extendFieldEditors": true,
         "enableTrace": true,
+        "ignoreDocsErrors": false,
         "errorList": true,
         "workspaceSearch": true,
         "allowPackageExtensions": true,
@@ -466,15 +473,14 @@
         "experiments": [
             "debugExtensionCode",
             "bluetoothUartConsole",
-            "bluetoothPartialFlashing",
-            "forceEnableAiErrorHelp"
+            "bluetoothPartialFlashing"
         ],
         "supportedExperiences": [
             "code-eval"
         ],
         "bluetoothUartFilters": [
             {
-            "namePrefix": "Calliope mini"
+                "namePrefix": "Calliope mini"
             }
         ],
         "docMenu": [
@@ -592,7 +598,8 @@
             "5": "v5",
             "6": "v6",
             "7": "v7",
-            "8": "v8"
+            "8": "v8",
+            "9": "v9"
         },
         "editorVersionPaths": {
             "0": "v0"
@@ -610,7 +617,6 @@
         "importExtensionFiles": true,
         "nameProjectFirst": true,
         "githubEditor": true,
-        "tutorialBlocksDiff": false,
         "chooseLanguageRestrictionOnNewProject": true,
         "openProjectNewTab": true,
         "python": true,
@@ -679,11 +685,6 @@
                 "disableBlobObjectDownload": true
             }
         },
-        "usb": {
-            "compile": {
-                "webUSB": true
-            }
-        },
         "skillsMap=1": {
             "appTheme": {
                 "hideReplaceMyCode": false
@@ -697,6 +698,5 @@
             }
         }
     },
-    "ignoreDocsErrors": true,
     "uploadDocs": true
 }

@@ -1,0 +1,15 @@
+{
+  "DetectedSound.Loud|block": "loud",
+  "DetectedSound.Quiet|block": "quiet",
+  "SoundThreshold.Loud|block": "loud",
+  "SoundThreshold.Quiet|block": "quiet",
+  "input.onSound|block": "on %sound sound",
+  "input.setSoundThreshold|block": "set %sound sound threshold to %value",
+  "input.setSoundThreshold|param|threshold|label": "threshold",
+  "input.soundLevel|block": "sound level",
+  "input|block": "input",
+  "{id:category}Input": "Input",
+  "{id:group}Configuration": "Configuration",
+  "{id:group}Events": "Events",
+  "{id:group}Sensors": "Sensors"
+}

@@ -501,13 +501,13 @@ function convertPenaltyTimeToScore(penaltyTime: number): number {
 }
 
 function startIOMonitor() {
-    input.onButtonEvent(Button.A, input.buttonEventValue(ButtonEvent.Click), () => {
+    input.onButtonPressed(Button.A, () => {
         AWasPressed = true
     })
-    input.onButtonEvent(Button.B, input.buttonEventValue(ButtonEvent.Click), () => {
+    input.onButtonPressed(Button.B, () => {
         BWasPressed = true
     })
-    input.onButtonEvent(Button.AB, input.buttonEventValue(ButtonEvent.Click), () => {
+    input.onButtonPressed(Button.AB, () => {
         ABWasPressed = true
     })
     input.onShake(() => {
