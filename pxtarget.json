@@ -168,15 +168,6 @@
                         "Motor\\s*\\.\\s*B": "Motor.M1"
                     }
                 }
-            ],
-            "0.0.0 - 7.0.0": [
-                {
-                    "type": "package",
-                    "map": {
-                        "radio": "funk"
-                    }
-                    
-                }
             ]
         },
         "hidSelectors": [

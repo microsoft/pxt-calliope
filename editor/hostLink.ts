@@ -6,7 +6,10 @@
 //   { type: "calliope-connection", usb: Link, ble: Link }
 // and we hand pxt a packetio wrapper backed by that state; pxt then draws the
 // button (connected class, device icon, tooltip) by itself.
-import * as flash from "./flash";
+//
+// Kept out of the regular editor path: outside controller=2 install() does
+// nothing, and inside it only wraps the target's own mkPacketIOWrapper, so
+// flash.ts needs no knowledge of the host.
 
 type Link = "connected" | "connecting" | "disconnected";
 
@@ -51,12 +54,13 @@ class HostLinkWrapper implements pxt.packetio.PacketIOWrapper {
 
 const hostIO = new HostLinkIO();
 
-export function mkPacketIOWrapper(io: pxt.packetio.PacketIO): pxt.packetio.PacketIOWrapper {
-    return io instanceof HostLinkIO ? new HostLinkWrapper(io) : flash.mkDAPLinkPacketIOWrapper(io);
-}
-
-export function initHostLink() {
+/** In controller=2 only: route the host's connection state to the Download button. */
+export function install(res: pxt.editor.ExtensionResult) {
     if (pxt.shell.getControllerMode() !== pxt.shell.ControllerMode.App) return;
+    const mkTargetWrapper = res.mkPacketIOWrapper;
+    res.mkPacketIOWrapper = io => io instanceof HostLinkIO
+        ? new HostLinkWrapper(io)
+        : mkTargetWrapper(io);
     window.addEventListener("message", ev => {
         const d = ev.data;
         if (ev.source !== window.parent || !d || d.type !== "calliope-connection") return;

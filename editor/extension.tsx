@@ -4,6 +4,7 @@
 /// <reference path="../node_modules/pxt-core/localtypings/pxteditor.d.ts" />
 /// <reference path="dapjs.d.ts" />
 import * as dialogs from "./dialogs";
+import * as flash from "./flash";
 import * as hostLink from "./hostLink";
 import * as patch from "./patch";
 
@@ -47,6 +48,7 @@ pxt.editor.initExtensionsAsync = function (opts: pxt.editor.ExtensionOptions): P
         flash.setProjectView(opts.projectView);
 
     res.mkPacketIOWrapper = flash.mkPacketIOWrapper;
+    hostLink.install(res); // embedded in Calliope Campus: show the host's connection
     res.blocklyPatch = patch.patchBlocks;
     res.showProgramTooLargeErrorAsync = dialogs.showProgramTooLargeErrorAsync;
     return Promise.resolve<pxt.editor.ExtensionResult>(res);
