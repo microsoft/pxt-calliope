@@ -6,6 +6,7 @@
 // import * as dialogs from "./dialogs";
 import * as hostLink from "./hostLink";
 import * as patch from "./patch";
+import * as apiinfo from "./apiinfo";
 
 pxt.editor.initExtensionsAsync = function (opts: pxt.editor.ExtensionOptions): Promise<pxt.editor.ExtensionResult> {
     pxt.debug('loading calliope mini target extensions...')
@@ -49,6 +50,8 @@ pxt.editor.initExtensionsAsync = function (opts: pxt.editor.ExtensionOptions): P
     res.mkPacketIOWrapper = hostLink.mkPacketIOWrapper;
     hostLink.initHostLink();
     res.blocklyPatch = patch.patchBlocks;
+    // lets copying core blocks work in mini 2/3 projects (see apiinfo.ts)
+    apiinfo.attributeCoreApisToCorePackage();
     // res.showProgramTooLargeErrorAsync = dialogs.showProgramTooLargeErrorAsync;
     return Promise.resolve<pxt.editor.ExtensionResult>(res);
 }
