@@ -168,6 +168,26 @@
                         "Motor\\s*\\.\\s*B": "Motor.M1"
                     }
                 }
+            ],
+            "0.0.0 - 8.99.99": [
+                {
+                    "type": "package",
+                    "map": {
+                        "v1": "",
+                        "v2": "",
+                        "v3": "",
+                        "core-mini-dal": "",
+                        "core-mini-codal": "",
+                        "one-time-pairing": "",
+                        "motor": ""
+                    }
+                },
+                {
+                    "type": "missingPackage",
+                    "map": {
+                        ".*": "microphone"
+                    }
+                }
             ]
         },
         "hidSelectors": [
@@ -178,7 +198,6 @@
                 "pid": "0x0204"
             }
         ],
-        "webUSB": true,
         "useNewFunctions": true
     },
     "compileService": {

@@ -57,10 +57,8 @@ void setBuiltInSpeakerEnabled(bool enabled) {
 #if MICROBIT_CODAL
     uBit.audio.setSpeakerEnabled(enabled);
 #else
-    // don't crash if user asks to turn it off
-    if (enabled) {
-        target_panic(PANIC_VARIANT_NOT_SUPPORTED);
-    }
+    // Calliope mini 1/2: the speaker is wired to the motor driver and cannot
+    // be switched separately; ignore instead of panicking
 #endif
 }
 

@@ -30,7 +30,7 @@ export async function showProgramTooLargeErrorAsync(variants: string[], confirmA
     }
 
     if (pxt.packetio.isConnected() && pxt.packetio.deviceVariant() === "mbcodal" && !saveOnly) {
-        // connected micro:bit V2 will be flashed; don't give warning dialog
+        // connected Calliope mini V3 will be flashed; don't give warning dialog
         return {
             recompile: true,
             useVariants: ["mbcodal"]
@@ -44,7 +44,7 @@ export async function showProgramTooLargeErrorAsync(variants: string[], confirmA
         agreeLbl: lf("Go Back"),
         agreeClass: "cancel",
         agreeIcon: "cancel",
-        disagreeLbl: lf("Download for V2 only"),
+        disagreeLbl: lf("Download for V3 only"),
         disagreeClass: "positive",
         disagreeIcon: "checkmark"
     });

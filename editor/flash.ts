@@ -1240,7 +1240,10 @@ class JLinkPacketIOWrapper implements pxt.packetio.PacketIOWrapper {
         log("jlink: reflash");
         pxt.tickEvent("hid.jlink.flash.start");
 
-        const hexFile = resp.outfiles["mbdal-" + pxtc.BINARY_HEX];
+        // multi-variant compiles name the DAL hex "mbdal-binary.hex"; a
+        // single-variant DAL compile only has the plain binary.hex
+        const hexFile = resp.outfiles["mbdal-" + pxtc.BINARY_HEX]
+            || (resp.builtVariants?.indexOf("mbdal") >= 0 ? resp.outfiles[pxtc.BINARY_HEX] : undefined);
         if (!hexFile)
             throw new Error(lf("Download failed: firmware not found"));
 
