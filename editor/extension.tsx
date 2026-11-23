@@ -51,7 +51,7 @@ pxt.editor.initExtensionsAsync = function (opts: pxt.editor.ExtensionOptions): P
     hostLink.initHostLink();
     res.blocklyPatch = patch.patchBlocks;
     // lets copying core blocks work in mini 2/3 projects (see apiinfo.ts)
-    apiinfo.attributeCoreApisToCorePackage();
+    apiinfo.attributeCoreApisToDeclaringPackages();
     // res.showProgramTooLargeErrorAsync = dialogs.showProgramTooLargeErrorAsync;
     return Promise.resolve<pxt.editor.ExtensionResult>(res);
 }
