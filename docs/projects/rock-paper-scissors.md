@@ -229,6 +229,3 @@ input.onGesture(Gesture.Shake, function() {})
 ```
 
 
-```package
-v3
-```

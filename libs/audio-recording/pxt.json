@@ -1,9 +1,9 @@
 {
     "name": "audio-recording",
     "description": "Record sound clips. Calliope mini 3 only.",
+    "icon": "./static/packages/microphone/icon.png",
     "dependencies": {
-        "core": "file:../core",
-        "core-mini-codal": "file:../core-mini-codal"
+        "core": "file:../core"
     },
     "weight": 10,
     "files": [
@@ -11,10 +11,5 @@
         "recording.cpp",
         "shims.d.ts"
     ],
-    "public": true,
-    "disablesVariants": [
-        "minidal",
-        "minidalusb"
-    ],
-    "icon": "./static/packages/microphone/icon.png"
+    "public": true
 }

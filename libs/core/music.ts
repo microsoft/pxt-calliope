@@ -177,7 +177,7 @@ enum MusicEvent {
  * Generation of music tones.
  */
 //% color=#DF4600 weight=98 icon="\uf025"
-//% groups='["Melody", "Tone", "Sound Effects", "Volume", "Silence", "Tempo", "State", "Melody Advanced"]'
+//% groups='["Melody", "Tone", "Volume", "Tempo", "Melody Advanced"]'
 namespace music {
     const INTERNAL_MELODY_ENDED = 5;
 
@@ -200,25 +200,21 @@ namespace music {
      */
     //% help=music/play-tone weight=90
     //% blockId=device_play_note block="play|tone %note=device_note|for %duration=device_beat" blockGap=8
-    //% parts="speaker"
-    //% frequency.label="note" ms.label="duration"
     //% useEnumVal=1
     //% group="Tone"
     //% deprecated=1
     export function playTone(frequency: number, ms: number): void {
         if (isNaN(frequency) || isNaN(ms)) return;
         if (_playTone) _playTone(frequency, ms);
-        else speakerPlayTone(frequency, ms);
+        else pins.analogPitch(frequency, ms);
     }
 
-        /**
+    /**
      * Plays a tone through pin ``P0``.
      * @param frequency pitch of the tone to play in Hertz (Hz), eg: Note.C
      */
     //% help=music/ring-tone weight=80
     //% blockId=device_ring block="ring tone (Hz)|%note=device_note" blockGap=8
-    //% parts="speaker"
-    //% frequency.label="note"
     //% useEnumVal=1
     //% group="Tone"
     export function ringTone(frequency: number): void {
@@ -231,12 +227,11 @@ namespace music {
      */
     //% help=music/rest weight=79
     //% blockId=device_rest block="rest for |%duration=device_beat"
-    //% parts="speaker"
-    //% group="Silence"
-    //% ms.label="value"
+    //% group="Tone"
     export function rest(ms: number): void {
         playTone(0, ms);
     }
+
 
     /**
      * Gets the frequency of a note.
@@ -368,7 +363,6 @@ namespace music {
      * Use startMelody instead
      */
     //% hidden=1 deprecated=1
-    //% parts="speaker"
     //% group="Melody Advanced"
     export function beginMelody(melodyArray: string[], options: MelodyOptions = 1) {
         return startMelodyInternal(melodyArray, options);
@@ -382,8 +376,6 @@ namespace music {
      */
     //% help=music/begin-melody weight=60 blockGap=16
     //% blockId=device_start_melody block="start melody %melody=device_builtin_melody| repeating %options"
-    //% parts="speaker"
-    //% melodyArray.label="melody"
     //% group="Melody Advanced"
     //% deprecated=1
     export function startMelody(melodyArray: string[], options: MelodyOptions = 1) {
@@ -401,7 +393,6 @@ namespace music {
     //% melody.shadow="melody_editor"
     //% tempo.min=40 tempo.max=500
     //% tempo.defl=120
-    //% parts="speaker"
     //% group="Melody"
     //% deprecated=1
     export function playMelody(melody: string, tempo: number) {
@@ -473,8 +464,7 @@ namespace music {
      */
     //% help=music/stop-melody weight=59 blockGap=16
     //% blockId=device_stop_melody block="stop melody $options"
-    //% parts="speaker"
-    //% group="Silence"
+    //% group="Melody Advanced"
     export function stopMelody(options: MelodyStopOptions) {
         if (options & MelodyStopOptions.Background)
             startMelody([], MelodyOptions.OnceInBackground);
@@ -482,13 +472,12 @@ namespace music {
             startMelody([], MelodyOptions.Once);
     }
 
-    // MOVED TO CORE MINI CODAL
-    // export function _onStopSound(handler: () => void) {
-    //     if (!stopSoundHandlers) {
-    //         stopSoundHandlers = [];
-    //     }
-    //     stopSoundHandlers.push(handler);
-    // }
+    export function _onStopSound(handler: () => void) {
+        if (!stopSoundHandlers) {
+            stopSoundHandlers = [];
+        }
+        stopSoundHandlers.push(handler);
+    }
 
     /**
      * Stop all sounds and melodies currently playing.
@@ -496,7 +485,7 @@ namespace music {
     //% help=music/stop-all-sounds
     //% blockId=music_stop_all_sounds block="stop all sounds"
     //% weight=10
-    //% group="Silence"
+    //% group="Volume"
     export function stopAllSounds() {
         rest(0);
         stopMelody(MelodyStopOptions.All);
@@ -514,7 +503,8 @@ namespace music {
      * Sets a custom playTone function for playing melodies
      */
     //% help=music/set-play-tone
-    //% group="Melody Advanced"
+    //% advanced=true
+    //% group="Tone"
     export function setPlayTone(f: (frequency: number, duration: number) => void) {
         _playTone = f;
     }

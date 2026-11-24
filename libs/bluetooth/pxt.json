@@ -1,9 +1,6 @@
 {
     "name": "bluetooth",
     "description": "Adds blocks for Bluetooth",
-    "dependencies": {
-        "core": "file:../core"
-    },
     "files": [
         "README.md",
         "enums.d.ts",
@@ -13,17 +10,39 @@
         "BLEHF2Service.h",
         "BLEHF2Service.cpp"
     ],
-    "public": true,
     "weight": 10,
     "searchOnly": true,
     "icon": "./static/packages/bluetooth/icon.png",
+    "public": true,
+    "dependencies": {
+        "core": "file:../core"
+    },
     "yotta": {
         "config": {
             "microbit-dal": {
                 "bluetooth": {
-                    "enabled": 1
+                    "enabled": 1,
+                    "force_enabled_16kb": 1
                 }
             }
-        }
+        },
+        "optionalConfig": {
+            "microbit-dal": {
+                "stack_size": 1280,
+                "gatt_table_size": "0x700"
+            }
+        },
+        "userConfigs": [
+            {
+                "description": "Disable Bluetooth Event Service",
+                "config": {
+                    "microbit-dal": {
+                        "bluetooth": {
+                            "event_service": 0
+                        }
+                    }
+                }
+            }
+        ]
     }
 }

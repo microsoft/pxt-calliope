@@ -1,16 +1,14 @@
 {
     "name": "datalogger",
     "description": "Data logging to flash memory. Calliope mini 3 only.",
+    "icon": "./static/packages/datalogger/icon.png",
     "files": [
         "datalogger.ts"
     ],
-    "weight": 99,
     "public": true,
     "disablesVariants": [
-        "minidal",
-        "minidalusb"
+        "mbdal"
     ],
-    "icon": "./static/packages/datalogger/icon.png",
     "dependencies": {
         "core": "file:../core",
         "flashlog": "file:../flashlog"

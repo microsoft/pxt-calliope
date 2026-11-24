@@ -1,4 +1,4 @@
-input.onButtonEvent(Button.AB, input.buttonEventClick(), function() {
+input.onButtonPressed(Button.AB, function() {
     flashlog.clear()
 })
 flashlog.setTimeStamp(FlashLogTimeStampFormat.Milliseconds)

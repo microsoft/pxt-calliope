@@ -152,7 +152,6 @@ namespace music {
     //% duplicateShadowOnDrag
     //% note.shadow=device_note
     //% duration.shadow=device_beat
-    //% parts="headphone"
     //% help=music/tone-playable
     export function tonePlayable(note: number, duration: number): Playable {
         return new TonePlayable(note, duration);

@@ -39,15 +39,6 @@ declare namespace basic {
     }
 
 
-    declare const enum ButtonEvents {
-    Down = 1,  // MICROBIT_BUTTON_EVT_DOWN
-    Up = 2,  // MICROBIT_BUTTON_EVT_UP
-    Click = 3,  // MICROBIT_BUTTON_EVT_CLICK
-    LongClick = 4,  // MICROBIT_BUTTON_EVT_LONG_CLICK
-    Hold = 5,  // MICROBIT_BUTTON_EVT_HOLD
-    }
-
-
     declare const enum Dimension {
     //% block=x
     X = 0,
@@ -269,12 +260,12 @@ declare namespace input {
     MICROBIT_ID_IO_P14 = 114,  // MICROBIT_ID_IO_P14
     //% blockIdentity="control.eventSourceId"
     MICROBIT_ID_IO_P15 = 115,  // MICROBIT_ID_IO_P15
-    // //% blockIdentity="control.eventSourceId"
-    // MICROBIT_ID_IO_P16_ = MICROBIT_ID_IO_P16,
-    // //% blockIdentity="control.eventSourceId"
-    // MICROBIT_ID_IO_P19_ = MICROBIT_ID_IO_P19,
-    // //% blockIdentity="control.eventSourceId"
-    // MICROBIT_ID_IO_P20_ = MICROBIT_ID_IO_P20,
+    //% blockIdentity="control.eventSourceId"
+    MICROBIT_ID_IO_P16 = 116,  // MICROBIT_ID_IO_P16
+    //% blockIdentity="control.eventSourceId"
+    MICROBIT_ID_IO_P19 = 119,  // MICROBIT_ID_IO_P19
+    //% blockIdentity="control.eventSourceId"
+    MICROBIT_ID_IO_P20 = 120,  // MICROBIT_ID_IO_P20
     //% blockIdentity="control.eventSourceId"
     MES_DEVICE_INFO_ID = 1103,  // MES_DEVICE_INFO_ID
     //% blockIdentity="control.eventSourceId"
@@ -508,22 +499,22 @@ declare namespace led {
     P15 = 115,  // MICROBIT_ID_IO_P15
     //% blockIdentity="pins._digitalPin"
     //% block="C16 (A1 RX)"
-    C16 = 116,  // MICROBIT_ID_IO_A1_RX
+    C16 = 116,  // MICROBIT_ID_IO_P16
     //% blockIdentity="pins._digitalPin"
     //% blockHidden=true
-    P16 = 116,  // MICROBIT_ID_IO_A1_RX
+    P16 = 116,  // MICROBIT_ID_IO_P16
     //% blockIdentity="pins._digitalPin"
     //% block="A1 RX" blockHidden=true
-    A1_RX = 116,  // MICROBIT_ID_IO_A1_RX
+    A1_RX = 116,  // MICROBIT_ID_IO_P16
     //% blockIdentity="pins._digitalPin"
     //% block="C17 (A1 TX)"
-    C17 = 117,  // MICROBIT_ID_IO_A1_TX
+    C17 = 117,  // MICROBIT_ID_IO_P17
     //% blockIdentity="pins._digitalPin"
     //% blockHidden=true
-    P17 = 117,  // MICROBIT_ID_IO_A1_TX
+    P17 = 117,  // MICROBIT_ID_IO_P17
     //% blockIdentity="pins._digitalPin"
     //% block="A1 TX" blockHidden=true
-    A1_TX = 117,  // MICROBIT_ID_IO_A1_TX
+    A1_TX = 117,  // MICROBIT_ID_IO_P17
     //% blockIdentity="pins._digitalPin"
     C18 = 118,  // MICROBIT_ID_IO_P18
     //% blockIdentity="pins._digitalPin"
@@ -531,16 +522,22 @@ declare namespace led {
     P18 = 118,  // MICROBIT_ID_IO_P18
     //% blockIdentity="pins._digitalPin"
     //% block="C19 (A0 SCL)" blockHidden=true
-    A0_SCL = 119,  // MICROBIT_ID_IO_A0_SCL
+    C19 = 119,  // MICROBIT_ID_IO_P19
     //% blockIdentity="pins._digitalPin"
     //% blockHidden=true
-    P19 = 119,  // MICROBIT_ID_IO_A0_SCL
+    P19 = 119,  // MICROBIT_ID_IO_P19
+    //% blockIdentity="pins._digitalPin"
+    //% block="A0 SCL" blockHidden=true
+    A0_SCL = 119,  // MICROBIT_ID_IO_P19
     //% blockIdentity="pins._digitalPin"
     //% block="C20 (A0 SDA)" blockHidden=true
-    A0_SDA = 120,  // MICROBIT_ID_IO_A0_SDA
+    C20 = 120,  // MICROBIT_ID_IO_P20
     //% blockIdentity="pins._digitalPin"
     //% blockHidden=true
-    P20 = 120,  // MICROBIT_ID_IO_A0_SDA
+    P20 = 120,  // MICROBIT_ID_IO_P20
+    //% blockIdentity="pins._digitalPin"
+    //% block="A0 SDA" blockHidden=true
+    A0_SDA = 120,  // MICROBIT_ID_IO_P20
     //% blockIdentity="pins._digitalPin"
     //% blockHidden=true
     M_MODE = 156,  // MICROBIT_ID_IO_M_MODE
@@ -562,186 +559,130 @@ declare namespace led {
 
 
     declare const enum AnalogPin {
-
     //% blockIdentity="pins._analogPin"
     P0 = 100,  // MICROBIT_ID_IO_P0
-
     //% blockIdentity="pins._analogPin"
     P1 = 101,  // MICROBIT_ID_IO_P1
-
     //% blockIdentity="pins._analogPin"
     P2 = 102,  // MICROBIT_ID_IO_P2
-
     //% blockIdentity="pins._analogPin"
-    //% block="P3"
-    // (write only)
     P3 = 103,  // MICROBIT_ID_IO_P3
-
     //% blockIdentity="pins._analogPin"
     C4 = 104,  // MICROBIT_ID_IO_P4
     //% blockIdentity="pins._analogPin"
     //% blockHidden=true
     P4 = 104,  // MICROBIT_ID_IO_P4
-
     //% blockIdentity="pins._analogPin"
-    //% block="C5"
-    // (write only)
     C5 = 105,  // MICROBIT_ID_IO_P5
     //% blockIdentity="pins._analogPin"
     //% blockHidden=true
     P5 = 105,  // MICROBIT_ID_IO_P5
-
     //% blockIdentity="pins._analogPin"
-    //% block="C6"
-    // (write only)
     C6 = 106,  // MICROBIT_ID_IO_P6
     //% blockIdentity="pins._analogPin"
     //% blockHidden=true
     P6 = 106,  // MICROBIT_ID_IO_P6
-
     //% blockIdentity="pins._analogPin"
-    //% block="C7"
-    // (write only)
     C7 = 107,  // MICROBIT_ID_IO_P7
     //% blockIdentity="pins._analogPin"
     //% blockHidden=true
     P7 = 107,  // MICROBIT_ID_IO_P7
-
     //% blockIdentity="pins._analogPin"
-    //% block="C8"
-    // (write only)
     C8 = 108,  // MICROBIT_ID_IO_P8
     //% blockIdentity="pins._analogPin"
     //% blockHidden=true
     P8 = 108,  // MICROBIT_ID_IO_P8
-
     //% blockIdentity="pins._analogPin"
-    //% block="C9"
-    // (write only)
     C9 = 109,  // MICROBIT_ID_IO_P9
     //% blockIdentity="pins._analogPin"
     //% blockHidden=true
     P9 = 109,  // MICROBIT_ID_IO_P9
-
     //% blockIdentity="pins._analogPin"
     C10 = 110,  // MICROBIT_ID_IO_P10
     //% blockIdentity="pins._analogPin"
     //% blockHidden=true
     P10 = 110,  // MICROBIT_ID_IO_P10
-
     //% blockIdentity="pins._analogPin"
-    //% block="C11"
-    // (write only)
     C11 = 111,  // MICROBIT_ID_IO_P11
     //% blockIdentity="pins._analogPin"
     //% blockHidden=true
     P11 = 111,  // MICROBIT_ID_IO_P11
-
     //% blockIdentity="pins._analogPin"
-    //% block="C12"
-    // (write only)
     C12 = 112,  // MICROBIT_ID_IO_P12
     //% blockIdentity="pins._analogPin"
     //% blockHidden=true
     P12 = 112,  // MICROBIT_ID_IO_P12
-
     //% blockIdentity="pins._analogPin"
-    //% block="C13"
-    // (write only)
     C13 = 113,  // MICROBIT_ID_IO_P13
     //% blockIdentity="pins._analogPin"
     //% blockHidden=true
     P13 = 113,  // MICROBIT_ID_IO_P13
-
     //% blockIdentity="pins._analogPin"
-    //% block="C14"
-    // (write only)
     C14 = 114,  // MICROBIT_ID_IO_P14
     //% blockIdentity="pins._analogPin"
     //% blockHidden=true
     P14 = 114,  // MICROBIT_ID_IO_P14
-
     //% blockIdentity="pins._analogPin"
-    //% block="C15"
-    // (write only)
     C15 = 115,  // MICROBIT_ID_IO_P15
     //% blockIdentity="pins._analogPin"
     //% blockHidden=true
     P15 = 115,  // MICROBIT_ID_IO_P15
-
     //% blockIdentity="pins._analogPin"
     //% block="C16 (A1 RX)"
-    C16 = 116,  // MICROBIT_ID_IO_A1_RX
+    C16 = 116,  // MICROBIT_ID_IO_P16
     //% blockIdentity="pins._analogPin"
     //% blockHidden=true
-    P16 = 116,  // MICROBIT_ID_IO_A1_RX
+    P16 = 116,  // MICROBIT_ID_IO_P16
     //% blockIdentity="pins._analogPin"
     //% block="A1 RX" blockHidden=true
-    A1_RX = 116,  // MICROBIT_ID_IO_A1_RX
-
+    A1_RX = 116,  // MICROBIT_ID_IO_P16
     //% blockIdentity="pins._analogPin"
     //% block="C17 (A1 TX)"
-    // (write only)
-    C17 = 117,  // MICROBIT_ID_IO_A1_TX
+    C17 = 117,  // MICROBIT_ID_IO_P17
     //% blockIdentity="pins._analogPin"
     //% blockHidden=true
-    P17 = 117,  // MICROBIT_ID_IO_A1_TX
+    P17 = 117,  // MICROBIT_ID_IO_P17
     //% blockIdentity="pins._analogPin"
     //% block="A1 TX" blockHidden=true
-    A1_TX = 117,  // MICROBIT_ID_IO_A1_TX
-
+    A1_TX = 117,  // MICROBIT_ID_IO_P17
     //% blockIdentity="pins._analogPin"
     C18 = 118,  // MICROBIT_ID_IO_P18
     //% blockIdentity="pins._analogPin"
     //% blockHidden=true
     P18 = 118,  // MICROBIT_ID_IO_P18
-
     //% blockIdentity="pins._analogPin"
     //% block="C19 (A0 SCL)" blockHidden=true
-    A0_SCL = 119,  // MICROBIT_ID_IO_A0_SCL
+    C19 = 119,  // MICROBIT_ID_IO_P19
+    //% blockIdentity="pins._analogPin"
     //% blockHidden=true
-    P19 = 119,  // MICROBIT_ID_IO_A0_SCL
-
+    P19 = 119,  // MICROBIT_ID_IO_P19
+    //% blockIdentity="pins._analogPin"
+    //% block="A0 SCL" blockHidden=true
+    A0_SCL = 119,  // MICROBIT_ID_IO_P19
     //% blockIdentity="pins._analogPin"
     //% block="C20 (A0 SDA)" blockHidden=true
-    A0_SDA = 120,  // MICROBIT_ID_IO_A0_SDA
-    //% blockHidden=true
-    P20 = 120,  // MICROBIT_ID_IO_A0_SDA
-
-
+    C20 = 120,  // MICROBIT_ID_IO_P20
     //% blockIdentity="pins._analogPin"
-    //% //% block="Motor Mode" blockHidden=true
-    // (write only)
+    //% blockHidden=true
+    P20 = 120,  // MICROBIT_ID_IO_P20
+    //% blockIdentity="pins._analogPin"
+    //% block="A0 SDA" blockHidden=true
+    A0_SDA = 120,  // MICROBIT_ID_IO_P20
+    //% blockIdentity="pins._analogPin"
+    //% blockHidden=true
     M_MODE = 156,  // MICROBIT_ID_IO_M_MODE
-
-    //% blockIdentity="pins._analogPin"
-    //% //% block="M0 Direction"blockHidden=true
-    // (write only)
-    M0_DIR = 152,  // MICROBIT_ID_IO_M_A_IN1
-
-    //% blockIdentity="pins._analogPin"
-    //% //% block="M1 Direction" blockHidden=true
-    // (write only)
-    M1_DIR = 154,  // MICROBIT_ID_IO_M_B_IN1
-
-    //% blockIdentity="pins._analogPin"
-    //% //% block="M0 Speed" blockHidden=true
-    // (write only)
-    M0_SPEED = 153,  // MICROBIT_ID_IO_M_A_IN2
-
-    //% blockIdentity="pins._analogPin"
-    //% //% block="M1 Speed" blockHidden=true
-    // (write only)
-    M1_SPEED = 155,  // MICROBIT_ID_IO_M_B_IN2
-
-    //% blockIdentity="pins._analogPin"
-    //% //% block="RGB" blockHidden=true
-    // (write only)
-    RGB = 151,  // MICROBIT_ID_IO_RGB
-
     //% blockIdentity="pins._analogPin"
     //% blockHidden=true
-    MIC = 121,  // MICROBIT_ID_LOGO
+    M0_DIR = 152,  // MICROBIT_ID_IO_M_A_IN1
+    //% blockIdentity="pins._analogPin"
+    //% blockHidden=true
+    M1_DIR = 154,  // MICROBIT_ID_IO_M_B_IN1
+    //% blockIdentity="pins._analogPin"
+    //% blockHidden=true
+    M0_SPEED = 153,  // MICROBIT_ID_IO_M_A_IN2
+    //% blockIdentity="pins._analogPin"
+    //% blockHidden=true
+    M1_SPEED = 155,  // MICROBIT_ID_IO_M_B_IN2
     }
 
 
@@ -779,33 +720,18 @@ declare namespace led {
     P0 = 100,  // MICROBIT_ID_IO_P0
     P1 = 101,  // MICROBIT_ID_IO_P1
     P2 = 102,  // MICROBIT_ID_IO_P2
-    P3 = 103,  // MICROBIT_ID_IO_P3
-
-    C8 = 108,  // MICROBIT_ID_IO_P8
-    C12 = 112,  // MICROBIT_ID_IO_P12
-    C13 = 113,  // MICROBIT_ID_IO_P13
-    C14 = 114,  // MICROBIT_ID_IO_P14
-    C15 = 115,  // MICROBIT_ID_IO_P15
-    C16 = 116,  // MICROBIT_ID_IO_A1_RX
-    C17 = 117,  // MICROBIT_ID_IO_A1_TX
-
+    P8 = 108,  // MICROBIT_ID_IO_P8
+    P12 = 112,  // MICROBIT_ID_IO_P12
+    P13 = 113,  // MICROBIT_ID_IO_P13
+    P14 = 114,  // MICROBIT_ID_IO_P14
+    P15 = 115,  // MICROBIT_ID_IO_P15
+    P16 = 116,  // MICROBIT_ID_IO_P16
+    //% block="A1 RX"
+    A1_RX = 116,  // MICROBIT_ID_IO_P16
+    //% block="A1 TX"
+    A1_TX = 117,  // MICROBIT_ID_IO_P17
     USB_TX = 1001,
     USB_RX = 1002,
-
-    //% blockHidden=true
-    P8 = 108,  // MICROBIT_ID_IO_P8
-    //% blockHidden=true
-    P12 = 112,  // MICROBIT_ID_IO_P12
-    //% blockHidden=true
-    P13 = 113,  // MICROBIT_ID_IO_P13
-    //% blockHidden=true
-    P14 = 114,  // MICROBIT_ID_IO_P14
-    //% blockHidden=true
-    P15 = 115,  // MICROBIT_ID_IO_P15
-    //% blockHidden=true
-    P16 = 116,  // MICROBIT_ID_IO_A1_RX
-    //% blockHidden=true
-    P17 = 117,  // MICROBIT_ID_IO_A1_TX
     }
 
 
@@ -837,27 +763,39 @@ declare namespace serial {
 }
 
 
-    declare const enum MotorCommand {
-    //% block=coast
-    Coast = 0,
-    //% block=break
-    Break = 1,
-    //% block=sleep
-    Sleep = 2,
+    /**
+     * An action on a touch button
+     */
+
+    declare const enum TouchButtonEvent {
+    //% block=pressed
+    Pressed = 3,  // MICROBIT_BUTTON_EVT_CLICK
+    //% block=touched
+    Touched = 1,  // MICROBIT_BUTTON_EVT_DOWN
+    //% block=released
+    Released = 2,  // MICROBIT_BUTTON_EVT_UP
+    //% block="long pressed"
+    LongPressed = 4,  // MICROBIT_BUTTON_EVT_LONG_CLICK
     }
 
 
-    declare const enum Motor {
-    //% block="M0"
-    M0 = 0,
-    //% block="M1"
-    M1 = 1,
-    //% block="M0 & M1"
-    M0_M1 = 2,
+    declare const enum TouchTargetMode {
+    //% block="capacitive"
+    Capacitive = 1,
+    //% block="resistive"
+    Resistive = 0,
     }
-declare namespace motors {
-}
-declare namespace basic {
-}
+
+
+    declare const enum TouchTarget {
+    //% block="P0"
+    P0 = 100,  // MICROBIT_ID_IO_P0
+    //% block="P1"
+    P1 = 101,  // MICROBIT_ID_IO_P1
+    //% block="P2"
+    P2 = 102,  // MICROBIT_ID_IO_P2
+    //% block="logo"
+    LOGO = 121,  // MICROBIT_ID_LOGO
+    }
 
 // Auto-generated. Do not edit. Really.

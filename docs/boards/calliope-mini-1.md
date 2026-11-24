@@ -4,6 +4,3 @@
 basic.showString("mini 1")
 ```
 
-```package
-v1
-```

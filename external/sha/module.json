@@ -5,7 +5,7 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
-    "microbit-dal": "calliope-mini/microbit-dal#v2.2.0-rc6-calliope.rc4"
+    "microbit-dal": "lancaster-university/microbit-dal#v2.1.1"
   },
   "bin": "./source"
 }

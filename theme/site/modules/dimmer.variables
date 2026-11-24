@@ -2,4 +2,6 @@
     User Variable Overrides
 *******************************/
 
-@backgroundColor: fade(@grey, 40%);
+/* Loading screen / dimmer background: light grey as in the original
+   pxt-calliope editor (matches pxt-target-background1 #ECF0F1). */
+@backgroundColor: #ECF0F1;

@@ -1,6 +1,24 @@
 #include "pxt.h"
 
+// Pin-ID fallbacks: the Calliope v3 codal names P16/P19/P20 as A1_RX/A0_SCL/A0_SDA and does
+// not define MICROBIT_ID_IO_P16/P19/P20. Define the numeric IDs (== ID_PIN_Px) so the
+// EventBusSource enum compiles on every variant (no-op where codal/DAL already defines them).
+#ifndef MICROBIT_ID_IO_P16
+#define MICROBIT_ID_IO_P16 116
+#endif
+#ifndef MICROBIT_ID_IO_P19
+#define MICROBIT_ID_IO_P19 119
+#endif
+#ifndef MICROBIT_ID_IO_P20
+#define MICROBIT_ID_IO_P20 120
+#endif
+
 extern uint32_t __StackTop;
+
+// Total size of a runtime heap. Declared (identically) in microbit-dal's
+// MicroBitHeapAllocator.h and codal-core's CodalHeapAllocator.h; forward-declared
+// here so the shim links on v1/v2 (DAL) and v3 (CODAL) alike — same as codal.cpp does.
+uint32_t device_heap_size(uint8_t heap_index);
 
 /**
  * How to create the event.
@@ -68,12 +86,12 @@ enum EventBusSource {
     MICROBIT_ID_IO_P14_ = MICROBIT_ID_IO_P14,
     //% blockIdentity="control.eventSourceId"
     MICROBIT_ID_IO_P15_ = MICROBIT_ID_IO_P15,
-    // //% blockIdentity="control.eventSourceId"
-    // MICROBIT_ID_IO_P16_ = MICROBIT_ID_IO_P16,
-    // //% blockIdentity="control.eventSourceId"
-    // MICROBIT_ID_IO_P19_ = MICROBIT_ID_IO_P19,
-    // //% blockIdentity="control.eventSourceId"
-    // MICROBIT_ID_IO_P20_ = MICROBIT_ID_IO_P20,
+    //% blockIdentity="control.eventSourceId"
+    MICROBIT_ID_IO_P16_ = MICROBIT_ID_IO_P16,
+    //% blockIdentity="control.eventSourceId"
+    MICROBIT_ID_IO_P19_ = MICROBIT_ID_IO_P19,
+    //% blockIdentity="control.eventSourceId"
+    MICROBIT_ID_IO_P20_ = MICROBIT_ID_IO_P20,
     //% blockIdentity="control.eventSourceId"
     MES_DEVICE_INFO_ID_ = MES_DEVICE_INFO_ID,
     //% blockIdentity="control.eventSourceId"
@@ -374,6 +392,18 @@ namespace control {
     }
 
     /**
+     * Documentation helper: render the given Calliope mini board revision in the simulator
+     * ("v1"/"v2" = mini V1/V2 board, "v3" = mini V3). Does nothing on the device. The
+     * simulator reads the argument at compile time (trackArgs), so the board is drawn
+     * correctly from the start. It must be a string literal: trackArgs records only string
+     * literals and enum members, a number would arrive as "*".
+     */
+    //% hidden=1 trackArgs=0
+    void simulatorBoardVersion(String version) {
+        (void)version;
+    }
+
+    /**
     * Derive a unique, consistent serial number of this device from internal data.
     */
     //% blockId="control_device_serial_number" block="device serial number" weight=9
@@ -443,6 +473,33 @@ void dmesgPtr(String str, Object_ ptr) {
 uint32_t _ramSize()
 {
     return (uint32_t)&__StackTop & 0x1fffffff;
+}
+
+/**
+* Total size in bytes of one of the device's runtime heaps, as reported by the
+* DAL/CODAL heap allocator. Returns 0 if no heap with that index exists.
+* @param heapIndex which heap to query (0 = main heap)
+*/
+//%
+uint32_t _deviceHeapSize(int heapIndex)
+{
+    return device_heap_size((uint8_t)heapIndex);
+}
+
+/**
+* Physical RAM fitted to the chip, in bytes, detected at runtime.
+* On v1/v2 (nRF51) this reads the FICR (microbit_ram_size): 16384 on a 16KB
+* v1, 32768 on a 32KB v2. Unlike _ramSize(), which returns the fixed 16KB
+* linker map top, this reflects the actual silicon.
+*/
+//%
+uint32_t _physicalRamSize()
+{
+#if MICROBIT_CODAL
+    return 128 * 1024; // nRF52833 (v3) always has 128KB SRAM
+#else
+    return microbit_ram_size();
+#endif
 }
 
 }

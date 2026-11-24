@@ -20,6 +20,12 @@ A clear and concise description of what you expected to happen.
 **Screenshots**
 Add screenshots to help explain your problem. You can copy paste the screenshot in the github report. The .gif screen recording is very useful as well. 
 
+**Calliope mini version (please complete the following information):**
+
+You can find the version printed on the back of the Calliope mini.
+ - Which version of the Calliope mini is this relevant to [e.g. 1.3, 2.0, 2.1, 3.0, or specify it's not hardware related]
+ - Is it reproducible in the simulator as well? [yes / no]
+
 **Desktop (please complete the following information):**
  - OS: [e.g. iOS]
  - Browser [e.g. chrome, safari]

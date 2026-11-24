@@ -39,3 +39,9 @@ svg.blocklySvg,
     */
     box-shadow: 4px 0px 2px -4px rgba(0,0,0,0.12), 4px 0px 2px -4px rgba(0,0,0,0.24);
 }
+
+.fullscreensim #boardview {
+    /* Textured simulator background (matches the original pxt-calliope look), only in
+       fullscreen — the simulator sidebar keeps the plain theme background. */
+    background: #fff url("/static/logo_texture.png") 0 0 repeat !important;
+}

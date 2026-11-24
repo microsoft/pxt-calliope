@@ -202,8 +202,41 @@ namespace pxsim.bluetooth {
 
 namespace pxsim.light {
 
+    // Decode a GRB buffer and update the board's rgbLed state fields.
+    // Tightly coupled to the producer, libs/core/rgbled.ts: it prescales every
+    // channel to _rgbBrightnessPercent (20%) of the requested color, and this
+    // decode reverses exactly that factor (* 100 / 20) — keep the two in sync.
+    // Other producers writing raw full-brightness WS2812 data to pin 151 (e.g.
+    // the neopixel extension) will therefore render saturated/over-bright here.
+    function updateRgbLedState(data: Uint8Array) {
+        const b = board() as DalBoard;
+        if (!b) return;
+        // buffer layout per LED: [G, R, B], each channel at 20% of original
+        const toColor = (off: number) => {
+            const r = Math.min(255, Math.round(data[off + 1] * 100 / 20));
+            const g = Math.min(255, Math.round(data[off]     * 100 / 20));
+            const bv = Math.min(255, Math.round(data[off + 2] * 100 / 20));
+            return (r << 16) | (g << 8) | bv;
+        };
+        if (data.length >= 9) {
+            // 3-LED send: left=LED0, center=LED1, right=LED2
+            b.rgbLedLeftState  = toColor(0);
+            b.rgbLedState      = toColor(3);
+            b.rgbLedRightState = toColor(6);
+        } else if (data.length >= 3) {
+            // single-LED send
+            const c = toColor(0);
+            b.rgbLedLeftState  = c;
+            b.rgbLedState      = c;
+            b.rgbLedRightState = c;
+        }
+        runtime.queueDisplayUpdate();
+    }
+
     export function sendWS2812Buffer(buffer: RefBuffer, pin: number) {
         pxsim.sendBufferAsm(buffer, pin)
+        if (pin === 151 /* MICROBIT_ID_IO_RGB / DigitalPin.RGB */)
+            updateRgbLedState(buffer.data);
     }
 
     export function sendWS2812BufferWithBrightness(buffer: RefBuffer, pin: number, brightness: number) {
@@ -213,6 +246,8 @@ namespace pxsim.light {
             data[i] = (data[i] * brightness) >> 8;
         }
         pxsim.sendBufferAsm(clone, pin)
+        if (pin === 151 /* MICROBIT_ID_IO_RGB / DigitalPin.RGB */)
+            updateRgbLedState(clone.data);
     }
 
     export function setMode(pin: number, mode: number) {

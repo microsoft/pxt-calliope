@@ -698,29 +698,6 @@
         "extensionsToolboxDisallowDelete": [
         ]
     },
-    "hardwareOptions": [
-        {
-            "name": "mini 1",
-            "description": "Calliope mini 1",
-            "imageUrl": "/static/devices/mini1.png",
-            "url": "https://docs.calliope.cc/tech/hardware/boardversionen/?v=1",
-            "variant": "v1"
-        },
-        {
-            "name": "mini 2",
-            "description": "Calliope mini 2",
-            "imageUrl": "/static/devices/mini2.png",
-            "url": "https://docs.calliope.cc/tech/hardware/boardversionen/?v=2",
-            "variant": "v2"
-        },
-        {
-            "name": "mini 3",
-            "description": "Calliope mini 3",
-            "imageUrl": "/static/devices/mini3.png",
-            "url": "https://docs.calliope.cc/tech/hardware/boardversionen/?v=3",
-            "variant": "v3"
-        }
-    ],
     "galleries": {
         "Tutorials": "calliope/tutorials",
         "Workbook": "calliope/arbeitsheft",
@@ -750,6 +727,6 @@
         ]
     },
     "electronManifest": {
-        "latest": "v8.0.19"
+        "latest": "v9.0.8"
     }
 }

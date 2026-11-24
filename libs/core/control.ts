@@ -119,7 +119,7 @@ namespace control {
      */
     export function allocateEventSource() {
         return ++_evSource
-    }
+    }    
 
     /**
      * Display warning in the simulator.
@@ -139,6 +139,45 @@ namespace control {
         return 32 * 1024 * 1024;
     }
 
+    /**
+     * Total size in bytes of one of the device's runtime heaps (DAL/CODAL heap
+     * allocator). Returns 0 if no heap with that index exists.
+     * @param heapIndex which heap to query (0 = main heap)
+     */
+    //% shim=control::_deviceHeapSize
+    export function deviceHeapSize(heapIndex = 0): number {
+        // simulator: no DAL heap
+        return 0;
+    }
+
+    /**
+     * Physical RAM fitted to the device, in bytes, detected at runtime:
+     * 16384 on Calliope mini v1, 32768 on v2, 131072 on v3. Unlike ramSize(),
+     * which reports the fixed 16KB linker map top (always 16384 on v1/v2),
+     * this reads the actual chip via the FICR.
+     */
+    //% help=control/physical-ram-size
+    //% advanced=true
+    //% shim=control::_physicalRamSize
+    export function physicalRamSize(): number {
+        return 32 * 1024; // simulator
+    }
+
+    /**
+     * Returns the amount of free memory in bytes currently available to your
+     * program, as tracked by the runtime's garbage collector. A garbage
+     * collection is run first, so the value reflects what is free right now.
+     * Note: this is free memory in the managed (GC) heap, not the raw DAL heap
+     * (the DAL exposes only total heap size, via deviceHeapSize).
+     */
+    //% help=control/available-memory
+    //% advanced=true
+    export function availableMemory(): number {
+        gc();
+        const stats = gcStats();
+        return stats ? stats.lastFreeBytes : 0;
+    }
+
     /** Runs the function and returns run time in microseconds. */
     export function benchmark(f: () => void) {
         const t0 = micros()
@@ -147,6 +186,51 @@ namespace control {
         if (t < 0)
             t += 0x3fffffff
         return t
+    }
+
+    /**
+     * Given two versions, returns -1 if the first version is less than
+     * the second, 1 if it's greater, and 0 if it's the same.
+     */
+    //%
+    export function compareVersion(version1: string, version2: string): number {
+        let v1Arr = version1.split(".");
+        let v2Arr = version2.split(".");
+
+        v1Arr = v1Arr.map((str) => {
+            if (str.includes("x") || str.includes("X")) {
+                return "0"
+            } else {
+                return str;
+            }
+        })
+        v2Arr = v2Arr.map((str) => {
+            if (str.includes("x") || str.includes("X")) {
+                return "0"
+            } else {
+                return str;
+            }
+        })
+
+        for (let i = v1Arr.length; i < Math.max(v1Arr.length, v2Arr.length); i++) {
+            v1Arr.push("0");
+        }
+
+        for (let i = v2Arr.length; i < Math.max(v1Arr.length, v2Arr.length); i++) {
+            v2Arr.push("0");
+        }
+
+        for (let i = 0; i < v1Arr.length; i++) {
+            if (parseInt(v1Arr[i]) != parseInt(v2Arr[i])) {
+                return parseInt(v1Arr[i]) - parseInt(v2Arr[i]);
+            }
+        }
+        return 0;
+    }
+
+    //% shim=control::_hardwareVersion
+    export function hardwareVersion(): string {
+        return "2.0";
     }
 }
 

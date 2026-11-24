@@ -1,29 +1,103 @@
 #include "pxt.h"
 
 namespace pins {
-    void analogPitch(int frequency, int ms);
+    void analogSetPitchVolume(int volume);
+    int analogPitchVolume();
 }
 
 namespace music {
-
-    /**
-     * Plays a tone through ``speaker`` for the given duration.
-     * @param frequency pitch of the tone to play in Hertz (Hz)
-     * @param ms tone duration in milliseconds (ms)
-     */
-    //%
-    //% parts="speaker" async useEnumVal=1
-    void speakerPlayTone(int frequency, int ms) {
+/**
+ * Set the default output volume of the sound synthesizer.
+ * @param volume the volume 0...255
+ */
+//% blockId=synth_set_volume block="set volume %volume"
+//% volume.label="value"
+//% volume.min=0 volume.max=255
+//% volume.defl=127
+//% help=music/set-volume
+//% weight=70
+//% group="Volume"
+//% blockGap=8
+void setVolume(int volume) {
 #if MICROBIT_CODAL
-        pins::analogPitch(frequency, ms);
+    uBit.audio.setVolume(max(0, min(255, volume)));
 #else
-        if(frequency > 0) uBit.soundmotor.soundOn(frequency);
-        else uBit.soundmotor.soundOff();
-        if(ms > 0) {
-            uBit.sleep(ms);
-            uBit.soundmotor.soundOff();
-        }
+    pins::analogSetPitchVolume(volume);
 #endif
+}
+
+/**
+ * Returns the current output volume of the sound synthesizer.
+ */
+//% blockId=synth_get_volume block="volume"
+//% help=music/volume
+//% weight=69
+//% group="Volume"
+//% blockGap=8
+int volume() {
+#if MICROBIT_CODAL
+    return uBit.audio.getVolume();
+#else
+    return pins::analogPitchVolume();
+#endif
+}
+
+/**
+* Turn the built-in speaker on or off.
+* Disabling the speaker resets the sound pin to the default of P0.
+* @param enabled whether the built-in speaker is enabled in addition to the sound pin
+*/
+//% blockId=music_set_built_in_speaker_enable block="set built-in speaker $enabled"
+//% group="Calliope mini V3"
+//% parts=builtinspeaker
+//% help=music/set-built-in-speaker-enabled
+//% enabled.shadow=toggleOnOff
+//% weight=0
+void setBuiltInSpeakerEnabled(bool enabled) {
+#if MICROBIT_CODAL
+    uBit.audio.setSpeakerEnabled(enabled);
+#else
+    // Calliope mini 1/2: the speaker is wired to the motor driver and cannot
+    // be switched separately; ignore instead of panicking
+#endif
+}
+
+/**
+* Check whether any sound is being played, no matter the source
+*/
+//% blockId=music_sound_is_playing block="sound is playing"
+//% group="Calliope mini V3"
+//% help=music/is-sound-playing
+//% weight=0
+bool isSoundPlaying() {
+#if MICROBIT_CODAL
+    if (uBit.audio.mixer.getSilenceStartTime() == 0) {
+        return false;
+    } else {
+        return uBit.audio.isPlaying();
     }
+
+#else
+    target_panic(PANIC_VARIANT_NOT_SUPPORTED);
+#endif
+}
+
+/**
+ * Defines an optional sample level to generate during periods of silence.
+ **/
+//% group="Calliope mini V3"
+//% help=music/set-silence-level
+//% level.min=0
+//% level.max=1024
+//% level.defl=0
+//% weight=1
+void setSilenceLevel(int level) {
+#if MICROBIT_CODAL
+    uBit.audio.mixer.setSilenceLevel(level);
+#else
+    // this is an optimization
+    // ignore in V1
+#endif
+}
 
 }

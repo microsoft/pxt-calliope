@@ -1,0 +1,7 @@
+{
+  "settings.deviceSecrets|block": "device secrets",
+  "settings.programSecrets|block": "program secrets",
+  "settings|block": "settings",
+  "{id:category}Config": "Config",
+  "{id:category}Settings": "Settings"
+}

@@ -133,6 +133,7 @@ namespace basic {
     //% parts="ledmatrix"
     //% advanced=true
     //% group="LED matrix"
+    //% deprecated=true
     export function showCompass(interval = 600) {
         let i = 0
         let startTime = input.runningTime()

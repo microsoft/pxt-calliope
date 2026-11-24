@@ -35,6 +35,7 @@ namespace pins {
     //% weight=60
     //% blockId=device_touch_set_type block="set %name to touch mode %mode"
     //% advanced=true
+    //% group="Calliope mini V3"
     //% help=pins/touch-set-mode
     void touchSetMode(TouchTarget name, TouchTargetMode mode) {
     #if MICROBIT_CODAL

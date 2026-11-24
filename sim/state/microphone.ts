@@ -1,6 +1,5 @@
 // move to common packages eventually
 namespace pxsim.input {
-
     export function soundLevel(): number {
         const b = microphoneState();
         if (!b) return 0;

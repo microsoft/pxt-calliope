@@ -136,11 +136,12 @@ export function patchBlocks(pkgTargetVersion: string, dom: Element) {
         }
     });
 
-     // Sound level mapping
-     pxt.U.toArray(dom.querySelectorAll('block[type=device_get_sound_level]'))
-         .forEach(node => {
-             node.setAttribute('type', 'soundLevel');
-         });
+    // Sound level mapping: up to 8.x the block was "soundLevel" (core),
+    // it is now "device_get_sound_level" (microphone package, as in pxt-microbit)
+    pxt.U.toArray(dom.querySelectorAll('block[type=soundLevel]'))
+        .forEach(node => {
+            node.setAttribute('type', 'device_get_sound_level');
+        });
 
     if (pxt.semver.majorCmp(pkgTargetVersion || "0.0.0", "4.0.20") >= 0) return;
             // button and pin pressed/released blocks
@@ -219,11 +220,11 @@ export function patchBlocks(pkgTargetVersion: string, dom: Element) {
 
             converts to
 
-            <block type="soundLevel" />
+            <block type="device_get_sound_level" />
             */
             const loudnessNodes = pxt.U.toArray(dom.querySelectorAll("block[type=loudness]"))
             loudnessNodes.forEach(node => {
-                node.setAttribute("type", "soundLevel");
+                node.setAttribute("type", "device_get_sound_level");
             });
 
             // rgbw to rgb block
